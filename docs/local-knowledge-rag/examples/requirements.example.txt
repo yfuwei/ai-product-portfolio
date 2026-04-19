@@ -1,0 +1,7 @@
+chromadb
+ollama
+markitdown[docx,pdf,pptx]
+pyyaml
+rich
+streamlit
+

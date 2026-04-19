@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>本地个人知识库 RAG 系统 | 项目案例</title>
+    <meta
+      name="description"
+      content="本地个人知识库 RAG 系统完整项目案例，包含问题定义、目标用户、使用场景、GUI、系统架构、索引机制、Prompt 与引用、评估、取舍、限制和路线图。"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --surface: #ffffff;
+        --surface-alt: #eef9fd;
+        --ink: #111418;
+        --text: #1d242b;
+        --muted: #66717a;
+        --line: #d9e1e7;
+        --accent: #00a6d6;
+        --accent-strong: #007da3;
+        --accent-soft: #dff6fd;
+        --rose: #f04467;
+        --rose-soft: #ffe8ee;
+        --sun: #f7d84a;
+        --shadow: 0 20px 55px rgba(17, 20, 24, 0.12);
+        --soft-shadow: 0 12px 30px rgba(17, 20, 24, 0.07);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: linear-gradient(180deg, #fff 0%, var(--bg) 48%, #fff 100%);
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        line-height: 1.68;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        overflow-wrap: anywhere;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(38px, 5.4vw, 68px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(28px, 3.5vw, 44px);
+        line-height: 1.15;
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: 21px;
+        line-height: 1.25;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent), var(--rose));
+        border-radius: 8px;
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 13px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .case-nav a:hover {
+        color: var(--rose);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: clamp(28px, 5vw, 68px);
+        align-items: center;
+        padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 64px);
+        background: var(--ink);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--rose);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero .eyebrow {
+        color: var(--sun);
+      }
+
+      .lead {
+        margin: 22px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .primary-link,
+      .secondary-link {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .primary-link {
+        color: var(--ink);
+        background: var(--sun);
+      }
+
+      .secondary-link {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .hero-image {
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-image img {
+        width: 100%;
+        aspect-ratio: 16 / 11;
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      .section {
+        padding: clamp(50px, 7vw, 96px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .section.alt {
+        background: var(--surface-alt);
+      }
+
+      .section-heading {
+        max-width: 900px;
+        margin-bottom: 28px;
+      }
+
+      .section-heading p {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .metric-grid,
+      .diagram-grid,
+      .screenshot-grid,
+      .timeline-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-4,
+      .metric-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .panel,
+      .metric-card,
+      .screenshot-card,
+      .diagram-card,
+      .flow-card,
+      .timeline-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--soft-shadow);
+      }
+
+      .panel,
+      .metric-card,
+      .flow-card,
+      .timeline-card {
+        padding: 20px;
+      }
+
+      .metric-card span,
+      .tag {
+        display: inline-flex;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .metric-card strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--rose);
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .metric-card p,
+      .panel p,
+      .flow-card p,
+      .timeline-card p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--soft-shadow);
+      }
+
+      table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--ink);
+        background: var(--accent-soft);
+        font-weight: 900;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .diagram-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+
+      .diagram-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .diagram-card {
+        overflow: hidden;
+      }
+
+      .diagram-card img {
+        width: 100%;
+        aspect-ratio: 16 / 8.4;
+        object-fit: contain;
+        object-position: center;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .diagram-card div,
+      .screenshot-card div {
+        padding: 14px 16px 16px;
+      }
+
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screenshot-card {
+        overflow: hidden;
+      }
+
+      .screenshot-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top left;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .flow-card span,
+      .timeline-card span {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        margin-bottom: 12px;
+        color: #fff;
+        background: var(--ink);
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .flow-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .callout {
+        padding: 18px 20px;
+        color: var(--ink);
+        background: var(--rose-soft);
+        border: 1px solid rgba(240, 68, 103, 0.24);
+        border-radius: 8px;
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .doc-grid a {
+        padding: 16px;
+        color: var(--accent-strong);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1020px) {
+        .hero,
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .metric-grid,
+        .diagram-grid,
+        .screenshot-grid,
+        .flow-grid,
+        .doc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html#local-rag">
+        <span class="brand-mark">R</span>
+        <span>本地 RAG 项目案例</span>
+      </a>
+      <nav class="case-nav" aria-label="案例导航">
+        <a href="#problem">问题</a>
+        <a href="#users">用户</a>
+        <a href="#goals">目标</a>
+        <a href="#flow">流程</a>
+        <a href="#gui">GUI</a>
+        <a href="#architecture">架构</a>
+        <a href="#indexing">索引</a>
+        <a href="#evaluation">评估</a>
+        <a href="#roadmap">路线图</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="case">
+        <div>
+          <p class="eyebrow">Project 01 · Full Case Study</p>
+          <h1>本地个人知识库 RAG 系统</h1>
+          <p class="lead">
+            一个面向个人知识管理场景的本地 AI 检索系统。它通过本地 embedding、向量数据库、来源引用和轻量 GUI，把 Obsidian 笔记与本地文档转化为可检索、可追溯、可迁移的个人知识层。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf" download="本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf">下载产品设计文档</a>
+            <a class="secondary-link" href="../../index.html#local-rag">返回作品集首页</a>
+          </div>
+        </div>
+        <a class="hero-image" href="assets/screenshots/notion-style-gui.png">
+          <img src="assets/screenshots/notion-style-gui.png" alt="本地个人知识库 RAG 系统 GUI 总览" />
+        </a>
+      </section>
+
+      <section class="section alt" id="overview">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2>不是聊天机器人，而是可信的个人知识检索工作台</h2>
+          <p>
+            项目核心不是让模型“会说”，而是让用户在大量个人笔记和本地资料中找得到来源、看得到依据、能回到原文复核。
+          </p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card"><span>已索引文件</span><strong>163</strong><p>162 个 Obsidian Markdown 文件 + 脱敏文档测试样例。</p></article>
+          <article class="metric-card"><span>向量片段</span><strong>390</strong><p>385 个 Obsidian chunks + 5 个文档 chunks。</p></article>
+          <article class="metric-card"><span>运行方式</span><strong>本地</strong><p>Ollama embedding、Chroma 向量库、FastAPI GUI。</p></article>
+          <article class="metric-card"><span>机器约束</span><strong>Intel i5</strong><p>按 2020 款 MacBook Pro 16GB 内存设计轻量方案。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="problem">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Definition</p>
+          <h2>问题定义</h2>
+          <p>个人知识库越大，问题越不是“没有资料”，而是资料找不回、答案不可信、隐私边界不清楚。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>痛点</th><th>具体影响</th><th>产品解法</th></tr></thead>
+            <tbody>
+              <tr><td>关键词搜索弱</td><td>用户记得大概意思，但不记得文件名和关键词。</td><td>用本地 embedding 做语义召回。</td></tr>
+              <tr><td>LLM 容易幻觉</td><td>直接问模型会得到流畅但无依据的回答。</td><td>先检索来源，再基于来源生成答案。</td></tr>
+              <tr><td>私人资料敏感</td><td>求职资料、项目复盘、私人笔记不适合上传云端。</td><td>embedding、向量库、缓存和 GUI 都在本地运行。</td></tr>
+              <tr><td>命令行门槛高</td><td>终端可以调试，但不适合日常使用。</td><td>提供 Web GUI，覆盖搜索、问答、索引和状态。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section alt" id="users">
+        <div class="section-heading">
+          <p class="eyebrow">Target Users & Use Cases</p>
+          <h2>目标用户与核心场景</h2>
+          <p>当前版本首先服务个人知识工作流，再以作品集形式展示完整的产品设计与系统实现能力。</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel"><h3>知识工作者</h3><p>有大量笔记、资料和项目沉淀，需要快速找回历史资料和决策依据。</p></article>
+          <article class="panel"><h3>求职转型者</h3><p>需要整理作品集、项目经历和面试材料，从分散笔记中提取可讲述内容。</p></article>
+          <article class="panel"><h3>AI 产品学习者</h3><p>希望理解 RAG 如何接入真实个人工作流，而不是停留在脚本 demo。</p></article>
+        </div>
+        <div class="table-wrap" style="margin-top: 18px">
+          <table>
+            <thead><tr><th>场景</th><th>用户问题</th><th>产品价值</th></tr></thead>
+            <tbody>
+              <tr><td>找回历史规则</td><td>我之前写过的 AI 协作规则在哪里？</td><td>用语义检索找回相关笔记。</td></tr>
+              <tr><td>准备项目讲述</td><td>本地 RAG 项目如何介绍？</td><td>聚合项目简介、压缩版和验证资料。</td></tr>
+              <tr><td>索引维护</td><td>文件改动后怎么办？</td><td>找到索引更新和迁移说明。</td></tr>
+              <tr><td>跨项目复盘</td><td>本地 RAG 与企业知识库 RAG 有什么区别？</td><td>从不同项目资料中召回依据。</td></tr>
+              <tr><td>换电脑迁移</td><td>换电脑时需要迁移哪些内容？</td><td>明确代码、模型、向量库、缓存和路径配置。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="goals">
+        <div class="section-heading">
+          <p class="eyebrow">Product Scope</p>
+          <h2>产品目标与非目标</h2>
+          <p>明确边界能避免把本地 RAG 包装成过大的平台，也能让项目更可信。</p>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>产品目标</h3>
+            <p>支持 Obsidian Markdown 和本地文本类文档索引；支持自然语言语义检索；支持基于来源的回答生成；回答必须展示引用来源；支持低配置电脑本地运行；提供 GUI，降低日常使用门槛。</p>
+          </article>
+          <article class="panel">
+            <h3>非目标</h3>
+            <p>不做企业级多用户权限系统；不默认上传私人资料到云端；不追求大模型复杂推理；不把生成答案当成最终事实；当前阶段不完整覆盖扫描 PDF、图片和音视频。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt" id="flow">
+        <div class="section-heading">
+          <p class="eyebrow">User Flow</p>
+          <h2>用户流程</h2>
+          <p>系统从导入资料开始，到索引、查询、回答和来源复核，形成一个完整的使用闭环。</p>
+        </div>
+        <div class="diagram-grid">
+          <a class="diagram-card wide" href="assets/query-flow.png">
+            <img src="assets/query-flow.png" alt="用户查询流程图" />
+            <div><h3>查询流程图</h3><p>从自然语言问题到可复核答案：输入问题、语义检索、来源片段、生成回答、引用复核。</p></div>
+          </a>
+        </div>
+        <div class="flow-grid" style="margin-top: 18px">
+          <article class="flow-card"><span>1</span><h3>导入资料</h3><p>资料保留在 Obsidian 或本地文档目录。</p></article>
+          <article class="flow-card"><span>2</span><h3>建立索引</h3><p>读取文件、转换文本、切分 chunks、生成 embedding。</p></article>
+          <article class="flow-card"><span>3</span><h3>输入问题</h3><p>用户在 GUI 中用自然语言提问。</p></article>
+          <article class="flow-card"><span>4</span><h3>生成回答</h3><p>系统基于召回片段生成简洁回答。</p></article>
+          <article class="flow-card"><span>5</span><h3>来源复核</h3><p>用户根据引用回到原文验证。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="gui">
+        <div class="section-heading">
+          <p class="eyebrow">GUI Design</p>
+          <h2>GUI 信息架构与关键页面</h2>
+          <p>GUI 的目标是把本地 RAG 从“终端工具”变成“日常可用的知识检索工作台”。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>模块</th><th>作用</th><th>关键设计</th></tr></thead>
+            <tbody>
+              <tr><td>检索工作台</td><td>先找到相关资料</td><td>搜索框高优先级，结果卡片可快速扫读。</td></tr>
+              <tr><td>来源问答</td><td>基于资料组织回答</td><td>回答与引用同时出现，来源优先。</td></tr>
+              <tr><td>索引任务</td><td>管理资料进入系统</td><td>展示文件数、chunk 数、任务状态和命令预览。</td></tr>
+              <tr><td>状态面板</td><td>降低系统黑盒感</td><td>展示模型、索引规模和运行状态。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="screenshot-grid" style="margin-top: 18px">
+          <a class="screenshot-card" href="assets/screenshots/search-workspace.png"><img src="assets/screenshots/search-workspace.png" alt="检索工作台截图" /><div><h3>检索工作台</h3><p>展示查询输入、候选结果、来源路径和片段详情。</p></div></a>
+          <a class="screenshot-card" href="assets/screenshots/answer-with-citations.png"><img src="assets/screenshots/answer-with-citations.png" alt="带引用回答截图" /><div><h3>带引用回答</h3><p>先召回来源，再基于片段生成可复核回答。</p></div></a>
+          <a class="screenshot-card" href="assets/screenshots/indexing-workspace.png"><img src="assets/screenshots/indexing-workspace.png" alt="索引任务截图" /><div><h3>索引任务</h3><p>展示资料源、文件类型、limit、max chunks 和命令预览。</p></div></a>
+          <a class="screenshot-card" href="assets/screenshots/notion-style-gui.png"><img src="assets/screenshots/notion-style-gui.png" alt="GUI 总览截图" /><div><h3>GUI 总览</h3><p>Notion 风格的本地知识检索工作台。</p></div></a>
+        </div>
+      </section>
+
+      <section class="section alt" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">System Architecture</p>
+          <h2>系统架构</h2>
+          <p>架构拆成数据源、处理、向量、检索、生成和体验六层，避免把 RAG 简化成“接一个聊天框”。</p>
+        </div>
+        <div class="diagram-grid">
+          <a class="diagram-card wide" href="assets/architecture.png">
+            <img src="assets/architecture.png" alt="本地个人知识库 RAG 系统架构图" />
+            <div><h3>系统架构图</h3><p>展示从 Obsidian 与本地文档到文本处理、embedding、Chroma、检索、生成和 GUI 的完整链路。</p></div>
+          </a>
+        </div>
+        <div class="table-wrap" style="margin-top: 18px">
+          <table>
+            <thead><tr><th>层级</th><th>职责</th><th>设计重点</th></tr></thead>
+            <tbody>
+              <tr><td>数据源层</td><td>Obsidian Markdown、本地文档</td><td>保持原始资料不被修改。</td></tr>
+              <tr><td>处理层</td><td>转换、清洗、切分</td><td>让长文档变成可检索片段。</td></tr>
+              <tr><td>向量层</td><td>embedding、Chroma</td><td>支持语义召回和本地持久化。</td></tr>
+              <tr><td>检索层</td><td>query embedding、相似度搜索</td><td>优先找准来源。</td></tr>
+              <tr><td>生成层</td><td>prompt、LLM 回答</td><td>基于来源回答，不脱离上下文。</td></tr>
+              <tr><td>体验层</td><td>Web GUI</td><td>让非终端使用成为可能。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="indexing">
+        <div class="section-heading">
+          <p class="eyebrow">Data & Indexing</p>
+          <h2>数据接入、切分与索引机制</h2>
+          <p>索引机制的重点是稳定、可追溯、可迁移，而不是一次性追求最大资料量。</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel"><h3>数据接入</h3><p>优先接入 Obsidian Markdown 笔记、本地文本类文档和少量文档转换样例；证件、合同、财务、医疗等敏感档案默认排除。</p></article>
+          <article class="panel"><h3>Chunk 策略</h3><p>切分目标不是越细越好，而是让片段信息完整、语义清晰、便于阅读，并能回到来源文件定位。</p></article>
+          <article class="panel"><h3>Embedding 与向量库</h3><p>本地 embedding 保证资料不出本机；Chroma 本地持久化简单，适合 MVP 快速验证和来源元数据保存。</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="citation">
+        <div class="section-heading">
+          <p class="eyebrow">Prompt & Citation</p>
+          <h2>Prompt 与引用机制</h2>
+          <p>引用不是技术附属信息，而是用户信任系统的关键界面元素。</p>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Prompt 原则</h3>
+            <p>只能基于提供的上下文回答；如果上下文不足，要说明不确定；回答后必须列出引用来源；不编造未出现在来源中的事实。</p>
+          </article>
+          <article class="panel">
+            <h3>引用元数据</h3>
+            <p>每个 chunk 保留来源文件、标题或章节、片段文本、来源名称和 chunk id。GUI 展示时优先让用户看到依据。</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top: 18px">
+          产品原则：先展示来源，再组织答案。个人知识库场景里，正确依据比流畅回答更重要。
+        </div>
+      </section>
+
+      <section class="section" id="decisions">
+        <div class="section-heading">
+          <p class="eyebrow">Design Decisions</p>
+          <h2>关键设计决策与取舍</h2>
+          <p>项目价值不只是跑通 RAG，而是围绕隐私、可信度、性能和日常使用做出清晰取舍。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>决策</th><th>收益</th><th>成本</th></tr></thead>
+            <tbody>
+              <tr><td>RAG 而非微调</td><td>动态接入新增资料，并保留来源。</td><td>需要维护索引与召回质量。</td></tr>
+              <tr><td>本地部署</td><td>私人资料不上传，控制权更强。</td><td>模型能力和速度受本机限制。</td></tr>
+              <tr><td>引用优先</td><td>降低幻觉，方便回到原文复核。</td><td>回答流程比普通聊天更复杂。</td></tr>
+              <tr><td>GUI 优先</td><td>日常可用，更像产品而非脚本。</td><td>需要额外维护前端体验。</td></tr>
+              <tr><td>rerank 后置</td><td>MVP 更轻，适配低配置电脑。</td><td>大规模资料下排序仍有优化空间。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section alt" id="evaluation">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation</p>
+          <h2>评估方法与验证结果</h2>
+          <p>评估不是只看模型回答是否好听，而是看它能否完成个人知识库任务。</p>
+        </div>
+        <div class="diagram-grid">
+          <a class="diagram-card wide" href="assets/evaluation-chart.png">
+            <img src="assets/evaluation-chart.png" alt="检索方案评估对比图" />
+            <div><h3>检索方案对比</h3><p>关键词搜索、直接问 LLM、本地 RAG 与 RAG + rerank 的对比。当前 MVP 采用本地 RAG，rerank 放入后续路线。</p></div>
+          </a>
+        </div>
+        <div class="table-wrap" style="margin-top: 18px">
+          <table>
+            <thead><tr><th>评估维度</th><th>判断方式</th></tr></thead>
+            <tbody>
+              <tr><td>召回准确性</td><td>是否找到正确来源。</td></tr>
+              <tr><td>来源可追溯</td><td>是否展示可复核片段。</td></tr>
+              <tr><td>回答可靠性</td><td>是否基于来源回答。</td></tr>
+              <tr><td>使用效率</td><td>是否比手动搜索更快。</td></tr>
+              <tr><td>本地可用性</td><td>是否能在当前电脑稳定运行。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-top: 18px">
+          <table>
+            <thead><tr><th>测试问题</th><th>期望来源</th><th>当前判断</th></tr></thead>
+            <tbody>
+              <tr><td>本地 RAG GUI 平时怎么用？</td><td>日常使用说明</td><td>命中</td></tr>
+              <tr><td>文件改动后怎么办？</td><td>索引更新说明</td><td>命中</td></tr>
+              <tr><td>换电脑时需要迁移哪些内容？</td><td>迁移操作指引</td><td>命中</td></tr>
+              <tr><td>公开作品集不能放哪些内容？</td><td>公开封装说明</td><td>命中</td></tr>
+              <tr><td>本地部署为什么不用云端？</td><td>产品设计文档</td><td>命中</td></tr>
+              <tr><td>长文档索引要注意什么？</td><td>系统设计与协作规则</td><td>基本命中</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="limitations">
+        <div class="section-heading">
+          <p class="eyebrow">Limitations</p>
+          <h2>限制与风险</h2>
+          <p>完整案例页需要诚实说明边界，这也是 AI 产品可信度的一部分。</p>
+        </div>
+        <div class="grid-4">
+          <article class="panel"><h3>小模型能力有限</h3><p>适合辅助总结，不适合复杂推理。</p></article>
+          <article class="panel"><h3>大批量索引占 CPU</h3><p>需要小批量、分阶段执行索引任务。</p></article>
+          <article class="panel"><h3>路径变化需要维护</h3><p>换电脑或移动目录后需要确认数据源配置。</p></article>
+          <article class="panel"><h3>格式覆盖有限</h3><p>扫描 PDF、图片和复杂表格暂未完整覆盖。</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>路线图</h2>
+          <p>后续迭代重点从“能用”走向“更自动、更可控、更能沉淀”。</p>
+        </div>
+        <div class="grid-3">
+          <article class="timeline-card"><span>v0</span><h3>基础 RAG</h3><p>完成文档索引、向量检索、基础问答。</p></article>
+          <article class="timeline-card"><span>v1</span><h3>来源引用</h3><p>每次回答展示来源文件和片段。</p></article>
+          <article class="timeline-card"><span>v2</span><h3>GUI 工作台</h3><p>支持搜索、问答、索引任务和状态面板。</p></article>
+          <article class="timeline-card"><span>v3</span><h3>增量索引</h3><p>文件改动后自动识别并刷新。</p></article>
+          <article class="timeline-card"><span>v4</span><h3>rerank</h3><p>对召回结果进行二次排序。</p></article>
+          <article class="timeline-card"><span>v5</span><h3>保存回 Obsidian</h3><p>将高价值回答沉淀为新笔记。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="insights">
+        <div class="section-heading">
+          <p class="eyebrow">Product Insights</p>
+          <h2>产品洞察</h2>
+          <p>这个项目的重点不是“会搭 RAG”，而是理解 AI 产品如何获得用户信任。</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel"><h3>AI 产品的关键不是能回答，而是能被信任</h3><p>用户不缺一个会说话的模型，缺的是能找回真实资料、解释依据、减少误判的系统。</p></article>
+          <article class="panel"><h3>本地 RAG 的价值在于控制权</h3><p>云端工具能力强，但不是所有资料都适合上传。本地方案在隐私、可控和长期维护上更适合个人知识库。</p></article>
+          <article class="panel"><h3>GUI 是从 demo 到产品的分界线</h3><p>同样的 RAG 能力，如果只能在终端使用，更像开发工具；有 GUI 才更接近日常产品。</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="docs">
+        <div class="section-heading">
+          <p class="eyebrow">Documents</p>
+          <h2>可读材料入口</h2>
+          <p>页面用于快速阅读，PDF 用于外发。Markdown 文件仅作为内部维护稿。</p>
+        </div>
+        <div class="doc-grid">
+          <a href="本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf" download="本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf">产品设计文档 PDF</a>
+          <a href="#architecture">系统架构</a>
+          <a href="#evaluation">验证记录</a>
+          <a href="#roadmap">路线图</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <span>本地个人知识库 RAG 系统</span>
+      <span>本地优先 · 来源可追溯 · 低配置可运行</span>
+    </footer>
+  </body>
+</html>

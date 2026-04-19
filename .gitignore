@@ -1,0 +1,24 @@
+# Runtime and local-only files
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+
+# Private resume file is not part of the public portfolio site
+public/resume.pdf
+
+# Local RAG runtime data
+data/chroma/
+data/cache/
+data/logs/
+chroma/
+cache/
+logs/
+
+# Private config and generated document cache
+config.yaml
+converted/
+manifest.json
+
+# Local screenshots before redaction
+private-screenshots/

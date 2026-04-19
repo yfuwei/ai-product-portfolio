@@ -1,0 +1,11 @@
+flowchart TD
+    A[发现文件] --> B[应用 include / exclude 规则]
+    B --> C[读取 Markdown 或转换文档]
+    C --> D[切分并合并 chunks]
+    D --> E{是否完整刷新文件?}
+    E -->|是| F[按 path 删除旧 chunks]
+    E -->|否| G[保留现有 chunks]
+    F --> H[小批量生成 Embedding]
+    G --> H
+    H --> I[写入 Chroma]
+    I --> J[保存 manifest]

@@ -1,0 +1,47 @@
+vault:
+  path: "~/sample-vault"
+  include:
+    - "notes"
+  exclude:
+    - ".obsidian"
+    - ".trash"
+    - "attachments/tmp"
+
+documents:
+  path: "~/sample-docs"
+  include:
+    - "study"
+    - "reading"
+  exclude:
+    - "secure-docs"
+    - "archive"
+
+local_rag:
+  chroma_path: "~/local-rag/data/chroma"
+  cache_path: "~/local-rag/data/cache"
+  logs_path: "~/local-rag/data/logs"
+  collection_name: "personal_knowledge_base"
+
+converted_cache:
+  enabled: true
+  path: "~/sample-docs/local-rag/converted"
+  manifest_path: "~/sample-docs/local-rag/manifest.json"
+
+models:
+  embedding_model: "embeddinggemma"
+  llm_model: "qwen3:0.6b"
+
+indexing:
+  supported_extensions:
+    - ".md"
+    - ".txt"
+    - ".docx"
+    - ".pdf"
+    - ".pptx"
+  chunk_target_chars: 1200
+  chunk_overlap_chars: 150
+  top_k: 5
+
+safety:
+  index_sensitive_docs: false
+

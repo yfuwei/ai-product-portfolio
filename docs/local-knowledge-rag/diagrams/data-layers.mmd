@@ -1,0 +1,6 @@
+flowchart TB
+    A[Obsidian Vault<br/>笔记 / 索引 / 规则] --> C[本地 RAG 运行层]
+    B[本地文档库<br/>PDF / DOCX / PPTX / TXT] --> C
+    C --> D[Chroma 向量库<br/>可重建本地索引]
+    C --> E[转换缓存<br/>可选]
+    C --> F[FastAPI Web GUI]

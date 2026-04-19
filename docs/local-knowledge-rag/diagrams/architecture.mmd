@@ -1,0 +1,11 @@
+flowchart LR
+    A[Obsidian Markdown 笔记] --> D[来源扫描器]
+    B[本地文档<br/>DOCX / PDF / PPTX / TXT] --> D
+    D --> E[文档转换]
+    E --> F[切块]
+    F --> G[Ollama 本地 Embedding]
+    G --> H[Chroma 向量库<br/>仅本地]
+    H --> I[语义检索]
+    H --> J[RAG 回答流程]
+    I --> K[FastAPI Web GUI]
+    J --> K

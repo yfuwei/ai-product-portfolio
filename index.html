@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI产品作品集 | 苑夫唯</title>
+    <meta
+      name="description"
+      content="AI产品经理作品集，包含AIGC视觉内容生成、企业知识库问答与报告生成、B端审批协同平台、本地个人知识库RAG系统。"
+    />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-mark">AI</span>
+        <span>苑夫唯 · AI产品作品集</span>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a href="#local-rag">本地RAG</a>
+        <a href="#rag">知识库问答</a>
+        <a href="#aigc">AIGC工作流</a>
+        <a href="#workflow">审批协同</a>
+        <a href="#about">关于</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-copy">
+          <div class="hero-profile">
+            <span class="hero-avatar" aria-hidden="true">🧑🏻‍💻</span>
+            <div>
+              <p class="eyebrow">AI Product Portfolio · 2026</p>
+              <strong>苑夫唯 · AI应用产品方向</strong>
+            </div>
+          </div>
+          <h1>从设计表达，到AI产品工作流。</h1>
+          <p class="hero-text">
+            这份作品集展示我如何把真实工作流拆成AI产品方案：从本地个人知识库 RAG，到AIGC视觉生成、企业知识库问答和B端流程协同。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#local-rag">先看重点项目</a>
+            <a class="secondary-action" href="#projects">浏览全部项目</a>
+          </div>
+          <div class="hero-tags" aria-label="能力标签">
+            <span>AI产品设计</span>
+            <span>RAG检索</span>
+            <span>原型与交互</span>
+            <span>业务流程拆解</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="本地RAG界面封面图">
+          <div class="hero-visual-header">
+            <span>Featured Case</span>
+            <strong>Local-first RAG</strong>
+          </div>
+          <img src="./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" alt="本地个人知识库RAG系统界面" />
+          <div class="hero-visual-strip">
+            <img src="./docs/local-knowledge-rag/assets/screenshots/search-workspace.png" alt="检索工作台截图" />
+            <img src="./docs/local-knowledge-rag/assets/screenshots/answer-with-citations.png" alt="带引用回答截图" />
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-block project-overview" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2 id="overview-title">一个重点项目，三个补充项目</h2>
+          <p>
+            本地 RAG 是主展示项目，完整体现问题定义、系统设计、GUI、验证与迁移。其他三个项目用于补充内容生成、企业知识检索和B端流程产品能力。
+          </p>
+        </div>
+        <div id="project-cards" class="project-grid"></div>
+      </section>
+
+      <section id="local-rag" class="project-section local-rag-section featured-project-section" aria-labelledby="local-rag-title">
+        <div class="project-intro">
+          <p class="eyebrow">Project 01 · Featured</p>
+          <h2 id="local-rag-title">本地个人知识库 RAG 系统</h2>
+          <p>
+            面向个人笔记、项目资料和本地文档分散的问题，设计一个不上传私密资料的本地语义检索层，并提供可日常使用的 Web GUI。
+          </p>
+        </div>
+        <div id="local-rag-demo" class="local-rag-layout"></div>
+      </section>
+
+      <section id="rag" class="project-section" aria-labelledby="rag-title">
+        <div class="project-intro">
+          <p class="eyebrow">Project 02</p>
+          <h2 id="rag-title">企业知识库问答与报告生成</h2>
+          <p>
+            面向资料分散、引用难追溯、初稿产出慢的问题，设计带引用溯源和人工复核机制的RAG问答与文本生成流程。
+          </p>
+        </div>
+        <div id="rag-demo" class="rag-layout"></div>
+      </section>
+
+      <section id="aigc" class="project-section" aria-labelledby="aigc-title">
+        <div class="project-intro">
+          <p class="eyebrow">Project 03</p>
+          <h2 id="aigc-title">AIGC视觉内容生成工作流</h2>
+          <p>
+            面向前期方案表达中出图周期长、需求口径抽象、反复修改成本高的问题，设计结构化输入、Prompt模板和多版本生成流程。
+          </p>
+        </div>
+        <div id="aigc-demo" class="demo-grid"></div>
+      </section>
+
+      <section id="workflow" class="project-section" aria-labelledby="workflow-title">
+        <div class="project-intro">
+          <p class="eyebrow">Project 04</p>
+          <h2 id="workflow-title">B端审批协同平台工作流优化</h2>
+          <p>
+            面向报审材料反复、会前预审低效、评审意见难沉淀的问题，将线下沟通和人工追踪流程转为可提交、可预审、可追踪、可沉淀的协同流程。
+          </p>
+        </div>
+        <div id="workflow-demo" class="workflow-layout"></div>
+      </section>
+
+      <section id="about" class="section-block about-section" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">苑夫唯｜从复杂项目协同转向 AI 应用产品</h2>
+          <p>
+            我拥有 UC Berkeley 建筑学硕士背景和旧金山 5 年学习与工作经历，过往工作集中在建筑设计、地产产品管理、方案评审和复杂流程协同。现在转向 AI 应用产品方向，重点关注 RAG、AIGC 和工作流自动化在真实业务场景中的落地。
+          </p>
+        </div>
+        <div class="about-grid">
+          <div>
+            <h3>复杂业务与流程经验</h3>
+            <p>
+              过往工作长期面对多角色协同、方案评审、设计变更、标准制度和项目推进等复杂场景，熟悉从模糊诉求到结构化流程、规则和交付结果的转化过程。
+            </p>
+          </div>
+          <div>
+            <h3>AI 应用产品实践</h3>
+            <p>
+              近阶段围绕本地个人知识库 RAG、企业知识库问答、AIGC 视觉内容生成和 B 端审批协同，独立完成需求拆解、流程设计、原型表达、验证问题集和效果评估。
+            </p>
+          </div>
+          <div>
+            <h3>我的产品优势</h3>
+            <p>
+              我更擅长把真实业务问题拆成可理解、可演示、可评估的产品方案：既关注用户路径和交互表达，也关注 AI 输出的边界、引用依据、人工复核和落地约束。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>苑夫唯 · AI产品经理作品集</span>
+      <span>内容生成 · 知识检索 · 流程协同</span>
+    </footer>
+
+    <script src="./src/data.js"></script>
+    <script src="./src/main.js"></script>
+  </body>
+</html>

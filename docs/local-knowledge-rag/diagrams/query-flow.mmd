@@ -1,0 +1,9 @@
+flowchart TD
+    A[用户问题] --> B[问题 Embedding]
+    B --> C[Chroma 相似度检索]
+    C --> D[Top-k Chunks]
+    D --> E{模式}
+    E -->|检索| F[展示来源和片段]
+    E -->|回答| G[基于召回 chunks 构造 Prompt]
+    G --> H[本地 LLM]
+    H --> I[带引用的回答]
