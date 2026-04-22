@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">企业知识库RAG系统架构</title>
+  <desc id="desc">从企业资料库、文档处理、索引检索到带引用答案和人工复核的链路。</desc>
+  <rect width="1200" height="620" fill="#f5f7fb"/>
+  <rect x="54" y="56" width="1092" height="508" rx="8" fill="#fff" stroke="#d9e1e7"/>
+  <text x="84" y="108" fill="#111418" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="800">企业知识库问答与报告生成 · RAG 架构</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <g fill="#111418" font-size="18" font-weight="800">
+      <text x="115" y="178">企业资料库</text>
+      <text x="328" y="178">文档处理</text>
+      <text x="546" y="178">索引检索</text>
+      <text x="760" y="178">生成与引用</text>
+      <text x="986" y="178">人工复核</text>
+    </g>
+    <g fill="#fff" stroke="#d9e1e7" stroke-width="2">
+      <rect x="82" y="216" width="164" height="230" rx="8" fill="#111418"/>
+      <rect x="296" y="216" width="164" height="230" rx="8"/>
+      <rect x="510" y="216" width="164" height="230" rx="8"/>
+      <rect x="724" y="216" width="164" height="230" rx="8"/>
+      <rect x="938" y="216" width="164" height="230" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="15">
+      <text x="112" y="264">标准制度</text>
+      <text x="112" y="302">项目案例</text>
+      <text x="112" y="340">会议纪要</text>
+      <text x="112" y="378">汇报材料</text>
+      <text x="112" y="416">竞品研究</text>
+    </g>
+    <g fill="#1d242b" font-size="15">
+      <text x="326" y="264">清洗转换</text>
+      <text x="326" y="302">语义切片</text>
+      <text x="326" y="340">元数据标注</text>
+      <text x="326" y="378">权限标记</text>
+      <text x="326" y="416">版本保留</text>
+      <text x="540" y="264">Embedding</text>
+      <text x="540" y="302">向量索引</text>
+      <text x="540" y="340">资料范围筛选</text>
+      <text x="540" y="378">相关片段召回</text>
+      <text x="540" y="416">引用排序</text>
+      <text x="754" y="264">带引用答案</text>
+      <text x="754" y="302">报告初稿</text>
+      <text x="754" y="340">资料不足提示</text>
+      <text x="754" y="378">冲突来源提示</text>
+      <text x="754" y="416">风险提示</text>
+      <text x="968" y="264">查看原文</text>
+      <text x="968" y="302">确认依据</text>
+      <text x="968" y="340">编辑初稿</text>
+      <text x="968" y="378">反馈质量</text>
+      <text x="968" y="416">进入汇报</text>
+    </g>
+    <g stroke="#00a6d6" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <path d="M246 332h50"/>
+      <path d="M460 332h50"/>
+      <path d="M674 332h50"/>
+      <path d="M888 332h50"/>
+    </g>
+    <rect x="300" y="482" width="600" height="42" rx="8" fill="#fff6c7" stroke="#f7d84a"/>
+    <text x="330" y="509" fill="#111418" font-size="16" font-weight="800">核心原则：先检索，再生成；先可信，再追求流畅；AI 辅助，人工判断。</text>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00a6d6"/>
+    </marker>
+  </defs>
+</svg>

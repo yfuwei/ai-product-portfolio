@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业知识库问答与报告生成 | 项目案例</title>
+    <meta
+      name="description"
+      content="企业知识库问答与报告生成项目案例，包含问题定义、RAG方案、资料体系、问答流程、报告初稿、引用溯源、权限边界和验证结果。"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --surface: #ffffff;
+        --surface-alt: #eef9fd;
+        --ink: #111418;
+        --text: #1d242b;
+        --muted: #66717a;
+        --line: #d9e1e7;
+        --accent: #00a6d6;
+        --rose: #f04467;
+        --sun: #f7d84a;
+        --shadow: 0 18px 45px rgba(17, 20, 24, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--text);
+        background: linear-gradient(180deg, #fff 0%, var(--bg) 50%, #fff 100%);
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        line-height: 1.68;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      h1, h2, h3, p, th, td { overflow-wrap: anywhere; }
+      h1 { margin: 0; color: #fff; font-size: clamp(36px, 5vw, 64px); line-height: 1.08; letter-spacing: 0; }
+      h2 { margin: 0; color: var(--ink); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; letter-spacing: 0; }
+      h3 { margin: 0 0 10px; color: var(--ink); font-size: 21px; line-height: 1.25; }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; }
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent), var(--rose));
+        border-radius: 8px;
+      }
+      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 13px; color: var(--muted); font-size: 14px; }
+      .case-nav a:hover { color: var(--rose); }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: clamp(28px, 5vw, 68px);
+        align-items: center;
+        padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 64px);
+        background: var(--ink);
+      }
+      .eyebrow { margin: 0 0 12px; color: var(--rose); font-size: 13px; font-weight: 900; letter-spacing: 0; text-transform: uppercase; }
+      .hero .eyebrow { color: var(--sun); }
+      .lead { margin: 22px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 18px; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+      .primary-link, .secondary-link {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 900;
+      }
+      .primary-link { color: var(--ink); background: var(--sun); }
+      .secondary-link { color: #fff; border: 1px solid rgba(255, 255, 255, 0.24); }
+      .hero-image { overflow: hidden; background: #fff; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 8px; box-shadow: var(--shadow); }
+      .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+      .tag-list span { padding: 8px 11px; color: var(--ink); background: var(--sun); border-radius: 8px; font-size: 14px; font-weight: 800; }
+
+      .section { padding: clamp(50px, 7vw, 92px) clamp(20px, 5vw, 64px); border-top: 1px solid var(--line); }
+      .section.alt { background: var(--surface-alt); }
+      .section-heading { max-width: 920px; margin-bottom: 28px; }
+      .section-heading p { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+      .grid-2, .grid-3, .grid-4 { display: grid; gap: 16px; }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .panel {
+        min-height: 100%;
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 10px 24px rgba(17, 20, 24, 0.06);
+      }
+      .panel strong { display: block; color: var(--ink); }
+      .panel p { margin: 10px 0 0; color: var(--muted); }
+      .image-panel { overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+      .image-panel figcaption { padding: 14px 18px; color: var(--muted); font-size: 14px; }
+      .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+      table { width: 100%; min-width: 780px; border-collapse: collapse; }
+      th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { color: var(--ink); background: #f2f6f9; font-size: 14px; }
+      td { color: var(--text); font-size: 15px; }
+      tr:last-child td { border-bottom: 0; }
+      .demo-shell { display: grid; grid-template-columns: minmax(270px, 0.8fr) minmax(360px, 1.2fr); gap: 18px; }
+      .source-card, .question-card, .answer-card {
+        padding: 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      .source-card + .source-card, .question-card + .question-card { margin-top: 10px; }
+      .source-card span, .question-card span { display: block; color: var(--rose); font-size: 13px; font-weight: 900; }
+      .answer-card { background: var(--ink); color: #fff; }
+      .answer-card h3 { color: #fff; }
+      .answer-card p { color: rgba(255, 255, 255, 0.78); }
+      .citation-list { margin: 14px 0 0; padding-left: 20px; color: rgba(255, 255, 255, 0.86); }
+      .timeline { display: grid; gap: 14px; }
+      .timeline-item { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: start; padding: 18px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+      .timeline-item span { color: var(--rose); font-weight: 900; }
+      .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 28px clamp(20px, 5vw, 64px); color: rgba(255, 255, 255, 0.7); background: var(--ink); }
+
+      @media (max-width: 980px) { .hero, .grid-2, .grid-3, .grid-4, .demo-shell { grid-template-columns: 1fr; } .case-header { align-items: flex-start; flex-direction: column; } }
+      @media (max-width: 640px) { .timeline-item { grid-template-columns: 1fr; } .hero { padding-top: 34px; } }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html#rag" aria-label="返回作品集首页">
+        <span class="brand-mark">AI</span>
+        <span>苑夫唯 · AI产品作品集</span>
+      </a>
+      <nav class="case-nav" aria-label="项目导航">
+        <a href="#problem">问题</a>
+        <a href="#architecture">架构</a>
+        <a href="#demo">Demo</a>
+        <a href="#validation">验证</a>
+        <a href="#roadmap">路线图</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Project Case · Enterprise RAG</p>
+          <h1>企业知识库问答与报告生成</h1>
+          <p class="lead">
+            面向企业标准制度、历史案例、会议纪要和汇报材料分散的问题，设计一套先检索、再生成、附引用、可复核的 RAG 知识问答与报告初稿工作流。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#architecture">查看RAG方案</a>
+            <a class="secondary-link" href="#validation">查看验证结果</a>
+            <a class="secondary-link" href="../../index.html#rag">返回作品集首页</a>
+          </div>
+          <div class="tag-list" aria-label="项目标签">
+            <span>RAG产品设计</span>
+            <span>企业知识库</span>
+            <span>引用溯源</span>
+            <span>报告初稿</span>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="./assets/architecture.svg" alt="企业知识库RAG系统架构图" />
+        </figure>
+      </section>
+
+      <section id="problem" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem</p>
+          <h2>企业知识不是缺资料，而是难检索、难复用、难相信</h2>
+          <p>这个项目解决的是组织知识复用问题：让业务人员能从分散资料中找到依据，生成可修改初稿，并明确知道哪些内容需要人工复核。</p>
+        </div>
+        <div class="grid-4">
+          <article class="panel"><strong>资料分散</strong><p>标准、案例、纪要、汇报和竞品资料分散在不同文件和版本中。</p></article>
+          <article class="panel"><strong>经验依赖个人</strong><p>很多知识靠资深员工记忆，新人和跨团队成员复用成本高。</p></article>
+          <article class="panel"><strong>LLM容易幻觉</strong><p>直接问大模型缺少内部资料上下文，答案无法进入正式业务判断。</p></article>
+          <article class="panel"><strong>报告准备重复</strong><p>汇报说明、定位摘要和评审口径需要反复查找、摘录、拼接。</p></article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>核心链路：先检索，再生成，再复核</h2>
+          <p>产品不追求开放聊天，而是把 AI 输出约束在可追溯资料范围内。</p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/architecture.svg" alt="企业知识库RAG架构" />
+          <figcaption>从企业资料库、文档处理、向量索引到带引用答案和人工复核的完整链路。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Modules</p>
+          <h2>五个产品模块</h2>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/modules.svg" alt="企业知识库RAG产品模块图" />
+          <figcaption>资料管理、知识问答、报告初稿、引用复核和评估反馈构成最小产品闭环。</figcaption>
+        </figure>
+      </section>
+
+      <section id="demo" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Demo</p>
+          <h2>从业务问题到带引用答案</h2>
+          <p>用户看到的不只是答案，还包括召回片段、来源文档、引用编号和复核提示。</p>
+        </div>
+        <div class="demo-shell">
+          <div>
+            <div class="source-card"><span>资料来源</span><strong>集团商办产品建筑设计标准</strong><p>公共空间、配置口径、评审原则。</p></div>
+            <div class="source-card"><span>资料来源</span><strong>区域综合住区产品管理办法</strong><p>产品定位、变更审批、会前预审。</p></div>
+            <div class="source-card"><span>资料来源</span><strong>产品评审会议纪要</strong><p>评审意见、待办事项、决策结论。</p></div>
+          </div>
+          <article class="answer-card">
+            <h3>用户问题</h3>
+            <p>集团商办标准里，对公共空间的核心要求有哪些？</p>
+            <h3>召回片段</h3>
+            <p>公共空间设计应结合项目定位、客群特征和运营场景，优先保证入口识别、交通组织、公共界面和后期维护的稳定性。</p>
+            <h3>生成答案</h3>
+            <p>公共空间需要同时满足形象展示、客流组织、运营效率和后期维护要求。重点关注入口识别性、动线清晰度、公共界面连续性、消防疏散条件和材料耐久性。</p>
+            <ul class="citation-list">
+              <li>集团商办产品建筑设计标准：公共空间章节</li>
+              <li>历史项目案例库：商办公共空间复盘</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Information Design</p>
+          <h2>资料、字段与引用规则</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>设计对象</th><th>关键字段</th><th>产品目的</th></tr></thead>
+            <tbody>
+              <tr><td>资料元数据</td><td>文档类型、项目名称、业务主题、版本、权限范围</td><td>让检索结果可筛选、可解释、可追溯</td></tr>
+              <tr><td>问答输入</td><td>用户问题、问题类型、资料范围、时间范围、输出要求</td><td>把开放问题收敛到可检索任务</td></tr>
+              <tr><td>答案输出</td><td>结论摘要、分点说明、引用来源、风险提示</td><td>让业务用户能判断答案是否可用</td></tr>
+              <tr><td>报告初稿</td><td>输出类型、目标对象、提纲、段落、引用依据</td><td>减少重复整理，但保留人工编辑</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="validation" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Validation</p>
+          <h2>20 个问题验证 RAG 边界</h2>
+          <p>验证不只看模型会不会回答，而是看检索、引用、答案、修改成本和边界提示是否适合真实工作。</p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/evaluation.svg" alt="企业知识库RAG验证结果图" />
+          <figcaption>事实检索、单文档提取、短文本初稿和资料不足提示最适合进入 MVP。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation Table</p>
+          <h2>关键问题类型表现</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>问题类型</th><th>表现</th><th>原因</th><th>产品策略</th></tr></thead>
+            <tbody>
+              <tr><td>事实检索</td><td>表现稳定</td><td>标准条文和制度类资料边界清晰</td><td>作为高频入口</td></tr>
+              <tr><td>定向提取</td><td>可用</td><td>单文档和明确主题提取较稳定</td><td>支持资料范围筛选</td></tr>
+              <tr><td>对比归纳</td><td>基本可用</td><td>依赖召回完整度和资料标签质量</td><td>保留原文对照，避免直接定论</td></tr>
+              <tr><td>文本生成</td><td>可用</td><td>适合短文本初稿，不适合直接定稿</td><td>标注 AI 初稿和复核点</td></tr>
+              <tr><td>边界追问</td><td>表现稳定</td><td>拒答和资料不足提示比强答更安全</td><td>作为可信机制重点设计</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Decisions</p>
+          <h2>关键取舍</h2>
+        </div>
+        <div class="grid-3">
+          <article class="panel"><strong>引用优先</strong><p>先展示来源片段，再生成答案，降低无依据回答进入业务判断的风险。</p></article>
+          <article class="panel"><strong>初稿不是定稿</strong><p>报告生成只提供可修改草稿，必须保留引用和人工确认点。</p></article>
+          <article class="panel"><strong>资料不足时拒答</strong><p>企业知识场景里，错误但流畅的答案比“不知道”更危险。</p></article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>后续路线</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><span>v0</span><div><strong>场景验证</strong><p>建立问题集、资料样例和人工评估表。</p></div></div>
+          <div class="timeline-item"><span>v1</span><div><strong>知识问答 MVP</strong><p>支持资料检索、引用片段和带来源回答。</p></div></div>
+          <div class="timeline-item"><span>v2</span><div><strong>报告初稿</strong><p>支持背景说明、定位说明、竞品摘要等模板。</p></div></div>
+          <div class="timeline-item"><span>v3</span><div><strong>权限与反馈</strong><p>增加资料权限、反馈闭环和评估面板。</p></div></div>
+          <div class="timeline-item"><span>v4</span><div><strong>企业流程嵌入</strong><p>接入评审、汇报、审批等业务流程。</p></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>苑夫唯 · AI产品经理作品集</span>
+      <span>企业知识库问答与报告生成</span>
+    </footer>
+  </body>
+</html>

@@ -261,15 +261,8 @@ h4 {
   animation: float-in 650ms ease both;
 }
 
-.hero-visual > img {
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  object-fit: cover;
-  object-position: top left;
-}
-
 .hero-visual-header,
-.hero-visual-strip {
+.hero-mosaic {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -284,19 +277,57 @@ h4 {
   font-weight: 800;
 }
 
-.hero-visual-strip {
+.hero-mosaic {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   padding-top: 0;
 }
 
-.hero-visual-strip img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top left;
+.hero-tile {
+  position: relative;
+  min-height: 126px;
+  overflow: hidden;
+  background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
+}
+
+.hero-tile-large {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 10;
+}
+
+.hero-tile:not(.hero-tile-large) {
+  aspect-ratio: 16 / 9;
+}
+
+.hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 420ms ease;
+}
+
+.hero-tile:hover img {
+  transform: scale(1.035);
+}
+
+.hero-tile span {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 6px 10px;
+  color: #fff;
+  background: rgba(17, 20, 24, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .section-block,
@@ -447,6 +478,35 @@ h4 {
   background: linear-gradient(90deg, rgba(0, 166, 214, 0.1), rgba(240, 68, 103, 0.08)), #fff;
 }
 
+.project-section .project-intro {
+  max-width: none;
+  padding: clamp(24px, 4vw, 42px);
+  color: #fff;
+  background: var(--ink);
+  border: 1px solid rgba(17, 20, 24, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.project-section .project-intro h2 {
+  color: #fff;
+}
+
+.project-section .project-intro .eyebrow {
+  color: var(--sun);
+}
+
+.project-section .project-intro p:not(.eyebrow) {
+  max-width: 860px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.project-section .project-intro .text-link {
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--sun);
+}
+
 .demo-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -461,7 +521,7 @@ h4 {
 
 .workflow-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(240px, 0.72fr) minmax(280px, 1fr) minmax(260px, 0.85fr);
   gap: 18px;
 }
 
@@ -879,6 +939,26 @@ h4 {
   gap: 10px;
 }
 
+.mini-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.mini-flow span {
+  display: grid;
+  min-height: 34px;
+  place-items: center;
+  padding: 7px 9px;
+  color: var(--ink);
+  background: var(--sun);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
 .choice-button,
 .step-button {
   width: 100%;
@@ -914,6 +994,12 @@ h4 {
   background: var(--rose-soft);
   color: var(--ink);
   font-weight: 800;
+}
+
+.demo-summary {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .step-button {
@@ -961,6 +1047,52 @@ h4 {
   color: #f7fbf9;
   background: var(--ink);
   border-radius: 8px;
+}
+
+.negative-box {
+  margin: 10px 0 0;
+  padding: 12px;
+  color: var(--warning);
+  background: #fff5cc;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.candidate-card {
+  padding: 13px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.candidate-card span,
+.candidate-card strong {
+  display: block;
+}
+
+.candidate-card span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.candidate-card strong {
+  margin-top: 3px;
+  color: var(--rose);
+}
+
+.candidate-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .source-list,
@@ -1138,11 +1270,17 @@ h4 {
   .field-list div,
   .result-row,
   .local-rag-metrics,
-  .hero-visual-strip,
+  .hero-mosaic,
   .case-link-row,
   .case-table-row,
   .decision-table .case-table-row,
-  .evaluation-table .case-table-row {
+  .evaluation-table .case-table-row,
+  .candidate-grid,
+  .mini-flow {
     grid-template-columns: 1fr;
+  }
+
+  .hero-tile-large {
+    grid-column: auto;
   }
 }

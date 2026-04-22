@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">AIGC产品框架图</title>
+  <desc id="desc">从模糊需求到场景选择、结构化字段、Prompt模板、多版本生成、人工筛选和沟通使用的产品框架。</desc>
+  <rect width="1280" height="520" fill="#f8faf7"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#101820">产品框架：从模糊需求到可沟通草图</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="64" y="142" width="150" height="72" rx="8" fill="#ffffff" stroke="#cfd8d3"/><text x="139" y="185" fill="#101820">模糊需求</text>
+    <rect x="246" y="142" width="150" height="72" rx="8" fill="#eef4f1" stroke="#cfd8d3"/><text x="321" y="185" fill="#101820">场景选择</text>
+    <rect x="428" y="142" width="150" height="72" rx="8" fill="#eef4f1" stroke="#cfd8d3"/><text x="503" y="185" fill="#101820">结构化字段</text>
+    <rect x="610" y="142" width="150" height="72" rx="8" fill="#fff9e6" stroke="#e5d68f"/><text x="685" y="185" fill="#101820">Prompt模板</text>
+    <rect x="792" y="142" width="150" height="72" rx="8" fill="#eef7fb" stroke="#bddbe6"/><text x="867" y="185" fill="#101820">多版本生成</text>
+    <rect x="974" y="142" width="150" height="72" rx="8" fill="#f9eeee" stroke="#e9b9b9"/><text x="1049" y="185" fill="#101820">人工筛选</text>
+    <rect x="1082" y="302" width="150" height="72" rx="8" fill="#e9f6ee" stroke="#b9d8c4"/><text x="1157" y="345" fill="#101820">沟通使用</text>
+  </g>
+  <g stroke="#78909c" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M214 178 H246"/><path d="M396 178 H428"/><path d="M578 178 H610"/><path d="M760 178 H792"/><path d="M942 178 H974"/><path d="M1049 214 V266 Q1049 302 1082 338"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#35505b">
+    <rect x="404" y="264" width="198" height="150" rx="8" fill="#ffffff" stroke="#d8e1dc"/>
+    <text x="430" y="296">项目定位</text><text x="430" y="326">业态类型</text><text x="430" y="356">场景功能</text><text x="430" y="386">风格 / 视角 / 约束</text>
+    <rect x="764" y="264" width="230" height="150" rx="8" fill="#ffffff" stroke="#d8e1dc"/>
+    <text x="792" y="296">候选图 1：可用</text><text x="792" y="326">候选图 2：需后修</text><text x="792" y="356">候选图 3：风格参考</text><text x="792" y="386">候选图 4：不适合</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#78909c"/></marker></defs>
+</svg>

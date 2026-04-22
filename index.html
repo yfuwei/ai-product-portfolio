@@ -18,8 +18,8 @@
       </a>
       <nav class="top-nav" aria-label="主导航">
         <a href="#local-rag">本地RAG</a>
-        <a href="#rag">知识库问答</a>
         <a href="#aigc">AIGC工作流</a>
+        <a href="#rag">知识库问答</a>
         <a href="#workflow">审批协同</a>
         <a href="#about">关于</a>
       </nav>
@@ -37,7 +37,7 @@
           </div>
           <h1>从设计表达，到AI产品工作流。</h1>
           <p class="hero-text">
-            这份作品集展示我如何把真实工作流拆成AI产品方案：从本地个人知识库 RAG，到AIGC视觉生成、企业知识库问答和B端流程协同。
+            这份作品集展示我如何把真实工作流拆成AI产品方案：从本地个人知识库 RAG，到AIGC视觉生成、企业资料问答和B端流程协同。
           </p>
           <div class="hero-actions">
             <a class="primary-action" href="#local-rag">先看重点项目</a>
@@ -50,15 +50,28 @@
             <span>业务流程拆解</span>
           </div>
         </div>
-        <div class="hero-visual" aria-label="本地RAG界面封面图">
+        <div class="hero-visual" aria-label="四个作品集项目组合封面图">
           <div class="hero-visual-header">
-            <span>Featured Case</span>
-            <strong>Local-first RAG</strong>
+            <span>Portfolio Cases</span>
+            <strong>RAG · AIGC · Workflow</strong>
           </div>
-          <img src="./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" alt="本地个人知识库RAG系统界面" />
-          <div class="hero-visual-strip">
-            <img src="./docs/local-knowledge-rag/assets/screenshots/search-workspace.png" alt="检索工作台截图" />
-            <img src="./docs/local-knowledge-rag/assets/screenshots/answer-with-citations.png" alt="带引用回答截图" />
+          <div class="hero-mosaic">
+            <a class="hero-tile hero-tile-large" href="#local-rag">
+              <img src="./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" alt="本地个人知识库RAG系统界面" />
+              <span>本地 RAG 系统</span>
+            </a>
+            <a class="hero-tile" href="#aigc">
+              <img src="./docs/aigc-visual-workbench/assets/hero-workbench.svg" alt="AIGC视觉生成工作台示意图" />
+              <span>AIGC 工作流</span>
+            </a>
+            <a class="hero-tile" href="#rag">
+              <img src="./docs/enterprise-rag/assets/architecture.svg" alt="企业知识库RAG架构图" />
+              <span>企业知识库 RAG</span>
+            </a>
+            <a class="hero-tile" href="#workflow">
+              <img src="./docs/b-approval-workflow/assets/workflow.svg" alt="B端审批协同流程图" />
+              <span>B端审批协同</span>
+            </a>
           </div>
         </div>
       </section>
@@ -68,7 +81,7 @@
           <p class="eyebrow">Overview</p>
           <h2 id="overview-title">一个重点项目，三个补充项目</h2>
           <p>
-            本地 RAG 是主展示项目，完整体现问题定义、系统设计、GUI、验证与迁移。其他三个项目用于补充内容生成、企业知识检索和B端流程产品能力。
+            本地 RAG 是主展示项目，突出 Local-first RAG、GUI 和引用溯源。其他三个项目用于补充 AIGC 工作流、企业资料问答和B端流程产品能力。
           </p>
         </div>
         <div id="project-cards" class="project-grid"></div>
@@ -85,26 +98,28 @@
         <div id="local-rag-demo" class="local-rag-layout"></div>
       </section>
 
-      <section id="rag" class="project-section" aria-labelledby="rag-title">
-        <div class="project-intro">
-          <p class="eyebrow">Project 02</p>
-          <h2 id="rag-title">企业知识库问答与报告生成</h2>
-          <p>
-            面向资料分散、引用难追溯、初稿产出慢的问题，设计带引用溯源和人工复核机制的RAG问答与文本生成流程。
-          </p>
-        </div>
-        <div id="rag-demo" class="rag-layout"></div>
-      </section>
-
       <section id="aigc" class="project-section" aria-labelledby="aigc-title">
         <div class="project-intro">
-          <p class="eyebrow">Project 03</p>
-          <h2 id="aigc-title">AIGC视觉内容生成工作流</h2>
+          <p class="eyebrow">Project 02</p>
+          <h2 id="aigc-title">建筑方案视觉生成工作台（AIGC）</h2>
           <p>
-            面向前期方案表达中出图周期长、需求口径抽象、反复修改成本高的问题，设计结构化输入、Prompt模板和多版本生成流程。
+            面向建筑地产前期方案表达中出图周期长、需求口径抽象、非AI同事Prompt门槛高的问题，设计结构化输入、Prompt模板、多版本生成和人工筛选流程。
           </p>
+          <a class="text-link" href="./docs/aigc-visual-workbench/index.html">查看完整项目案例</a>
         </div>
         <div id="aigc-demo" class="demo-grid"></div>
+      </section>
+
+      <section id="rag" class="project-section" aria-labelledby="rag-title">
+        <div class="project-intro">
+          <p class="eyebrow">Project 03 · Supporting</p>
+          <h2 id="rag-title">企业知识库问答与报告生成</h2>
+          <p>
+            作为本地 RAG 的补充项目，展示企业资料问答、引用溯源、报告初稿和人工复核的产品设计思路；重点体现 RAG 在 B 端知识场景中的产品化理解。
+          </p>
+          <a class="text-link" href="./docs/enterprise-rag/index.html">查看完整项目案例</a>
+        </div>
+        <div id="rag-demo" class="rag-layout"></div>
       </section>
 
       <section id="workflow" class="project-section" aria-labelledby="workflow-title">
@@ -114,6 +129,7 @@
           <p>
             面向报审材料反复、会前预审低效、评审意见难沉淀的问题，将线下沟通和人工追踪流程转为可提交、可预审、可追踪、可沉淀的协同流程。
           </p>
+          <a class="text-link" href="./docs/b-approval-workflow/index.html">查看完整项目案例</a>
         </div>
         <div id="workflow-demo" class="workflow-layout"></div>
       </section>

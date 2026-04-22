@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">AIGC场景验证结果图</title>
+  <desc id="desc">不同场景在需求贴合度、风格稳定性、表达可用性和人工修改成本上的验证结果。</desc>
+  <rect width="1280" height="560" fill="#ffffff"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#101820">验证结果：哪些场景适合进入工作流</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="18" fill="#101820">
+    <text x="90" y="150">空间氛围图</text>
+    <text x="90" y="220">汇报辅助图</text>
+    <text x="90" y="290">建筑概念图</text>
+    <text x="90" y="360">景观节点图</text>
+    <text x="90" y="430">分析图 / 总平动线</text>
+  </g>
+  <g>
+    <rect x="300" y="122" width="760" height="34" rx="8" fill="#1f7a5a"/><text x="1080" y="146" font-family="Arial" font-size="18" fill="#1f7a5a">稳定</text>
+    <rect x="300" y="192" width="720" height="34" rx="8" fill="#1f7a5a"/><text x="1040" y="216" font-family="Arial" font-size="18" fill="#1f7a5a">稳定</text>
+    <rect x="300" y="262" width="560" height="34" rx="8" fill="#b0722d"/><text x="880" y="286" font-family="Arial" font-size="18" fill="#b0722d">可用</text>
+    <rect x="300" y="332" width="540" height="34" rx="8" fill="#b0722d"/><text x="860" y="356" font-family="Arial" font-size="18" fill="#b0722d">可用</text>
+    <rect x="300" y="402" width="260" height="34" rx="8" fill="#b33a3a"/><text x="580" y="426" font-family="Arial" font-size="18" fill="#b33a3a">谨慎 / 不适合直接生成</text>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#60717a">
+    <text x="300" y="494">评估维度：需求贴合度、风格稳定性、表达可用性、人工修改成本</text>
+    <text x="300" y="522">结论：AIGC 更适合方向探索、意向图和汇报辅助，不适合强逻辑分析图与正式效果图交付。</text>
+  </g>
+</svg>

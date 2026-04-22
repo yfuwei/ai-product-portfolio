@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620" role="img" aria-labelledby="title desc">
+  <title id="title">B端审批协同平台模块框架</title>
+  <desc id="desc">报审提报、会前预审、评审记录和流程状态四个模块的产品框架。</desc>
+  <rect width="1280" height="620" fill="#ffffff"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#111418">产品框架：四个模块收敛主流程</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="72" y="130" width="250" height="360" rx="8" fill="#eef9fd" stroke="#cfe6ef"/>
+    <rect x="368" y="130" width="250" height="360" rx="8" fill="#fff9e6" stroke="#eadb9b"/>
+    <rect x="664" y="130" width="250" height="360" rx="8" fill="#f5eef8" stroke="#dfcce8"/>
+    <rect x="960" y="130" width="250" height="360" rx="8" fill="#eaf7ef" stroke="#c7dfce"/>
+    <text x="100" y="180" font-size="24" font-weight="700" fill="#111418">报审提报</text>
+    <text x="396" y="180" font-size="24" font-weight="700" fill="#111418">会前预审</text>
+    <text x="692" y="180" font-size="24" font-weight="700" fill="#111418">评审记录</text>
+    <text x="988" y="180" font-size="24" font-weight="700" fill="#111418">流程状态</text>
+    <g font-size="17" fill="#24313a">
+      <text x="100" y="230">项目基础信息</text><text x="100" y="270">提报类型</text><text x="100" y="310">附件模板</text><text x="100" y="350">必填校验</text>
+      <text x="396" y="230">待预审列表</text><text x="396" y="270">完整性检查</text><text x="396" y="310">缺项退回</text><text x="396" y="350">版本查看</text>
+      <text x="692" y="230">评审结论</text><text x="692" y="270">意见分类</text><text x="692" y="310">后续动作</text><text x="692" y="350">责任人与截止时间</text>
+      <text x="988" y="230">当前节点</text><text x="988" y="270">待办提醒</text><text x="988" y="310">历史流转</text><text x="988" y="350">角色权限</text>
+    </g>
+  </g>
+</svg>

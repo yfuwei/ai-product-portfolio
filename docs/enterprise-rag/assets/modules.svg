@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">企业知识库产品模块</title>
+  <desc id="desc">资料管理、知识问答、报告初稿、引用复核、评估反馈五个模块。</desc>
+  <rect width="1200" height="620" fill="#eef9fd"/>
+  <rect x="72" y="60" width="1056" height="500" rx="8" fill="#fff" stroke="#d9e1e7"/>
+  <text x="100" y="112" fill="#111418" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="800">产品模块框架</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <rect x="438" y="152" width="324" height="70" rx="8" fill="#111418"/>
+    <text x="495" y="195" fill="#fff" font-size="22" font-weight="800">企业知识库 AI 工作台</text>
+    <g fill="#fff" stroke="#d9e1e7" stroke-width="2">
+      <rect x="118" y="292" width="180" height="184" rx="8"/>
+      <rect x="330" y="292" width="180" height="184" rx="8"/>
+      <rect x="542" y="292" width="180" height="184" rx="8"/>
+      <rect x="754" y="292" width="180" height="184" rx="8"/>
+      <rect x="966" y="292" width="120" height="184" rx="8"/>
+    </g>
+    <g fill="#111418" font-size="19" font-weight="800">
+      <text x="160" y="334">资料管理</text>
+      <text x="372" y="334">知识问答</text>
+      <text x="584" y="334">报告初稿</text>
+      <text x="796" y="334">引用复核</text>
+      <text x="990" y="334">反馈</text>
+    </g>
+    <g fill="#66717a" font-size="15">
+      <text x="148" y="378">文档来源</text>
+      <text x="148" y="412">标签元数据</text>
+      <text x="148" y="446">索引状态</text>
+      <text x="360" y="378">问题输入</text>
+      <text x="360" y="412">检索片段</text>
+      <text x="360" y="446">带引用答案</text>
+      <text x="572" y="378">输出类型</text>
+      <text x="572" y="412">提纲生成</text>
+      <text x="572" y="446">段落初稿</text>
+      <text x="784" y="378">来源列表</text>
+      <text x="784" y="412">原文片段</text>
+      <text x="784" y="446">冲突提示</text>
+      <text x="988" y="378">引用</text>
+      <text x="988" y="412">答案</text>
+      <text x="988" y="446">成本</text>
+    </g>
+    <g stroke="#f04467" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <path d="M600 222v48"/>
+      <path d="M600 270H208v22"/>
+      <path d="M600 270H420v22"/>
+      <path d="M600 270v22"/>
+      <path d="M600 270h244v22"/>
+      <path d="M600 270h426v22"/>
+    </g>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f04467"/>
+    </marker>
+  </defs>
+</svg>

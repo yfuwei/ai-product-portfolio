@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620" role="img" aria-labelledby="title desc">
+  <title id="title">用户流程图</title>
+  <desc id="desc">用户从选择场景、输入需求、补全字段、生成候选图到筛选归档的流程。</desc>
+  <rect width="1280" height="620" fill="#ffffff"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#101820">用户流程：先结构化，再生成，再筛选</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="88" y="132" width="180" height="72" rx="8" fill="#eef4f1" stroke="#cfd8d3"/><text x="178" y="174" fill="#101820">选择使用场景</text>
+    <rect x="332" y="132" width="180" height="72" rx="8" fill="#eef4f1" stroke="#cfd8d3"/><text x="422" y="174" fill="#101820">输入模糊需求</text>
+    <rect x="576" y="132" width="180" height="72" rx="8" fill="#eef4f1" stroke="#cfd8d3"/><text x="666" y="174" fill="#101820">补全关键字段</text>
+    <rect x="820" y="132" width="180" height="72" rx="8" fill="#fff9e6" stroke="#e5d68f"/><text x="910" y="174" fill="#101820">生成 Prompt</text>
+    <rect x="576" y="296" width="180" height="72" rx="8" fill="#eef7fb" stroke="#bddbe6"/><text x="666" y="338" fill="#101820">输出候选方向</text>
+    <rect x="820" y="296" width="180" height="72" rx="8" fill="#f9eeee" stroke="#e9b9b9"/><text x="910" y="338" fill="#101820">人工筛选标注</text>
+    <rect x="1036" y="296" width="180" height="72" rx="8" fill="#e9f6ee" stroke="#b9d8c4"/><text x="1126" y="338" fill="#101820">项目归档使用</text>
+    <rect x="332" y="430" width="224" height="72" rx="8" fill="#fff4e8" stroke="#e2c3a2"/><text x="444" y="472" fill="#101820">调整字段或负向约束</text>
+  </g>
+  <g stroke="#78909c" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M268 168 H332"/><path d="M512 168 H576"/><path d="M756 168 H820"/>
+    <path d="M910 204 V250 Q910 296 756 332"/>
+    <path d="M756 332 H820"/><path d="M1000 332 H1036"/>
+    <path d="M820 348 Q660 430 556 466"/><path d="M444 430 Q558 260 820 188"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#60717a">
+    <text x="1040" y="402">用于 workshop、设计院沟通、汇报辅助</text>
+    <text x="344" y="536">不追求一次命中，保留迭代和人工判断</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#78909c"/></marker></defs>
+</svg>

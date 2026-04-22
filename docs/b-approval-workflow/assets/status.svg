@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">B端审批状态流转</title>
+  <desc id="desc">待提交、已提交、预审中、退回补充、预审通过、进入评审、已完成的状态流转。</desc>
+  <rect width="1280" height="420" fill="#f5f7fb"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#111418">状态流转：让流程卡点可见</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="60" y="158" width="128" height="58" rx="8" fill="#fff" stroke="#d9e1e7"/><text x="124" y="193" fill="#111418">待提交</text>
+    <rect x="238" y="158" width="128" height="58" rx="8" fill="#fff" stroke="#d9e1e7"/><text x="302" y="193" fill="#111418">已提交</text>
+    <rect x="416" y="158" width="128" height="58" rx="8" fill="#fff5cc" stroke="#f0d670"/><text x="480" y="193" fill="#111418">预审中</text>
+    <rect x="594" y="158" width="128" height="58" rx="8" fill="#e4f4ec" stroke="#93c7aa"/><text x="658" y="193" fill="#111418">预审通过</text>
+    <rect x="772" y="158" width="128" height="58" rx="8" fill="#fff" stroke="#d9e1e7"/><text x="836" y="193" fill="#111418">进入评审</text>
+    <rect x="950" y="158" width="128" height="58" rx="8" fill="#e4f4ec" stroke="#93c7aa"/><text x="1014" y="193" fill="#111418">已完成</text>
+    <rect x="370" y="285" width="150" height="58" rx="8" fill="#ffe8ee" stroke="#f0a1b2"/><text x="445" y="320" fill="#111418">退回补充</text>
+  </g>
+  <g stroke="#66717a" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M188 187 H238"/><path d="M366 187 H416"/><path d="M544 187 H594"/><path d="M722 187 H772"/><path d="M900 187 H950"/>
+    <path d="M480 216 V250 Q480 285 520 314"/>
+    <path d="M370 314 H302 Q250 314 302 216"/>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#66717a"/></marker></defs>
+</svg>

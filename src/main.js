@@ -1,4 +1,4 @@
-const { aigcCases, localRag, projects, ragQuestions, ragSources, workflowSteps } = window.portfolioData;
+const { aigcCases, localRag, projects, ragQuestions, ragSources, workflowModules, workflowSteps, workflowValidation } = window.portfolioData;
 
 const projectCards = document.querySelector("#project-cards");
 const aigcDemo = document.querySelector("#aigc-demo");
@@ -41,7 +41,14 @@ function renderAigcDemo(selectedId = aigcCases[0].id) {
 
   aigcDemo.innerHTML = `
     <div class="demo-panel">
+      <div class="mini-flow">
+        <span>结构化输入</span>
+        <span>Prompt模板</span>
+        <span>多版本生成</span>
+        <span>人工筛选</span>
+      </div>
       <h3>选择一个出图场景</h3>
+      <p class="demo-summary">${selected.brief}</p>
       <div class="choice-list">
         ${aigcCases
           .map(
@@ -70,6 +77,20 @@ function renderAigcDemo(selectedId = aigcCases[0].id) {
     <div class="demo-panel">
       <h3>生成结构化Prompt</h3>
       <p class="prompt-box">${selected.prompt}</p>
+      <p class="negative-box">负向约束：${selected.negative}</p>
+      <div class="candidate-grid">
+        ${selected.candidates
+          .map(
+            (candidate) => `
+              <article class="candidate-card">
+                <span>${candidate.label}</span>
+                <strong>${candidate.tag}</strong>
+                <p>${candidate.note}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
       <div class="result-row">
         <span>可用性评分</span>
         <strong>${selected.score}</strong>
@@ -155,6 +176,7 @@ function renderRagDemo(selectedId = ragQuestions[0].id, showDraft = false) {
       <button class="primary-action inline-action" data-draft-toggle="${selected.id}">
         ${showDraft ? "收起汇报初稿" : "生成汇报初稿"}
       </button>
+      <a class="case-link-primary" href="./docs/enterprise-rag/index.html">查看完整项目案例</a>
       ${
         showDraft
           ? `
@@ -212,6 +234,50 @@ function renderWorkflowDemo(activeIndex = 0) {
           <span>流程结果</span>
           <strong>${active.outcome}</strong>
         </div>
+        ${
+          active.branch
+            ? `
+              <div>
+                <span>异常分支</span>
+                <strong>${active.branch}</strong>
+              </div>
+            `
+            : ""
+        }
+      </div>
+      <a class="case-link-primary" href="./docs/b-approval-workflow/index.html">查看完整项目案例</a>
+    </div>
+
+    <div class="demo-panel workflow-modules">
+      <h3>四个核心模块</h3>
+      <div class="decision-stack">
+        ${workflowModules
+          .map(
+            (item) => `
+              <article class="decision-card">
+                <strong>${item.title}</strong>
+                <p>${item.body}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </div>
+
+    <div class="demo-panel workflow-validation">
+      <h3>验证结果</h3>
+      <div class="source-stack">
+        ${workflowValidation
+          .map(
+            (item) => `
+              <div class="source-card">
+                <strong>${item.scene}</strong>
+                <span>${item.result}</span>
+                <p>${item.note}</p>
+              </div>
+            `
+          )
+          .join("")}
       </div>
     </div>
   `;
@@ -261,104 +327,16 @@ function renderLocalRagDemo() {
         .join("")}
     </div>
 
-    <div class="demo-panel local-rag-table-panel ordered-panel">
-      <p class="section-number">01</p>
-      <h3>问题定义与产品解法</h3>
-      <div class="case-table">
-        <div class="case-table-row case-table-head">
-          <span>痛点</span>
-          <span>影响</span>
-          <span>设计解法</span>
-        </div>
-        ${localRag.problemMatrix
+    <div class="demo-panel">
+      <h3>关键设计点</h3>
+      <div class="decision-stack">
+        ${localRag.decisions
           .map(
             (item) => `
-              <div class="case-table-row">
-                <span>${item.pain}</span>
-                <span>${item.impact}</span>
-                <strong>${item.design}</strong>
-              </div>
-            `
-          )
-          .join("")}
-      </div>
-    </div>
-
-    <div class="demo-panel local-rag-diagrams ordered-panel">
-      <p class="section-number">02</p>
-      <h3>框架图与流程图</h3>
-      <div class="diagram-grid">
-        ${localRag.diagrams
-          .map(
-            (item) => `
-              <a class="diagram-card" href="${item.src}">
-                <img src="${item.src}" alt="${item.label}" />
-                <strong>${item.label}</strong>
-                <p>${item.note}</p>
-              </a>
-            `
-          )
-          .join("")}
-      </div>
-    </div>
-
-    <div class="demo-panel local-rag-gallery ordered-panel">
-      <p class="section-number">03</p>
-      <h3>界面截图</h3>
-      <div class="screenshot-grid">
-        ${localRag.screenshots
-          .map(
-            (item) => `
-              <a class="screenshot-card" href="${item.src}">
-                <img src="${item.src}" alt="${item.label}" />
-                <span>${item.label}</span>
-              </a>
-            `
-          )
-          .join("")}
-      </div>
-    </div>
-
-    <div class="demo-panel ordered-panel">
-      <p class="section-number">04</p>
-      <h3>产品决策</h3>
-      <div class="case-table decision-table">
-        <div class="case-table-row case-table-head">
-          <span>决策</span>
-          <span>收益</span>
-          <span>成本</span>
-        </div>
-        ${localRag.designTable
-          .map(
-            (item) => `
-              <div class="case-table-row">
-                <strong>${item.decision}</strong>
-                <span>${item.benefit}</span>
-                <span>${item.cost}</span>
-              </div>
-            `
-          )
-          .join("")}
-      </div>
-    </div>
-
-    <div class="demo-panel ordered-panel">
-      <p class="section-number">05</p>
-      <h3>验证问题与结果</h3>
-      <div class="case-table evaluation-table">
-        <div class="case-table-row case-table-head">
-          <span>测试问题</span>
-          <span>期望来源</span>
-          <span>结果</span>
-        </div>
-        ${localRag.evaluationTable
-          .map(
-            (item) => `
-              <div class="case-table-row">
-                <span>${item.query}</span>
-                <span>${item.expected}</span>
-                <strong>${item.result}</strong>
-              </div>
+              <article class="decision-card">
+                <strong>${item.title}</strong>
+                <p>${item.body}</p>
+              </article>
             `
           )
           .join("")}

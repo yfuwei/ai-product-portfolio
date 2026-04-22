@@ -31,6 +31,16 @@ ai-product-portfolio/
     ├── AIGC_评估表.md
     ├── RAG_验证问题集.md
     ├── B端审批平台_流程说明.md
+    ├── aigc-visual-workbench/
+    │   ├── index.html
+    │   ├── README.md
+    │   ├── assets/
+    │   └── diagrams/
+    ├── b-approval-workflow/
+    │   ├── index.html
+    │   ├── README.md
+    │   ├── assets/
+    │   └── diagrams/
     └── local-knowledge-rag/
         ├── index.html
         ├── README.md
@@ -61,16 +71,51 @@ ai-product-portfolio/
 
 ## 下一步填充内容
 
-第一版已包含四个项目的展示框架，其中本地 RAG 项目包含首页案例区和公开版文档模块：
+第一版已包含四个项目的展示框架，其中本地 RAG、AIGC、企业知识库 RAG 和 B端审批协同项目均已包含首页案例区和公开版文档模块：
 
-1. AIGC 视觉内容生成工作流
-2. 企业知识库问答与报告生成
-3. B端审批协同平台工作流优化
+1. 建筑方案视觉生成工作台（AIGC）：`docs/aigc-visual-workbench/`
+2. 企业知识库问答与报告生成：`docs/enterprise-rag/`
+3. B端审批协同平台工作流优化：`docs/b-approval-workflow/`
 4. 本地个人知识库 RAG 系统：`docs/local-knowledge-rag/`
 
 后续需要逐步替换为你的真实素材、截图、Prompt、评估表和公开项目说明。私人准备材料不放入公开作品集。
 
 ## 新增项目模块
+
+`docs/aigc-visual-workbench/` 是建筑方案视觉生成工作台（AIGC）的 GitHub 公开版封装，包含：
+
+- 项目案例页：`index.html`
+- 项目说明：`README.md`
+- 封面工作台示意图：`assets/hero-workbench.svg`
+- 产品框架图：`assets/architecture.svg`
+- 用户流程图：`assets/user-flow.svg`
+- 页面原型总览图：`assets/workbench-overview.svg`
+- 验证结果图：`assets/evaluation-chart.svg`
+- Mermaid 源文件：`diagrams/`
+
+该模块只放公开展示材料，不放具体公司项目名称、内部图纸、真实客户资料或未脱敏图片。
+
+`docs/enterprise-rag/` 是企业知识库问答与报告生成项目的 GitHub 公开版封装，包含：
+
+- 项目案例页：`index.html`
+- 项目说明：`README.md`
+- RAG 架构图：`assets/architecture.svg`
+- 产品模块框架图：`assets/modules.svg`
+- 验证结果图：`assets/evaluation.svg`
+- Mermaid 源文件：`diagrams/`
+
+该模块只放脱敏后的企业知识场景样例，不放真实公司制度原文、真实项目资料、内部会议纪要或敏感业务数据。
+
+`docs/b-approval-workflow/` 是 B端审批协同平台工作流优化升级的 GitHub 公开版封装，包含：
+
+- 项目案例页：`index.html`
+- 项目说明：`README.md`
+- 升级后主流程图：`assets/workflow.svg`
+- 产品模块框架图：`assets/modules.svg`
+- 状态流转图：`assets/status.svg`
+- Mermaid 源文件：`diagrams/`
+
+该模块只放公开展示材料，不放公司内部流程截图、真实项目名称、真实评审资料或未脱敏数据。
 
 `docs/local-knowledge-rag/` 是本地个人知识库 RAG 系统的 GitHub 公开版封装，包含：
 

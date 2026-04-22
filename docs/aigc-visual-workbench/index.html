@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建筑方案视觉生成工作台（AIGC） | 项目案例</title>
+    <meta
+      name="description"
+      content="建筑方案视觉生成工作台（AIGC）项目案例，包含问题定义、竞品参考、产品框架、用户流程、结构化输入、Prompt模板、试用反馈、验证结果和路线图。"
+    />
+    <style>
+      :root {
+        --bg: #f6f8f2;
+        --surface: #ffffff;
+        --surface-alt: #eef4f1;
+        --ink: #101820;
+        --text: #24313a;
+        --muted: #60717a;
+        --line: #d5ded8;
+        --accent: #1f7a5a;
+        --accent-strong: #155d45;
+        --accent-soft: #e4f4ec;
+        --gold: #f4c542;
+        --coral: #c75045;
+        --sky: #dff2f7;
+        --shadow: 0 18px 45px rgba(16, 24, 32, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        line-height: 1.68;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      th,
+      td {
+        overflow-wrap: anywhere;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(36px, 5.2vw, 64px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(28px, 3.4vw, 42px);
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: 21px;
+        line-height: 1.25;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        color: #fff;
+        background: var(--accent);
+        border-radius: 8px;
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 13px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: clamp(28px, 5vw, 68px);
+        align-items: center;
+        padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 64px);
+        background: var(--ink);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero .eyebrow {
+        color: var(--gold);
+      }
+
+      .lead {
+        margin: 22px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .primary-link,
+      .secondary-link {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .primary-link {
+        color: var(--ink);
+        background: var(--gold);
+      }
+
+      .secondary-link {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .hero-image {
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .section {
+        padding: clamp(50px, 7vw, 92px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .section.alt {
+        background: var(--surface-alt);
+      }
+
+      .section-heading {
+        max-width: 920px;
+        margin-bottom: 28px;
+      }
+
+      .section-heading p {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .panel {
+        min-height: 100%;
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 10px 24px rgba(16, 24, 32, 0.06);
+      }
+
+      .panel strong {
+        display: block;
+        color: var(--ink);
+      }
+
+      .panel p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .image-panel {
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .image-panel figcaption {
+        padding: 14px 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--ink);
+        background: #f2f6f4;
+        font-size: 14px;
+      }
+
+      td {
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .tag-list span {
+        padding: 8px 11px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .quote {
+        margin: 0;
+        padding: 22px;
+        color: var(--ink);
+        background: #fff9e6;
+        border-left: 5px solid var(--gold);
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      .prompt-box {
+        padding: 18px;
+        color: #24313a;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 14px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+
+      .demo-showcase {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.92fr) minmax(360px, 1.08fr);
+        gap: 18px;
+      }
+
+      .demo-panel {
+        padding: 20px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 10px 24px rgba(16, 24, 32, 0.06);
+      }
+
+      .mini-flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .mini-flow span {
+        display: grid;
+        min-height: 58px;
+        place-items: center;
+        padding: 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border: 1px solid #c5e8d6;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      .scenario-list {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0;
+      }
+
+      .scenario-card {
+        padding: 13px 14px;
+        color: var(--text);
+        background: #f8fbf9;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .scenario-card.active {
+        color: var(--ink);
+        background: #fff9e6;
+        border-color: var(--gold);
+        font-weight: 900;
+      }
+
+      .field-list {
+        display: grid;
+        gap: 9px;
+        margin-top: 14px;
+      }
+
+      .field-list div,
+      .result-row {
+        display: grid;
+        grid-template-columns: 116px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .field-list div:last-child,
+      .result-row:last-child {
+        border-bottom: 0;
+      }
+
+      .field-list span,
+      .result-row span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .negative-box {
+        margin-top: 12px;
+        padding: 14px;
+        color: #6b2b24;
+        background: #fff2f0;
+        border: 1px solid #ffd0cb;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      .candidate-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .candidate-card {
+        min-height: 132px;
+        padding: 14px;
+        background: linear-gradient(145deg, #f7fbf9, #ffffff);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .candidate-card strong {
+        display: block;
+        color: var(--ink);
+      }
+
+      .candidate-card em {
+        display: inline-flex;
+        margin: 8px 0;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 8px;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .candidate-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+        padding: 18px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .timeline-item span {
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .site-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: rgba(255, 255, 255, 0.7);
+        background: var(--ink);
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .demo-showcase,
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 34px;
+        }
+
+        .mini-flow,
+        .candidate-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .field-list div,
+        .result-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html" aria-label="返回作品集首页">
+        <span class="brand-mark">AI</span>
+        <span>苑夫唯 · AI产品作品集</span>
+      </a>
+      <nav class="case-nav" aria-label="项目导航">
+        <a href="#problem">问题</a>
+        <a href="#framework">框架</a>
+        <a href="#workflow">流程</a>
+        <a href="#demo">Demo</a>
+        <a href="#validation">验证</a>
+        <a href="#roadmap">路线图</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Project Case · AIGC Workflow</p>
+          <h1>建筑方案视觉生成工作台（AIGC）</h1>
+          <p class="lead">
+            面向前期方案表达、意向图探索和汇报配图的 AI 生成工作流原型。核心不是替代设计师，而是把模糊需求结构化，快速生成可沟通、可比选的方向草图。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#framework">查看产品框架</a>
+            <a class="secondary-link" href="#validation">查看验证结果</a>
+            <a class="secondary-link" href="../../index.html#aigc">返回作品集首页</a>
+          </div>
+          <div class="tag-list" aria-label="项目标签">
+            <span>结构化输入</span>
+            <span>Prompt模板</span>
+            <span>多版本生成</span>
+            <span>人工筛选</span>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="./assets/hero-workbench.svg" alt="建筑方案视觉生成工作台封面示意图" />
+        </figure>
+      </section>
+
+      <section id="problem" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem</p>
+          <h2>前期方案沟通需要图，但正式出图链路太重</h2>
+          <p>
+            在建筑地产方案评审、设计院沟通和内部 workshop 中，团队经常需要“不是最终成果，但必须够具体”的视觉材料。AIGC 的机会在于先降低早期沟通成本。
+          </p>
+        </div>
+        <div class="grid-4">
+          <article class="panel">
+            <strong>初稿慢</strong>
+            <p>workshop 沟通图可能需要 1-2 天准备，讨论节奏被出图资源拖慢。</p>
+          </article>
+          <article class="panel">
+            <strong>需求抽象</strong>
+            <p>高级、温暖、改善型这类词难以统一理解，跨团队认知容易偏差。</p>
+          </article>
+          <article class="panel">
+            <strong>Prompt 门槛</strong>
+            <p>非 AI 专业同事不会稳定写 Prompt，导致生成准确率因人而异。</p>
+          </article>
+          <article class="panel">
+            <strong>边界风险</strong>
+            <p>AI 图不能直接当正式设计成果，必须保留人工判断和用途标注。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Positioning</p>
+          <h2>参考建筑学长，但只做更小的 MVP 切口</h2>
+          <p>
+            建筑学长这类商业化产品证明建筑垂直 AI 绘图需求成立。本项目不包装成完整竞品，只聚焦前期方案表达中的模糊需求结构化和方向草图生成。
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>对比项</th>
+                <th>建筑学长</th>
+                <th>本项目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>产品成熟度</td>
+                <td>已上线商业产品</td>
+                <td>自主 MVP 原型与作品集项目</td>
+              </tr>
+              <tr>
+                <td>用户范围</td>
+                <td>建筑师、室内设计师、景观设计师、学生等</td>
+                <td>建筑地产产品/设计协同角色</td>
+              </tr>
+              <tr>
+                <td>场景范围</td>
+                <td>建筑、室内、景观、规划、资源、插件、课程</td>
+                <td>前期方案表达、workshop、设计院沟通、汇报辅助</td>
+              </tr>
+              <tr>
+                <td>输出目标</td>
+                <td>更接近设计效果图和渲染工具</td>
+                <td>方向草图、意向图、汇报辅助图</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="framework" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Framework</p>
+          <h2>产品框架：把模糊需求转成可生成指令</h2>
+          <p>
+            产品重点不是让用户学习复杂 Prompt，而是把建筑地产高频场景封装成字段和模板。
+          </p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/architecture.svg" alt="AIGC视觉生成工作台产品框架图" />
+          <figcaption>从模糊业务需求到结构化字段、Prompt 模板、多版本生成、人工筛选和沟通使用。</figcaption>
+        </figure>
+      </section>
+
+      <section id="workflow" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>用户流程：先结构化，再生成，再筛选</h2>
+          <p>
+            前期方案表达的目标是方向探索，不是一次生成定稿。多版本候选和人工筛选比单图命中更符合真实工作方式。
+          </p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/user-flow.svg" alt="用户从选择场景到结果归档的流程图" />
+          <figcaption>用户从一句模糊需求进入模板化工作流，结果用于 workshop、设计院沟通和汇报辅助。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Prototype</p>
+          <h2>页面原型：工作台而不是单次出图工具</h2>
+          <p>
+            页面结构包含场景模板、结构化输入、Prompt 预览、候选图筛选和结果归档。这样才能从工具演示变成可复用工作流。
+          </p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/workbench-overview.svg" alt="AIGC视觉生成工作台页面原型示意图" />
+          <figcaption>工作台总览示意：场景、字段、Prompt 和候选结果在同一条任务链路中呈现。</figcaption>
+        </figure>
+      </section>
+
+      <section id="demo" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Demo</p>
+          <h2>从模糊需求到可沟通候选图</h2>
+          <p>
+            这个 demo 展示产品要解决的关键问题：用户不用自己写完整 Prompt，只需要按业务字段补充信息，系统把字段组装为生成指令，并输出多个候选方向供人工筛选。
+          </p>
+        </div>
+        <div class="demo-showcase">
+          <article class="demo-panel">
+            <div class="mini-flow" aria-label="AIGC生成流程">
+              <span>结构化输入</span>
+              <span>Prompt模板</span>
+              <span>多版本生成</span>
+              <span>人工筛选</span>
+            </div>
+            <h3>当前场景：住宅入口方向图</h3>
+            <div class="scenario-list" aria-label="场景模板">
+              <div class="scenario-card active">住宅入口方向图</div>
+              <div class="scenario-card">TOD 汇报封面</div>
+              <div class="scenario-card">社区商业氛围图</div>
+            </div>
+            <p>
+              把“高端、温暖、有归家感”的模糊描述拆成项目类型、风格、用途、视角和表达重点，用于 workshop 和设计院沟通。
+            </p>
+            <div class="field-list" aria-label="结构化字段">
+              <div><span>项目类型</span><strong>高端改善住宅</strong></div>
+              <div><span>风格方向</span><strong>现代东方</strong></div>
+              <div><span>使用场景</span><strong>设计院沟通</strong></div>
+              <div><span>画面视角</span><strong>入口人视</strong></div>
+              <div><span>表达重点</span><strong>归家仪式感、温暖灯光、品质界面</strong></div>
+            </div>
+          </article>
+          <article class="demo-panel">
+            <h3>生成指令预览</h3>
+            <div class="prompt-box">高端改善住宅入口，现代东方建筑风格，石材立面，温暖灯光，酒店式归家体验，入口人视视角，真实尺度，精致住宅品质感。</div>
+            <div class="negative-box"><strong>负向约束：</strong>不要文字、不要水印、不要夸张造型、不要畸形透视、不要不真实比例。</div>
+            <div class="candidate-grid" aria-label="候选结果">
+              <div class="candidate-card"><strong>方向 A</strong><em>可用</em><p>入口气质接近，可放入 workshop 草稿。</p></div>
+              <div class="candidate-card"><strong>方向 B</strong><em>需后修</em><p>灯光氛围可用，立面比例需要调整。</p></div>
+              <div class="candidate-card"><strong>方向 C</strong><em>风格参考</em><p>材质和色调可参考，构图不稳定。</p></div>
+            </div>
+            <div class="result-row"><span>结果判断</span><strong>基本可用</strong></div>
+            <div class="result-row"><span>使用边界</span><strong>适合方向探索和氛围沟通，不适合直接作为正式效果图交付。</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Structured Input</p>
+          <h2>结构化输入字段</h2>
+          <p>
+            字段设计的原则是少而关键，每个字段都要影响生成结果，避免让非专业用户面对过多参数。
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>字段</th>
+                <th>说明</th>
+                <th>示例</th>
+                <th>是否必填</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>项目定位</td><td>产品或客群定位</td><td>高端改善住宅</td><td>是</td></tr>
+              <tr><td>业态类型</td><td>住宅、商业、TOD、商办等</td><td>住宅</td><td>是</td></tr>
+              <tr><td>场景功能</td><td>具体空间或画面任务</td><td>归家大堂、入口景观</td><td>是</td></tr>
+              <tr><td>风格方向</td><td>建筑或空间风格</td><td>现代东方、现代简约</td><td>是</td></tr>
+              <tr><td>材质倾向</td><td>主要视觉元素</td><td>石材、木饰面、金属</td><td>否</td></tr>
+              <tr><td>画面视角</td><td>人视、街角、鸟瞰、室内广角</td><td>室内广角人视</td><td>是</td></tr>
+              <tr><td>表达重点</td><td>核心氛围或沟通目标</td><td>归家仪式感、生活氛围</td><td>是</td></tr>
+              <tr><td>限制条件</td><td>不希望出现的内容</td><td>无文字、无水印、不要畸形比例</td><td>是</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Prompt Template</p>
+          <h2>Prompt 模板与负向约束</h2>
+          <p>
+            模板不是让用户背 Prompt，而是把高频场景的拆解经验沉淀成产品能力。
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>住宅大堂模板</h3>
+            <div class="prompt-box">high-end residential lobby, modern oriental interior design, stone wall, warm wood veneer, soft ambient lighting, hotel-like arrival experience, warm and elegant atmosphere, wide angle eye-level view</div>
+          </article>
+          <article class="panel">
+            <h3>Negative Prompt</h3>
+            <div class="prompt-box">text, watermark, shopping mall style, excessive luxury, distorted perspective, unrealistic proportions, blurry, low quality</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Trial</p>
+          <h2>真实试用反馈：不是商业化，但有业务语境</h2>
+          <p>
+            项目曾给前万科产品设计部同事试用，场景包括正式项目内部讨论、workshop 沟通、设计院方向沟通和汇报文件方案草图准备。
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>试用内容</th>
+                <th>用途</th>
+                <th>反馈</th>
+                <th>产品化启发</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>室内场景效果图</td>
+                <td>大堂、架空层、公区氛围方向</td>
+                <td>有草图后讨论更具体</td>
+                <td>适合前期空间氛围表达</td>
+              </tr>
+              <tr>
+                <td>立面效果图</td>
+                <td>建筑风格、材质、线条参考</td>
+                <td>给设计院的指令更明确</td>
+                <td>需要限制夸张造型和比例错误</td>
+              </tr>
+              <tr>
+                <td>景观效果图</td>
+                <td>入口、园林节点、社区生活场景</td>
+                <td>生活氛围表达比较稳定</td>
+                <td>适合景观节点和生活方式图</td>
+              </tr>
+              <tr>
+                <td>汇报方案草图</td>
+                <td>workshop、汇报页、内部沟通</td>
+                <td>原本 1-2 天的沟通图可更快生成初稿</td>
+                <td>可作为汇报辅助，不是正式成果</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="validation" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Validation</p>
+          <h2>验证结果：13 个场景达到基本可用及以上</h2>
+          <p>
+            评估维度包括需求贴合度、风格稳定性、表达可用性和人工修改成本。结论是 AIGC 更适合方向探索、意向图和汇报辅助，不适合强逻辑分析图与正式效果图交付。
+          </p>
+        </div>
+        <figure class="image-panel">
+          <img src="./assets/evaluation-chart.svg" alt="AIGC场景验证结果图" />
+          <figcaption>空间氛围图、汇报辅助图最稳定；总平关系、动线分析和强逻辑分析图不适合直接生成。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation Table</p>
+          <h2>15 个场景验证记录</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>场景类型</th>
+                <th>示例场景</th>
+                <th>需求贴合度</th>
+                <th>风格稳定性</th>
+                <th>表达可用性</th>
+                <th>结果判断</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>V1</td><td>建筑概念图</td><td>高端住宅现代东方概念图</td><td>高</td><td>中</td><td>高</td><td>可用</td></tr>
+              <tr><td>V2</td><td>建筑概念图</td><td>TOD 综合体城市界面概念图</td><td>中</td><td>中</td><td>中</td><td>基本可用</td></tr>
+              <tr><td>V3</td><td>建筑概念图</td><td>商办项目立面风格意向图</td><td>高</td><td>中</td><td>高</td><td>可用</td></tr>
+              <tr><td>V4</td><td>分析图</td><td>总平关系与功能分区分析图</td><td>低</td><td>中</td><td>低</td><td>一般</td></tr>
+              <tr><td>V5</td><td>分析图</td><td>动线与景观节点分析图</td><td>低</td><td>中</td><td>低</td><td>一般</td></tr>
+              <tr><td>V6</td><td>分析图</td><td>客群定位与场景匹配分析图</td><td>中</td><td>中</td><td>中</td><td>基本可用</td></tr>
+              <tr><td>V7</td><td>效果意向图</td><td>住宅入口大堂意向图</td><td>高</td><td>高</td><td>高</td><td>表现稳定</td></tr>
+              <tr><td>V8</td><td>效果意向图</td><td>社区架空层生活方式意向图</td><td>高</td><td>高</td><td>高</td><td>表现稳定</td></tr>
+              <tr><td>V9</td><td>效果意向图</td><td>商业街区夜景意向图</td><td>高</td><td>中</td><td>高</td><td>可用</td></tr>
+              <tr><td>V10</td><td>效果意向图</td><td>园林节点景观意向图</td><td>高</td><td>中</td><td>高</td><td>可用</td></tr>
+              <tr><td>V11</td><td>汇报辅助表达</td><td>产品定位汇报封面辅助图</td><td>高</td><td>高</td><td>高</td><td>表现稳定</td></tr>
+              <tr><td>V12</td><td>汇报辅助表达</td><td>方案背景页城市意向配图</td><td>高</td><td>高</td><td>高</td><td>表现稳定</td></tr>
+              <tr><td>V13</td><td>汇报辅助表达</td><td>竞品分析页风格对比图</td><td>中</td><td>中</td><td>中</td><td>基本可用</td></tr>
+              <tr><td>V14</td><td>汇报辅助表达</td><td>主打客群生活方式配图</td><td>高</td><td>高</td><td>高</td><td>表现稳定</td></tr>
+              <tr><td>V15</td><td>汇报辅助表达</td><td>产品线研究结论页辅助视觉</td><td>中</td><td>中</td><td>中</td><td>可用</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Decision</p>
+          <h2>关键取舍</h2>
+        </div>
+        <div class="grid-3">
+          <article class="panel">
+            <strong>结构化输入优先</strong>
+            <p>普通业务同事不应被要求成为 Prompt 专家，产品应把拆解能力封装进字段和模板。</p>
+          </article>
+          <article class="panel">
+            <strong>多版本优于单版本</strong>
+            <p>前期表达本来就是看方向和做比选，多个候选方向比单图命中更符合真实流程。</p>
+          </article>
+          <article class="panel">
+            <strong>人工筛选必须保留</strong>
+            <p>AI 负责初稿和探索，人工负责判断是否符合定位、是否可对外沟通、是否有设计风险。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>后续路线</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><span>v0</span><div><strong>场景验证</strong><p>完成 15 个样例场景和人工评估。</p></div></div>
+          <div class="timeline-item"><span>v1</span><div><strong>结构化输入</strong><p>建立字段体系和高频场景模板。</p></div></div>
+          <div class="timeline-item"><span>v2</span><div><strong>Prompt 模板库</strong><p>封装大堂、立面、景观、汇报配图模板。</p></div></div>
+          <div class="timeline-item"><span>v3</span><div><strong>多版本筛选</strong><p>加入候选图标注、归档和复盘。</p></div></div>
+          <div class="timeline-item"><span>v4</span><div><strong>参考图输入与局部重绘</strong><p>支持上传参考图、草图，以及局部材质和景观调整。</p></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>苑夫唯 · AI产品经理作品集</span>
+      <span>建筑方案视觉生成工作台（AIGC）</span>
+    </footer>
+  </body>
+</html>

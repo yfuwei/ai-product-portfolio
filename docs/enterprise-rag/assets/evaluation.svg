@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">企业知识库RAG验证结果</title>
+  <desc id="desc">不同问题类型的验证表现。</desc>
+  <rect width="1200" height="620" fill="#f5f7fb"/>
+  <rect x="72" y="60" width="1056" height="500" rx="8" fill="#fff" stroke="#d9e1e7"/>
+  <text x="100" y="112" fill="#111418" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="800">20 个问题验证结果</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <g fill="#66717a" font-size="15">
+      <text x="138" y="508">事实检索</text>
+      <text x="324" y="508">定向提取</text>
+      <text x="510" y="508">对比归纳</text>
+      <text x="696" y="508">文本生成</text>
+      <text x="882" y="508">边界追问</text>
+    </g>
+    <line x1="112" y1="462" x2="1040" y2="462" stroke="#d9e1e7"/>
+    <line x1="112" y1="382" x2="1040" y2="382" stroke="#d9e1e7"/>
+    <line x1="112" y1="302" x2="1040" y2="302" stroke="#d9e1e7"/>
+    <line x1="112" y1="222" x2="1040" y2="222" stroke="#d9e1e7"/>
+    <g>
+      <rect x="138" y="222" width="88" height="240" rx="8" fill="#00a6d6"/>
+      <rect x="324" y="262" width="88" height="200" rx="8" fill="#00a6d6"/>
+      <rect x="510" y="342" width="88" height="120" rx="8" fill="#f7d84a"/>
+      <rect x="696" y="302" width="88" height="160" rx="8" fill="#00a6d6"/>
+      <rect x="882" y="222" width="88" height="240" rx="8" fill="#f04467"/>
+    </g>
+    <g fill="#111418" font-size="16" font-weight="800">
+      <text x="150" y="206">表现稳定</text>
+      <text x="338" y="246">可用</text>
+      <text x="512" y="326">基本可用</text>
+      <text x="710" y="286">可用</text>
+      <text x="892" y="206">表现稳定</text>
+    </g>
+    <rect x="108" y="146" width="930" height="44" rx="8" fill="#fff6c7" stroke="#f7d84a"/>
+    <text x="132" y="174" fill="#111418" font-size="16" font-weight="800">结论：事实检索、单文档提取、短文本初稿、拒答边界最适合 MVP；复杂跨文档归纳需要收窄范围。</text>
+  </g>
+</svg>

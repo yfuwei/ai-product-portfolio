@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img" aria-labelledby="title desc">
+  <title id="title">建筑方案视觉生成工作台封面图</title>
+  <desc id="desc">结构化输入、Prompt模板、多版本生成和人工筛选组成的AIGC工作台示意图。</desc>
+  <rect width="1280" height="780" fill="#f6f8f2"/>
+  <rect x="56" y="52" width="1168" height="676" rx="8" fill="#ffffff" stroke="#cfd8d3" stroke-width="2"/>
+  <rect x="56" y="52" width="1168" height="76" rx="8" fill="#0f1720"/>
+  <text x="88" y="100" font-family="Arial, 'PingFang SC', sans-serif" font-size="28" font-weight="700" fill="#ffffff">建筑方案视觉生成工作台（AIGC）</text>
+  <text x="860" y="98" font-family="Arial, 'PingFang SC', sans-serif" font-size="18" fill="#f4c542">前期方案表达 · 方向草图 · 汇报辅助</text>
+  <rect x="88" y="166" width="300" height="500" rx="8" fill="#eef4f1" stroke="#cfd8d3"/>
+  <text x="112" y="206" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700" fill="#101820">结构化输入</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="17" fill="#23313a">
+    <rect x="112" y="236" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="263">项目定位：高端改善住宅</text>
+    <rect x="112" y="292" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="319">场景功能：归家大堂</text>
+    <rect x="112" y="348" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="375">风格方向：现代东方</text>
+    <rect x="112" y="404" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="431">材质：石材 / 木饰面</text>
+    <rect x="112" y="460" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="487">视角：室内广角人视</text>
+    <rect x="112" y="516" width="236" height="42" rx="8" fill="#ffffff" stroke="#d7dfd9"/><text x="130" y="543">限制：无文字 / 无水印</text>
+  </g>
+  <rect x="430" y="166" width="346" height="500" rx="8" fill="#fff9e6" stroke="#e6d89a"/>
+  <text x="454" y="206" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700" fill="#101820">Prompt 模板</text>
+  <rect x="454" y="236" width="276" height="166" rx="8" fill="#ffffff" stroke="#eadb9b"/>
+  <text x="476" y="268" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#23313a">high-end residential lobby,</text>
+  <text x="476" y="298" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#23313a">modern oriental interior,</text>
+  <text x="476" y="328" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#23313a">stone wall, warm wood,</text>
+  <text x="476" y="358" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#23313a">hotel-like arrival experience</text>
+  <rect x="454" y="430" width="276" height="118" rx="8" fill="#fff2f2" stroke="#edb5b5"/>
+  <text x="476" y="462" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" font-weight="700" fill="#9f2d2d">Negative</text>
+  <text x="476" y="492" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#553333">no text, no watermark,</text>
+  <text x="476" y="522" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#553333">no distorted perspective</text>
+  <rect x="820" y="166" width="348" height="500" rx="8" fill="#eef7fb" stroke="#c3dce7"/>
+  <text x="844" y="206" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700" fill="#101820">多版本生成与筛选</text>
+  <g>
+    <rect x="846" y="236" width="128" height="112" rx="8" fill="#d8e7ea"/><path d="M864 318 L896 282 L920 306 L944 274 L960 318 Z" fill="#6f9aa4"/><circle cx="892" cy="268" r="10" fill="#f4c542"/>
+    <rect x="1008" y="236" width="128" height="112" rx="8" fill="#e7e0d3"/><path d="M1026 318 L1058 288 L1082 308 L1110 278 L1120 318 Z" fill="#9c8f74"/><circle cx="1052" cy="268" r="10" fill="#f4c542"/>
+    <rect x="846" y="390" width="128" height="112" rx="8" fill="#e1ead8"/><path d="M862 470 L894 438 L922 462 L950 430 L960 470 Z" fill="#7d9c67"/><circle cx="892" cy="424" r="10" fill="#f4c542"/>
+    <rect x="1008" y="390" width="128" height="112" rx="8" fill="#dfe7f2"/><path d="M1026 470 L1056 440 L1082 460 L1110 432 L1120 470 Z" fill="#7690af"/><circle cx="1052" cy="424" r="10" fill="#f4c542"/>
+  </g>
+  <rect x="846" y="548" width="82" height="32" rx="8" fill="#1f7a5a"/><text x="866" y="570" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#ffffff">可用</text>
+  <rect x="944" y="548" width="82" height="32" rx="8" fill="#b0722d"/><text x="958" y="570" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#ffffff">需后修</text>
+  <rect x="1042" y="548" width="94" height="32" rx="8" fill="#40576f"/><text x="1056" y="570" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#ffffff">风格参考</text>
+</svg>

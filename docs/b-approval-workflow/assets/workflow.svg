@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">B端审批协同平台流程图</title>
+  <desc id="desc">从在线提报、会前预审、进入评审到意见沉淀和历史追踪的流程图。</desc>
+  <rect width="1280" height="560" fill="#f5f7fb"/>
+  <text x="64" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="700" fill="#111418">主流程：可提交、可预审、可追踪、可沉淀</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="70" y="150" width="150" height="70" rx="8" fill="#ffffff" stroke="#d9e1e7"/><text x="145" y="192" fill="#111418">在线提报</text>
+    <rect x="270" y="150" width="150" height="70" rx="8" fill="#ffffff" stroke="#d9e1e7"/><text x="345" y="192" fill="#111418">必填校验</text>
+    <rect x="470" y="150" width="150" height="70" rx="8" fill="#fff5cc" stroke="#f0d670"/><text x="545" y="192" fill="#111418">会前预审</text>
+    <rect x="670" y="150" width="150" height="70" rx="8" fill="#ffffff" stroke="#d9e1e7"/><text x="745" y="192" fill="#111418">进入评审</text>
+    <rect x="870" y="150" width="150" height="70" rx="8" fill="#ffffff" stroke="#d9e1e7"/><text x="945" y="192" fill="#111418">意见沉淀</text>
+    <rect x="1070" y="150" width="150" height="70" rx="8" fill="#e4f4ec" stroke="#93c7aa"/><text x="1145" y="192" fill="#111418">历史追踪</text>
+    <rect x="330" y="332" width="190" height="70" rx="8" fill="#ffe8ee" stroke="#f0a1b2"/><text x="425" y="374" fill="#111418">退回补充</text>
+  </g>
+  <g stroke="#66717a" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M220 185 H270"/><path d="M420 185 H470"/><path d="M620 185 H670"/><path d="M820 185 H870"/><path d="M1020 185 H1070"/>
+    <path d="M545 220 V278 Q545 332 520 367"/>
+    <path d="M330 367 H190 Q145 367 145 220"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#66717a">
+    <text x="66" y="474">升级目标：把邮件、微信群、共享文件夹里的分散协作，收敛为线上主流程。</text>
+    <text x="66" y="506">关键不是页面数量，而是字段、状态、权限和责任事项能否真正跑通。</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#66717a"/></marker></defs>
+</svg>
