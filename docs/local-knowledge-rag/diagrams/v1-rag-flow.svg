@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">V1 本地 RAG 架构流程图</title>
+  <desc id="desc">展示从本地文档到切块、向量库、检索、提示词组装与答案输出的 V1 RAG 链路。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f5f7fb; }
+      .box { fill: #ffffff; stroke: #d9e1e7; stroke-width: 2; rx: 14; ry: 14; }
+      .accent { fill: #eef9fd; stroke: #00a6d6; }
+      .output { fill: #ffe8ee; stroke: #f04467; }
+      .text { fill: #111418; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 22px; font-weight: 700; }
+      .sub { fill: #66717a; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; }
+      .arrow { stroke: #111418; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111418" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="520" rx="24" />
+
+  <rect class="box accent" x="70" y="90" width="220" height="84" />
+  <text class="text" x="180" y="126" text-anchor="middle">Obsidian 笔记</text>
+  <text class="sub" x="180" y="154" text-anchor="middle">本地文档</text>
+
+  <rect class="box" x="330" y="90" width="210" height="84" />
+  <text class="text" x="435" y="126" text-anchor="middle">文档读取</text>
+  <text class="sub" x="435" y="154" text-anchor="middle">转换与清洗</text>
+
+  <rect class="box" x="580" y="90" width="220" height="84" />
+  <text class="text" x="690" y="126" text-anchor="middle">Chunk 切分</text>
+  <text class="sub" x="690" y="154" text-anchor="middle">保留结构与元数据</text>
+
+  <rect class="box" x="840" y="90" width="210" height="84" />
+  <text class="text" x="945" y="126" text-anchor="middle">本地 Embedding</text>
+  <text class="sub" x="945" y="154" text-anchor="middle">向量化处理</text>
+
+  <rect class="box accent" x="1090" y="90" width="230" height="84" />
+  <text class="text" x="1205" y="126" text-anchor="middle">Chroma 向量库</text>
+  <text class="sub" x="1205" y="154" text-anchor="middle">本地持久化存储</text>
+
+  <rect class="box" x="70" y="320" width="220" height="84" />
+  <text class="text" x="180" y="356" text-anchor="middle">用户问题</text>
+  <text class="sub" x="180" y="384" text-anchor="middle">自然语言输入</text>
+
+  <rect class="box" x="370" y="320" width="220" height="84" />
+  <text class="text" x="480" y="356" text-anchor="middle">语义检索</text>
+  <text class="sub" x="480" y="384" text-anchor="middle">召回相关片段</text>
+
+  <rect class="box" x="670" y="320" width="220" height="84" />
+  <text class="text" x="780" y="356" text-anchor="middle">Prompt 组装</text>
+  <text class="sub" x="780" y="384" text-anchor="middle">问题 + 上下文</text>
+
+  <rect class="box" x="970" y="320" width="170" height="84" />
+  <text class="text" x="1055" y="356" text-anchor="middle">LLM 回答</text>
+  <text class="sub" x="1055" y="384" text-anchor="middle">基于来源生成</text>
+
+  <rect class="box output" x="1180" y="320" width="170" height="84" />
+  <text class="text" x="1265" y="356" text-anchor="middle">答案输出</text>
+  <text class="sub" x="1265" y="384" text-anchor="middle">引用来源</text>
+
+  <line class="arrow" x1="290" y1="132" x2="330" y2="132" />
+  <line class="arrow" x1="540" y1="132" x2="580" y2="132" />
+  <line class="arrow" x1="800" y1="132" x2="840" y2="132" />
+  <line class="arrow" x1="1050" y1="132" x2="1090" y2="132" />
+
+  <line class="arrow" x1="290" y1="362" x2="370" y2="362" />
+  <line class="arrow" x1="590" y1="362" x2="670" y2="362" />
+  <line class="arrow" x1="890" y1="362" x2="970" y2="362" />
+  <line class="arrow" x1="1140" y1="362" x2="1180" y2="362" />
+
+  <path class="arrow" d="M1205 174 C1205 250, 480 220, 480 320" />
+</svg>

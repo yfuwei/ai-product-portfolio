@@ -3,14 +3,14 @@ window.portfolioData = {};
 window.portfolioData.projects = [
   {
     id: "local-rag",
-    title: "本地个人知识库 RAG 系统",
-    subtitle: "主推项目 · LLM + RAG / AI检索工作台",
+    title: "本地知识助手：从 RAG 到 Agentic RAG",
+    subtitle: "主推项目 · AI Agent + 本地 RAG",
     problem: "个人知识分散、语义检索弱、隐私资料不适合上传云端",
-    approach: "本地 embedding + Chroma + FastAPI GUI + 引用溯源",
-    result: "完成163个文件、390个chunks的索引验证",
+    approach: "本地 RAG 底座 + Router/Tool/Memory + 只读 Agent 编排",
+    result: "完成163个文件、390个chunks索引，并把知识检索升级为本地 Agent 助手",
     link: "#local-rag",
     level: "featured",
-    accent: "RAG产品经理",
+    accent: "AI Agent 产品",
     image: "./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png",
   },
   {
@@ -59,7 +59,35 @@ window.portfolioData.localRag = {
     { label: "已索引文件", value: "163", note: "162个 Obsidian Markdown 文件 + 脱敏文档测试样例" },
     { label: "向量片段", value: "390", note: "385个 Obsidian chunks + 5个文档 chunks" },
     { label: "运行方式", value: "本地", note: "Ollama embedding、Chroma 向量库、FastAPI GUI" },
-    { label: "机器约束", value: "Intel i5", note: "按 2020 款 MacBook Pro 16GB 内存设计轻量方案" },
+    { label: "Agent能力", value: "V2", note: "Router 决策、search_docs Tool、Memory 与执行链路展示" },
+  ],
+  phases: [
+    {
+      label: "V1",
+      title: "本地 RAG 知识库",
+      body: "完成文档导入、embedding、Chroma 向量检索、来源引用和 Web GUI，解决资料找回与答案可信问题。",
+    },
+    {
+      label: "V2",
+      title: "Agentic RAG 助手",
+      body: "在 RAG 之上增加 Router、search_docs Tool、Memory 和 Agent Core，让 LLM 从生成器升级为任务决策中枢。",
+    },
+  ],
+  spotlight: [
+    "把本地知识检索从固定流程升级为会判断、会调工具的 AI Agent。",
+    "用两阶段叙事清楚说明：为什么从 RAG 升级到 Agent，而不是只堆功能。",
+    "强调本地化、引用溯源和只读边界，兼顾能力展示与风险控制。",
+  ],
+  v1Issues: [
+    { title: "强制检索", body: "无论问题是否需要资料依据，V1 都默认进入检索链路，流程不够智能。" },
+    { title: "无决策能力", body: "系统只能被动召回片段，不能判断用户是在问答、总结、对比还是项目整理。" },
+    { title: "缺少记忆", body: "每轮对话相对独立，用户继续追问时需要重复背景。" },
+  ],
+  agentModules: [
+    { title: "Router", body: "判断问题是否需要查询知识库，输出 direct 或 retrieve。" },
+    { title: "Tool", body: "把 RAG 检索封装为 search_docs 工具，供 Agent 调用。" },
+    { title: "Memory", body: "保存最近对话，让连续追问可以继承上下文。" },
+    { title: "Agent Core", body: "调度决策、工具调用、上下文组装和最终回答生成。" },
   ],
   decisions: [
     {
@@ -74,6 +102,16 @@ window.portfolioData.localRag = {
       title: "低配置电脑可运行",
       body: "用小批量 embedding、分批索引和路径刷新，适配 2020 Intel MacBook Pro。",
     },
+    {
+      title: "Agent 只读边界",
+      body: "Agent 先只允许调用检索工具和读取上下文，不直接修改本地文件，降低自动执行带来的误操作风险。",
+    },
+  ],
+  pmRole: [
+    "定义目标用户、场景、痛点、MVP 范围和风险边界",
+    "拆分数据源、向量库、检索、生成、GUI 和 Agent 控制层",
+    "设计 Router prompt 与 Answer prompt，约束是否检索和基于来源回答",
+    "完成本地索引、GUI 检索、来源问答和 Agent 助手验证",
   ],
   flows: [
     "扫描允许索引的 Obsidian 笔记和本地文档",
@@ -86,7 +124,7 @@ window.portfolioData.localRag = {
     "文件管理规则类问题可以召回对应的文件管理说明。",
     "阅读标注导入类问题可以召回对应的导入流程说明。",
     "本地 RAG GUI 启动类问题可以召回日常使用手册。",
-    "面试准备类问题可以召回对应的准备材料。",
+    "项目整理类问题可以召回对应的准备材料。",
   ],
   screenshots: [
     { label: "GUI 总览", src: "./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" },
@@ -98,6 +136,7 @@ window.portfolioData.localRag = {
     "Obsidian 笔记与本地文档",
     "文档转换、切块、本地 embedding",
     "Chroma 本地向量库",
+    "Agent Router、Tool、Memory",
     "FastAPI Web GUI",
   ],
   diagrams: [
@@ -132,10 +171,9 @@ window.portfolioData.localRag = {
   ],
   documents: [
     { label: "项目案例页", href: "./docs/local-knowledge-rag/index.html" },
-    { label: "下载产品设计文档", href: "./docs/local-knowledge-rag/本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf", type: "download" },
-    { label: "产品简报", href: "./docs/local-knowledge-rag/index.html#product-brief" },
-    { label: "系统设计", href: "./docs/local-knowledge-rag/index.html#system-design" },
-    { label: "验证记录", href: "./docs/local-knowledge-rag/index.html#evaluation" },
+    { label: "完整产品设计文档（含架构、设计思考与演进细节）：👉 点击查看", href: "./docs/local-knowledge-rag/本地知识助手_RAG到AgenticRAG_产品设计文档.pdf", type: "download" },
+    { label: "V1/V2对比", href: "./docs/local-knowledge-rag/index.html#comparison" },
+    { label: "AI PM角色", href: "./docs/local-knowledge-rag/index.html#role" },
   ],
 };
 

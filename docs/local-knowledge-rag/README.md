@@ -1,8 +1,8 @@
-# 本地个人知识库 RAG 系统
+# 本地知识助手：从 RAG 到 Agentic RAG
 
 ## 项目概览
 
-本地个人知识库 RAG 系统是一个面向个人笔记和本地文档的语义检索原型。它索引 Obsidian vault 中的 Markdown 笔记和本地文档库中的部分文件，提供语义检索、带来源的回答，以及可日常使用的 FastAPI 网页界面。
+本地知识助手是一个面向个人笔记和本地文档的 AI 知识管理项目。V1 索引 Obsidian vault 中的 Markdown 笔记和本地文档库中的部分文件，提供语义检索、带来源的回答，以及可日常使用的 FastAPI 网页界面；V2 在 RAG 之上增加 Router、search_docs Tool、Memory 和 Agent Core，升级为具备决策与工具调用能力的 Agentic RAG。
 
 这个项目不是要替代 Obsidian 或云盘，而是在现有笔记系统和本地文档库之上，增加一层私有、可追溯的语义检索能力。
 
@@ -21,6 +21,7 @@
 - embedding、向量库、转换缓存和日志全部留在本机。
 - 每条搜索结果都返回来源路径、标题、章节和片段。
 - 提供非终端使用的轻量网页 GUI。
+- 增加只读 Agent 编排层，展示决策、工具调用、引用来源和下一步建议。
 - 支持低配置电脑上的小批量索引。
 - 通过文档、配置模板和可重建索引支持换电脑迁移。
 
@@ -40,6 +41,7 @@
 - 支持通过 MarkItDown 转换本地文档。
 - 支持 CLI 检索和 FastAPI 原生 Web GUI。
 - 支持带引用来源的轻量 RAG 回答。
+- 支持 Agentic RAG：Router 决策、search_docs Tool、Memory 和 Agent Core。
 - 支持按文件路径刷新，避免笔记改动后留下旧 chunks。
 - 支持 `--offset`、`--limit`、`--max-chunks` 和文件类型过滤，适合低配置电脑分批索引。
 
@@ -56,11 +58,13 @@
 ## 公开阅读入口
 
 - [HTML 项目案例页](index.html)
+- [Agentic RAG 产品设计文档](本地知识助手_RAG到AgenticRAG_产品设计文档.md)
 - [项目背景](index.html#overview)
+- [V1/V2 对比](index.html#comparison)
 - [系统架构](index.html#architecture)
-- [GUI 截图](index.html#screenshots)
+- [Agent 模块设计](index.html#agent-design)
 - [验证结果](index.html#evaluation)
-- [隐私边界](index.html#privacy)
+- [我的角色](index.html#role)
 
 Markdown 文件仅作为公开页面的内容草稿和维护素材，不作为招聘方主要阅读入口。更详细的项目复盘、PRD、系统设计、验证表和面试问答已经同步到 Obsidian 项目素材目录：
 

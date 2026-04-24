@@ -289,26 +289,60 @@ function renderWorkflowDemo(activeIndex = 0) {
 
 function renderLocalRagDemo() {
   const [primaryDoc, downloadDoc, ...secondaryDocs] = localRag.documents;
+  const [heroShot, , thirdShot] = localRag.screenshots;
 
   localRagDemo.innerHTML = `
     <div class="local-rag-feature">
       <div class="feature-copy">
         <p class="panel-kicker">Project 01 · Featured Case</p>
-        <h3>本地个人知识库 RAG 系统</h3>
+        <h3>本地知识助手：从 RAG 到 Agentic RAG</h3>
         <p>
-          这个项目从真实知识管理场景出发：资料越来越多，关键词搜索不够，直接问大模型又缺少依据。
-          因此产品原则是先找来源，再生成回答，并让用户能回到原文复核。
+          这个项目从真实知识管理场景出发：V1 先解决“资料找得回、答案有依据”的本地 RAG 问题；
+          V2 再增加 Router、Tool Calling 和 Memory，把检索能力升级成会判断、会调工具的本地 AI Agent。
         </p>
+        <div class="spotlight-list">
+          ${localRag.spotlight
+            .map(
+              (item) => `
+                <article class="spotlight-card">
+                  <p>${item}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="phase-grid">
+          ${localRag.phases
+            .map(
+              (phase) => `
+                <article class="phase-card">
+                  <span>${phase.label}</span>
+                  <strong>${phase.title}</strong>
+                  <p>${phase.body}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
         <div class="feature-links">
           <a class="case-link-primary" href="${primaryDoc.href}">${primaryDoc.label}</a>
-          <a class="case-link-download" href="${downloadDoc.href}" download="本地个人知识库RAG系统_产品设计文档_苑夫唯.pdf">${downloadDoc.label}</a>
+          <a class="case-link-download" href="${downloadDoc.href}" download="本地知识助手_RAG到AgenticRAG_产品设计文档.pdf">${downloadDoc.label}</a>
           <div class="case-link-row">
             ${secondaryDocs.map((doc) => `<a href="${doc.href}">${doc.label}</a>`).join("")}
           </div>
         </div>
       </div>
       <a class="feature-cover" href="${primaryDoc.href}">
-        <img src="./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" alt="本地个人知识库 RAG 系统封面截图" />
+        <div class="feature-cover-grid">
+          <figure class="feature-shot">
+            <img src="${heroShot.src}" alt="${heroShot.label}" />
+            <figcaption>${heroShot.label}</figcaption>
+          </figure>
+          <figure class="feature-shot">
+            <img src="${thirdShot.src}" alt="${thirdShot.label}" />
+            <figcaption>${thirdShot.label}</figcaption>
+          </figure>
+        </div>
         <span>打开完整项目案例页</span>
       </a>
     </div>
@@ -327,8 +361,41 @@ function renderLocalRagDemo() {
         .join("")}
     </div>
 
+    <div class="demo-grid local-rag-compact-grid">
+      <div class="demo-panel">
+        <h3>为什么从 RAG 升级到 Agent</h3>
+        <div class="decision-stack">
+          ${localRag.v1Issues
+            .map(
+              (item) => `
+                <article class="decision-card">
+                  <strong>${item.title}</strong>
+                  <p>${item.body}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </div>
+      <div class="demo-panel">
+        <h3>Agent 四个核心模块</h3>
+        <div class="decision-stack">
+          ${localRag.agentModules
+            .map(
+              (item) => `
+                <article class="decision-card">
+                  <strong>${item.title}</strong>
+                  <p>${item.body}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </div>
+    </div>
+
     <div class="demo-panel">
-      <h3>关键设计点</h3>
+      <h3>关键设计判断</h3>
       <div class="decision-stack">
         ${localRag.decisions
           .map(

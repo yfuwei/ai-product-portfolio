@@ -1,0 +1,178 @@
+@page {
+  size: A4;
+  margin: 14mm 12mm 14mm 12mm;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  color: #1d242b;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  line-height: 1.6;
+}
+
+header#title-block-header {
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+td,
+th {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+h1,
+h2,
+h3 {
+  color: #111418;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 18px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 24px 0 12px;
+}
+
+h3 {
+  font-size: 15px;
+  margin: 16px 0 8px;
+}
+
+p,
+li {
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 12px 0 18px;
+  font-size: 11px;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+th,
+td {
+  padding: 7px 8px;
+  vertical-align: top;
+  border: 1px solid #d9e1e7;
+}
+
+th {
+  color: #111418;
+  background: #eef9fd;
+  font-weight: 700;
+  text-align: left;
+}
+
+code,
+pre {
+  font-family: "SFMono-Regular", "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 11px;
+}
+
+pre {
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  border: 1px solid #d9e1e7;
+  border-radius: 8px;
+  background: #f5f7fb;
+}
+
+blockquote {
+  margin: 14px 0;
+  padding: 10px 14px;
+  border-left: 4px solid #00a6d6;
+  background: #f5f7fb;
+}
+
+.callout {
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid #d9e1e7;
+  border-left: 4px solid #00a6d6;
+  border-radius: 8px;
+  background: #f5f7fb;
+}
+
+.callout-title {
+  margin: 0 0 6px;
+  color: #111418;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.callout + .callout {
+  margin-top: 10px;
+}
+
+.callout-summary {
+  background: #eef9fd;
+  border-left-color: #00a6d6;
+}
+
+.callout-note,
+.callout-info,
+.callout-tip,
+.callout-important {
+  background: #f5f7fb;
+}
+
+.callout-warning {
+  background: #fff4df;
+  border-left-color: #f7b500;
+}
+
+nav#TOC {
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  border: 1px solid #d9e1e7;
+  border-radius: 8px;
+  background: #f5f7fb;
+}
+
+nav#TOC > ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+nav#TOC li {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+nav#TOC a {
+  color: #111418;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
