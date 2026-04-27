@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>本地知识助手：从 RAG 到 Agentic RAG | 项目详情</title>
+    <title>本地知识助手（RAG → Agentic RAG）| 项目详情</title>
     <meta
       name="description"
-      content="本地知识助手项目详情页：围绕问题、V1 RAG、V2 Agentic RAG 和用户价值提升，快速展示项目亮点与产品判断。"
+      content="本地知识助手（RAG → Agentic RAG）项目详情页：围绕问题定义、V1/V2演进、真实场景验证、用户价值和系统边界展示 AI PM 产品判断。"
     />
     <style>
       :root {
@@ -444,6 +444,13 @@
         border-bottom: 1px solid var(--line);
       }
 
+      .diagram-card img {
+        aspect-ratio: auto;
+        max-height: none;
+        object-fit: contain;
+        background: #f3f6fa;
+      }
+
       .image-card div {
         padding: 16px;
       }
@@ -522,15 +529,15 @@
         <span>本地知识助手项目详情</span>
       </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#highlights">亮点</a>
-        <a href="#background">背景</a>
+        <a href="#overview">速览</a>
+        <a href="#background">问题</a>
         <a href="#v1">V1</a>
         <a href="#v2">V2</a>
+        <a href="#evaluation">评估</a>
         <a href="#comparison">对比</a>
         <a href="#value">价值</a>
-        <a href="#design">思考</a>
+        <a href="#limits">限制</a>
         <a href="#role">角色</a>
-        <a href="#summary">总结</a>
       </nav>
     </header>
 
@@ -538,26 +545,27 @@
       <section class="hero" id="hero">
         <div>
           <p class="eyebrow">Project 01 · Portfolio Page</p>
-          <h1>本地知识助手：从 RAG 到 Agentic RAG</h1>
-          <p class="hero-subtitle">一个从“检索问答”升级为“会判断、会调用工具”的本地 Agent 知识助手。</p>
+          <h1>本地知识助手（RAG → Agentic RAG）</h1>
+          <p class="hero-subtitle">从“语义检索工具”升级为“具备决策能力的 AI 知识助手”。</p>
           <p class="lead">
-            一个围绕问题定义、两阶段演进和用户价值展开的 Agentic RAG 项目详情页，重点展示核心亮点、架构升级和关键设计判断。
+            让用户从“找文件”转变为“直接获取有依据的答案”：V1 用 RAG 解决资料召回与引用溯源，V2 用 Router、Tool Calling 和 Memory 把系统升级为任务执行入口。
           </p>
           <div class="tag-row">
-            <span class="tag">AI Agent</span>
-            <span class="tag">Agent 知识助手</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Agent</span>
+            <span class="tag">Tool Calling</span>
+            <span class="tag">Memory</span>
+            <span class="tag">本地部署</span>
             <span class="tag">Agentic RAG</span>
-            <span class="tag">本地知识库</span>
-            <span class="tag">AI PM</span>
           </div>
           <div class="hero-meta">
             <article class="meta-card">
-              <span>我的角色</span>
-              <strong>AI 产品经理 / 架构拆分 / Prompt 设计 / Demo 验证</strong>
+              <span>验证结果</span>
+              <strong>10 条真实任务问题：9 条命中，1 条基本命中，回答可用性约 8/10</strong>
             </article>
             <article class="meta-card">
               <span>项目定位</span>
-              <strong>不是普通 RAG Demo，而是一个带演进逻辑的 AI Agent / Agentic RAG 案例</strong>
+              <strong>不是普通 RAG Demo，而是一个带系统演进、评估和边界意识的 Agentic RAG 案例</strong>
             </article>
           </div>
           <div class="hero-actions">
@@ -570,22 +578,43 @@
         </a>
       </section>
 
-      <section class="section alt" id="highlights">
+      <section class="section alt" id="overview">
         <div class="section-heading">
-          <p class="eyebrow">Highlights</p>
-          <h2>项目亮点</h2>
+          <p class="eyebrow">TL;DR</p>
+          <h2>项目速览</h2>
+          <p>不看全文也能理解 80%：问题、方案、结果和亮点都围绕“从找文件到找答案 + 找依据”。</p>
         </div>
-        <div class="grid-2">
+        <div class="grid-4">
           <article class="panel">
+            <span class="section-kicker">问题</span>
             <ul class="bullet-list">
-              <li>不是把 RAG 做得更重，而是把它升级为一个带决策层的知识助手。</li>
-              <li>核心叙事清晰：问题定义 → V1 RAG → V1 不足 → V2 Agentic RAG → 用户价值提升。</li>
+              <li>知识分散，靠关键词找不准。</li>
+              <li>直接问 LLM 容易无依据。</li>
+              <li>连续任务缺少上下文。</li>
             </ul>
           </article>
           <article class="panel">
+            <span class="section-kicker">方案</span>
             <ul class="bullet-list">
-              <li>把检索能力抽象成 `search_docs` Tool，让项目从固定流程走向可扩展的 Agent 架构。</li>
-              <li>强调本地化、引用溯源和只读边界，展示的不只是能力，还有产品判断和风险控制。</li>
+              <li>V1：RAG 解决检索与引用。</li>
+              <li>V2：Agent 解决决策与连续使用。</li>
+              <li>默认本地部署与只读边界。</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">结果</span>
+            <ul class="bullet-list">
+              <li>10 条真实任务问题。</li>
+              <li>9 条命中，1 条基本命中。</li>
+              <li>回答可用性约 8/10。</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">亮点</span>
+            <ul class="bullet-list">
+              <li>RAG 工具化。</li>
+              <li>Agent 决策层。</li>
+              <li>可解释执行过程。</li>
             </ul>
           </article>
         </div>
@@ -594,19 +623,19 @@
       <section class="section" id="background">
         <div class="section-heading">
           <p class="eyebrow">Problem</p>
-          <h2>问题背景</h2>
-          <p>个人笔记、项目资料和工作沉淀分散在 Obsidian 与本地文件里，关键词搜索不够，直接问模型又缺少依据。</p>
+          <h2>问题定义</h2>
+          <p>用户的问题不是“如何问 AI”，而是如何让 AI 在本地知识中“找得到 + 信得过 + 用得顺”。</p>
         </div>
         <div class="metric-grid">
           <article class="metric-card">
             <span>找得到</span>
-            <strong>163</strong>
-            <p>已完成本地文件索引验证，核心目标是按语义找回资料，而不是按文件名回忆。</p>
+            <strong>语义</strong>
+            <p>资料分散在 Obsidian、项目材料和本地文档中，关键词搜索无法覆盖同义表达和跨文件线索。</p>
           </article>
           <article class="metric-card">
             <span>信得过</span>
-            <strong>390</strong>
-            <p>回答绑定来源片段，让用户能回到原文复核，而不是只接受模型结论。</p>
+            <strong>来源</strong>
+            <p>LLM 回答必须绑定来源片段，让用户能回到原文复核，而不是只接受模型结论。</p>
           </article>
           <article class="metric-card">
             <span>控得住</span>
@@ -615,8 +644,8 @@
           </article>
           <article class="metric-card">
             <span>用得顺</span>
-            <strong>GUI</strong>
-            <p>不是脚本演示，而是可日常使用的轻量工作台。</p>
+            <strong>上下文</strong>
+            <p>用户会连续追问、对比和整理项目，系统需要判断任务类型并承接最近上下文。</p>
           </article>
         </div>
       </section>
@@ -691,7 +720,7 @@
         <div class="grid-2">
           <article class="panel">
             <span class="section-kicker">一句话升级</span>
-            <p style="margin-top: 12px">LLM 不再只是生成答案，而是先判断要不要查资料，再决定如何完成任务。</p>
+            <p style="margin-top: 12px">LLM 不再只是生成答案，而是先判断要不要查资料，再决定如何完成任务。Agent 的引入，本质上是把系统从“信息检索工具”升级为“任务执行入口”。</p>
           </article>
           <article class="panel">
             <span class="section-kicker">架构说明</span>
@@ -718,6 +747,22 @@
             <span>Agent Core</span>
             <h3>负责调度整条链路</h3>
             <p>连接决策、工具调用、上下文组装和最终回答。</p>
+          </article>
+        </div>
+        <div class="grid-2" style="margin-top: 16px">
+          <article class="image-card diagram-card">
+            <img src="assets/architecture.png" alt="本地知识助手 Agentic RAG 系统架构图" />
+            <div>
+              <h3>系统架构</h3>
+              <p>从数据源、文本处理、向量层到 Agent 控制层、生成层和体验层。</p>
+            </div>
+          </article>
+          <article class="image-card diagram-card">
+            <img src="assets/query-flow.png" alt="Agentic RAG 用户查询流程图" />
+            <div>
+              <h3>查询流程</h3>
+              <p>User → Router → Tool(RAG) → Answer → Memory，先判断任务，再调用工具。</p>
+            </div>
           </article>
         </div>
         <div class="flow-strip">
@@ -749,13 +794,93 @@
         </div>
       </section>
 
+      <section class="section alt" id="evaluation">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation</p>
+          <h2>评估体系：数据 + 方法</h2>
+          <p>测试问题来自真实个人知识库使用场景，而非人工构造的标准问答集。评估重点不是回答是否流畅，而是来源是否召回、回答是否基于来源、Agent 是否判断对任务类型。</p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <span>测试问题</span>
+            <strong>10</strong>
+            <p>覆盖协作规则、GUI 使用、索引维护、迁移和项目介绍。</p>
+          </article>
+          <article class="metric-card">
+            <span>召回结果</span>
+            <strong>9+1</strong>
+            <p>9 条命中，1 条基本命中，基本命中表示召回方向正确但仍需筛选。</p>
+          </article>
+          <article class="metric-card">
+            <span>回答可用性</span>
+            <strong>8/10</strong>
+            <p>人工判断是否基于来源、是否能辅助复盘。</p>
+          </article>
+          <article class="metric-card">
+            <span>Agent 判断</span>
+            <strong>4类</strong>
+            <p>检索、问答、索引维护和澄清类任务。</p>
+          </article>
+        </div>
+        <div class="grid-2" style="margin-top: 16px">
+          <article class="image-card diagram-card">
+            <img src="assets/evaluation-chart.png" alt="分层评估与真实场景验证图" />
+            <div>
+              <h3>分层评估</h3>
+              <p>检索层、生成层、Agent 层和边界层同时看，避免只看模型输出是否好看。</p>
+            </div>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">三层评估方法</span>
+            <ul class="bullet-list" style="margin-top: 12px">
+              <li>检索层：Top-K 是否召回正确来源。</li>
+              <li>生成层：回答是否基于来源、是否避免无依据扩写。</li>
+              <li>Agent 层：是否正确判断检索、问答、索引维护或澄清。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="comparison">
         <div class="section-heading">
           <p class="eyebrow">Comparison</p>
-          <h2>V1 vs V2</h2>
-          <p>重点不是多了几个模块，而是用户体验从“查资料”变成“像在用一个会判断的助手”。</p>
+          <h2>对比传统方案与 V1/V2 演进</h2>
+          <p>本质变化是从“找文件”升级为“找答案 + 找依据”，再进一步升级为“会判断路径的任务执行入口”。</p>
         </div>
         <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>维度</th>
+                <th>传统方式</th>
+                <th>本系统</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>找资料</td>
+                <td>关键词搜索、按目录翻文件。</td>
+                <td>自然语言语义检索，覆盖同义表达和跨文件线索。</td>
+              </tr>
+              <tr>
+                <td>找答案</td>
+                <td>打开多个文件后手动拼结论。</td>
+                <td>先召回来源，再组织可复核答案。</td>
+              </tr>
+              <tr>
+                <td>可信度</td>
+                <td>依赖用户记忆和人工判断。</td>
+                <td>回答绑定来源片段，可回到原文确认。</td>
+              </tr>
+              <tr>
+                <td>连续任务</td>
+                <td>每次重新搜索、重新交代背景。</td>
+                <td>Memory 保留最近上下文，Router 判断是否继续检索。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-top: 16px">
           <table>
             <thead>
               <tr>
@@ -788,7 +913,8 @@
       <section class="section alt" id="value">
         <div class="section-heading">
           <p class="eyebrow">Value</p>
-          <h2>结果与价值</h2>
+          <h2>用户价值</h2>
+          <p>用户不再需要记住“文件在哪”，只需要表达“我想要什么”，系统就能返回有依据的答案。</p>
         </div>
         <div class="grid-2">
           <article class="panel">
@@ -835,7 +961,33 @@
         </div>
       </section>
 
-      <section class="section alt" id="role">
+      <section class="section alt" id="limits">
+        <div class="section-heading">
+          <p class="eyebrow">Limits & Next</p>
+          <h2>限制与未来方向</h2>
+          <p>这部分不是削弱项目，而是说明我知道系统边界在哪里，也知道下一步应该如何增强。</p>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <span class="section-kicker">当前限制</span>
+            <ul class="bullet-list" style="margin-top: 12px">
+              <li>小样本验证规模有限，尚未覆盖复杂长链任务。</li>
+              <li>Router 在问题意图模糊、上下文不足时仍可能误判任务类型。</li>
+              <li>多工具协同能力尚未引入完整 Planner、状态管理和失败回滚。</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">未来方向</span>
+            <ul class="bullet-list" style="margin-top: 12px">
+              <li>多工具 Agent：增加摘要、对比、索引更新和写回确认类工具。</li>
+              <li>Planner 任务拆解：把复杂目标拆成可执行步骤。</li>
+              <li>多 Agent 协作：Research / Product / Content / Review 分工。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="role">
         <div class="section-heading">
           <p class="eyebrow">My Role</p>
           <h2>我的角色</h2>
@@ -843,14 +995,16 @@
         <div class="grid-2">
           <article class="panel">
             <ul class="bullet-list">
-              <li>定义目标用户、使用场景、核心问题和 MVP 范围。</li>
-              <li>完成从 V1 基础 RAG 到 V2 Agentic RAG 的演进设计。</li>
+              <li>问题定义与产品设计：明确目标用户、使用场景、核心问题和 MVP 范围。</li>
+              <li>系统架构拆解：完成从 V1 基础 RAG 到 V2 Agentic RAG 的演进设计。</li>
+              <li>Agent 机制设计：拆分 Router、Tool、Memory、Agent Core。</li>
             </ul>
           </article>
           <article class="panel">
             <ul class="bullet-list">
-              <li>拆分 Router、Tool、Memory、Agent Core 等核心模块。</li>
-              <li>设计 Prompt、验证 Demo，并把项目封装成可讲述的产品案例。</li>
+              <li>Prompt 设计：约束是否检索、如何基于来源回答。</li>
+              <li>Demo 验证与评估体系：用真实任务问题验证检索、生成和 Agent 判断。</li>
+              <li>产品化表达与作品集封装：把技术实现转成面试可理解的产品案例。</li>
             </ul>
           </article>
         </div>
@@ -873,7 +1027,7 @@
 
     <footer class="case-footer">
       <span>Project 01 · Local Knowledge Assistant</span>
-      <span>项目详情页突出核心亮点，产品设计文档补充完整逻辑与设计判断。</span>
+      <span>详情页用于面试展示，产品设计文档补充完整逻辑、评估方法与设计边界。</span>
     </footer>
   </body>
 </html>

@@ -1,21 +1,21 @@
 @page {
   size: A4;
-  margin: 14mm 12mm 14mm 12mm;
+  margin: 9mm 8mm 10mm 8mm;
 }
 
 html {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 body {
   color: #1d242b;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-  line-height: 1.6;
+  line-height: 1.48;
 }
 
 header#title-block-header {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 h1,
@@ -38,31 +38,34 @@ h3 {
 }
 
 h1 {
-  font-size: 24px;
-  margin: 0 0 18px;
+  font-size: 22px;
+  margin: 0 0 12px;
 }
 
 h2 {
-  font-size: 18px;
-  margin: 24px 0 12px;
+  font-size: 16px;
+  margin: 18px 0 8px;
 }
 
 h3 {
-  font-size: 15px;
-  margin: 16px 0 8px;
+  font-size: 13px;
+  margin: 12px 0 6px;
 }
 
 p,
 li {
-  font-size: 12px;
+  font-size: 10.6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  margin: 12px 0 18px;
-  font-size: 11px;
+  margin: 8px 0 12px;
+  font-size: 9.4px;
+  page-break-inside: auto;
 }
 
 thead {
@@ -71,13 +74,16 @@ thead {
 
 tr {
   page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 th,
 td {
-  padding: 7px 8px;
+  padding: 5px 6px;
   vertical-align: top;
   border: 1px solid #d9e1e7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 th {
@@ -90,11 +96,11 @@ th {
 code,
 pre {
   font-family: "SFMono-Regular", "Menlo", "Monaco", "Courier New", monospace;
-  font-size: 11px;
+  font-size: 9.8px;
 }
 
 pre {
-  padding: 10px 12px;
+  padding: 8px 10px;
   white-space: pre-wrap;
   border: 1px solid #d9e1e7;
   border-radius: 8px;
@@ -102,15 +108,15 @@ pre {
 }
 
 blockquote {
-  margin: 14px 0;
-  padding: 10px 14px;
+  margin: 10px 0;
+  padding: 8px 10px;
   border-left: 4px solid #00a6d6;
   background: #f5f7fb;
 }
 
 .callout {
-  margin: 14px 0 18px;
-  padding: 12px 14px;
+  margin: 10px 0 12px;
+  padding: 9px 10px;
   border: 1px solid #d9e1e7;
   border-left: 4px solid #00a6d6;
   border-radius: 8px;
@@ -120,7 +126,7 @@ blockquote {
 .callout-title {
   margin: 0 0 6px;
   color: #111418;
-  font-size: 12px;
+  font-size: 10.8px;
   font-weight: 700;
 }
 
@@ -150,8 +156,8 @@ blockquote {
 }
 
 nav#TOC {
-  margin: 0 0 22px;
-  padding: 14px 16px;
+  margin: 0 0 14px;
+  padding: 10px 12px;
   border: 1px solid #d9e1e7;
   border-radius: 8px;
   background: #f5f7fb;
@@ -163,8 +169,8 @@ nav#TOC > ul {
 }
 
 nav#TOC li {
-  margin: 4px 0;
-  font-size: 12px;
+  margin: 2px 0;
+  font-size: 10.6px;
 }
 
 nav#TOC a {
@@ -174,5 +180,29 @@ nav#TOC a {
 
 img,
 svg {
+  display: block;
   max-width: 100%;
+  max-height: 165mm;
+  height: auto;
+  margin: 8px auto 12px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+figure {
+  margin: 8px 0 12px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+figcaption {
+  color: #66717a;
+  font-size: 9.5px;
+  text-align: center;
+}
+
+hr {
+  margin: 12px 0;
+  border: 0;
+  border-top: 1px solid #d9e1e7;
 }

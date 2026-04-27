@@ -295,10 +295,10 @@ function renderLocalRagDemo() {
     <div class="local-rag-feature">
       <div class="feature-copy">
         <p class="panel-kicker">Project 01 · Featured Case</p>
-        <h3>本地知识助手：从 RAG 到 Agentic RAG</h3>
+        <h3>本地知识助手（RAG → Agentic RAG）</h3>
         <p>
           这个项目从真实知识管理场景出发：V1 先解决“资料找得回、答案有依据”的本地 RAG 问题；
-          V2 再增加 Router、Tool Calling 和 Memory，把检索能力升级成会判断、会调工具的本地 AI Agent。
+          V2 再增加 Router、Tool Calling 和 Memory，把系统从“信息检索工具”升级为“任务执行入口”。
         </p>
         <div class="spotlight-list">
           ${localRag.spotlight
@@ -407,6 +407,39 @@ function renderLocalRagDemo() {
             `
           )
           .join("")}
+      </div>
+    </div>
+
+    <div class="demo-grid local-rag-compact-grid">
+      <div class="demo-panel">
+        <h3>传统方式 vs 本系统</h3>
+        <div class="decision-stack">
+          ${localRag.comparisonTable
+            .map(
+              (item) => `
+                <article class="decision-card">
+                  <strong>${item.dimension}</strong>
+                  <p>传统：${item.traditional}</p>
+                  <p>本系统：${item.agentic}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </div>
+      <div class="demo-panel">
+        <h3>当前边界</h3>
+        <div class="decision-stack">
+          ${localRag.limits
+            .map(
+              (item) => `
+                <article class="decision-card">
+                  <p>${item}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
       </div>
     </div>
   `;

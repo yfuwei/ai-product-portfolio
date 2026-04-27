@@ -65,9 +65,44 @@ end
 
 converted = []
 i = 0
+mermaid_index = 0
 
 while i < filtered.length
   line = filtered[i]
+  if line.match?(/^```mermaid\s*$/)
+    mermaid_lines = []
+    i += 1
+
+    while i < filtered.length && !filtered[i].match?(/^```\s*$/)
+      mermaid_lines << filtered[i]
+      i += 1
+    end
+
+    i += 1 if i < filtered.length
+    mermaid = mermaid_lines.join
+    mermaid_index += 1
+
+    image =
+      if mermaid.include?("Router") || mermaid.include?("search_docs") || mermaid.include?("Memory")
+        "diagrams/v2-agent-flow.svg"
+      elsif mermaid.include?("Chroma") || mermaid.include?("Embedding") || mermaid.include?("Prompt")
+        "diagrams/v1-rag-flow.svg"
+      else
+        nil
+      end
+
+    if image && File.exist?(File.join(File.dirname(source), image))
+      alt = mermaid_index == 1 ? "V1 基础 RAG 架构流程图" : "V2 Agentic RAG 决策流程图"
+      converted << "![#{alt}](#{image})\n\n"
+    else
+      converted << "```mermaid\n"
+      converted.concat(mermaid_lines)
+      converted << "```\n\n"
+    end
+
+    next
+  end
+
   match = line.match(/^> \[!(\w+)\]\s*(.*)$/)
 
   unless match

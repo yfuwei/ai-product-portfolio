@@ -71,12 +71,12 @@ ai-product-portfolio/
 
 ## 下一步填充内容
 
-第一版已包含四个项目的展示框架，其中本地 RAG、AIGC、企业知识库 RAG 和 B端审批协同项目均已包含首页案例区和公开版文档模块：
+第一版已包含四个项目的展示框架，其中本地知识助手、AIGC、企业知识库 RAG 和 B端审批协同项目均已包含首页案例区和公开版文档模块：
 
 1. 建筑方案视觉生成工作台（AIGC）：`docs/aigc-visual-workbench/`
 2. 企业知识库问答与报告生成：`docs/enterprise-rag/`
 3. B端审批协同平台工作流优化：`docs/b-approval-workflow/`
-4. 本地个人知识库 RAG 系统：`docs/local-knowledge-rag/`
+4. 本地知识助手 Agentic RAG：`docs/local-knowledge-rag/`
 
 后续需要逐步替换为你的真实素材、截图、Prompt、评估表和公开项目说明。私人准备材料不放入公开作品集。
 
@@ -117,7 +117,7 @@ ai-product-portfolio/
 
 该模块只放公开展示材料，不放公司内部流程截图、真实项目名称、真实评审资料或未脱敏数据。
 
-`docs/local-knowledge-rag/` 是本地个人知识库 RAG 系统的 GitHub 公开版封装，包含：
+`docs/local-knowledge-rag/` 是本地知识助手 Agentic RAG的 GitHub 公开版封装，包含：
 
 - 产品说明：`product-brief.md`
 - 作品集案例页：`portfolio-case.md`

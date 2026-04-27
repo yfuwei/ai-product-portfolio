@@ -3,11 +3,11 @@ window.portfolioData = {};
 window.portfolioData.projects = [
   {
     id: "local-rag",
-    title: "本地知识助手：从 RAG 到 Agentic RAG",
+    title: "本地知识助手（RAG → Agentic RAG）",
     subtitle: "主推项目 · AI Agent + 本地 RAG",
-    problem: "个人知识分散、语义检索弱、隐私资料不适合上传云端",
-    approach: "本地 RAG 底座 + Router/Tool/Memory + 只读 Agent 编排",
-    result: "完成163个文件、390个chunks索引，并把知识检索升级为本地 Agent 助手",
+    problem: "知识分散、检索低效、LLM 回答缺少来源依据",
+    approach: "V1 RAG 解决检索与引用，V2 Agent 解决任务判断与连续使用",
+    result: "10 条真实任务问题中 9 条命中、1 条基本命中，回答可用性约 8/10",
     link: "#local-rag",
     level: "featured",
     accent: "AI Agent 产品",
@@ -56,10 +56,10 @@ window.portfolioData.localRag = {
     { pain: "工具门槛高", impact: "命令行不适合日常使用", design: "提供 Web GUI 和索引状态面板" },
   ],
   metrics: [
-    { label: "已索引文件", value: "163", note: "162个 Obsidian Markdown 文件 + 脱敏文档测试样例" },
-    { label: "向量片段", value: "390", note: "385个 Obsidian chunks + 5个文档 chunks" },
-    { label: "运行方式", value: "本地", note: "Ollama embedding、Chroma 向量库、FastAPI GUI" },
-    { label: "Agent能力", value: "V2", note: "Router 决策、search_docs Tool、Memory 与执行链路展示" },
+    { label: "真实任务问题", value: "10", note: "来自个人知识库使用场景，而非人工构造标准问答集" },
+    { label: "来源召回结果", value: "9+1", note: "9 条命中，1 条基本命中，召回方向可复核" },
+    { label: "回答可用性", value: "8/10", note: "人工判断是否基于来源、是否能辅助复盘" },
+    { label: "本地索引规模", value: "390", note: "163 个文件、390 个 chunks，FastAPI GUI 使用入口" },
   ],
   phases: [
     {
@@ -74,8 +74,9 @@ window.portfolioData.localRag = {
     },
   ],
   spotlight: [
+    "让用户从“找文件”转变为“直接获取有依据的答案”。",
     "把本地知识检索从固定流程升级为会判断、会调工具的 AI Agent。",
-    "用两阶段叙事清楚说明：为什么从 RAG 升级到 Agent，而不是只堆功能。",
+    "用真实任务问题验证检索、生成和 Agent 判断，而不是只展示 Demo。",
     "强调本地化、引用溯源和只读边界，兼顾能力展示与风险控制。",
   ],
   v1Issues: [
@@ -121,10 +122,10 @@ window.portfolioData.localRag = {
     "通过 FastAPI 原生网页界面完成检索、问答和小批量索引",
   ],
   evidence: [
-    "文件管理规则类问题可以召回对应的文件管理说明。",
-    "阅读标注导入类问题可以召回对应的导入流程说明。",
-    "本地 RAG GUI 启动类问题可以召回日常使用手册。",
-    "项目整理类问题可以召回对应的准备材料。",
+    "10 条真实任务问题中，9 条命中来源，1 条基本命中。",
+    "测试问题覆盖协作规则、GUI 使用、索引维护、换电脑迁移和项目介绍。",
+    "回答可用性人工判断约 8/10，重点看是否基于来源、是否能辅助复盘。",
+    "当前边界：小样本规模有限，Router 对模糊问题仍可能误判，多工具协同需要 Planner 增强。",
   ],
   screenshots: [
     { label: "GUI 总览", src: "./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" },
@@ -153,7 +154,7 @@ window.portfolioData.localRag = {
     {
       label: "评估对比图",
       src: "./docs/local-knowledge-rag/assets/evaluation-chart.png",
-      note: "关键词搜索、直接问 LLM、本地 RAG 与 RAG+rerank 的对比。",
+      note: "真实场景问题、来源召回、回答可用性、Agent 判断与边界层。",
     },
   ],
   designTable: [
@@ -163,15 +164,26 @@ window.portfolioData.localRag = {
     { decision: "GUI 优先", benefit: "日常可用，更像产品而非脚本", cost: "需要额外维护前端体验" },
   ],
   evaluationTable: [
-    { query: "本地 RAG GUI 平时怎么用？", expected: "日常使用说明", result: "命中" },
+    { query: "本地知识助手 GUI 平时怎么用？", expected: "日常使用说明", result: "命中" },
     { query: "文件改动后怎么办？", expected: "索引更新说明", result: "命中" },
     { query: "换电脑时需要迁移哪些内容？", expected: "迁移操作指引", result: "命中" },
     { query: "公开作品集不能放哪些内容？", expected: "公开封装说明", result: "命中" },
     { query: "长文档索引要注意什么？", expected: "系统设计与协作规则", result: "基本命中" },
   ],
+  comparisonTable: [
+    { dimension: "找资料", traditional: "关键词搜索、按目录翻文件", agentic: "自然语言语义检索，覆盖同义表达和跨文件线索" },
+    { dimension: "找答案", traditional: "打开多个文件后手动拼结论", agentic: "先召回来源，再组织可复核答案" },
+    { dimension: "可信度", traditional: "依赖用户记忆和人工判断", agentic: "回答绑定来源片段，可回到原文确认" },
+    { dimension: "连续任务", traditional: "每次重新搜索、重新交代背景", agentic: "Memory 保留最近上下文，Router 判断是否继续检索" },
+  ],
+  limits: [
+    "小样本验证规模有限，尚未覆盖复杂长链任务。",
+    "Router 在问题意图模糊、上下文不足时仍可能误判任务类型。",
+    "多工具协同能力仍需通过 Planner、状态管理和失败回滚进一步增强。",
+  ],
   documents: [
     { label: "项目案例页", href: "./docs/local-knowledge-rag/index.html" },
-    { label: "完整产品设计文档（含架构、设计思考与演进细节）：👉 点击查看", href: "./docs/local-knowledge-rag/本地知识助手_RAG到AgenticRAG_产品设计文档.pdf", type: "download" },
+    { label: "完整产品设计文档（含 V1/V2 演进、架构、评估与设计思考）：👉 点击查看", href: "./docs/local-knowledge-rag/本地知识助手_RAG到AgenticRAG_产品设计文档.pdf", type: "download" },
     { label: "V1/V2对比", href: "./docs/local-knowledge-rag/index.html#comparison" },
     { label: "AI PM角色", href: "./docs/local-knowledge-rag/index.html#role" },
   ],

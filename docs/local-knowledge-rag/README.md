@@ -1,8 +1,8 @@
-# 本地知识助手：从 RAG 到 Agentic RAG
+# 本地知识助手（RAG → Agentic RAG）
 
 ## 项目概览
 
-本地知识助手是一个面向个人笔记和本地文档的 AI 知识管理项目。V1 索引 Obsidian vault 中的 Markdown 笔记和本地文档库中的部分文件，提供语义检索、带来源的回答，以及可日常使用的 FastAPI 网页界面；V2 在 RAG 之上增加 Router、search_docs Tool、Memory 和 Agent Core，升级为具备决策与工具调用能力的 Agentic RAG。
+本地知识助手是一个面向个人笔记和本地文档的 AI 知识管理项目。V1 索引 Obsidian vault 中的 Markdown 笔记和本地文档库中的部分文件，提供语义检索、带来源的回答，以及可日常使用的 FastAPI 网页界面；V2 在 RAG 之上增加 Router、search_docs Tool、Memory 和 Agent Core，升级为具备决策与工具调用能力的 Agentic RAG。当前展示重点是从“找文件”升级为“找答案 + 找依据”，并说明 Agent 如何把系统从信息检索工具升级为任务执行入口。
 
 这个项目不是要替代 Obsidian 或云盘，而是在现有笔记系统和本地文档库之上，增加一层私有、可追溯的语义检索能力。
 
@@ -52,6 +52,7 @@
 - 162 个 Obsidian Markdown 文件索引。
 - 385 个 Obsidian chunks。
 - 总计 390 个 chunks，包含少量本地文档 smoke test 样例。
+- 10 条真实任务问题小样本验证：9 条命中，1 条基本命中，回答可用性人工判断约 8/10。
 
 公开作品集版本只包含文档、图示、脱敏样例和脱敏截图，不包含私人笔记、向量数据库、转换缓存或原始文件。
 
@@ -59,17 +60,19 @@
 
 - [HTML 项目案例页](index.html)
 - [Agentic RAG 产品设计文档](本地知识助手_RAG到AgenticRAG_产品设计文档.md)
+- [作品集主 PDF 产品设计文档](本地知识助手_RAG到AgenticRAG_产品设计文档.pdf)
+- [可外发精简 PDF 产品设计文档](本地知识助手_AgenticRAG_产品设计文档_苑夫唯.pdf)
 - [项目背景](index.html#overview)
 - [V1/V2 对比](index.html#comparison)
-- [系统架构](index.html#architecture)
-- [Agent 模块设计](index.html#agent-design)
+- [Agentic RAG 方案](index.html#v2)
 - [验证结果](index.html#evaluation)
+- [限制与未来](index.html#limits)
 - [我的角色](index.html#role)
 
 Markdown 文件仅作为公开页面的内容草稿和维护素材，不作为招聘方主要阅读入口。更详细的项目复盘、PRD、系统设计、验证表和面试问答已经同步到 Obsidian 项目素材目录：
 
 ```text
-01_项目素材/04_本地个人知识库_RAG/
+01_项目素材/01_本地知识助手_AgenticRAG/
 ```
 
 ## 架构图
