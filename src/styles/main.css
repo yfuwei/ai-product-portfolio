@@ -130,6 +130,31 @@ h4 {
   color: var(--rose);
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.language-toggle button {
+  padding: 6px 8px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.language-toggle button.active {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: var(--line);
+}
+
 .hero-section {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);

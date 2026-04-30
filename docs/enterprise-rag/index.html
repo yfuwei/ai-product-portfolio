@@ -8,6 +8,10 @@
       name="description"
       content="企业知识库问答与报告生成项目案例，包含问题定义、RAG方案、资料体系、问答流程、报告初稿、引用溯源、权限边界和验证结果。"
     />
+    <meta property="og:title" content="企业知识库问答与报告生成 | 项目案例" />
+    <meta property="og:description" content="企业知识库问答与报告生成项目案例，包含问题定义、RAG方案、资料体系、问答流程、报告初稿、引用溯源、权限边界和验证结果。" />
+    <meta property="og:image" content="assets/architecture.svg" />
+    <meta property="og:url" content="./index.html" />
     <style>
       :root {
         --bg: #f5f7fb;
@@ -62,8 +66,14 @@
         background: linear-gradient(135deg, var(--accent), var(--rose));
         border-radius: 8px;
       }
-      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 13px; color: var(--muted); font-size: 14px; }
-      .case-nav a:hover { color: var(--rose); }
+      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; color: var(--muted); font-size: 14px; }
+      .case-nav a { display: inline-flex; min-height: 32px; align-items: center; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, 0.72); font-weight: 800; }
+      .case-nav a:hover { color: var(--rose); border-color: rgba(240, 68, 103, 0.35); }
+      .case-nav .nav-back { margin-left: 8px; color: var(--accent-strong); background: var(--surface-alt); border-color: rgba(0, 140, 217, 0.28); }
+      .case-nav .nav-back::before { content: ""; width: 1px; height: 18px; margin: 0 14px 0 -18px; background: var(--line); }
+      .language-toggle { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; font-weight: 900; }
+      .language-toggle button { padding: 6px 8px; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; font: inherit; }
+      .language-toggle button.active { color: var(--ink); background: var(--surface-alt); border-color: var(--line); }
       .hero {
         display: grid;
         grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
@@ -143,18 +153,19 @@
     <header class="case-header">
       <a class="brand" href="../../index.html#rag" aria-label="返回作品集首页">
         <span class="brand-mark">AI</span>
-        <span>苑夫唯 · AI产品作品集</span>
+        <span data-i18n="brand">苑夫唯 · AI产品作品集</span>
       </a>
       <nav class="case-nav" aria-label="项目导航">
-        <a href="#problem">问题</a>
-        <a href="#architecture">架构</a>
+        <a href="#problem" data-i18n="nav.problem">问题</a>
+        <a href="#architecture" data-i18n="nav.architecture">架构</a>
         <a href="#demo">Demo</a>
-        <a href="#validation">验证</a>
-        <a href="#roadmap">路线图</a>
+        <a href="#validation" data-i18n="nav.validation">验证</a>
+        <a href="#roadmap" data-i18n="nav.roadmap">路线图</a>
+        <a class="nav-back" href="../../index.html#rag" data-i18n="nav.back">返回作品集</a>
       </nav>
     </header>
 
-    <main>
+    <main data-i18n-html="mainHtml">
       <section class="hero">
         <div>
           <p class="eyebrow">Project Case · Enterprise RAG</p>
@@ -165,7 +176,6 @@
           <div class="hero-actions">
             <a class="primary-link" href="#architecture">查看RAG方案</a>
             <a class="secondary-link" href="#validation">查看验证结果</a>
-            <a class="secondary-link" href="../../index.html#rag">返回作品集首页</a>
           </div>
           <div class="tag-list" aria-label="项目标签">
             <span>RAG产品设计</span>
@@ -320,8 +330,135 @@
     </main>
 
     <footer class="site-footer">
-      <span>苑夫唯 · AI产品经理作品集</span>
-      <span>企业知识库问答与报告生成</span>
+      <span data-i18n="footer.name">苑夫唯 · AI产品经理作品集</span>
+      <span data-i18n="footer.case">企业知识库问答与报告生成</span>
     </footer>
+    <script>
+      window.I18N_PAGE = {
+        meta: {
+          zh: {
+            title: "企业知识库问答与报告生成 | 项目案例",
+            description: "企业知识库问答与报告生成项目案例，包含问题定义、RAG方案、资料体系、问答流程、报告初稿、引用溯源、权限边界和验证结果。",
+          },
+          en: {
+            title: "Enterprise Knowledge QA and Report Drafting | Case Study",
+            description: "A product case study for enterprise RAG, covering problem definition, source-grounded QA, report drafting, citation review, boundaries, validation, and roadmap.",
+          },
+        },
+        zh: {},
+        en: {
+          brand: "Fuwei Yuan · AI Product Portfolio",
+          "nav.problem": "Problem",
+          "nav.architecture": "Architecture",
+          "nav.validation": "Validation",
+          "nav.roadmap": "Roadmap",
+          "nav.back": "Back to portfolio",
+          "footer.name": "Fuwei Yuan · AI Product Portfolio",
+          "footer.case": "Enterprise Knowledge QA and Report Drafting",
+          mainHtml: `
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Project Case · Enterprise RAG</p>
+          <h1>Enterprise Knowledge QA and Report Drafting</h1>
+          <p class="lead">A RAG workflow for scattered enterprise standards, historical cases, meeting notes, and presentation materials. The product retrieves evidence first, then generates source-grounded answers and editable report drafts with review points.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#architecture">View RAG solution</a>
+            <a class="secondary-link" href="#validation">View validation</a>
+          </div>
+          <div class="tag-list" aria-label="Project tags"><span>RAG Product</span><span>Enterprise Knowledge</span><span>Citations</span><span>Report Drafting</span></div>
+        </div>
+        <figure class="hero-image"><img src="./assets/architecture.svg" alt="Enterprise RAG architecture diagram" /></figure>
+      </section>
+
+      <section id="problem" class="section">
+        <div class="section-heading"><p class="eyebrow">Problem</p><h2>Enterprise knowledge is not missing. It is hard to find, reuse, and trust.</h2><p>The product addresses organizational knowledge reuse: business users need evidence from scattered materials, draft output they can edit, and clear signals about what still requires human review.</p></div>
+        <div class="grid-4">
+          <article class="panel"><strong>Scattered materials</strong><p>Standards, cases, meeting notes, presentations, and competitor references live in different files and versions.</p></article>
+          <article class="panel"><strong>Experience stays with individuals</strong><p>Many answers depend on senior employees' memory, making reuse hard for new or cross-team members.</p></article>
+          <article class="panel"><strong>LLM hallucination risk</strong><p>General models lack internal context and cannot be trusted for business decisions without sources.</p></article>
+          <article class="panel"><strong>Repeated report preparation</strong><p>Positioning summaries and review language require repeated search, extraction, and rewriting.</p></article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Architecture</p><h2>Core flow: retrieve, generate, review</h2><p>The product does not aim for open-ended chat. It constrains AI output within traceable enterprise materials.</p></div>
+        <figure class="image-panel"><img src="./assets/architecture.svg" alt="Enterprise RAG architecture" /><figcaption>Enterprise sources, document processing, vector index, source-grounded answers, and human review.</figcaption></figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Modules</p><h2>Five product modules</h2></div>
+        <figure class="image-panel"><img src="./assets/modules.svg" alt="Enterprise RAG product modules" /><figcaption>Material management, knowledge QA, report draft, citation review, and evaluation feedback form the minimum loop.</figcaption></figure>
+      </section>
+
+      <section id="demo" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Demo</p><h2>From business question to cited answer</h2><p>Users see not only the answer, but also retrieved evidence, source documents, citation labels, and review notes.</p></div>
+        <div class="demo-shell">
+          <div>
+            <div class="source-card"><span>Source</span><strong>Commercial product design standard</strong><p>Public space, configuration, and review principles.</p></div>
+            <div class="source-card"><span>Source</span><strong>Regional residential product management policy</strong><p>Positioning, change approval, and pre-review.</p></div>
+            <div class="source-card"><span>Source</span><strong>Product review meeting notes</strong><p>Review comments, actions, and decisions.</p></div>
+          </div>
+          <article class="answer-card">
+            <h3>User question</h3><p>What are the core requirements for public spaces in the commercial design standard?</p>
+            <h3>Retrieved evidence</h3><p>Public-space design should align with positioning, target users, operation scenarios, entrance identity, circulation, interface continuity, and maintenance.</p>
+            <h3>Generated answer</h3><p>Public spaces should support image display, traffic organization, operation efficiency, and maintenance. The key points are entrance recognition, clear circulation, continuous public interfaces, fire evacuation, and durable materials.</p>
+            <ul class="citation-list"><li>Commercial product design standard: public-space chapter</li><li>Historical case library: commercial public-space review</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Information Design</p><h2>Data fields and citation rules</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Object</th><th>Key fields</th><th>Product purpose</th></tr></thead><tbody>
+          <tr><td>Document metadata</td><td>Document type, project name, topic, version, permission scope</td><td>Make retrieval filterable, explainable, and traceable.</td></tr>
+          <tr><td>QA input</td><td>User question, question type, material scope, date range, output requirement</td><td>Turn open-ended questions into retrieval tasks.</td></tr>
+          <tr><td>Answer output</td><td>Summary, bullet explanation, citations, risk notes</td><td>Help users judge whether an answer is usable.</td></tr>
+          <tr><td>Report draft</td><td>Output type, audience, outline, paragraphs, source evidence</td><td>Reduce repeated drafting while keeping human editing.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="validation" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Validation</p><h2>20 questions used to validate RAG boundaries</h2><p>The validation looked beyond whether the model could answer. It checked retrieval, citations, answer usefulness, editing cost, and boundary prompts for insufficient evidence.</p></div>
+        <figure class="image-panel"><img src="./assets/evaluation.svg" alt="Enterprise RAG validation results" /><figcaption>Fact retrieval, single-document extraction, short draft generation, and insufficient-evidence prompts were most suitable for MVP.</figcaption></figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Evaluation Table</p><h2>Performance by question type</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Question type</th><th>Performance</th><th>Reason</th><th>Product strategy</th></tr></thead><tbody>
+          <tr><td>Fact retrieval</td><td>Stable</td><td>Standards and policies have clear boundaries.</td><td>Use as a high-frequency entry point.</td></tr>
+          <tr><td>Targeted extraction</td><td>Usable</td><td>Single-document and clear-topic extraction is relatively stable.</td><td>Support material-scope filters.</td></tr>
+          <tr><td>Comparison and synthesis</td><td>Basically usable</td><td>Depends on recall completeness and metadata quality.</td><td>Keep source comparison visible.</td></tr>
+          <tr><td>Draft generation</td><td>Usable</td><td>Works for short drafts, not final documents.</td><td>Mark AI draft and review points.</td></tr>
+          <tr><td>Boundary questions</td><td>Stable</td><td>Refusal and insufficient-evidence prompts are safer than over-answering.</td><td>Design as a trust mechanism.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading"><p class="eyebrow">Decisions</p><h2>Key trade-offs</h2></div>
+        <div class="grid-3">
+          <article class="panel"><strong>Citations first</strong><p>Show source snippets before answers to reduce the risk of unsupported conclusions entering business decisions.</p></article>
+          <article class="panel"><strong>Drafts are not final documents</strong><p>Report generation provides editable drafts and must keep citations and review points.</p></article>
+          <article class="panel"><strong>Refuse when evidence is insufficient</strong><p>In enterprise knowledge work, a fluent but wrong answer is more dangerous than saying “not enough evidence.”</p></article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-heading"><p class="eyebrow">Roadmap</p><h2>Roadmap</h2></div>
+        <div class="timeline">
+          <div class="timeline-item"><span>v0</span><div><strong>Scenario validation</strong><p>Build question sets, sample materials, and manual evaluation tables.</p></div></div>
+          <div class="timeline-item"><span>v1</span><div><strong>Knowledge QA MVP</strong><p>Support retrieval, source snippets, and cited answers.</p></div></div>
+          <div class="timeline-item"><span>v2</span><div><strong>Report drafts</strong><p>Support templates for background, positioning, and competitor summaries.</p></div></div>
+          <div class="timeline-item"><span>v3</span><div><strong>Permissions and feedback</strong><p>Add data permissions, feedback loops, and evaluation dashboards.</p></div></div>
+          <div class="timeline-item"><span>v4</span><div><strong>Workflow integration</strong><p>Embed into review, presentation, and approval workflows.</p></div></div>
+        </div>
+      </section>
+          `,
+        },
+      };
+    </script>
+    <script src="../../src/i18n.js"></script>
+    <script>
+      window.PortfolioI18n.createSwitcher(".case-header");
+    </script>
   </body>
 </html>

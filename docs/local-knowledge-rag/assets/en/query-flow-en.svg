@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RAG query flow</title><desc id="desc">English query flow from user input to routing, tool calls, answer, and memory.</desc>
+  <defs><style>.bg{fill:#fff}.box{fill:#fff;stroke:#d9e1e7;stroke-width:2}.soft{fill:#eef9fd;stroke:#d9e1e7;stroke-width:2}.dark{fill:#111418}.accent{fill:#00a6d6}.rose{fill:#f04467}.sun{fill:#f7d84a}.txt{font-family:Inter,Arial,sans-serif}.h{font-size:32px;font-weight:800}.t{font-size:22px;font-weight:800}.s{font-size:17px}.m{fill:#66717a}.arrow{stroke:#00a6d6;stroke-width:4;fill:none;marker-end:url(#a)}</style><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#00a6d6"/></marker></defs>
+  <rect width="1600" height="760" fill="#f5f7fb"/>
+  <text x="80" y="74" class="txt h" fill="#111418">Agentic RAG Decision Flow</text>
+  <g transform="translate(80 150)"><rect class="box" width="210" height="120" rx="18"/><text x="40" y="52" class="txt t" fill="#111418">User</text><text x="40" y="86" class="txt s m">Question or task goal</text></g>
+  <g transform="translate(380 150)"><rect class="soft" width="250" height="120" rx="18"/><text x="40" y="52" class="txt t" fill="#111418">Router</text><text x="40" y="86" class="txt s m">direct / retrieve / clarify</text></g>
+  <g transform="translate(720 80)"><rect class="box" width="260" height="110" rx="18"/><text x="36" y="48" class="txt t" fill="#111418">Direct Answer</text><text x="36" y="80" class="txt s m">General knowledge</text></g>
+  <g transform="translate(720 250)"><rect class="box" width="260" height="110" rx="18"/><text x="36" y="48" class="txt t" fill="#111418">search_docs</text><text x="36" y="80" class="txt s m">Retrieve local evidence</text></g>
+  <g transform="translate(720 420)"><rect class="box" width="260" height="110" rx="18"/><text x="36" y="48" class="txt t" fill="#111418">Clarify</text><text x="36" y="80" class="txt s m">Ask for scope</text></g>
+  <g transform="translate(1090 250)"><rect class="soft" width="250" height="120" rx="18"/><text x="36" y="52" class="txt t" fill="#111418">Agent Core</text><text x="36" y="86" class="txt s m">Assemble context + answer</text></g>
+  <g transform="translate(1090 450)"><rect class="box" width="250" height="105" rx="18"/><text x="36" y="47" class="txt t" fill="#111418">Memory</text><text x="36" y="78" class="txt s m">Short-term context</text></g>
+  <g transform="translate(1400 250)"><rect class="box" width="130" height="120" rx="18"/><text x="28" y="52" class="txt t" fill="#111418">Output</text><text x="28" y="86" class="txt s m">Answer + sources</text></g>
+  <path class="arrow" d="M290 210 H380"/><path class="arrow" d="M630 210 C675 210 675 135 720 135"/><path class="arrow" d="M630 210 C675 210 675 305 720 305"/><path class="arrow" d="M630 210 C675 210 675 475 720 475"/><path class="arrow" d="M980 305 H1090"/><path class="arrow" d="M980 135 C1040 135 1030 265 1090 305"/><path class="arrow" d="M1215 450 V370"/><path class="arrow" d="M1340 310 H1400"/>
+  <text x="80" y="650" class="txt s m">Product rule: retrieve only when local evidence is needed; clarify when task scope is ambiguous; confirm before risky actions.</text>
+</svg>

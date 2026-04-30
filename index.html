@@ -8,20 +8,27 @@
       name="description"
       content="AI产品经理作品集，包含本地 AI Agent 知识助手、AIGC视觉内容生成、企业知识库问答与报告生成、B端审批协同平台。"
     />
+    <meta property="og:title" content="AI产品作品集 | 苑夫唯" />
+    <meta
+      property="og:description"
+      content="AI产品经理作品集，包含本地 AI Agent 知识助手、AIGC视觉内容生成、企业知识库问答与报告生成、B端审批协同平台。"
+    />
+    <meta property="og:image" content="./docs/local-knowledge-rag/assets/screenshots/notion-style-gui.png" />
+    <meta property="og:url" content="./index.html" />
     <link rel="stylesheet" href="./src/styles/main.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#home" aria-label="返回首页">
         <span class="brand-mark">AI</span>
-        <span>苑夫唯 · AI产品作品集</span>
+        <span data-i18n="brand">苑夫唯 · AI产品作品集</span>
       </a>
       <nav class="top-nav" aria-label="主导航">
         <a href="#local-rag">AI Agent</a>
-        <a href="#aigc">AIGC工作流</a>
-        <a href="#rag">知识库问答</a>
-        <a href="#workflow">审批协同</a>
-        <a href="#about">关于</a>
+        <a href="#aigc" data-i18n="nav.aigc">AIGC工作流</a>
+        <a href="#rag" data-i18n="nav.rag">知识库问答</a>
+        <a href="#workflow" data-i18n="nav.workflow">审批协同</a>
+        <a href="#about" data-i18n="nav.about">关于</a>
       </nav>
     </header>
 
@@ -32,24 +39,24 @@
             <span class="hero-avatar" aria-hidden="true">🧑🏻‍💻</span>
             <div>
               <p class="eyebrow">AI Product Portfolio · 2026</p>
-              <strong>苑夫唯 · AI应用产品方向</strong>
+              <strong data-i18n="hero.profile">苑夫唯 · AI应用产品方向</strong>
             </div>
           </div>
-          <h1>从设计表达，到AI产品工作流。</h1>
-          <p class="hero-text">
+          <h1 data-i18n="hero.title">从设计表达，到AI产品工作流。</h1>
+          <p class="hero-text" data-i18n="hero.text">
             这份作品集展示我如何把真实工作流拆成 AI 产品方案：重点项目是本地知识助手（RAG → Agentic RAG），展示如何从“找文件”升级为“找答案 + 找依据”，并补充 AIGC 视觉生成、企业资料问答和 B 端流程协同。
           </p>
           <div class="hero-actions">
-            <a class="primary-action" href="#local-rag">先看重点项目</a>
-            <a class="secondary-action" href="#projects">浏览全部项目</a>
+            <a class="primary-action" href="#local-rag" data-i18n="hero.primary">先看重点项目</a>
+            <a class="secondary-action" href="#projects" data-i18n="hero.secondary">浏览全部项目</a>
           </div>
           <div class="hero-tags" aria-label="能力标签">
-            <span>AI产品设计</span>
+            <span data-i18n="tag.pm">AI产品设计</span>
             <span>AI Agent</span>
             <span>Agentic RAG</span>
             <span>Tool Calling</span>
-            <span>引用溯源</span>
-            <span>业务流程拆解</span>
+            <span data-i18n="tag.source">引用溯源</span>
+            <span data-i18n="tag.workflow">业务流程拆解</span>
           </div>
         </div>
         <div class="hero-visual" aria-label="四个作品集项目组合封面图">
@@ -81,8 +88,8 @@
       <section id="projects" class="section-block project-overview" aria-labelledby="overview-title">
         <div class="section-heading">
           <p class="eyebrow">Overview</p>
-          <h2 id="overview-title">一个重点项目，三个补充项目</h2>
-          <p>
+          <h2 id="overview-title" data-i18n="overview.title">一个重点项目，三个补充项目</h2>
+          <p data-i18n="overview.text">
             本地知识助手是主展示项目，采用“V1 本地 RAG → V2 Agentic RAG”的两阶段叙事，突出 Router、Tool Calling、Memory、引用溯源、真实任务验证和系统边界。其他三个项目用于补充 AIGC 工作流、企业资料问答和 B 端流程产品能力。
           </p>
         </div>
@@ -92,8 +99,8 @@
       <section id="local-rag" class="project-section local-rag-section featured-project-section" aria-labelledby="local-rag-title">
         <div class="project-intro">
           <p class="eyebrow">Project 01 · Featured</p>
-          <h2 id="local-rag-title">本地知识助手（RAG → Agentic RAG）</h2>
-          <p>
+          <h2 id="local-rag-title" data-i18n="local.title">本地知识助手（RAG → Agentic RAG）</h2>
+          <p data-i18n="local.text">
             面向个人笔记、项目资料和本地文档分散的问题，先设计不上传私密资料的本地语义检索层，再升级为具备 Router、Tool 调用和 Memory 的只读 Agentic RAG。10 条真实任务问题中 9 条命中、1 条基本命中，回答可用性约 8/10。
           </p>
         </div>
@@ -103,11 +110,11 @@
       <section id="aigc" class="project-section" aria-labelledby="aigc-title">
         <div class="project-intro">
           <p class="eyebrow">Project 02</p>
-          <h2 id="aigc-title">建筑方案视觉生成工作台（AIGC）</h2>
-          <p>
+          <h2 id="aigc-title" data-i18n="aigc.title">建筑方案视觉生成工作台（AIGC）</h2>
+          <p data-i18n="aigc.text">
             面向建筑地产前期方案表达中出图周期长、需求口径抽象、非AI同事Prompt门槛高的问题，设计结构化输入、Prompt模板、多版本生成和人工筛选流程。
           </p>
-          <a class="text-link" href="./docs/aigc-visual-workbench/index.html">查看完整项目案例</a>
+          <a class="text-link" href="./docs/aigc-visual-workbench/index.html" data-i18n="case.link">查看完整项目案例</a>
         </div>
         <div id="aigc-demo" class="demo-grid"></div>
       </section>
@@ -115,11 +122,11 @@
       <section id="rag" class="project-section" aria-labelledby="rag-title">
         <div class="project-intro">
           <p class="eyebrow">Project 03 · Supporting</p>
-          <h2 id="rag-title">企业知识库问答与报告生成</h2>
-          <p>
+          <h2 id="rag-title" data-i18n="rag.title">企业知识库问答与报告生成</h2>
+          <p data-i18n="rag.text">
             作为本地 RAG 的补充项目，展示企业资料问答、引用溯源、报告初稿和人工复核的产品设计思路；重点体现 RAG 在 B 端知识场景中的产品化理解。
           </p>
-          <a class="text-link" href="./docs/enterprise-rag/index.html">查看完整项目案例</a>
+          <a class="text-link" href="./docs/enterprise-rag/index.html" data-i18n="case.link">查看完整项目案例</a>
         </div>
         <div id="rag-demo" class="rag-layout"></div>
       </section>
@@ -127,11 +134,11 @@
       <section id="workflow" class="project-section" aria-labelledby="workflow-title">
         <div class="project-intro">
           <p class="eyebrow">Project 04</p>
-          <h2 id="workflow-title">B端审批协同平台工作流优化</h2>
-          <p>
+          <h2 id="workflow-title" data-i18n="workflow.title">B端审批协同平台工作流优化</h2>
+          <p data-i18n="workflow.text">
             面向报审材料反复、会前预审低效、评审意见难沉淀的问题，将线下沟通和人工追踪流程转为可提交、可预审、可追踪、可沉淀的协同流程。
           </p>
-          <a class="text-link" href="./docs/b-approval-workflow/index.html">查看完整项目案例</a>
+          <a class="text-link" href="./docs/b-approval-workflow/index.html" data-i18n="case.link">查看完整项目案例</a>
         </div>
         <div id="workflow-demo" class="workflow-layout"></div>
       </section>
@@ -139,27 +146,27 @@
       <section id="about" class="section-block about-section" aria-labelledby="about-title">
         <div class="section-heading">
           <p class="eyebrow">About</p>
-          <h2 id="about-title">苑夫唯｜从复杂项目协同转向 AI 应用产品</h2>
-          <p>
+          <h2 id="about-title" data-i18n="about.title">苑夫唯｜从复杂项目协同转向 AI 应用产品</h2>
+          <p data-i18n="about.text">
             我拥有 UC Berkeley 建筑学硕士背景和旧金山 5 年学习与工作经历，过往工作集中在建筑设计、地产产品管理、方案评审和复杂流程协同。现在转向 AI 应用产品方向，重点关注 RAG、AIGC 和工作流自动化在真实业务场景中的落地。
           </p>
         </div>
         <div class="about-grid">
           <div>
-            <h3>复杂业务与流程经验</h3>
-            <p>
+            <h3 data-i18n="about.card1.title">复杂业务与流程经验</h3>
+            <p data-i18n="about.card1.text">
               过往工作长期面对多角色协同、方案评审、设计变更、标准制度和项目推进等复杂场景，熟悉从模糊诉求到结构化流程、规则和交付结果的转化过程。
             </p>
           </div>
           <div>
-            <h3>AI 应用产品实践</h3>
-            <p>
+            <h3 data-i18n="about.card2.title">AI 应用产品实践</h3>
+            <p data-i18n="about.card2.text">
               近阶段围绕本地知识助手 Agentic RAG、企业知识库问答、AIGC 视觉内容生成和 B 端审批协同，独立完成需求拆解、流程设计、原型表达、验证问题集和效果评估。
             </p>
           </div>
           <div>
-            <h3>我的产品优势</h3>
-            <p>
+            <h3 data-i18n="about.card3.title">我的产品优势</h3>
+            <p data-i18n="about.card3.text">
               我更擅长把真实业务问题拆成可理解、可演示、可评估的产品方案：既关注用户路径和交互表达，也关注 AI 输出的边界、引用依据、人工复核和落地约束。
             </p>
           </div>
@@ -168,11 +175,64 @@
     </main>
 
     <footer class="site-footer">
-      <span>苑夫唯 · AI产品经理作品集</span>
-      <span>内容生成 · 知识检索 · 流程协同</span>
+      <span data-i18n="footer.name">苑夫唯 · AI产品经理作品集</span>
+      <span data-i18n="footer.scope">内容生成 · 知识检索 · 流程协同</span>
     </footer>
 
+    <script>
+      window.I18N_PAGE = {
+        meta: {
+          zh: {
+            title: "AI产品作品集 | 苑夫唯",
+            description: "AI产品经理作品集，包含本地 AI Agent 知识助手、AIGC视觉内容生成、企业知识库问答与报告生成、B端审批协同平台。",
+          },
+          en: {
+            title: "AI Product Portfolio | Fuwei Yuan",
+            description: "AI product portfolio covering a local Agentic RAG knowledge assistant, AIGC visual workflow, enterprise RAG, and B2B workflow automation.",
+          },
+        },
+        zh: {},
+        en: {
+          brand: "Fuwei Yuan · AI Product Portfolio",
+          "nav.aigc": "AIGC Workflow",
+          "nav.rag": "Knowledge RAG",
+          "nav.workflow": "Workflow",
+          "nav.about": "About",
+          "hero.profile": "Fuwei Yuan · AI Application Product",
+          "hero.title": "From design workflows to AI product systems.",
+          "hero.text": "This portfolio shows how I turn real workflows into AI product solutions. The featured case is a local knowledge assistant from RAG to Agentic RAG, supported by AIGC visual generation, enterprise knowledge QA, and B2B workflow automation.",
+          "hero.primary": "View featured case",
+          "hero.secondary": "Browse all cases",
+          "tag.pm": "AI Product Design",
+          "tag.source": "Source-grounded Answers",
+          "tag.workflow": "Workflow Modeling",
+          "overview.title": "One featured case, three supporting cases",
+          "overview.text": "The local knowledge assistant is the primary case. It uses a two-stage narrative, from local RAG to Agentic RAG, to show Router design, Tool Calling, Memory, citation-backed answers, validation, and product boundaries.",
+          "local.title": "Local Knowledge Assistant: RAG to Agentic RAG",
+          "local.text": "For fragmented notes, project materials, and local documents, I first designed a local semantic retrieval layer, then upgraded it into a read-only Agentic RAG system with Router, Tool Calling, and Memory. In 10 real task questions, 9 were matched and 1 was partially matched, with answer usefulness around 8/10.",
+          "aigc.title": "AIGC Visual Generation Workbench",
+          "aigc.text": "A structured workflow for early-stage architectural visual exploration: structured input, prompt templates, multi-version generation, and human review.",
+          "rag.title": "Enterprise Knowledge QA and Report Drafting",
+          "rag.text": "A supporting RAG case for enterprise knowledge retrieval, citation-backed QA, report drafting, and human review in B2B knowledge workflows.",
+          "workflow.title": "B2B Approval Workflow Platform",
+          "workflow.text": "A workflow product case that turns offline material collection, pre-review, status tracking, and review records into a structured collaboration process.",
+          "case.link": "View full case",
+          "about.title": "Fuwei Yuan | From complex project coordination to AI product work",
+          "about.text": "I hold a Master of Architecture from UC Berkeley and have five years of study and work experience in San Francisco. My background spans architectural design, real estate product management, design review, and complex workflow coordination. I now focus on AI application products, especially RAG, AIGC, and workflow automation in real scenarios.",
+          "about.card1.title": "Complex workflow experience",
+          "about.card1.text": "I have worked with multi-role collaboration, design review, requirement changes, standards, and project delivery, turning ambiguous needs into structured workflows and outcomes.",
+          "about.card2.title": "AI product practice",
+          "about.card2.text": "Recent work covers a local Agentic RAG assistant, enterprise knowledge QA, AIGC visual generation, and B2B approval workflow design, including requirements, flows, prototypes, validation questions, and evaluation.",
+          "about.card3.title": "Product strength",
+          "about.card3.text": "I am strongest at turning real business problems into product cases that are understandable, demonstrable, and evaluable, with attention to user flows, AI boundaries, sources, review, and implementation constraints.",
+          "footer.name": "Fuwei Yuan · AI Product Portfolio",
+          "footer.scope": "Content Generation · Knowledge Retrieval · Workflow Automation",
+        },
+      };
+    </script>
+    <script src="./src/i18n.js"></script>
     <script src="./src/data.js"></script>
+    <script src="./src/data-en.js"></script>
     <script src="./src/main.js"></script>
   </body>
 </html>

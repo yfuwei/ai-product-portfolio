@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860" role="img" aria-labelledby="title desc">
+  <title id="title">Local Knowledge Assistant system architecture</title>
+  <desc id="desc">English architecture diagram for local RAG and Agentic RAG.</desc>
+  <defs><style>.bg{fill:#f5f7fb}.box{fill:#fff;stroke:#d9e1e7;stroke-width:2}.soft{fill:#eef9fd;stroke:#d9e1e7;stroke-width:2}.dark{fill:#111418}.accent{fill:#00a6d6}.rose{fill:#f04467}.sun{fill:#f7d84a}.txt{font-family:Inter,Arial,sans-serif}.h{font-size:30px;font-weight:800}.t{font-size:21px;font-weight:800}.s{font-size:17px}.m{fill:#66717a}.arrow{stroke:#00a6d6;stroke-width:4;fill:none;marker-end:url(#a)}</style><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#00a6d6"/></marker></defs>
+  <rect class="bg" width="1600" height="860"/>
+  <text x="80" y="78" class="txt h" fill="#111418">System Architecture: Local RAG to Agentic RAG</text>
+  <g transform="translate(80 130)">
+    <rect class="box" width="250" height="560" rx="18"/><text x="32" y="58" class="txt t" fill="#111418">Local Sources</text><text x="32" y="118" class="txt s m">Obsidian notes</text><text x="32" y="162" class="txt s m">Project docs</text><text x="32" y="206" class="txt s m">PRD / reviews</text><text x="32" y="250" class="txt s m">Local files</text>
+  </g>
+  <g transform="translate(405 130)">
+    <rect class="soft" width="260" height="560" rx="18"/><text x="30" y="58" class="txt t" fill="#111418">Processing</text><text x="30" y="118" class="txt s m">Parse documents</text><text x="30" y="162" class="txt s m">Chunk content</text><text x="30" y="206" class="txt s m">Add metadata</text><text x="30" y="250" class="txt s m">Generate embeddings</text>
+  </g>
+  <g transform="translate(740 130)">
+    <rect class="box" width="260" height="560" rx="18"/><text x="30" y="58" class="txt t" fill="#111418">Knowledge Layer</text><rect x="30" y="105" width="200" height="70" rx="12" class="sun"/><text x="62" y="149" class="txt s" fill="#111418">Chroma DB</text><text x="30" y="225" class="txt s m">Vector index</text><text x="30" y="269" class="txt s m">Top-K retriever</text><text x="30" y="313" class="txt s m">Source snippets</text>
+  </g>
+  <g transform="translate(1075 130)">
+    <rect class="soft" width="260" height="560" rx="18"/><text x="30" y="58" class="txt t" fill="#111418">Agent Layer</text><text x="30" y="118" class="txt s m">Router</text><text x="30" y="162" class="txt s m">search_docs Tool</text><text x="30" y="206" class="txt s m">Short-term Memory</text><text x="30" y="250" class="txt s m">Execution Trace</text><text x="30" y="294" class="txt s m">Safety check</text>
+  </g>
+  <g transform="translate(1410 130)">
+    <rect class="box" width="130" height="560" rx="18"/><text x="30" y="58" class="txt t" fill="#111418">GUI</text><text x="30" y="118" class="txt s m">Ask</text><text x="30" y="162" class="txt s m">Answer</text><text x="30" y="206" class="txt s m">Sources</text><text x="30" y="250" class="txt s m">Trace</text>
+  </g>
+  <path class="arrow" d="M330 410 H405"/><path class="arrow" d="M665 410 H740"/><path class="arrow" d="M1000 410 H1075"/><path class="arrow" d="M1335 410 H1410"/>
+  <text x="80" y="765" class="txt s m">Product boundary: local-first, source-grounded, read-only by default.</text>
+</svg>

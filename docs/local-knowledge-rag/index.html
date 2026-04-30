@@ -8,6 +8,13 @@
       name="description"
       content="本地知识助手（RAG → Agentic RAG）项目详情页：围绕问题定义、V1/V2演进、真实场景验证、用户价值和系统边界展示 AI PM 产品判断。"
     />
+    <meta property="og:title" content="本地知识助手（RAG → Agentic RAG）| 项目详情" />
+    <meta
+      property="og:description"
+      content="本地知识助手（RAG → Agentic RAG）项目详情页：围绕问题定义、V1/V2演进、真实场景验证、用户价值和系统边界展示 AI PM 产品判断。"
+    />
+    <meta property="og:image" content="assets/screenshots/notion-style-gui.png" />
+    <meta property="og:url" content="./index.html" />
     <style>
       :root {
         --bg: #f5f7fb;
@@ -126,13 +133,65 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        gap: 13px;
+        gap: 8px;
         color: var(--muted);
         font-size: 14px;
       }
 
+      .case-nav a {
+        display: inline-flex;
+        min-height: 32px;
+        align-items: center;
+        padding: 5px 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        font-weight: 800;
+      }
+
       .case-nav a:hover {
         color: var(--rose);
+        border-color: rgba(240, 68, 103, 0.35);
+      }
+
+      .case-nav .nav-back {
+        margin-left: 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-color: rgba(0, 166, 214, 0.28);
+      }
+
+      .case-nav .nav-back::before {
+        content: "";
+        width: 1px;
+        height: 18px;
+        margin: 0 14px 0 -18px;
+        background: var(--line);
+      }
+
+      .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .language-toggle button {
+        padding: 6px 8px;
+        color: var(--muted);
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .language-toggle button.active {
+        color: var(--ink);
+        background: var(--accent-soft);
+        border-color: var(--line);
       }
 
       .hero {
@@ -364,7 +423,7 @@
 
       .flow-strip {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 12px;
         margin-top: 20px;
       }
@@ -411,6 +470,10 @@
         width: 100%;
         min-width: 760px;
         border-collapse: collapse;
+      }
+
+      .panel .table-wrap table {
+        min-width: 520px;
       }
 
       th,
@@ -469,6 +532,26 @@
         font-size: 18px;
       }
 
+      .task-chain {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .task-chain span {
+        display: grid;
+        min-height: 64px;
+        place-items: center;
+        padding: 12px;
+        color: var(--ink);
+        background: var(--accent-soft);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-weight: 900;
+        text-align: center;
+      }
+
       .doc-links {
         display: flex;
         flex-wrap: wrap;
@@ -485,6 +568,17 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         font-weight: 900;
+      }
+
+      .doc-links .doc-primary {
+        color: var(--ink);
+        background: var(--sun);
+        border-color: transparent;
+      }
+
+      .doc-links .doc-secondary {
+        color: var(--accent-strong);
+        background: var(--surface);
       }
 
       .case-footer {
@@ -526,22 +620,24 @@
     <header class="case-header">
       <a class="brand" href="../../index.html#local-rag">
         <span class="brand-mark">R</span>
-        <span>本地知识助手项目详情</span>
+        <span data-i18n="brand">本地知识助手项目详情</span>
       </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#overview">速览</a>
-        <a href="#background">问题</a>
-        <a href="#v1">V1</a>
-        <a href="#v2">V2</a>
-        <a href="#evaluation">评估</a>
-        <a href="#comparison">对比</a>
-        <a href="#value">价值</a>
-        <a href="#limits">限制</a>
-        <a href="#role">角色</a>
+        <a href="#overview" data-i18n="nav.overview">速览</a>
+        <a href="#users" data-i18n="nav.users">用户</a>
+        <a href="#background" data-i18n="nav.problem">问题</a>
+        <a href="#v1" data-i18n="nav.solution">方案</a>
+        <a href="#evaluation" data-i18n="nav.evaluation">评估</a>
+        <a href="#badcases">Badcase</a>
+        <a href="#design" data-i18n="nav.decisions">决策</a>
+        <a href="#comparison" data-i18n="nav.compare">对比</a>
+        <a href="#value" data-i18n="nav.value">价值</a>
+        <a href="#role" data-i18n="nav.role">角色</a>
+        <a class="nav-back" href="../../index.html#local-rag" data-i18n="nav.back">返回作品集</a>
       </nav>
     </header>
 
-    <main>
+    <main data-i18n-html="mainHtml">
       <section class="hero" id="hero">
         <div>
           <p class="eyebrow">Project 01 · Portfolio Page</p>
@@ -569,8 +665,8 @@
             </article>
           </div>
           <div class="hero-actions">
-            <a class="primary-link" href="本地知识助手_RAG到AgenticRAG_产品设计文档.pdf">查看产品设计文档</a>
-            <a class="secondary-link" href="../../index.html#local-rag">返回作品集首页</a>
+            <a class="primary-link" href="../../assets/docs/local-knowledge-rag-prd-zh.pdf">下载中文产品设计文档 PDF</a>
+            <a class="secondary-link" href="../../assets/docs/local-knowledge-rag-case-study-en.pdf">View English Product Case Study PDF</a>
           </div>
         </div>
         <a class="hero-image" href="assets/screenshots/notion-style-gui.png">
@@ -620,6 +716,53 @@
         </div>
       </section>
 
+      <section class="section" id="users">
+        <div class="section-heading">
+          <p class="eyebrow">Users & Scenarios</p>
+          <h2>目标用户与核心场景</h2>
+          <p>本项目面向需要频繁查找历史资料、整理项目材料和复盘经验的个人知识工作者，而不是泛泛的“普通用户”。</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel">
+            <span class="section-kicker">AI 产品经理候选人</span>
+            <p>需要整理作品集、复盘项目、准备项目问答，并从历史材料中快速找到可引用依据。</p>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">项目经理 / 咨询顾问</span>
+            <p>需要从历史文档中快速找依据、总结项目、沉淀方法，减少重复翻资料和重新组织表达。</p>
+          </article>
+          <article class="panel">
+            <span class="section-kicker">研究型知识工作者</span>
+            <p>需要在大量笔记中进行语义检索、追溯来源和连续整理，让知识库真正服务长期输出。</p>
+          </article>
+        </div>
+        <div class="task-chain" aria-label="核心任务链路">
+          <span>查资料</span>
+          <span>找依据</span>
+          <span>总结</span>
+          <span>复盘</span>
+          <span>生成表达</span>
+          <span>连续追问</span>
+        </div>
+        <div class="grid-3" style="margin-top: 16px">
+          <article class="summary-card">
+            <span>查资料</span>
+            <strong>不记得文件名，也能找回相关资料</strong>
+            <p>用户用自然语言描述问题，系统通过语义召回覆盖同义表达和跨文件线索。</p>
+          </article>
+          <article class="summary-card">
+            <span>做复盘</span>
+            <strong>从多个文档中提取背景、方案和结果</strong>
+            <p>把分散在笔记、项目材料和设计文档里的信息重新组织成可复用结论。</p>
+          </article>
+          <article class="summary-card">
+            <span>生成表达</span>
+            <strong>整理成项目介绍、项目表达或作品集内容</strong>
+            <p>让 AI 不是凭空写作，而是在已有资料和来源依据上辅助生成表达。</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="background">
         <div class="section-heading">
           <p class="eyebrow">Problem</p>
@@ -647,6 +790,61 @@
             <strong>上下文</strong>
             <p>用户会连续追问、对比和整理项目，系统需要判断任务类型并承接最近上下文。</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section alt" id="alternatives">
+        <div class="section-heading">
+          <p class="eyebrow">Why Not Existing Tools</p>
+          <h2>为什么不直接用现有方案</h2>
+          <p>这个项目不是为了追热点做 RAG，而是因为现有工具只能解决一部分问题，无法同时满足本地资料接入、来源追溯、持续更新和连续任务。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>方案</th>
+                <th>能解决什么</th>
+                <th>主要问题</th>
+                <th>本项目判断</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ChatGPT 直接问</td>
+                <td>通用解释、写作、总结能力强。</td>
+                <td>不知道本地资料；手动上传不适合长期维护；来源追溯不稳定。</td>
+                <td>适合作为生成层，不适合作为本地知识入口。</td>
+              </tr>
+              <tr>
+                <td>Notion / Notion AI</td>
+                <td>在线文档组织和团队协作体验好。</td>
+                <td>资料分散在 Obsidian、本地文件和 OneDrive；隐私和来源粒度不完全匹配。</td>
+                <td>不作为主方案。</td>
+              </tr>
+              <tr>
+                <td>Obsidian / 关键词搜索</td>
+                <td>适合精确查找文件名和关键词。</td>
+                <td>难覆盖同义表达、跨文件线索和自然语言问答。</td>
+                <td>保留为辅助。</td>
+              </tr>
+              <tr>
+                <td>本地 RAG</td>
+                <td>支持本地资料接入、语义检索和来源追溯。</td>
+                <td>需要维护 chunk、索引和召回质量。</td>
+                <td>作为 V1 主方案。</td>
+              </tr>
+              <tr>
+                <td>Agentic RAG</td>
+                <td>支持任务判断、工具调用和连续追问。</td>
+                <td>引入 Router 误判、Memory 污染等新风险。</td>
+                <td>作为 V2 升级方向。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="quote-box" style="margin-top: 18px">
+          本项目的判断是：用 RAG 解决“本地知识接入 + 来源追溯”，再用 Agentic RAG 解决“任务判断 + 工具调用 + 连续追问”。
         </div>
       </section>
 
@@ -797,7 +995,7 @@
       <section class="section alt" id="evaluation">
         <div class="section-heading">
           <p class="eyebrow">Evaluation</p>
-          <h2>评估体系：数据 + 方法</h2>
+          <h2>评估体系：V1 验证检索可信，V2 验证 Agent 决策</h2>
           <p>测试问题来自真实个人知识库使用场景，而非人工构造的标准问答集。评估重点不是回答是否流畅，而是来源是否召回、回答是否基于来源、Agent 是否判断对任务类型。</p>
         </div>
         <div class="metric-grid">
@@ -830,14 +1028,133 @@
               <p>检索层、生成层、Agent 层和边界层同时看，避免只看模型输出是否好看。</p>
             </div>
           </article>
+          <div class="panel">
+            <span class="section-kicker">产品判断</span>
+            <p style="margin-top: 12px">V2 的重点不是证明“Agent 更高级”，而是验证它是否真的能让系统从固定问答链路升级为可控的任务链路。</p>
+            <p>因此评估必须同时看：是否找得到、是否能追溯、是否判断对路径、是否把高风险动作挡在确认边界外。</p>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top: 16px">
           <article class="panel">
-            <span class="section-kicker">三层评估方法</span>
+            <span class="section-kicker">V1：基础 RAG 验证</span>
+            <div class="table-wrap" style="margin-top: 12px; box-shadow: none">
+              <table>
+                <thead>
+                  <tr>
+                    <th>验证重点</th>
+                    <th>判断方式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>是否找得到</td>
+                    <td>正确来源是否进入 Top-K。</td>
+                  </tr>
+                  <tr>
+                    <td>是否答得出</td>
+                    <td>回答是否能基于来源组织。</td>
+                  </tr>
+                  <tr>
+                    <td>是否能追溯</td>
+                    <td>用户是否能回到原文复核。</td>
+                  </tr>
+                  <tr>
+                    <td>是否可维护</td>
+                    <td>文件更新后索引是否能刷新。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <ul class="bullet-list" style="margin-top: 12px">
-              <li>检索层：Top-K 是否召回正确来源。</li>
-              <li>生成层：回答是否基于来源、是否避免无依据扩写。</li>
-              <li>Agent 层：是否正确判断检索、问答、索引维护或澄清。</li>
+              <li>10 条真实任务问题。</li>
+              <li>9 条命中，1 条基本命中。</li>
+              <li>回答可用性约 8/10。</li>
             </ul>
           </article>
+          <article class="panel">
+            <span class="section-kicker">V2：Agentic RAG 验证</span>
+            <div class="table-wrap" style="margin-top: 12px; box-shadow: none">
+              <table>
+                <thead>
+                  <tr>
+                    <th>验证重点</th>
+                    <th>判断方式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Router 是否判断正确</td>
+                    <td>direct / retrieve / clarify 是否符合预期。</td>
+                  </tr>
+                  <tr>
+                    <td>Tool 是否正确调用</td>
+                    <td>需要本地资料时是否调用 search_docs。</td>
+                  </tr>
+                  <tr>
+                    <td>Memory 是否有效</td>
+                    <td>连续追问是否能继承上下文。</td>
+                  </tr>
+                  <tr>
+                    <td>Trace 是否可解释</td>
+                    <td>是否展示 route decision、tool call、sources。</td>
+                  </tr>
+                  <tr>
+                    <td>Safety 是否可控</td>
+                    <td>写入 / 删除类动作是否要求确认。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="badcases">
+        <div class="section-heading">
+          <p class="eyebrow">Badcase Review</p>
+          <h2>Badcase 复盘：从 Demo 到可迭代产品</h2>
+          <p>这个项目不只展示成功案例，也记录系统在真实使用中可能出现的问题，并将 badcase 转化为后续优化策略。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Badcase</th>
+                <th>我是怎么发现的</th>
+                <th>优化动作</th>
+                <th>产品判断</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>语义相近导致误召回</td>
+                <td>问“本地知识助手项目怎么介绍”时，召回了其他 RAG 项目资料。</td>
+                <td>增加 project_name、source_type、path 等元数据；支持来源筛选。</td>
+                <td>相似度高不等于业务相关，RAG 需要业务元数据。</td>
+              </tr>
+              <tr>
+                <td>长文档总结片面</td>
+                <td>总结产品设计文档时，只覆盖某个章节。</td>
+                <td>增加章节摘要索引；总结类问题优先召回目录和章节摘要。</td>
+                <td>基础 RAG 适合局部问答，长文档总结需要结构化策略。</td>
+              </tr>
+              <tr>
+                <td>Router 误判</td>
+                <td>“我这个项目怎么讲”被误判为 direct，没有检索本地资料。</td>
+                <td>给 Router 增加本地资料信号规则；低置信时 clarify。</td>
+                <td>Agent 的第一步是路径判断，Router 错了后面都错。</td>
+              </tr>
+              <tr>
+                <td>写入类请求风险</td>
+                <td>用户要求写回 Obsidian 时，存在误写和覆盖风险。</td>
+                <td>当前默认只读；写入前必须预览和确认。</td>
+                <td>Agent 能力边界必须先于能力扩展。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="quote-box" style="margin-top: 18px">
+          V1 的 badcase 主要发生在检索和生成质量；V2 的 badcase 主要发生在决策、上下文、工具调用和安全边界。
         </div>
       </section>
 
@@ -910,7 +1227,56 @@
         </div>
       </section>
 
-      <section class="section alt" id="value">
+      <section class="section alt" id="design">
+        <div class="section-heading">
+          <p class="eyebrow">Product Decisions</p>
+          <h2>关键产品决策与 Trade-off</h2>
+          <p>这个项目的重点不是堆功能，而是在不同方案之间做取舍：哪些能力先做，哪些能力暂不做，哪些风险必须控制。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>决策</th>
+                <th>为什么这样做</th>
+                <th>放弃 / 代价</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>先做基础 RAG，而不是一开始做 Agent</td>
+                <td>先验证“找得到、答得出、能追溯”的基础闭环。</td>
+                <td>V1 不够智能，无法判断任务路径。</td>
+              </tr>
+              <tr>
+                <td>RAG 封装为 search_docs Tool</td>
+                <td>让检索能力从固定流程变成 Agent 可调用能力。</td>
+                <td>需要额外定义工具输入输出和失败状态。</td>
+              </tr>
+              <tr>
+                <td>Memory 只保留短期上下文</td>
+                <td>支持连续追问，同时降低上下文污染风险。</td>
+                <td>不做长期用户记忆。</td>
+              </tr>
+              <tr>
+                <td>Agent 默认只读，不自动写回 Obsidian</td>
+                <td>避免误写、覆盖和污染本地资料。</td>
+                <td>自动化程度降低。</td>
+              </tr>
+              <tr>
+                <td>当前不优先 fine-tuning</td>
+                <td>项目核心是知识接入、更新和来源追溯，不是风格训练。</td>
+                <td>Router / 格式稳定性后续可再评估。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="quote-box" style="margin-top: 18px">
+          这个项目体现的产品判断是：AI 能力不是越自动越好，而是要在效率、可信度、可控性之间找到当前阶段最合适的边界。
+        </div>
+      </section>
+
+      <section class="section" id="value">
         <div class="section-heading">
           <p class="eyebrow">Value</p>
           <h2>用户价值</h2>
@@ -931,33 +1297,6 @@
               <li>风险控制从“能回答”推进到“可追溯、可解释、可控边界内执行”。</li>
             </ul>
           </article>
-        </div>
-      </section>
-
-      <section class="section" id="design">
-        <div class="section-heading">
-          <p class="eyebrow">Design Thinking</p>
-          <h2>关键设计思考</h2>
-        </div>
-        <div class="grid-3">
-          <article class="summary-card">
-            <span>为什么要 Router</span>
-            <strong>先做路径判断，避免所有问题都走检索</strong>
-            <p>这一步解决的是意图识别问题，不只是流程优化。</p>
-          </article>
-          <article class="summary-card">
-            <span>为什么要 Tool 抽象</span>
-            <strong>把能力产品化，而不是把流程写死</strong>
-            <p>RAG 被封装成 Tool 后，项目才具备演进成多工具 Agent 的基础。</p>
-          </article>
-          <article class="summary-card">
-            <span>为什么强调边界</span>
-            <strong>Agent 可以调度工具，但不能越权执行高风险动作</strong>
-            <p>当前只读、不自动写回，是刻意做的产品取舍，不是能力缺失。</p>
-          </article>
-        </div>
-        <div class="quote-box" style="margin-top: 18px">
-          这个项目的重点不是“我做了一个 RAG Demo”，而是“我能说明为什么要从 RAG 演进到 Agent，以及这个升级给用户带来了什么变化”。
         </div>
       </section>
 
@@ -1004,7 +1343,7 @@
             <ul class="bullet-list">
               <li>Prompt 设计：约束是否检索、如何基于来源回答。</li>
               <li>Demo 验证与评估体系：用真实任务问题验证检索、生成和 Agent 判断。</li>
-              <li>产品化表达与作品集封装：把技术实现转成面试可理解的产品案例。</li>
+              <li>产品化表达与作品集封装：把技术实现转成公开评审可理解的产品案例。</li>
             </ul>
           </article>
         </div>
@@ -1018,16 +1357,266 @@
         <div class="quote-box">
           这个项目最想展示的不是我会做一个 RAG，而是我能从真实问题出发，把它迭代成一个具备决策、工具调用和边界控制的 Agentic RAG 产品。
         </div>
-        <div class="doc-links" style="margin-top: 18px">
-          <a href="本地知识助手_RAG到AgenticRAG_产品设计文档.pdf">查看完整产品设计文档</a>
-          <a href="../../index.html#local-rag">返回作品集首页</a>
+      </section>
+
+      <section class="section alt" id="documents">
+        <div class="section-heading">
+          <p class="eyebrow">Project Documents</p>
+          <h2>项目文档</h2>
+          <p>中文版保留完整产品设计文档 / PRD；英文版作为面向 LinkedIn 和英文简历的 Product Case Study，突出产品判断、方案取舍与验证结果。</p>
+        </div>
+        <div class="doc-links">
+          <a class="doc-primary" href="../../assets/docs/local-knowledge-rag-prd-zh.pdf">下载中文产品设计文档 PDF</a>
+          <a class="doc-secondary" href="../../assets/docs/local-knowledge-rag-case-study-en.pdf">View English Product Case Study PDF</a>
         </div>
       </section>
     </main>
 
     <footer class="case-footer">
       <span>Project 01 · Local Knowledge Assistant</span>
-      <span>详情页用于面试展示，产品设计文档补充完整逻辑、评估方法与设计边界。</span>
+      <span data-i18n="footer.note">详情页用于作品集展示，产品设计文档补充完整逻辑、评估方法与设计边界。</span>
     </footer>
+    <script>
+      window.I18N_PAGE = {
+        meta: {
+          zh: {
+            title: "本地知识助手（RAG → Agentic RAG）| 项目详情",
+            description: "本地知识助手（RAG → Agentic RAG）项目详情页：围绕问题定义、V1/V2演进、真实场景验证、用户价值和系统边界展示 AI PM 产品判断。",
+          },
+          en: {
+            title: "Local Knowledge Assistant: RAG to Agentic RAG | Case Study",
+            description: "A product case study for a local Agentic RAG knowledge assistant, covering users, scenarios, RAG and Agent trade-offs, validation, badcases, and product decisions.",
+          },
+        },
+        zh: {},
+        en: {
+          brand: "Local Knowledge Assistant Case",
+          "nav.overview": "Overview",
+          "nav.users": "Users",
+          "nav.problem": "Problem",
+          "nav.solution": "Solution",
+          "nav.evaluation": "Validation",
+          "nav.decisions": "Decisions",
+          "nav.compare": "Compare",
+          "nav.value": "Value",
+          "nav.role": "Role",
+          "nav.back": "Back to portfolio",
+          "footer.note": "This case page is designed for portfolio review; the full product document contains the complete logic, evaluation details, and system boundaries.",
+          mainHtml: `
+      <section class="hero" id="hero">
+        <div>
+          <p class="eyebrow">Project 01 · Portfolio Case</p>
+          <h1>Local Knowledge Assistant: RAG to Agentic RAG</h1>
+          <p class="hero-subtitle">From semantic retrieval to a task-aware AI knowledge assistant.</p>
+          <p class="lead">This project starts from a real personal knowledge-work scenario. V1 uses local RAG to make materials retrievable and answers source-grounded; V2 adds Router, Tool Calling, and Memory so the system can decide when to retrieve, how to answer, and how to continue follow-up tasks.</p>
+          <div class="tag-row">
+            <span class="tag">RAG</span>
+            <span class="tag">Agent</span>
+            <span class="tag">Tool Calling</span>
+            <span class="tag">Memory</span>
+            <span class="tag">Local-first</span>
+            <span class="tag">Product Validation</span>
+          </div>
+          <div class="hero-meta">
+            <article class="meta-card">
+              <span>Validation result</span>
+              <strong>10 real task questions: 9 matched, 1 partially matched; answer usefulness around 8/10.</strong>
+            </article>
+            <article class="meta-card">
+              <span>Product positioning</span>
+              <strong>Not a generic RAG demo, but an AI PM case with users, scenarios, trade-offs, validation, badcases, and boundaries.</strong>
+            </article>
+          </div>
+          <div class="hero-actions">
+            <a class="primary-link" href="../../assets/docs/local-knowledge-rag-case-study-en.pdf">Download English Product Case Study PDF</a>
+            <a class="secondary-link" href="../../assets/docs/local-knowledge-rag-prd-zh.pdf">View Chinese Product Design Document PDF</a>
+          </div>
+        </div>
+        <a class="hero-image" href="assets/screenshots/notion-style-gui.png">
+          <img src="assets/screenshots/notion-style-gui.png" alt="Local knowledge assistant GUI overview" />
+        </a>
+      </section>
+
+      <section class="section alt" id="overview">
+        <div class="section-heading">
+          <p class="eyebrow">TL;DR</p>
+          <h2>Project Snapshot</h2>
+          <p>The core shift is from “finding files” to “getting source-grounded answers,” and then to “a controllable task workflow.”</p>
+        </div>
+        <div class="grid-4">
+          <article class="panel"><span class="section-kicker">Problem</span><ul class="bullet-list"><li>Knowledge was scattered across notes, projects, and local files.</li><li>Keyword search missed semantic and cross-file signals.</li><li>LLM answers were hard to trust without sources.</li></ul></article>
+          <article class="panel"><span class="section-kicker">Solution</span><ul class="bullet-list"><li>V1: local RAG for retrieval and citations.</li><li>V2: Agentic RAG for routing, tool calls, and memory.</li><li>Read-only and local-first by default.</li></ul></article>
+          <article class="panel"><span class="section-kicker">Result</span><ul class="bullet-list"><li>10 real task questions.</li><li>9 matched, 1 partially matched.</li><li>Answer usefulness around 8/10.</li></ul></article>
+          <article class="panel"><span class="section-kicker">Highlight</span><ul class="bullet-list"><li>Product thinking before model stacking.</li><li>Validation and badcase review.</li><li>Clear automation boundaries.</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section" id="users">
+        <div class="section-heading">
+          <p class="eyebrow">Users & Scenarios</p>
+          <h2>Target Users and Core Scenarios</h2>
+          <p>The target user is not a generic chatbot user, but a knowledge worker who frequently searches historical materials, reviews projects, and turns existing documents into structured output.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel"><span class="section-kicker">AI PM candidate</span><p>Needs to organize portfolio materials, review project logic, and prepare evidence-backed project Q&A.</p></article>
+          <article class="panel"><span class="section-kicker">Project manager / consultant</span><p>Needs to find past evidence, summarize project context, and retain reusable methods.</p></article>
+          <article class="panel"><span class="section-kicker">Research-oriented knowledge worker</span><p>Needs semantic search, source tracing, and continuous synthesis across large note collections.</p></article>
+        </div>
+        <div class="task-chain" aria-label="Core task flow">
+          <span>Find materials</span><span>Verify sources</span><span>Summarize</span><span>Review</span><span>Generate output</span><span>Follow up</span>
+        </div>
+      </section>
+
+      <section class="section" id="background">
+        <div class="section-heading">
+          <p class="eyebrow">Problem</p>
+          <h2>Problem Definition</h2>
+          <p>The user problem is not “how to ask AI,” but how to make AI work with local knowledge in a way that is findable, trustworthy, controllable, and smooth to use.</p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card"><span>Findable</span><strong>Semantic</strong><p>Search must cover synonyms and cross-file clues, not only exact keywords.</p></article>
+          <article class="metric-card"><span>Trustworthy</span><strong>Sources</strong><p>Answers need source snippets and paths so users can review the original material.</p></article>
+          <article class="metric-card"><span>Controllable</span><strong>Local</strong><p>Notes, embeddings, vector DB, and caches stay on the local machine.</p></article>
+          <article class="metric-card"><span>Smooth</span><strong>Context</strong><p>Users ask follow-up questions, compare materials, and build project narratives over multiple turns.</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="alternatives">
+        <div class="section-heading">
+          <p class="eyebrow">Why Not Existing Tools</p>
+          <h2>Why Not Just Use Existing Solutions?</h2>
+          <p>This project was not built to chase the RAG trend. Existing tools solve parts of the problem, but not local knowledge access, source tracing, continuous updates, and follow-up tasks together.</p>
+        </div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Option</th><th>What it solves</th><th>Main gap</th><th>Product judgment</th></tr></thead><tbody>
+            <tr><td>ChatGPT directly</td><td>Strong general reasoning, writing, and summarization.</td><td>Does not know local files; manual upload is hard to maintain; source tracing is unstable.</td><td>Good generation layer, not the local knowledge entry point.</td></tr>
+            <tr><td>Notion / Notion AI</td><td>Good online document organization and collaboration.</td><td>My materials live across Obsidian, local files, and OneDrive; privacy and source granularity do not fully match.</td><td>Not the primary solution.</td></tr>
+            <tr><td>Obsidian / keyword search</td><td>Great for exact file names and known keywords.</td><td>Weak on semantic intent, cross-file clues, and natural language QA.</td><td>Keep as a supporting tool.</td></tr>
+            <tr><td>Local RAG</td><td>Local material access, semantic retrieval, and citations.</td><td>Requires chunking, indexing, and recall-quality maintenance.</td><td>Use as V1.</td></tr>
+            <tr><td>Agentic RAG</td><td>Task routing, tool calls, and follow-up context.</td><td>Adds Router errors, Memory contamination, and safety risks.</td><td>Use as V2 upgrade direction.</td></tr>
+          </tbody></table>
+        </div>
+        <div class="quote-box" style="margin-top: 18px">Product judgment: use RAG for local knowledge access and source tracing, then use Agentic RAG for task routing, tool calls, and follow-up workflows.</div>
+      </section>
+
+      <section class="section alt" id="v1">
+        <div class="section-heading"><p class="eyebrow">V1</p><h2>V1: Local RAG</h2><p>First validate the foundation: local materials can be retrieved, answers can be source-grounded, and the workflow can be used daily.</p></div>
+        <div class="grid-2">
+          <article class="image-card"><img src="assets/screenshots/search-workspace.png" alt="Search workspace screenshot" /><div><h3>Search workspace</h3><p>Retrieve materials before generating answers.</p></div></article>
+          <article class="image-card"><img src="assets/screenshots/answer-with-citations.png" alt="Answer with citations screenshot" /><div><h3>Answers with citations</h3><p>Bind answers to source snippets to reduce black-box risk.</p></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="gap">
+        <div class="section-heading"><p class="eyebrow">Why Upgrade</p><h2>Why V1 Was Not Enough</h2><p>V1 could answer questions, but it was still a fixed pipeline rather than a task-aware assistant.</p></div>
+        <div class="grid-3">
+          <article class="panel"><h3>Forced retrieval</h3><p>Every question followed the same retrieval path, even when direct answering or clarification would be better.</p></article>
+          <article class="panel"><h3>No task routing</h3><p>The system could not distinguish QA, summarization, comparison, or project preparation tasks.</p></article>
+          <article class="panel"><h3>No short-term memory</h3><p>Follow-up questions required users to restate context repeatedly.</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="v2">
+        <div class="section-heading"><p class="eyebrow">V2</p><h2>V2: Agentic RAG Upgrade</h2><p>The system moves from “user asks, system answers” to “user states a goal, system decides the path and calls the right tool.”</p></div>
+        <div class="module-grid">
+          <article class="module-card"><span>Router</span><h3>Decide the path first</h3><p>Choose direct, retrieve, or clarify before answering.</p></article>
+          <article class="module-card"><span>Tool</span><h3>Make retrieval callable</h3><p>Wrap RAG as search_docs for the agent.</p></article>
+          <article class="module-card"><span>Memory</span><h3>Support follow-up tasks</h3><p>Keep short-term context without building long-term user memory.</p></article>
+          <article class="module-card"><span>Agent Core</span><h3>Coordinate execution</h3><p>Connect routing, tool calls, context assembly, and final answers.</p></article>
+        </div>
+        <div class="grid-2" style="margin-top: 16px">
+          <article class="image-card diagram-card"><img src="assets/architecture.png" alt="Agentic RAG architecture diagram" /><div><h3>System architecture</h3><p>Data sources, processing, vector layer, agent control layer, generation, and GUI.</p></div></article>
+          <article class="image-card diagram-card"><img src="assets/query-flow.png" alt="Agentic RAG query flow diagram" /><div><h3>Query flow</h3><p>User → Router → Tool(RAG) → Answer → Memory.</p></div></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="evaluation">
+        <div class="section-heading"><p class="eyebrow">Evaluation</p><h2>Validation: V1 Checks Retrieval Trust, V2 Checks Agent Decisions</h2><p>The evaluation focuses on sources, answer usefulness, routing correctness, tool calls, traceability, and safety boundaries.</p></div>
+        <div class="metric-grid">
+          <article class="metric-card"><span>Questions</span><strong>10</strong><p>Real personal knowledge-work tasks.</p></article>
+          <article class="metric-card"><span>Recall</span><strong>9+1</strong><p>9 matched and 1 partially matched.</p></article>
+          <article class="metric-card"><span>Usefulness</span><strong>8/10</strong><p>Manual judgment based on source grounding and task usefulness.</p></article>
+          <article class="metric-card"><span>Agent checks</span><strong>5</strong><p>Router, Tool, Memory, Trace, and Safety.</p></article>
+        </div>
+        <div class="grid-2" style="margin-top: 16px">
+          <article class="panel"><span class="section-kicker">V1 checks</span><ul class="bullet-list" style="margin-top: 12px"><li>Is the right source in Top-K?</li><li>Can the answer be grounded in sources?</li><li>Can the user trace back to the original file?</li><li>Can the index refresh after file changes?</li></ul></article>
+          <article class="panel"><span class="section-kicker">V2 checks</span><ul class="bullet-list" style="margin-top: 12px"><li>Does Router choose direct / retrieve / clarify correctly?</li><li>Does Tool call search_docs when local evidence is needed?</li><li>Does Memory support follow-up questions?</li><li>Are route decisions, tool calls, and sources visible?</li><li>Do write/delete actions require confirmation?</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section" id="badcases">
+        <div class="section-heading"><p class="eyebrow">Badcase Review</p><h2>Badcases: From Demo to Iterative Product</h2><p>The case records not only what worked, but also where the system can fail and how those failures become product decisions.</p></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Badcase</th><th>How I found it</th><th>Optimization</th><th>Product judgment</th></tr></thead><tbody>
+            <tr><td>Semantically similar but wrong source</td><td>A project-introduction query retrieved another RAG project.</td><td>Add project_name, source_type, and path metadata; support source filters.</td><td>Similarity is not business relevance; RAG needs business metadata.</td></tr>
+            <tr><td>Partial long-document summary</td><td>A design-document summary only covered one section.</td><td>Add section summaries and prioritize outlines for summary tasks.</td><td>Basic RAG is good for local QA; long summaries need structure.</td></tr>
+            <tr><td>Router misclassification</td><td>“How should I present this project?” was routed as direct.</td><td>Add local-material signals and clarify on low confidence.</td><td>If routing is wrong, the rest of the agent flow is wrong.</td></tr>
+            <tr><td>Write-back risk</td><td>Requests to write into Obsidian could overwrite or pollute local materials.</td><td>Keep default read-only; require preview and confirmation before writing.</td><td>Agent boundaries must come before capability expansion.</td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <section class="section" id="comparison">
+        <div class="section-heading"><p class="eyebrow">Comparison</p><h2>Traditional Workflow vs V1/V2 Evolution</h2><p>The product evolves from file search to source-grounded answers, and then to a task-aware workflow entry point.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Traditional</th><th>This system</th></tr></thead><tbody>
+          <tr><td>Find materials</td><td>Keyword search and folder browsing.</td><td>Natural-language semantic retrieval across files.</td></tr>
+          <tr><td>Find answers</td><td>Open multiple files and manually assemble conclusions.</td><td>Retrieve sources first, then generate a reviewable answer.</td></tr>
+          <tr><td>Trust</td><td>Depends on memory and manual judgment.</td><td>Answers are tied to source snippets and paths.</td></tr>
+          <tr><td>Follow-up tasks</td><td>Restate context and search again.</td><td>Memory keeps recent context; Router decides whether to retrieve.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="section alt" id="design">
+        <div class="section-heading"><p class="eyebrow">Product Decisions</p><h2>Key Product Decisions and Trade-offs</h2><p>The point is not to add every AI capability, but to choose the right boundary between efficiency, trust, and control.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Decision</th><th>Why</th><th>Trade-off</th></tr></thead><tbody>
+          <tr><td>Start with RAG before Agent</td><td>Validate findability, answerability, and source tracing first.</td><td>V1 cannot route tasks intelligently.</td></tr>
+          <tr><td>Wrap RAG as search_docs Tool</td><td>Make retrieval a reusable agent capability.</td><td>Requires tool I/O and failure-state design.</td></tr>
+          <tr><td>Short-term Memory only</td><td>Support follow-up tasks while reducing context contamination.</td><td>No long-term personalization yet.</td></tr>
+          <tr><td>Read-only Agent by default</td><td>Avoid accidental writes, overwrites, and local knowledge pollution.</td><td>Lower automation level.</td></tr>
+          <tr><td>No fine-tuning priority for now</td><td>The core need is knowledge access, update, and source tracing, not style training.</td><td>Router and format stability can be evaluated later.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="section" id="value">
+        <div class="section-heading"><p class="eyebrow">Value</p><h2>User Value</h2><p>The user no longer has to remember where a file is. They can describe the task and get an answer with evidence.</p></div>
+        <div class="grid-2">
+          <article class="panel"><ul class="bullet-list"><li>From folder browsing to semantic task-based retrieval.</li><li>From trusting model output to checking model output against sources.</li><li>From repeated context input to follow-up questions with short-term memory.</li></ul></article>
+          <article class="panel"><ul class="bullet-list"><li>From static QA to dynamic task routing.</li><li>From feature stacking to tool-based capability expansion.</li><li>From “can answer” to “can answer within a controllable boundary.”</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="limits">
+        <div class="section-heading"><p class="eyebrow">Limits & Next</p><h2>Limitations and Next Steps</h2><p>The limitations clarify where the product boundary is and what should be improved next.</p></div>
+        <div class="grid-2">
+          <article class="panel"><span class="section-kicker">Current limits</span><ul class="bullet-list" style="margin-top: 12px"><li>Small validation set; not enough long-chain tasks yet.</li><li>Router may still fail when intent is ambiguous.</li><li>Multi-tool workflows still need Planner, state management, and recovery.</li></ul></article>
+          <article class="panel"><span class="section-kicker">Next steps</span><ul class="bullet-list" style="margin-top: 12px"><li>Add summary, comparison, index refresh, and confirmed write-back tools.</li><li>Add Planner for multi-step tasks.</li><li>Explore role-based agents for research, product, content, and review.</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section" id="role">
+        <div class="section-heading"><p class="eyebrow">My Role</p><h2>My Role</h2></div>
+        <div class="grid-2">
+          <article class="panel"><ul class="bullet-list"><li>Defined target users, scenarios, pain points, MVP scope, and product boundaries.</li><li>Designed the evolution from local RAG to Agentic RAG.</li><li>Split Router, Tool, Memory, and Agent Core responsibilities.</li></ul></article>
+          <article class="panel"><ul class="bullet-list"><li>Designed prompts for retrieval decisions and source-grounded answers.</li><li>Built validation around real task questions and badcases.</li><li>Packaged the technical system into an AI PM portfolio case.</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section" id="summary">
+        <div class="section-heading"><p class="eyebrow">Summary</p><h2>One-line Summary</h2></div>
+        <div class="quote-box">This project is not meant to prove that I can build a RAG demo. It shows how I define a real user problem, choose the right AI architecture, validate the system, handle badcases, and set safe product boundaries.</div>
+      </section>
+
+      <section class="section alt" id="documents">
+        <div class="section-heading"><p class="eyebrow">Project Documents</p><h2>Project Documents</h2><p>The Chinese PDF is the full product design document / PRD. The English PDF is a concise Product Case Study for LinkedIn and English resume traffic, focused on product thinking, trade-offs, validation, and iteration.</p></div>
+        <div class="doc-links"><a class="doc-primary" href="../../assets/docs/local-knowledge-rag-case-study-en.pdf">Download English Product Case Study PDF</a><a class="doc-secondary" href="../../assets/docs/local-knowledge-rag-prd-zh.pdf">View Chinese Product Design Document PDF</a></div>
+      </section>
+          `,
+        },
+      };
+    </script>
+    <script src="../../src/i18n.js"></script>
+    <script>
+      window.PortfolioI18n.createSwitcher(".case-header");
+    </script>
   </body>
 </html>

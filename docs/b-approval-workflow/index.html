@@ -8,6 +8,10 @@
       name="description"
       content="B端审批协同平台工作流优化升级项目案例，包含问题定义、角色痛点、流程升级、模块设计、字段状态权限、验证结果和路线图。"
     />
+    <meta property="og:title" content="B端审批协同平台工作流优化升级 | 项目案例" />
+    <meta property="og:description" content="B端审批协同平台工作流优化升级项目案例，包含问题定义、角色痛点、流程升级、模块设计、字段状态权限、验证结果和路线图。" />
+    <meta property="og:image" content="assets/workflow.svg" />
+    <meta property="og:url" content="./index.html" />
     <style>
       :root {
         --bg: #f5f7fb;
@@ -62,8 +66,14 @@
         background: linear-gradient(135deg, var(--accent), var(--rose));
         border-radius: 8px;
       }
-      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 13px; color: var(--muted); font-size: 14px; }
-      .case-nav a:hover { color: var(--rose); }
+      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; color: var(--muted); font-size: 14px; }
+      .case-nav a { display: inline-flex; min-height: 32px; align-items: center; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, 0.72); font-weight: 800; }
+      .case-nav a:hover { color: var(--rose); border-color: rgba(240, 68, 103, 0.35); }
+      .case-nav .nav-back { margin-left: 8px; color: var(--accent-strong); background: var(--surface-alt); border-color: rgba(0, 140, 217, 0.28); }
+      .case-nav .nav-back::before { content: ""; width: 1px; height: 18px; margin: 0 14px 0 -18px; background: var(--line); }
+      .language-toggle { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; font-weight: 900; }
+      .language-toggle button { padding: 6px 8px; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; font: inherit; }
+      .language-toggle button.active { color: var(--ink); background: var(--surface-alt); border-color: var(--line); }
 
       .hero {
         display: grid;
@@ -131,18 +141,19 @@
     <header class="case-header">
       <a class="brand" href="../../index.html#workflow" aria-label="返回作品集首页">
         <span class="brand-mark">AI</span>
-        <span>苑夫唯 · AI产品作品集</span>
+        <span data-i18n="brand">苑夫唯 · AI产品作品集</span>
       </a>
       <nav class="case-nav" aria-label="项目导航">
-        <a href="#problem">问题</a>
-        <a href="#workflow">流程</a>
-        <a href="#modules">模块</a>
-        <a href="#validation">验证</a>
-        <a href="#roadmap">路线图</a>
+        <a href="#problem" data-i18n="nav.problem">问题</a>
+        <a href="#workflow" data-i18n="nav.workflow">流程</a>
+        <a href="#modules" data-i18n="nav.modules">模块</a>
+        <a href="#validation" data-i18n="nav.validation">验证</a>
+        <a href="#roadmap" data-i18n="nav.roadmap">路线图</a>
+        <a class="nav-back" href="../../index.html#workflow" data-i18n="nav.back">返回作品集</a>
       </nav>
     </header>
 
-    <main>
+    <main data-i18n-html="mainHtml">
       <section class="hero">
         <div>
           <p class="eyebrow">Project Case · B2B Workflow</p>
@@ -152,7 +163,6 @@
           </p>
           <div class="hero-actions">
             <a class="primary-link" href="#workflow">查看流程升级</a>
-            <a class="secondary-link" href="../../index.html#workflow">返回作品集首页</a>
           </div>
           <div class="tag-list" aria-label="项目标签">
             <span>B端产品</span>
@@ -312,8 +322,138 @@
     </main>
 
     <footer class="site-footer">
-      <span>苑夫唯 · AI产品经理作品集</span>
-      <span>B端审批协同平台工作流优化升级</span>
+      <span data-i18n="footer.name">苑夫唯 · AI产品经理作品集</span>
+      <span data-i18n="footer.case">B端审批协同平台工作流优化升级</span>
     </footer>
+    <script>
+      window.I18N_PAGE = {
+        meta: {
+          zh: {
+            title: "B端审批协同平台工作流优化升级 | 项目案例",
+            description: "B端审批协同平台工作流优化升级项目案例，包含问题定义、角色痛点、流程升级、模块设计、字段状态权限、验证结果和路线图。",
+          },
+          en: {
+            title: "B2B Approval Workflow Platform | Case Study",
+            description: "A product case study for a B2B approval workflow platform, covering problem definition, role pain points, workflow redesign, modules, fields, states, permissions, validation, and roadmap.",
+          },
+        },
+        zh: {},
+        en: {
+          brand: "Fuwei Yuan · AI Product Portfolio",
+          "nav.problem": "Problem",
+          "nav.workflow": "Workflow",
+          "nav.modules": "Modules",
+          "nav.validation": "Validation",
+          "nav.roadmap": "Roadmap",
+          "nav.back": "Back to portfolio",
+          "footer.name": "Fuwei Yuan · AI Product Portfolio",
+          "footer.case": "B2B Approval Workflow Platform",
+          mainHtml: `
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Project Case · B2B Workflow</p>
+          <h1>B2B Approval Workflow Platform</h1>
+          <p class="lead">A real B2B platform upgrade case. The project turns an approval workflow previously scattered across emails, group chats, and shared folders into a structured online process for submission, pre-review, tracking, and review records.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#workflow">View workflow redesign</a>
+          </div>
+          <div class="tag-list" aria-label="Project tags"><span>B2B Product</span><span>Workflow Configuration</span><span>Permissions & States</span><span>Delivery Coordination</span></div>
+        </div>
+        <figure class="hero-image"><img src="./assets/workflow.svg" alt="B2B approval workflow diagram" /></figure>
+      </section>
+
+      <section id="problem" class="section">
+        <div class="section-heading"><p class="eyebrow">Problem</p><h2>Offline material circulation made review collaboration inefficient</h2><p>Submissions, pre-review, review comments, and follow-up actions were scattered across offline channels. The result was inconsistent requirements, hard-to-check versions, and weak ownership tracking.</p></div>
+        <div class="grid-4">
+          <article class="panel"><strong>Scattered submission entry</strong><p>Email, group chat, and shared folders were used in parallel, making submission standards inconsistent.</p></article>
+          <article class="panel"><strong>Inefficient pre-review</strong><p>Completeness checks, missing-item follow-up, and version checks depended heavily on manual coordination.</p></article>
+          <article class="panel"><strong>Review comments were hard to retain</strong><p>Conclusions and next actions were buried in meeting notes and chat messages.</p></article>
+          <article class="panel"><strong>Process status was unclear</strong><p>Submitters, pre-reviewers, reviewers, and managers had different views of the current node.</p></article>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading"><p class="eyebrow">Roles</p><h2>Start with role pain points, then converge into modules</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Role</th><th>Core task</th><th>Pain point</th><th>What the platform should solve</th></tr></thead><tbody>
+          <tr><td>Submitter</td><td>Submit approval materials</td><td>Unclear what to submit and how detailed it should be.</td><td>Templates, required fields, status feedback.</td></tr>
+          <tr><td>Pre-reviewer</td><td>Check completeness before meetings</td><td>Repeated follow-up and version confusion.</td><td>Checklist, return flow, version records.</td></tr>
+          <tr><td>Reviewer</td><td>Read materials and retain decisions</td><td>Information is scattered and comments are hard to track.</td><td>Unified material entry and structured comments.</td></tr>
+          <tr><td>Manager</td><td>Track process and outcomes</td><td>Unclear where a case is blocked.</td><td>Status, permission boundary, and history.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="workflow" class="section">
+        <div class="section-heading"><p class="eyebrow">Workflow</p><h2>Redesigned main workflow</h2><p>The core was not adding pages, but making submission, pre-review, review, and tracking work as one complete process.</p></div>
+        <figure class="image-panel"><img src="./assets/workflow.svg" alt="B2B approval workflow" /><figcaption>From online submission to history tracking, each key node needs status, owner, and record.</figcaption></figure>
+      </section>
+
+      <section id="modules" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Modules</p><h2>Four core modules</h2></div>
+        <figure class="image-panel"><img src="./assets/modules.svg" alt="B2B approval platform modules" /><figcaption>Submission, pre-review, review records, and process status form the minimum workflow loop.</figcaption></figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Fields & Status</p><h2>Fields, states, and permissions</h2></div>
+        <div class="grid-2">
+          <div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Project name</td><td>Text</td><td>Yes</td><td>Identify the approval case.</td></tr>
+            <tr><td>Project type</td><td>Single select</td><td>Yes</td><td>Match the material template.</td></tr>
+            <tr><td>Submission phase</td><td>Single select</td><td>Yes</td><td>Distinguish review phase.</td></tr>
+            <tr><td>Required attachments</td><td>Files</td><td>Yes</td><td>Determined by project type and phase.</td></tr>
+            <tr><td>Version number</td><td>Text</td><td>Yes</td><td>Support version management.</td></tr>
+          </tbody></table></div>
+          <figure class="image-panel"><img src="./assets/status.svg" alt="B2B approval status flow" /><figcaption>Status flow makes blockers and next actions visible.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading"><p class="eyebrow">Permissions</p><h2>Permission matrix</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Role</th><th>Submit</th><th>Pre-review</th><th>Return</th><th>Record comments</th><th>View history</th></tr></thead><tbody>
+          <tr><td>Submitter</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Own projects</td></tr>
+          <tr><td>Pre-reviewer</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Assigned projects</td></tr>
+          <tr><td>Reviewer</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Participating projects</td></tr>
+          <tr><td>Manager</td><td>No</td><td>No</td><td>No</td><td>View</td><td>All or authorized scope</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="validation" class="section">
+        <div class="section-heading"><p class="eyebrow">Validation</p><h2>6 key workflow scenarios validated</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Scenario</th><th>Functional usability</th><th>Business fit</th><th>Result</th><th>Note</th></tr></thead><tbody>
+          <tr><td>Material submission</td><td>High</td><td>High</td><td>Usable</td><td>Submission requirements became more consistent.</td></tr>
+          <tr><td>Pre-review</td><td>High</td><td>High</td><td>Usable</td><td>Material collection and checking improved.</td></tr>
+          <tr><td>Review record retention</td><td>Medium</td><td>High</td><td>Basically usable</td><td>Requires habit building.</td></tr>
+          <tr><td>Status visibility</td><td>Medium</td><td>Medium</td><td>Basically usable</td><td>Process transparency improved.</td></tr>
+          <tr><td>Role permissions</td><td>Medium</td><td>High</td><td>Basically usable</td><td>Boundaries became clearer.</td></tr>
+          <tr><td>Training and feedback</td><td>High</td><td>High</td><td>Usable</td><td>Understanding improved after training.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading"><p class="eyebrow">Decisions</p><h2>Key trade-offs</h2></div>
+        <div class="grid-3">
+          <article class="panel"><strong>Main workflow first</strong><p>Do not build everything at once. First make submission, pre-review, review, and tracking work end to end.</p></article>
+          <article class="panel"><strong>Use status to reduce communication cost</strong><p>Each role should know the current node, owner, and next action.</p></article>
+          <article class="panel"><strong>Keep expert judgment offline when needed</strong><p>The platform supports workflow and records; it does not replace professional review judgment.</p></article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-heading"><p class="eyebrow">Roadmap</p><h2>Roadmap</h2></div>
+        <div class="timeline">
+          <div class="timeline-item"><span>v0</span><div><strong>Current-state mapping</strong><p>Map offline process, role pain points, material checklist, and collaboration gaps.</p></div></div>
+          <div class="timeline-item"><span>v1</span><div><strong>Unified submission</strong><p>Launch submission entry, required fields, and attachment templates.</p></div></div>
+          <div class="timeline-item"><span>v2</span><div><strong>Pre-review</strong><p>Support completeness check, return flow, and version records.</p></div></div>
+          <div class="timeline-item"><span>v3</span><div><strong>Review retention</strong><p>Support conclusions, comment categories, and next-action records.</p></div></div>
+          <div class="timeline-item"><span>v4</span><div><strong>AI-assisted direction</strong><p>Explore material completeness checks, comment summaries, and historical case retrieval.</p></div></div>
+        </div>
+      </section>
+          `,
+        },
+      };
+    </script>
+    <script src="../../src/i18n.js"></script>
+    <script>
+      window.PortfolioI18n.createSwitcher(".case-header");
+    </script>
   </body>
 </html>

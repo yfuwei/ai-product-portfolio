@@ -183,7 +183,8 @@ window.portfolioData.localRag = {
   ],
   documents: [
     { label: "项目案例页", href: "./docs/local-knowledge-rag/index.html" },
-    { label: "完整产品设计文档（含 V1/V2 演进、架构、评估与设计思考）：👉 点击查看", href: "./docs/local-knowledge-rag/本地知识助手_RAG到AgenticRAG_产品设计文档.pdf", type: "download" },
+    { label: "下载中文产品设计文档 PDF", href: "./assets/docs/local-knowledge-rag-prd-zh.pdf", type: "download", downloadName: "local-knowledge-rag-prd-zh.pdf" },
+    { label: "View English Product Case Study PDF", href: "./assets/docs/local-knowledge-rag-case-study-en.pdf" },
     { label: "V1/V2对比", href: "./docs/local-knowledge-rag/index.html#comparison" },
     { label: "AI PM角色", href: "./docs/local-knowledge-rag/index.html#role" },
   ],

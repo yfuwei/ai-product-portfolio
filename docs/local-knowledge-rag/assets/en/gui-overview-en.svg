@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Local Knowledge Assistant GUI overview</title>
+  <desc id="desc">English mockup of the local knowledge assistant interface.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5f7fb}.panel{fill:#fff;stroke:#d9e1e7;stroke-width:2}.dark{fill:#111418}.muted{fill:#66717a}.ink{fill:#1d242b}.accent{fill:#00a6d6}.rose{fill:#f04467}.sun{fill:#f7d84a}.soft{fill:#eef9fd}.line{stroke:#d9e1e7;stroke-width:2}.txt{font-family:Inter,Arial,sans-serif}.h1{font-size:36px;font-weight:800}.h2{font-size:24px;font-weight:800}.body{font-size:20px}.small{font-size:16px;font-weight:700}.tiny{font-size:14px}
+    </style>
+  </defs>
+  <rect class="bg" width="1440" height="900"/>
+  <rect x="54" y="48" width="1332" height="804" rx="26" class="panel"/>
+  <rect x="54" y="48" width="260" height="804" rx="26" fill="#111418"/>
+  <text x="90" y="112" class="txt h2" fill="#fff">Knowledge</text>
+  <text x="90" y="142" class="txt h2" fill="#fff">Assistant</text>
+  <rect x="86" y="190" width="180" height="44" rx="10" class="sun"/>
+  <text x="110" y="219" class="txt small" fill="#111418">Search Workspace</text>
+  <text x="90" y="286" class="txt small" fill="#fff">Indexing</text>
+  <text x="90" y="338" class="txt small" fill="#fff">Sources</text>
+  <text x="90" y="390" class="txt small" fill="#fff">Validation</text>
+  <text x="90" y="442" class="txt small" fill="#fff">Settings</text>
+  <text x="90" y="750" class="txt tiny" fill="#b8c2cc">Local-first / Read-only</text>
+  <text x="354" y="116" class="txt h1 ink">Ask local knowledge with sources</text>
+  <text x="354" y="154" class="txt body muted">Retrieve evidence, generate grounded answers, and continue follow-up tasks.</text>
+  <rect x="354" y="198" width="696" height="76" rx="14" class="soft" stroke="#d9e1e7" stroke-width="2"/>
+  <text x="384" y="246" class="txt body ink">How should I present the Local Knowledge Assistant project?</text>
+  <rect x="1080" y="198" width="220" height="76" rx="14" class="accent"/>
+  <text x="1144" y="246" class="txt body" fill="#fff">Search</text>
+  <rect x="354" y="318" width="502" height="454" rx="18" class="panel"/>
+  <text x="390" y="370" class="txt h2 ink">Generated Answer</text>
+  <text x="390" y="420" class="txt body muted">This project is a local-first AI knowledge workspace.</text>
+  <text x="390" y="458" class="txt body muted">V1 validates source-grounded retrieval. V2 adds</text>
+  <text x="390" y="496" class="txt body muted">routing, tool calling, memory, and safety boundaries.</text>
+  <rect x="390" y="552" width="402" height="50" rx="10" fill="#ffe8ee"/>
+  <text x="414" y="584" class="txt small rose">Answer grounded by retrieved sources</text>
+  <rect x="390" y="632" width="142" height="48" rx="10" class="sun"/>
+  <text x="416" y="663" class="txt small" fill="#111418">Copy Draft</text>
+  <rect x="552" y="632" width="180" height="48" rx="10" class="soft" stroke="#d9e1e7" stroke-width="2"/>
+  <text x="580" y="663" class="txt small accent">View Trace</text>
+  <rect x="890" y="318" width="410" height="454" rx="18" class="panel"/>
+  <text x="926" y="370" class="txt h2 ink">Retrieved Sources</text>
+  <rect x="926" y="410" width="338" height="88" rx="12" class="soft"/>
+  <text x="948" y="444" class="txt small ink">Product design document</text>
+  <text x="948" y="474" class="txt tiny muted">project/local-rag/prd.md</text>
+  <rect x="926" y="526" width="338" height="88" rx="12" class="soft"/>
+  <text x="948" y="560" class="txt small ink">Validation notes</text>
+  <text x="948" y="590" class="txt tiny muted">evaluation/real-tasks.md</text>
+  <rect x="926" y="642" width="338" height="88" rx="12" class="soft"/>
+  <text x="948" y="676" class="txt small ink">Badcase review</text>
+  <text x="948" y="706" class="txt tiny muted">review/badcases.md</text>
+</svg>

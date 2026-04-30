@@ -8,6 +8,10 @@
       name="description"
       content="建筑方案视觉生成工作台（AIGC）项目案例，包含问题定义、竞品参考、产品框架、用户流程、结构化输入、Prompt模板、试用反馈、验证结果和路线图。"
     />
+    <meta property="og:title" content="建筑方案视觉生成工作台（AIGC） | 项目案例" />
+    <meta property="og:description" content="建筑方案视觉生成工作台（AIGC）项目案例，包含问题定义、产品框架、用户流程、结构化输入、Prompt模板、试用反馈、验证结果和路线图。" />
+    <meta property="og:image" content="assets/hero-workbench.svg" />
+    <meta property="og:url" content="./index.html" />
     <style>
       :root {
         --bg: #f6f8f2;
@@ -119,13 +123,65 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        gap: 13px;
+        gap: 8px;
         color: var(--muted);
         font-size: 14px;
       }
 
+      .case-nav a {
+        display: inline-flex;
+        min-height: 32px;
+        align-items: center;
+        padding: 5px 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        font-weight: 800;
+      }
+
       .case-nav a:hover {
         color: var(--accent-strong);
+        border-color: rgba(23, 116, 209, 0.35);
+      }
+
+      .case-nav .nav-back {
+        margin-left: 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-color: rgba(23, 116, 209, 0.28);
+      }
+
+      .case-nav .nav-back::before {
+        content: "";
+        width: 1px;
+        height: 18px;
+        margin: 0 14px 0 -18px;
+        background: var(--line);
+      }
+
+      .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .language-toggle button {
+        padding: 6px 8px;
+        color: var(--muted);
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .language-toggle button.active {
+        color: var(--ink);
+        background: var(--accent-soft);
+        border-color: var(--line);
       }
 
       .hero {
@@ -541,19 +597,20 @@
     <header class="case-header">
       <a class="brand" href="../../index.html" aria-label="返回作品集首页">
         <span class="brand-mark">AI</span>
-        <span>苑夫唯 · AI产品作品集</span>
+        <span data-i18n="brand">苑夫唯 · AI产品作品集</span>
       </a>
       <nav class="case-nav" aria-label="项目导航">
-        <a href="#problem">问题</a>
-        <a href="#framework">框架</a>
-        <a href="#workflow">流程</a>
+        <a href="#problem" data-i18n="nav.problem">问题</a>
+        <a href="#framework" data-i18n="nav.framework">框架</a>
+        <a href="#workflow" data-i18n="nav.flow">流程</a>
         <a href="#demo">Demo</a>
-        <a href="#validation">验证</a>
-        <a href="#roadmap">路线图</a>
+        <a href="#validation" data-i18n="nav.validation">验证</a>
+        <a href="#roadmap" data-i18n="nav.roadmap">路线图</a>
+        <a class="nav-back" href="../../index.html#aigc" data-i18n="nav.back">返回作品集</a>
       </nav>
     </header>
 
-    <main>
+    <main data-i18n-html="mainHtml">
       <section class="hero">
         <div>
           <p class="eyebrow">Project Case · AIGC Workflow</p>
@@ -564,7 +621,6 @@
           <div class="hero-actions">
             <a class="primary-link" href="#framework">查看产品框架</a>
             <a class="secondary-link" href="#validation">查看验证结果</a>
-            <a class="secondary-link" href="../../index.html#aigc">返回作品集首页</a>
           </div>
           <div class="tag-list" aria-label="项目标签">
             <span>结构化输入</span>
@@ -929,8 +985,152 @@
     </main>
 
     <footer class="site-footer">
-      <span>苑夫唯 · AI产品经理作品集</span>
-      <span>建筑方案视觉生成工作台（AIGC）</span>
+      <span data-i18n="footer.name">苑夫唯 · AI产品经理作品集</span>
+      <span data-i18n="footer.case">建筑方案视觉生成工作台（AIGC）</span>
     </footer>
+    <script>
+      window.I18N_PAGE = {
+        meta: {
+          zh: {
+            title: "建筑方案视觉生成工作台（AIGC） | 项目案例",
+            description: "建筑方案视觉生成工作台（AIGC）项目案例，包含问题定义、竞品参考、产品框架、用户流程、结构化输入、Prompt模板、试用反馈、验证结果和路线图。",
+          },
+          en: {
+            title: "AIGC Visual Generation Workbench | Case Study",
+            description: "A product case study for an AIGC visual generation workflow, covering problem definition, structured inputs, prompt templates, trial feedback, validation, and roadmap.",
+          },
+        },
+        zh: {},
+        en: {
+          brand: "Fuwei Yuan · AI Product Portfolio",
+          "nav.problem": "Problem",
+          "nav.framework": "Framework",
+          "nav.flow": "Flow",
+          "nav.validation": "Validation",
+          "nav.roadmap": "Roadmap",
+          "nav.back": "Back to portfolio",
+          "footer.name": "Fuwei Yuan · AI Product Portfolio",
+          "footer.case": "AIGC Visual Generation Workbench",
+          mainHtml: `
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Project Case · AIGC Workflow</p>
+          <h1>AIGC Visual Generation Workbench</h1>
+          <p class="lead">An AI generation workflow prototype for early-stage design expression, mood exploration, and presentation visuals. The goal is not to replace designers, but to structure ambiguous requirements and quickly produce directions that can be discussed and compared.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#framework">View product framework</a>
+            <a class="secondary-link" href="#validation">View validation</a>
+          </div>
+          <div class="tag-list" aria-label="Project tags">
+            <span>AIGC Product</span><span>Prompt Workflow</span><span>Structured Input</span><span>Human Review</span>
+          </div>
+        </div>
+        <figure class="hero-image"><img src="./assets/hero-workbench.svg" alt="AIGC visual generation workbench overview" /></figure>
+      </section>
+
+      <section id="problem" class="section">
+        <div class="section-heading"><p class="eyebrow">Problem</p><h2>Early visual communication is slow, vague, and hard to align</h2><p>In early architectural and real-estate product discussions, teams often need atmosphere references before full design drawings are ready. The problem is not just image generation; it is how to translate vague design intent into controllable visual directions.</p></div>
+        <div class="grid-4">
+          <article class="panel"><strong>Vague requirements</strong><p>Terms like premium, warm, or urban vitality are hard to turn into clear design instructions.</p></article>
+          <article class="panel"><strong>Slow visual drafts</strong><p>Internal discussion images can take one or two days before the team can compare directions.</p></article>
+          <article class="panel"><strong>Prompt barrier</strong><p>Non-AI colleagues should not be required to become prompt experts.</p></article>
+          <article class="panel"><strong>Unclear boundary</strong><p>AIGC is useful for exploration, but not for final renderings or logic-heavy diagrams.</p></article>
+        </div>
+      </section>
+
+      <section id="framework" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Framework</p><h2>Product framework: structured input, templates, variants, review</h2><p>The product wraps prompt knowledge into fields and templates, then uses multiple candidates and human review to fit real design workflows.</p></div>
+        <figure class="image-panel"><img src="./assets/architecture.svg" alt="AIGC product framework diagram" /><figcaption>Structured input, prompt templates, generation, candidate comparison, and review form the minimum workflow.</figcaption></figure>
+      </section>
+
+      <section id="workflow" class="section">
+        <div class="section-heading"><p class="eyebrow">User Flow</p><h2>From design brief to reviewable visual directions</h2><p>The workflow keeps the user in control: AI produces options, while people judge positioning, usability, and communication risk.</p></div>
+        <figure class="image-panel"><img src="./assets/user-flow.svg" alt="AIGC user workflow diagram" /><figcaption>Brief input → structured fields → prompt template → generated variants → human review → presentation draft.</figcaption></figure>
+      </section>
+
+      <section id="demo" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Demo</p><h2>Example: residential entrance concept</h2><p>Translate a vague direction such as premium, warm, and welcoming into fields that can guide generation and design discussion.</p></div>
+        <div class="demo-showcase">
+          <article class="demo-panel">
+            <h3>Structured brief</h3>
+            <div class="mini-flow"><span>Input</span><span>Template</span><span>Variants</span><span>Review</span></div>
+            <p>Break the visual task into project type, style, usage, camera view, and expression focus.</p>
+            <div class="field-list" aria-label="Structured fields">
+              <div><span>Project type</span><strong>High-end residential</strong></div>
+              <div><span>Style</span><strong>Modern oriental</strong></div>
+              <div><span>Usage</span><strong>Design workshop</strong></div>
+              <div><span>View</span><strong>Entrance eye-level view</strong></div>
+              <div><span>Focus</span><strong>Arrival ritual, warm lighting, premium facade</strong></div>
+            </div>
+          </article>
+          <article class="demo-panel">
+            <h3>Prompt preview</h3>
+            <div class="prompt-box">High-end residential entrance, modern oriental architecture, stone facade, warm lighting, hotel-like arrival experience, eye-level entrance view, realistic scale, refined residential quality.</div>
+            <div class="negative-box"><strong>Negative constraints:</strong> no text, no watermark, no exaggerated form, no distorted perspective, no unrealistic proportions.</div>
+            <div class="candidate-grid" aria-label="Candidate results">
+              <div class="candidate-card"><strong>Direction A</strong><em>Usable</em><p>Close to the target entrance atmosphere.</p></div>
+              <div class="candidate-card"><strong>Direction B</strong><em>Needs edits</em><p>Lighting is useful; facade proportion needs adjustment.</p></div>
+              <div class="candidate-card"><strong>Direction C</strong><em>Reference only</em><p>Material and color can be referenced; composition is unstable.</p></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Structured Input</p><h2>Input fields</h2><p>Fields should be few but meaningful. Each field must affect the output, otherwise it becomes UI noise.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Field</th><th>Description</th><th>Example</th><th>Required</th></tr></thead><tbody>
+          <tr><td>Positioning</td><td>Product or target user positioning</td><td>High-end residential</td><td>Yes</td></tr>
+          <tr><td>Asset type</td><td>Residential, retail, TOD, office, etc.</td><td>Residential</td><td>Yes</td></tr>
+          <tr><td>Scene</td><td>Specific spatial task</td><td>Entrance lobby</td><td>Yes</td></tr>
+          <tr><td>Style</td><td>Architecture or interior style</td><td>Modern oriental</td><td>Yes</td></tr>
+          <tr><td>Material tendency</td><td>Main visual elements</td><td>Stone, wood, metal</td><td>No</td></tr>
+          <tr><td>View</td><td>Eye-level, aerial, street corner, wide interior</td><td>Eye-level wide view</td><td>Yes</td></tr>
+          <tr><td>Expression focus</td><td>Core atmosphere or communication goal</td><td>Arrival ritual, lifestyle</td><td>Yes</td></tr>
+          <tr><td>Constraints</td><td>What should not appear</td><td>No text, no watermark, no distorted scale</td><td>Yes</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-heading"><p class="eyebrow">Trial</p><h2>Trial feedback: business context, not commercialization yet</h2><p>The prototype was tried by a former Vanke product design colleague in scenarios such as internal design discussion, workshop communication, design-institute direction alignment, and presentation draft preparation.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Trial content</th><th>Use case</th><th>Feedback</th><th>Product insight</th></tr></thead><tbody>
+          <tr><td>Interior visuals</td><td>Lobby and public-space atmosphere</td><td>Discussion became more concrete with draft visuals.</td><td>Useful for early spatial atmosphere exploration.</td></tr>
+          <tr><td>Facade visuals</td><td>Style, material, and line references</td><td>Instructions for design teams became clearer.</td><td>Need constraints on exaggerated forms and proportions.</td></tr>
+          <tr><td>Landscape visuals</td><td>Entrance, garden nodes, lifestyle scenes</td><td>Lifestyle atmosphere was relatively stable.</td><td>Useful for landscape nodes and lifestyle imagery.</td></tr>
+          <tr><td>Presentation draft visuals</td><td>Workshop and internal presentation pages</td><td>Draft visuals could be produced much faster.</td><td>Works as presentation support, not final deliverables.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="validation" class="section">
+        <div class="section-heading"><p class="eyebrow">Validation</p><h2>13 of 15 scenarios reached basically usable or better</h2><p>Evaluation covered requirement fit, style stability, expression usefulness, and human editing cost. AIGC worked best for direction exploration, mood references, and presentation support; it was weak for logic-heavy diagrams and final renderings.</p></div>
+        <figure class="image-panel"><img src="./assets/evaluation-chart.svg" alt="AIGC validation results chart" /><figcaption>Atmosphere visuals and presentation support were most stable; site-plan logic, circulation diagrams, and analytical diagrams were not suitable for direct generation.</figcaption></figure>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Decision</p><h2>Key trade-offs</h2></div>
+        <div class="grid-3">
+          <article class="panel"><strong>Structured input first</strong><p>Business users should not need to write prompts from scratch; product design should package prompt expertise into fields and templates.</p></article>
+          <article class="panel"><strong>Multiple variants over one perfect image</strong><p>Early design discussion is about comparing directions, so several candidates fit the workflow better than one image.</p></article>
+          <article class="panel"><strong>Human review stays in the loop</strong><p>AI drafts ideas; people judge positioning, communication risk, and whether a result can be shown externally.</p></article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section alt">
+        <div class="section-heading"><p class="eyebrow">Roadmap</p><h2>Roadmap</h2></div>
+        <div class="timeline">
+          <div class="timeline-item"><span>v0</span><div><strong>Scenario validation</strong><p>Validate 15 sample scenarios with manual evaluation.</p></div></div>
+          <div class="timeline-item"><span>v1</span><div><strong>Structured input</strong><p>Build a field system and templates for frequent scenarios.</p></div></div>
+          <div class="timeline-item"><span>v2</span><div><strong>Prompt template library</strong><p>Package templates for lobby, facade, landscape, and presentation visuals.</p></div></div>
+          <div class="timeline-item"><span>v3</span><div><strong>Variant review</strong><p>Add candidate labeling, archive, and review history.</p></div></div>
+          <div class="timeline-item"><span>v4</span><div><strong>Reference image and local editing</strong><p>Support reference images, sketches, and local material or landscape adjustments.</p></div></div>
+        </div>
+      </section>
+          `,
+        },
+      };
+    </script>
+    <script src="../../src/i18n.js"></script>
+    <script>
+      window.PortfolioI18n.createSwitcher(".case-header");
+    </script>
   </body>
 </html>

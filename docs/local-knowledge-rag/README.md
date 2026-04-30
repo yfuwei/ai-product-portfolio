@@ -60,8 +60,8 @@
 
 - [HTML 项目案例页](index.html)
 - [Agentic RAG 产品设计文档](本地知识助手_RAG到AgenticRAG_产品设计文档.md)
-- [作品集主 PDF 产品设计文档](本地知识助手_RAG到AgenticRAG_产品设计文档.pdf)
-- [可外发精简 PDF 产品设计文档](本地知识助手_AgenticRAG_产品设计文档_苑夫唯.pdf)
+- [中文产品设计文档 PDF](../../assets/docs/local-knowledge-rag-prd-zh.pdf)
+- [English Product Case Study PDF](../../assets/docs/local-knowledge-rag-case-study-en.pdf)
 - [项目背景](index.html#overview)
 - [V1/V2 对比](index.html#comparison)
 - [Agentic RAG 方案](index.html#v2)
@@ -69,7 +69,12 @@
 - [限制与未来](index.html#limits)
 - [我的角色](index.html#role)
 
-Markdown 文件仅作为公开页面的内容草稿和维护素材，不作为招聘方主要阅读入口。更详细的项目复盘、PRD、系统设计、验证表和面试问答已经同步到 Obsidian 项目素材目录：
+Markdown 文件仅作为公开页面的内容草稿和维护素材，不作为招聘方主要阅读入口。更详细的项目复盘、PRD、系统设计和验证表已经同步到 Obsidian 项目素材目录：
+
+PDF 口径说明：
+
+- `../../assets/docs/local-knowledge-rag-prd-zh.pdf` 是中文状态下主推的完整产品设计文档 / PRD。
+- `../../assets/docs/local-knowledge-rag-case-study-en.pdf` 是英文状态下主推的 Product Case Study。
 
 ```text
 01_项目素材/01_本地知识助手_AgenticRAG/

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Source-grounded answer with citations</title><desc id="desc">English mockup showing a source-grounded answer and citations.</desc>
+  <defs><style>.bg{fill:#f5f7fb}.panel{fill:#fff;stroke:#d9e1e7;stroke-width:2}.soft{fill:#eef9fd}.ink{fill:#111418}.muted{fill:#66717a}.accent{fill:#00a6d6}.rose{fill:#f04467}.sun{fill:#f7d84a}.txt{font-family:Inter,Arial,sans-serif}.h{font-size:34px;font-weight:800}.t{font-size:22px;font-weight:800}.s{font-size:18px}.small{font-size:15px}</style></defs>
+  <rect class="bg" width="1440" height="1000"/>
+  <rect x="70" y="60" width="1300" height="880" rx="24" class="panel"/>
+  <text x="112" y="126" class="txt h ink">Answer with Evidence</text>
+  <text x="112" y="166" class="txt s muted">Question: How should I explain the Local Knowledge Assistant project?</text>
+  <rect x="112" y="212" width="766" height="600" rx="18" class="panel"/>
+  <text x="150" y="270" class="txt t ink">Generated answer</text>
+  <text x="150" y="326" class="txt s muted">This project is a local-first AI knowledge assistant.</text>
+  <text x="150" y="366" class="txt s muted">V1 validates whether local documents can be retrieved</text>
+  <text x="150" y="406" class="txt s muted">and cited reliably. V2 upgrades the system into</text>
+  <text x="150" y="446" class="txt s muted">Agentic RAG with Router, search_docs Tool, Memory,</text>
+  <text x="150" y="486" class="txt s muted">Execution Trace, and read-only safety boundaries.</text>
+  <rect x="150" y="548" width="650" height="72" rx="12" fill="#ffe8ee"/>
+  <text x="176" y="590" class="txt s rose">Confidence depends on retrieved sources, not model fluency.</text>
+  <rect x="150" y="664" width="180" height="58" rx="12" class="sun"/>
+  <text x="196" y="701" class="txt small ink">Use draft</text>
+  <rect x="350" y="664" width="205" height="58" rx="12" class="soft" stroke="#d9e1e7" stroke-width="2"/>
+  <text x="393" y="701" class="txt small accent">Show trace</text>
+  <rect x="916" y="212" width="394" height="600" rx="18" class="panel"/>
+  <text x="952" y="270" class="txt t ink">Citations</text>
+  <rect x="952" y="320" width="322" height="112" rx="14" class="soft"/>
+  <text x="976" y="358" class="txt small ink">[1] Product Design Document</text>
+  <text x="976" y="392" class="txt small muted">V1: RAG retrieval + citations</text>
+  <rect x="952" y="466" width="322" height="112" rx="14" class="soft"/>
+  <text x="976" y="504" class="txt small ink">[2] Validation Notes</text>
+  <text x="976" y="538" class="txt small muted">10 tasks, 9 matched, 1 partial</text>
+  <rect x="952" y="612" width="322" height="112" rx="14" class="soft"/>
+  <text x="976" y="650" class="txt small ink">[3] Badcase Review</text>
+  <text x="976" y="684" class="txt small muted">Router, Memory, Tool risks</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Validation snapshot</title><desc id="desc">English validation chart for RAG and Agentic RAG checks.</desc>
+  <defs><style>.bg{fill:#f5f7fb}.panel{fill:#fff;stroke:#d9e1e7;stroke-width:2}.soft{fill:#eef9fd}.ink{fill:#111418}.muted{fill:#66717a}.accent{fill:#00a6d6}.rose{fill:#f04467}.sun{fill:#f7d84a}.txt{font-family:Inter,Arial,sans-serif}.h{font-size:34px;font-weight:800}.t{font-size:22px;font-weight:800}.s{font-size:18px}.num{font-size:58px;font-weight:900}</style></defs>
+  <rect class="bg" width="1600" height="820"/>
+  <text x="80" y="82" class="txt h ink">Validation Snapshot</text>
+  <g transform="translate(80 130)">
+    <rect class="panel" width="320" height="190" rx="18"/><text x="36" y="58" class="txt t muted">Real task questions</text><text x="36" y="130" class="txt num rose">10</text>
+  </g>
+  <g transform="translate(440 130)">
+    <rect class="panel" width="320" height="190" rx="18"/><text x="36" y="58" class="txt t muted">Matched sources</text><text x="36" y="130" class="txt num rose">9 + 1</text>
+  </g>
+  <g transform="translate(800 130)">
+    <rect class="panel" width="320" height="190" rx="18"/><text x="36" y="58" class="txt t muted">Answer usefulness</text><text x="36" y="130" class="txt num rose">8/10</text>
+  </g>
+  <g transform="translate(1160 130)">
+    <rect class="panel" width="320" height="190" rx="18"/><text x="36" y="58" class="txt t muted">Agent checks</text><text x="36" y="130" class="txt num rose">5</text>
+  </g>
+  <g transform="translate(80 390)">
+    <rect class="panel" width="680" height="300" rx="18"/><text x="36" y="54" class="txt t ink">V1 validates retrieval trust</text>
+    <rect x="36" y="90" width="560" height="26" rx="13" class="soft"/><rect x="36" y="90" width="510" height="26" rx="13" class="accent"/><text x="36" y="150" class="txt s muted">Findable: correct source enters Top-K</text><text x="36" y="190" class="txt s muted">Answerable: response is grounded in sources</text><text x="36" y="230" class="txt s muted">Traceable: user can review original files</text><text x="36" y="270" class="txt s muted">Maintainable: index refresh after updates</text>
+  </g>
+  <g transform="translate(800 390)">
+    <rect class="panel" width="680" height="300" rx="18"/><text x="36" y="54" class="txt t ink">V2 validates Agent decisions</text>
+    <rect x="36" y="90" width="560" height="26" rx="13" class="soft"/><rect x="36" y="90" width="450" height="26" rx="13" class="sun"/><text x="36" y="150" class="txt s muted">Router: direct / retrieve / clarify</text><text x="36" y="190" class="txt s muted">Tool: calls search_docs when needed</text><text x="36" y="230" class="txt s muted">Memory: handles short follow-up context</text><text x="36" y="270" class="txt s muted">Safety: write/delete requires confirmation</text>
+  </g>
+</svg>
