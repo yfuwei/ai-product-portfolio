@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 应用评估与治理框架：从 Demo 到可试点状态 | 方法论专题</title>
+    <meta
+      name="description"
+      content="模块4方法论专题页：AI 应用评估与治理框架，回答 AI Demo 如何通过产品化中间层、机会筛选、Readiness 六问、Launch Gate 和 badcase 闭环进入可试点状态。"
+    />
+    <link rel="stylesheet" href="../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #ffffff 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      a,
+      strong,
+      td,
+      th {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      main,
+      section,
+      .case-header,
+      .case-hero,
+      .case-section,
+      .case-container,
+      .case-visual,
+      .diagram-frame,
+      .layer-mechanism-grid,
+      .opportunity-board,
+      .readiness-grid,
+      .gate-line,
+      .governance-loop,
+      .source-grid {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      .case-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        background:
+          radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
+          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
+          #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-short-title {
+        margin: 0 0 12px;
+        color: var(--accent-strong);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .case-lead {
+        max-width: 850px;
+        margin: 20px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .status-card {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+        line-height: 1.72;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .case-visual {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        color: #ffffff;
+        background: var(--ink);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .case-visual-header span {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .case-visual img {
+        width: 100%;
+        height: auto;
+        padding: 12px;
+        background: #ffffff;
+        border-radius: var(--radius-md);
+      }
+
+      .visual-caption {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .case-section {
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-section.alt {
+        background: #ffffff;
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .case-section .section-header {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .layer-mechanism-grid,
+      .readiness-grid,
+      .source-grid,
+      .gate-line,
+      .governance-loop {
+        display: grid;
+        gap: 14px;
+      }
+
+      .layer-mechanism-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .readiness-grid,
+      .source-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .opportunity-board {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .opportunity-card,
+      .mechanism-card,
+      .readiness-card,
+      .source-card,
+      .gate-step,
+      .loop-step {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .opportunity-card.quick {
+        border-color: rgba(20, 184, 166, 0.26);
+        background: #f0fdfa;
+      }
+
+      .opportunity-card.pilot {
+        border-color: rgba(37, 99, 235, 0.26);
+        background: #eff6ff;
+      }
+
+      .opportunity-card.assist {
+        border-color: rgba(249, 115, 22, 0.26);
+        background: #fff7ed;
+      }
+
+      .opportunity-card.stop {
+        border-color: rgba(244, 63, 94, 0.24);
+        background: #fff1f2;
+      }
+
+      .card-label,
+      .mechanism-card span,
+      .readiness-card span,
+      .source-card span,
+      .gate-step span,
+      .loop-step span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .opportunity-card h3,
+      .mechanism-card h3,
+      .readiness-card h3,
+      .source-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .opportunity-card p,
+      .mechanism-card p,
+      .readiness-card p,
+      .source-card p,
+      .gate-step p,
+      .loop-step p {
+        color: var(--muted);
+      }
+
+      .diagram-frame {
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .diagram-title {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .gate-line {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .gate-step {
+        position: relative;
+        min-height: 170px;
+      }
+
+      .gate-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 28px;
+        right: -18px;
+        z-index: 2;
+        display: grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-radius: 999px;
+        font-weight: 900;
+      }
+
+      .governance-loop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .loop-step {
+        border-color: rgba(20, 184, 166, 0.22);
+        background: #f0fdfa;
+      }
+
+      .boundary-note {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+        line-height: 1.75;
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1080px) {
+        .case-hero,
+        .layer-mechanism-grid,
+        .readiness-grid,
+        .source-grid,
+        .gate-line,
+        .governance-loop {
+          grid-template-columns: 1fr;
+        }
+
+        .gate-step {
+          min-height: auto;
+        }
+
+        .gate-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          transform: translateX(-50%) rotate(90deg);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .case-header,
+        .case-hero,
+        .case-section,
+        .case-footer {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .case-hero {
+          display: block;
+          padding: 44px 20px 48px;
+          overflow: hidden;
+        }
+
+        .case-hero > *,
+        .case-container,
+        .case-section .section-header,
+        .case-nav,
+        .hero-actions,
+        .hero-tags,
+        .case-visual,
+        .case-visual img,
+        .opportunity-board,
+        .diagram-frame {
+          width: min(100%, 320px);
+          max-width: min(100%, 320px);
+          min-width: 0;
+        }
+
+        .case-hero h1 {
+          max-width: 320px;
+          font-size: clamp(28px, 8vw, 32px);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .section-title {
+          max-width: 320px;
+          font-size: clamp(24px, 7.2vw, 30px);
+          line-height: 1.22;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-lead,
+        .status-card,
+        .boundary-note {
+          font-size: 16px;
+        }
+
+        .case-visual {
+          margin-top: 28px;
+          padding: 16px;
+          overflow: hidden;
+        }
+
+        .case-visual-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px 10px;
+          font-size: 12px;
+        }
+
+        .case-nav a {
+          min-width: 0;
+          padding: 4px 0;
+          white-space: normal;
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        .case-section {
+          padding: 56px 20px;
+        }
+
+        .opportunity-board {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html#entries">
+        <span class="brand-mark">M4</span>
+        <span>AI 应用评估与治理框架</span>
+      </a>
+      <nav class="case-nav" aria-label="案例导航">
+        <a href="#overview">概览</a>
+        <a href="#layer">中间层</a>
+        <a href="#opportunity">机会筛选</a>
+        <a href="#readiness">Readiness</a>
+        <a href="#governance">治理闭环</a>
+        <a href="#sources">来源回扣</a>
+        <a href="../../index.html#entries">返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero" id="overview">
+        <div>
+          <p class="section-kicker">模块 4 · 方法论专题</p>
+          <p class="case-short-title">AI 应用评估与治理框架：从 Demo 到可试点状态</p>
+          <h1>从 Demo 到真实试点，缺的不是模型，而是产品化承接。</h1>
+          <p class="case-lead">大模型可以让 Demo 更容易跑通，但真实试点需要回答更多问题：场景是否值得做、风险是否可控、结果如何验证、谁来人审、什么时候能进入试点、试点后如何持续迭代。</p>
+          <div class="status-card">模块 1/2/3 展示 AI 应用可以进入哪些场景；模块 4 展示我如何判断这些应用是否值得做、能否试点、如何上线和持续迭代。</div>
+          <div class="hero-tags">
+            <span>AI 应用评估</span>
+            <span>产品化中间层</span>
+            <span>Readiness 六问</span>
+            <span>Launch Gate</span>
+            <span>badcase 闭环</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button-primary" href="#layer">查看产品化中间层</a>
+            <a class="button-secondary" href="#opportunity">查看机会筛选方法</a>
+            <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
+          </div>
+        </div>
+        <aside class="case-visual" aria-label="产品化中间层示意图">
+          <div class="case-visual-header">
+            <strong>Demo → 产品化中间层 → 可试点 AI 应用</strong>
+            <span>Readiness Operating Layer</span>
+          </div>
+          <img src="assets/diagrams/fig7_readiness_operating_layer_light_v052.svg" alt="AI Demo 通过产品化中间层进入可试点 AI 应用的示意图" />
+          <p class="visual-caption">把“AI 能生成”转化为“AI 能被组织使用”。</p>
+        </aside>
+      </section>
+
+      <section class="case-section" id="layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01 · 产品化中间层</p>
+            <h2 class="section-title">Demo 与真实试点之间，需要一层轻量的产品化中间层。</h2>
+            <p class="section-description">我把这层机制称为 AI 应用产品化中间层，也可以理解为 Readiness Operating Layer。它不是一个重型平台，而是一组轻量机制，用来把模型能力、业务场景、人工判断和持续治理连接起来。</p>
+          </div>
+          <div class="layer-mechanism-grid">
+            <article class="mechanism-card"><span>机会池</span><h3>哪些想法值得进池</h3><p>识别哪些 AI 想法值得进入试点池，避免谁提需求就直接做 Demo。</p></article>
+            <article class="mechanism-card"><span>场景准入</span><h3>是否值得试</h3><p>判断任务是否高频、可验证、风险可控、有 owner。</p></article>
+            <article class="mechanism-card"><span>风险边界</span><h3>AI 能做什么</h3><p>定义 AI 能自动做什么、只能建议什么、不能做什么。</p></article>
+            <article class="mechanism-card"><span>人审节点</span><h3>谁确认谁负责</h3><p>明确谁确认、谁修改、谁审批、谁承担最终责任。</p></article>
+            <article class="mechanism-card"><span>指标评估</span><h3>真实效果怎么证明</h3><p>通过采纳率、错误率、处理时长等指标判断真实效果。</p></article>
+            <article class="mechanism-card"><span>Launch Gate</span><h3>阶段门槛</h3><p>定义 Demo、MVP、Pilot 的阶段门槛，而不是直接跳到上线。</p></article>
+            <article class="mechanism-card"><span>badcase 迭代</span><h3>失败案例变成资产</h3><p>把失败案例变成下一版规则、Prompt、知识库和流程优化依据。</p></article>
+          </div>
+          <p class="boundary-note">模块 2 展示中间层在流程型 AI 应用中的具体实现；模块 4 把它抽象为 AI 应用从 Demo 到 Pilot 的通用承接机制。</p>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="opportunity">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">02 · AI 机会筛选板</p>
+            <h2 class="section-title">不是每个 AI 想法都应该立刻做。</h2>
+            <p class="section-description">先判断它是低风险、易验证的 Quick Win，还是高价值、需要流程嵌入的重点试点；是只能作为辅助建议，还是应该暂缓或不做。</p>
+          </div>
+          <div class="opportunity-board" aria-label="AI Opportunity Board 四象限">
+            <article class="opportunity-card quick">
+              <span class="card-label">Quick Win</span>
+              <h3>高频、低风险、易验证</h3>
+              <p>适合快速做 MVP，用短周期验证可用性。</p>
+              <p><strong>示例：</strong>知识检索、会议摘要、内部资料整理。</p>
+            </article>
+            <article class="opportunity-card pilot">
+              <span class="card-label">Strategic Pilot</span>
+              <h3>高价值、需流程嵌入</h3>
+              <p>需要明确 owner、指标、人审节点和试点边界。</p>
+              <p><strong>示例：</strong>需求分流、Agent 工作流、业务信号识别。</p>
+            </article>
+            <article class="opportunity-card assist">
+              <span class="card-label">Controlled Assist</span>
+              <h3>有价值但风险较高，只能辅助</h3>
+              <p>不做自动决策和自动外发，保留人工判断。</p>
+              <p><strong>示例：</strong>客户回复建议、方案推荐、预算判断。</p>
+            </article>
+            <article class="opportunity-card stop">
+              <span class="card-label">Hold / No-Go</span>
+              <h3>条件不成熟或风险过高</h3>
+              <p>先补数据、流程、权限和责任边界，或直接不做。</p>
+              <p><strong>示例：</strong>自动外发、不可逆审批、涉密自动处理。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="readiness">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03 · Readiness 六问与阶段门槛</p>
+            <h2 class="section-title">AI 应用进入试点前，要先过六个判断和阶段门槛。</h2>
+            <p class="section-description">机会进入试点池后，还不能直接上线。还需要判断：场景是否值得做、风险是否可控、效果能否证明、人在哪里介入，以及 Demo 是否已经达到进入下一阶段的门槛。</p>
+          </div>
+          <div class="readiness-grid">
+            <article class="readiness-card"><span>01</span><h3>这个场景值得 AI 化吗？</h3><p><strong>输出：</strong>Go / Hold / No-Go。</p></article>
+            <article class="readiness-card"><span>02</span><h3>出错后果可控吗？</h3><p><strong>输出：</strong>自动处理 / 辅助建议 / 人工确认 / 不做。</p></article>
+            <article class="readiness-card"><span>03</span><h3>效果能被证明吗？</h3><p><strong>输出：</strong>任务效果、业务效率、人机协作、风险指标。</p></article>
+            <article class="readiness-card"><span>04</span><h3>人应该在哪些节点介入？</h3><p><strong>输出：</strong>人审节点、审批责任、异常升级机制。</p></article>
+            <article class="readiness-card"><span>05</span><h3>达到试点门槛了吗？</h3><p><strong>输出：</strong>Demo / MVP / Pilot 的阶段 Gate。</p></article>
+            <article class="readiness-card"><span>06</span><h3>试点后如何持续可靠？</h3><p><strong>输出：</strong>badcase、评估集、版本记录、回归测试。</p></article>
+          </div>
+          <figure class="diagram-frame module-card">
+            <p class="diagram-title">Launch Gate：从想法到可试点状态</p>
+            <div class="gate-line">
+              <article class="gate-step"><span>Idea</span><h3>是否值得 AI 化？</h3><p>明确用户、痛点、AI 介入点、预期价值和风险上限。</p></article>
+              <article class="gate-step"><span>Demo</span><h3>技术链路是否跑通？</h3><p>可用典型样例演示，但不承诺稳定业务效果。</p></article>
+              <article class="gate-step"><span>MVP</span><h3>核心任务是否闭环？</h3><p>有基础流程、典型样本、初步指标和人工确认机制。</p></article>
+              <article class="gate-step"><span>Pilot</span><h3>真实用户是否愿意用？</h3><p>小范围真实试点，有指标、badcase、owner 和反馈机制。</p></article>
+              <article class="gate-step"><span>Production-ready</span><h3>是否具备可持续条件？</h3><p>权限、评估、版本、责任和回滚机制到位。</p></article>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="governance">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">04 · 最小可行治理闭环</p>
+            <h2 class="section-title">AI 应用进入试点后，不是结束，而是开始收集 badcase。</h2>
+            <p class="section-description">AI 应用真正进入使用后，才会暴露真实问题。持续可靠不是靠一次性 Prompt 调优，而是靠 badcase 收集、问题归因、规则 / Prompt / 知识库 / 流程更新、评估集维护、版本记录和回归测试。</p>
+          </div>
+          <figure class="diagram-frame module-card">
+            <p class="diagram-title">最小可行治理闭环</p>
+            <div class="governance-loop">
+              <article class="loop-step"><span>真实使用</span><h3>进入任务场景</h3><p>让真实用户在真实任务中使用，暴露演示阶段看不到的问题。</p></article>
+              <article class="loop-step"><span>badcase 收集</span><h3>记录失败样本</h3><p>收集错误输出、误召回、误分类、低采纳和人审修改记录。</p></article>
+              <article class="loop-step"><span>归因与调整</span><h3>定位问题来源</h3><p>判断该调整规则、Prompt、知识库、流程还是人审边界。</p></article>
+              <article class="loop-step"><span>评估与发布</span><h3>回归测试再发布</h3><p>更新评估集、版本记录和回滚说明，再进入下一轮试点。</p></article>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="sources">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05 · 来自前三类应用</p>
+            <h2 class="section-title">这套框架不是空降理论，而是从三类 AI 应用中抽象出来的。</h2>
+            <p class="section-description">前三个模块展示 AI 应用如何进入知识、流程和内容三类场景；模块 4 则抽象出一套通用的产品化判断框架，用来回答这些 AI 应用是否值得做、能否试点、如何上线和持续迭代。</p>
+          </div>
+          <div class="source-grid">
+            <article class="source-card">
+              <span>知识型 AI 应用</span>
+              <h3>企业知识工作台</h3>
+              <p><strong>暴露的问题：</strong>知识来源、上下文边界、组织记忆。</p>
+              <p><strong>抽象出的判断：</strong>上下文与证据追溯。</p>
+            </article>
+            <article class="source-card">
+              <span>流程型 AI 应用</span>
+              <h3>AI 业务需求流转工作台</h3>
+              <p><strong>暴露的问题：</strong>多源信号、任务分流、人审、状态闭环。</p>
+              <p><strong>抽象出的判断：</strong>流程嵌入与责任节点。</p>
+            </article>
+            <article class="source-card">
+              <span>内容型 AI 应用</span>
+              <h3>AI 营销内容生产工作流</h3>
+              <p><strong>暴露的问题：</strong>内容质量、品牌一致性、人机协作。</p>
+              <p><strong>抽象出的判断：</strong>质量评估与风险边界。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="case-footer">
+      <span>AI 应用评估与治理框架 · 从 Demo 到可试点状态</span>
+      <a href="../../index.html#entries">返回作品集首页</a>
+    </footer>
+  </body>
+</html>

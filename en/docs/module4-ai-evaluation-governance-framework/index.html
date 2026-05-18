@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Application Readiness Framework: From Demo to Pilot-ready | Portfolio Methodology</title>
+    <meta
+      name="description"
+      content="Module 4 methodology page: an AI Application Readiness Framework for deciding whether an AI application is worth building, safe to pilot, measurable in real use, and maintainable over time."
+    />
+    <link rel="stylesheet" href="../../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #ffffff 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      a,
+      strong,
+      td,
+      th {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      main,
+      section,
+      .case-header,
+      .case-hero,
+      .case-section,
+      .case-container,
+      .case-visual,
+      .diagram-frame,
+      .layer-mechanism-grid,
+      .opportunity-board,
+      .readiness-grid,
+      .gate-line,
+      .governance-loop,
+      .source-grid {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      .case-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        background:
+          radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
+          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
+          #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-short-title {
+        margin: 0 0 12px;
+        color: var(--accent-strong);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .case-lead {
+        max-width: 850px;
+        margin: 20px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .status-card,
+      .boundary-note {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+        line-height: 1.72;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .case-visual {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        color: #ffffff;
+        background: var(--ink);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .case-visual-header span {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .case-visual img {
+        width: 100%;
+        height: auto;
+        padding: 12px;
+        background: #ffffff;
+        border-radius: var(--radius-md);
+      }
+
+      .visual-caption {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .case-section {
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-section.alt {
+        background: #ffffff;
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .case-section .section-header {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .layer-mechanism-grid,
+      .readiness-grid,
+      .source-grid,
+      .gate-line,
+      .governance-loop {
+        display: grid;
+        gap: 14px;
+      }
+
+      .layer-mechanism-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .readiness-grid,
+      .source-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .opportunity-board {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .opportunity-card,
+      .mechanism-card,
+      .readiness-card,
+      .source-card,
+      .gate-step,
+      .loop-step {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .opportunity-card.quick {
+        border-color: rgba(20, 184, 166, 0.26);
+        background: #f0fdfa;
+      }
+
+      .opportunity-card.pilot {
+        border-color: rgba(37, 99, 235, 0.26);
+        background: #eff6ff;
+      }
+
+      .opportunity-card.assist {
+        border-color: rgba(249, 115, 22, 0.26);
+        background: #fff7ed;
+      }
+
+      .opportunity-card.stop {
+        border-color: rgba(244, 63, 94, 0.24);
+        background: #fff1f2;
+      }
+
+      .card-label,
+      .mechanism-card span,
+      .readiness-card span,
+      .source-card span,
+      .gate-step span,
+      .loop-step span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .opportunity-card h3,
+      .mechanism-card h3,
+      .readiness-card h3,
+      .source-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .opportunity-card p,
+      .mechanism-card p,
+      .readiness-card p,
+      .source-card p,
+      .gate-step p,
+      .loop-step p {
+        color: var(--muted);
+      }
+
+      .diagram-frame {
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .diagram-title {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .gate-line {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .gate-step {
+        position: relative;
+        min-height: 170px;
+      }
+
+      .gate-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 28px;
+        right: -18px;
+        z-index: 2;
+        display: grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-radius: 999px;
+        font-weight: 900;
+      }
+
+      .governance-loop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .loop-step {
+        border-color: rgba(20, 184, 166, 0.22);
+        background: #f0fdfa;
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1080px) {
+        .case-hero,
+        .layer-mechanism-grid,
+        .readiness-grid,
+        .source-grid,
+        .gate-line,
+        .governance-loop {
+          grid-template-columns: 1fr;
+        }
+
+        .gate-step {
+          min-height: auto;
+        }
+
+        .gate-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          transform: translateX(-50%) rotate(90deg);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .case-header,
+        .case-hero,
+        .case-section,
+        .case-footer {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .case-hero {
+          display: block;
+          padding: 44px 20px 48px;
+          overflow: hidden;
+        }
+
+        .case-hero > *,
+        .case-container,
+        .case-section .section-header,
+        .case-nav,
+        .hero-actions,
+        .hero-tags,
+        .case-visual,
+        .case-visual img,
+        .opportunity-board,
+        .diagram-frame {
+          width: min(100%, 320px);
+          max-width: min(100%, 320px);
+          min-width: 0;
+        }
+
+        .case-hero h1 {
+          max-width: 320px;
+          font-size: clamp(28px, 8vw, 32px);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
+        .section-title {
+          max-width: 320px;
+          font-size: clamp(24px, 7.2vw, 30px);
+          line-height: 1.22;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
+        .case-lead,
+        .status-card,
+        .boundary-note {
+          font-size: 16px;
+        }
+
+        .case-visual {
+          margin-top: 28px;
+          padding: 16px;
+          overflow: hidden;
+        }
+
+        .case-visual-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px 10px;
+          font-size: 12px;
+        }
+
+        .case-nav a {
+          min-width: 0;
+          padding: 4px 0;
+          white-space: normal;
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        .case-section {
+          padding: 56px 20px;
+        }
+
+        .opportunity-board {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../../index.html?lang=en#entries">
+        <span class="brand-mark">M4</span>
+        <span>AI Application Readiness Framework</span>
+      </a>
+      <nav class="case-nav" aria-label="Case navigation">
+        <a href="#overview">Overview</a>
+        <a href="#layer">Layer</a>
+        <a href="#opportunity">Opportunity</a>
+        <a href="#readiness">Readiness</a>
+        <a href="#governance">Governance</a>
+        <a href="#sources">Sources</a>
+        <a href="../../../index.html?lang=en#entries">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero" id="overview">
+        <div>
+          <p class="section-kicker">Module 4 · Methodology</p>
+          <p class="case-short-title">AI Application Readiness Framework: From Demo to Pilot-ready</p>
+          <h1>From demo to pilot-ready, the missing layer is not the model — it is productization.</h1>
+          <p class="case-lead">A practical framework for evaluating whether an AI application is worth building, safe to pilot, measurable in real use, and maintainable over time.</p>
+          <div class="status-card">Modules 1/2/3 show where AI applications can enter knowledge, workflow, and content scenarios. Module 4 explains how I judge whether these applications are worth building, ready for pilot, and able to improve over time.</div>
+          <div class="hero-tags">
+            <span>Readiness</span>
+            <span>Productization Layer</span>
+            <span>Launch Gate</span>
+            <span>Human Review</span>
+            <span>Bad Case Loop</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button-primary" href="#layer">View Readiness Layer</a>
+            <a class="button-secondary" href="#opportunity">View Opportunity Board</a>
+            <a class="button-secondary" href="../../../index.html?lang=en#entries">Back to Portfolio</a>
+          </div>
+        </div>
+        <aside class="case-visual" aria-label="Readiness Operating Layer diagram">
+          <div class="case-visual-header">
+            <strong>AI Demo → Readiness Operating Layer → Pilot-ready AI Application</strong>
+            <span>Productization</span>
+          </div>
+          <img src="assets/diagrams/fig7_readiness_operating_layer_light_v052.svg" alt="Readiness Operating Layer between AI Demo and pilot-ready AI application" />
+          <p class="visual-caption">Turn “AI can generate” into “AI can be used by an organization.”</p>
+        </aside>
+      </section>
+
+      <section class="case-section" id="layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01 · Readiness Operating Layer</p>
+            <h2 class="section-title">Between a demo and a real pilot, AI needs a lightweight productization layer.</h2>
+            <p class="section-description">I define this layer as the Readiness Operating Layer: a lightweight set of mechanisms that connects model capability, real use cases, human review, measurable outcomes, and continuous iteration.</p>
+          </div>
+          <div class="layer-mechanism-grid">
+            <article class="mechanism-card"><span>Opportunity Pool</span><h3>Which ideas enter the pool</h3><p>Screen AI ideas before turning every request into a demo.</p></article>
+            <article class="mechanism-card"><span>Scenario Entry</span><h3>Is it worth piloting?</h3><p>Check frequency, measurability, risk, and ownership.</p></article>
+            <article class="mechanism-card"><span>Risk Boundary</span><h3>What can AI do?</h3><p>Define what can be automated, suggested, or blocked.</p></article>
+            <article class="mechanism-card"><span>Human Review</span><h3>Who confirms and owns it</h3><p>Clarify review, approval, escalation, and responsibility.</p></article>
+            <article class="mechanism-card"><span>Evaluation</span><h3>How real value is measured</h3><p>Use adoption, error rate, handling time, and task quality metrics.</p></article>
+            <article class="mechanism-card"><span>Launch Gate</span><h3>Stage thresholds</h3><p>Define Demo, MVP, and Pilot gates before moving forward.</p></article>
+            <article class="mechanism-card"><span>Bad Case Loop</span><h3>Failures become iteration assets</h3><p>Convert bad cases into rule, Prompt, knowledge, or workflow updates.</p></article>
+          </div>
+          <p class="boundary-note">Module 2 shows how a middle layer works inside a workflow AI application. Module 4 abstracts it into a reusable productization mechanism from Demo to Pilot.</p>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="opportunity">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">02 · AI Opportunity Board</p>
+            <h2 class="section-title">Not every AI idea should be built immediately.</h2>
+            <p class="section-description">First decide whether an idea is a low-risk Quick Win, a high-value Strategic Pilot, a Controlled Assist case, or a Hold / No-Go scenario.</p>
+          </div>
+          <div class="opportunity-board" aria-label="AI Opportunity Board">
+            <article class="opportunity-card quick"><span class="card-label">Quick Win</span><h3>High frequency, low risk, easy to validate</h3><p><strong>Examples:</strong> knowledge search, meeting summaries, internal document cleanup.</p></article>
+            <article class="opportunity-card pilot"><span class="card-label">Strategic Pilot</span><h3>High value, requires workflow embedding</h3><p><strong>Examples:</strong> demand routing, Agent workflow, business signal detection.</p></article>
+            <article class="opportunity-card assist"><span class="card-label">Controlled Assist</span><h3>Valuable but higher risk, assist only</h3><p><strong>Examples:</strong> customer reply suggestions, proposal recommendations, budget judgment.</p></article>
+            <article class="opportunity-card stop"><span class="card-label">Hold / No-Go</span><h3>Immature conditions or excessive risk</h3><p><strong>Examples:</strong> automatic external sending, irreversible approval, sensitive automated handling.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="readiness">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03 · Readiness Checks & Launch Gate</p>
+            <h2 class="section-title">Before an AI application enters a pilot, it needs to pass six readiness checks and stage gates.</h2>
+            <p class="section-description">An opportunity in the pilot pool is not ready by default. It still needs scenario value, risk boundaries, measurable outcomes, human review, stage readiness, and a reliability loop.</p>
+          </div>
+          <div class="readiness-grid">
+            <article class="readiness-card"><span>01</span><h3>Is this scenario worth AI?</h3><p><strong>Output:</strong> Go / Hold / No-Go.</p></article>
+            <article class="readiness-card"><span>02</span><h3>Are failure consequences controllable?</h3><p><strong>Output:</strong> Auto / Assist / Human review / No-Go.</p></article>
+            <article class="readiness-card"><span>03</span><h3>Can impact be proven?</h3><p><strong>Output:</strong> task quality, efficiency, adoption, and risk metrics.</p></article>
+            <article class="readiness-card"><span>04</span><h3>Where should humans intervene?</h3><p><strong>Output:</strong> review nodes, ownership, and escalation.</p></article>
+            <article class="readiness-card"><span>05</span><h3>Has it reached the pilot gate?</h3><p><strong>Output:</strong> Demo / MVP / Pilot stage gate.</p></article>
+            <article class="readiness-card"><span>06</span><h3>How will it stay reliable?</h3><p><strong>Output:</strong> bad cases, eval set, version record, regression test.</p></article>
+          </div>
+          <figure class="diagram-frame module-card">
+            <p class="diagram-title">Launch Gate: From Idea to Pilot-ready</p>
+            <div class="gate-line">
+              <article class="gate-step"><span>Idea</span><h3>Should it use AI?</h3><p>Clarify user, pain point, AI intervention point, expected value, and risk ceiling.</p></article>
+              <article class="gate-step"><span>Demo</span><h3>Does the flow run?</h3><p>Use representative examples to show the technical path.</p></article>
+              <article class="gate-step"><span>MVP</span><h3>Does the core task close?</h3><p>Provide basic flow, samples, early metrics, and human review.</p></article>
+              <article class="gate-step"><span>Pilot</span><h3>Will real users use it?</h3><p>Run a small pilot with metrics, bad cases, owner, and feedback.</p></article>
+              <article class="gate-step"><span>Production-ready</span><h3>Can it be sustained?</h3><p>Permissions, evaluation, versioning, ownership, and rollback are in place.</p></article>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="governance">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">04 · Minimal Governance Loop</p>
+            <h2 class="section-title">After an AI application enters real use, the work begins with collecting bad cases.</h2>
+            <p class="section-description">Reliability does not come from one-time Prompt tuning. It comes from bad case collection, root-cause analysis, rule / Prompt / knowledge / workflow updates, eval set maintenance, version records, and regression tests.</p>
+          </div>
+          <figure class="diagram-frame module-card">
+            <p class="diagram-title">Minimal Viable Governance Loop</p>
+            <div class="governance-loop">
+              <article class="loop-step"><span>Real Use</span><h3>Enter real tasks</h3><p>Expose problems that do not appear in demos.</p></article>
+              <article class="loop-step"><span>Bad Cases</span><h3>Capture failures</h3><p>Collect wrong outputs, misroutes, low adoption, and human edits.</p></article>
+              <article class="loop-step"><span>Root Cause</span><h3>Adjust the right layer</h3><p>Update rules, Prompt, knowledge, workflow, or human boundary.</p></article>
+              <article class="loop-step"><span>Regression</span><h3>Test and release again</h3><p>Update eval sets, version notes, rollback plans, and release criteria.</p></article>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="sources">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05 · Abstracted From Cases</p>
+            <h2 class="section-title">This framework is abstracted from three types of AI applications, not invented in isolation.</h2>
+            <p class="section-description">The first three modules show how AI enters knowledge, workflow, and content scenarios. Module 4 abstracts a reusable productization judgment framework for deciding whether these AI applications are worth building, ready to pilot, and able to improve over time.</p>
+          </div>
+          <div class="source-grid">
+            <article class="source-card"><span>Knowledge AI</span><h3>Enterprise Knowledge Workspace</h3><p><strong>Exposed problem:</strong> source reliability, context boundary, organizational memory.</p><p><strong>Abstracted judgment:</strong> trusted context and evidence traceability.</p></article>
+            <article class="source-card"><span>Workflow AI</span><h3>AI Business Requirement Flow Workspace</h3><p><strong>Exposed problem:</strong> multi-source signals, routing, human review, state loop.</p><p><strong>Abstracted judgment:</strong> workflow embedding and responsibility nodes.</p></article>
+            <article class="source-card"><span>Content AI</span><h3>AI Marketing Content Workflow</h3><p><strong>Exposed problem:</strong> content quality, brand consistency, human collaboration.</p><p><strong>Abstracted judgment:</strong> quality evaluation and risk boundary.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="case-footer">
+      <span>AI Application Readiness Framework · From Demo to Pilot-ready</span>
+      <a href="../../../index.html?lang=en#entries">Back to Portfolio</a>
+    </footer>
+  </body>
+</html>

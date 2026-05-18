@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 业务需求流转工作台：从多源业务信号到需求分流与任务闭环 | 项目详情</title>
+    <meta
+      name="description"
+      content="模块2中文作品集项目页：场景化 AI 产品设计案例，展示多源业务信号、AI 介入点、人审分流、轻量 AI 业务信号层与组织行动闭环。"
+    />
+    <link rel="stylesheet" href="../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 46%, #ffffff 100%);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      strong,
+      a,
+      td,
+      th {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      main,
+      section,
+      .case-header,
+      .case-hero,
+      .case-section,
+      .case-container,
+      .case-visual,
+      .visual-panel,
+      .visual-node,
+      .diagram-frame,
+      .signal-loss,
+      .sample-flow,
+      .intervention-map,
+      .architecture-map,
+      .responsibility-map,
+      .timeline-map {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        max-width: 100vw;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      .case-hero {
+        display: grid;
+        max-width: 100vw;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        background:
+          radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
+          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
+          #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-hero-copy {
+        min-width: 0;
+      }
+
+      .case-short-title {
+        margin: 0 0 12px;
+        color: var(--accent-strong);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .case-lead {
+        max-width: 820px;
+        margin: 20px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .mobile-break {
+        display: none;
+      }
+
+      .status-card {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .case-visual {
+        display: grid;
+        min-width: 0;
+        gap: 14px;
+        padding: 18px;
+        color: #ffffff;
+        background: var(--ink);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .case-visual-header span {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .visual-panel {
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .visual-node {
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-sm);
+      }
+
+      .visual-node strong {
+        display: block;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .visual-node span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 13px;
+      }
+
+      .case-section {
+        max-width: 100vw;
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-section.alt {
+        background: #ffffff;
+      }
+
+      .case-container {
+        min-width: 0;
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .case-section .section-header {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .problem-grid,
+      .unit-grid,
+      .metric-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .problem-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .unit-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .mini-card,
+      .flow-card,
+      .timeline-card {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .mini-card span,
+      .flow-card span,
+      .timeline-card span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .mini-card h3,
+      .flow-card h3,
+      .timeline-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .mini-card p,
+      .flow-card p,
+      .timeline-card p {
+        color: var(--muted);
+      }
+
+      .diagram-frame {
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .diagram-title {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .diagram-caption {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .signal-loss,
+      .sample-flow,
+      .intervention-map,
+      .architecture-map,
+      .responsibility-map,
+      .timeline-map {
+        display: grid;
+        gap: 12px;
+      }
+
+      .signal-loss {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .sample-flow {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .intervention-map {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+      }
+
+      .architecture-map {
+        grid-template-columns: 1fr 1.15fr 1fr 1fr;
+        align-items: stretch;
+      }
+
+      .responsibility-map {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .timeline-map {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .diagram-node {
+        min-width: 0;
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+      }
+
+      .diagram-node.source {
+        background: #f8fafc;
+      }
+
+      .diagram-node.ai {
+        border-color: rgba(37, 99, 235, 0.26);
+        background: #eff6ff;
+      }
+
+      .diagram-node.human {
+        border-color: rgba(249, 115, 22, 0.24);
+        background: #fff7ed;
+      }
+
+      .diagram-node.output {
+        border-color: rgba(20, 184, 166, 0.22);
+        background: #f0fdfa;
+      }
+
+      .diagram-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .diagram-node small {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .arrow {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .callout-card {
+        padding: 22px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .callout-card strong {
+        display: block;
+        color: var(--ink);
+        font-size: 22px;
+        line-height: 1.35;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 15px 16px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+
+      th {
+        color: var(--ink);
+        background: var(--surface-alt);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .object-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1180px) {
+        .problem-grid,
+        .signal-loss,
+        .sample-flow,
+        .intervention-map,
+        .architecture-map,
+        .responsibility-map,
+        .timeline-map,
+        .unit-grid,
+        .metric-grid,
+        .object-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .case-hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .case-header,
+        .case-hero,
+        .case-section,
+        .case-footer {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .case-hero-copy,
+        .case-container,
+        .section-header,
+        .case-visual,
+        .diagram-frame,
+        .callout-card,
+        .table-wrap,
+        .module-card,
+        .mini-card,
+        .flow-card,
+        .timeline-card {
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .case-hero {
+          display: block;
+          grid-template-columns: minmax(0, 1fr);
+          padding: 44px 20px 48px;
+          overflow: hidden;
+        }
+
+        .case-hero > *,
+        .case-nav,
+        .hero-tags,
+        .hero-actions,
+        .case-visual,
+        .visual-panel,
+        .visual-node {
+          width: 100%;
+          max-width: calc(100vw - 40px);
+          min-width: 0;
+        }
+
+        .case-hero h1 {
+          font-size: clamp(26px, 7.2vw, 30px);
+          line-height: 1.18;
+          word-break: break-all;
+        }
+
+        .mobile-break {
+          display: block;
+        }
+
+        .section-title {
+          font-size: clamp(24px, 7.2vw, 30px);
+          line-height: 1.22;
+          word-break: normal;
+        }
+
+        .case-lead,
+        .status-card {
+          font-size: 16px;
+          max-width: calc(100vw - 40px);
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px 10px;
+          font-size: 12px;
+        }
+
+        .case-nav a {
+          min-width: 0;
+          padding: 4px 0;
+          white-space: normal;
+        }
+
+        .case-visual-header span {
+          display: none;
+        }
+
+        .case-visual {
+          margin-top: 28px;
+          padding: 16px;
+          overflow: hidden;
+        }
+
+        .visual-panel {
+          padding: 12px;
+        }
+
+        .visual-node {
+          padding: 12px;
+        }
+
+        .hero-tags span {
+          max-width: 100%;
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          padding-right: 12px;
+          padding-left: 12px;
+          text-align: center;
+          white-space: normal;
+        }
+
+        .case-section {
+          padding: 56px 20px;
+        }
+
+        .callout-card strong {
+          font-size: 20px;
+          line-height: 1.45;
+        }
+
+        table {
+          min-width: 680px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html#entries">
+        <span class="brand-mark">M2</span>
+        <span>AI 业务需求流转工作台</span>
+      </a>
+      <nav class="case-nav" aria-label="案例导航">
+        <a href="#problem">业务问题</a>
+        <a href="#sample">贯穿样例</a>
+        <a href="#intervention">AI 介入点</a>
+        <a href="#signal-layer">信号层</a>
+        <a href="#unit">责任单元</a>
+        <a href="#evolution">演进</a>
+        <a href="#validation">验证边界</a>
+        <a href="../../index.html#entries">返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero" id="overview">
+        <div class="case-hero-copy">
+          <p class="section-kicker">01 · Hero / 项目定位</p>
+          <p class="case-short-title">场景化 AI 产品设计案例</p>
+          <h1>AI 业务需求流转工作台：<br />从多源业务信号到<br class="mobile-break" />需求分流与任务闭环</h1>
+          <p class="case-lead">
+            面向传统企业业务流转场景，设计一个轻量 AI 业务信号工作台，将销售、售后、质量、会议和 CRM 中的多源业务信号转化为可确认、可分流、可追踪、可复盘的需求 / 问题 / 风险闭环。
+          </p>
+          <div class="status-card">
+            项目类型：场景化 AI 产品设计案例。它不是会议纪要工具或普通工单系统，而是展示 AI 如何进入销售、售后、质量、会议和 CRM 等业务流。
+          </div>
+          <div class="hero-tags">
+            <span>场景化 AI 产品设计案例</span>
+            <span>企业 AI Workflow</span>
+            <span>多源业务信号</span>
+            <span>AI 介入点</span>
+            <span>人审分流</span>
+            <span>轻量 AI 业务信号层</span>
+            <span>组织行动闭环</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button-primary" href="#intervention">查看 AI 介入点</a>
+            <a class="button-secondary" href="#signal-layer">查看轻量架构判断</a>
+            <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
+          </div>
+        </div>
+
+        <aside class="case-visual" aria-label="模块2业务信号闭环概览">
+          <div class="case-visual-header">
+            <strong>业务信号闭环</strong>
+            <span>Signal to Action</span>
+          </div>
+          <div class="visual-panel">
+            <div class="visual-node"><strong>多源输入</strong><span>销售、售后、质量、会议、CRM</span></div>
+            <div class="visual-node"><strong>AI 识别</strong><span>分类、聚类、证据提取、卡片初稿</span></div>
+            <div class="visual-node"><strong>人审分流</strong><span>优先级、责任方、是否进入正式流程</span></div>
+            <div class="visual-node"><strong>状态闭环</strong><span>追踪、复盘、规则沉淀、经营洞察</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="case-section" id="problem">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">02 · Business Problem</p>
+            <h2 class="section-title">业务问题：没有 AI 时发生了什么？</h2>
+            <p class="section-description">
+              企业并不是没有业务反馈，而是反馈散落在销售、售后、质量、会议和 CRM 中，难以稳定进入产品、质量、销售和管理决策。
+            </p>
+          </div>
+          <div class="problem-grid">
+            <article class="mini-card"><span>信号散</span><h3>入口分散</h3><p>反馈散落在销售、售后、客服、会议、CRM 等入口。</p></article>
+            <article class="mini-card"><span>类型混</span><h3>难以判断</h3><p>需求、问题、风险、情绪和噪音混在一起。</p></article>
+            <article class="mini-card"><span>责任不清</span><h3>找不到责任方</h3><p>不知道该由产品、质量、销售、供应链还是运营处理。</p></article>
+            <article class="mini-card"><span>状态难追</span><h3>推进靠人工</h3><p>任务推进依赖群聊、表格和人工催办。</p></article>
+            <article class="mini-card"><span>复盘滞后</span><h3>趋势后置</h3><p>管理层看到的是事后总结，而不是持续业务趋势。</p></article>
+          </div>
+
+          <figure class="diagram-frame">
+            <p class="diagram-title">没有 AI 时：业务信号如何流失</p>
+            <div class="signal-loss">
+              <div class="diagram-node source"><strong>销售 / 售后 / CRM</strong><small>反馈进入不同系统和沟通渠道</small></div>
+              <div class="diagram-node source"><strong>会议 / 表格 / 群聊</strong><small>线索被临时整理，口径不统一</small></div>
+              <div class="diagram-node human"><strong>人工判断</strong><small>依赖经验判断类型、优先级和责任方</small></div>
+              <div class="diagram-node human"><strong>人工推进</strong><small>状态散落，阻塞和延期难以暴露</small></div>
+              <div class="diagram-node output"><strong>事后汇总</strong><small>复盘滞后，难以形成持续业务趋势</small></div>
+            </div>
+            <figcaption class="diagram-caption">问题不只是效率低，而是业务信号无法稳定转化为组织行动。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="sample">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03 · Scenario Sample</p>
+            <h2 class="section-title">贯穿样例：一个客户反馈如何进入闭环</h2>
+            <p class="section-description">
+              以下为场景化业务样例，用于说明产品机制：某车型在销售跟进、CRM 记录、客服反馈和区域会议中，反复出现“家庭用户对后排空间和舒适性存在顾虑”的信号。
+            </p>
+          </div>
+          <div class="callout-card">
+            <strong>单条反馈看似只是销售异议，但跨渠道聚合后，它可能同时指向产品体验问题、销售转化风险和市场传播缺口。</strong>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">样例链路：从分散反馈到组织行动</p>
+            <div class="sample-flow">
+              <div class="diagram-node source"><strong>销售反馈 + CRM + 售后 + 区域会议</strong><small>家庭用户反复提到后排空间和舒适性顾虑</small></div>
+              <div class="diagram-node ai"><strong>AI 聚合与识别</strong><small>识别为“产品体验问题 + 销售转化风险”</small></div>
+              <div class="diagram-node human"><strong>生成卡片并人审</strong><small>确认优先级、证据是否充分、责任方是否合理</small></div>
+              <div class="diagram-node output"><strong>分流与复盘输入</strong><small>产品、销售运营、市场支持形成后续动作</small></div>
+            </div>
+            <figcaption class="diagram-caption">输出可以是销售话术调整、配置优化建议或区域复盘输入，而不是单纯生成一份总结。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="intervention">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">04 · AI Intervention</p>
+            <h2 class="section-title">AI 介入点：AI 到底改变了什么？</h2>
+            <p class="section-description">
+              AI 不直接替代业务负责人决策，而是先完成跨源信号识别、聚类、证据提取和卡片初稿。关键节点仍由人确认：是否生成正式卡片、如何确定优先级、责任部门是谁、是否关闭、是否沉淀为规则。
+            </p>
+          </div>
+
+          <figure class="diagram-frame">
+            <p class="diagram-title">AI 介入点：从信号识别到复盘洞察</p>
+            <div class="intervention-map">
+              <div class="diagram-node source"><strong>信号进入</strong><small>AI 识别有效反馈与噪音</small></div>
+              <div class="diagram-node ai"><strong>问题判断</strong><small>分类、聚类、标签化</small></div>
+              <div class="diagram-node ai"><strong>证据整理</strong><small>提取来源片段和上下文</small></div>
+              <div class="diagram-node ai"><strong>卡片生成</strong><small>需求 / 问题 / 风险初稿</small></div>
+              <div class="diagram-node human"><strong>分流派发</strong><small>人确认责任方和路径</small></div>
+              <div class="diagram-node output"><strong>状态追踪</strong><small>暴露阻塞和未关闭事项</small></div>
+              <div class="diagram-node output"><strong>经营复盘</strong><small>生成趋势摘要和复盘草稿</small></div>
+            </div>
+          </figure>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>业务节点</th><th>AI 角色</th><th>人的角色</th></tr></thead>
+              <tbody>
+                <tr><td>信号进入</td><td>识别有效反馈与噪音</td><td>判断是否纳入正式流程</td></tr>
+                <tr><td>问题判断</td><td>分类、聚类、标签化</td><td>确认类型是否正确</td></tr>
+                <tr><td>证据整理</td><td>提取来源片段和上下文</td><td>判断证据是否足够</td></tr>
+                <tr><td>卡片生成</td><td>生成需求 / 问题 / 风险卡片初稿</td><td>修改标题、背景、优先级</td></tr>
+                <tr><td>分流派发</td><td>推荐责任部门和下一步动作</td><td>确认责任方和处理路径</td></tr>
+                <tr><td>状态追踪</td><td>暴露阻塞、延期和未关闭事项</td><td>推动组织协同</td></tr>
+                <tr><td>经营复盘</td><td>生成趋势摘要和复盘草稿</td><td>判断是否沉淀为规则或策略</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="signal-layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05 · Product Architecture Judgment</p>
+            <h2 class="section-title">产品架构判断：轻量 AI 业务信号层</h2>
+            <p class="section-description">
+              本项目不重做 CRM、售后、质量或项目管理系统，而是在既有系统之间增加一个轻量 AI 业务信号层。它负责跨源信号识别、证据追溯、人审分流、状态同步和规则迭代，让分散在不同系统中的业务反馈进入同一个需求 / 问题 / 风险闭环。
+            </p>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">轻量 AI 业务信号层：不替代系统，而是连接系统</p>
+            <div class="architecture-map">
+              <div class="diagram-node source"><strong>既有系统</strong><small>CRM / 售后 / 质量 / 会议 / 项目管理</small></div>
+              <div class="diagram-node ai"><strong>轻量 AI 业务信号层</strong><small>跨源聚合、AI 识别、证据追溯、人审分流、状态同步、规则迭代</small></div>
+              <div class="diagram-node human"><strong>可确认对象</strong><small>需求卡片 / 问题卡片 / 风险卡片</small></div>
+              <div class="diagram-node output"><strong>组织响应</strong><small>产品 / 销售 / 质量 / 供应链 / 管理层</small></div>
+            </div>
+          </figure>
+          <div class="unit-grid">
+            <article class="mini-card"><span>为什么基础模型不够</span><h3>需要承接流程状态</h3><p>基础模型可以理解和生成，但不能单独承担组织上下文、流程状态、人审记录和规则迭代。</p></article>
+            <article class="mini-card"><span>为什么单点 AI 不够</span><h3>跨系统主题难发现</h3><p>CRM、售后、质量和会议记录各自处理局部对象，难以发现同一业务主题的跨系统信号。</p></article>
+            <article class="mini-card"><span>信号层做什么</span><h3>轻量连接而非替代</h3><p>只做跨源聚合、AI 识别、证据追溯、人审分流、状态同步和规则迭代，不替代原系统。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="unit">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">06 · Product Responsibility Unit</p>
+            <h2 class="section-title">核心产品责任单元</h2>
+            <p class="section-description">模块2的核心不是“生成需求卡片”，而是定义一个从信号进入、人审分流到复盘洞察的产品责任单元。</p>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">核心产品责任单元图</p>
+            <div class="responsibility-map">
+              <div class="diagram-node source"><strong>多源业务信号池</strong><small>CRM、售后、会议、质量、销售反馈</small></div>
+              <div class="diagram-node ai"><strong>AI 识别与分类</strong><small>分类、聚类、证据提取、置信度</small></div>
+              <div class="diagram-node ai"><strong>卡片模块</strong><small>需求卡片、问题卡片、风险卡片分型</small></div>
+              <div class="diagram-node human"><strong>人工确认</strong><small>优先级、责任方、是否进入正式流程</small></div>
+              <div class="diagram-node output"><strong>分流看板</strong><small>按部门、状态、优先级、风险查看</small></div>
+              <div class="diagram-node output"><strong>复盘洞察</strong><small>高频问题、闭环率、部门响应、趋势摘要</small></div>
+            </div>
+          </figure>
+          <div class="object-strip">
+            <article class="module-card"><h3>Signal</h3><p>来自 CRM、售后、销售、质量、会议等入口的原始业务信号，保留来源和上下文。</p></article>
+            <article class="module-card"><h3>Card</h3><p>经过 AI 识别和人审确认后的需求 / 问题 / 风险对象，包含证据、类型和建议责任方。</p></article>
+            <article class="module-card"><h3>Task</h3><p>进入分流和状态追踪的后续动作，记录责任方、处理状态、阻塞点和复盘结论。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="evolution">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">07 · Product Evolution</p>
+            <h2 class="section-title">V1 / V2 / V3：从看见信号到组织机制</h2>
+            <p class="section-description">
+              版本演进不是功能越做越多，而是 AI 从“信息处理”逐步进入“组织响应机制”：V1 先让企业看见分散信号，V2 让信号进入责任部门和状态闭环，V3 再把闭环数据反哺产品规划、质量改进、销售支持和管理复盘。
+            </p>
+          </div>
+          <div class="timeline-map">
+            <article class="timeline-card"><span>V1</span><h3>业务信号结构化</h3><p>企业开始看见分散反馈，信号从销售、售后、质量和 CRM 中被结构化。</p></article>
+            <article class="timeline-card"><span>V2</span><h3>分流闭环</h3><p>反馈进入责任部门和状态流转，形成可确认、可追踪的组织行动。</p></article>
+            <article class="timeline-card"><span>V3</span><h3>经营洞察与机制沉淀</h3><p>闭环数据反哺管理决策，沉淀复盘结论、处理规则和下一轮优化方向。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="validation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08 · Validation Boundary</p>
+            <h2 class="section-title">验证方式与项目边界</h2>
+            <p class="section-description">
+              本项目为场景化 AI 产品设计案例，重点展示 AI 介入传统企业业务流的产品设计方法。文档中的指标用于样例流程验证和未来试点评估，包括 AI 识别质量、流程效率、业务闭环和组织协同四类，不声明为真实企业上线后的业务成果。
+            </p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>评估维度</th><th>示例指标</th></tr></thead>
+              <tbody>
+                <tr><td>AI 识别质量</td><td>分类准确率、漏识别率、证据片段命中率、人工修改率</td></tr>
+                <tr><td>流程效率</td><td>信号到卡片时间、责任方确认时间、平均关闭周期</td></tr>
+                <tr><td>业务闭环</td><td>问题闭环率、可进入产品规划的需求数量</td></tr>
+                <tr><td>组织协同</td><td>责任方确认率、未关闭问题比例、复盘结论复用次数</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <span>AI 业务需求流转工作台 · 场景化 AI 产品设计案例</span>
+      <a href="../../index.html#entries">返回作品集首页</a>
+    </footer>
+  </body>
+</html>

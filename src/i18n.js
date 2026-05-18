@@ -86,6 +86,7 @@
         const dict = window.I18N_PAGE || {};
         const value = dict[currentLang]?.[key];
         node.setAttribute(attr, value ?? node.__i18nOriginalAttrs[attr]);
+        if (attr === "href" && value) node.dataset.hrefBase = value;
       });
     });
 
