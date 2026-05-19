@@ -625,7 +625,7 @@ body.home-comic-hero {
   --hero-paper: #f7f5f0;
   --hero-ink: #1d2f6f;
   --hero-blue: #256bff;
-  background: var(--hero-paper);
+  background: #FAFAF7;
 }
 
 body.home-comic-hero .site-header {
@@ -692,7 +692,7 @@ body.home-comic-hero .productization-hero {
   align-items: stretch;
   margin: 0 auto;
   padding: 26px 24px 54px;
-  background: var(--hero-paper);
+  background: #FAFAF7;
   overflow: visible;
 }
 
@@ -2918,4 +2918,157 @@ body.home-comic-hero .hero-project-note p {
   body.home-comic-hero .hero-project-note {
     padding-left: 18px;
   }
+
+  body.home-comic-hero .check-section {
+    padding-top: clamp(48px, 6vw, 80px);
+    padding-bottom: clamp(48px, 6vw, 80px);
+  }
+
+  body.home-comic-hero .check-grid {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  body.home-comic-hero .check-card {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    min-height: 0;
+  }
+
+  body.home-comic-hero .check-card::after {
+    display: none;
+  }
+
+  body.home-comic-hero .check-card h3 {
+    margin: 0;
+    font-size: clamp(18px, 2vw, 22px);
+  }
+
+  body.home-comic-hero .check-card p {
+    grid-column: 2;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  body.home-comic-hero .check-number {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    grid-row: 1;
+    align-self: start;
+  }
+}
+
+/* ── Second Screen: Productization Check ── */
+/* Inherits body.home-comic-hero: paper background, hero-ink, hero-blue */
+
+body.home-comic-hero .check-section {
+  padding-top: clamp(64px, 6vw, 88px);
+  background: #F4F1EA;
+  border-top: 0;
+}
+
+body.home-comic-hero .check-inner {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+body.home-comic-hero .check-heading {
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 860px;
+  margin-bottom: clamp(16px, 2vw, 28px);
+}
+
+body.home-comic-hero .check-heading h2 {
+  margin: 0 0 20px;
+  color: var(--hero-ink);
+  font-size: clamp(30px, 3.6vw, 42px);
+  line-height: 1.15;
+}
+
+body.home-comic-hero .check-heading p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+body.home-comic-hero .check-grid {
+  display: flex;
+  gap: 18px;
+  counter-reset: check-card;
+}
+
+body.home-comic-hero .check-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 32px 22px 28px;
+  background: #fff;
+  border: 3px solid var(--hero-ink);
+  border-radius: 6px;
+  transition: transform 180ms var(--ease-standard), box-shadow 180ms var(--ease-standard);
+}
+
+body.home-comic-hero .check-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(29, 47, 111, 0.12);
+}
+
+/* Arrow connector between cards */
+body.home-comic-hero .check-card::after {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  z-index: 2;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  color: #fff;
+  background: var(--hero-blue);
+  border: 2px solid var(--hero-ink);
+  border-radius: 999px;
+  content: "→";
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+body.home-comic-hero .check-card:last-child::after {
+  display: none;
+}
+
+body.home-comic-hero .check-number {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  place-items: center;
+  color: #fff;
+  background: var(--hero-blue);
+  border: 2px solid var(--hero-ink);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+body.home-comic-hero .check-card h3 {
+  margin: 0 0 10px;
+  color: #050a2e;
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+body.home-comic-hero .check-card p {
+  margin: 0;
+  color: rgba(5, 10, 46, 0.72);
+  font-size: clamp(14px, 1.1vw, 15px);
+  line-height: 1.55;
+  font-weight: 600;
 }

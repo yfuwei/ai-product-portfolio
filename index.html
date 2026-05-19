@@ -94,10 +94,40 @@
         </div>
       </section>
 
-      <section class="section-block core-judgment-section" aria-label="作品集核心判断">
-        <div class="insight-callout">
-          <strong data-i18n="coreJudgment.title">不是所有能跑的 Demo，都能进业务。真正难的是判断它该不该做、能不能用、出了错谁来接住。</strong>
-          <p data-i18n="coreJudgment.text">因此，这组案例不是按 RAG、Agent、AIGC 等工具堆叠，而是围绕知识型 AI 应用、流程型 AI 应用、内容型 AI 应用与 AI 应用评估治理，展示 AI 从 Demo 到业务可用的产品化路径。</p>
+      <section id="product-check" class="section-block check-section" aria-labelledby="check-title">
+        <div class="check-inner">
+          <div class="check-heading">
+            <p class="eyebrow" data-i18n="check.eyebrow">PRODUCTIZATION CHECK</p>
+            <h2 id="check-title" data-i18n="check.title">真正的 AI 产品，要回答五个问题。</h2>
+            <p data-i18n="check.text">AI 应用不是把模型接进界面就结束。真正要进入真实任务流，需要同时解决任务触发、上下文、人审确认、流程承接和持续迭代。</p>
+          </div>
+          <div class="check-grid" role="list">
+            <article class="check-card" role="listitem">
+              <span class="check-number" aria-hidden="true">01</span>
+              <h3 data-i18n="check.card1.title">任务触发</h3>
+              <p data-i18n="check.card1.text">AI 在哪个任务节点出现？</p>
+            </article>
+            <article class="check-card" role="listitem">
+              <span class="check-number" aria-hidden="true">02</span>
+              <h3 data-i18n="check.card2.title">上下文</h3>
+              <p data-i18n="check.card2.text">它调用什么知识、数据或业务背景？</p>
+            </article>
+            <article class="check-card" role="listitem">
+              <span class="check-number" aria-hidden="true">03</span>
+              <h3 data-i18n="check.card3.title">人审确认</h3>
+              <p data-i18n="check.card3.text">输出由谁判断、修正和确认？</p>
+            </article>
+            <article class="check-card" role="listitem">
+              <span class="check-number" aria-hidden="true">04</span>
+              <h3 data-i18n="check.card4.title">流程承接</h3>
+              <p data-i18n="check.card4.text">结果如何进入下一步任务或系统？</p>
+            </article>
+            <article class="check-card" role="listitem">
+              <span class="check-number" aria-hidden="true">05</span>
+              <h3 data-i18n="check.card5.title">验证迭代</h3>
+              <p data-i18n="check.card5.text">上线后如何通过指标、反馈和 badcase 持续改进？</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -321,8 +351,19 @@
           "path.node5.label": "Can it keep improving?",
           "path.node5.title": "Continuous Iteration",
           "path.node5.text": "Improve through badcases, eval sets, version records, and regression tests.",
-          "coreJudgment.title": "Not every working demo can enter real business. The hard part is deciding whether it should be built, whether it can be used, and who catches it when it fails.",
-          "coreJudgment.text": "These cases are not organized as a stack of RAG, Agent, or AIGC tools. They show a productization path from demo to usable AI through knowledge AI, workflow AI, content AI, and AI application readiness governance.",
+          "check.eyebrow": "PRODUCTIZATION CHECK",
+          "check.title": "Real AI products must answer five questions.",
+          "check.text": "Connecting a model to a UI is only the beginning. For an AI application to enter real task flows, it must address task triggers, context, human review, workflow handoff, and continuous iteration.",
+          "check.card1.title": "Task Trigger",
+          "check.card1.text": "At which task node does AI enter the flow?",
+          "check.card2.title": "Context",
+          "check.card2.text": "What knowledge, data, or business context does it invoke?",
+          "check.card3.title": "Human Review",
+          "check.card3.text": "Who judges, corrects, and approves the output?",
+          "check.card4.title": "Workflow Handoff",
+          "check.card4.text": "How does the result enter the next task or system?",
+          "check.card5.title": "Validation & Iteration",
+          "check.card5.text": "How do metrics, feedback, and badcases drive continuous improvement?",
           "entries.eyebrow": "Portfolio Entries",
           "entries.title": "Four entries into AI application productization",
           "entry1.label": "Knowledge AI Application",
