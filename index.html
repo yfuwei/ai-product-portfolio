@@ -17,69 +17,80 @@
     <meta property="og:url" content="./index.html" />
     <link rel="stylesheet" href="./src/styles/main.css" />
   </head>
-  <body>
+  <body class="home-comic-hero">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="返回首页">
         <span class="brand-mark">AI</span>
-        <span data-i18n="brand">苑夫唯 · 企业 AI 产品化作品集</span>
+        <span>AI Builder · 苑夫唯</span>
       </a>
       <nav class="top-nav" aria-label="主导航">
-        <a href="#home" data-i18n="nav.overview">首页</a>
-        <a href="#demo-problem" data-i18n="nav.problem">Demo 问题</a>
-        <a href="#readiness-path" data-i18n="nav.path">产品化路径</a>
-        <a href="#entries" data-i18n="nav.entries">四个入口</a>
-        <a href="#positioning" data-i18n="nav.positioning">差异化定位</a>
-        <a href="#cta" data-i18n="nav.cta">查看案例</a>
+        <a href="#home">首页</a>
+        <a href="#entries">项目</a>
+        <a href="#readiness-path">方法论</a>
+        <a href="#positioning">关于我</a>
       </nav>
     </header>
 
     <main>
       <section id="home" class="hero-section productization-hero">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">AI 应用产品化作品集 · 2026</p>
-          <h1 data-i18n="hero.title">Demo 能跑，不代表产品能用。</h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle">真正有价值的 AI 应用，需要进入真实任务、被用户使用、被指标验证，并在持续使用中变得更可靠。</p>
-          <p class="hero-text" data-i18n="hero.text">
-            我用四个模块展示：AI 如何获得可信上下文、进入任务流程、参与内容协作，并通过 Readiness 框架走向可试点、可迭代的产品能力。
-          </p>
-          <p class="hero-positioning" data-i18n="hero.positioning">我擅长把模糊 AI 机会拆成场景、流程、边界、指标和试点路径。</p>
+        <div class="hero-headline-panel">
+          <h1>
+            <span>AI 项目最常见的陷阱，</span>
+            <span>是“<em>先上车，后补票</em>”。</span>
+          </h1>
+        </div>
+
+        <div class="hero-demo-panel">
+          <p>先做 Demo，后找场景；</p>
+          <p>先接模型，后补流程；</p>
+          <p>先证明“AI 能做”，</p>
+          <p>再回头问“谁真的会用”。</p>
+        </div>
+
+        <div class="hero-judgment-panel">
+          <p>接上模型，只是开始；</p>
+          <p>接住任务，才算产品。</p>
           <div class="hero-actions">
-            <a class="primary-action" href="#readiness-path" data-i18n="hero.primary">查看 AI 应用产品化路径</a>
-            <a class="secondary-action" href="#entries" data-i18n="hero.secondary">查看四个模块</a>
+            <a class="primary-action" href="#entries">查看项目 <span aria-hidden="true">→</span></a>
+            <a class="secondary-action" href="#readiness-path">查看方法论 <span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <div class="hero-visual productization-console" aria-label="AI 应用产品化路径视觉图">
-          <div class="hero-visual-header">
-            <span data-i18n="hero.visual.eyebrow">AI 应用产品化路径</span>
-            <strong data-i18n="hero.visual.title">从想法到试点</strong>
-          </div>
-          <div class="roadmap-console">
-            <article class="roadmap-node idea">
-              <span data-i18n="hero.visual.ideaLabel">AI 想法 / 场景</span>
-              <strong data-i18n="hero.visual.idea">模糊 AI 想法</strong>
-              <p data-i18n="hero.visual.ideaText">业务或团队意识到“这里也许可以用 AI”。</p>
-            </article>
-            <article class="roadmap-node readiness">
-              <span data-i18n="hero.visual.readinessLabel">Readiness 判断</span>
-              <strong data-i18n="hero.visual.readiness">Readiness 判断</strong>
-              <p data-i18n="hero.visual.readinessText">先判断是否值得做、风险是否可控、结果是否可验证。</p>
-            </article>
-            <article class="roadmap-node application">
-              <span data-i18n="hero.visual.appsLabel">知识 / 流程 / 内容</span>
-              <strong data-i18n="hero.visual.apps">三类 AI 应用样本</strong>
-              <p data-i18n="hero.visual.appsText">可信上下文、任务流转、内容协作。</p>
-            </article>
-            <article class="roadmap-node gate">
-              <span data-i18n="hero.visual.gateLabel">Launch Gate</span>
-              <strong data-i18n="hero.visual.gate">上线门槛</strong>
-              <p data-i18n="hero.visual.gateText">判断 Demo 是否具备进入 MVP / Pilot 的条件。</p>
-            </article>
-            <article class="roadmap-node iteration">
-              <span data-i18n="hero.visual.iterationLabel">试点 / 迭代</span>
-              <strong data-i18n="hero.visual.iteration">试点迭代</strong>
-              <p data-i18n="hero.visual.iterationText">通过 badcase、评估集和版本记录持续改进。</p>
-            </article>
-          </div>
+
+        <div class="hero-project-panels" aria-label="核心项目入口">
+          <a class="hero-project-card project-one" href="./docs/module1-enterprise-knowledge-workspace/index.html">
+            <span class="project-number" aria-hidden="true">01</span>
+            <span class="project-label">核心项目 01｜知识型 AI 应用</span>
+            <strong>企业知识工作台</strong>
+            <small>Agentic Workflow 演进案例</small>
+            <span class="project-hook">模型都这么强了，为什么企业还需要自己的知识系统？</span>
+            <span class="project-cta">查看项目 →</span>
+          </a>
+          <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html">
+            <span class="project-number" aria-hidden="true">02</span>
+            <span class="project-label">核心项目 02｜流程型 AI 应用</span>
+            <strong>AI 业务需求流转工作台</strong>
+            <span class="project-hook">会规划的 Agent 很多，能落进流程的 Agent 很少。</span>
+            <span class="project-cta">查看项目 →</span>
+          </a>
+          <a class="hero-project-card project-three" href="./docs/module3-ai-content-operations-workflow/index.html">
+            <span class="project-number" aria-hidden="true">03</span>
+            <span class="project-label">核心项目 03｜内容型 AI 应用</span>
+            <strong>AI 营销内容生产工作流</strong>
+            <span class="project-hook">一键生成不是生产力，能进入生产链路才是。</span>
+            <span class="project-cta">查看项目 →</span>
+          </a>
+          <a class="hero-project-card project-four" href="./docs/module4-ai-evaluation-governance-framework/index.html">
+            <span class="project-number" aria-hidden="true">04</span>
+            <span class="project-label">核心项目 04｜AI 应用评估与治理</span>
+            <strong>AI 应用评估与治理框架</strong>
+            <span class="project-hook">Demo 只要一次成功，上线要一直不翻车。</span>
+            <span class="project-cta">查看框架 →</span>
+          </a>
+        </div>
+
+        <div class="hero-project-note" aria-label="核心项目入口说明">
+          <strong>核心项目入口</strong>
+          <p>四个项目，覆盖知识、流程、内容与治理四类 AI 应用场景。</p>
         </div>
       </section>
 
