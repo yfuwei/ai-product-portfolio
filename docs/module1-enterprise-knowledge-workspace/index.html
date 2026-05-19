@@ -347,6 +347,42 @@
         text-align: center;
       }
 
+      .portfolio-figure {
+        margin: 30px 0 0;
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .portfolio-figure img {
+        display: block;
+        width: 100%;
+        max-width: 1120px;
+        height: auto;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 14px;
+      }
+
+      .portfolio-figure figcaption {
+        max-width: 980px;
+        margin: 12px auto 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .figure-title {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-weight: 900;
+      }
+
       .loop-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -427,7 +463,8 @@
         .module-card,
         .callout-card,
         .table-wrap,
-        .diagram-frame {
+        .diagram-frame,
+        .portfolio-figure {
           min-width: 0;
           max-width: 100%;
         }
@@ -537,6 +574,10 @@
         table {
           min-width: 640px;
         }
+
+        .portfolio-figure {
+          padding: 10px;
+        }
       }
     </style>
   </head>
@@ -581,8 +622,8 @@
             <span>badcase / eval</span>
           </div>
           <div class="hero-actions">
-            <a class="button-primary" href="../../assets/docs/enterprise_knowledge_workspace_product_design_cn.pdf">查看中文产品设计文档 PDF</a>
-            <a class="button-secondary" href="../../assets/docs/enterprise_knowledge_workspace_product_design_brief_en.pdf">查看英文产品设计摘要 PDF</a>
+            <a class="button-primary" href="../../assets/docs/enterprise_knowledge_workspace_prd_out_cn_v1.2.pdf">查看中文产品设计文档 PDF</a>
+            <a class="button-secondary" href="../../assets/docs/enterprise_knowledge_workspace_product_design_brief_out_en_v0.3.pdf">View English Product Design Brief</a>
             <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
           </div>
         </div>
@@ -604,6 +645,20 @@
             </div>
           </div>
         </aside>
+      </section>
+
+      <section class="case-section alt" id="workspace-home">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01.5 · Workspace Overview</p>
+            <h2 class="section-title">产品形态：从分散资料进入结构化知识工作流</h2>
+            <p class="section-description">模块 1 不是纯文字方案，也不是单点 RAG demo。页面先展示工作台首页形态，让读者看到知识检索、项目复盘、经验沉淀和评估入口如何被组织到同一个产品界面中。</p>
+          </div>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="企业知识工作台首页示意" loading="lazy" />
+            <figcaption><span class="figure-title">工作台首页示意</span>首页统一承接知识检索、项目复盘、经验沉淀与评估入口，帮助用户从分散资料进入一套结构化的知识工作流。</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="case-section" id="problem">
@@ -688,6 +743,10 @@
               </ul>
             </article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig01_ai_intervention_product_unit.png" alt="业务问题到 AI 介入点再到产品责任单元示意" loading="lazy" />
+            <figcaption><span class="figure-title">业务问题 → AI 介入点 → 产品责任单元</span>从知识分散与经验难复用出发，AI 并不是只做文档问答，而是嵌入到知识工作流的多个节点，并最终形成一个可验证、可追溯、可维护的 AI 产品责任单元。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -709,6 +768,10 @@
             <article class="module-card"><h3>badcase / eval</h3><p>支持质量回归和持续迭代。</p></article>
             <article class="module-card"><h3>版本管理</h3><p>保证工作流可追踪、可回滚。</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig06_project_review.png" alt="企业知识工作台项目复盘页示意" loading="lazy" />
+            <figcaption><span class="figure-title">项目复盘页示意</span>历史资料和过程记录不止用于查找答案，还可以沉淀为结构化复盘，支撑经验复用和决策准备。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -738,6 +801,10 @@
               </tbody>
             </table>
           </div>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="企业知识工作台搜索与引用结果页示意" loading="lazy" />
+            <figcaption><span class="figure-title">搜索与引用结果页示意</span>用户不仅获得整理后的回答，还能看到引用片段、来源文档和原文定位，从而降低“回答看似合理但无法核验”的风险。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -786,6 +853,10 @@
             <img src="assets/diagrams/enterprise_knowledge_agent_workflow_cn.png" alt="企业知识工作台 Agent 工作流架构图" />
             <figcaption class="diagram-caption">用户任务经 Router 判断后，调用检索、总结、复盘等 Tool，并通过可信上下文层、Memory 与 Human Review 保持可控。</figcaption>
           </figure>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="企业知识工作台知识任务问答页示意" loading="lazy" />
+            <figcaption><span class="figure-title">知识任务问答页示意</span>问答页不只是聊天窗口，而是围绕“检索、引用、整理、确认”组织起来的知识任务执行界面。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -832,6 +903,10 @@
             <article class="loop-card"><span>Step 3</span><h3>修复</h3><p>调整规则、提示词、工具路径或评估样本。</p></article>
             <article class="loop-card"><span>Step 4</span><h3>回归测试</h3><p>进入 eval set，防止同类问题反复出现。</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板示意" loading="lazy" />
+            <figcaption><span class="figure-title">评估与迭代看板示意</span>系统不仅需要“能回答”，还需要通过指标、failure case / badcase 和版本记录持续验证与迭代，避免停留在一次性 demo。</figcaption>
+          </figure>
         </div>
       </section>
 

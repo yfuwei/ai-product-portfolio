@@ -19,8 +19,6 @@ ai-product-portfolio/
 │   ├── docs/
 │   └── images/
 ├── src/
-│   ├── data.js
-│   ├── data-en.js
 │   ├── i18n.js
 │   ├── main.js
 │   └── styles/main.css

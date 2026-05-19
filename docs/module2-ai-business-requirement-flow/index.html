@@ -293,6 +293,35 @@
         text-align: center;
       }
 
+      .module-figure {
+        margin: 30px 0 0;
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .module-figure img {
+        display: block;
+        width: 100%;
+        max-width: 1120px;
+        height: auto;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 14px;
+      }
+
+      .module-figure figcaption {
+        max-width: 980px;
+        margin: 12px auto 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+        text-align: center;
+      }
+
       .signal-loss,
       .sample-flow,
       .intervention-map,
@@ -473,6 +502,7 @@
         .section-header,
         .case-visual,
         .diagram-frame,
+        .module-figure,
         .callout-card,
         .table-wrap,
         .module-card,
@@ -588,6 +618,10 @@
         table {
           min-width: 680px;
         }
+
+        .module-figure {
+          padding: 10px;
+        }
       }
     </style>
   </head>
@@ -633,6 +667,7 @@
           <div class="hero-actions">
             <a class="button-primary" href="#intervention">查看 AI 介入点</a>
             <a class="button-secondary" href="#signal-layer">查看轻量架构判断</a>
+            <a class="button-secondary" href="../../assets/docs/module2_ai_business_demand_workbench_prd_out_v1.1.pdf">下载产品设计文档 PDF</a>
             <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
           </div>
         </div>
@@ -649,6 +684,22 @@
             <div class="visual-node"><strong>状态闭环</strong><span>追踪、复盘、规则沉淀、经营洞察</span></div>
           </div>
         </aside>
+      </section>
+
+      <section class="case-section alt" id="product-overview">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01.5 · Product Overview</p>
+            <h2 class="section-title">产品形态总览：持续运行的业务信号工作台</h2>
+            <p class="section-description">
+              先用一个低保真界面说明模块2的产品形态：它不是抽象流程图，而是围绕新增信号、待确认卡片、高风险问题、未关闭事项和部门响应情况持续运行的工作台。
+            </p>
+          </div>
+          <figure class="module-figure">
+            <img src="assets/screenshots/dashboard_overview.png" alt="业务信号总览 Dashboard 低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：业务信号总览 Dashboard，用于查看新增信号、待确认卡片、高风险问题、未关闭事项和部门响应情况。</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="case-section" id="problem">
@@ -744,6 +795,10 @@
               </tbody>
             </table>
           </div>
+          <figure class="module-figure">
+            <img src="assets/screenshots/ai_review_confirmation.png" alt="AI 识别结果和人工确认低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：AI 先生成识别草稿、提取证据片段、推荐责任方，再由人工确认优先级、责任部门和是否生成正式卡片。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -764,6 +819,10 @@
               <div class="diagram-node human"><strong>可确认对象</strong><small>需求卡片 / 问题卡片 / 风险卡片</small></div>
               <div class="diagram-node output"><strong>组织响应</strong><small>产品 / 销售 / 质量 / 供应链 / 管理层</small></div>
             </div>
+          </figure>
+          <figure class="module-figure">
+            <img src="assets/screenshots/signal_pool.png" alt="多源业务信号池低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：多源业务信号池，汇聚来自 CRM、售后、会议纪要、质量系统和手工录入的反馈，并由 AI 初步分类为需求 / 问题 / 风险。</figcaption>
           </figure>
           <div class="unit-grid">
             <article class="mini-card"><span>为什么基础模型不够</span><h3>需要承接流程状态</h3><p>基础模型可以理解和生成，但不能单独承担组织上下文、流程状态、人审记录和规则迭代。</p></article>
@@ -791,6 +850,14 @@
               <div class="diagram-node output"><strong>复盘洞察</strong><small>高频问题、闭环率、部门响应、趋势摘要</small></div>
             </div>
           </figure>
+          <figure class="module-figure">
+            <img src="assets/screenshots/card_detail.png" alt="需求问题风险卡片详情页低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：卡片详情页，将原始业务信号沉淀为可流转、可追踪、可复盘的需求 / 问题 / 风险对象，并保留来源证据、责任方、优先级、状态和活动日志。</figcaption>
+          </figure>
+          <figure class="module-figure">
+            <img src="assets/screenshots/kanban_board.png" alt="分流与任务看板低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：分流与任务看板，按待确认、已分流、处理中、阻塞、已关闭等状态追踪事项，推动业务问题从识别进入组织行动闭环。</figcaption>
+          </figure>
           <div class="object-strip">
             <article class="module-card"><h3>Signal</h3><p>来自 CRM、售后、销售、质量、会议等入口的原始业务信号，保留来源和上下文。</p></article>
             <article class="module-card"><h3>Card</h3><p>经过 AI 识别和人审确认后的需求 / 问题 / 风险对象，包含证据、类型和建议责任方。</p></article>
@@ -813,6 +880,10 @@
             <article class="timeline-card"><span>V2</span><h3>分流闭环</h3><p>反馈进入责任部门和状态流转，形成可确认、可追踪的组织行动。</p></article>
             <article class="timeline-card"><span>V3</span><h3>经营洞察与机制沉淀</h3><p>闭环数据反哺管理决策，沉淀复盘结论、处理规则和下一轮优化方向。</p></article>
           </div>
+          <figure class="module-figure">
+            <img src="assets/screenshots/insights_review.png" alt="经营洞察与复盘页低保真界面示意" loading="lazy" />
+            <figcaption>低保真界面示意：经营洞察与复盘页，在 V3 阶段基于闭环数据生成高频问题、闭环率、部门响应效率和 AI 复盘摘要，为产品规划、质量改进和管理复盘提供输入。</figcaption>
+          </figure>
         </div>
       </section>
 
