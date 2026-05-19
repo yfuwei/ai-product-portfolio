@@ -526,6 +526,10 @@
 
       <section class="case-section" id="layer">
         <div class="case-container">
+          <div class="insight-callout">
+            <strong>不是所有能跑的 Demo，都能进业务；真正难的是判断它该不该做、能不能用、出了错谁来接住。</strong>
+            <p>因此，AI 应用评估不应只看模型效果，还要看场景频率、数据可得性、人工修改成本、责任边界、回滚方案和 badcase 迭代机制。</p>
+          </div>
           <div class="section-header">
             <p class="section-kicker">01 · 产品化中间层</p>
             <h2 class="section-title">Demo 与真实试点之间，需要一层轻量的产品化中间层。</h2>
@@ -555,7 +559,7 @@
             <article class="opportunity-card quick">
               <span class="card-label">快速验证</span>
               <h3>高频、低风险、易验证</h3>
-              <p>适合快速做 MVP，用短周期验证可用性。</p>
+              <p>不是所有 AI 想法都值得做。适合快速做 MVP，用短周期验证可用性。</p>
               <p><strong>示例：</strong>知识检索、会议摘要、内部资料整理。</p>
             </article>
             <article class="opportunity-card pilot">
@@ -567,7 +571,7 @@
             <article class="opportunity-card assist">
               <span class="card-label">受控辅助</span>
               <h3>有价值但风险较高，只能辅助</h3>
-              <p>不做自动决策和自动外发，保留人工判断。</p>
+              <p>不是所有 AI 输出都能自动化。不做自动决策和自动外发，保留人工判断。</p>
               <p><strong>示例：</strong>客户回复建议、方案推荐、预算判断。</p>
             </article>
             <article class="opportunity-card stop">
@@ -600,8 +604,8 @@
             <div class="gate-line">
               <article class="gate-step"><span>Idea</span><h3>是否值得 AI 化？</h3><p>明确用户、痛点、AI 介入点、预期价值和风险上限。</p></article>
               <article class="gate-step"><span>Demo</span><h3>技术链路是否跑通？</h3><p>可用典型样例演示，但不承诺稳定业务效果。</p></article>
-              <article class="gate-step"><span>MVP</span><h3>核心任务是否闭环？</h3><p>有基础流程、典型样本、初步指标和人工确认机制。</p></article>
-              <article class="gate-step"><span>Pilot</span><h3>真实用户是否愿意用？</h3><p>小范围真实试点，有指标、badcase、owner 和反馈机制。</p></article>
+            <article class="gate-step"><span>MVP</span><h3>核心任务是否闭环？</h3><p>有基础流程、典型样本、初步指标和人工确认机制。</p></article>
+              <article class="gate-step"><span>Pilot</span><h3>真实用户是否愿意用？</h3><p>不是所有能跑的 Demo，都能进入业务。小范围真实试点，有指标、badcase、owner 和反馈机制。</p></article>
               <article class="gate-step"><span>可生产化准备</span><h3>是否具备可持续条件？</h3><p>权限、评估、版本、责任和回滚机制到位。</p></article>
             </div>
           </figure>
@@ -614,6 +618,7 @@
             <p class="section-kicker">04 · 最小可行治理闭环</p>
             <h2 class="section-title">AI 应用进入试点后，不是结束，而是开始收集 badcase。</h2>
             <p class="section-description">AI 应用真正进入使用后，才会暴露真实问题。持续可靠不是靠一次性 Prompt 调优，而是靠 badcase 收集、问题归因、规则 / Prompt / 知识库 / 流程更新、评估集维护、版本记录和回归测试。</p>
+            <p class="section-description">AI 出错不可怕，错误没人接住才可怕。</p>
           </div>
           <figure class="diagram-frame module-card">
             <p class="diagram-title">最小可行治理闭环</p>

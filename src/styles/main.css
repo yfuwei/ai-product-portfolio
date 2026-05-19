@@ -192,6 +192,30 @@ section[id] {
   box-shadow: var(--soft-shadow);
 }
 
+.insight-callout {
+  margin: 0 0 28px;
+  padding: 20px 22px;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--soft-shadow);
+}
+
+.insight-callout strong {
+  display: block;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.35;
+}
+
+.insight-callout p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
