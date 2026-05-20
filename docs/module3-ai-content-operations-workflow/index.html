@@ -46,6 +46,7 @@
       .case-hero,
       .case-section,
       .case-container,
+      .module3-content-wrap,
       .case-visual,
       .visual-panel,
       .visual-node,
@@ -245,7 +246,8 @@
         background: #ffffff;
       }
 
-      .case-container {
+      .case-container,
+      .module3-content-wrap {
         width: min(100%, 1180px);
         margin: 0 auto;
       }
@@ -295,7 +297,7 @@
       }
 
       .asset-loop {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .screenshot-grid {
@@ -323,9 +325,11 @@
       .phase-card span,
       .flow-node span,
       .chain-card span,
-      .value-card span {
-        display: inline-flex;
+      .value-card span,
+      .shot-card span {
+        display: inline-grid;
         min-height: 28px;
+        place-items: center;
         align-items: center;
         justify-self: start;
         padding: 5px 9px;
@@ -482,13 +486,62 @@
 
       .chain-card {
         display: grid;
-        grid-template-rows: auto auto 1fr 1fr 1fr;
+        grid-template-rows: auto auto 1fr;
         gap: 9px;
         min-height: 300px;
       }
 
       .chain-card p strong {
         color: var(--ink);
+      }
+
+      .role-card {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 10px;
+        min-height: 244px;
+      }
+
+      .role-card h3 {
+        margin-bottom: 0;
+      }
+
+      .solve-note {
+        display: block;
+        margin-top: 4px;
+        padding: 9px 10px;
+        color: #6d28d9;
+        background: #f5f3ff;
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .chain-points {
+        display: grid;
+        gap: 8px;
+      }
+
+      .chain-point {
+        padding: 10px 12px;
+        color: var(--muted);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        line-height: 1.55;
+      }
+
+      .chain-point strong {
+        color: var(--ink);
+      }
+
+      .ability-label {
+        display: block;
+        margin-top: 12px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
       }
 
       .tag-list {
@@ -499,12 +552,37 @@
       }
 
       .tag-list span {
+        display: inline-grid;
+        place-items: center;
         padding: 6px 9px;
         color: #6d28d9;
         background: #f3e8ff;
         border-radius: 999px;
         font-size: 12px;
         font-weight: 900;
+      }
+
+      .prototype-card {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .prototype-card h3 {
+        margin-bottom: 0;
+      }
+
+      .prototype-card.planned {
+        background:
+          linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(20, 184, 166, 0.07)),
+          #ffffff;
+      }
+
+      .prototype-note {
+        margin-top: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
       }
 
       .summary-line {
@@ -597,13 +675,15 @@
         .hero-tags,
         .hero-actions,
         .case-visual {
-          width: calc(100vw - 40px);
-          max-width: calc(100vw - 40px);
+          width: 100%;
+          max-width: 100%;
           min-width: 0;
         }
 
         .visual-panel,
-        .visual-node {
+        .visual-node,
+        .visual-node strong,
+        .visual-node span {
           width: 100%;
           max-width: 100%;
           min-width: 0;
@@ -644,11 +724,19 @@
         }
 
         .case-short-title,
-        .case-hook-question,
         .section-title {
           max-width: 100%;
-          font-size: clamp(24px, 7.2vw, 30px);
+          font-size: 22px;
           line-height: 1.22;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-hook-question {
+          max-width: 100%;
+          font-size: 24px;
+          line-height: 1.28;
           white-space: normal;
           overflow-wrap: anywhere;
           word-break: break-all;
@@ -665,6 +753,15 @@
         .value-card p {
           max-width: 100%;
           font-size: 16px;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .hero-tags span {
+          display: inline-grid;
+          min-width: 0;
+          max-width: 100%;
           white-space: normal;
           overflow-wrap: anywhere;
           word-break: break-all;
@@ -910,11 +1007,11 @@
             </p>
           </div>
           <div class="grid-5">
-            <article class="mini-card"><span>需求结构化助手</span><h3>补齐输入</h3><p>将一句话需求拆解为目标用户、卖点优先级、渠道与限制条件，解决 Brief 不清。</p></article>
-            <article class="mini-card"><span>创意方向助手</span><h3>先判断方向</h3><p>生成多个传播方向和适配建议，避免直接出图导致方向返工。</p></article>
-            <article class="mini-card"><span>多渠道适配助手</span><h3>管理版本</h3><p>生成不同渠道的标题、CTA、视觉说明和风险提示，降低重复适配。</p></article>
-            <article class="mini-card"><span>品牌风险检查助手</span><h3>前置风险</h3><p>识别禁用表达、绝对化承诺、未确认权益和渠道风险，减少审核返工。</p></article>
-            <article class="mini-card"><span>复盘沉淀助手</span><h3>回流经验</h3><p>总结渠道表现、提炼高表现素材和 badcase，让经验进入下一次生产。</p></article>
+            <article class="mini-card role-card"><span>需求结构化助手</span><h3>补齐输入</h3><p>将一句话需求拆解为目标用户、卖点优先级、渠道与限制条件。</p><small class="solve-note">解决：Brief 不清、输入不完整</small></article>
+            <article class="mini-card role-card"><span>创意方向助手</span><h3>先判断方向</h3><p>生成多个传播方向和适配建议，在出图前完成策略判断。</p><small class="solve-note">解决：直接出图导致方向返工</small></article>
+            <article class="mini-card role-card"><span>多渠道适配助手</span><h3>管理版本</h3><p>生成不同渠道的标题、CTA、视觉说明和风险提示。</p><small class="solve-note">解决：多渠道适配重复、版本混乱</small></article>
+            <article class="mini-card role-card"><span>品牌风险检查助手</span><h3>前置风险</h3><p>识别禁用表达、绝对化承诺、未确认权益和渠道风险。</p><small class="solve-note">解决：AI 内容不可控、审核返工</small></article>
+            <article class="mini-card role-card"><span>复盘沉淀助手</span><h3>回流经验</h3><p>总结渠道表现、提炼高表现素材和 badcase。</p><small class="solve-note">解决：投放经验无法进入下一次生产</small></article>
           </div>
         </div>
       </section>
@@ -929,12 +1026,12 @@
             </p>
           </div>
           <div class="chain-grid">
-            <article class="chain-card"><span>Brief 结构化</span><h3>可执行 Campaign Brief</h3><p><strong>AI：</strong>识别缺失信息，拆解目标用户、卖点、渠道和限制条件。</p><p><strong>人：</strong>确认业务目标和卖点优先级。</p><p><strong>输出：</strong>可执行 Campaign Brief。</p></article>
-            <article class="chain-card"><span>创意方向生成</span><h3>确认传播方向</h3><p><strong>AI：</strong>生成多个传播方向和适配建议。</p><p><strong>人：</strong>选择主方向，判断创意是否符合品牌与业务目标。</p><p><strong>输出：</strong>确认后的传播方向。</p></article>
-            <article class="chain-card"><span>多渠道版本适配</span><h3>渠道版本进入状态管理</h3><p><strong>AI：</strong>生成不同渠道标题、CTA、视觉说明和风险提示。</p><p><strong>人：</strong>编辑、选择、确认版本。</p><p><strong>输出：</strong>官网、小红书、公众号、信息流等渠道版本。</p></article>
-            <article class="chain-card"><span>品牌审核与风险检查</span><h3>上线前确认</h3><p><strong>AI：</strong>检查禁用词、夸大宣传、未确认权益和渠道规范。</p><p><strong>人：</strong>品牌 / 法务 / 业务负责人确认。</p><p><strong>输出：</strong>可上线版本或修改意见。</p></article>
-            <article class="chain-card"><span>上线与效果回流</span><h3>投放表现进入复盘</h3><p><strong>AI：</strong>总结投放表现和不同版本差异。</p><p><strong>人：</strong>确认归因是否成立。</p><p><strong>输出：</strong>复盘结论。</p></article>
-            <article class="chain-card"><span>资产与规则沉淀</span><h3>下一次可调用</h3><p><strong>AI：</strong>提出素材库、badcase、Brief 模板和规则库更新建议。</p><p><strong>人：</strong>确认哪些经验进入组织资产。</p><p><strong>输出：</strong>下一次 Campaign 可调用的经验。</p></article>
+            <article class="chain-card"><span>Brief 结构化</span><h3>可执行 Campaign Brief</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>识别缺失信息，拆解目标用户、卖点、渠道和限制条件。</div><div class="chain-point"><strong>人：</strong>确认业务目标和卖点优先级。</div><div class="chain-point"><strong>输出：</strong>可执行 Campaign Brief。</div></div></article>
+            <article class="chain-card"><span>创意方向生成</span><h3>确认传播方向</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>生成多个传播方向和适配建议。</div><div class="chain-point"><strong>人：</strong>选择主方向，判断创意是否符合品牌与业务目标。</div><div class="chain-point"><strong>输出：</strong>确认后的传播方向。</div></div></article>
+            <article class="chain-card"><span>多渠道版本适配</span><h3>渠道版本进入状态管理</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>生成不同渠道标题、CTA、视觉说明和风险提示。</div><div class="chain-point"><strong>人：</strong>编辑、选择、确认版本。</div><div class="chain-point"><strong>输出：</strong>官网、小红书、公众号、信息流等渠道版本。</div></div></article>
+            <article class="chain-card"><span>品牌审核与风险检查</span><h3>上线前确认</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>检查禁用词、夸大宣传、未确认权益和渠道规范。</div><div class="chain-point"><strong>人：</strong>品牌 / 法务 / 业务负责人确认。</div><div class="chain-point"><strong>输出：</strong>可上线版本或修改意见。</div></div></article>
+            <article class="chain-card"><span>上线与效果回流</span><h3>投放表现进入复盘</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>总结投放表现和不同版本差异。</div><div class="chain-point"><strong>人：</strong>确认归因是否成立。</div><div class="chain-point"><strong>输出：</strong>复盘结论。</div></div></article>
+            <article class="chain-card"><span>资产与规则沉淀</span><h3>下一次可调用</h3><div class="chain-points"><div class="chain-point"><strong>AI：</strong>提出素材库、badcase、Brief 模板和规则库更新建议。</div><div class="chain-point"><strong>人：</strong>确认哪些经验进入组织资产。</div><div class="chain-point"><strong>输出：</strong>下一次 Campaign 可调用的经验。</div></div></article>
           </div>
         </div>
       </section>
@@ -948,10 +1045,8 @@
               当前已有五张低保真原型，先按产品链路组织说明。Campaign 创建页可在后续 P2 作为独立页面补齐。
             </p>
           </div>
-          <div class="summary-line">
-            关键页面规划还包括 Campaign 创建页，用于承接模糊营销活动需求，并把它转化为后续 Brief 结构化页可以处理的对象。
-          </div>
           <div class="screenshot-grid">
+            <article class="shot-card prototype-card planned"><span>页面规划</span><h3>Campaign 创建页</h3><p>解决：营销活动如何从模糊需求变成可处理对象。</p><p class="prototype-note">当前版本先保留为页面规划，不做空白大占位；后续 P2 可补充对应原型图。</p></article>
             <article class="shot-card"><img src="assets/screenshots/brief-structure-page.png" alt="Brief 结构化页截图" /><h3>Brief 结构化页</h3><ul><li>解决：一句话活动需求如何变成可执行输入。</li><li>AI 接入点：拆解目标、用户、卖点优先级、渠道交付物和内容限制。</li><li>人工确认点：Brief 经运营或业务负责人确认后进入创意方向生成。</li></ul></article>
             <article class="shot-card"><img src="assets/screenshots/creative-direction-page.png" alt="创意方向选择页截图" /><h3>创意方向选择页</h3><ul><li>解决：在出图前先完成传播策略判断。</li><li>AI 接入点：生成多个创意方向，并提示适配渠道和潜在风险。</li><li>人工确认点：运营、设计和品牌团队共同选择主方向。</li></ul></article>
             <article class="shot-card"><img src="assets/screenshots/multi-channel-version-page.png" alt="多渠道版本管理页截图" /><h3>多渠道版本管理页</h3><ul><li>解决：多个渠道版本如何进入状态和风险管理。</li><li>AI 接入点：生成各渠道版本，解释适配理由和风险提示。</li><li>人工确认点：负责人编辑版本、提交审核、保留历史版本。</li></ul></article>
@@ -976,6 +1071,7 @@
               <h3>Brief 结构化与创意方向辅助</h3>
               <p><strong>解决问题：</strong>需求不清、方向不明。</p>
               <p><strong>产品价值：</strong>降低前期沟通成本，减少方向返工。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="tag-list"><span>一句话需求解析</span><span>缺失信息追问</span><span>卖点优先级</span><span>创意方向生成</span><span>人工确认 Brief</span></div>
             </article>
             <article class="phase-card">
@@ -983,6 +1079,7 @@
               <h3>多渠道生成与版本管理</h3>
               <p><strong>解决问题：</strong>多渠道适配重复、版本状态混乱。</p>
               <p><strong>产品价值：</strong>提升内容生产协同效率。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="tag-list"><span>渠道版本生成</span><span>CTA / 文案 / 视觉说明</span><span>状态管理</span><span>修改记录</span><span>风险提示</span></div>
             </article>
             <article class="phase-card">
@@ -990,6 +1087,7 @@
               <h3>品牌审核与效果回流</h3>
               <p><strong>解决问题：</strong>品牌不可控、经验不沉淀。</p>
               <p><strong>产品价值：</strong>形成可控、可复用、可优化的内容生产机制。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="tag-list"><span>品牌规则</span><span>风险检查</span><span>审核意见沉淀</span><span>投放数据回流</span><span>高表现素材库</span><span>badcase 更新</span></div>
             </article>
           </div>
@@ -1009,11 +1107,14 @@
             <p class="diagram-title">上线后的经验回流路径</p>
             <div class="step-grid">
               <div class="flow-node output"><strong>Campaign 上线</strong><small>内容进入官网、社媒、广告或私域渠道</small></div>
-              <div class="flow-node output"><strong>收集投放数据</strong><small>关联具体渠道与内容版本</small></div>
+              <div class="flow-node output"><strong>收集投放数据</strong><small>汇总点击、转化、互动和渠道反馈</small></div>
+              <div class="flow-node output"><strong>关联具体内容版本</strong><small>把数据绑定到渠道版本和素材表达</small></div>
               <div class="flow-node ai"><strong>AI 总结表现差异</strong><small>识别高表现方向和低表现问题</small></div>
               <div class="flow-node human"><strong>人工确认归因</strong><small>判断数据结论是否可以复用</small></div>
-              <div class="flow-node output"><strong>沉淀素材与 badcase</strong><small>更新素材库和风险案例</small></div>
-              <div class="flow-node output"><strong>更新规则或策略</strong><small>下一次 Campaign 创建时调用相关经验</small></div>
+              <div class="flow-node output"><strong>沉淀高表现素材</strong><small>保留可复用图片、标题和卖点表达</small></div>
+              <div class="flow-node output"><strong>沉淀 badcase</strong><small>记录低表现内容和审核风险案例</small></div>
+              <div class="flow-node output"><strong>更新规则或策略</strong><small>更新品牌规则、风险提示或生成策略</small></div>
+              <div class="flow-node output"><strong>下次 Campaign 调用</strong><small>创建新活动时复用相关经验</small></div>
             </div>
           </figure>
           <div class="asset-loop">
@@ -1021,6 +1122,8 @@
             <article class="value-card"><span>badcase 库</span><h3>低表现内容与风险案例</h3><p>记录不适合复用的表达、画面和审核问题。</p></article>
             <article class="value-card"><span>Brief 模板</span><h3>反复缺失字段</h3><p>将常见缺失项回写到下一次需求输入模板。</p></article>
             <article class="value-card"><span>规则库</span><h3>品牌 / 风险规则</h3><p>把审核意见从单次修改沉淀为可调用规则。</p></article>
+            <article class="value-card"><span>案例库</span><h3>历史 Campaign 案例</h3><p>保留活动背景、版本选择和复盘结论，方便后续参考。</p></article>
+            <article class="value-card"><span>生成策略</span><h3>下一次生产输入</h3><p>把有效素材、风险规则和复盘判断带入下一次 Campaign。</p></article>
           </div>
         </div>
       </section>
@@ -1036,10 +1139,12 @@
           </div>
           <div class="grid-2">
             <article class="value-card">
+              <span>验证方式</span>
               <h3>适合验证什么</h3>
               <div class="tag-list"><span>Brief 完整度是否提升</span><span>创意方向是否减少返工</span><span>多渠道版本是否更好管理</span><span>品牌风险是否更早暴露</span><span>人工确认节点是否覆盖关键决策</span><span>结果是否能回流为组织资产</span></div>
             </article>
             <article class="value-card">
+              <span>项目边界</span>
               <h3>当前边界</h3>
               <div class="tag-list"><span>不声称真实商业投放结果</span><span>不替代设计师、品牌审核或法务判断</span><span>不让 AI 绕过人工确认直接上线</span><span>不以模型参数作为项目主线</span><span>不把生成图片质量作为唯一成功标准</span><span>不把模拟数据包装成真实业务结果</span></div>
             </article>
