@@ -306,17 +306,30 @@
 
       .lane-steps {
         display: grid;
-        gap: 8px;
+        gap: 18px;
         margin: 16px 0;
       }
 
       .lane-steps span {
+        position: relative;
         padding: 10px 12px;
         color: var(--text);
         background: rgba(255, 255, 255, 0.72);
         border: 1px solid rgba(148, 163, 184, 0.24);
         border-radius: var(--radius-sm);
         font-weight: 800;
+      }
+
+      .lane-steps span:not(:last-child)::after {
+        position: absolute;
+        right: 50%;
+        bottom: -16px;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1;
+        content: "↓";
+        transform: translateX(50%);
       }
 
       .lane.after .lane-steps span {
@@ -413,6 +426,13 @@
         margin: 0;
         color: var(--muted);
         line-height: 1.65;
+      }
+
+      .evolution-abilities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 2px;
       }
 
       .evolution-card ul,
@@ -1206,12 +1226,12 @@
               <p class="evolution-question">为什么需要可信上下文层？</p>
               <p class="evolution-summary">先解决资料找得到、答案有依据、结论可复核。</p>
               <strong>核心能力</strong>
-              <ul>
-                <li>指定资料接入</li>
-                <li>语义检索</li>
-                <li>来源问答</li>
-                <li>原文复核</li>
-              </ul>
+              <div class="evolution-abilities">
+                <span>指定资料接入</span>
+                <span>语义检索</span>
+                <span>来源问答</span>
+                <span>原文复核</span>
+              </div>
             </article>
             <article class="evolution-card">
               <span>V2</span>
@@ -1219,13 +1239,13 @@
               <p class="evolution-question">为什么 RAG 不够？</p>
               <p class="evolution-summary">用户要完成连续知识任务，需要 Router、Tool、Memory 和 Human Review。</p>
               <strong>核心能力</strong>
-              <ul>
-                <li>Router</li>
-                <li>search_docs Tool</li>
-                <li>Memory</li>
-                <li>执行轨迹</li>
-                <li>Human Review</li>
-              </ul>
+              <div class="evolution-abilities">
+                <span>Router</span>
+                <span>search_docs Tool</span>
+                <span>Memory</span>
+                <span>执行轨迹</span>
+                <span>Human Review</span>
+              </div>
             </article>
             <article class="evolution-card">
               <span>V3</span>
@@ -1233,13 +1253,13 @@
               <p class="evolution-question">为什么 Agent 还不够？</p>
               <p class="evolution-summary">没有 eval、badcase、changelog、rollback，AI 工作流仍然只是一次性 Demo。</p>
               <strong>核心能力</strong>
-              <ul>
-                <li>eval set</li>
-                <li>badcase log</li>
-                <li>prompt / workflow versioning</li>
-                <li>rollback</li>
-                <li>Human Review checkpoints</li>
-              </ul>
+              <div class="evolution-abilities">
+                <span>eval set</span>
+                <span>badcase log</span>
+                <span>prompt / workflow versioning</span>
+                <span>rollback</span>
+                <span>human review checkpoints</span>
+              </div>
             </article>
           </div>
           <figure class="diagram-frame">
