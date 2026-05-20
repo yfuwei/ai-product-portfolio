@@ -718,22 +718,38 @@ body.home-comic-hero .hero-headline-panel {
 body.home-comic-hero .hero-headline-panel::before,
 body.home-comic-hero .hero-headline-panel::after {
   position: absolute;
-  top: 0;
-  bottom: 0;
   z-index: 0;
-  width: 150px;
-  opacity: 0.5;
+  --speed-line-color: rgba(29, 47, 111, 0.16);
   pointer-events: none;
   content: "";
-  background: repeating-linear-gradient(24deg, transparent 0 14px, rgba(29, 47, 111, 0.42) 15px 18px, transparent 19px 28px);
 }
 
 body.home-comic-hero .hero-headline-panel::before {
+  top: 8px;
+  bottom: 8px;
   left: 0;
+  width: 122px;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) left 0 top 0 / 92px 22px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) left 0 top 38px / 108px 24px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) left 0 top 76px / 122px 26px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) left 0 top 114px / 108px 24px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) left 0 top 152px / 92px 22px no-repeat;
 }
 
 body.home-comic-hero .hero-headline-panel::after {
+  top: 8px;
   right: 0;
+  bottom: 8px;
+  width: 280px;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 0 / 218px 22px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 26px / 246px 24px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 52px / 270px 26px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 78px / 250px 24px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 104px / 270px 26px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 132px / 246px 24px no-repeat,
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--speed-line-color) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)) right 0 top 160px / 218px 22px no-repeat;
 }
 
 body.home-comic-hero .hero-headline-panel h1 {
@@ -840,12 +856,13 @@ body.home-comic-hero .hero-project-card {
   position: relative;
   display: grid;
   min-height: 118px;
-  grid-template-columns: 118px minmax(0, 1fr) 112px;
+  grid-template-columns: 112px minmax(0, 1fr) max-content;
   grid-template-rows: auto auto auto;
   column-gap: 18px;
+  row-gap: 7px;
   align-content: center;
   overflow: hidden;
-  padding: 18px 22px 16px 0;
+  padding: 16px 22px 16px 0;
   color: #fff;
   border-radius: 6px;
   transition: transform 180ms var(--ease-standard), box-shadow 180ms var(--ease-standard), border-color 180ms var(--ease-standard);
@@ -860,6 +877,7 @@ body.home-comic-hero .hero-project-card:focus-visible {
 }
 
 body.home-comic-hero .project-one {
+  --project-number-bg: #1e56d8;
   grid-column: 2;
   grid-row: 2;
   margin-left: 12px;
@@ -867,6 +885,7 @@ body.home-comic-hero .project-one {
 }
 
 body.home-comic-hero .project-two {
+  --project-number-bg: #15957e;
   grid-column: 2;
   grid-row: 3;
   margin-left: 32px;
@@ -874,6 +893,7 @@ body.home-comic-hero .project-two {
 }
 
 body.home-comic-hero .project-three {
+  --project-number-bg: #6240cc;
   grid-column: 2;
   grid-row: 4;
   margin-left: 52px;
@@ -881,6 +901,7 @@ body.home-comic-hero .project-three {
 }
 
 body.home-comic-hero .project-four {
+  --project-number-bg: #d88916;
   grid-column: 2;
   grid-row: 5;
   margin-left: 72px;
@@ -888,112 +909,105 @@ body.home-comic-hero .project-four {
 }
 
 body.home-comic-hero .project-number {
-  grid-column: 1;
-  grid-row: 1 / 4;
-  display: grid;
-  align-self: stretch;
-  place-items: center;
+  position: absolute;
+  left: 0;
+  inset-block: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 100%;
+  padding: 0;
   color: #fff;
-  font-size: 54px;
+  background: var(--project-number-bg);
+  font-size: 58px;
   font-weight: 900;
   line-height: 1;
 }
 
-body.home-comic-hero .project-one .project-number {
-  background: #1e56d8;
+body.home-comic-hero .project-label {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
 }
 
-body.home-comic-hero .project-two .project-number {
-  background: #15957e;
-}
-
-body.home-comic-hero .project-three .project-number {
-  background: #6240cc;
-}
-
-body.home-comic-hero .project-four .project-number {
-  background: #d88916;
-}
-
-body.home-comic-hero .project-label,
 body.home-comic-hero .hero-project-card strong,
-body.home-comic-hero .hero-project-card small,
 body.home-comic-hero .project-hook {
   grid-column: 2;
-}
-
-body.home-comic-hero .project-hook {
-  grid-column: 2 / 4;
-}
-
-body.home-comic-hero .project-label {
-  width: fit-content;
-  margin-bottom: 3px;
-  padding: 2px 8px;
-  color: var(--hero-ink);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1.25;
+  min-width: 0;
 }
 
 body.home-comic-hero .hero-project-card strong {
-  color: #fff;
-  font-size: clamp(22px, 2vw, 27px);
-  font-weight: 900;
-  line-height: 1.18;
-}
-
-body.home-comic-hero .hero-project-card small {
-  margin-top: 2px;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.25;
+  grid-row: 2;
 }
 
 body.home-comic-hero .project-hook {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  margin-top: 9px;
-  padding: 7px 14px;
-  color: var(--hero-ink);
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 900;
-  line-height: 1.25;
-  white-space: normal;
-  overflow-wrap: break-word;
-}
-
-body.home-comic-hero .project-one .project-hook {
-  background: #dce8ff;
-}
-
-body.home-comic-hero .project-two .project-hook {
-  background: #d8f5ee;
-}
-
-body.home-comic-hero .project-three .project-hook {
-  background: #e8deff;
-}
-
-body.home-comic-hero .project-four .project-hook {
-  background: #ffe7bf;
+  grid-row: 3;
 }
 
 body.home-comic-hero .project-cta {
   grid-column: 3;
   grid-row: 1 / 4;
-  align-self: center;
-  justify-self: end;
-  color: #fff;
-  font-size: 15px;
+  min-width: 0;
+}
+
+body.home-comic-hero .project-label {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+  border-radius: 0;
+  font-size: 12.5px;
   font-weight: 900;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+body.home-comic-hero .hero-project-card strong {
+  color: #fff;
+  font-size: clamp(25px, 2.12vw, 29px);
+  font-weight: 900;
+  line-height: 1.08;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+body.home-comic-hero .project-hook {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 30px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2px 0 2px 11px;
+  color: rgba(255, 255, 255, 0.94);
+  border-left: 4px solid rgba(255, 255, 255, 0.72);
+  font-size: 14.5px;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+body.home-comic-hero .project-cta {
+  display: inline-flex;
+  align-self: end;
+  justify-self: end;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  margin: 0 0 2px 10px;
+  font-size: 14.5px;
+  font-weight: 950;
+  line-height: 1.1;
   white-space: nowrap;
   transition: transform 180ms var(--ease-standard);
 }
@@ -1005,42 +1019,44 @@ body.home-comic-hero .hero-project-card:focus-visible .project-cta {
 
 @media (max-width: 1180px) {
   body.home-comic-hero .hero-project-card {
-    grid-template-columns: 76px minmax(0, 1fr) 72px;
-    column-gap: 10px;
-    padding: 8px 12px 8px 0;
+    min-height: 112px;
+    grid-template-columns: 78px minmax(0, 1fr) max-content;
+    grid-template-rows: auto auto auto;
+    column-gap: 11px;
+    row-gap: 6px;
+    padding: 12px 14px 12px 0;
   }
 
   body.home-comic-hero .project-number {
-    font-size: 38px;
+    width: 78px;
+    height: 100%;
+    font-size: 40px;
   }
 
   body.home-comic-hero .project-label {
-    margin-bottom: 2px;
-    padding: 1px 6px;
+    padding: 0;
     font-size: 10.5px;
     line-height: 1.15;
   }
 
   body.home-comic-hero .hero-project-card strong {
-    font-size: clamp(17px, 1.7vw, 19px);
+    font-size: clamp(18px, 1.72vw, 20px);
     line-height: 1.08;
   }
 
-  body.home-comic-hero .hero-project-card small {
-    margin-top: 1px;
-    font-size: 10.5px;
-    line-height: 1.12;
-  }
-
   body.home-comic-hero .project-hook {
-    margin-top: 5px;
-    padding: 4px 8px;
+    min-height: 27px;
+    padding: 1px 0 1px 9px;
+    border-left-width: 4px;
     font-size: 12px;
-    line-height: 1.12;
+    line-height: 1.18;
   }
 
   body.home-comic-hero .project-cta {
-    font-size: 12px;
+    min-height: 0;
+    padding: 0;
+    margin: 0 0 1px 8px;
+    font-size: 12.5px;
   }
 }
 
@@ -2893,35 +2909,56 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .hero-project-card {
-    grid-template-columns: 82px minmax(0, 1fr);
+    width: calc(100% - 28px);
+    min-height: 124px;
+    grid-template-columns: 66px minmax(0, 1fr) max-content;
+    grid-template-rows: auto auto auto;
+    column-gap: 8px;
+    row-gap: 6px;
+    justify-self: start;
     padding: 14px 14px 14px 0;
   }
 
   body.home-comic-hero .project-number {
-    font-size: 40px;
+    width: 66px;
+    height: 100%;
+    padding: 0;
+    font-size: 34px;
   }
 
-  body.home-comic-hero .project-label,
+  body.home-comic-hero .project-label {
+    grid-column: 2;
+  }
+
   body.home-comic-hero .hero-project-card strong,
-  body.home-comic-hero .hero-project-card small,
-  body.home-comic-hero .project-hook,
-  body.home-comic-hero .project-cta {
+  body.home-comic-hero .project-hook {
     grid-column: 2;
   }
 
   body.home-comic-hero .hero-project-card strong {
-    font-size: 22px;
+    font-size: 19px;
+    line-height: 1.1;
+    word-break: break-all;
   }
 
   body.home-comic-hero .project-hook {
     width: 100%;
-    font-size: 14px;
+    min-height: 32px;
+    padding: 1px 0 1px 8px;
+    border-left-width: 4px;
+    font-size: 12.5px;
+    line-height: 1.2;
+    word-break: break-all;
   }
 
   body.home-comic-hero .project-cta {
-    grid-row: auto;
-    justify-self: start;
-    margin-top: 8px;
+    grid-column: 3;
+    grid-row: 1 / 4;
+    align-self: end;
+    justify-self: end;
+    margin: 0 0 1px 6px;
+    padding: 0;
+    font-size: 12.5px;
   }
 
   body.home-comic-hero .hero-project-note {
@@ -2963,7 +3000,11 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .hero-project-card {
-    grid-template-columns: 104px minmax(0, 1fr) 104px;
+    grid-template-columns: 104px minmax(0, 1fr) max-content;
+  }
+
+  body.home-comic-hero .project-number {
+    width: 104px;
   }
 
   body.home-comic-hero .hero-project-note {
@@ -3272,7 +3313,7 @@ body.home-comic-hero .check-card p {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 5px solid var(--hero-ink);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 6px;
   transition: transform 180ms var(--ease-standard), box-shadow 180ms var(--ease-standard);
 }
@@ -3323,24 +3364,25 @@ body.home-comic-hero .check-card p {
   min-height: 610px;
   background:
     linear-gradient(180deg, var(--project-soft) 0%, var(--project-wash) 42%, #ffffff 100%);
-  border-width: 5px;
-  box-shadow: 14px 14px 0 rgba(255, 255, 255, 0.1), 0 24px 48px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.24);
 }
 
 .showcase-card:hover {
   transform: translateY(-6px);
-  box-shadow: 16px 18px 0 rgba(255, 255, 255, 0.13), 0 30px 58px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 30px 58px rgba(0, 0, 0, 0.3);
 }
 
 .showcase-card::before {
-  width: 9px;
+  width: 6px;
   background: var(--project);
+  opacity: 0.58;
   z-index: 4;
 }
 
 .showcase-card::after {
-  height: 18px;
+  height: 8px;
   background: var(--project);
+  opacity: 0.62;
   z-index: 4;
 }
 
@@ -3348,38 +3390,25 @@ body.home-comic-hero .check-card p {
   position: relative;
   z-index: 8;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
   min-height: 88px;
   padding: 32px 30px 14px 38px;
 }
 
 .showcase-tag {
   margin: 0;
-  padding: 10px 15px;
-  color: #ffffff;
-  background: var(--project);
-  border: 3px solid var(--hero-ink);
-  border-radius: 4px;
-  box-shadow: 6px 6px 0 rgba(5, 10, 46, 0.14);
+  padding: 0;
+  color: var(--project);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   font-size: clamp(14px, 1.15vw, 16px);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: 0;
-}
-
-.showcase-num {
-  position: static;
-  flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
-  color: #ffffff;
-  background: var(--hero-ink);
-  border: 3px solid var(--hero-ink);
-  border-radius: 4px;
-  box-shadow: 5px 5px 0 rgba(5, 10, 46, 0.12);
-  font-size: 15px;
 }
 
 .poster-stage {
@@ -3390,9 +3419,9 @@ body.home-comic-hero .check-card p {
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.94), transparent 30%),
     linear-gradient(135deg, color-mix(in srgb, var(--project) 12%, #ffffff), #ffffff 62%, color-mix(in srgb, var(--project) 10%, #ffffff));
-  border: 3px solid rgba(5, 10, 46, 0.72);
+  border: 1px solid rgba(5, 10, 46, 0.12);
   border-radius: 5px;
-  box-shadow: 6px 6px 0 rgba(5, 10, 46, 0.06);
+  box-shadow: none;
   isolation: isolate;
 }
 
@@ -3409,8 +3438,8 @@ body.home-comic-hero .check-card p {
   width: 76%;
   height: 38%;
   background: color-mix(in srgb, var(--project) 12%, #ffffff);
-  border: 4px solid rgba(5, 10, 46, 0.24);
-  opacity: 0.16;
+  border: 1px solid rgba(5, 10, 46, 0.08);
+  opacity: 0.12;
   transform: rotate(-8deg);
 }
 
@@ -3420,9 +3449,9 @@ body.home-comic-hero .check-card p {
   right: -64px;
   bottom: -72px;
   background: var(--project);
-  border: 4px solid rgba(5, 10, 46, 0.42);
+  border: 1px solid rgba(5, 10, 46, 0.08);
   border-radius: 999px;
-  opacity: 0.1;
+  opacity: 0.08;
 }
 
 .poster-core,
@@ -3445,9 +3474,9 @@ body.home-comic-hero .check-card p {
   padding: 18px;
   color: var(--project-dark);
   background: color-mix(in srgb, var(--project) 16%, #ffffff);
-  border: 3px solid rgba(5, 10, 46, 0.58);
+  border: 1px solid color-mix(in srgb, var(--project) 20%, rgba(5, 10, 46, 0.14));
   border-radius: 5px;
-  box-shadow: 8px 8px 0 rgba(5, 10, 46, 0.08);
+  box-shadow: none;
   opacity: 0.72;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -3473,14 +3502,14 @@ body.home-comic-hero .check-card p {
   justify-content: center;
   padding: 8px 14px;
   color: rgba(5, 10, 46, 0.72);
-  background: rgba(255, 255, 255, 0.78);
-  border: 2px solid rgba(5, 10, 46, 0.42);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(5, 10, 46, 0.12);
   border-radius: 4px;
-  box-shadow: 4px 4px 0 rgba(5, 10, 46, 0.06);
+  box-shadow: none;
   font-size: 12px;
   font-weight: 900;
   line-height: 1;
-  opacity: 0.78;
+  opacity: 0.68;
 }
 
 .poster-knowledge .keyword-a { left: 28px; top: 52px; }
@@ -3504,7 +3533,7 @@ body.home-comic-hero .check-card p {
   top: 50%;
   height: 20px;
   background: var(--project);
-  border: 3px solid rgba(5, 10, 46, 0.36);
+  border: 1px solid rgba(5, 10, 46, 0.1);
   border-radius: 999px;
   opacity: 0.22;
   transform: translateY(-50%);
@@ -3525,10 +3554,10 @@ body.home-comic-hero .check-card p {
   min-height: 68px;
   place-items: center;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 3px solid rgba(5, 10, 46, 0.5);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(5, 10, 46, 0.12);
   border-radius: 5px;
-  box-shadow: 6px 6px 0 rgba(5, 10, 46, 0.06);
+  box-shadow: none;
   font-weight: 900;
   opacity: 0.76;
 }
@@ -3544,10 +3573,10 @@ body.home-comic-hero .check-card p {
   bottom: 34px;
   padding: 12px 20px;
   color: rgba(5, 10, 46, 0.72);
-  background: rgba(255, 255, 255, 0.82);
-  border: 2px solid rgba(5, 10, 46, 0.42);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(5, 10, 46, 0.12);
   border-radius: 4px;
-  box-shadow: 7px 7px 0 rgba(5, 10, 46, 0.14);
+  box-shadow: none;
   font-size: 15px;
   font-weight: 900;
   opacity: 0.78;
@@ -3578,8 +3607,8 @@ body.home-comic-hero .check-card p {
   border: 14px solid color-mix(in srgb, var(--project) 72%, #ffffff);
   border-left-color: transparent;
   border-radius: 999px;
-  box-shadow: 0 0 0 3px rgba(5, 10, 46, 0.58), 8px 8px 0 rgba(5, 10, 46, 0.06);
-  opacity: 0.62;
+  box-shadow: 0 0 0 1px rgba(5, 10, 46, 0.12);
+  opacity: 0.44;
   content: "";
 }
 
@@ -3629,8 +3658,8 @@ body.home-comic-hero .check-card p {
   min-height: 92px;
   place-items: center;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 3px solid rgba(5, 10, 46, 0.48);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(5, 10, 46, 0.12);
   font-size: 14px;
   font-weight: 900;
   opacity: 0.75;
@@ -3642,16 +3671,16 @@ body.home-comic-hero .check-card p {
   background: color-mix(in srgb, var(--project) 20%, #ffffff);
   font-size: clamp(20px, 2.4vw, 28px);
   line-height: 1.02;
-  box-shadow: 8px 8px 0 rgba(5, 10, 46, 0.08);
+  box-shadow: none;
 }
 
 .poster-governance::before {
   inset: auto 48px 42px 48px;
   height: 72px;
-  border: 4px solid color-mix(in srgb, var(--project) 55%, #ffffff);
+  border: 2px solid color-mix(in srgb, var(--project) 45%, #ffffff);
   border-top: 0;
   border-radius: 0 0 999px 999px;
-  opacity: 0.28;
+  opacity: 0.18;
 }
 
 .poster-governance .keyword-a { left: 30px; top: 32px; }
@@ -3667,30 +3696,30 @@ body.home-comic-hero .check-card p {
 }
 
 .showcase-card h3 {
-  margin: 0 0 12px;
+  margin: 0 0 20px;
   color: #050a2e;
-  font-size: clamp(18px, 1.45vw, 22px);
+  font-size: clamp(23px, 1.9vw, 30px);
   font-weight: 900;
-  line-height: 1.22;
+  line-height: 1.16;
 }
 
 .showcase-hook {
   position: relative;
-  margin: 0 0 16px;
-  padding: 14px 16px 14px 18px;
-  color: #050a2e;
-  background: color-mix(in srgb, var(--project) 16%, #ffffff);
-  border: 3px solid var(--hero-ink);
-  border-left-width: 8px;
+  margin: 0 0 14px;
+  padding: 9px 12px 9px 14px;
+  color: rgba(5, 10, 46, 0.82);
+  background: color-mix(in srgb, var(--project) 7%, #ffffff);
+  border: 0;
+  border-left: 3px solid color-mix(in srgb, var(--project) 78%, #ffffff);
   border-radius: 4px;
-  box-shadow: 6px 6px 0 rgba(5, 10, 46, 0.08);
-  font-size: clamp(18px, 1.55vw, 22px);
-  font-weight: 900;
-  line-height: 1.34;
+  box-shadow: none;
+  font-size: clamp(14.5px, 1.08vw, 16.5px);
+  font-weight: 800;
+  line-height: 1.42;
 }
 
 .showcase-value {
-  margin: 0 0 22px;
+  margin: 0;
   color: rgba(5, 10, 46, 0.72);
   font-size: 14.5px;
   line-height: 1.55;
@@ -3699,23 +3728,27 @@ body.home-comic-hero .check-card p {
 .showcase-cta {
   display: inline-flex;
   width: fit-content;
-  min-height: 44px;
+  min-height: 32px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
-  padding: 10px 20px;
-  color: #ffffff;
-  background: var(--project);
-  border: 3px solid var(--hero-ink);
+  padding: 6px 10px;
+  color: rgba(5, 10, 46, 0.86);
+  background: rgba(255, 255, 255, 0.42);
+  border: 2px solid rgba(5, 10, 46, 0.28);
   border-radius: 4px;
-  box-shadow: 6px 6px 0 rgba(5, 10, 46, 0.12);
+  box-shadow: none;
+  font-size: 13px;
   font-weight: 900;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .showcase-cta:hover {
-  transform: translate(3px, -2px);
-  box-shadow: 8px 8px 0 rgba(5, 10, 46, 0.14);
+  color: var(--hero-ink);
+  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(5, 10, 46, 0.42);
 }
 
 @media (max-width: 980px) {
@@ -3738,8 +3771,14 @@ body.home-comic-hero .check-card p {
   }
 
   .showcase-tag {
-    max-width: calc(100% - 62px);
+    max-width: calc(100% - 100px);
     font-size: 13px;
+  }
+
+  .showcase-cta {
+    min-height: 30px;
+    padding: 5px 8px;
+    font-size: 12px;
   }
 
   .poster-stage {
@@ -3804,6 +3843,6 @@ body.home-comic-hero .check-card p {
   }
 
   .showcase-hook {
-    font-size: 17px;
+    font-size: 15.5px;
   }
 }
