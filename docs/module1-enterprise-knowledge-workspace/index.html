@@ -216,6 +216,225 @@
         gap: 14px;
       }
 
+      .role-grid,
+      .choice-grid,
+      .maintenance-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .choice-grid,
+      .maintenance-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        margin-bottom: 24px;
+      }
+
+      .task-chain,
+      .trace-flow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-top: 24px;
+        padding: 18px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .task-chain span,
+      .trace-flow span {
+        display: inline-flex;
+        min-height: 34px;
+        align-items: center;
+        padding: 7px 10px;
+        color: var(--ink);
+        background: var(--surface-alt);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .task-chain i,
+      .trace-flow i {
+        color: var(--accent-strong);
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .lane-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .lane {
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .lane.before {
+        background: #f8fafc;
+      }
+
+      .lane.after {
+        border-color: rgba(37, 99, 235, 0.22);
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.8), #ffffff);
+      }
+
+      .lane h3,
+      .trace-card h3 {
+        margin-top: 0;
+      }
+
+      .lane-steps {
+        display: grid;
+        gap: 8px;
+        margin: 16px 0;
+      }
+
+      .lane-steps span {
+        padding: 10px 12px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+      }
+
+      .lane.after .lane-steps span {
+        border-color: rgba(37, 99, 235, 0.18);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tag-list li {
+        padding: 6px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .choice-card,
+      .evolution-card,
+      .trace-card,
+      .badcase-card {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .choice-card span,
+      .evolution-card span,
+      .trace-card span,
+      .badcase-card span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .choice-card h3,
+      .evolution-card h3,
+      .trace-card h3,
+      .badcase-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .choice-card p,
+      .evolution-card p,
+      .trace-card p,
+      .badcase-card p {
+        color: var(--muted);
+      }
+
+      .evolution-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .evolution-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .evolution-card ul,
+      .trace-card dl,
+      .badcase-card dl,
+      .maintenance-grid ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text);
+      }
+
+      .trace-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .trace-card dl,
+      .badcase-card dl {
+        display: grid;
+        gap: 10px;
+        padding-left: 0;
+      }
+
+      .trace-card div,
+      .badcase-card div {
+        padding: 10px 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .trace-card dt,
+      .badcase-card dt {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .trace-card dd,
+      .badcase-card dd {
+        margin: 4px 0 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .badcase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
       .card-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -429,6 +648,13 @@
       @media (max-width: 1080px) {
         .case-hero,
         .problem-grid,
+        .role-grid,
+        .choice-grid,
+        .maintenance-grid,
+        .lane-compare,
+        .evolution-grid,
+        .trace-layout,
+        .badcase-grid,
         .card-grid,
         .unit-grid,
         .flow-diagram,
@@ -460,6 +686,11 @@
         .mini-card,
         .flow-card,
         .loop-card,
+        .choice-card,
+        .evolution-card,
+        .trace-card,
+        .badcase-card,
+        .lane,
         .module-card,
         .callout-card,
         .table-wrap,
@@ -589,11 +820,13 @@
       </a>
       <nav class="case-nav" aria-label="案例导航">
         <a href="#problem">问题定义</a>
+        <a href="#roles">用户任务</a>
+        <a href="#before-after">流程对比</a>
         <a href="#intervention">AI 介入点</a>
-        <a href="#unit">责任单元</a>
         <a href="#context-layer">可信上下文层</a>
         <a href="#evolution">演进</a>
         <a href="#agent">Agent 工作流</a>
+        <a href="#maintainability">可维护机制</a>
         <a href="#evaluation">验证闭环</a>
         <a href="#boundary">边界</a>
         <a href="../../index.html#entries">返回首页</a>
@@ -603,23 +836,22 @@
     <main>
       <section class="case-hero" id="overview">
         <div class="case-hero-copy">
-          <p class="section-kicker">01 · Hero / 项目概览</p>
+          <p class="section-kicker">项目 01｜知识型 AI 应用</p>
           <p class="case-short-title">企业知识工作台</p>
-          <h1>企业知识工作台：面向知识复用与决策准备的 Agent 工作流演进</h1>
+          <h1>从可信上下文到 Agentic Workflow 的产品化演进</h1>
           <p class="case-lead">
-            面向企业知识分散、历史经验难复用和决策依据难追溯的问题，将资料检索、依据追溯、项目复盘、经验沉淀和评估迭代组织为一个可验证、可追溯、可维护的 AI 知识工作台。
+            <strong>模型都这么强了，为什么企业还需要自己的知识系统？</strong>
+          </p>
+          <p class="case-lead">
+            因为企业不只需要“一个像样的回答”，还需要知道答案来自哪里、是否适用于当前场景、资料是否更新、权限是否可控，以及出错后能否定位、修正和回滚。
           </p>
           <div class="status-card">
             项目状态：产品级原型 / 可演示 MVP，用于验证企业知识复用与 Agent 工作流在真实工作场景中的可行性。
           </div>
           <div class="hero-tags">
-            <span>知识与决策支持</span>
-            <span>企业知识复用</span>
             <span>可信上下文层</span>
-            <span>Agent 工作流</span>
-            <span>引用溯源</span>
-            <span>Human-in-the-loop</span>
-            <span>badcase / eval</span>
+            <span>Agentic Workflow</span>
+            <span>评估与回滚</span>
           </div>
           <div class="hero-actions">
             <a class="button-primary" href="../../assets/docs/enterprise_knowledge_workspace_prd_out_cn_v1.2.pdf">查看中文产品设计文档 PDF</a>
@@ -630,18 +862,18 @@
 
         <aside class="case-visual" aria-label="企业知识工作台产品责任单元概览">
           <div class="case-visual-header">
-            <strong>AI 产品责任单元</strong>
-            <span>Knowledge to Workflow</span>
+            <strong>企业知识 AI 的产品化路径</strong>
+            <span>Context to Workflow</span>
           </div>
           <div class="visual-panel">
             <div class="visual-row">
-              <div class="visual-node"><strong>可信上下文层</strong><span>指定资料、引用溯源、权限边界</span></div>
-              <div class="visual-node"><strong>Agent 工作流</strong><span>检索、总结、复盘、任务建议</span></div>
-              <div class="visual-node"><strong>评估迭代</strong><span>badcase、eval、版本回滚</span></div>
+              <div class="visual-node"><strong>可信上下文层</strong><span>指定资料、引用溯源、知识更新、权限边界</span></div>
+              <div class="visual-node"><strong>Agentic Workflow</strong><span>Router、Tool、Memory、人审确认、连续知识任务</span></div>
+              <div class="visual-node"><strong>评估与回滚</strong><span>badcase、eval set、版本记录、rollback</span></div>
             </div>
             <div class="visual-node">
               <strong>核心判断</strong>
-              <span>不是让模型自由回答，而是让 AI 输出进入可核验、可复盘、可维护的企业知识工作流。</span>
+              <span>不是让模型自由回答，而是让 AI 输出进入可核验、可确认、可评估、可回滚的企业知识工作流。</span>
             </div>
           </div>
         </aside>
@@ -654,9 +886,9 @@
             <p>在企业场景中，答案本身不是终点。业务负责人真正关心的是：这句话从哪里来，是否适用于当前情境，出了错能否定位和修正。</p>
           </div>
           <div class="section-header">
-            <p class="section-kicker">01.5 · Workspace Overview</p>
+            <p class="section-kicker">产品形态</p>
             <h2 class="section-title">产品形态：从分散资料进入结构化知识工作流</h2>
-            <p class="section-description">模块 1 不是纯文字方案，也不是单点 RAG demo。页面先展示工作台首页形态，让读者看到知识检索、项目复盘、经验沉淀和评估入口如何被组织到同一个产品界面中。</p>
+            <p class="section-description">项目 1 不是纯文字方案，也不是单点 RAG Demo。页面先展示工作台首页形态，让读者看到知识检索、项目复盘、经验沉淀和评估入口如何被组织到同一个产品界面中。</p>
           </div>
           <figure class="portfolio-figure">
             <img src="../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="企业知识工作台首页示意" loading="lazy" />
@@ -668,7 +900,7 @@
       <section class="case-section" id="problem">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">02 · Business Problem</p>
+            <p class="section-kicker">业务问题</p>
             <h2 class="section-title">业务问题定义</h2>
             <p class="section-description">本项目先定义企业知识复用与决策准备场景，再判断 AI 应该进入哪些知识工作节点。</p>
           </div>
@@ -697,10 +929,101 @@
         </div>
       </section>
 
+      <section class="case-section alt" id="roles">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">用户角色</p>
+            <h2 class="section-title">用户角色与核心任务</h2>
+            <p class="section-description">这不是一个给所有人闲聊的知识库，而是服务于高频知识工作的角色。用户表面上是在“搜索资料”，实际是在完成一段需要依据、判断和沉淀的知识工作。</p>
+          </div>
+          <div class="role-grid">
+            <article class="mini-card">
+              <span>项目负责人 / 产品经理</span>
+              <h3>快速找到历史判断</h3>
+              <p>查找历史方案、复盘资料和决策依据，用于新项目判断和方案准备。</p>
+            </article>
+            <article class="mini-card">
+              <span>新接手成员</span>
+              <h3>快速理解项目背景</h3>
+              <p>补齐项目上下文，了解历史取舍、关键资料和已有结论。</p>
+            </article>
+            <article class="mini-card">
+              <span>管理者 / 决策参与者</span>
+              <h3>确认结论是否可信</h3>
+              <p>查看结论依据、历史案例和风险点，减少只看摘要带来的误判。</p>
+            </article>
+            <article class="mini-card">
+              <span>运营 / PMO / 知识管理角色</span>
+              <h3>沉淀组织知识</h3>
+              <p>维护项目经验，把重复沟通转成可检索、可复盘、可迭代的知识资产。</p>
+            </article>
+          </div>
+          <div class="task-chain" aria-label="知识工作任务链">
+            <span>找资料</span><i>→</i>
+            <span>找依据</span><i>→</i>
+            <span>整理结论</span><i>→</i>
+            <span>项目复盘</span><i>→</i>
+            <span>决策准备</span><i>→</i>
+            <span>形成参考建议</span><i>→</i>
+            <span>沉淀经验</span><i>→</i>
+            <span>连续追问</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="before-after">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">流程对比</p>
+            <h2 class="section-title">AI 接入前后：从人工翻资料到可追溯知识工作流</h2>
+            <p class="section-description">同样是“找资料”，接入 AI 工作台前后最大的差异不是速度，而是结论、依据、人审和后续沉淀是否被组织进同一条任务链。</p>
+          </div>
+          <div class="lane-compare">
+            <article class="lane before">
+              <h3>Before：没有 AI 工作台时</h3>
+              <div class="lane-steps">
+                <span>产生资料</span>
+                <span>散落存储</span>
+                <span>人工搜索</span>
+                <span>打开多个文档</span>
+                <span>手动对比</span>
+                <span>整理结论</span>
+                <span>写汇报或复盘</span>
+                <span>经验再次散落</span>
+              </div>
+              <ul class="tag-list">
+                <li>依赖关键词和路径记忆</li>
+                <li>找到文件后仍要人工翻阅</li>
+                <li>结论和依据分离</li>
+                <li>复盘难以沉淀为组织资产</li>
+              </ul>
+            </article>
+            <article class="lane after">
+              <h3>After：有 AI 工作台后</h3>
+              <div class="lane-steps">
+                <span>提出知识任务</span>
+                <span>AI 判断任务类型</span>
+                <span>检索指定资料</span>
+                <span>返回引用来源</span>
+                <span>生成结构化草稿</span>
+                <span>人工确认</span>
+                <span>进入复盘 / 经验沉淀 / eval set</span>
+              </div>
+              <ul class="tag-list">
+                <li>AI 负责召回、整理、溯源</li>
+                <li>人负责判断、确认、取舍</li>
+                <li>badcase 进入迭代机制</li>
+                <li>输出进入可维护知识工作流</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="case-section alt" id="intervention">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">03 · AI Intervention</p>
+            <p class="section-kicker">AI 介入点</p>
             <h2 class="section-title">AI 介入点设计</h2>
             <p class="section-description">AI 不是只用于“文档问答”这一个点，而是嵌入知识工作流的多个节点：找资料、找依据、整理结论、项目复盘、经验沉淀和迭代优化。</p>
           </div>
@@ -757,11 +1080,11 @@
       <section class="case-section" id="unit">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">04 · Product Unit</p>
+            <p class="section-kicker">产品责任单元</p>
             <h2 class="section-title">产品责任单元定义</h2>
           </div>
           <div class="callout-card">
-            <strong>本项目不是“做一个问答机器人”，而是设计一个面向企业知识复用与决策准备的 AI 工作台模块。它负责将分散资料转化为可检索、可追溯、可复盘、可沉淀、可迭代的知识工作流。</strong>
+            <strong>本项目不是“做一个问答机器人”，而是设计一个面向企业知识复用与决策准备的 AI 工作台。它负责将分散资料转化为可检索、可追溯、可复盘、可沉淀、可迭代的知识工作流。</strong>
           </div>
           <div class="unit-grid" style="margin-top: 18px">
             <article class="module-card"><h3>知识检索</h3><p>找到相关资料和依据。</p></article>
@@ -782,17 +1105,41 @@
       <section class="case-section alt" id="context-layer">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">05 · Product Judgment</p>
-            <h2 class="section-title">基础模型增强后，为什么仍需要可信上下文层？</h2>
+            <p class="section-kicker">关键产品判断</p>
+            <h2 class="section-title">关键产品判断：什么时候需要可信上下文层？</h2>
             <p class="section-description">
-              基础模型能力增强后，很多通用问答和低风险文本生成场景确实可以直接由模型完成。但在企业知识复用与决策准备场景中，核心问题不是模型能不能生成一个看似合理的答案，而是答案是否来自指定资料、是否能追溯依据、是否能随知识更新、是否符合权限边界、是否能被人工核验。
+              不是所有 AI 应用都需要 RAG。如果只是通用问答、低风险文本生成、一次性内容整理，可以直接调用基础模型。但当场景涉及指定资料、引用依据、权限边界、持续更新和组织记忆时，就必须在基础模型和企业知识资产之间设计可信上下文层。
             </p>
             <p class="section-description">
-              因此，本项目中 RAG 不被表达为最终产品主角，而是被重新定位为知识与上下文中间层：它位于基础模型与企业知识资产之间，用于承接检索、引用、权限、记忆、评估和版本管理。
+              RAG 不是最终价值，可信上下文层才是产品价值。它位于基础模型与企业知识资产之间，用于承接检索、引用、权限、记忆、评估和版本管理，让知识回答从“能生成”进入“可核验、可维护”的产品状态。
             </p>
-            <p class="section-description">
-              当基础模型越来越强，RAG 的价值不再是替模型“补智商”，而是为企业知识提供可控上下文、来源引用、权限边界和持续维护机制。
-            </p>
+          </div>
+          <div class="choice-grid" aria-label="方案选择判断">
+            <article class="choice-card">
+              <span>直接 LLM</span>
+              <h3>可作为生成层</h3>
+              <p>适合通用问答、写作润色；不适合作为企业指定资料和来源追溯的知识来源。</p>
+            </article>
+            <article class="choice-card">
+              <span>关键词搜索</span>
+              <h3>保留为辅助能力</h3>
+              <p>适合明确文件名、术语、标题；不擅长模糊意图和跨文档总结。</p>
+            </article>
+            <article class="choice-card">
+              <span>Fine-tuning</span>
+              <h3>暂不优先</h3>
+              <p>适合稳定格式、分类、风格；不适合频繁更新的企业知识和引用溯源。</p>
+            </article>
+            <article class="choice-card">
+              <span>RAG / 可信上下文层</span>
+              <h3>V1 主方案</h3>
+              <p>适合指定资料、引用溯源、知识更新，是企业知识回答可信度的基础设施。</p>
+            </article>
+            <article class="choice-card">
+              <span>Agent 工作流</span>
+              <h3>V2 升级方向</h3>
+              <p>适合连续知识任务、路由、工具调用和人审确认，让 AI 进入真实任务流。</p>
+            </article>
           </div>
           <div class="table-wrap">
             <table>
@@ -818,21 +1165,46 @@
       <section class="case-section" id="evolution">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">06 · Evolution</p>
-            <h2 class="section-title">从可信检索到 Agent 工作流，再到可维护 MVP</h2>
-            <p class="section-description">V1 / V2 / V3 的演进不是“技术架构越来越复杂”，而是企业知识工作流从可信上下文，到任务执行，再到可维护机制的产品化演进。</p>
+            <p class="section-kicker">产品演进</p>
+            <h2 class="section-title">产品演进路径：从可信上下文到可维护 Agent 工作流</h2>
+            <p class="section-description">V1 / V2 / V3 的演进不是“技术越来越复杂”，而是产品化要求越来越高：先解决可信上下文，再解决连续知识任务，最后解决评估、回滚和长期维护。</p>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>阶段</th><th>核心问题</th><th>产品判断</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>V1：可信知识检索</td><td>为什么需要可信上下文层？</td><td>先解决资料找得到、答案有依据、结论可复核。</td></tr>
-                <tr><td>V2：Agent 工作流</td><td>为什么 RAG 不够？</td><td>用户要完成连续知识任务，需要 Router、Tool、Memory 和 Human Review。</td></tr>
-                <tr><td>V3：可维护 MVP</td><td>为什么 Agent 还不够？</td><td>没有 eval、badcase、changelog、rollback，AI 工作流仍然只是一次性 demo。</td></tr>
-              </tbody>
-            </table>
+          <div class="evolution-grid">
+            <article class="evolution-card">
+              <span>V1</span>
+              <h3>为什么需要可信上下文层？</h3>
+              <p>因为企业知识回答必须基于指定资料、可引用、可核验、可更新。</p>
+              <ul>
+                <li>指定资料接入</li>
+                <li>语义检索</li>
+                <li>来源问答</li>
+                <li>原文复核</li>
+              </ul>
+            </article>
+            <article class="evolution-card">
+              <span>V2</span>
+              <h3>为什么 RAG 不够？</h3>
+              <p>因为用户要完成的是连续知识任务，不只是一句问答。</p>
+              <ul>
+                <li>Router</li>
+                <li>search_docs Tool</li>
+                <li>Memory</li>
+                <li>Execution Trace</li>
+                <li>Human Review</li>
+              </ul>
+            </article>
+            <article class="evolution-card">
+              <span>V3</span>
+              <h3>为什么 Agent 还不够？</h3>
+              <p>因为没有 eval、badcase、changelog、rollback，Agent 工作流仍然只是一次性 Demo。</p>
+              <ul>
+                <li>eval set</li>
+                <li>badcase log</li>
+                <li>prompt / workflow versioning</li>
+                <li>rollback</li>
+                <li>human review checkpoints</li>
+              </ul>
+            </article>
           </div>
           <figure class="diagram-frame">
             <img src="assets/diagrams/enterprise_knowledge_workspace_evolution_cn.png" alt="企业知识工作台 V1 V2 V3 产品化演进图" />
@@ -844,8 +1216,9 @@
       <section class="case-section alt" id="agent">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">07 · Agent Workflow</p>
+            <p class="section-kicker">Agent 工作流</p>
             <h2 class="section-title">Agent 工作流：从单轮问答到连续知识任务</h2>
+            <p class="section-description">Agent 的第一步不是执行，而是判断任务路径。如果 Router 判断错，后面的工具再强也没有意义。因此页面要展示 route、tool call、sources、answer 和 human review 状态。</p>
           </div>
           <div class="unit-grid">
             <article class="module-card"><h3>Router</h3><p>判断用户是在查资料、做复盘、生成总结，还是需要澄清。</p></article>
@@ -854,7 +1227,35 @@
             <article class="module-card"><h3>Memory</h3><p>保留当前项目背景和最近上下文。</p></article>
             <article class="module-card"><h3>Agent Core</h3><p>组织多步骤执行链路。</p></article>
             <article class="module-card"><h3>Human Review</h3><p>在关键输出前保留人工确认。</p></article>
-            <article class="module-card"><h3>failure case / badcase 复盘</h3><p>将错误案例沉淀为下一轮迭代素材。</p></article>
+            <article class="module-card"><h3>badcase 复盘</h3><p>将错误案例沉淀为下一轮迭代素材。</p></article>
+          </div>
+          <div class="trace-layout" style="margin-top: 24px">
+            <div class="trace-card">
+              <span>Execution Trace</span>
+              <h3>执行过程不是黑盒：让 Agent 的判断路径可见</h3>
+              <p>用户输入后，系统先判断是直接回答、检索资料还是需要澄清，再决定是否调用 search_docs，并把 sources、answer 和 human review 状态展示给用户。</p>
+              <div class="trace-flow" aria-label="Agent 执行路径">
+                <span>用户输入</span><i>→</i>
+                <span>Router 判断 direct / retrieve / clarify</span><i>→</i>
+                <span>Tool 调用 search_docs</span><i>→</i>
+                <span>返回 sources</span><i>→</i>
+                <span>结合 Memory 生成回答</span><i>→</i>
+                <span>展示答案 + 来源 + 执行过程</span><i>→</i>
+                <span>人工确认关键输出</span>
+              </div>
+            </div>
+            <div class="trace-card">
+              <span>示例记录</span>
+              <h3>一次知识任务的执行轨迹</h3>
+              <dl>
+                <div><dt>Route</dt><dd>retrieve</dd></div>
+                <div><dt>Reason</dt><dd>问题涉及指定项目资料，需要调用知识库。</dd></div>
+                <div><dt>Tool</dt><dd>search_docs</dd></div>
+                <div><dt>Sources</dt><dd>3 个来源片段，包含会议记录、复盘文档和历史方案。</dd></div>
+                <div><dt>Answer</dt><dd>基于来源生成结构化回答，并保留原文复核入口。</dd></div>
+                <div><dt>Human Review</dt><dd>待用户确认是否进入复盘草稿。</dd></div>
+              </dl>
+            </div>
           </div>
           <figure class="diagram-frame">
             <img src="assets/diagrams/enterprise_knowledge_agent_workflow_cn.png" alt="企业知识工作台 Agent 工作流架构图" />
@@ -867,12 +1268,53 @@
         </div>
       </section>
 
-      <section class="case-section" id="evaluation">
+      <section class="case-section" id="maintainability">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">08 · Evaluation Loop</p>
+            <p class="section-kicker">可维护机制</p>
+            <h2 class="section-title">可维护机制：让 AI 工作流不是一次性 Demo</h2>
+            <p class="section-description">如果这个知识工作台不是演示一次，而是持续服务一个团队，就必须回答：哪些信息能进入记忆？提示词和工作流如何记录版本？badcase 如何沉淀？修复后如何回归测试？失败版本如何回滚？哪些输出必须人工确认？</p>
+          </div>
+          <div class="maintenance-grid">
+            <article class="choice-card">
+              <span>任务与记忆</span>
+              <h3>plan.md / memory_policy.md</h3>
+              <p>记录任务拆解、记忆范围、上下文清理规则，避免 Memory 变成无限堆积的聊天历史。</p>
+            </article>
+            <article class="choice-card">
+              <span>版本与判断</span>
+              <h3>prompt_version.md / workflow_changelog.md / decision_log.md</h3>
+              <p>记录提示词、工作流和关键产品判断的变化，让改动有原因、有版本、有回看路径。</p>
+            </article>
+            <article class="choice-card">
+              <span>验证与回滚</span>
+              <h3>badcase_log.md / eval_set.md / rollback_note.md</h3>
+              <p>把错误案例、测试问题和失败版本纳入持续维护，避免同类问题在下一版重复出现。</p>
+            </article>
+            <article class="choice-card">
+              <span>人工确认</span>
+              <h3>human_review_checkpoints.md</h3>
+              <p>明确哪些输出必须人工确认，尤其是复盘结论、决策建议和对外引用内容。</p>
+            </article>
+            <article class="choice-card">
+              <span>产品原则</span>
+              <h3>可追踪、可评估、可回滚</h3>
+              <p>工程脚手架不是为了炫技，而是为了让 AI 工作流可以长期被团队维护。</p>
+            </article>
+          </div>
+          <div class="insight-callout" style="margin-top: 24px">
+            <strong>工程脚手架不是为了炫技，而是为了让 AI 工作流可追踪、可评估、可回滚。</strong>
+            <p>没有版本、badcase、eval set 和回滚记录，Agent 工作流即使演示成功，也很难进入持续迭代。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="evaluation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">验证与迭代闭环</p>
             <h2 class="section-title">验证与 badcase 闭环</h2>
-            <p class="section-description">这个项目不是一次性 demo，而是把错误输出、路径误判和引用问题纳入回归测试与版本迭代。</p>
+            <p class="section-description">这个项目不是一次性 Demo，而是把错误输出、路径误判和引用问题纳入回归测试与版本迭代。每个 badcase 都要回答：问题发生在哪一层，怎么修复，沉淀出什么原则，如何进入 eval set。</p>
           </div>
           <div class="table-wrap">
             <table>
@@ -887,21 +1329,39 @@
               </tbody>
             </table>
           </div>
-          <div class="card-grid" style="margin-top: 18px">
-            <article class="mini-card">
-              <span>badcase 01</span>
+          <div class="badcase-grid">
+            <article class="badcase-card">
+              <span>Badcase 01</span>
               <h3>语义相近导致误召回</h3>
-              <p>说明相似度不等于业务相关性，需要结合问题类型、资料范围和证据片段判断。</p>
+              <dl>
+                <div><dt>问题现象</dt><dd>用户询问某历史项目复盘时，系统召回了另一个语义相近但业务对象不同的项目资料。</dd></div>
+                <div><dt>发生层级</dt><dd>检索层。</dd></div>
+                <div><dt>修复动作</dt><dd>增加 project_name、source_type、path 等元数据；query rewrite 时补充项目对象；增加来源筛选。</dd></div>
+                <div><dt>沉淀原则</dt><dd>相似度高不等于业务相关。企业知识检索不能只看向量相似度，还要结合业务对象和元数据过滤。</dd></div>
+                <div><dt>进入 eval set</dt><dd>加入“相似项目区分”测试问题，后续版本必须回归。</dd></div>
+              </dl>
             </article>
-            <article class="mini-card">
-              <span>badcase 02</span>
+            <article class="badcase-card">
+              <span>Badcase 02</span>
               <h3>来源不足但强行回答</h3>
-              <p>要求系统承认不确定，并把缺失依据暴露给人工确认。</p>
+              <dl>
+                <div><dt>问题现象</dt><dd>来源片段不足以支持结论时，模型仍生成了完整、流畅但依据不足的回答。</dd></div>
+                <div><dt>发生层级</dt><dd>生成层。</dd></div>
+                <div><dt>修复动作</dt><dd>增加引用覆盖检查；当来源不足时输出“不确定”和缺失依据；把需要人工补充的资料显式列出。</dd></div>
+                <div><dt>沉淀原则</dt><dd>可信度优先于流畅度。宁可承认不确定，也不要编造。</dd></div>
+                <div><dt>进入 eval set</dt><dd>加入“低证据回答”测试问题，检查回答是否主动降级并提示人工确认。</dd></div>
+              </dl>
             </article>
-            <article class="mini-card">
-              <span>badcase 03</span>
+            <article class="badcase-card">
+              <span>Badcase 03</span>
               <h3>Router 误判</h3>
-              <p>体现 Agent 控制层风险，需要把路径选择错误纳入回归样本。</p>
+              <dl>
+                <div><dt>问题现象</dt><dd>用户明确询问指定资料，但 Router 误判为 direct，导致系统没有调用 search_docs。</dd></div>
+                <div><dt>发生层级</dt><dd>Agent 控制层。</dd></div>
+                <div><dt>修复动作</dt><dd>补充 Router 判定规则；将“指定项目、指定文档、历史复盘”等触发词优先路由到 retrieve；记录 route reason。</dd></div>
+                <div><dt>沉淀原则</dt><dd>Agent 的第一步是判断任务路径。Router 错了，工具再强也没有意义。</dd></div>
+                <div><dt>进入 eval set</dt><dd>加入“指定资料必须检索”测试问题，检查 route、tool call 和 sources 是否完整。</dd></div>
+              </dl>
             </article>
           </div>
           <div class="loop-grid" aria-label="badcase 闭环图">
@@ -912,7 +1372,7 @@
           </div>
           <figure class="portfolio-figure">
             <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板示意" loading="lazy" />
-            <figcaption><span class="figure-title">评估与迭代看板示意</span>系统不仅需要“能回答”，还需要通过指标、failure case / badcase 和版本记录持续验证与迭代，避免停留在一次性 demo。</figcaption>
+            <figcaption><span class="figure-title">评估与迭代看板示意</span>系统不仅需要“能回答”，还需要通过指标、badcase 和版本记录持续验证与迭代，避免停留在一次性 Demo。</figcaption>
           </figure>
         </div>
       </section>
@@ -920,34 +1380,36 @@
       <section class="case-section alt" id="boundary">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">09 · Boundary</p>
+            <p class="section-kicker">项目边界</p>
             <h2 class="section-title">项目边界与后续扩展</h2>
+            <p class="section-description">这个项目的价值，不在于把企业知识系统一次性做完整，而在于验证一条可扩展的产品化路径：先建立可信上下文层，再让 AI 进入连续知识任务，最后用人审、评估、badcase 和版本机制把它变成可维护的工作流。</p>
           </div>
           <div class="boundary-grid">
             <div class="module-card">
               <h3>当前边界</h3>
               <ul class="boundary-list">
-                <li>当前是产品级原型 / 可演示 MVP，不是真实企业生产系统。</li>
-                <li>不做完整权限系统，不做完整任务管理系统。</li>
-                <li>不自动写入 / 删除 / 发布，不替代人工判断。</li>
-                <li>企业化扩展包括权限、审计、多用户、系统连接和评估面板。</li>
+                <li>当前阶段是产品级原型 / 可演示 MVP。</li>
+                <li>不声称真实企业生产部署。</li>
+                <li>不做完整权限、审计、多用户和系统集成。</li>
+                <li>不自动写入、删除、发布。</li>
+                <li>不替代人工判断。</li>
               </ul>
             </div>
             <div class="module-card">
-              <h3>模块 1 与模块 2 的边界</h3>
+              <h3>项目 1 与项目 2 的边界</h3>
               <div class="table-wrap" style="box-shadow:none">
                 <table>
-                  <thead><tr><th>模块</th><th>核心对象</th><th>回答的问题</th></tr></thead>
+                  <thead><tr><th>项目</th><th>核心对象</th><th>回答的问题</th></tr></thead>
                   <tbody>
                     <tr>
-                      <td>模块 1：企业知识工作台</td>
+                      <td>项目 1：企业知识工作台</td>
                       <td>知识资产、历史经验、决策依据</td>
                       <td>企业过去积累的资料、经验和判断，如何被检索、引用、复盘和沉淀。</td>
                     </tr>
                     <tr>
-                      <td>模块 2：AI 业务需求流转工作台</td>
-                      <td>当前需求、问题、风险、责任链路、状态流转</td>
-                      <td>新业务信号产生后，如何被识别、确认、分流、追踪和复盘。</td>
+                      <td>项目 2：AI 业务需求流转工作台</td>
+                      <td>当前需求、任务、责任链路、状态流转</td>
+                      <td>新需求从会议和沟通中产生后，如何被识别、确认、拆解、执行和复盘。</td>
                     </tr>
                   </tbody>
                 </table>
