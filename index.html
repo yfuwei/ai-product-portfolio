@@ -16,6 +16,82 @@
     <meta property="og:image" content="./assets/images/diagrams/enterprise_ai_scenario_map_business_to_product_unit_cn_v2.png" />
     <meta property="og:url" content="./index.html" />
     <link rel="stylesheet" href="./src/styles/main.css" />
+    <style>
+      .ai-shape-bridge {
+        background: #ffffff;
+        padding-top: clamp(50px, 6vw, 82px);
+        padding-bottom: clamp(42px, 5vw, 68px);
+      }
+
+      .ai-shape-bridge-inner {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+        padding: clamp(28px, 4vw, 46px);
+        color: #ffffff;
+        background:
+          linear-gradient(135deg, rgba(37, 99, 235, 0.18), transparent 38%),
+          linear-gradient(180deg, #101a35 0%, #0b1220 100%);
+        border: 2px solid rgba(29, 47, 111, 0.72);
+        border-radius: 8px;
+        box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
+      }
+
+      .ai-shape-bridge h2 {
+        max-width: 860px;
+        color: #ffffff;
+        font-size: clamp(34px, 4.8vw, 58px);
+        line-height: 1.08;
+      }
+
+      .ai-shape-lines {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: clamp(24px, 3vw, 34px);
+      }
+
+      .ai-shape-lines p {
+        margin: 0;
+        padding: 16px 18px;
+        color: rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        font-size: clamp(15px, 1.25vw, 17px);
+        font-weight: 800;
+        line-height: 1.55;
+      }
+
+      .ai-shape-summary {
+        max-width: 900px;
+        margin: clamp(22px, 3vw, 30px) 0 0;
+        color: #ffffff;
+        font-size: clamp(18px, 1.65vw, 22px);
+        font-weight: 900;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 960px) {
+        .ai-shape-lines {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .ai-shape-bridge {
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+
+        .ai-shape-bridge-inner {
+          padding: 24px 20px;
+        }
+
+        .ai-shape-lines {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body class="home-comic-hero">
     <header class="site-header">
@@ -193,6 +269,19 @@
             <h3 data-i18n="path.node5.title">持续迭代</h3>
             <p data-i18n="path.node5.text">通过 badcase、评估集、版本记录和回归测试持续改进。</p>
           </article>
+        </div>
+      </section>
+
+      <section id="ai-shape-bridge" class="section-block ai-shape-bridge" aria-labelledby="ai-shape-bridge-title">
+        <div class="ai-shape-bridge-inner">
+          <h2 id="ai-shape-bridge-title" data-i18n="bridge.title">不是所有的 AI 都长成聊天框。</h2>
+          <div class="ai-shape-lines" aria-label="四类 AI 应用形态">
+            <p data-i18n="bridge.line1">有些 AI 应用解决“知识怎么被调用”；</p>
+            <p data-i18n="bridge.line2">有些解决“业务信号怎么进入流程”；</p>
+            <p data-i18n="bridge.line3">有些解决“内容怎么进入生产链路”；</p>
+            <p data-i18n="bridge.line4">有些则解决“Demo 之后如何被验证和治理”。</p>
+          </div>
+          <p class="ai-shape-summary" data-i18n="bridge.summary">所以这四个项目不是四个工具展示，而是四种 AI 应用进入真实任务的方式。</p>
         </div>
       </section>
 
@@ -409,6 +498,12 @@
           "path.node5.label": "Can it keep improving?",
           "path.node5.title": "Continuous Iteration",
           "path.node5.text": "Improve through badcases, eval sets, version records, and regression tests.",
+          "bridge.title": "Not every AI application looks like a chatbot.",
+          "bridge.line1": "Some AI applications solve how knowledge is retrieved and used.",
+          "bridge.line2": "Some solve how business signals enter workflows.",
+          "bridge.line3": "Some solve how content enters the production chain.",
+          "bridge.line4": "Some solve how demos are validated and governed after launch.",
+          "bridge.summary": "These four projects are not four tool showcases. They are four ways AI enters real tasks.",
           "check.eyebrow": "PRODUCTIZATION CHECK",
           "check.title": "Do not rush to give AI an entry point. First, find where it belongs.",
           "check.kicker": "Connecting the model is only the beginning. Catching the task is what makes it a product.",
