@@ -259,6 +259,8 @@
       }
 
       .case-section .section-header {
+        width: 100%;
+        max-width: 920px;
         margin-right: 0;
         margin-left: 0;
       }
@@ -285,6 +287,9 @@
       .mini-card,
       .flow-card,
       .timeline-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
         padding: 18px;
         background: var(--surface);
         border: 1px solid var(--line);
@@ -310,18 +315,28 @@
       .flow-card h3,
       .timeline-card h3 {
         margin-top: 12px;
+        margin-bottom: 8px;
+        color: var(--ink);
         font-size: 19px;
+        line-height: 1.28;
       }
 
       .mini-card p,
       .flow-card p,
       .timeline-card p {
+        margin: 0;
         color: var(--muted);
+        line-height: 1.65;
       }
 
       .diagram-frame {
+        width: 100%;
         margin-top: 24px;
-        padding: 18px;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
       }
 
       .diagram-title {
@@ -405,11 +420,38 @@
       }
 
       .diagram-node {
+        position: relative;
+        display: flex;
         min-width: 0;
+        min-height: 132px;
+        flex-direction: column;
+        justify-content: flex-start;
         padding: 14px;
         background: #ffffff;
         border: 1px solid var(--line);
         border-radius: var(--radius-md);
+      }
+
+      .signal-loss .diagram-node:not(:last-child)::after,
+      .sample-flow .diagram-node:not(:last-child)::after,
+      .intervention-map .diagram-node:not(:last-child)::after,
+      .architecture-map .diagram-node:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -14px;
+        z-index: 2;
+        display: grid;
+        width: 22px;
+        height: 22px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-radius: 999px;
+        content: "→";
+        font-size: 12px;
+        font-weight: 900;
+        transform: translateY(-50%);
       }
 
       .diagram-node.source {
@@ -434,7 +476,8 @@
       .diagram-node strong {
         display: block;
         color: var(--ink);
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.35;
       }
 
       .diagram-node small {
@@ -453,6 +496,7 @@
       }
 
       .callout-card {
+        margin-top: 18px;
         padding: 22px;
         border-left: 4px solid var(--accent);
       }
@@ -460,7 +504,7 @@
       .callout-card strong {
         display: block;
         color: var(--ink);
-        font-size: 22px;
+        font-size: clamp(18px, 2vw, 22px);
         line-height: 1.35;
       }
 
@@ -507,10 +551,14 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
+        width: 100%;
         margin-top: 22px;
       }
 
       .lane {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
         padding: 18px;
         background: var(--surface);
         border: 1px solid var(--line);
@@ -524,13 +572,14 @@
 
       .lane.after {
         border-color: rgba(37, 99, 235, 0.2);
-        background: #eff6ff;
+        background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
       }
 
       .lane h3 {
         margin: 0 0 14px;
         color: var(--ink);
-        font-size: 19px;
+        font-size: 21px;
+        line-height: 1.25;
       }
 
       .lane-steps {
@@ -540,13 +589,27 @@
 
       .step-chip {
         position: relative;
-        padding: 10px 12px;
+        display: block;
+        min-width: 0;
+        padding: 11px 13px;
         color: var(--text);
         background: rgba(255, 255, 255, 0.88);
         border: 1px solid rgba(148, 163, 184, 0.28);
-        border-radius: 999px;
+        border-radius: var(--radius-sm);
         font-size: 13px;
         font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .lane.before .step-chip {
+        color: #475569;
+        background: #ffffff;
+      }
+
+      .lane.after .step-chip {
+        color: var(--ink);
+        border-color: rgba(37, 99, 235, 0.18);
+        background: rgba(255, 255, 255, 0.94);
       }
 
       .step-chip:not(:last-child)::after {
@@ -567,15 +630,17 @@
 
       .responsibility-chain {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
       }
 
       .chain-step {
         display: grid;
-        gap: 8px;
+        grid-template-rows: auto auto 1fr 1fr;
+        gap: 9px;
         min-width: 0;
-        padding: 16px;
+        min-height: 244px;
+        padding: 18px;
         background: #ffffff;
         border: 1px solid var(--line);
         border-radius: var(--radius-md);
@@ -583,7 +648,14 @@
 
       .chain-step span,
       .evolution-card span {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
         color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
         font-size: 12px;
         font-weight: 900;
       }
@@ -591,7 +663,7 @@
       .chain-step strong,
       .evolution-card h3 {
         color: var(--ink);
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.28;
       }
 
@@ -605,12 +677,25 @@
 
       .evolution-card {
         display: grid;
+        grid-template-rows: auto auto auto auto 1fr;
         gap: 10px;
+        min-height: 320px;
         padding: 20px;
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--soft-shadow);
+      }
+
+      .evolution-card h3 {
+        margin: 0;
+      }
+
+      .evolution-card .ability-label {
+        margin: 6px 0 0;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
       }
 
       .ability-tags {
@@ -643,6 +728,8 @@
       }
 
       .table-wrap {
+        width: 100%;
+        margin-top: 18px;
         overflow-x: auto;
         background: var(--surface);
         border: 1px solid var(--line);
@@ -682,6 +769,23 @@
         margin-top: 18px;
       }
 
+      .case-container > .problem-grid,
+      .case-container > .unit-grid,
+      .case-container > .metric-grid,
+      .case-container > .evidence-grid,
+      .case-container > .role-grid,
+      .case-container > .interface-grid,
+      .case-container > .boundary-grid,
+      .case-container > .architecture-questions,
+      .case-container > .timeline-map,
+      .case-container > .object-strip,
+      .case-container > .diagram-frame,
+      .case-container > .module-figure,
+      .case-container > .table-wrap,
+      .case-container > .summary-line {
+        width: 100%;
+      }
+
       .case-footer {
         display: flex;
         flex-wrap: wrap;
@@ -716,6 +820,37 @@
 
         .case-hero {
           grid-template-columns: 1fr;
+        }
+
+        .problem-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .signal-loss,
+        .intervention-map,
+        .responsibility-chain,
+        .unit-grid,
+        .timeline-map,
+        .architecture-questions,
+        .interface-grid,
+        .boundary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sample-flow,
+        .architecture-map,
+        .lane-compare,
+        .evidence-grid,
+        .role-grid,
+        .object-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .signal-loss .diagram-node::after,
+        .sample-flow .diagram-node::after,
+        .intervention-map .diagram-node::after,
+        .architecture-map .diagram-node::after {
+          display: none;
         }
       }
 
@@ -839,6 +974,19 @@
 
         .case-section {
           padding: 56px 20px;
+        }
+
+        .problem-grid,
+        .signal-loss,
+        .intervention-map,
+        .responsibility-chain,
+        .unit-grid,
+        .timeline-map,
+        .architecture-questions,
+        .interface-grid,
+        .boundary-grid,
+        .hero-anchor-grid {
+          grid-template-columns: 1fr;
         }
 
         .callout-card strong {
@@ -1253,6 +1401,7 @@
               <span>V1｜业务信号结构化</span>
               <h3>让企业看见信号。</h3>
               <p>把散乱反馈变成可识别、可管理的信号池。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="ability-tags">
                 <em>多源录入</em><em>AI 分类</em><em>标签生成</em><em>证据片段提取</em><em>重复问题识别</em><em>卡片初稿</em><em>人工确认</em>
               </div>
@@ -1261,6 +1410,7 @@
               <span>V2｜分流闭环</span>
               <h3>让信号进入行动。</h3>
               <p>把需求 / 问题 / 风险卡片分流到责任部门，并追踪状态。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="ability-tags">
                 <em>卡片分型</em><em>责任方建议</em><em>分流看板</em><em>状态追踪</em><em>延期 / 阻塞提醒</em><em>关闭原因记录</em>
               </div>
@@ -1269,8 +1419,9 @@
               <span>V3｜经营洞察与机制沉淀</span>
               <h3>让闭环反哺管理。</h3>
               <p>把闭环数据沉淀为趋势洞察、处理规则和组织复盘。</p>
+              <strong class="ability-label">核心能力</strong>
               <div class="ability-tags">
-                <em>趋势分析</em><em>复盘报告</em><em>部门响应效率</em><em>高频问题沉淀</em><em>规则迭代</em>
+                <em>趋势分析</em><em>复盘报告</em><em>部门响应效率</em><em>高频问题沉淀</em><em>销售话术 / 产品规划 / 质量改进联动</em><em>规则迭代</em>
               </div>
             </article>
           </div>
