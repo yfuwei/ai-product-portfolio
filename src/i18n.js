@@ -54,6 +54,7 @@
 
   function syncLinks() {
     document.querySelectorAll("a[href]").forEach((link) => {
+      if (link.hasAttribute("data-lang-link")) return;
       const original = link.dataset.hrefBase || link.getAttribute("href");
       link.dataset.hrefBase = original;
       link.setAttribute("href", addLangToHref(original));
