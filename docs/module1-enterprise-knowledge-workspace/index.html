@@ -90,16 +90,27 @@
         max-width: 860px;
       }
 
-      .case-short-title {
-        margin: 0 0 12px;
+      .case-subtitle {
+        max-width: 820px;
+        margin: 14px 0 0;
         color: var(--accent-strong);
-        font-size: 15px;
+        font-size: clamp(22px, 3vw, 34px);
         font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .case-hook-question {
+        max-width: 780px;
+        margin: 22px 0 0;
+        color: var(--ink);
+        font-size: clamp(18px, 1.6vw, 24px);
+        font-weight: 900;
+        line-height: 1.45;
       }
 
       .case-lead {
         max-width: 780px;
-        margin: 20px 0 0;
+        margin: 14px 0 0;
         color: var(--text);
         font-size: 18px;
         line-height: 1.8;
@@ -380,7 +391,28 @@
       .evolution-card {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+      }
+
+      .evolution-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(22px, 2vw, 28px);
+        line-height: 1.18;
+      }
+
+      .evolution-question {
+        margin: 0;
+        color: var(--accent-strong);
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .evolution-summary {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
       }
 
       .evolution-card ul,
@@ -837,11 +869,9 @@
       <section class="case-hero" id="overview">
         <div class="case-hero-copy">
           <p class="section-kicker">项目 01｜知识型 AI 应用</p>
-          <p class="case-short-title">企业知识工作台</p>
-          <h1>从可信上下文到 Agentic Workflow 的产品化演进</h1>
-          <p class="case-lead">
-            <strong>模型都这么强了，为什么企业还需要自己的知识系统？</strong>
-          </p>
+          <h1>企业知识工作台</h1>
+          <p class="case-subtitle">从可信上下文到 Agent 工作流的产品化演进</p>
+          <p class="case-hook-question">模型都这么强了，为什么企业还需要自己的知识系统？</p>
           <p class="case-lead">
             因为企业不只需要“一个像样的回答”，还需要知道答案来自哪里、是否适用于当前场景、资料是否更新、权限是否可控，以及出错后能否定位、修正和回滚。
           </p>
@@ -850,12 +880,12 @@
           </div>
           <div class="hero-tags">
             <span>可信上下文层</span>
-            <span>Agentic Workflow</span>
+            <span>Agent 工作流</span>
             <span>评估与回滚</span>
           </div>
           <div class="hero-actions">
             <a class="button-primary" href="../../assets/docs/enterprise_knowledge_workspace_prd_out_cn_v1.2.pdf">查看中文产品设计文档 PDF</a>
-            <a class="button-secondary" href="../../assets/docs/enterprise_knowledge_workspace_product_design_brief_out_en_v0.3.pdf">View English Product Design Brief</a>
+            <a class="button-secondary" href="../../assets/docs/enterprise_knowledge_workspace_product_design_brief_out_en_v0.3.pdf">英文产品设计简报</a>
             <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
           </div>
         </div>
@@ -863,12 +893,12 @@
         <aside class="case-visual" aria-label="企业知识工作台产品责任单元概览">
           <div class="case-visual-header">
             <strong>企业知识 AI 的产品化路径</strong>
-            <span>Context to Workflow</span>
+            <span>从上下文到工作流</span>
           </div>
           <div class="visual-panel">
             <div class="visual-row">
               <div class="visual-node"><strong>可信上下文层</strong><span>指定资料、引用溯源、知识更新、权限边界</span></div>
-              <div class="visual-node"><strong>Agentic Workflow</strong><span>Router、Tool、Memory、人审确认、连续知识任务</span></div>
+              <div class="visual-node"><strong>Agent 工作流</strong><span>Router、Tool、Memory、人审确认、连续知识任务</span></div>
               <div class="visual-node"><strong>评估与回滚</strong><span>badcase、eval set、版本记录、rollback</span></div>
             </div>
             <div class="visual-node">
@@ -980,7 +1010,7 @@
           </div>
           <div class="lane-compare">
             <article class="lane before">
-              <h3>Before：没有 AI 工作台时</h3>
+              <h3>改造前：没有 AI 工作台时</h3>
               <div class="lane-steps">
                 <span>产生资料</span>
                 <span>散落存储</span>
@@ -999,7 +1029,7 @@
               </ul>
             </article>
             <article class="lane after">
-              <h3>After：有 AI 工作台后</h3>
+              <h3>改造后：有 AI 工作台后</h3>
               <div class="lane-steps">
                 <span>提出知识任务</span>
                 <span>AI 判断任务类型</span>
@@ -1108,7 +1138,7 @@
             <p class="section-kicker">关键产品判断</p>
             <h2 class="section-title">关键产品判断：什么时候需要可信上下文层？</h2>
             <p class="section-description">
-              不是所有 AI 应用都需要 RAG。如果只是通用问答、低风险文本生成、一次性内容整理，可以直接调用基础模型。但当场景涉及指定资料、引用依据、权限边界、持续更新和组织记忆时，就必须在基础模型和企业知识资产之间设计可信上下文层。
+              不是所有 AI 应用都需要 RAG。如果只是通用问答、低风险文本生成、一次性内容整理，可以直接调用大模型。但当场景涉及指定资料、引用依据、权限边界、持续更新和组织记忆时，就必须在基础模型和企业知识资产之间设计可信上下文层。
             </p>
             <p class="section-description">
               RAG 不是最终价值，可信上下文层才是产品价值。它位于基础模型与企业知识资产之间，用于承接检索、引用、权限、记忆、评估和版本管理，让知识回答从“能生成”进入“可核验、可维护”的产品状态。
@@ -1116,7 +1146,7 @@
           </div>
           <div class="choice-grid" aria-label="方案选择判断">
             <article class="choice-card">
-              <span>直接 LLM</span>
+              <span>直接调用大模型</span>
               <h3>可作为生成层</h3>
               <p>适合通用问答、写作润色；不适合作为企业指定资料和来源追溯的知识来源。</p>
             </article>
@@ -1126,7 +1156,7 @@
               <p>适合明确文件名、术语、标题；不擅长模糊意图和跨文档总结。</p>
             </article>
             <article class="choice-card">
-              <span>Fine-tuning</span>
+              <span>模型微调</span>
               <h3>暂不优先</h3>
               <p>适合稳定格式、分类、风格；不适合频繁更新的企业知识和引用溯源。</p>
             </article>
@@ -1144,7 +1174,7 @@
           <div class="table-wrap">
             <table>
               <thead>
-                <tr><th>问题</th><th>直接调用基础模型</th><th>可信上下文层</th></tr>
+                <tr><th>问题</th><th>直接调用大模型</th><th>可信上下文层</th></tr>
               </thead>
               <tbody>
                 <tr><td>企业内部资料</td><td>不保证覆盖最新内部资料</td><td>接入指定资料范围</td></tr>
@@ -1172,8 +1202,10 @@
           <div class="evolution-grid">
             <article class="evolution-card">
               <span>V1</span>
-              <h3>为什么需要可信上下文层？</h3>
-              <p>因为企业知识回答必须基于指定资料、可引用、可核验、可更新。</p>
+              <h3>可信知识检索</h3>
+              <p class="evolution-question">为什么需要可信上下文层？</p>
+              <p class="evolution-summary">先解决资料找得到、答案有依据、结论可复核。</p>
+              <strong>核心能力</strong>
               <ul>
                 <li>指定资料接入</li>
                 <li>语义检索</li>
@@ -1183,26 +1215,30 @@
             </article>
             <article class="evolution-card">
               <span>V2</span>
-              <h3>为什么 RAG 不够？</h3>
-              <p>因为用户要完成的是连续知识任务，不只是一句问答。</p>
+              <h3>Agent 工作流</h3>
+              <p class="evolution-question">为什么 RAG 不够？</p>
+              <p class="evolution-summary">用户要完成连续知识任务，需要 Router、Tool、Memory 和 Human Review。</p>
+              <strong>核心能力</strong>
               <ul>
                 <li>Router</li>
                 <li>search_docs Tool</li>
                 <li>Memory</li>
-                <li>Execution Trace</li>
+                <li>执行轨迹</li>
                 <li>Human Review</li>
               </ul>
             </article>
             <article class="evolution-card">
               <span>V3</span>
-              <h3>为什么 Agent 还不够？</h3>
-              <p>因为没有 eval、badcase、changelog、rollback，Agent 工作流仍然只是一次性 Demo。</p>
+              <h3>可维护 MVP</h3>
+              <p class="evolution-question">为什么 Agent 还不够？</p>
+              <p class="evolution-summary">没有 eval、badcase、changelog、rollback，AI 工作流仍然只是一次性 Demo。</p>
+              <strong>核心能力</strong>
               <ul>
                 <li>eval set</li>
                 <li>badcase log</li>
                 <li>prompt / workflow versioning</li>
                 <li>rollback</li>
-                <li>human review checkpoints</li>
+                <li>Human Review checkpoints</li>
               </ul>
             </article>
           </div>
@@ -1218,7 +1254,7 @@
           <div class="section-header">
             <p class="section-kicker">Agent 工作流</p>
             <h2 class="section-title">Agent 工作流：从单轮问答到连续知识任务</h2>
-            <p class="section-description">Agent 的第一步不是执行，而是判断任务路径。如果 Router 判断错，后面的工具再强也没有意义。因此页面要展示 route、tool call、sources、answer 和 human review 状态。</p>
+            <p class="section-description">Agent 的第一步不是执行，而是判断任务路径。如果 Router 判断错，后面的工具再强也没有意义。因此页面要展示路由判断、工具调用、来源片段、回答结果和 Human Review 状态。</p>
           </div>
           <div class="unit-grid">
             <article class="module-card"><h3>Router</h3><p>判断用户是在查资料、做复盘、生成总结，还是需要澄清。</p></article>
@@ -1231,14 +1267,14 @@
           </div>
           <div class="trace-layout" style="margin-top: 24px">
             <div class="trace-card">
-              <span>Execution Trace</span>
+              <span>执行轨迹</span>
               <h3>执行过程不是黑盒：让 Agent 的判断路径可见</h3>
-              <p>用户输入后，系统先判断是直接回答、检索资料还是需要澄清，再决定是否调用 search_docs，并把 sources、answer 和 human review 状态展示给用户。</p>
+              <p>用户输入后，系统先判断是直接回答、检索资料还是需要澄清，再决定是否调用 search_docs，并把来源片段、回答结果和 Human Review 状态展示给用户。</p>
               <div class="trace-flow" aria-label="Agent 执行路径">
                 <span>用户输入</span><i>→</i>
-                <span>Router 判断 direct / retrieve / clarify</span><i>→</i>
+                <span>Router 判断直接回答 / 检索 / 澄清</span><i>→</i>
                 <span>Tool 调用 search_docs</span><i>→</i>
-                <span>返回 sources</span><i>→</i>
+                <span>返回来源片段</span><i>→</i>
                 <span>结合 Memory 生成回答</span><i>→</i>
                 <span>展示答案 + 来源 + 执行过程</span><i>→</i>
                 <span>人工确认关键输出</span>
@@ -1248,11 +1284,11 @@
               <span>示例记录</span>
               <h3>一次知识任务的执行轨迹</h3>
               <dl>
-                <div><dt>Route</dt><dd>retrieve</dd></div>
-                <div><dt>Reason</dt><dd>问题涉及指定项目资料，需要调用知识库。</dd></div>
-                <div><dt>Tool</dt><dd>search_docs</dd></div>
-                <div><dt>Sources</dt><dd>3 个来源片段，包含会议记录、复盘文档和历史方案。</dd></div>
-                <div><dt>Answer</dt><dd>基于来源生成结构化回答，并保留原文复核入口。</dd></div>
+                <div><dt>路由结果</dt><dd>检索。</dd></div>
+                <div><dt>判断原因</dt><dd>问题涉及指定项目资料，需要调用知识库。</dd></div>
+                <div><dt>工具调用</dt><dd>search_docs。</dd></div>
+                <div><dt>来源片段</dt><dd>3 个来源片段，包含会议记录、复盘文档和历史方案。</dd></div>
+                <div><dt>回答结果</dt><dd>基于来源生成结构化回答，并保留原文复核入口。</dd></div>
                 <div><dt>Human Review</dt><dd>待用户确认是否进入复盘草稿。</dd></div>
               </dl>
             </div>
@@ -1299,7 +1335,7 @@
             <article class="choice-card">
               <span>产品原则</span>
               <h3>可追踪、可评估、可回滚</h3>
-              <p>工程脚手架不是为了炫技，而是为了让 AI 工作流可以长期被团队维护。</p>
+              <p>让版本、问题、修复和人工确认都能被团队持续追踪。</p>
             </article>
           </div>
           <div class="insight-callout" style="margin-top: 24px">
@@ -1356,19 +1392,19 @@
               <span>Badcase 03</span>
               <h3>Router 误判</h3>
               <dl>
-                <div><dt>问题现象</dt><dd>用户明确询问指定资料，但 Router 误判为 direct，导致系统没有调用 search_docs。</dd></div>
+                <div><dt>问题现象</dt><dd>用户明确询问指定资料，但 Router 误判为直接回答，导致系统没有调用 search_docs。</dd></div>
                 <div><dt>发生层级</dt><dd>Agent 控制层。</dd></div>
-                <div><dt>修复动作</dt><dd>补充 Router 判定规则；将“指定项目、指定文档、历史复盘”等触发词优先路由到 retrieve；记录 route reason。</dd></div>
+                <div><dt>修复动作</dt><dd>补充 Router 判定规则；将“指定项目、指定文档、历史复盘”等触发词优先路由到检索；记录路由原因。</dd></div>
                 <div><dt>沉淀原则</dt><dd>Agent 的第一步是判断任务路径。Router 错了，工具再强也没有意义。</dd></div>
-                <div><dt>进入 eval set</dt><dd>加入“指定资料必须检索”测试问题，检查 route、tool call 和 sources 是否完整。</dd></div>
+                <div><dt>进入 eval set</dt><dd>加入“指定资料必须检索”测试问题，检查路由、工具调用和来源片段是否完整。</dd></div>
               </dl>
             </article>
           </div>
           <div class="loop-grid" aria-label="badcase 闭环图">
-            <article class="loop-card"><span>Step 1</span><h3>Badcase</h3><p>记录错误输出、误召回或路径误判。</p></article>
-            <article class="loop-card"><span>Step 2</span><h3>定位</h3><p>判断问题来自检索、生成、Router 还是 Memory。</p></article>
-            <article class="loop-card"><span>Step 3</span><h3>修复</h3><p>调整规则、提示词、工具路径或评估样本。</p></article>
-            <article class="loop-card"><span>Step 4</span><h3>回归测试</h3><p>进入 eval set，防止同类问题反复出现。</p></article>
+            <article class="loop-card"><span>步骤 1</span><h3>badcase</h3><p>记录错误输出、误召回或路径误判。</p></article>
+            <article class="loop-card"><span>步骤 2</span><h3>定位</h3><p>判断问题来自检索、生成、Router 还是 Memory。</p></article>
+            <article class="loop-card"><span>步骤 3</span><h3>修复</h3><p>调整规则、提示词、工具路径或评估样本。</p></article>
+            <article class="loop-card"><span>步骤 4</span><h3>回归测试</h3><p>进入 eval set，防止同类问题反复出现。</p></article>
           </div>
           <figure class="portfolio-figure">
             <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板示意" loading="lazy" />
