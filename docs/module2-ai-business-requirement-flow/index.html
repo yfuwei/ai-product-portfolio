@@ -18,6 +18,12 @@
         overflow-x: hidden;
       }
 
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       h1,
       h2,
       h3,
@@ -252,7 +258,8 @@
         background: #ffffff;
       }
 
-      .case-container {
+      .case-container,
+      .module2-content-wrap {
         min-width: 0;
         width: min(100%, 1180px);
         margin: 0 auto;
@@ -331,12 +338,26 @@
 
       .diagram-frame {
         width: 100%;
-        margin-top: 24px;
+        max-width: none;
+        box-sizing: border-box;
+        margin: 24px 0 0;
         padding: 22px;
         background: #ffffff;
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--soft-shadow);
+      }
+
+      .module2-breakpoint-grid,
+      .module2-flow-panel,
+      .module2-flow-grid,
+      .module2-lane-grid,
+      .module2-chain-panel,
+      .module2-evolution-grid {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        margin-inline: 0;
       }
 
       .diagram-title {
@@ -390,6 +411,10 @@
       .timeline-map {
         display: grid;
         gap: 12px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        counter-reset: flow-step;
       }
 
       .signal-loss {
@@ -420,7 +445,6 @@
       }
 
       .diagram-node {
-        position: relative;
         display: flex;
         min-width: 0;
         min-height: 132px;
@@ -432,26 +456,22 @@
         border-radius: var(--radius-md);
       }
 
-      .signal-loss .diagram-node:not(:last-child)::after,
-      .sample-flow .diagram-node:not(:last-child)::after,
-      .intervention-map .diagram-node:not(:last-child)::after,
-      .architecture-map .diagram-node:not(:last-child)::after {
-        position: absolute;
-        top: 50%;
-        right: -14px;
-        z-index: 2;
-        display: grid;
-        width: 22px;
-        height: 22px;
+      .signal-loss .diagram-node::before,
+      .sample-flow .diagram-node::before,
+      .intervention-map .diagram-node::before,
+      .architecture-map .diagram-node::before {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
         place-items: center;
+        margin-bottom: 12px;
         color: var(--accent-strong);
-        background: #ffffff;
-        border: 1px solid rgba(37, 99, 235, 0.22);
+        background: var(--accent-soft);
         border-radius: 999px;
-        content: "→";
+        content: counter(flow-step, decimal-leading-zero);
+        counter-increment: flow-step;
         font-size: 12px;
         font-weight: 900;
-        transform: translateY(-50%);
       }
 
       .diagram-node.source {
@@ -547,15 +567,19 @@
         line-height: 1.65;
       }
 
-      .lane-compare {
+      .lane-compare,
+      .module2-lane-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
         width: 100%;
+        max-width: none;
+        box-sizing: border-box;
         margin-top: 22px;
       }
 
-      .lane {
+      .lane,
+      .module2-lane {
         display: flex;
         min-width: 0;
         flex-direction: column;
@@ -566,30 +590,40 @@
         box-shadow: var(--soft-shadow);
       }
 
-      .lane.before {
+      .lane.before,
+      .module2-lane.before {
         background: #f8fafc;
       }
 
-      .lane.after {
+      .lane.after,
+      .module2-lane.after {
         border-color: rgba(37, 99, 235, 0.2);
         background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
       }
 
-      .lane h3 {
+      .lane h3,
+      .module2-lane h3 {
         margin: 0 0 14px;
         color: var(--ink);
         font-size: 21px;
         line-height: 1.25;
       }
 
-      .lane-steps {
+      .lane-steps,
+      .module2-step-list {
         display: grid;
         gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: lane-step;
       }
 
-      .step-chip {
-        position: relative;
-        display: block;
+      .module2-step-list li {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        align-items: start;
+        gap: 10px;
         min-width: 0;
         padding: 11px 13px;
         color: var(--text);
@@ -601,24 +635,34 @@
         line-height: 1.45;
       }
 
-      .lane.before .step-chip {
+      .module2-step-list li::before {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        content: counter(lane-step, decimal-leading-zero);
+        counter-increment: lane-step;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .module2-lane.before .module2-step-list li {
         color: #475569;
         background: #ffffff;
       }
 
-      .lane.after .step-chip {
+      .module2-lane.before .module2-step-list li::before {
+        color: #475569;
+        background: #e2e8f0;
+      }
+
+      .module2-lane.after .module2-step-list li {
         color: var(--ink);
         border-color: rgba(37, 99, 235, 0.18);
         background: rgba(255, 255, 255, 0.94);
-      }
-
-      .step-chip:not(:last-child)::after {
-        position: absolute;
-        bottom: -11px;
-        left: 22px;
-        color: var(--muted);
-        content: "↓";
-        font-size: 13px;
       }
 
       .architecture-questions {
@@ -632,6 +676,9 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
       }
 
       .chain-step {
@@ -649,9 +696,9 @@
       .chain-step span,
       .evolution-card span {
         display: inline-flex;
-        width: fit-content;
         min-height: 28px;
         align-items: center;
+        justify-self: start;
         padding: 5px 9px;
         color: var(--accent-strong);
         background: var(--accent-soft);
@@ -698,14 +745,14 @@
         font-weight: 900;
       }
 
-      .ability-tags {
+      .module2-tag-list {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         margin-top: 4px;
       }
 
-      .ability-tags em {
+      .module2-tag-list span {
         padding: 6px 9px;
         color: var(--accent-strong);
         background: var(--accent-soft);
@@ -840,17 +887,11 @@
         .sample-flow,
         .architecture-map,
         .lane-compare,
+        .module2-lane-grid,
         .evidence-grid,
         .role-grid,
         .object-strip {
           grid-template-columns: 1fr;
-        }
-
-        .signal-loss .diagram-node::after,
-        .sample-flow .diagram-node::after,
-        .intervention-map .diagram-node::after,
-        .architecture-map .diagram-node::after {
-          display: none;
         }
       }
 
@@ -911,7 +952,18 @@
         .section-title {
           font-size: clamp(24px, 7.2vw, 30px);
           line-height: 1.22;
-          word-break: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-subtitle,
+        .case-hook-question,
+        .section-description,
+        .diagram-title,
+        .diagram-caption {
+          max-width: 100%;
+          overflow-wrap: anywhere;
+          word-break: break-all;
         }
 
         .case-lead,
@@ -985,7 +1037,8 @@
         .architecture-questions,
         .interface-grid,
         .boundary-grid,
-        .hero-anchor-grid {
+        .hero-anchor-grid,
+        .module2-lane-grid {
           grid-template-columns: 1fr;
         }
 
@@ -1000,6 +1053,20 @@
 
         .module-figure {
           padding: 10px;
+        }
+
+        .diagram-frame {
+          padding: 16px;
+        }
+
+        .module2-flow-panel,
+        .module2-flow-grid,
+        .module2-lane-grid,
+        .module2-lane,
+        .module2-step-list,
+        .module2-step-list li {
+          width: 100%;
+          max-width: 100%;
         }
       }
     </style>
@@ -1101,7 +1168,7 @@
       </section>
 
       <section class="case-section" id="problem">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">03｜业务问题</p>
             <h2 class="section-title">业务问题：企业不是没有反馈，而是缺少持续运行的业务信号处理机制</h2>
@@ -1109,7 +1176,7 @@
               在传统企业中，销售、售后、客服、质量、CRM 和会议每天都会产生大量业务信号，但这些信号经常散落在不同系统和沟通渠道中，没有稳定进入产品、质量、销售、供应链和管理决策流程。
             </p>
           </div>
-          <div class="problem-grid">
+          <div class="problem-grid module2-breakpoint-grid">
             <article class="mini-card"><span>信号散</span><h3>入口分散</h3><p>反馈散落在销售、售后、客服、会议、CRM 等入口。</p></article>
             <article class="mini-card"><span>类型混</span><h3>难以判断</h3><p>需求、问题、风险、情绪和噪音混在一起。</p></article>
             <article class="mini-card"><span>责任不清</span><h3>找不到责任方</h3><p>不知道该由产品、质量、销售、供应链还是运营处理。</p></article>
@@ -1117,9 +1184,9 @@
             <article class="mini-card"><span>复盘滞后</span><h3>趋势后置</h3><p>管理层看到的是事后总结，而不是持续变化的业务趋势。</p></article>
           </div>
 
-          <figure class="diagram-frame">
+          <figure class="diagram-frame module2-flow-panel">
             <p class="diagram-title">没有 AI 时：业务信号如何流失</p>
-            <div class="signal-loss">
+            <div class="signal-loss module2-flow-grid">
               <div class="diagram-node source"><strong>销售 / 售后 / CRM</strong><small>反馈进入不同系统和沟通渠道</small></div>
               <div class="diagram-node source"><strong>会议 / 表格 / 群聊</strong><small>线索被临时整理，口径不统一</small></div>
               <div class="diagram-node human"><strong>人工判断</strong><small>依赖经验判断类型、优先级和责任方</small></div>
@@ -1132,7 +1199,7 @@
       </section>
 
       <section class="case-section alt" id="sample">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">04｜贯穿样例</p>
             <h2 class="section-title">贯穿样例：一个客户反馈如何从一线信息变成组织行动？</h2>
@@ -1151,9 +1218,9 @@
           <div class="callout-card">
             <strong>单条反馈看似只是销售异议，但跨渠道聚合后，它可能同时指向产品体验问题、销售转化风险和市场传播缺口。</strong>
           </div>
-          <figure class="diagram-frame">
+          <figure class="diagram-frame module2-flow-panel">
             <p class="diagram-title">样例链路：从分散反馈到组织行动</p>
-            <div class="sample-flow">
+            <div class="sample-flow module2-flow-grid">
               <div class="diagram-node source"><strong>销售反馈 + CRM + 售后 + 区域会议</strong><small>家庭用户反复提到后排空间和舒适性顾虑</small></div>
               <div class="diagram-node ai"><strong>AI 聚合与识别</strong><small>识别为“产品体验问题 + 销售转化风险”</small></div>
               <div class="diagram-node human"><strong>生成卡片并人审</strong><small>确认优先级、证据是否充分、责任方是否合理</small></div>
@@ -1173,7 +1240,7 @@
       </section>
 
       <section class="case-section" id="before-after">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">05｜AI 接入前后</p>
             <h2 class="section-title">AI 接入前后：从分散反馈到业务闭环</h2>
@@ -1181,33 +1248,33 @@
               AI 不是替代人做最终决策，而是在业务流中承担信号识别、分类聚类、证据提取、卡片初稿、分流建议和风险提醒；人负责确认分类、判断优先级、确认责任方、决定是否进入正式流程和是否关闭任务。
             </p>
           </div>
-          <div class="lane-compare">
-            <article class="lane before">
+          <div class="module2-lane-grid">
+            <article class="module2-lane before">
               <h3>改造前</h3>
-              <div class="lane-steps">
-                <span class="step-chip">多源业务信号</span>
-                <span class="step-chip">人工收集</span>
-                <span class="step-chip">人工判断问题类型</span>
-                <span class="step-chip">会议协调</span>
-                <span class="step-chip">手动分流责任部门</span>
-                <span class="step-chip">群聊 / 表格 / 会议纪要追踪</span>
-                <span class="step-chip">周报 / 月报复盘</span>
-                <span class="step-chip">部分经验沉淀，大量信号流失</span>
-              </div>
+              <ol class="module2-step-list">
+                <li>多源业务信号</li>
+                <li>人工收集</li>
+                <li>人工判断问题类型</li>
+                <li>会议协调</li>
+                <li>手动分流责任部门</li>
+                <li>群聊 / 表格 / 会议纪要追踪</li>
+                <li>周报 / 月报复盘</li>
+                <li>部分经验沉淀，大量信号流失</li>
+              </ol>
             </article>
-            <article class="lane after">
+            <article class="module2-lane after">
               <h3>改造后</h3>
-              <div class="lane-steps">
-                <span class="step-chip">多源业务信号</span>
-                <span class="step-chip">AI 识别 / 分类 / 聚类</span>
-                <span class="step-chip">证据提取与相似问题匹配</span>
-                <span class="step-chip">需求 / 问题 / 风险卡片初稿</span>
-                <span class="step-chip">人工确认与修正</span>
-                <span class="step-chip">分流到责任部门</span>
-                <span class="step-chip">状态追踪与风险提醒</span>
-                <span class="step-chip">经营洞察 / 规则沉淀</span>
-                <span class="step-chip">反哺分类规则与处理路径</span>
-              </div>
+              <ol class="module2-step-list">
+                <li>多源业务信号</li>
+                <li>AI 识别 / 分类 / 聚类</li>
+                <li>证据提取与相似问题匹配</li>
+                <li>需求 / 问题 / 风险卡片初稿</li>
+                <li>人工确认与修正</li>
+                <li>分流到责任部门</li>
+                <li>状态追踪与风险提醒</li>
+                <li>经营洞察 / 规则沉淀</li>
+                <li>反哺分类规则与处理路径</li>
+              </ol>
             </article>
           </div>
           <div class="role-grid">
@@ -1262,7 +1329,7 @@
       </section>
 
       <section class="case-section alt" id="signal-layer">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">07｜轻量业务信号层</p>
             <h2 class="section-title">产品架构判断：为什么需要轻量 AI 业务信号层？</h2>
@@ -1287,9 +1354,9 @@
               <p>它不替代既有系统，而是在系统之间补足跨源信号聚合、AI 识别与结构化、证据追溯、人审分流、状态同步、规则迭代和经营复盘。</p>
             </article>
           </div>
-          <figure class="diagram-frame">
+          <figure class="diagram-frame module2-flow-panel">
             <p class="diagram-title">轻量 AI 业务信号层：不替代系统，而是连接系统</p>
-            <div class="architecture-map">
+            <div class="architecture-map module2-flow-grid">
               <div class="diagram-node source"><strong>既有系统</strong><small>CRM / 售后 / 质量 / 会议 / 项目管理</small></div>
               <div class="diagram-node ai"><strong>轻量 AI 业务信号层</strong><small>跨源聚合、AI 识别、证据追溯、人审分流、状态同步、规则迭代</small></div>
               <div class="diagram-node human"><strong>可确认对象</strong><small>需求卡片 / 问题卡片 / 风险卡片</small></div>
@@ -1304,13 +1371,13 @@
       </section>
 
       <section class="case-section" id="unit">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">08｜核心产品责任单元</p>
             <h2 class="section-title">核心产品责任单元：从信号池到组织行动闭环</h2>
             <p class="section-description">这个项目的核心不是“生成需求卡片”，而是把信号池、AI 识别、卡片、人审、分流、状态追踪和经营洞察组织成一条可推进的主链路。</p>
           </div>
-          <figure class="diagram-frame">
+          <figure class="diagram-frame module2-flow-panel module2-chain-panel">
             <p class="diagram-title">主链路：信号池 → AI 识别 → 卡片 → 人审 → 分流 → 复盘</p>
             <div class="responsibility-chain">
               <div class="chain-step">
@@ -1388,7 +1455,7 @@
       </section>
 
       <section class="case-section alt" id="evolution">
-        <div class="case-container">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
             <p class="section-kicker">10｜产品演进路径</p>
             <h2 class="section-title">产品演进路径：从看见信号到形成机制</h2>
@@ -1396,14 +1463,14 @@
               版本演进不是功能越做越多，而是组织响应能力的演进：先让企业看见分散信号，再让信号进入行动，最后让闭环反哺管理机制。
             </p>
           </div>
-          <div class="timeline-map">
+          <div class="timeline-map module2-evolution-grid">
             <article class="evolution-card">
               <span>V1｜业务信号结构化</span>
               <h3>让企业看见信号。</h3>
               <p>把散乱反馈变成可识别、可管理的信号池。</p>
               <strong class="ability-label">核心能力</strong>
-              <div class="ability-tags">
-                <em>多源录入</em><em>AI 分类</em><em>标签生成</em><em>证据片段提取</em><em>重复问题识别</em><em>卡片初稿</em><em>人工确认</em>
+              <div class="module2-tag-list">
+                <span>多源录入</span><span>AI 分类</span><span>标签生成</span><span>证据片段提取</span><span>重复问题识别</span><span>卡片初稿</span><span>人工确认</span>
               </div>
             </article>
             <article class="evolution-card">
@@ -1411,8 +1478,8 @@
               <h3>让信号进入行动。</h3>
               <p>把需求 / 问题 / 风险卡片分流到责任部门，并追踪状态。</p>
               <strong class="ability-label">核心能力</strong>
-              <div class="ability-tags">
-                <em>卡片分型</em><em>责任方建议</em><em>分流看板</em><em>状态追踪</em><em>延期 / 阻塞提醒</em><em>关闭原因记录</em>
+              <div class="module2-tag-list">
+                <span>卡片分型</span><span>责任方建议</span><span>分流看板</span><span>状态追踪</span><span>延期 / 阻塞提醒</span><span>关闭原因记录</span>
               </div>
             </article>
             <article class="evolution-card">
@@ -1420,8 +1487,8 @@
               <h3>让闭环反哺管理。</h3>
               <p>把闭环数据沉淀为趋势洞察、处理规则和组织复盘。</p>
               <strong class="ability-label">核心能力</strong>
-              <div class="ability-tags">
-                <em>趋势分析</em><em>复盘报告</em><em>部门响应效率</em><em>高频问题沉淀</em><em>销售话术 / 产品规划 / 质量改进联动</em><em>规则迭代</em>
+              <div class="module2-tag-list">
+                <span>趋势分析</span><span>复盘报告</span><span>部门响应效率</span><span>高频问题沉淀</span><span>销售话术 / 产品规划 / 质量改进联动</span><span>规则迭代</span>
               </div>
             </article>
           </div>

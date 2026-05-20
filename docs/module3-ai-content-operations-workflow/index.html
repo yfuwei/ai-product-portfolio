@@ -3,200 +3,1056 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI 营销内容生产工作流：从活动 Brief 到多渠道物料生成、审核与效果回流</title>
-    <meta name="description" content="模块3作品集案例页：AI 营销内容生产工作流，从活动 Brief 到多渠道物料生成、品牌审核与效果回流。" />
+    <title>AI 营销内容生产工作流：从 Campaign Brief 到多渠道物料生成、品牌审核与效果回流 | 项目详情</title>
+    <meta
+      name="description"
+      content="项目 3 中文作品集项目页：内容型 AI 应用产品化案例，展示 AI 如何进入 Brief、创意方向、多渠道版本、品牌审核、效果回流和资产沉淀。"
+    />
     <link rel="stylesheet" href="../../src/styles/main.css" />
     <style>
-      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-      body { background: linear-gradient(180deg, #fff 0%, var(--bg) 48%, #fff 100%); }
-      h1, h2, h3, p, li, a, strong, td, th { overflow-wrap: anywhere; word-break: break-word; }
-      main, section, .case-header, .case-hero, .case-section, .case-container, .case-visual, .visual-panel, .visual-node, .diagram-frame, .workflow-map, .asset-loop, .screenshot-grid, .shot-card { min-width: 0; max-width: 100%; }
-      .case-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px clamp(20px, 5vw, 64px); background: rgba(248,250,252,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
-      .case-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; color: var(--muted); font-size: 13px; font-weight: 800; }
-      .case-nav a { padding: 6px 0; border-bottom: 2px solid transparent; }
-      .case-nav a:hover { color: var(--accent-strong); border-bottom-color: rgba(37,99,235,.42); }
-      .case-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(340px,.88fr); gap: clamp(28px,5vw,64px); align-items: center; padding: clamp(48px,6vw,82px) clamp(20px,5vw,64px); background: radial-gradient(circle at top right, rgba(37,99,235,.14), transparent 34%), radial-gradient(circle at bottom left, rgba(20,184,166,.1), transparent 32%), #f8fafc; border-bottom: 1px solid var(--line); }
-      .case-short-title { margin: 0 0 12px; color: var(--accent-strong); font-size: 15px; font-weight: 900; }
-      .case-lead { max-width: 820px; margin: 20px 0 0; color: var(--text); font-size: 18px; line-height: 1.8; }
-      .status-card { margin-top: 22px; padding: 16px 18px; color: var(--ink); background: #fff; border: 1px solid rgba(37,99,235,.2); border-left: 4px solid var(--accent); border-radius: var(--radius-lg); box-shadow: var(--soft-shadow); font-weight: 800; }
-      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-      .case-visual { display: grid; gap: 14px; padding: 18px; color: #fff; background: var(--ink); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
-      .case-visual-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-      .case-visual-header span { color: var(--sun); font-size: 12px; font-weight: 900; text-transform: uppercase; }
-      .visual-panel { display: grid; gap: 12px; padding: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-md); }
-      .visual-node { padding: 14px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-sm); }
-      .visual-node strong { display: block; color: #fff; font-size: 16px; }
-      .visual-node span { display: block; margin-top: 6px; color: rgba(255,255,255,.74); font-size: 13px; }
-      .case-section { padding: clamp(64px,8vw,104px) clamp(20px,5vw,64px); border-top: 1px solid var(--line); }
-      .case-section.alt { background: #fff; }
-      .case-container { width: min(100%,1180px); margin: 0 auto; }
-      .case-section .section-header { margin-right: 0; margin-left: 0; }
-      .grid-4, .grid-3, .grid-2, .workflow-map, .asset-loop { display: grid; gap: 14px; }
-      .grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
-      .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
-      .grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .workflow-map { grid-template-columns: repeat(5,minmax(0,1fr)); }
-      .asset-loop { grid-template-columns: repeat(5,minmax(0,1fr)); }
-      .mini-card, .phase-card, .decision-card, .value-card, .shot-card, .flow-node { padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--soft-shadow); }
-      .mini-card span, .phase-card span, .flow-node span { display: inline-flex; min-height: 28px; align-items: center; padding: 5px 9px; color: var(--accent-strong); background: var(--accent-soft); border-radius: 999px; font-size: 12px; font-weight: 900; }
-      .mini-card h3, .phase-card h3, .decision-card h3, .value-card h3, .shot-card h3 { margin-top: 12px; font-size: 19px; }
-      .mini-card p, .phase-card p, .decision-card p, .value-card p, .shot-card p, .flow-node p { color: var(--muted); }
-      .diagram-frame { margin-top: 24px; padding: 18px; }
-      .diagram-title { margin: 0 0 14px; color: var(--ink); font-size: 16px; font-weight: 900; }
-      .flow-node.ai { border-color: rgba(37,99,235,.26); background: #eff6ff; }
-      .flow-node.human { border-color: rgba(249,115,22,.24); background: #fff7ed; }
-      .flow-node.output { border-color: rgba(20,184,166,.22); background: #f0fdfa; }
-      .flow-node strong { display: block; color: var(--ink); font-size: 14px; }
-      .flow-node small { display: block; margin-top: 6px; color: var(--muted); line-height: 1.55; }
-      .screenshot-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-      .shot-card img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--soft-shadow); }
-      .shot-card ul { margin: 14px 0 0; padding-left: 18px; color: var(--text); }
-      .data-note { margin: 18px 0 0; color: var(--muted); font-size: 14px; font-weight: 800; }
-      .case-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 28px clamp(20px,5vw,64px); color: var(--muted); border-top: 1px solid var(--line); }
-      @media (max-width: 1080px) { .case-hero, .grid-4, .grid-3, .grid-2, .workflow-map, .asset-loop, .screenshot-grid { grid-template-columns: 1fr; } }
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #ffffff 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      a,
+      strong,
+      td,
+      th {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      main,
+      section,
+      .case-header,
+      .case-hero,
+      .case-section,
+      .case-container,
+      .case-visual,
+      .visual-panel,
+      .visual-node,
+      .diagram-frame,
+      .step-grid,
+      .lane-grid,
+      .chain-grid,
+      .screenshot-grid {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      .case-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.88fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        background:
+          radial-gradient(circle at top right, rgba(124, 58, 237, 0.14), transparent 34%),
+          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
+          #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-short-title {
+        margin: 14px 0 0;
+        color: var(--ink);
+        font-size: clamp(24px, 3vw, 34px);
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .case-hook-question {
+        max-width: 760px;
+        margin: 24px 0 0;
+        color: var(--accent-strong);
+        font-size: clamp(22px, 2.4vw, 30px);
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .case-lead {
+        max-width: 820px;
+        margin: 20px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .mobile-break {
+        display: none;
+      }
+
+      .status-card {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        border-left: 4px solid #7c3aed;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+        line-height: 1.65;
+      }
+
+      .hero-anchor-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .hero-anchor-card {
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid rgba(124, 58, 237, 0.18);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .hero-anchor-card strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .hero-anchor-card p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .case-visual {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        color: #ffffff;
+        background: var(--ink);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .case-visual-header span {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .visual-panel {
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .visual-node {
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-sm);
+      }
+
+      .visual-node strong {
+        display: block;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .visual-node span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 13px;
+      }
+
+      .case-section {
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-section.alt {
+        background: #ffffff;
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .case-section .section-header {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-5,
+      .step-grid,
+      .lane-grid,
+      .chain-grid,
+      .asset-loop,
+      .screenshot-grid {
+        display: grid;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-5 {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .step-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        counter-reset: step;
+      }
+
+      .lane-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .chain-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .asset-loop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .mini-card,
+      .phase-card,
+      .decision-card,
+      .value-card,
+      .shot-card,
+      .flow-node,
+      .lane-card,
+      .chain-card {
+        min-width: 0;
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .mini-card span,
+      .phase-card span,
+      .flow-node span,
+      .chain-card span,
+      .value-card span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        justify-self: start;
+        padding: 5px 9px;
+        color: #6d28d9;
+        background: #f3e8ff;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .mini-card h3,
+      .phase-card h3,
+      .decision-card h3,
+      .value-card h3,
+      .shot-card h3,
+      .chain-card h3 {
+        margin: 12px 0 8px;
+        color: var(--ink);
+        font-size: 19px;
+        line-height: 1.28;
+      }
+
+      .mini-card p,
+      .phase-card p,
+      .decision-card p,
+      .value-card p,
+      .shot-card p,
+      .flow-node p,
+      .chain-card p,
+      .lane-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .diagram-frame {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        margin: 24px 0 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .diagram-title {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .flow-node {
+        display: flex;
+        min-height: 146px;
+        flex-direction: column;
+        justify-content: flex-start;
+        counter-increment: step;
+      }
+
+      .flow-node::before {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        margin-bottom: 12px;
+        color: #6d28d9;
+        background: #f3e8ff;
+        border-radius: 999px;
+        content: counter(step, decimal-leading-zero);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .flow-node.ai {
+        border-color: rgba(124, 58, 237, 0.26);
+        background: #f5f3ff;
+      }
+
+      .flow-node.human {
+        border-color: rgba(249, 115, 22, 0.24);
+        background: #fff7ed;
+      }
+
+      .flow-node.output {
+        border-color: rgba(20, 184, 166, 0.22);
+        background: #f0fdfa;
+      }
+
+      .flow-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .flow-node small {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .lane-card {
+        display: grid;
+        gap: 10px;
+      }
+
+      .lane-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+      }
+
+      .lane-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: lane-step;
+      }
+
+      .lane-list li {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        padding: 11px 13px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .lane-list li::before {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        color: #6d28d9;
+        background: #f3e8ff;
+        border-radius: 999px;
+        content: counter(lane-step, decimal-leading-zero);
+        counter-increment: lane-step;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .chain-card {
+        display: grid;
+        grid-template-rows: auto auto 1fr 1fr 1fr;
+        gap: 9px;
+        min-height: 300px;
+      }
+
+      .chain-card p strong {
+        color: var(--ink);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .tag-list span {
+        padding: 6px 9px;
+        color: #6d28d9;
+        background: #f3e8ff;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .summary-line {
+        margin: 20px 0 0;
+        padding: 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border-left: 4px solid #7c3aed;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 900;
+        line-height: 1.65;
+      }
+
+      .shot-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .shot-card ul {
+        margin: 14px 0 0;
+        padding-left: 18px;
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1180px) {
+        .case-hero,
+        .grid-5,
+        .step-grid,
+        .asset-loop,
+        .hero-anchor-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-3,
+        .chain-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
       @media (max-width: 720px) {
-        .case-header, .case-hero, .case-section, .case-footer { width: 100%; max-width: 100%; }
-        .case-hero { display: block; grid-template-columns: minmax(0,1fr); padding: 44px 20px 48px; overflow: hidden; }
-        .case-hero > *, .case-nav, .hero-tags, .hero-actions, .case-visual, .visual-panel, .visual-node { width: 100%; max-width: calc(100vw - 40px); min-width: 0; }
-        .case-hero h1 { font-size: clamp(28px,8vw,32px); line-height: 1.18; word-break: normal; }
-        .section-title { font-size: clamp(24px,7.2vw,30px); line-height: 1.22; word-break: normal; }
-        .case-lead, .status-card { font-size: 16px; }
-        .case-visual { overflow: hidden; padding: 16px; margin-top: 28px; }
-        .case-visual-header { align-items: flex-start; flex-direction: column; }
-        .visual-panel { padding: 12px; }
-        .visual-node { padding: 12px; }
-        .hero-tags span { max-width: 100%; }
-        .case-header { align-items: flex-start; flex-direction: column; }
-        .case-nav { display: grid; width: 100%; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px 10px; font-size: 12px; }
-        .case-nav a { min-width: 0; padding: 4px 0; white-space: normal; }
-        .hero-actions .button-primary, .hero-actions .button-secondary { width: 100%; text-align: center; white-space: normal; }
-        .case-section { padding: 56px 20px; }
+        h1,
+        h2,
+        h3,
+        p,
+        li,
+        strong,
+        small,
+        span,
+        a {
+          max-width: 100% !important;
+          white-space: normal !important;
+          overflow-wrap: anywhere !important;
+          word-break: break-all !important;
+        }
+
+        .case-header,
+        .case-hero,
+        .case-section,
+        .case-footer {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .case-hero {
+          display: block;
+          grid-template-columns: minmax(0, 1fr);
+          padding: 44px 20px 48px;
+          overflow: hidden;
+        }
+
+        .case-hero > *,
+        .case-nav,
+        .hero-tags,
+        .hero-actions,
+        .case-visual {
+          width: calc(100vw - 40px);
+          max-width: calc(100vw - 40px);
+          min-width: 0;
+        }
+
+        .visual-panel,
+        .visual-node {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+        }
+
+        .case-container,
+        .diagram-frame,
+        .grid-2,
+        .grid-3,
+        .grid-5,
+        .step-grid,
+        .lane-grid,
+        .chain-grid,
+        .asset-loop,
+        .screenshot-grid,
+        .mini-card,
+        .flow-node,
+        .lane-card,
+        .chain-card,
+        .phase-card,
+        .shot-card,
+        .value-card,
+        .decision-card,
+        .summary-line {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          overflow-x: hidden;
+        }
+
+        .case-hero h1 {
+          font-size: clamp(28px, 8vw, 32px);
+          line-height: 1.18;
+          max-width: 100%;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-short-title,
+        .case-hook-question,
+        .section-title {
+          max-width: 100%;
+          font-size: clamp(24px, 7.2vw, 30px);
+          line-height: 1.22;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-lead,
+        .status-card,
+        .section-description,
+        .summary-line,
+        .mini-card p,
+        .flow-node small,
+        .chain-card p,
+        .shot-card li,
+        .value-card p {
+          max-width: 100%;
+          font-size: 16px;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .case-visual {
+          margin-top: 28px;
+          padding: 16px;
+          overflow: hidden;
+        }
+
+        .mobile-break {
+          display: block;
+        }
+
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px 10px;
+          font-size: 12px;
+        }
+
+        .case-nav a {
+          min-width: 0;
+          padding: 4px 0;
+          white-space: normal;
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        .case-section {
+          padding: 56px 20px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-5,
+        .step-grid,
+        .lane-grid,
+        .chain-grid,
+        .asset-loop,
+        .screenshot-grid,
+        .hero-anchor-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .diagram-frame {
+          padding: 16px;
+        }
       }
     </style>
   </head>
   <body>
     <header class="case-header">
-      <a class="brand" href="../../index.html#entries"><span class="brand-mark">M3</span><span>AI 营销内容生产工作流</span></a>
+      <a class="brand" href="../../index.html#entries">
+        <span class="brand-mark">M3</span>
+        <span>AI 营销内容生产工作流</span>
+      </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#overview">概览</a><a href="#pain">痛点</a><a href="#workflow">工作流</a><a href="#evolution">演进</a><a href="#screens">原型</a><a href="#decisions">决策</a><a href="#value">价值</a><a href="../../index.html#entries">返回首页</a>
+        <a href="#overview">项目概览</a>
+        <a href="#problem">业务问题</a>
+        <a href="#traditional">传统流程</a>
+        <a href="#workflow">接入后</a>
+        <a href="#intervention">介入点</a>
+        <a href="#unit">责任单元</a>
+        <a href="#screens">关键页面</a>
+        <a href="#boundary">边界</a>
+        <a href="../../index.html#entries">返回首页</a>
       </nav>
     </header>
 
     <main>
-      <section class="case-hero" id="overview">
+      <section class="case-hero">
         <div>
-          <p class="section-kicker">模块 3 · 作品集案例</p>
-          <p class="case-short-title">企业营销内容生产场景的 AI 工作流产品</p>
+          <p class="section-kicker">项目 03｜内容型 AI 应用</p>
           <h1>AI 营销内容生产工作流</h1>
-          <p class="case-lead">从活动 Brief 到多渠道物料生成、审核与效果回流。面向企业营销活动内容生产场景，设计一个将 AI 嵌入 Brief 结构化、创意方向生成、多渠道版本管理、品牌审核与投放反馈复盘的工作流产品。</p>
-          <div class="status-card">本项目不是 AI 一键生成营销图，也不是设计师替代工具；AI 在其中承担内容生产链路的协同层，人工保留业务目标判断、创意取舍、品牌审核、合规确认和上线决策。</div>
-          <div class="hero-tags"><span>Enterprise AI</span><span>AI Workflow</span><span>Marketing Operations</span><span>Human-in-the-loop</span><span>Brand Governance</span></div>
+          <p class="case-short-title">从 Campaign Brief 到多渠道物料生成、<br class="mobile-break" />品牌审核与效果回流</p>
+          <p class="case-hook-question">一键生成不是生产力，<br class="mobile-break" />能进入生产链路才是。</p>
+          <p class="case-lead">
+            这个项目关注的不是让 AI 直接生成一张营销图，而是把 AI 放进 Brief 结构化、创意方向、多渠道适配、品牌审核、投放复盘和经验沉淀这一整条内容生产链路里。
+          </p>
+          <div class="status-card">
+            这是一个内容型 AI 应用产品化案例，不是 AI 文生图工具、模型技术展示或参数调优案例，也不声称已有真实商业投放结果。
+          </div>
+          <div class="hero-anchor-grid">
+            <article class="hero-anchor-card"><strong>Brief 结构化</strong><p>把一句话活动需求转成可执行输入。</p></article>
+            <article class="hero-anchor-card"><strong>多渠道协同</strong><p>让官网、小红书、公众号、信息流等版本进入状态管理。</p></article>
+            <article class="hero-anchor-card"><strong>审核与回流</strong><p>把品牌风险、投放反馈和 badcase 沉淀为下一次生产规则。</p></article>
+          </div>
+          <div class="hero-tags">
+            <span>内容型 AI 应用</span><span>Campaign Brief</span><span>多渠道版本</span><span>品牌审核</span><span>效果回流</span>
+          </div>
           <div class="hero-actions">
             <a class="button-primary" href="../../assets/docs/ai-marketing-workflow-prd-cn.pdf">查看中文 PRD PDF</a>
             <a class="button-secondary" href="../../assets/docs/ai-marketing-workflow-prd-en.pdf">查看英文 PRD PDF</a>
             <a class="button-secondary" href="../../index.html#entries">返回作品集首页</a>
           </div>
         </div>
-        <aside class="case-visual" aria-label="模块3工作流概览">
-          <div class="case-visual-header"><strong>工作流范围</strong><span>从 Brief 到经验沉淀</span></div>
+        <aside class="case-visual" aria-label="项目 3 内容生产链路概览">
+          <div class="case-visual-header"><strong>内容生产链路</strong><span>Brief 到资产回流</span></div>
           <div class="visual-panel">
-            <div class="visual-node"><strong>Brief 结构化</strong><span>目标、用户、卖点、渠道、限制</span></div>
-            <div class="visual-node"><strong>创意方向</strong><span>先判断传播策略，再投入物料生产</span></div>
-            <div class="visual-node"><strong>多渠道版本</strong><span>官网、小红书、公众号、信息流</span></div>
-            <div class="visual-node"><strong>审核与回流</strong><span>风险规则、素材库、badcase、模板更新</span></div>
+            <div class="visual-node"><strong>输入</strong><span>Campaign 需求、目标用户、卖点、渠道</span></div>
+            <div class="visual-node"><strong>协同</strong><span>创意方向、多渠道版本、人工确认</span></div>
+            <div class="visual-node"><strong>审核</strong><span>品牌规则、禁用词、权益风险、合规边界</span></div>
+            <div class="visual-node"><strong>沉淀</strong><span>素材库、badcase、Brief 模板、规则库</span></div>
           </div>
         </aside>
       </section>
 
-      <section class="case-section" id="pain">
+      <section class="case-section alt" id="overview">
         <div class="case-container">
           <div class="insight-callout">
-            <strong>AI 不该只是“多生几张图”，而应该把一次营销活动，变成下一次可复用的素材、规则和经验。</strong>
-            <p>内容型 AI 应用的关键不是单次生成效果，而是需求 brief 是否结构化、渠道版本是否可复用、品牌与风险检查是否前置、badcase 是否能进入下一轮规则更新。</p>
+            <strong>内容型 AI 应用的关键，不是“能生成”，而是生成之后能不能被确认、审核、复用和迭代。</strong>
+            <p>这个项目把 AI 放在企业营销内容链路中，服务 Brief、创意方向、渠道版本、品牌审核和效果回流，而不是只展示单张物料的生成能力。</p>
           </div>
-          <div class="section-header"><p class="section-kicker">01 · 业务痛点</p><h2 class="section-title">业务痛点</h2><p class="section-description">真正拖慢企业营销内容生产的，不只是“设计出图”，而是 Brief、方向、渠道版本和复盘资产之间没有形成稳定链路。</p></div>
-          <div class="grid-4">
-            <article class="mini-card"><span>Brief 不清晰</span><h3>一句话需求难执行</h3><p>缺少目标用户、卖点优先级、渠道目标、内容限制和审核要求。</p></article>
-            <article class="mini-card"><span>缺少中间态</span><h3>直接出图导致返工</h3><p>团队经常看到成稿后才发现方向不对，造成设计和沟通返工。</p></article>
-            <article class="mini-card"><span>多渠道混乱</span><h3>适配重复且难追踪</h3><p>官网、小红书、公众号、信息流广告要求不同，版本状态难统一。</p></article>
-            <article class="mini-card"><span>经验不沉淀</span><h3>审核与投放断开</h3><p>审核意见停留在单次修改中，投放数据没有回流到模板和规则库。</p></article>
+          <div class="section-header">
+            <p class="section-kicker">01｜项目概览</p>
+            <h2 class="section-title">项目概览：从生成到内容生产机制</h2>
+            <p class="section-description">
+              项目 3 的目标是验证：企业营销内容生产是否可以从临时需求响应，升级为一套可结构化输入、可协作生成、可审核上线、可回流复用的内容型 AI 产品责任单元。
+            </p>
+          </div>
+          <div class="grid-3">
+            <article class="mini-card"><span>不做什么</span><h3>不是文生图执行案例</h3><p>页面不以模型训练、参数配置或生成技巧作为主线。</p></article>
+            <article class="mini-card"><span>做什么</span><h3>进入生产链路</h3><p>AI 承担结构化、发散、适配、检查和复盘，人保留关键判断。</p></article>
+            <article class="mini-card"><span>证明什么</span><h3>形成组织资产</h3><p>让素材、审核意见、投放反馈和 badcase 能进入下一轮 Campaign。</p></article>
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="workflow">
+      <section class="case-section" id="problem">
         <div class="case-container">
-          <div class="section-header"><p class="section-kicker">02 · AI Workflow</p><h2 class="section-title">AI 接入后的工作流</h2><p class="section-description">AI 不是替代整个内容生产流程，而是在关键节点降低信息整理、方向发散、重复适配和规则检查成本，同时保留人工判断。</p><p class="section-description">从一句话需求到多渠道内容，不是生成链路越长越好，而是每一步都要沉淀为可复用的输入、审核标准和版本资产。</p></div>
-          <figure class="diagram-frame module-card">
-            <p class="diagram-title">从一次性内容生产到可持续优化机制</p>
-            <div class="workflow-map">
-              <div class="flow-node"><span>Input</span><strong>一句话 Campaign 需求</strong><small>新品上市、促销、社媒传播或渠道运营需求</small></div>
-              <div class="flow-node ai"><span>AI</span><strong>结构化 Brief / 创意方向</strong><small>识别缺失信息，生成多个传播方向</small></div>
-              <div class="flow-node human"><span>Human</span><strong>确认 Brief / 主方向</strong><small>业务、运营、设计、品牌共同判断</small></div>
-              <div class="flow-node ai"><span>AI</span><strong>多渠道适配 / 风险检查</strong><small>生成版本、CTA、视觉说明和风险提示</small></div>
-              <div class="flow-node output"><span>Loop</span><strong>效果回流</strong><small>更新素材库、badcase 库、Brief 模板和规则库</small></div>
+          <div class="section-header">
+            <p class="section-kicker">02｜业务问题</p>
+            <h2 class="section-title">业务问题：缺少稳定链路</h2>
+            <p class="section-description">
+              内容生产的问题，往往不是“不会生成”，而是“生成之后没人接”。企业营销内容生产中，真正拖慢效率的并不只是设计出图，而是从需求输入、方向对齐、多渠道适配、品牌审核到投放复盘之间没有形成稳定链路。
+            </p>
+          </div>
+          <div class="grid-5">
+            <article class="mini-card"><span>Brief 不清</span><h3>一句话需求难执行</h3><p>缺少目标用户、卖点优先级、渠道目标和审核要求。</p></article>
+            <article class="mini-card"><span>方向未对齐</span><h3>成稿后才发现偏差</h3><p>直接进入成稿，业务、设计和品牌团队看到结果后才发现方向不对。</p></article>
+            <article class="mini-card"><span>适配重复</span><h3>多渠道状态难统一</h3><p>官网、小红书、公众号、信息流等渠道要求不同，版本管理分散。</p></article>
+            <article class="mini-card"><span>审核返工</span><h3>风险上线前才暴露</h3><p>品牌语气、禁用词、合规边界依赖人工经验，返工集中在后段。</p></article>
+            <article class="mini-card"><span>无法回流</span><h3>复盘不进入下一次生产</h3><p>投放数据停留在报告里，无法回到 Brief、模板、素材库和规则库。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="traditional">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03｜传统流程与断点</p>
+            <h2 class="section-title">传统流程：每次都重新开始</h2>
+            <p class="section-description">
+              传统流程中的核心问题不只是“出图慢”，而是输入不清、方向返工、版本混乱、审核反复、经验不沉淀。
+            </p>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">传统内容生产链路</p>
+            <div class="step-grid">
+              <div class="flow-node"><strong>活动需求提出</strong><small>一句话活动目标或渠道需求</small></div>
+              <div class="flow-node"><strong>Brief 编写与补充</strong><small>人工补齐用户、卖点、渠道和限制</small></div>
+              <div class="flow-node"><strong>设计理解与创意探索</strong><small>方向经常在成稿后才被讨论</small></div>
+              <div class="flow-node human"><strong>业务反馈与多轮修改</strong><small>成稿后反复调整方向、文案和画面</small></div>
+              <div class="flow-node human"><strong>多渠道版本适配</strong><small>官网、小红书、公众号、信息流分别调整</small></div>
+              <div class="flow-node human"><strong>品牌 / 法务 / 管理层审核</strong><small>风险经常在后段集中暴露</small></div>
+              <div class="flow-node output"><strong>上线投放</strong><small>进入活动渠道和广告位</small></div>
+              <div class="flow-node output"><strong>数据复盘</strong><small>形成一次性复盘报告</small></div>
+              <div class="flow-node output"><strong>下一次重新开始</strong><small>数据和经验很少回到下一次生产输入</small></div>
             </div>
           </figure>
         </div>
       </section>
 
-      <section class="case-section" id="evolution">
+      <section class="case-section" id="workflow">
         <div class="case-container">
-          <div class="section-header"><p class="section-kicker">03 · Product Evolution</p><h2 class="section-title">V1 / V2 / V3 产品演进</h2></div>
-          <div class="grid-3">
-            <article class="phase-card"><span>V1</span><h3>Brief 结构化与创意方向辅助</h3><p><strong>解决问题：</strong>需求不清、方向不明。</p><p><strong>AI 作用：</strong>识别缺失信息，生成结构化 Brief 和多个传播方向。</p><p><strong>人工作用：</strong>确认目标用户、卖点优先级、限制条件和主方向。</p><p><strong>产品价值：</strong>降低前期沟通成本，减少方向返工。</p></article>
-            <article class="phase-card"><span>V2</span><h3>多渠道生成与版本管理</h3><p><strong>解决问题：</strong>多渠道适配重复、版本状态混乱。</p><p><strong>AI 作用：</strong>根据渠道生成不同标题、CTA、视觉说明和风险提示。</p><p><strong>人工作用：</strong>编辑版本、确认内容、提交审核、管理状态。</p><p><strong>产品价值：</strong>提升多渠道内容生产协同效率。</p></article>
-            <article class="phase-card"><span>V3</span><h3>品牌审核与效果回流</h3><p><strong>解决问题：</strong>品牌不可控、经验不可沉淀。</p><p><strong>AI 作用：</strong>识别风险表达，总结投放结果，提出规则更新建议。</p><p><strong>人工作用：</strong>品牌 / 法务审核，确认经验是否进入规则库、素材库和 Brief 模板。</p><p><strong>产品价值：</strong>形成可控、可复用、可优化的内容生产机制。</p></article>
+          <div class="section-header">
+            <p class="section-kicker">04｜AI 接入后的内容生产工作流</p>
+            <h2 class="section-title">AI 接入后：从 Campaign 到资产回流</h2>
+            <p class="section-description">
+              AI 不是替代原有内容生产流程，而是嵌入到企业内容生产的关键节点中，承担结构化、发散、适配、检查和复盘的协同角色。
+            </p>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">AI 进入内容生产链路</p>
+            <div class="step-grid">
+              <div class="flow-node"><strong>一句话 Campaign 需求</strong><small>活动目标、渠道诉求或新品传播需求</small></div>
+              <div class="flow-node ai"><strong>AI 结构化 Brief</strong><small>补齐目标用户、卖点、渠道和限制条件</small></div>
+              <div class="flow-node human"><strong>人工确认 Brief</strong><small>确认业务目标、卖点优先级和限制条件</small></div>
+              <div class="flow-node ai"><strong>AI 生成创意方向</strong><small>生成多个传播方向和适配建议</small></div>
+              <div class="flow-node human"><strong>人工选择主方向</strong><small>业务、设计和品牌共同判断</small></div>
+              <div class="flow-node ai"><strong>AI 多渠道版本适配</strong><small>生成标题、CTA、视觉说明和渠道版本</small></div>
+              <div class="flow-node ai"><strong>品牌审核 / 风险检查</strong><small>识别禁用表达、权益风险和渠道规范</small></div>
+              <div class="flow-node human"><strong>人工确认上线</strong><small>品牌、法务或业务负责人保留最终判断</small></div>
+              <div class="flow-node output"><strong>投放数据回流</strong><small>关联具体内容版本和渠道表现</small></div>
+              <div class="flow-node output"><strong>更新组织资产</strong><small>更新素材库、badcase 库、Brief 模板和规则库</small></div>
+            </div>
+          </figure>
+          <div class="lane-grid">
+            <article class="lane-card">
+              <h3>AI 负责</h3>
+              <ol class="lane-list">
+                <li>结构化</li>
+                <li>发散</li>
+                <li>适配</li>
+                <li>检查</li>
+                <li>复盘</li>
+              </ol>
+            </article>
+            <article class="lane-card">
+              <h3>人负责</h3>
+              <ol class="lane-list">
+                <li>业务目标判断</li>
+                <li>创意取舍</li>
+                <li>审美与品牌判断</li>
+                <li>合规确认</li>
+                <li>上线与复盘采用</li>
+              </ol>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="intervention">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05｜AI 介入点</p>
+            <h2 class="section-title">AI 介入点：不只站在出图那一步</h2>
+            <p class="section-description">
+              AI 不应该只站在出图那一步，而应该进入 Brief、创意方向、多渠道版本、品牌审核和复盘沉淀之间。
+            </p>
+          </div>
+          <div class="grid-5">
+            <article class="mini-card"><span>需求结构化助手</span><h3>补齐输入</h3><p>将一句话需求拆解为目标用户、卖点优先级、渠道与限制条件，解决 Brief 不清。</p></article>
+            <article class="mini-card"><span>创意方向助手</span><h3>先判断方向</h3><p>生成多个传播方向和适配建议，避免直接出图导致方向返工。</p></article>
+            <article class="mini-card"><span>多渠道适配助手</span><h3>管理版本</h3><p>生成不同渠道的标题、CTA、视觉说明和风险提示，降低重复适配。</p></article>
+            <article class="mini-card"><span>品牌风险检查助手</span><h3>前置风险</h3><p>识别禁用表达、绝对化承诺、未确认权益和渠道风险，减少审核返工。</p></article>
+            <article class="mini-card"><span>复盘沉淀助手</span><h3>回流经验</h3><p>总结渠道表现、提炼高表现素材和 badcase，让经验进入下一次生产。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="unit">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">06｜核心产品责任单元</p>
+            <h2 class="section-title">核心产品责任单元：从 Brief 到资产沉淀</h2>
+            <p class="section-description">
+              这部分是项目 3 的主链路：Campaign Brief → 创意方向 → 多渠道版本 → 品牌审核 → 上线与效果回流 → 资产与规则沉淀。
+            </p>
+          </div>
+          <div class="chain-grid">
+            <article class="chain-card"><span>Brief 结构化</span><h3>可执行 Campaign Brief</h3><p><strong>AI：</strong>识别缺失信息，拆解目标用户、卖点、渠道和限制条件。</p><p><strong>人：</strong>确认业务目标和卖点优先级。</p><p><strong>输出：</strong>可执行 Campaign Brief。</p></article>
+            <article class="chain-card"><span>创意方向生成</span><h3>确认传播方向</h3><p><strong>AI：</strong>生成多个传播方向和适配建议。</p><p><strong>人：</strong>选择主方向，判断创意是否符合品牌与业务目标。</p><p><strong>输出：</strong>确认后的传播方向。</p></article>
+            <article class="chain-card"><span>多渠道版本适配</span><h3>渠道版本进入状态管理</h3><p><strong>AI：</strong>生成不同渠道标题、CTA、视觉说明和风险提示。</p><p><strong>人：</strong>编辑、选择、确认版本。</p><p><strong>输出：</strong>官网、小红书、公众号、信息流等渠道版本。</p></article>
+            <article class="chain-card"><span>品牌审核与风险检查</span><h3>上线前确认</h3><p><strong>AI：</strong>检查禁用词、夸大宣传、未确认权益和渠道规范。</p><p><strong>人：</strong>品牌 / 法务 / 业务负责人确认。</p><p><strong>输出：</strong>可上线版本或修改意见。</p></article>
+            <article class="chain-card"><span>上线与效果回流</span><h3>投放表现进入复盘</h3><p><strong>AI：</strong>总结投放表现和不同版本差异。</p><p><strong>人：</strong>确认归因是否成立。</p><p><strong>输出：</strong>复盘结论。</p></article>
+            <article class="chain-card"><span>资产与规则沉淀</span><h3>下一次可调用</h3><p><strong>AI：</strong>提出素材库、badcase、Brief 模板和规则库更新建议。</p><p><strong>人：</strong>确认哪些经验进入组织资产。</p><p><strong>输出：</strong>下一次 Campaign 可调用的经验。</p></article>
           </div>
         </div>
       </section>
 
       <section class="case-section alt" id="screens">
         <div class="case-container">
-          <div class="section-header"><p class="section-kicker">04 · 页面原型</p><h2 class="section-title">关键页面原型展示</h2><p class="section-description">五张原型截图用于说明产品机制。页面中的示例数据用于说明产品机制，不代表真实商业投放结果。</p></div>
+          <div class="section-header">
+            <p class="section-kicker">07｜关键页面原型</p>
+            <h2 class="section-title">关键页面：从输入、生成、审核到回流</h2>
+            <p class="section-description">
+              当前已有五张低保真原型，先按产品链路组织说明。Campaign 创建页可在后续 P2 作为独立页面补齐。
+            </p>
+          </div>
+          <div class="summary-line">
+            关键页面规划还包括 Campaign 创建页，用于承接模糊营销活动需求，并把它转化为后续 Brief 结构化页可以处理的对象。
+          </div>
           <div class="screenshot-grid">
-            <article class="shot-card"><img src="assets/screenshots/brief-structure-page.png" alt="Brief 结构化页截图" /><h3>Brief 结构化页</h3><ul><li>页面价值：把模糊营销需求前置结构化，减少后续创意和设计返工。</li><li>AI 接入点：拆解目标、用户、卖点优先级、渠道交付物和内容限制。</li><li>人工确认点：Brief 经运营或业务负责人确认后进入创意方向生成。</li></ul></article>
-            <article class="shot-card"><img src="assets/screenshots/creative-direction-page.png" alt="创意方向选择页截图" /><h3>创意方向选择页</h3><ul><li>页面价值：AI 先生成传播策略方向，而不是直接生成最终物料。</li><li>AI 接入点：生成多个创意方向，并提示适配渠道和潜在风险。</li><li>人工确认点：运营、设计和品牌团队共同选择主方向。</li></ul></article>
-            <article class="shot-card"><img src="assets/screenshots/multi-channel-version-page.png" alt="多渠道版本管理页截图" /><h3>多渠道版本管理页</h3><ul><li>页面价值：同一个 Campaign 拆解为多个渠道版本，并进入状态、风险和审核管理。</li><li>AI 接入点：生成各渠道版本，解释适配理由和风险提示。</li><li>人工确认点：负责人编辑版本、提交审核、保留历史版本。</li></ul></article>
-            <article class="shot-card"><img src="assets/screenshots/brand-review-page.png" alt="品牌审核页截图" /><h3>品牌审核页</h3><ul><li>页面价值：AI 对风险表达做初筛，最终判断由品牌、法务和业务负责人确认。</li><li>AI 接入点：检查禁用表达、绝对化承诺、未确认权益和渠道规则。</li><li>人工确认点：确认通过、要求修改或升级审核。</li></ul></article>
-            <article class="shot-card"><img src="assets/screenshots/performance-review-page.png" alt="效果复盘页截图" /><h3>效果复盘页</h3><ul><li>页面价值：投放数据回流到素材库、badcase 库、Brief 模板和规则库。</li><li>AI 接入点：总结渠道表现、识别高表现方向、提炼 badcase 和规则更新建议。</li><li>人工确认点：确认哪些经验进入组织资产。</li></ul></article>
+            <article class="shot-card"><img src="assets/screenshots/brief-structure-page.png" alt="Brief 结构化页截图" /><h3>Brief 结构化页</h3><ul><li>解决：一句话活动需求如何变成可执行输入。</li><li>AI 接入点：拆解目标、用户、卖点优先级、渠道交付物和内容限制。</li><li>人工确认点：Brief 经运营或业务负责人确认后进入创意方向生成。</li></ul></article>
+            <article class="shot-card"><img src="assets/screenshots/creative-direction-page.png" alt="创意方向选择页截图" /><h3>创意方向选择页</h3><ul><li>解决：在出图前先完成传播策略判断。</li><li>AI 接入点：生成多个创意方向，并提示适配渠道和潜在风险。</li><li>人工确认点：运营、设计和品牌团队共同选择主方向。</li></ul></article>
+            <article class="shot-card"><img src="assets/screenshots/multi-channel-version-page.png" alt="多渠道版本管理页截图" /><h3>多渠道版本管理页</h3><ul><li>解决：多个渠道版本如何进入状态和风险管理。</li><li>AI 接入点：生成各渠道版本，解释适配理由和风险提示。</li><li>人工确认点：负责人编辑版本、提交审核、保留历史版本。</li></ul></article>
+            <article class="shot-card"><img src="assets/screenshots/brand-review-page.png" alt="品牌审核页截图" /><h3>品牌审核页</h3><ul><li>解决：AI 内容如何被品牌、法务和业务确认。</li><li>AI 接入点：检查禁用表达、绝对化承诺、未确认权益和渠道规则。</li><li>人工确认点：确认通过、要求修改或升级审核。</li></ul></article>
+            <article class="shot-card"><img src="assets/screenshots/performance-review-page.png" alt="效果复盘页截图" /><h3>效果复盘页</h3><ul><li>解决：投放数据如何回流到素材、规则和模板。</li><li>AI 接入点：总结渠道表现、识别高表现方向、提炼 badcase 和规则更新建议。</li><li>人工确认点：确认哪些经验进入组织资产。</li></ul></article>
           </div>
         </div>
       </section>
 
-      <section class="case-section" id="decisions">
+      <section class="case-section" id="evolution">
         <div class="case-container">
-          <div class="section-header"><p class="section-kicker">05 · 产品决策</p><h2 class="section-title">关键设计决策</h2></div>
-          <div class="grid-4">
-            <article class="decision-card"><h3>先做 Brief 结构化</h3><p>如果输入不清晰，AI 生成速度越快，后续返工也可能越快。</p></article>
-            <article class="decision-card"><h3>先生成创意方向</h3><p>将“创意方向”作为中间态，让运营、设计和品牌在投入生产前完成判断。</p></article>
-            <article class="decision-card"><h3>生成与审核绑定</h3><p>每个渠道版本都需要保留状态、风险等级、修改记录和人工确认记录。</p></article>
-            <article class="decision-card"><h3>复盘必须回流</h3><p>投放结果应更新素材库、badcase 库、Brief 模板和规则库，成为下一次 Campaign 的输入。</p></article>
+          <div class="section-header">
+            <p class="section-kicker">08｜产品演进路径</p>
+            <h2 class="section-title">产品演进路径：从输入标准化到审核回流</h2>
+            <p class="section-description">
+              这条演进线不是让 AI 越来越会“生成”，而是让企业内容生产从一次性交付，逐步变成可控、可追踪、可复用的工作流。
+            </p>
+          </div>
+          <div class="grid-3">
+            <article class="phase-card">
+              <span>V1｜输入标准化</span>
+              <h3>Brief 结构化与创意方向辅助</h3>
+              <p><strong>解决问题：</strong>需求不清、方向不明。</p>
+              <p><strong>产品价值：</strong>降低前期沟通成本，减少方向返工。</p>
+              <div class="tag-list"><span>一句话需求解析</span><span>缺失信息追问</span><span>卖点优先级</span><span>创意方向生成</span><span>人工确认 Brief</span></div>
+            </article>
+            <article class="phase-card">
+              <span>V2｜生产协同</span>
+              <h3>多渠道生成与版本管理</h3>
+              <p><strong>解决问题：</strong>多渠道适配重复、版本状态混乱。</p>
+              <p><strong>产品价值：</strong>提升内容生产协同效率。</p>
+              <div class="tag-list"><span>渠道版本生成</span><span>CTA / 文案 / 视觉说明</span><span>状态管理</span><span>修改记录</span><span>风险提示</span></div>
+            </article>
+            <article class="phase-card">
+              <span>V3｜审核回流</span>
+              <h3>品牌审核与效果回流</h3>
+              <p><strong>解决问题：</strong>品牌不可控、经验不沉淀。</p>
+              <p><strong>产品价值：</strong>形成可控、可复用、可优化的内容生产机制。</p>
+              <div class="tag-list"><span>品牌规则</span><span>风险检查</span><span>审核意见沉淀</span><span>投放数据回流</span><span>高表现素材库</span><span>badcase 更新</span></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="value">
+      <section class="case-section alt" id="assets">
         <div class="case-container">
-          <div class="section-header"><p class="section-kicker">06 · 反馈闭环与价值</p><h2 class="section-title">反馈闭环与项目价值</h2><p class="section-description">每一次活动不再是一次性内容生产，而是持续优化企业内容生产机制。AI 的价值从“生成一张图”升级为“帮助组织沉淀可复用的内容生产能力”。</p></div>
-          <figure class="diagram-frame module-card">
-            <p class="diagram-title">组织资产沉淀</p>
-            <div class="asset-loop">
-              <div class="flow-node output"><strong>高表现素材</strong><small>进入素材库</small></div>
-              <div class="flow-node output"><strong>低表现内容</strong><small>进入 badcase 库</small></div>
-              <div class="flow-node output"><strong>风险表达</strong><small>进入品牌 / 风险规则库</small></div>
-              <div class="flow-node output"><strong>反复缺失字段</strong><small>进入 Brief 模板</small></div>
-              <div class="flow-node output"><strong>成功方向</strong><small>进入后续 Campaign 参考</small></div>
+          <div class="section-header">
+            <p class="section-kicker">09｜反馈闭环与组织资产</p>
+            <h2 class="section-title">反馈闭环：一次生成只是结果，能被复用才是生产力</h2>
+            <p class="section-description">
+              Campaign 上线后，投放数据、人工反馈和审核意见不应停留在一次性复盘报告中，而应回流到下一次生产。
+            </p>
+          </div>
+          <figure class="diagram-frame">
+            <p class="diagram-title">上线后的经验回流路径</p>
+            <div class="step-grid">
+              <div class="flow-node output"><strong>Campaign 上线</strong><small>内容进入官网、社媒、广告或私域渠道</small></div>
+              <div class="flow-node output"><strong>收集投放数据</strong><small>关联具体渠道与内容版本</small></div>
+              <div class="flow-node ai"><strong>AI 总结表现差异</strong><small>识别高表现方向和低表现问题</small></div>
+              <div class="flow-node human"><strong>人工确认归因</strong><small>判断数据结论是否可以复用</small></div>
+              <div class="flow-node output"><strong>沉淀素材与 badcase</strong><small>更新素材库和风险案例</small></div>
+              <div class="flow-node output"><strong>更新规则或策略</strong><small>下一次 Campaign 创建时调用相关经验</small></div>
             </div>
           </figure>
-          <div class="grid-3">
-            <article class="value-card"><h3>对业务</h3><p>提升 Brief 质量，降低沟通和返工成本，提高多渠道内容生产效率，提升品牌一致性，并将投放效果反哺下一次内容生产。</p></article>
-            <article class="value-card"><h3>对组织</h3><p>将分散经验转化为可复用资产，将品牌规范从静态文档转化为可调用规则，将审核意见转化为规则更新。</p></article>
-            <article class="value-card"><h3>对 AI 产品设计</h3><p>从业务流程而非工具功能出发定义产品，明确 AI 接入节点和人机协同边界，把一次性生成升级为可追踪、可复用、可优化的工作流。</p></article>
+          <div class="asset-loop">
+            <article class="value-card"><span>素材库</span><h3>高表现素材</h3><p>沉淀可复用的图片、标题、卖点表达和渠道版本。</p></article>
+            <article class="value-card"><span>badcase 库</span><h3>低表现内容与风险案例</h3><p>记录不适合复用的表达、画面和审核问题。</p></article>
+            <article class="value-card"><span>Brief 模板</span><h3>反复缺失字段</h3><p>将常见缺失项回写到下一次需求输入模板。</p></article>
+            <article class="value-card"><span>规则库</span><h3>品牌 / 风险规则</h3><p>把审核意见从单次修改沉淀为可调用规则。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="boundary">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">10｜验证方式与项目边界</p>
+            <h2 class="section-title">验证方式与项目边界</h2>
+            <p class="section-description">
+              这是一个内容型 AI 应用产品设计案例，不包装成真实营销投放效果，也不声明已经带来点击率、转化率或销售提升。
+            </p>
+          </div>
+          <div class="grid-2">
+            <article class="value-card">
+              <h3>适合验证什么</h3>
+              <div class="tag-list"><span>Brief 完整度是否提升</span><span>创意方向是否减少返工</span><span>多渠道版本是否更好管理</span><span>品牌风险是否更早暴露</span><span>人工确认节点是否覆盖关键决策</span><span>结果是否能回流为组织资产</span></div>
+            </article>
+            <article class="value-card">
+              <h3>当前边界</h3>
+              <div class="tag-list"><span>不声称真实商业投放结果</span><span>不替代设计师、品牌审核或法务判断</span><span>不让 AI 绕过人工确认直接上线</span><span>不以模型参数作为项目主线</span><span>不把生成图片质量作为唯一成功标准</span><span>不把模拟数据包装成真实业务结果</span></div>
+            </article>
+          </div>
+          <div class="summary-line">
+            这个项目要证明的不是“我会用 AI 生成营销图”，而是我能从企业营销内容生产链路出发，判断 AI 应该在哪些节点介入，并把 Brief、方向、版本、审核、上线、复盘和资产沉淀组织成一个可控、可复用、可评估的内容型 AI 产品责任单元。
           </div>
         </div>
       </section>
     </main>
-    <footer class="case-footer"><span>AI 营销内容生产工作流 · 从活动 Brief 到多渠道物料生成、审核与效果回流</span><a href="../../index.html#entries">返回作品集首页</a></footer>
+    <footer class="case-footer">
+      <span>AI 营销内容生产工作流 · 从 Campaign Brief 到多渠道物料生成、品牌审核与效果回流</span>
+      <a href="../../index.html#entries">返回作品集首页</a>
+    </footer>
   </body>
 </html>
