@@ -312,6 +312,7 @@
 
       .lane-steps span {
         position: relative;
+        display: block;
         padding: 10px 12px;
         color: var(--text);
         background: rgba(255, 255, 255, 0.72);
@@ -433,6 +434,17 @@
         flex-wrap: wrap;
         gap: 8px;
         margin-top: 2px;
+      }
+
+      .evolution-abilities span {
+        min-height: 26px;
+        padding: 5px 8px;
+        color: var(--accent-strong);
+        background: #eef4ff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
       }
 
       .evolution-card ul,
@@ -671,6 +683,49 @@
         gap: 18px;
       }
 
+      .boundary-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .boundary-compare-card {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+      }
+
+      .boundary-compare-card h4 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .boundary-compare-card dl {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+      }
+
+      .boundary-compare-card div {
+        display: grid;
+        gap: 4px;
+      }
+
+      .boundary-compare-card dt {
+        color: var(--accent-strong);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .boundary-compare-card dd {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
       .boundary-list {
         display: grid;
         gap: 10px;
@@ -707,6 +762,7 @@
         .evolution-grid,
         .trace-layout,
         .badcase-grid,
+        .boundary-compare,
         .card-grid,
         .unit-grid,
         .flow-diagram,
@@ -1453,22 +1509,33 @@
             </div>
             <div class="module-card">
               <h3>项目 1 与项目 2 的边界</h3>
-              <div class="table-wrap" style="box-shadow:none">
-                <table>
-                  <thead><tr><th>项目</th><th>核心对象</th><th>回答的问题</th></tr></thead>
-                  <tbody>
-                    <tr>
-                      <td>项目 1：企业知识工作台</td>
-                      <td>知识资产、历史经验、决策依据</td>
-                      <td>企业过去积累的资料、经验和判断，如何被检索、引用、复盘和沉淀。</td>
-                    </tr>
-                    <tr>
-                      <td>项目 2：AI 业务需求流转工作台</td>
-                      <td>当前需求、任务、责任链路、状态流转</td>
-                      <td>新需求从会议和沟通中产生后，如何被识别、确认、拆解、执行和复盘。</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="boundary-compare">
+                <article class="boundary-compare-card">
+                  <h4>项目 1：企业知识工作台</h4>
+                  <dl>
+                    <div>
+                      <dt>核心对象</dt>
+                      <dd>知识资产、历史经验、决策依据</dd>
+                    </div>
+                    <div>
+                      <dt>回答的问题</dt>
+                      <dd>企业过去积累的资料、经验和判断，如何被检索、引用、复盘和沉淀。</dd>
+                    </div>
+                  </dl>
+                </article>
+                <article class="boundary-compare-card">
+                  <h4>项目 2：AI 业务需求流转工作台</h4>
+                  <dl>
+                    <div>
+                      <dt>核心对象</dt>
+                      <dd>当前需求、任务、责任链路、状态流转</dd>
+                    </div>
+                    <div>
+                      <dt>回答的问题</dt>
+                      <dd>新需求从会议和沟通中产生后，如何被识别、确认、拆解、执行和复盘。</dd>
+                    </div>
+                  </dl>
+                </article>
               </div>
             </div>
           </div>
