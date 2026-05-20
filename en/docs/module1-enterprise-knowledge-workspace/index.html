@@ -304,6 +304,37 @@
         color: var(--ink);
       }
 
+      .portfolio-figure {
+        margin: 22px 0 0;
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .portfolio-figure img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background: #f8fafc;
+      }
+
+      .portfolio-figure figcaption {
+        padding: 14px 16px 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .figure-title {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-weight: 900;
+      }
+
       .case-footer {
         display: flex;
         flex-wrap: wrap;
@@ -346,6 +377,10 @@
 
         .case-visual {
           margin-top: 28px;
+        }
+
+        .portfolio-figure {
+          margin-top: 18px;
         }
 
         .case-section {
@@ -430,6 +465,10 @@
             <article class="info-card"><span>Control</span><h3>Who can see and confirm it?</h3><p>Permission boundaries and human confirmation are part of the product, not add-ons.</p></article>
             <article class="info-card"><span>Iteration</span><h3>How does it improve?</h3><p>badcases, eval sets, and version records turn errors into system improvements.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="Enterprise Knowledge Workspace overview screen" loading="lazy" />
+            <figcaption><span class="figure-title">Product view: Enterprise Knowledge Workspace</span>The workspace connects knowledge search, project review, reusable experience, and evaluation entry points in one product surface.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -473,6 +512,10 @@
               <p>The user submits a knowledge task, AI retrieves specified materials, returns cited sources, drafts structure, waits for human confirmation, and feeds badcases into iteration.</p>
             </article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig01_ai_intervention_product_unit.png" alt="AI intervention points and product responsibility unit for the knowledge workspace" loading="lazy" />
+            <figcaption><span class="figure-title">Workflow view: from business problem to AI product unit</span>AI is not only added as document Q&A. It enters retrieval, source grounding, review, and maintainability points that form a product responsibility unit.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -488,6 +531,10 @@
             <article class="module-card"><span>Search</span><h3>Keep as supporting capability</h3><p>Useful when filenames, titles, or exact terms are known; weak for fuzzy intent and cross-document synthesis.</p></article>
             <article class="module-card"><span>Trusted Context Layer</span><h3>V1 product foundation</h3><p>Needed for specified sources, citation grounding, updates, and knowledge verification.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="Search and citation results screen for the enterprise knowledge workspace" loading="lazy" />
+            <figcaption><span class="figure-title">Trusted context: search and citation results</span>The answer is paired with cited snippets, source documents, and original reference paths so users can verify the conclusion.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -524,6 +571,10 @@
               <li><strong>Human Review</strong><span>User confirms whether it becomes a review draft.</span></li>
             </ul>
           </article>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="Knowledge task Q&A screen with cited sources and review context" loading="lazy" />
+            <figcaption><span class="figure-title">Agent workflow: knowledge task Q&A</span>The interface is organized around retrieval, citations, answer structuring, and confirmation rather than an open-ended chat window.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -538,6 +589,10 @@
             <article class="module-card"><span>Versions and Decisions</span><h3>prompt_version / changelog / decision log</h3><p>Record changes in prompts, workflows, and product judgments.</p></article>
             <article class="module-card"><span>Evaluation and Rollback</span><h3>badcase / eval set / rollback note</h3><p>Turn errors, tests, failed versions, and human review points into maintenance assets.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="Evaluation and iteration dashboard for badcase tracking and version review" loading="lazy" />
+            <figcaption><span class="figure-title">Maintainability layer: evaluation and iteration dashboard</span>The product needs badcase tracking, evaluation signals, and version records so the workflow can keep improving after the demo.</figcaption>
+          </figure>
         </div>
       </section>
 

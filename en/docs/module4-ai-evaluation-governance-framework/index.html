@@ -309,6 +309,37 @@
         padding: 18px;
       }
 
+      .portfolio-figure {
+        margin: 24px 0 0;
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .portfolio-figure img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background: #f8fafc;
+      }
+
+      .portfolio-figure figcaption {
+        padding: 14px 16px 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .figure-title {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-weight: 900;
+      }
+
       .diagram-title {
         margin: 0 0 14px;
         color: var(--ink);
@@ -408,7 +439,8 @@
         .case-visual,
         .case-visual img,
         .opportunity-board,
-        .diagram-frame {
+        .diagram-frame,
+        .portfolio-figure {
           width: 100%;
           max-width: 100%;
           box-sizing: border-box;
@@ -517,6 +549,10 @@
           width: calc(100% - 10px);
           max-width: calc(100% - 10px);
         }
+
+        .portfolio-figure {
+          margin-top: 18px;
+        }
       }
     </style>
   </head>
@@ -607,6 +643,10 @@
             <article class="mechanism-card"><span>Launch Gate</span><h3>Stage thresholds</h3><p>Define Demo, MVP, and Pilot gates before moving forward.</p></article>
             <article class="mechanism-card"><span>Bad Case Loop</span><h3>Failures become iteration assets</h3><p>Convert bad cases into rule, Prompt, knowledge, or workflow updates.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="assets/diagrams/fig7_readiness_operating_layer_light_v052.svg" alt="Lightweight readiness operating layer between demo and pilot-ready AI application" loading="lazy" />
+            <figcaption><span class="figure-title">Readiness Operating Layer</span>The layer turns an impressive demo into a bounded, reviewable, measurable, and pilot-ready product mechanism.</figcaption>
+          </figure>
           <p class="boundary-note">Project 2 shows how a middle layer works inside a workflow-based AI application. Project 4 abstracts it into a reusable productization mechanism from Demo to Pilot.</p>
         </div>
       </section>
@@ -624,6 +664,10 @@
             <article class="opportunity-card assist"><span class="card-label">Controlled Assist</span><h3>Controlled Assistance</h3><p><strong>Logic:</strong> valuable but higher risk, assist only.</p><p><strong>Examples:</strong> customer reply suggestions, proposal recommendations, budget judgment.</p></article>
             <article class="opportunity-card stop"><span class="card-label">Hold / No-Go</span><h3>Hold or No-Go</h3><p><strong>Logic:</strong> immature conditions or excessive risk.</p><p><strong>Examples:</strong> automatic external sending, irreversible approval, sensitive automated handling.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/diagrams/ai_opportunity_map_for_enterprise_scenarios.png" alt="AI opportunity map for classifying enterprise AI scenarios" loading="lazy" />
+            <figcaption><span class="figure-title">AI Opportunity Board</span>This map shows how enterprise AI ideas can be screened into representative scenario types before teams decide what deserves a quick validation or a strategic pilot.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -651,6 +695,10 @@
               <article class="gate-step"><span>Pilot</span><h3>Will real users use it?</h3><p>Run a small pilot with metrics, bad cases, owner, and feedback.</p></article>
               <article class="gate-step"><span>Pilot-ready AI Application</span><h3>Is it ready for a more formal business flow?</h3><p>Permissions, monitoring, evaluation, version records, ownership, and rollback have an initial support mechanism.</p></article>
             </div>
+          </figure>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/diagrams/enterprise_ai_productization_roadmap_en_v2.png" alt="Enterprise AI productization path from scenario judgment to product form delivery" loading="lazy" />
+            <figcaption><span class="figure-title">Stage Gates and Productization Path</span>The framework connects scenario judgment, AI intervention-point design, human-in-the-loop review, evaluation, and repeatable productized delivery.</figcaption>
           </figure>
         </div>
       </section>
@@ -704,6 +752,10 @@
             <article class="source-card"><span>Workflow AI</span><h3>AI Business Requirement Flow Workbench</h3><p><strong>Exposed problem:</strong> multi-source signals, routing, human review, state loop.</p><p><strong>Abstracted judgment:</strong> workflow embedding and responsibility nodes.</p></article>
             <article class="source-card"><span>Content AI</span><h3>AI Marketing Content Workflow</h3><p><strong>Exposed problem:</strong> content quality, brand consistency, human collaboration.</p><p><strong>Abstracted judgment:</strong> quality evaluation and risk boundary.</p></article>
           </div>
+          <figure class="portfolio-figure">
+            <img src="/ai-product-portfolio/assets/images/diagrams/enterprise_ai_scenario_map_business_to_product_unit_en_v2.png" alt="Enterprise AI scenario map connecting business problems to AI product forms" loading="lazy" />
+            <figcaption><span class="figure-title">From Projects to Framework</span>The readiness framework is extracted from recurring questions across knowledge-based, workflow-based, and content-based AI applications.</figcaption>
+          </figure>
         </div>
       </section>
 
