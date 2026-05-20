@@ -2836,14 +2836,15 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .productization-hero {
-    width: calc(100% - 48px);
-    max-width: 360px;
+    width: 100%;
+    max-width: 100%;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
     gap: 10px;
     min-height: auto;
-    padding: 14px 0 44px;
-    overflow: visible;
+    margin: 0;
+    padding: 14px 16px 44px;
+    overflow: hidden;
   }
 
   body.home-comic-hero .hero-headline-panel,
@@ -2853,15 +2854,16 @@ body.home-comic-hero .hero-project-note p {
   body.home-comic-hero .hero-project-note {
     grid-column: 1;
     grid-row: auto;
-    width: 100%;
-    max-width: 100%;
+    width: min(calc(100vw - 64px), 326px);
+    max-width: min(calc(100vw - 64px), 326px);
     justify-self: stretch;
     margin-left: 0;
     margin-right: 0;
   }
 
   body.home-comic-hero .hero-headline-panel {
-    padding: 22px 24px;
+    overflow: hidden;
+    padding: 22px 18px;
   }
 
   body.home-comic-hero .hero-headline-panel h1 {
@@ -2874,7 +2876,7 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .hero-headline-panel h1 span {
-    display: inline;
+    display: block;
   }
 
   body.home-comic-hero .hero-demo-panel {
@@ -2909,10 +2911,10 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .hero-project-card {
-    width: calc(100% - 28px);
+    width: 100%;
     min-height: 124px;
-    grid-template-columns: 66px minmax(0, 1fr) max-content;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 66px minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
     column-gap: 8px;
     row-gap: 6px;
     justify-self: start;
@@ -2942,6 +2944,7 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .project-hook {
+    display: block;
     width: 100%;
     min-height: 32px;
     padding: 1px 0 1px 8px;
@@ -2952,17 +2955,43 @@ body.home-comic-hero .hero-project-note p {
   }
 
   body.home-comic-hero .project-cta {
-    grid-column: 3;
-    grid-row: 1 / 4;
+    grid-column: 2;
+    grid-row: auto;
     align-self: end;
     justify-self: end;
-    margin: 0 0 1px 6px;
+    margin: 2px 0 1px;
     padding: 0;
     font-size: 12.5px;
   }
 
   body.home-comic-hero .hero-project-note {
     padding: 4px 2px 0 14px;
+  }
+
+  body.home-comic-hero .check-inner,
+  body.home-comic-hero .check-heading,
+  body.home-comic-hero .check-grid {
+    width: min(calc(100vw - 64px), 326px);
+    max-width: min(calc(100vw - 64px), 326px);
+    min-width: 0;
+  }
+
+  body.home-comic-hero .check-card {
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.home-comic-hero .check-heading h2,
+  body.home-comic-hero .check-kicker,
+  body.home-comic-hero .check-copy {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+
+  body.home-comic-hero .check-heading h2 {
+    font-size: clamp(26px, 7.2vw, 30px);
   }
 }
 
