@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Business Requirement Flow Workbench | Project 02</title>
+    <meta
+      name="description"
+      content="Project 02 case study: a workflow-based AI application that turns multi-source business signals into reviewed, routed, tracked, and closed-loop organizational action."
+    />
+    <link rel="stylesheet" href="../../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #ffffff 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      a,
+      strong {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      .case-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.92fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        background:
+          radial-gradient(circle at top right, rgba(20, 184, 166, 0.15), transparent 34%),
+          radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1), transparent 32%),
+          #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-subtitle {
+        max-width: 850px;
+        margin: 14px 0 0;
+        color: var(--ink);
+        font-size: clamp(22px, 3vw, 34px);
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .case-hook-question {
+        max-width: 820px;
+        margin: 24px 0 0;
+        color: var(--accent-strong);
+        font-size: clamp(22px, 2.4vw, 30px);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .case-lead {
+        max-width: 840px;
+        margin: 14px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .hero-actions,
+      .hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .hero-tags span {
+        padding: 8px 11px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .case-visual {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        color: #ffffff;
+        background: var(--ink);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .case-visual-header span {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .visual-panel {
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .visual-node {
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-sm);
+      }
+
+      .visual-node strong,
+      .visual-node span {
+        display: block;
+      }
+
+      .visual-node span {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .case-section {
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-section.alt {
+        background: #ffffff;
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .case-section .section-header {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .grid-5,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .lane-grid,
+      .chain-grid,
+      .screenshot-grid {
+        display: grid;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .grid-5 {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-3,
+      .chain-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2,
+      .lane-grid,
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .module-card,
+      .flow-panel,
+      .lane-card,
+      .chain-card,
+      .screenshot-card,
+      .evolution-card,
+      .boundary-card {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .module-card span,
+      .chain-card span,
+      .evolution-card span,
+      .boundary-card span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .module-card h3,
+      .chain-card h3,
+      .evolution-card h3,
+      .boundary-card h3,
+      .screenshot-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .module-card p,
+      .chain-card p,
+      .evolution-card p,
+      .boundary-card p,
+      .screenshot-card p {
+        color: var(--muted);
+      }
+
+      .step-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: step;
+      }
+
+      .step-list li {
+        counter-increment: step;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 12px 14px;
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .step-list li::before {
+        content: counter(step, decimal-leading-zero);
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        background: var(--accent-strong);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .tag-list span {
+        padding: 7px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .screenshot-card img {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .case-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px clamp(20px, 5vw, 64px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 1080px) {
+        .case-hero,
+        .grid-5,
+        .grid-4,
+        .grid-3,
+        .grid-2,
+        .lane-grid,
+        .chain-grid,
+        .screenshot-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .case-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 6px 10px;
+          font-size: 12px;
+        }
+
+        .case-hero {
+          display: block;
+          padding: 44px 20px 48px;
+        }
+
+        .case-visual {
+          margin-top: 28px;
+        }
+
+        .case-section {
+          padding: 56px 20px;
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../../index.html?lang=en#entries">
+        <span class="brand-mark">P2</span>
+        <span>AI Business Requirement Flow Workbench</span>
+      </a>
+      <nav class="case-nav" aria-label="Case navigation">
+        <a href="#problem">Problem</a>
+        <a href="#scenario">Scenario</a>
+        <a href="#before-after">Before / After</a>
+        <a href="#intervention">AI Points</a>
+        <a href="#signal-layer">Signal Layer</a>
+        <a href="#unit">Responsibility Unit</a>
+        <a href="#interfaces">Interfaces</a>
+        <a href="#evolution">Evolution</a>
+        <a href="#validation">Boundary</a>
+        <a href="../../../index.html?lang=en#entries">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero" id="overview">
+        <div>
+          <p class="section-kicker">Project 02｜Workflow-based AI Application</p>
+          <h1>AI Business Requirement Flow Workbench</h1>
+          <p class="case-subtitle">From multi-source business signals to requirement routing and task closure</p>
+          <p class="case-hook-question">Many agents can plan. Few can actually land inside business workflows.</p>
+          <p class="case-lead">This project focuses on how scattered signals from sales, CRM, customer support, quality, meetings, and regional feedback can be identified by AI, reviewed by humans, routed to responsible teams, tracked through status updates, and turned into operational insight.</p>
+          <div class="hero-tags">
+            <span>Multi-source business signals</span>
+            <span>Human review and routing</span>
+            <span>Operational insight</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button-primary" href="#intervention">View AI intervention points</a>
+            <a class="button-secondary" href="../../../assets/docs/module2_ai_business_demand_workbench_prd_out_v1.1.pdf">View Chinese PRD</a>
+            <a class="button-secondary" href="../../../index.html?lang=en#entries">Back to Portfolio</a>
+          </div>
+        </div>
+        <aside class="case-visual" aria-label="Business signal loop overview">
+          <div class="case-visual-header">
+            <strong>Business Signal Loop</strong>
+            <span>Signal to Action</span>
+          </div>
+          <div class="visual-panel">
+            <div class="visual-node"><strong>Multi-source Input</strong><span>Sales, support, quality, meetings, CRM</span></div>
+            <div class="visual-node"><strong>AI Identification</strong><span>Classification, clustering, evidence extraction, card draft</span></div>
+            <div class="visual-node"><strong>Human Routing</strong><span>Priority, owner, process entry decision</span></div>
+            <div class="visual-node"><strong>Status Closure</strong><span>Tracking, review, rule iteration, operational insight</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="case-section" id="problem">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01 · Business Problem</p>
+            <h2 class="section-title">Enterprises do not lack feedback. They lack a running mechanism for business signals.</h2>
+            <p class="section-description">Sales, support, service, quality, CRM, and meetings generate business signals every day, but those signals often stay scattered across systems and channels instead of entering product, quality, sales, supply chain, and management workflows.</p>
+          </div>
+          <div class="grid-5">
+            <article class="module-card"><span>Scattered signals</span><h3>Too many entry points</h3><p>Feedback is distributed across sales, support, service, meetings, and CRM.</p></article>
+            <article class="module-card"><span>Mixed types</span><h3>Signals and noise blur together</h3><p>Requirements, issues, risks, sentiment, and noise often appear in the same stream.</p></article>
+            <article class="module-card"><span>Unclear owner</span><h3>Responsibility is ambiguous</h3><p>It is not obvious whether product, quality, sales, supply chain, or operations should own the issue.</p></article>
+            <article class="module-card"><span>Hard to track</span><h3>Status lives in meetings and chats</h3><p>Progress depends on group chats, spreadsheets, and manual reminders.</p></article>
+            <article class="module-card"><span>Late review</span><h3>Management sees summaries too late</h3><p>Retrospectives happen after the signal has already lost operational value.</p></article>
+          </div>
+          <article class="flow-panel" style="margin-top: 18px;">
+            <h3>No AI: how business signals get lost</h3>
+            <div class="grid-5">
+              <article class="module-card"><span>Sales / support / CRM</span><p>Feedback enters different systems and communication channels.</p></article>
+              <article class="module-card"><span>Meetings / sheets / chat</span><p>Signals are temporarily organized with inconsistent wording.</p></article>
+              <article class="module-card"><span>Manual judgment</span><p>Priority and ownership depend on experience.</p></article>
+              <article class="module-card"><span>Manual follow-up</span><p>Blocks and delays are difficult to expose.</p></article>
+              <article class="module-card"><span>After-the-fact summary</span><p>Trends are reviewed too late to become a running mechanism.</p></article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="scenario">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">02 · Running Scenario</p>
+            <h2 class="section-title">How does one customer signal become organizational action?</h2>
+            <p class="section-description">A customer concern about rear-seat comfort looks small in one channel. Across sales, CRM, support, regional meetings, and market observations, it may become a product experience issue plus a sales conversion risk.</p>
+          </div>
+          <div class="grid-4">
+            <article class="module-card"><span>Signal sources</span><h3>Sales + CRM + support + meetings</h3><p>Family users repeatedly mention rear-seat space and comfort concerns.</p></article>
+            <article class="module-card"><span>AI aggregation</span><h3>Identify the business theme</h3><p>AI groups similar feedback and recognizes it as a product experience issue plus sales conversion risk.</p></article>
+            <article class="module-card"><span>Card and review</span><h3>Generate draft, then human confirms</h3><p>Humans confirm priority, evidence sufficiency, and responsible teams.</p></article>
+            <article class="module-card"><span>Routing</span><h3>Move into action</h3><p>Product, sales operations, and marketing support can form follow-up actions and review inputs.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="before-after">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03 · Before / After AI</p>
+            <h2 class="section-title">From scattered feedback to business closure.</h2>
+            <p class="section-description">AI does not replace final business decisions. It acts as signal identifier, classifier, evidence extractor, card draft generator, routing suggester, and risk reminder. Humans confirm category, priority, ownership, process entry, external conclusion, task closure, and rule adoption.</p>
+          </div>
+          <div class="lane-grid">
+            <article class="lane-card">
+              <h3>Before AI</h3>
+              <ol class="step-list">
+                <li>Multi-source business signals</li>
+                <li>Manual collection</li>
+                <li>Manual issue classification</li>
+                <li>Meeting coordination</li>
+                <li>Manual routing to departments</li>
+                <li>Chat / spreadsheet / meeting-note tracking</li>
+                <li>Weekly or monthly review</li>
+                <li>Partial learning, many signals lost</li>
+              </ol>
+            </article>
+            <article class="lane-card">
+              <h3>After AI</h3>
+              <ol class="step-list">
+                <li>Multi-source business signals</li>
+                <li>AI identification / classification / clustering</li>
+                <li>Evidence extraction and similar issue matching</li>
+                <li>Requirement / issue / risk card draft</li>
+                <li>Human confirmation and correction</li>
+                <li>Routing to responsible teams</li>
+                <li>Status tracking and risk reminders</li>
+                <li>Operational insight and rule learning</li>
+                <li>Feedback into classification rules and handling paths</li>
+              </ol>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="intervention">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">04 · AI Intervention Points</p>
+            <h2 class="section-title">AI pre-identifies signals. Humans confirm and decide.</h2>
+          </div>
+          <div class="grid-4">
+            <article class="module-card"><span>Signal identification</span><h3>Separate useful feedback from noise</h3><p>AI detects whether incoming text contains actionable business signals.</p></article>
+            <article class="module-card"><span>Classification and clustering</span><h3>Group similar issues</h3><p>AI classifies requirements, issues, risks, and recurring themes.</p></article>
+            <article class="module-card"><span>Evidence extraction</span><h3>Keep the source visible</h3><p>AI extracts original snippets and context for review.</p></article>
+            <article class="module-card"><span>Routing suggestion</span><h3>Suggest but do not dispatch automatically</h3><p>AI proposes responsible teams and next steps; humans confirm ownership.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="signal-layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05 · Lightweight AI Business Signal Layer</p>
+            <h2 class="section-title">A connecting layer, not a heavy enterprise platform.</h2>
+            <p class="section-description">This project does not rebuild CRM, support, quality, or project-management systems. It adds a lightweight AI business signal layer between existing systems to support cross-source aggregation, AI structuring, evidence tracing, human routing, status sync, rule iteration, and management review.</p>
+          </div>
+          <div class="grid-4">
+            <article class="module-card"><span>Existing systems</span><h3>CRM / support / quality / meetings</h3><p>Keep the systems that already manage local objects and records.</p></article>
+            <article class="module-card"><span>AI signal layer</span><h3>Aggregate and structure</h3><p>Connect signals across sources, extract evidence, and prepare reviewable objects.</p></article>
+            <article class="module-card"><span>Confirmable objects</span><h3>Requirement / issue / risk cards</h3><p>Turn scattered feedback into objects that can be reviewed, routed, and tracked.</p></article>
+            <article class="module-card"><span>Organizational response</span><h3>Product / sales / quality / management</h3><p>Move from feedback into responsible action and review.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="unit">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">06 · Core Product Responsibility Unit</p>
+            <h2 class="section-title">From signal pool to organizational action loop.</h2>
+          </div>
+          <div class="chain-grid">
+            <article class="chain-card"><span>Input layer</span><h3>Multi-source business signal pool</h3><p><strong>Capability:</strong> collect sales, support, quality, CRM, meetings, and regional feedback.</p><p><strong>Role:</strong> keep source and original evidence.</p></article>
+            <article class="chain-card"><span>Identification layer</span><h3>AI identification and classification</h3><p><strong>Capability:</strong> classify, cluster, tag, extract evidence, and identify recurring themes.</p><p><strong>Role:</strong> separate signal from noise.</p></article>
+            <article class="chain-card"><span>Object layer</span><h3>Requirement / issue / risk cards</h3><p><strong>Capability:</strong> card type, evidence, impact scope, suggested owner.</p><p><strong>Role:</strong> make feedback confirmable and trackable.</p></article>
+            <article class="chain-card"><span>Review layer</span><h3>Human confirmation</h3><p><strong>Capability:</strong> confirm type, priority, owner, and process entry.</p><p><strong>Role:</strong> keep judgment and responsibility with people.</p></article>
+            <article class="chain-card"><span>Execution layer</span><h3>Routing and status tracking</h3><p><strong>Capability:</strong> owner, task board, delay reminders, blockers, closure record.</p><p><strong>Role:</strong> reduce uncertainty around who is handling what.</p></article>
+            <article class="chain-card"><span>Review layer</span><h3>Operational insight and rule learning</h3><p><strong>Capability:</strong> recurring issues, response efficiency, closure rate, trend change.</p><p><strong>Role:</strong> feed rules, handling paths, and management review.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="interfaces">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">07 · Key Interfaces</p>
+            <h2 class="section-title">How business signals become visible, confirmable, and trackable.</h2>
+          </div>
+          <div class="screenshot-grid">
+            <article class="screenshot-card"><img src="../../../docs/module2-ai-business-requirement-flow/assets/screenshots/dashboard_overview.png" alt="Business signal dashboard screenshot" /><h3>Overview Dashboard</h3><p>Shows new signals, pending cards, high-risk issues, open items, and team response.</p></article>
+            <article class="screenshot-card"><img src="../../../docs/module2-ai-business-requirement-flow/assets/screenshots/signal_pool.png" alt="Multi-source signal pool screenshot" /><h3>Multi-source Signal Pool</h3><p>Collects business signals before they are lost across channels.</p></article>
+            <article class="screenshot-card"><img src="../../../docs/module2-ai-business-requirement-flow/assets/screenshots/ai_review_confirmation.png" alt="AI review and human confirmation screenshot" /><h3>AI Review Result</h3><p>Shows category, confidence, evidence snippets, similar issues, and human correction entry.</p></article>
+            <article class="screenshot-card"><img src="../../../docs/module2-ai-business-requirement-flow/assets/screenshots/kanban_board.png" alt="Routing task board screenshot" /><h3>Routing Task Board</h3><p>Tracks owner, status, blockers, delayed items, and closure records.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="evolution">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08 · Product Evolution</p>
+            <h2 class="section-title">From seeing signals to forming a mechanism.</h2>
+          </div>
+          <div class="grid-3">
+            <article class="evolution-card"><span>V1｜Signal Structuring</span><h3>Make business signals visible.</h3><p>Turn scattered feedback into a manageable signal pool.</p><div class="tag-list"><span>multi-source intake</span><span>AI classification</span><span>tag generation</span><span>evidence extraction</span><span>card draft</span><span>human confirmation</span></div></article>
+            <article class="evolution-card"><span>V2｜Routing Closure</span><h3>Turn signals into accountable action.</h3><p>Route requirement / issue / risk cards to responsible teams and track status.</p><div class="tag-list"><span>card typing</span><span>owner suggestion</span><span>routing board</span><span>status tracking</span><span>blocker reminder</span><span>closure reason</span></div></article>
+            <article class="evolution-card"><span>V3｜Operational Insight</span><h3>Turn closed-loop data into management insight and rules.</h3><p>Convert closed-loop data into trends, response patterns, and reusable rules.</p><div class="tag-list"><span>trend analysis</span><span>review report</span><span>team response</span><span>recurring issues</span><span>rule iteration</span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="validation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">09 · Validation and Boundary</p>
+            <h2 class="section-title">A scenario-based product design case, not a real enterprise deployment claim.</h2>
+          </div>
+          <div class="grid-2">
+            <article class="boundary-card"><span>Validation approach</span><h3>Prototype and sample-flow validation</h3><p>Use simulated or anonymized sample signals to validate AI identification, classification, evidence extraction, card draft, human review, and routing flow.</p></article>
+            <article class="boundary-card"><span>Project boundary</span><h3>No automatic dispatch or production claim</h3><p>This project does not claim real automotive or manufacturing deployment, real growth results, fully automatic dispatch, or replacement of CRM / support / quality / project-management systems.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <span>AI Business Requirement Flow Workbench · From signals to accountable action</span>
+      <a href="../../../index.html?lang=en#entries">Back to Portfolio</a>
+    </footer>
+  </body>
+</html>

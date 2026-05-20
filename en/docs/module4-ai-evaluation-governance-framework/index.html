@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Application Readiness Framework: From Demo to Pilot-ready | Portfolio Methodology</title>
+    <title>AI Application Readiness & Governance Framework | Project 04</title>
     <meta
       name="description"
-      content="Module 4 methodology page: an AI Application Readiness Framework for deciding whether an AI application is worth building, safe to pilot, measurable in real use, and maintainable over time."
+      content="Project 04 methodology page: an AI Application Readiness and Governance Framework for deciding whether an AI application is worth building, safe to pilot, measurable in real use, and maintainable over time."
     />
     <link rel="stylesheet" href="../../../src/styles/main.css" />
     <style>
@@ -104,6 +104,24 @@
         color: var(--accent-strong);
         font-size: 15px;
         font-weight: 900;
+      }
+
+      .case-subtitle {
+        max-width: 850px;
+        margin: 14px 0 0;
+        color: var(--ink);
+        font-size: clamp(22px, 3vw, 34px);
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .case-hook-question {
+        max-width: 820px;
+        margin: 24px 0 0;
+        color: var(--accent-strong);
+        font-size: clamp(22px, 2.4vw, 30px);
+        font-weight: 900;
+        line-height: 1.45;
       }
 
       .case-lead {
@@ -287,7 +305,7 @@
       }
 
       .diagram-frame {
-        margin-top: 24px;
+        margin: 24px 0 0;
         padding: 18px;
       }
 
@@ -391,9 +409,14 @@
         .case-visual img,
         .opportunity-board,
         .diagram-frame {
-          width: min(100%, 320px);
-          max-width: min(100%, 320px);
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
           min-width: 0;
+        }
+
+        .case-hero > div:first-child {
+          max-width: 320px;
         }
 
         .case-hero h1 {
@@ -402,6 +425,29 @@
           line-height: 1.18;
           overflow-wrap: anywhere;
           word-break: break-word;
+        }
+
+        .case-subtitle,
+        .case-hook-question,
+        .case-lead,
+        .status-card,
+        .hero-tags,
+        .hero-actions {
+          width: 100%;
+          max-width: 320px;
+          white-space: normal;
+          overflow-wrap: break-word;
+          word-break: normal;
+        }
+
+        .case-subtitle {
+          font-size: 21px;
+          line-height: 1.32;
+        }
+
+        .case-hook-question {
+          font-size: 21px;
+          line-height: 1.46;
         }
 
         .section-title {
@@ -416,6 +462,11 @@
         .status-card,
         .boundary-note {
           font-size: 16px;
+        }
+
+        .hero-tags span {
+          max-width: 100%;
+          white-space: normal;
         }
 
         .case-visual {
@@ -461,22 +512,30 @@
         .opportunity-board {
           grid-template-columns: 1fr;
         }
+
+        .diagram-frame {
+          width: calc(100% - 10px);
+          max-width: calc(100% - 10px);
+        }
       }
     </style>
   </head>
   <body>
     <header class="case-header">
       <a class="brand" href="../../../index.html?lang=en#entries">
-        <span class="brand-mark">M4</span>
-        <span>AI Application Readiness Framework</span>
+        <span class="brand-mark">P4</span>
+        <span>AI Application Readiness & Governance</span>
       </a>
       <nav class="case-nav" aria-label="Case navigation">
         <a href="#overview">Overview</a>
+        <a href="#problem">Core Problem</a>
         <a href="#layer">Layer</a>
         <a href="#opportunity">Opportunity</a>
         <a href="#readiness">Readiness</a>
+        <a href="#toolkit">Toolkit</a>
         <a href="#governance">Governance</a>
         <a href="#sources">Sources</a>
+        <a href="#boundary">Boundary</a>
         <a href="../../../index.html?lang=en#entries">Home</a>
       </nav>
     </header>
@@ -484,17 +543,18 @@
     <main>
       <section class="case-hero" id="overview">
         <div>
-          <p class="section-kicker">Module 4 · Methodology</p>
-          <p class="case-short-title">AI Application Readiness Framework: From Demo to Pilot-ready</p>
-          <h1>From demo to pilot-ready, the missing layer is not the model — it is productization.</h1>
-          <p class="case-lead">A practical framework for evaluating whether an AI application is worth building, safe to pilot, measurable in real use, and maintainable over time.</p>
-          <div class="status-card">Modules 1/2/3 show where AI applications can enter knowledge, workflow, and content scenarios. Module 4 explains how I judge whether these applications are worth building, ready for pilot, and able to improve over time.</div>
+          <p class="section-kicker">Project 04｜AI Application Readiness & Governance</p>
+          <h1>AI Application Readiness & Governance Framework</h1>
+          <p class="case-subtitle">From demo to pilot-ready AI application</p>
+          <p class="case-hook-question">A demo only needs to work once. A launched AI application has to keep working.</p>
+          <p class="case-lead">This framework is not about whether AI can produce one impressive result. It asks whether an AI application is ready to enter real work: whether the scenario is clear, risks are bounded, human review is defined, outcomes can be measured, and the system can keep improving after pilot launch.</p>
+          <div class="status-card">The first three projects show where AI applications can enter knowledge, workflow, and content scenarios. Project 4 abstracts how to judge whether these applications are worth building, ready for a controlled pilot, and able to improve over time.</div>
           <div class="hero-tags">
-            <span>Readiness</span>
-            <span>Productization Layer</span>
+            <span>Readiness judgment</span>
+            <span>Productization layer</span>
             <span>Launch Gate</span>
             <span>Human Review</span>
-            <span>Bad Case Loop</span>
+            <span>badcase loop</span>
           </div>
           <div class="hero-actions">
             <a class="button-primary" href="#layer">View Readiness Layer</a>
@@ -512,12 +572,30 @@
         </aside>
       </section>
 
+      <section class="case-section alt" id="problem">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01 · Core Problem</p>
+            <h2 class="section-title">An AI feature can be shipped before an AI product is actually ready.</h2>
+            <p class="section-description">A working demo only proves that a technical path can be shown once. Before entering real work, an AI application still needs scenario value, risk boundaries, human review, measurable outcomes, ownership, and an iteration loop.</p>
+          </div>
+          <div class="readiness-grid">
+            <article class="readiness-card"><span>01</span><h3>Is this scenario worth building?</h3><p>Not every AI idea deserves an MVP or pilot.</p></article>
+            <article class="readiness-card"><span>02</span><h3>Where should AI enter the workflow?</h3><p>The product question is where AI carries a real task.</p></article>
+            <article class="readiness-card"><span>03</span><h3>What happens when AI is wrong?</h3><p>Failure impact defines the automation boundary.</p></article>
+            <article class="readiness-card"><span>04</span><h3>How will impact be proven?</h3><p>Adoption, quality, time, and risk metrics need to be defined.</p></article>
+            <article class="readiness-card"><span>05</span><h3>Who reviews and maintains it?</h3><p>Human review and owner responsibility must be explicit.</p></article>
+            <article class="readiness-card"><span>06</span><h3>When can it enter a pilot?</h3><p>Stage gates keep demos from being mistaken for launch-ready products.</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="case-section" id="layer">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">01 · Readiness Operating Layer</p>
+            <p class="section-kicker">02 · Readiness Operating Layer</p>
             <h2 class="section-title">Between a demo and a real pilot, AI needs a lightweight productization layer.</h2>
-            <p class="section-description">I define this layer as the Readiness Operating Layer: a lightweight set of mechanisms that connects model capability, real use cases, human review, measurable outcomes, and continuous iteration.</p>
+            <p class="section-description">I define this layer as a lightweight set of mechanisms that connects model capability, real use cases, human review, measurable outcomes, and continuous iteration. It is not a heavy governance platform.</p>
           </div>
           <div class="layer-mechanism-grid">
             <article class="mechanism-card"><span>Opportunity Pool</span><h3>Which ideas enter the pool</h3><p>Screen AI ideas before turning every request into a demo.</p></article>
@@ -528,22 +606,22 @@
             <article class="mechanism-card"><span>Launch Gate</span><h3>Stage thresholds</h3><p>Define Demo, MVP, and Pilot gates before moving forward.</p></article>
             <article class="mechanism-card"><span>Bad Case Loop</span><h3>Failures become iteration assets</h3><p>Convert bad cases into rule, Prompt, knowledge, or workflow updates.</p></article>
           </div>
-          <p class="boundary-note">Module 2 shows how a middle layer works inside a workflow AI application. Module 4 abstracts it into a reusable productization mechanism from Demo to Pilot.</p>
+          <p class="boundary-note">Project 2 shows how a middle layer works inside a workflow-based AI application. Project 4 abstracts it into a reusable productization mechanism from Demo to Pilot.</p>
         </div>
       </section>
 
       <section class="case-section alt" id="opportunity">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">02 · AI Opportunity Board</p>
+            <p class="section-kicker">03 · AI Opportunity Board</p>
             <h2 class="section-title">Not every AI idea should be built immediately.</h2>
             <p class="section-description">First decide whether an idea is a low-risk Quick Win, a high-value Strategic Pilot, a Controlled Assist case, or a Hold / No-Go scenario.</p>
           </div>
           <div class="opportunity-board" aria-label="AI Opportunity Board">
-            <article class="opportunity-card quick"><span class="card-label">Quick Win</span><h3>High frequency, low risk, easy to validate</h3><p><strong>Examples:</strong> knowledge search, meeting summaries, internal document cleanup.</p></article>
-            <article class="opportunity-card pilot"><span class="card-label">Strategic Pilot</span><h3>High value, requires workflow embedding</h3><p><strong>Examples:</strong> demand routing, Agent workflow, business signal detection.</p></article>
-            <article class="opportunity-card assist"><span class="card-label">Controlled Assist</span><h3>Valuable but higher risk, assist only</h3><p><strong>Examples:</strong> customer reply suggestions, proposal recommendations, budget judgment.</p></article>
-            <article class="opportunity-card stop"><span class="card-label">Hold / No-Go</span><h3>Immature conditions or excessive risk</h3><p><strong>Examples:</strong> automatic external sending, irreversible approval, sensitive automated handling.</p></article>
+            <article class="opportunity-card quick"><span class="card-label">Quick Win</span><h3>Fast Validation</h3><p><strong>Logic:</strong> high frequency, low risk, easy to validate.</p><p><strong>Examples:</strong> knowledge search, meeting summaries, internal document cleanup.</p></article>
+            <article class="opportunity-card pilot"><span class="card-label">Strategic Pilot</span><h3>Strategic Pilot</h3><p><strong>Logic:</strong> high value, requires workflow embedding.</p><p><strong>Examples:</strong> demand routing, Agent workflow, business signal detection.</p></article>
+            <article class="opportunity-card assist"><span class="card-label">Controlled Assist</span><h3>Controlled Assistance</h3><p><strong>Logic:</strong> valuable but higher risk, assist only.</p><p><strong>Examples:</strong> customer reply suggestions, proposal recommendations, budget judgment.</p></article>
+            <article class="opportunity-card stop"><span class="card-label">Hold / No-Go</span><h3>Hold or No-Go</h3><p><strong>Logic:</strong> immature conditions or excessive risk.</p><p><strong>Examples:</strong> automatic external sending, irreversible approval, sensitive automated handling.</p></article>
           </div>
         </div>
       </section>
@@ -551,7 +629,7 @@
       <section class="case-section" id="readiness">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">03 · Readiness Checks & Launch Gate</p>
+            <p class="section-kicker">04 · Readiness Checks & Launch Gate</p>
             <h2 class="section-title">Before an AI application enters a pilot, it needs to pass six readiness checks and stage gates.</h2>
             <p class="section-description">An opportunity in the pilot pool is not ready by default. It still needs scenario value, risk boundaries, measurable outcomes, human review, stage readiness, and a reliability loop.</p>
           </div>
@@ -560,7 +638,7 @@
             <article class="readiness-card"><span>02</span><h3>Are failure consequences controllable?</h3><p><strong>Output:</strong> Auto / Assist / Human review / No-Go.</p></article>
             <article class="readiness-card"><span>03</span><h3>Can impact be proven?</h3><p><strong>Output:</strong> task quality, efficiency, adoption, and risk metrics.</p></article>
             <article class="readiness-card"><span>04</span><h3>Where should humans intervene?</h3><p><strong>Output:</strong> review nodes, ownership, and escalation.</p></article>
-            <article class="readiness-card"><span>05</span><h3>Has it reached the pilot gate?</h3><p><strong>Output:</strong> Demo / MVP / Pilot stage gate.</p></article>
+            <article class="readiness-card"><span>05</span><h3>When is it ready to launch?</h3><p><strong>Output:</strong> Demo / MVP / Pilot / Pilot-ready stage gates.</p></article>
             <article class="readiness-card"><span>06</span><h3>How will it stay reliable?</h3><p><strong>Output:</strong> bad cases, eval set, version record, regression test.</p></article>
           </div>
           <figure class="diagram-frame module-card">
@@ -570,16 +648,34 @@
               <article class="gate-step"><span>Demo</span><h3>Does the flow run?</h3><p>Use representative examples to show the technical path.</p></article>
               <article class="gate-step"><span>MVP</span><h3>Does the core task close?</h3><p>Provide basic flow, samples, early metrics, and human review.</p></article>
               <article class="gate-step"><span>Pilot</span><h3>Will real users use it?</h3><p>Run a small pilot with metrics, bad cases, owner, and feedback.</p></article>
-              <article class="gate-step"><span>Production-ready</span><h3>Can it be sustained?</h3><p>Permissions, evaluation, versioning, ownership, and rollback are in place.</p></article>
+              <article class="gate-step"><span>Pilot-ready AI Application</span><h3>Is it ready for a more formal business flow?</h3><p>Permissions, monitoring, evaluation, version records, ownership, and rollback have an initial support mechanism.</p></article>
             </div>
           </figure>
         </div>
       </section>
 
-      <section class="case-section alt" id="governance">
+      <section class="case-section alt" id="toolkit">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">04 · Minimal Governance Loop</p>
+            <p class="section-kicker">05 · AI Pilot Toolkit</p>
+            <h2 class="section-title">Turn the framework into executable product work.</h2>
+            <p class="section-description">The framework is useful only if it becomes concrete deliverables for screening, piloting, evaluating, and iterating AI applications.</p>
+          </div>
+          <div class="readiness-grid">
+            <article class="readiness-card"><span>01</span><h3>AI opportunity pool</h3><p>Collect business pain points, AI ideas, existing demos, and management requests.</p></article>
+            <article class="readiness-card"><span>02</span><h3>Scenario entry matrix</h3><p>Classify Quick Win, Strategic Pilot, Controlled Assist, and Hold / No-Go.</p></article>
+            <article class="readiness-card"><span>03</span><h3>Risk boundary card</h3><p>Define Auto / Assist / Human / No-Go automation boundaries.</p></article>
+            <article class="readiness-card"><span>04</span><h3>Evaluation metric card</h3><p>Clarify task quality, business efficiency, human-AI collaboration, and risk metrics.</p></article>
+            <article class="readiness-card"><span>05</span><h3>Pilot stage gate</h3><p>Define Idea / Demo / MVP / Pilot stage criteria.</p></article>
+            <article class="readiness-card"><span>06</span><h3>badcase and version loop</h3><p>Support failure samples, eval sets, regression tests, and version records.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="governance">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">06 · Minimal Governance Loop</p>
             <h2 class="section-title">After an AI application enters real use, the work begins with collecting bad cases.</h2>
             <p class="section-description">Reliability does not come from one-time Prompt tuning. It comes from bad case collection, root-cause analysis, rule / Prompt / knowledge / workflow updates, eval set maintenance, version records, and regression tests.</p>
           </div>
@@ -595,17 +691,32 @@
         </div>
       </section>
 
-      <section class="case-section" id="sources">
+      <section class="case-section alt" id="sources">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">05 · Abstracted From Cases</p>
+            <p class="section-kicker">07 · Where the Framework Comes From</p>
             <h2 class="section-title">This framework is abstracted from three types of AI applications, not invented in isolation.</h2>
-            <p class="section-description">The first three modules show how AI enters knowledge, workflow, and content scenarios. Module 4 abstracts a reusable productization judgment framework for deciding whether these AI applications are worth building, ready to pilot, and able to improve over time.</p>
+            <p class="section-description">The first three projects show how AI enters knowledge, workflow, and content scenarios. Project 4 abstracts a reusable productization judgment framework for deciding whether these AI applications are worth building, ready to pilot, and able to improve over time.</p>
           </div>
           <div class="source-grid">
             <article class="source-card"><span>Knowledge AI</span><h3>Enterprise Knowledge Workspace</h3><p><strong>Exposed problem:</strong> source reliability, context boundary, organizational memory.</p><p><strong>Abstracted judgment:</strong> trusted context and evidence traceability.</p></article>
-            <article class="source-card"><span>Workflow AI</span><h3>AI Business Requirement Flow Workspace</h3><p><strong>Exposed problem:</strong> multi-source signals, routing, human review, state loop.</p><p><strong>Abstracted judgment:</strong> workflow embedding and responsibility nodes.</p></article>
+            <article class="source-card"><span>Workflow AI</span><h3>AI Business Requirement Flow Workbench</h3><p><strong>Exposed problem:</strong> multi-source signals, routing, human review, state loop.</p><p><strong>Abstracted judgment:</strong> workflow embedding and responsibility nodes.</p></article>
             <article class="source-card"><span>Content AI</span><h3>AI Marketing Content Workflow</h3><p><strong>Exposed problem:</strong> content quality, brand consistency, human collaboration.</p><p><strong>Abstracted judgment:</strong> quality evaluation and risk boundary.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="boundary">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08 · Positioning Boundary</p>
+            <h2 class="section-title">A product readiness framework, not a full AI compliance platform.</h2>
+            <p class="section-description">This is an executable AI product management method for pilot and productization decisions. It is not a claim of legal compliance ownership, enterprise-grade risk platform delivery, or production deployment results.</p>
+          </div>
+          <div class="source-grid">
+            <article class="source-card"><span>Not claiming</span><h3>Full enterprise AI governance</h3><p>No claim of complete compliance governance, legal review ownership, large-scale production deployment, or proven production business results.</p></article>
+            <article class="source-card"><span>Accurate positioning</span><h3>AI product readiness method</h3><p>Used to judge scenario priority, risk boundary, evaluation metrics, human review, stage gates, and continuous iteration paths.</p></article>
+            <article class="source-card"><span>Role</span><h3>Product manager operating method</h3><p>The page shows how an AI product manager can make AI pilots discussable, testable, and maintainable.</p></article>
           </div>
         </div>
       </section>
