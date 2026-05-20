@@ -15,7 +15,10 @@
   }
 
   function getInitialLang() {
-    return getUrlLang() || normalizeLang(localStorage.getItem(storageKey)) || (isEnglishEntry() ? "en" : "zh");
+    const urlLang = getUrlLang();
+    if (urlLang) return urlLang;
+    if (isEnglishEntry()) return "en";
+    return "zh";
   }
 
   let currentLang = getInitialLang();
@@ -41,6 +44,7 @@
       const url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return href;
       if (/\.(pdf|zip|png|jpe?g|webp|gif|svg)$/i.test(url.pathname)) return href;
+      if (url.pathname.split("/").includes("en")) return `${url.pathname}${url.search}${url.hash}`;
       if (currentLang === "en") {
         url.searchParams.set("lang", "en");
       } else {
