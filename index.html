@@ -16,84 +16,8 @@
     <meta property="og:image" content="./assets/images/diagrams/enterprise_ai_scenario_map_business_to_product_unit_cn_v2.png" />
     <meta property="og:url" content="./index.html" />
     <link rel="stylesheet" href="./src/styles/main.css" />
-    <style>
-      .ai-shape-bridge {
-        background: #ffffff;
-        padding-top: clamp(50px, 6vw, 82px);
-        padding-bottom: clamp(42px, 5vw, 68px);
-      }
-
-      .ai-shape-bridge-inner {
-        width: min(100%, 1180px);
-        margin: 0 auto;
-        padding: clamp(28px, 4vw, 46px);
-        color: #ffffff;
-        background:
-          linear-gradient(135deg, rgba(37, 99, 235, 0.18), transparent 38%),
-          linear-gradient(180deg, #101a35 0%, #0b1220 100%);
-        border: 2px solid rgba(29, 47, 111, 0.72);
-        border-radius: 8px;
-        box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
-      }
-
-      .ai-shape-bridge h2 {
-        max-width: 860px;
-        color: #ffffff;
-        font-size: clamp(34px, 4.8vw, 58px);
-        line-height: 1.08;
-      }
-
-      .ai-shape-lines {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: clamp(24px, 3vw, 34px);
-      }
-
-      .ai-shape-lines p {
-        margin: 0;
-        padding: 16px 18px;
-        color: rgba(255, 255, 255, 0.82);
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        font-size: clamp(15px, 1.25vw, 17px);
-        font-weight: 800;
-        line-height: 1.55;
-      }
-
-      .ai-shape-summary {
-        max-width: 900px;
-        margin: clamp(22px, 3vw, 30px) 0 0;
-        color: #ffffff;
-        font-size: clamp(18px, 1.65vw, 22px);
-        font-weight: 900;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 960px) {
-        .ai-shape-lines {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 640px) {
-        .ai-shape-bridge {
-          padding-right: 20px;
-          padding-left: 20px;
-        }
-
-        .ai-shape-bridge-inner {
-          padding: 24px 20px;
-        }
-
-        .ai-shape-lines {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
-  <body class="home-comic-hero">
+  <body class="home-comic-hero zh-home-v2">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="返回首页" data-i18n-attr="aria-label:nav.homeAria">
         <span class="brand-mark">AI</span>
@@ -102,9 +26,9 @@
       <nav class="top-nav" aria-label="主导航" data-i18n-attr="aria-label:nav.primaryAria">
         <a href="#home" data-i18n="nav.home">首页</a>
         <a href="#entries" data-i18n="nav.entries">项目</a>
-        <a href="#readiness-path" data-i18n="nav.methodology">方法论</a>
+        <a href="#judgment-memo" data-i18n="nav.methodology">方法论</a>
         <a href="#positioning" data-i18n="nav.about">关于我</a>
-        <a class="nav-link--lang" href="/ai-product-portfolio/en/index.html" data-lang-link data-i18n="nav.lang" data-i18n-attr="href:nav.langHref">EN</a>
+        <a class="nav-link--lang" href="./en/index.html" data-lang-link>EN</a>
       </nav>
     </header>
 
@@ -112,24 +36,45 @@
       <section id="home" class="hero-section productization-hero">
         <div class="hero-headline-panel">
           <h1>
-            <span data-i18n="hero.title.line1">AI 项目最常见的陷阱，</span>
-            <span data-i18n-html="hero.title.line2">是“<em>先上车，后补票</em>”。</span>
+            <span class="hero-title-context" data-i18n="hero.title.line1">很多 AI 项目不是做不出来，</span>
+            <span class="hero-title-punch" data-i18n-html="hero.title.line2"><span class="hero-title-pivot">而是</span><span class="hero-title-focus">做出来也<span class="hero-title-nowrap">进不了业务。</span></span></span>
           </h1>
         </div>
 
         <div class="hero-demo-panel">
-          <p data-i18n="hero.demo.line1">先做 Demo，后找场景；</p>
-          <p data-i18n="hero.demo.line2">先接模型，后补流程；</p>
-          <p data-i18n="hero.demo.line3">先证明“AI 能做”，</p>
-          <p data-i18n="hero.demo.line4">再回头问“谁真的会用”。</p>
+          <p class="hero-subclaim" data-i18n-html="hero.subtitle">我不是从 AI 出发看业务，而是从业务出发看 AI。</p>
+          <div class="hero-keywords" aria-label="首页关键词" data-i18n-attr="aria-label:hero.keywordsAria">
+            <span data-i18n="hero.keyword1">复杂业务</span>
+            <span data-i18n="hero.keyword2">产品判断</span>
+            <span data-i18n="hero.keyword3">人机协同</span>
+            <span data-i18n="hero.keyword4">AI 落地</span>
+          </div>
         </div>
 
         <div class="hero-judgment-panel">
-          <p data-i18n="hero.judgment.line1">接上模型，只是开始；</p>
-          <p data-i18n="hero.judgment.line2">接住任务，才算产品。</p>
+          <p class="hero-closing" data-i18n-html="hero.closing">接上模型，只是开始；接住任务，才算产品。</p>
+          <p class="hero-explainer" data-i18n-html="hero.text1"><span>真正成立的 AI 应用，不是把模型<span class="text-nowrap">接进系统，</span></span><span>而是让输出<span class="text-nowrap">进入流程</span>并<span class="text-nowrap">产生结果。</span></span></p>
+          <p class="hero-framework-lead" data-i18n="hero.frameworkLead">我会先判断三个问题：</p>
+          <ul class="hero-judgment-list" aria-label="AI 应用产品化判断点" data-i18n-attr="aria-label:hero.judgmentListAria">
+            <li>
+              <span class="judgment-index" aria-hidden="true">01</span>
+              <strong data-i18n="hero.dimension1.title">哪一步值得被 AI 接住</strong>
+              <p data-i18n="hero.dimension1.text">看这个节点是否有明确输入、上下文和后续动作。</p>
+            </li>
+            <li>
+              <span class="judgment-index" aria-hidden="true">02</span>
+              <strong data-i18n="hero.dimension2.title">哪一步必须由人负责</strong>
+              <p data-i18n="hero.dimension2.text">明确责任边界、风险兜底和最终确认。</p>
+            </li>
+            <li>
+              <span class="judgment-index" aria-hidden="true">03</span>
+              <strong data-i18n="hero.dimension3.title">什么输出能进入业务流程</strong>
+              <p data-i18n="hero.dimension3.text">能被确认、流转、追踪和复盘，才算进入业务。</p>
+            </li>
+          </ul>
           <div class="hero-actions">
-            <a class="primary-action" href="#entries"><span data-i18n="hero.primary">查看项目</span> <span aria-hidden="true">→</span></a>
-            <a class="secondary-action" href="#readiness-path"><span data-i18n="hero.secondary">查看方法论</span> <span aria-hidden="true">→</span></a>
+            <a class="primary-action" href="#entries"><span data-i18n="hero.primary">查看项目案例</span> <span aria-hidden="true">→</span></a>
+            <a class="secondary-action" href="#philosophy"><span data-i18n="hero.secondary">查看我的产品判断</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -138,164 +83,145 @@
             <span class="project-number" aria-hidden="true">01</span>
             <span class="project-label" data-i18n="showcase.card1.tag">知识型 AI 应用</span>
             <strong data-i18n="showcase.card1.title">企业知识工作台</strong>
-            <span class="project-hook" data-i18n="showcase.card1.hook">模型都这么强了，为什么企业还需要自己的知识系统？</span>
-            <span class="project-cta" data-i18n="showcase.card1.cta">查看项目 →</span>
+            <span class="project-hook" data-i18n="showcase.card1.hook">企业知识库失败，很多时候不是因为知识找不到。</span>
+            <span class="project-cta" aria-hidden="true">→</span>
           </a>
           <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n-attr="href:entry2.href">
             <span class="project-number" aria-hidden="true">02</span>
             <span class="project-label" data-i18n="showcase.card2.tag">流程型 AI 应用</span>
             <strong data-i18n="showcase.card2.title">AI 业务需求流转工作台</strong>
-            <span class="project-hook" data-i18n="showcase.card2.hook">会规划的 Agent 很多，能落进流程的 Agent 很少。</span>
-            <span class="project-cta" data-i18n="showcase.card2.cta">查看项目 →</span>
+            <span class="project-hook" data-i18n="showcase.card2.hook">AI 识别能力越强，反而越容易把产品做坏。</span>
+            <span class="project-cta" aria-hidden="true">→</span>
           </a>
           <a class="hero-project-card project-three" href="./docs/module3-ai-content-operations-workflow/index.html" data-i18n-attr="href:entry3.href">
             <span class="project-number" aria-hidden="true">03</span>
             <span class="project-label" data-i18n="showcase.card3.tag">内容型 AI 应用</span>
             <strong data-i18n="showcase.card3.title">AI 营销内容生产工作流</strong>
-            <span class="project-hook" data-i18n="showcase.card3.hook">一键生成不是生产力，能进入生产链路才是。</span>
-            <span class="project-cta" data-i18n="showcase.card3.cta">查看项目 →</span>
+            <span class="project-hook" data-i18n="showcase.card3.hook">内容生成不是终点。</span>
+            <span class="project-cta" aria-hidden="true">→</span>
           </a>
           <a class="hero-project-card project-four" href="./docs/module4-ai-evaluation-governance-framework/index.html" data-i18n-attr="href:entry4.href">
             <span class="project-number" aria-hidden="true">04</span>
             <span class="project-label" data-i18n="showcase.card4.tag">AI 应用评估与治理</span>
             <strong data-i18n="showcase.card4.title">AI 应用评估与治理框架</strong>
-            <span class="project-hook" data-i18n="showcase.card4.hook">Demo 只要一次成功，上线要一直不翻车。</span>
-            <span class="project-cta" data-i18n="showcase.card4.cta">查看框架 →</span>
+            <span class="project-hook" data-i18n="hero.project4.hook">什么 AI 不该做，也是一种产品判断。</span>
+            <span class="project-cta" aria-hidden="true">→</span>
           </a>
         </div>
-
-        <div class="hero-project-note" aria-label="核心项目入口说明" data-i18n-attr="aria-label:hero.projectNoteAria">
-          <strong data-i18n="hero.projectNote.title">核心项目入口</strong>
-          <p data-i18n="hero.projectNote.text">四个项目，覆盖知识、流程、内容与治理四类 AI 应用场景。</p>
-        </div>
       </section>
 
-      <section id="product-check" class="section-block check-section" aria-labelledby="check-title">
-        <div class="check-inner">
-          <div class="check-heading">
-            <p class="eyebrow" data-i18n="check.eyebrow">产品化校验</p>
-            <h2 id="check-title" data-i18n="check.title">别急着给 AI 做入口，先给 AI 找位置。</h2>
-            <p class="check-kicker" data-i18n="check.kicker">接上模型，只是开始；接住任务，才算产品。</p>
-            <p class="check-copy" data-i18n="check.text">一个真正成立的 AI 应用，需要回答五个问题：它在哪个任务节点触发？调用什么上下文？输出交给谁确认？如何进入下一步流程？上线后如何验证和迭代？</p>
-          </div>
-          <div class="check-grid" role="list">
-            <article class="check-card" role="listitem">
-              <span class="check-number" aria-hidden="true">01</span>
-              <h3 data-i18n="check.card1.title">任务触发</h3>
-              <p data-i18n="check.card1.text">AI 在哪个任务节点出现？</p>
+      <section id="philosophy" class="section-block philosophy-section ai-diagnosis-section" aria-labelledby="philosophy-title">
+        <div class="ai-diagnosis-board">
+          <p class="eyebrow section-eyebrow" data-i18n="philosophy.eyebrow">失败诊断</p>
+          <h2 id="philosophy-title" data-i18n-html="philosophy.title">做出来也进不了业务，<br><span class="ai-diagnosis-title-line">往往死在这<span class="ai-diagnosis-title-hit">三件事</span>。</span></h2>
+
+          <div class="ai-diagnosis-cuts" role="list" aria-label="AI 项目失败诊断项" data-i18n-attr="aria-label:philosophy.diagnosisAria">
+            <article class="ai-diagnosis-cut" role="listitem">
+              <div class="ai-diagnosis-meta">
+                <span aria-hidden="true">01</span>
+                <strong data-i18n="philosophy.diagnosis1.name">伪需求</strong>
+              </div>
+              <div class="ai-diagnosis-copy">
+                <h3 data-i18n-html="philosophy.diagnosis1.title">把模型能力，<br>当成了业务需求。</h3>
+                <p data-i18n="philosophy.diagnosis1.text">先判断这是业务里的真问题，还是一次模型能力展示。</p>
+              </div>
             </article>
-            <article class="check-card" role="listitem">
-              <span class="check-number" aria-hidden="true">02</span>
-              <h3 data-i18n="check.card2.title">上下文</h3>
-              <p data-i18n="check.card2.text">它调用什么知识、数据或业务背景？</p>
+            <article class="ai-diagnosis-cut" role="listitem">
+              <div class="ai-diagnosis-meta">
+                <span aria-hidden="true">02</span>
+                <strong data-i18n="philosophy.diagnosis2.name">伪结果</strong>
+              </div>
+              <div class="ai-diagnosis-copy">
+                <h3 data-i18n-html="philosophy.diagnosis2.title">把 AI 输出，<br>当成了业务结果。</h3>
+                <p data-i18n="philosophy.diagnosis2.text">输出不能被确认、分流、追踪和复盘，就还不是业务能力。</p>
+              </div>
             </article>
-            <article class="check-card" role="listitem">
-              <span class="check-number" aria-hidden="true">03</span>
-              <h3 data-i18n="check.card3.title">人审确认</h3>
-              <p data-i18n="check.card3.text">输出交给谁判断、修正和确认？</p>
-            </article>
-            <article class="check-card" role="listitem">
-              <span class="check-number" aria-hidden="true">04</span>
-              <h3 data-i18n="check.card4.title">流程承接</h3>
-              <p data-i18n="check.card4.text">结果如何进入下一步任务或系统？</p>
-            </article>
-            <article class="check-card" role="listitem">
-              <span class="check-number" aria-hidden="true">05</span>
-              <h3 data-i18n="check.card5.title">验证迭代</h3>
-              <p data-i18n="check.card5.text">上线后如何通过指标、反馈和 badcase 持续改进？</p>
+            <article class="ai-diagnosis-cut" role="listitem">
+              <div class="ai-diagnosis-meta">
+                <span aria-hidden="true">03</span>
+                <strong data-i18n="philosophy.diagnosis3.name">伪效率</strong>
+              </div>
+              <div class="ai-diagnosis-copy">
+                <h3 data-i18n-html="philosophy.diagnosis3.title">把责任不清的自动化，<br>当成了效率提升。</h3>
+                <p data-i18n="philosophy.diagnosis3.text">谁确认、谁兜底、错了怎么回滚，必须在产品里先设计清楚。</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo-problem" class="section-block demo-problem-section" aria-labelledby="demo-problem-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="problem.eyebrow">问题切面</p>
-          <h2 id="demo-problem-title" data-i18n="problem.title">AI Demo 的问题，不是做不出来，而是留不下来。</h2>
-          <p data-i18n="problem.text">
-            很多 AI 应用原型可以在演示里跑通，但真正进入业务或用户场景时，会遇到更难的问题：知识来源是否可信，流程责任是否清楚，输出质量是否可控，效果是否能被验证，错误是否有人兜底，上线后是否有人持续维护。
-          </p>
-          <p class="section-emphasis" data-i18n="problem.emphasis">我关注的是这些从 Demo 到真实产品之间的“中间问题”。</p>
-        </div>
-        <div class="demo-question-grid">
-          <article class="demo-question-card">
-            <span>01</span>
-            <h3 data-i18n="problem.card1.title">能跑通吗？</h3>
-            <p data-i18n="problem.card1.text">技术链路能否跑通。</p>
-          </article>
-          <article class="demo-question-card">
-            <span>02</span>
-            <h3 data-i18n="problem.card2.title">有人用吗？</h3>
-            <p data-i18n="problem.card2.text">是否进入真实任务，被真实用户使用。</p>
-          </article>
-          <article class="demo-question-card">
-            <span>03</span>
-            <h3 data-i18n="problem.card3.title">能持续可靠吗？</h3>
-            <p data-i18n="problem.card3.text">是否可评估、可维护、可迭代。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="readiness-path" class="section-block readiness-path-section" aria-labelledby="readiness-path-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="path.eyebrow">AI 应用产品化路径</p>
-          <h2 id="readiness-path-title" data-i18n="path.title">我把 AI 应用产品化拆成一条路径</h2>
-          <p data-i18n="capability.text">
-            一个 AI 应用要真正产生价值，不只是把模型接进去，而是要回答：它是否值得做，依赖什么上下文，进入什么流程，如何与人协作，什么时候具备上线条件，以及上线后如何持续变好。
-          </p>
-        </div>
-        <div class="productization-path-map" aria-label="AI 应用产品化路径总图" data-i18n-attr="aria-label:path.mapAria">
-          <article class="path-node">
-            <span data-i18n="path.node1.label">这里能用 AI 做什么？</span>
-            <h3 data-i18n="path.node1.title">模糊 AI 想法</h3>
-            <p data-i18n="path.node1.text">业务或团队意识到“这里也许可以用 AI”，但还没有明确场景和边界。</p>
-          </article>
-          <article class="path-node readiness-node">
-            <span data-i18n="path.node2.label">是否值得做？</span>
-            <h3 data-i18n="path.node2.title">Readiness 判断</h3>
-            <p data-i18n="path.node2.text">先判断是否值得做、风险是否可控、结果是否可验证。</p>
-          </article>
-          <article class="path-node application-samples">
-            <span data-i18n="path.node3.label">知识 / 流程 / 内容</span>
-            <h3 data-i18n="path.node3.title">三类 AI 应用样本</h3>
-            <p data-i18n="path.node3.text">知识型 AI 应用、流程型 AI 应用、内容型 AI 应用。</p>
-          </article>
-          <article class="path-node readiness-node">
-            <span data-i18n="path.node4.label">能否进入真实使用？</span>
-            <h3 data-i18n="path.node4.title">Launch Gate</h3>
-            <p data-i18n="path.node4.text">判断 Demo 是否具备进入 MVP / Pilot / Production 的条件。</p>
-          </article>
-          <article class="path-node">
-            <span data-i18n="path.node5.label">能否持续变好？</span>
-            <h3 data-i18n="path.node5.title">持续迭代</h3>
-            <p data-i18n="path.node5.text">通过 badcase、评估集、版本记录和回归测试持续改进。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="ai-shape-bridge" class="section-block ai-shape-bridge" aria-labelledby="ai-shape-bridge-title">
-        <div class="ai-shape-bridge-inner">
-          <h2 id="ai-shape-bridge-title" data-i18n="bridge.title">不是所有的 AI 都长成聊天框。</h2>
-          <div class="ai-shape-lines" aria-label="四类 AI 应用形态" data-i18n-attr="aria-label:bridge.shapesAria">
-            <p data-i18n="bridge.line1">有些 AI 应用解决“知识怎么被调用”；</p>
-            <p data-i18n="bridge.line2">有些解决“业务信号怎么进入流程”；</p>
-            <p data-i18n="bridge.line3">有些解决“内容怎么进入生产链路”；</p>
-            <p data-i18n="bridge.line4">有些则解决“Demo 之后如何被验证和治理”。</p>
+      <section id="scenario-mining" class="section-block scenario-mining-section" aria-labelledby="scenario-mining-title">
+        <div class="scenario-mining-inner">
+          <div class="scenario-mining-heading">
+            <p class="eyebrow section-eyebrow" data-i18n="scenario.eyebrow">场景挖掘</p>
+            <h2 id="scenario-mining-title" data-i18n-html="scenario.title">AI 技术已经有了，<br><span>难的是判断</span><br><span class="scenario-title-hit">它该用在哪里。</span></h2>
+            <p data-i18n="scenario.lead">我不会先问“这个能不能接 AI”，而是先看：业务里有没有反复发生、反复耗人、结果又能被验证的问题。</p>
+            <p class="scenario-mining-close" data-i18n="scenario.close">好场景不是把 AI 放进去就结束，而是 AI 介入后，事情真的变快、变准、变可追踪。</p>
           </div>
-          <p class="ai-shape-summary" data-i18n="bridge.summary">所以这四个项目不是四个工具展示，而是四种 AI 应用进入真实任务的方式。</p>
+
+          <div class="scenario-question-list" role="list" aria-label="AI 场景挖掘的三类判断问题" data-i18n-attr="aria-label:scenario.boardAria">
+            <article class="scenario-question-item" role="listitem">
+              <div class="scenario-question-meta">
+                <span aria-hidden="true">01</span>
+                <h3 data-i18n="scenario.item1.title">有需求，不等于值得做 AI</h3>
+              </div>
+              <p class="scenario-question-statement" data-i18n="scenario.item1.statement">这个需求，真的值得用 AI 解决吗？</p>
+              <p class="scenario-question-copy" data-i18n="scenario.item1.text">不是谁提了需求就成立，而是看它是否高频、重要、可验证，且 AI 介入后能改变业务结果。</p>
+              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
+                <span data-i18n="scenario.item1.keyword1">真实问题</span>
+                <span data-i18n="scenario.item1.keyword2">高频重要</span>
+                <span data-i18n="scenario.item1.keyword3">可验证</span>
+                <span data-i18n="scenario.item1.keyword4">改变结果</span>
+              </div>
+            </article>
+
+            <article class="scenario-question-item" role="listitem">
+              <div class="scenario-question-meta">
+                <span aria-hidden="true">02</span>
+                <h3 data-i18n="scenario.item2.title">能生成，不等于有场景</h3>
+              </div>
+              <p class="scenario-question-statement" data-i18n="scenario.item2.statement">这个输出，真的会被业务使用吗？</p>
+              <p class="scenario-question-copy" data-i18n="scenario.item2.text">不是模型能写、能总结、能分类就有场景，而是看有没有明确使用者、下一步动作、进入流程和结果验证。</p>
+              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
+                <span data-i18n="scenario.item2.keyword1">使用者</span>
+                <span data-i18n="scenario.item2.keyword2">下一步动作</span>
+                <span data-i18n="scenario.item2.keyword3">进入流程</span>
+                <span data-i18n="scenario.item2.keyword4">结果验证</span>
+              </div>
+            </article>
+
+            <article class="scenario-question-item" role="listitem">
+              <div class="scenario-question-meta">
+                <span aria-hidden="true">03</span>
+                <h3 data-i18n="scenario.item3.title">能自动化，不等于该自动化</h3>
+              </div>
+              <p class="scenario-question-statement" data-i18n="scenario.item3.statement">这个流程，真的应该被自动化吗？</p>
+              <p class="scenario-question-copy" data-i18n="scenario.item3.text">不是能自动化就该自动化，而是看 AI 该接住哪一步，哪里必须保留人工确认和责任边界。</p>
+              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
+                <span data-i18n="scenario.item3.keyword1">适合接住</span>
+                <span data-i18n="scenario.item3.keyword2">人工确认</span>
+                <span data-i18n="scenario.item3.keyword3">责任边界</span>
+                <span data-i18n="scenario.item3.keyword4">介入步骤</span>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
-
-      <section id="entries" class="section-block showcase-section" aria-labelledby="showcase-title">
+      <section id="entries" class="section-block showcase-section showcase-evidence-compact" aria-labelledby="showcase-title">
         <div class="showcase-heading">
-          <p class="eyebrow" data-i18n="showcase.eyebrow">项目预览</p>
-          <h2 id="showcase-title" data-i18n="showcase.title">从应用到治理，<br>AI 不只是接进来，而是长进产品里。</h2>
-          <p data-i18n="showcase.text">这四个项目都从可演示原型开始，但讨论的不止是 Demo 能不能跑，而是 AI 如何进入真实任务、流程协作、内容生产与评估治理，并形成可验证、可迭代的产品能力。</p>
+          <p class="eyebrow section-eyebrow" data-i18n="showcase.eyebrow">项目证据链</p>
+          <p class="showcase-proof-note" data-i18n="showcase.proofNote">前面是判断，下面是四个样本。</p>
+          <h2 id="showcase-title" data-i18n-html="showcase.title">四个项目，回答同一个问题：<br><span class="showcase-title-line">AI 如何从<span class="showcase-title-hit">“能做”</span>走向<span class="showcase-title-hit">“业务可用”</span>。</span></h2>
+          <p data-i18n="showcase.text">这四个项目不是功能陈列，而是四类 AI 场景判断的样本：知识如何变成下一步动作，反馈如何变成可确认需求，内容如何进入审核与复盘，AI 项目如何在立项前就被评估和拦截。</p>
         </div>
         <div class="showcase-grid">
           <article class="showcase-card card-knowledge">
             <div class="showcase-card-top">
-              <span class="showcase-tag" data-i18n="showcase.card1.tag">知识型 AI 应用</span>
+              <div class="showcase-meta-line">
+                <span class="showcase-tag" data-i18n="showcase.card1.tag">知识型 AI 应用</span>
+                <span class="showcase-meta-separator" aria-hidden="true">｜</span>
+                <span class="showcase-response" data-i18n="showcase.card1.response">回应：伪结果 / 伪需求</span>
+              </div>
               <a class="showcase-cta" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n="showcase.card1.cta" data-i18n-attr="href:entry1.href">查看项目 →</a>
             </div>
             <div class="poster-stage poster-knowledge" aria-label="可信上下文项目封面" data-i18n-attr="aria-label:showcase.card1.posterAria">
@@ -307,16 +233,21 @@
               <span class="poster-keyword keyword-c">Agent</span>
               <span class="poster-keyword keyword-d" data-i18n="showcase.card1.posterK4">人审</span>
               <span class="poster-keyword keyword-e" data-i18n="showcase.card1.posterK5">输出</span>
+              <h3 class="showcase-poster-title" data-i18n="showcase.card1.title">企业知识工作台</h3>
             </div>
             <div class="showcase-card-inner">
-              <h3 data-i18n="showcase.card1.title">企业知识工作台</h3>
-              <p class="showcase-hook" data-i18n="showcase.card1.hook">模型都这么强了，为什么企业还需要自己的知识系统？</p>
-              <p class="showcase-value" data-i18n="showcase.card1.value">从“能回答”到“可追溯、可审计、可进入任务流”。</p>
+              <p class="showcase-hook" data-i18n="showcase.card1.hook">企业知识库失败，很多时候不是因为知识找不到。</p>
+              <p class="showcase-decision" data-i18n="showcase.card1.decision">关键判断：知道制度，不等于知道自己适不适用。</p>
+              <p class="showcase-value" data-i18n="showcase.card1.value">这个项目不是做一个更会回答的知识库，而是让员工在具体情境里知道：依据是什么、自己是否适用、下一步该怎么做。</p>
             </div>
           </article>
           <article class="showcase-card card-workflow">
             <div class="showcase-card-top">
-              <span class="showcase-tag" data-i18n="showcase.card2.tag">流程型 AI 应用</span>
+              <div class="showcase-meta-line">
+                <span class="showcase-tag" data-i18n="showcase.card2.tag">流程型 AI 应用</span>
+                <span class="showcase-meta-separator" aria-hidden="true">｜</span>
+                <span class="showcase-response" data-i18n="showcase.card2.response">回应：伪需求 / 伪结果</span>
+              </div>
               <a class="showcase-cta" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n="showcase.card2.cta" data-i18n-attr="href:entry2.href">查看项目 →</a>
             </div>
             <div class="poster-stage poster-workflow" aria-label="需求流转项目封面" data-i18n-attr="aria-label:showcase.card2.posterAria">
@@ -330,16 +261,21 @@
               <span class="poster-keyword keyword-b" data-i18n="showcase.card2.posterK2">反馈</span>
               <span class="poster-keyword keyword-c" data-i18n="showcase.card2.posterK3">售后</span>
               <span class="poster-keyword keyword-d" data-i18n="showcase.card2.posterK4">状态同步</span>
+              <h3 class="showcase-poster-title" data-i18n="showcase.card2.title">AI 业务需求流转工作台</h3>
             </div>
             <div class="showcase-card-inner">
-              <h3 data-i18n="showcase.card2.title">AI 业务需求流转工作台</h3>
-              <p class="showcase-hook" data-i18n="showcase.card2.hook">会规划的 Agent 很多，能落进流程的 Agent 很少。</p>
-              <p class="showcase-value" data-i18n="showcase.card2.value">从多源业务信号中识别需求、分流任务，并推动业务闭环。</p>
+              <p class="showcase-hook" data-i18n="showcase.card2.hook">AI 识别能力越强，反而越容易把产品做坏。</p>
+              <p class="showcase-decision" data-i18n="showcase.card2.decision">关键判断：信息 ≠ 需求。</p>
+              <p class="showcase-value" data-i18n="showcase.card2.value">这个项目不是把所有反馈自动变成需求，而是先识别信号、保留证据、交给人确认，再进入分流、跟进和复盘流程。</p>
             </div>
           </article>
           <article class="showcase-card card-content">
             <div class="showcase-card-top">
-              <span class="showcase-tag" data-i18n="showcase.card3.tag">内容型 AI 应用</span>
+              <div class="showcase-meta-line">
+                <span class="showcase-tag" data-i18n="showcase.card3.tag">内容型 AI 应用</span>
+                <span class="showcase-meta-separator" aria-hidden="true">｜</span>
+                <span class="showcase-response" data-i18n="showcase.card3.response">回应：伪结果</span>
+              </div>
               <a class="showcase-cta" href="./docs/module3-ai-content-operations-workflow/index.html" data-i18n="showcase.card3.cta" data-i18n-attr="href:entry3.href">查看项目 →</a>
             </div>
             <div class="poster-stage poster-content" aria-label="内容闭环项目封面" data-i18n-attr="aria-label:showcase.card3.posterAria">
@@ -352,16 +288,21 @@
               <span class="poster-keyword keyword-c" data-i18n="showcase.card3.posterK3">审核</span>
               <span class="poster-keyword keyword-d" data-i18n="showcase.card3.posterK4">发布</span>
               <span class="poster-keyword keyword-e" data-i18n="showcase.card3.posterK5">复用</span>
+              <h3 class="showcase-poster-title" data-i18n="showcase.card3.title">AI 营销内容生产工作流</h3>
             </div>
             <div class="showcase-card-inner">
-              <h3 data-i18n="showcase.card3.title">AI 营销内容生产工作流</h3>
-              <p class="showcase-hook" data-i18n="showcase.card3.hook">一键生成不是生产力，能进入生产链路才是。</p>
-              <p class="showcase-value" data-i18n="showcase.card3.value">从“一键生成”升级为可协作、可复用、可迭代的内容生产链路。</p>
+              <p class="showcase-hook" data-i18n="showcase.card3.hook">内容生成不是终点。</p>
+              <p class="showcase-decision" data-i18n="showcase.card3.decision">关键判断：AI 输出不能天然等于业务结果。</p>
+              <p class="showcase-value" data-i18n="showcase.card3.value">这个项目不是追求一次生成多少内容，而是让内容可以被审核、复用、发布和复盘，形成可持续的生产流程。</p>
             </div>
           </article>
           <article class="showcase-card card-governance">
             <div class="showcase-card-top">
-              <span class="showcase-tag" data-i18n="showcase.card4.tag">AI 应用评估与治理</span>
+              <div class="showcase-meta-line">
+                <span class="showcase-tag" data-i18n="showcase.card4.tag">AI 应用评估与治理</span>
+                <span class="showcase-meta-separator" aria-hidden="true">｜</span>
+                <span class="showcase-response" data-i18n="showcase.card4.response">回应：伪效率</span>
+              </div>
               <a class="showcase-cta" href="./docs/module4-ai-evaluation-governance-framework/index.html" data-i18n="showcase.card4.cta" data-i18n-attr="href:entry4.href">查看框架 →</a>
             </div>
             <div class="poster-stage poster-governance" aria-label="上线治理项目封面" data-i18n-attr="aria-label:showcase.card4.posterAria">
@@ -374,50 +315,116 @@
               <span class="poster-keyword keyword-b">badcase</span>
               <span class="poster-keyword keyword-c" data-i18n="showcase.card4.posterK3">版本迭代</span>
               <span class="poster-keyword keyword-d" data-i18n="showcase.card4.posterK4">持续治理</span>
+              <h3 class="showcase-poster-title" data-i18n="showcase.card4.title">AI 应用评估与治理框架</h3>
             </div>
             <div class="showcase-card-inner">
-              <h3 data-i18n="showcase.card4.title">AI 应用评估与治理框架</h3>
-              <p class="showcase-hook" data-i18n="showcase.card4.hook">Demo 只要一次成功，上线要一直不翻车。</p>
-              <p class="showcase-value" data-i18n="showcase.card4.value">从 Demo 到 Pilot、上线、badcase 复盘和持续迭代的判断机制。</p>
+              <p class="showcase-hook" data-i18n="showcase.card4.hook">大家都在讨论怎么做 AI，很少讨论什么 AI 不该做。</p>
+              <p class="showcase-decision" data-i18n="showcase.card4.decision">关键判断：AI PM 最重要的能力，包括阻止错误项目立项。</p>
+              <p class="showcase-value" data-i18n="showcase.card4.value">不是给 AI 项目补一套文档，而是在立项、试点、上线和迭代之间设置判断闸门，避免错误项目被更快地推进。</p>
             </div>
           </article>
         </div>
       </section>
 
       <section id="positioning" class="section-block positioning-section" aria-labelledby="positioning-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow" data-i18n="positioning.eyebrow">差异化定位</p>
-          <h2 id="positioning-title" data-i18n="positioning.title">我适合处理“AI 想做，但还没想清楚怎么落地”的阶段</h2>
-          <p data-i18n="enterpriseExperience.text">
-            我的背景不是典型互联网单点功能 PM，但这也构成了我的差异化：我更擅长在模糊、不确定、跨部门协作的环境中，把方向拆成路径，把问题拆成结构，把试点设计成可以被验证和复盘的产品方案。
-          </p>
-          <p data-i18n="positioning.text">
-            对于正在探索 AI 应用的团队，我能补上的不是某一个工具操作，而是从场景判断、流程设计、人机协作、评估指标到迭代机制的产品化推进能力。
-          </p>
-        </div>
-        <div class="positioning-tags" aria-label="差异化能力标签" data-i18n-attr="aria-label:positioning.tagsLabel">
-          <span data-i18n="positioning.tag1">场景定义</span>
-          <span data-i18n="positioning.tag2">流程设计</span>
-          <span data-i18n="positioning.tag3">人机协同</span>
-          <span data-i18n="positioning.tag4">评估思维</span>
-          <span data-i18n="positioning.tag5">跨部门对齐</span>
-          <span data-i18n="positioning.tag6">产品化路径</span>
+        <div class="positioning-inner">
+          <div class="positioning-lead">
+            <p class="eyebrow section-eyebrow" data-i18n="positioning.eyebrow">差异化定位</p>
+            <h2 id="positioning-title" data-i18n-html="positioning.title">我的差异化，不是会<br>把 AI 放进页面，<br>而是判断 AI 应该<br><span class="positioning-title-hit">放进哪里、停在哪里</span>。</h2>
+            <p data-i18n="positioning.lead">我更适合进入这样的阶段：业务已经意识到 AI 有机会，但还没判断清楚该做什么、怎么做、做到哪里为止。</p>
+            <p class="positioning-close" data-i18n-html="positioning.close">我想做的不是“把 AI 做出来”这一段，而是帮助它从 Demo 进入业务、从能力变成<span class="text-nowrap">责任清楚的产品。</span></p>
+          </div>
+          <div class="positioning-stages" role="list" aria-label="适合处理的企业 AI 落地阶段" data-i18n-attr="aria-label:positioning.stagesAria">
+            <article class="positioning-stage" role="listitem">
+              <span aria-hidden="true">01</span>
+              <h3 data-i18n="positioning.stage1.title">场景还没想清楚</h3>
+              <p class="positioning-stage-claim" data-i18n="positioning.stage1.claim">不是把所有业务问题都翻译成 AI，而是先判断哪些问题值得做 AI。</p>
+              <p data-i18n="positioning.stage1.text">我会从真实问题、高频程度、可验证性、使用者和业务结果出发，判断 AI 介入是否成立，避免为了 AI 找需求。</p>
+            </article>
+            <article class="positioning-stage" role="listitem">
+              <span aria-hidden="true">02</span>
+              <h3 data-i18n="positioning.stage2.title">流程还接不住</h3>
+              <p class="positioning-stage-claim" data-i18n="positioning.stage2.claim">不是让 AI 产出更多内容，而是让输出能被确认、分流、追踪和复盘。</p>
+              <p data-i18n="positioning.stage2.text">我关注 AI 输出之后发生什么：谁使用、谁确认、进入哪个流程、如何验证结果，避免把模型输出误认为业务结果。</p>
+            </article>
+            <article class="positioning-stage" role="listitem">
+              <span aria-hidden="true">03</span>
+              <h3 data-i18n="positioning.stage3.title">边界还不清楚</h3>
+              <p class="positioning-stage-claim" data-i18n="positioning.stage3.claim">不是能自动化就自动化，而是判断 AI 应该接哪一步，哪里必须由人负责。</p>
+              <p data-i18n="positioning.stage3.text">我会提前拆出人工确认、责任边界、风险兜底和回滚机制，避免把责任不清包装成效率提升。</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="cta" class="section-block final-cta-section" aria-labelledby="cta-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow" data-i18n="cta.eyebrow">下一步</p>
-          <h2 id="cta-title" data-i18n="cta.title">继续查看完整 AI 应用产品化案例</h2>
-          <p data-i18n="rag.text">
-            如果你想看具体项目，可以从三类 AI 应用进入；如果你想看整体判断方法，可以直接进入 Readiness 框架。
-          </p>
+      <section id="story" class="section-block story-section" aria-labelledby="story-title">
+        <div class="story-inner">
+          <div class="story-header">
+            <p class="eyebrow section-eyebrow" data-i18n="story.eyebrow">背景解释</p>
+            <h2 id="story-title" data-i18n-html="story.title">我一直关注的不是某个行业，<br><span class="story-title-hit">而是复杂决策如何被产品增强。</span></h2>
+            <p class="story-lead-copy" data-i18n="story.lead">建筑、地产产品管理和 AI 应用，看起来是不同阶段，但我真正延续下来的问题意识是同一个：人在复杂情境里如何做判断，组织如何把判断沉淀成流程，产品如何让判断更稳定、更可复用。</p>
+          </div>
+          <div class="story-thread" role="list" aria-label="复杂决策主线下的三段经历" data-i18n-attr="aria-label:story.threadAria">
+            <article class="story-step" role="listitem">
+              <span class="story-step-index" aria-hidden="true">01</span>
+              <div class="story-step-body">
+                <h3><span data-i18n="story.card1.phase">建筑阶段</span><strong data-i18n="story.card1.label">空间中的决策</strong></h3>
+                <p data-i18n="story.card1.text">建筑训练让我习惯从场景、约束、使用者和长期结果出发思考问题。一个空间方案不是把元素摆进去，而是判断人在其中如何行动、选择和协作。</p>
+              </div>
+            </article>
+            <article class="story-step" role="listitem">
+              <span class="story-step-index" aria-hidden="true">02</span>
+              <div class="story-step-body">
+                <h3><span data-i18n="story.card2.phase">万科阶段</span><strong data-i18n="story.card2.label">组织中的决策</strong></h3>
+                <p data-i18n="story.card2.text">在区域产品管理中，我面对的是跨部门、跨城市、跨角色的产品判断：定位、标准、评审、推进和取舍。这里让我更重视流程、责任边界和组织协同。</p>
+              </div>
+            </article>
+            <article class="story-step" role="listitem">
+              <span class="story-step-index" aria-hidden="true">03</span>
+              <div class="story-step-body">
+                <h3><span data-i18n="story.card3.phase">AI 阶段</span><strong data-i18n="story.card3.label">AI 参与后的决策</strong></h3>
+                <p data-i18n="story.card3.text">进入 AI 应用后，我关注的不只是模型能做什么，而是 AI 如何进入真实业务：什么时候辅助判断，什么时候进入流程，什么时候必须停在人工确认之前。</p>
+              </div>
+            </article>
+          </div>
+          <p class="story-summary" data-i18n-html="story.summary">行业在变，但我关心的问题没有变：<br>如何让复杂判断被看见、被组织、被产品化。</p>
         </div>
-        <div class="cta-grid">
-          <a class="button-primary" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n="cta.knowledge" data-i18n-attr="href:entry1.href">进入知识型 AI 应用</a>
-          <a class="button-secondary" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n="cta.workflow" data-i18n-attr="href:entry2.href">进入流程型 AI 应用</a>
-          <a class="button-secondary" href="./docs/module3-ai-content-operations-workflow/index.html" data-i18n="cta.content" data-i18n-attr="href:entry3.href">进入内容型 AI 应用</a>
-          <a class="button-secondary" href="./docs/module4-ai-evaluation-governance-framework/index.html" data-i18n="cta.readiness" data-i18n-attr="href:entry4.href">进入 Readiness 框架</a>
+      </section>
+
+      <section id="judgment-memo" class="section-block memo-section" aria-labelledby="memo-title">
+        <div class="memo-inner">
+          <div class="memo-heading">
+            <p class="eyebrow section-eyebrow" data-i18n="memo.eyebrow">判断备忘录</p>
+            <h2 id="memo-title" data-i18n="memo.title">我做 AI 产品时，会一直提醒自己的几件事。</h2>
+            <p data-i18n="memo.lead">这些不是口号，而是我在做 AI 场景判断、产品设计和落地验证时，会反复拿来校准方向的底层提醒。</p>
+          </div>
+          <div class="memo-grid" role="list" aria-label="AI 产品判断备忘录" data-i18n-attr="aria-label:memo.aria">
+            <article class="memo-card" role="listitem">
+              <span aria-hidden="true">01</span>
+              <h3 data-i18n="memo.item1.title">不是所有 AI 都长成聊天框。</h3>
+              <p data-i18n="memo.item1.text">很多场景真正需要的不是对话入口，而是嵌入流程里的判断、分流、提醒和确认。</p>
+            </article>
+            <article class="memo-card" role="listitem">
+              <span aria-hidden="true">02</span>
+              <h3 data-i18n="memo.item2.title">AI Coding 让正确更快，也让错误更快。</h3>
+              <p data-i18n="memo.item2.text">AI 可以显著提高实现速度，但如果场景、边界和验证没想清楚，也会更快放大错误方向。</p>
+            </article>
+            <article class="memo-card" role="listitem">
+              <span aria-hidden="true">03</span>
+              <h3 data-i18n="memo.item3.title">先上车后补票，是很多 AI 项目失败的开始。</h3>
+              <p data-i18n="memo.item3.text">AI 项目可以小步试点，但不能跳过场景判断、责任边界和结果验证。</p>
+            </article>
+            <article class="memo-card" role="listitem">
+              <span aria-hidden="true">04</span>
+              <h3 data-i18n="memo.item4.title">AI 可以替代任务，但不能轻易替代责任。</h3>
+              <p data-i18n="memo.item4.text">越是高价值场景，越要先设计清楚谁确认、谁兜底、错了怎么回滚。</p>
+            </article>
+            <article class="memo-card" role="listitem">
+              <span aria-hidden="true">05</span>
+              <h3 data-i18n="memo.item5.title">AI 产品经理不只是推动项目立项，也包括阻止错误项目立项。</h3>
+              <p data-i18n="memo.item5.text">有些 AI 项目不该做，有些应该晚点做，有些只能先做辅助判断而不是全自动化。</p>
+            </article>
+          </div>
         </div>
       </section>
     </main>
@@ -456,12 +463,30 @@
           "nav.langHref": "/ai-product-portfolio/index.html",
           "nav.positioning": "Positioning",
           "nav.cta": "Cases",
-          "hero.eyebrow": "AI Application Productization Portfolio · 2026",
-          "hero.title": "The most common AI project trap: building the demo first, then looking for the real task.",
-          "hero.title.line1": "The most common AI project trap:",
-          "hero.title.line2": "building the demo first,<br>then looking for the real task.",
-          "hero.subtitle": "Connecting a model is only the start. Productizing AI means making it carry a real task.",
+          "hero.eyebrow": "AI Application Product Manager Portfolio",
+          "hero.title": "Many AI projects are not hard to build. They are hard to enter real business.",
+          "hero.title.line1": "Many AI projects are not hard to build.",
+          "hero.title.line2": "<span class=\"hero-title-pivot\">but</span><span class=\"hero-title-focus\">they cannot enter real business.</span>",
+          "hero.subtitle": "I do not start from AI and look for business. I start from business and judge where AI belongs.",
           "hero.text": "Teams often build a demo before defining the scenario, connect a model before redesigning the workflow, and prove that “AI can do it” before asking who will actually use it.",
+          "hero.text1": "<span>A real AI application is not about putting a model into a system.</span><span>It is about making outputs enter workflows and create results.</span>",
+          "hero.judgmentListAria": "AI application productization judgment points",
+          "hero.frameworkLead": "I first judge three questions:",
+          "hero.point1": "Judge which step AI should carry",
+          "hero.point2": "Judge which step must remain human-owned",
+          "hero.point3": "Judge which outputs can enter business workflows",
+          "hero.dimension1.title": "Which step is worth carrying with AI",
+          "hero.dimension1.text": "Whether the node has clear input, context, and next action.",
+          "hero.dimension2.title": "Which step must remain human-owned",
+          "hero.dimension2.text": "Define responsibility, risk fallback, and final confirmation.",
+          "hero.dimension3.title": "Which output can enter the workflow",
+          "hero.dimension3.text": "Only confirmed, routed, tracked, and reviewed outputs enter business.",
+          "hero.closing": "Connecting the model is only the start; carrying the task is what makes it a product.",
+          "hero.keywordsAria": "Homepage keywords",
+          "hero.keyword1": "Complex Business",
+          "hero.keyword2": "Product Judgment",
+          "hero.keyword3": "Human-AI Collaboration",
+          "hero.keyword4": "AI Landing",
           "hero.demo.line1": "Build the demo first;",
           "hero.demo.line2": "connect the model first;",
           "hero.demo.line3": "prove that “AI can do it,”",
@@ -470,11 +495,12 @@
           "hero.judgment.line2": "Productizing AI means making it carry a real task.",
           "hero.positioning": "I focus on turning ambiguous AI opportunities into scenarios, workflows, boundaries, metrics, and testable pilot paths.",
           "hero.primary": "View projects",
-          "hero.secondary": "View methodology",
+          "hero.secondary": "View product judgment",
           "hero.projectNote.title": "Core project entry points",
-          "hero.projectNote.text": "Four projects across knowledge, workflow, content, and governance AI applications.",
+          "hero.projectNote.text": "<span>Knowledge, workflow, content, and governance.</span><span>Four projects, four AI scenarios.</span>",
           "hero.projectsAria": "Core project entry points",
           "hero.projectNoteAria": "Core project entry point note",
+          "hero.project4.hook": "Knowing which AI not to build is also product judgment.",
           "hero.visual.eyebrow": "AI Productization Roadmap",
           "hero.visual.title": "From Idea to Pilot",
           "hero.visual.ideaLabel": "AI Idea / Scenario",
@@ -529,7 +555,7 @@
           "bridge.summary": "These four projects are not a list of tools. They are four ways AI can enter real work.",
           "check.eyebrow": "PRODUCTIZATION CHECK",
           "check.title": "Do not rush to give AI an entry point. First, find where it belongs.",
-          "check.kicker": "Connecting a model is only the start. An AI product only starts to matter when it carries a real task.",
+          "check.kicker": "Locate the task first. Then decide where AI should enter.",
           "check.text": "A real AI application needs to answer five questions: where AI enters the task, what context it uses, who reviews the output, how the result moves into the next step, and how it is measured and improved after launch.",
           "check.card1.title": "Task Trigger",
           "check.card1.text": "Where does AI enter the task?",
@@ -541,13 +567,16 @@
           "check.card4.text": "How does the result move into the next step?",
           "check.card5.title": "Validation & Iteration",
           "check.card5.text": "How is it measured and improved after launch?",
-          "showcase.eyebrow": "PROJECT PREVIEW",
-          "showcase.title": "From application to governance, AI is not just connected to a product. It becomes part of how the product works.",
-          "showcase.text": "These four projects start from demonstrable prototypes, but the focus is not only whether a demo can run. The focus is how AI enters real tasks, workflow collaboration, content production, and readiness governance, then becomes verifiable and iterative product capability.",
+          "showcase.eyebrow": "PROJECT EVIDENCE CHAIN",
+          "showcase.proofNote": "The first screens are the judgment. These four projects are the evidence.",
+          "showcase.title": "Four projects answer one question:<br><span class=\"showcase-title-line\">How AI moves from <span class=\"showcase-title-hit\">“can be built”</span> to <span class=\"showcase-title-hit\">“business usable”</span>.</span>",
+          "showcase.text": "These four projects are not a feature catalog. They are four samples of AI scenario judgment: how knowledge becomes next action, how feedback becomes confirmable requirements, how content enters review and retrospective loops, and how AI projects can be evaluated or stopped before approval.",
           "showcase.card1.tag": "Knowledge-based AI Application",
+          "showcase.card1.response": "Responds to: Pseudo Result / Pseudo Demand",
           "showcase.card1.title": "Enterprise Knowledge Workspace",
-          "showcase.card1.hook": "If foundation models are already so capable, why do enterprises still need their own knowledge systems?",
-          "showcase.card1.value": "From trusted context to agentic workflow.",
+          "showcase.card1.hook": "Enterprise knowledge bases often fail for reasons beyond search.",
+          "showcase.card1.decision": "Key judgment: knowing a policy does not mean knowing whether it applies to you.",
+          "showcase.card1.value": "This project is not a knowledge base that answers more. It helps employees understand the basis, applicability, and next action in a specific context.",
           "showcase.card1.p1": "RAG as trusted context infrastructure, not a tech demo",
           "showcase.card1.p2": "Agent decomposes tasks; humans retain confirmation and decisions",
           "showcase.card1.p3": "Citations, permissions, badcases, and versioning for controllability",
@@ -559,9 +588,11 @@
           "showcase.card1.posterK4": "Human Review",
           "showcase.card1.posterK5": "Output",
           "showcase.card2.tag": "Workflow-based AI Application",
+          "showcase.card2.response": "Responds to: Pseudo Demand / Pseudo Result",
           "showcase.card2.title": "AI Business Requirement Flow Workbench",
-          "showcase.card2.hook": "Many agents can plan. Few can actually land inside business workflows.",
-          "showcase.card2.value": "From multi-source business signals to requirement routing and task closure.",
+          "showcase.card2.hook": "The stronger AI recognition becomes, the easier it is to damage the product.",
+          "showcase.card2.decision": "Key judgment: information is not the same as a requirement.",
+          "showcase.card2.value": "This project does not turn every signal into a requirement. It identifies signals, preserves evidence, asks humans to confirm, then routes, follows up, and reviews the work.",
           "showcase.card2.p1": "AI identifies signals from meetings, feedback, support, and quality data",
           "showcase.card2.p2": "Human review confirms priority and responsibility boundaries",
           "showcase.card2.p3": "Status sync, rule iteration, and task closure",
@@ -576,9 +607,11 @@
           "showcase.card2.posterK3": "Support",
           "showcase.card2.posterK4": "Status Sync",
           "showcase.card3.tag": "Content-based AI Application",
+          "showcase.card3.response": "Responds to: Pseudo Result",
           "showcase.card3.title": "AI Marketing Content Production Workflow",
-          "showcase.card3.hook": "One-click generation is not productivity. Productivity starts when AI enters the production workflow.",
-          "showcase.card3.value": "From Campaign Brief to multi-channel assets, brand review, and performance feedback.",
+          "showcase.card3.hook": "Content generation is not the endpoint.",
+          "showcase.card3.decision": "Key judgment: AI output does not naturally equal business outcome.",
+          "showcase.card3.value": "This project is not about generating more content at once. It makes content reviewable, reusable, publishable, and reviewable after launch.",
           "showcase.card3.p1": "Complete pipeline from brief to generation, review, publish, and feedback",
           "showcase.card3.p2": "Human-AI collaboration and version management",
           "showcase.card3.p3": "Feedback-driven reusable content asset accumulation",
@@ -591,9 +624,11 @@
           "showcase.card3.posterK4": "Publish",
           "showcase.card3.posterK5": "Reuse",
           "showcase.card4.tag": "AI Application Readiness & Governance",
+          "showcase.card4.response": "Responds to: Pseudo Efficiency",
           "showcase.card4.title": "AI Application Readiness & Governance Framework",
-          "showcase.card4.hook": "A demo only needs to work once. A launched AI application has to keep working.",
-          "showcase.card4.value": "From demo to pilot-ready AI application.",
+          "showcase.card4.hook": "Many teams discuss how to build AI. Fewer discuss which AI should not be built yet.",
+          "showcase.card4.decision": "Key judgment: an AI PM should also stop wrong projects from being approved.",
+          "showcase.card4.value": "Not extra documentation for AI projects, but decision gates across approval, pilot, launch, and iteration.",
           "showcase.card4.p1": "Readiness check: is it worth piloting?",
           "showcase.card4.p2": "Launch Gate: is it ready for a controlled pilot?",
           "showcase.card4.p3": "Badcase loop: continuous governance and improvement post-launch",
@@ -602,15 +637,93 @@
           "showcase.card4.posterK3": "Version Iteration",
           "showcase.card4.posterK4": "Continuous Governance",
           "positioning.eyebrow": "Positioning",
-          "positioning.title": "I work best when teams know they want AI, but have not yet figured out how it should land.",
-          "positioning.text": "For teams exploring AI applications, what I add is not a single tool operation. I help move from scenario judgment and workflow design to human-AI collaboration, evaluation metrics, and iteration mechanisms.",
+          "philosophy.eyebrow": "Failure Diagnosis",
+          "philosophy.title": "Built, but still unable to enter business.<br><span class=\"ai-diagnosis-title-line\">It often dies in these <span class=\"ai-diagnosis-title-hit\">three places</span>.</span>",
+          "philosophy.diagnosisAria": "AI project failure diagnosis items",
+          "philosophy.diagnosis1.name": "Pseudo Demand",
+          "philosophy.diagnosis1.title": "Treating model capability<br>as business demand.",
+          "philosophy.diagnosis1.text": "First judge whether this is a real business problem or just a model capability demo.",
+          "philosophy.diagnosis2.name": "Pseudo Result",
+          "philosophy.diagnosis2.title": "Treating AI output<br>as a business result.",
+          "philosophy.diagnosis2.text": "If output cannot be confirmed, routed, tracked, and reviewed, it is not business capability yet.",
+          "philosophy.diagnosis3.name": "Pseudo Efficiency",
+          "philosophy.diagnosis3.title": "Treating unclear automation<br>as efficiency gain.",
+          "philosophy.diagnosis3.text": "Who confirms, who handles fallback, and how rollback works must be designed first.",
+          "scenario.eyebrow": "Scenario Discovery",
+          "scenario.title": "I do not look for scenarios inside model capability,<br><span>I look for AI in <span class=\"scenario-title-hit\">business breakpoints</span>.</span>",
+          "scenario.lead": "When I judge whether an AI scenario is worth building, I do not start with whether the model can do it. I first look for breakpoints that repeatedly get stuck, missed, or left unowned in the business.",
+          "scenario.boardAria": "AI scenario discovery judgment questions",
+          "scenario.keywordsAria": "Keywords",
+          "scenario.item1.title": "Demand does not mean AI is worth building",
+          "scenario.item1.statement": "Is this demand really worth solving with AI?",
+          "scenario.item1.text": "A request is not enough. I look at whether it is frequent, important, verifiable, and whether AI can change the business result.",
+          "scenario.item1.keyword1": "High frequency",
+          "scenario.item1.keyword2": "Clear boundary",
+          "scenario.item1.keyword3": "Reviewable",
+          "scenario.item1.keyword4": "Change outcome",
+          "scenario.item2.title": "Generation does not mean scenario",
+          "scenario.item2.statement": "Will this output really be used by the business?",
+          "scenario.item2.text": "Model output is not enough. I look for a clear user, next action, workflow entry, and result validation.",
+          "scenario.item2.keyword1": "Confirm",
+          "scenario.item2.keyword2": "Route",
+          "scenario.item2.keyword3": "Track",
+          "scenario.item2.keyword4": "Review",
+          "scenario.item3.title": "Automation does not mean it should be automated",
+          "scenario.item3.statement": "Should this workflow really be automated?",
+          "scenario.item3.text": "I look at which step AI should carry, and where human confirmation and responsibility boundaries must remain.",
+          "scenario.item3.keyword1": "Evidence",
+          "scenario.item3.keyword2": "Context",
+          "scenario.item3.keyword3": "Risk signal",
+          "scenario.item3.keyword4": "Human confirmation",
+          "scenario.close": "The AI scenarios worth building are not where the model looks most impressive, but where the business most often gets stuck, misses things, or leaves work unowned.",
+          "story.eyebrow": "Background",
+          "story.title": "What I have focused on is not one industry,<br><span class=\"story-title-hit\">but how product strengthens complex decisions.</span>",
+          "story.lead": "Architecture, real estate product management, and AI applications look like different phases. The continuous question is the same: how people make judgments in complex contexts, how organizations turn judgment into process, and how products make judgment more stable and reusable.",
+          "story.threadAria": "Three experiences under the complex decision thread",
+          "story.card1.phase": "Architecture phase",
+          "story.card1.label": "Decisions in space",
+          "story.card1.text": "Architectural training made me start from scenarios, constraints, users, and long-term outcomes. A spatial solution is not placing elements into a room. It is judging how people act, choose, and collaborate inside it.",
+          "story.card2.phase": "Vanke phase",
+          "story.card2.label": "Decisions in organizations",
+          "story.card2.text": "In regional product management, I faced product judgment across departments, cities, and roles: positioning, standards, reviews, delivery, and tradeoffs. It made me care more about process, responsibility boundaries, and organizational coordination.",
+          "story.card3.phase": "AI phase",
+          "story.card3.label": "Decisions after AI participates",
+          "story.card3.text": "After moving into AI applications, I focus not only on what models can do, but how AI enters real business: when it supports judgment, when it enters workflow, and when it must stop before human confirmation.",
+          "story.summary": "Industries change, but the question I care about has not changed:<br>how to make complex judgment visible, organized, and productized.",
+          "positioning.title": "My differentiation is not putting AI into a page,<br>but judging where AI should be placed, and where it should stop.",
+          "positioning.lead": "I fit best at the stage where the business already sees AI opportunity, but has not yet clarified what to build, how to build it, or where to stop.",
+          "positioning.close": "I do not only want to work on the part where AI is built.<br>I want to help it move from demo into business, and from capability into a product with clear responsibility.",
+          "positioning.stagesAria": "Enterprise AI landing stages I am suited to handle",
+          "positioning.stage1.title": "The scenario is still unclear",
+          "positioning.stage1.claim": "Not every business problem should be translated into AI. First judge which problems are worth building with AI.",
+          "positioning.stage1.text": "I look at real problems, frequency, verifiability, users, and business outcomes to judge whether AI involvement is valid, instead of looking for demand just to use AI.",
+          "positioning.stage2.title": "The workflow cannot carry it yet",
+          "positioning.stage2.claim": "Not making AI produce more output, but making output confirmable, routable, trackable, and reviewable.",
+          "positioning.stage2.text": "I care what happens after AI output: who uses it, who confirms it, which workflow it enters, and how the result is validated, avoiding the mistake of treating model output as business outcome.",
+          "positioning.stage3.title": "The boundary is still unclear",
+          "positioning.stage3.claim": "Not automating just because automation is possible, but judging which step AI should carry and where humans must remain responsible.",
+          "positioning.stage3.text": "I define human confirmation, responsibility boundaries, fallback, and rollback mechanisms early, so unclear responsibility is not packaged as efficiency.",
           "positioning.tagsLabel": "Differentiated capability tags",
-          "positioning.tag1": "Scenario Framing",
+          "positioning.tag1": "Business Scenario Judgment",
           "positioning.tag2": "Workflow Design",
           "positioning.tag3": "Human-AI Collaboration",
-          "positioning.tag4": "Evaluation Thinking",
+          "positioning.tag4": "AI Application Evaluation",
           "positioning.tag5": "Cross-functional Alignment",
-          "positioning.tag6": "Productization Path",
+          "positioning.tag6": "Productized Landing",
+          "memo.eyebrow": "Judgment Memo",
+          "memo.title": "A few reminders I keep in mind when building AI products.",
+          "memo.lead": "These are not slogans. They are the baseline reminders I repeatedly use to calibrate AI scenario judgment, product design, and landing validation.",
+          "memo.aria": "AI product judgment memo",
+          "memo.item1.title": "Not every AI product should look like a chat box.",
+          "memo.item1.text": "Many scenarios do not need a conversational entry. They need judgment, routing, reminders, and confirmation embedded in the workflow.",
+          "memo.item2.title": "AI Coding makes the right direction faster, and the wrong direction faster too.",
+          "memo.item2.text": "AI can speed up implementation, but if the scenario, boundary, and validation are unclear, it also amplifies the wrong direction faster.",
+          "memo.item3.title": "Building first and justifying later is where many AI projects start to fail.",
+          "memo.item3.text": "AI projects can start with small pilots, but they cannot skip scenario judgment, responsibility boundaries, and result validation.",
+          "memo.item4.title": "AI can replace tasks, but it should not casually replace responsibility.",
+          "memo.item4.text": "The higher the value of the scenario, the earlier the product must define who confirms, who handles fallback, and how rollback works.",
+          "memo.item5.title": "An AI PM does not only push projects forward. They also stop the wrong ones from being approved.",
+          "memo.item5.text": "Some AI projects should not be built, some should be built later, and some should start as assisted judgment rather than full automation.",
           "cta.eyebrow": "Next",
           "cta.title": "Continue into complete AI productization cases",
           "cta.knowledge": "Enter knowledge-based AI application",
@@ -677,7 +790,7 @@
           "scaffolding.item.review": "Human Review Checkpoints",
           "enterpriseExperience.eyebrow": "Enterprise Workflow Foundation",
           "enterpriseExperience.title": "Related enterprise workflow and organizational collaboration experience",
-          "enterpriseExperience.text": "My background is not the typical single-feature internet PM path, and that is part of my differentiation: I am better at turning ambiguity, uncertainty, and cross-functional complexity into paths, structures, and testable product plans.",
+          "enterpriseExperience.text": "I am not a PM grown from a typical single-feature or traffic-growth path. My background spans spatial design, group-level business coordination, and cross-functional process work, so I focus on judgment inside complex systems: how information is organized, responsibility assigned, workflows carried, and decisions validated.",
           "enterpriseKnowledgeWorkspace.title": "Enterprise Knowledge Workspace: From trusted context to agentic workflow",
           "enterpriseKnowledgeWorkspace.text": "For scattered materials, hard-to-reuse experience, and hard-to-trace decision evidence, this case shows how knowledge reuse can move from source-grounded QA into an Agent workflow with Router, Tool, Memory, human review, and evaluation mechanisms.",
           "aigc.title": "AI Content Operations Workflow",

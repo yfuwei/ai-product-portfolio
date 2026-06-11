@@ -69,6 +69,6 @@ GitHub Pages 建议配置：
 
 旧版作品集页面和旧版 PRD 已移出站点目录，归档到：
 
-`../03_作品集改造工作台/99_归档_旧版站点文件/20260518_old_portfolio_pages/`
+`../03_作品集素材202605/99_归档_旧版站点文件/20260518_old_portfolio_pages/`
 
 该归档目录位于当前 `ai-product-portfolio` 仓库根目录之外，不属于 GitHub Pages 当前站点发布内容。
