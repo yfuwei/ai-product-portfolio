@@ -6862,3 +6862,246 @@ body.en-home-v2 #entries.showcase-evidence-compact .showcase-value {
     min-height: 0;
   }
 }
+
+.methodology {
+  background: #0b0f17;
+  color: #ffffff;
+  padding: clamp(68px, 7vw, 104px) clamp(20px, 5vw, 64px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.methodology .eyebrow {
+  margin: 0;
+  color: #ff4d8d;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.methodology-hero {
+  width: min(100%, 1180px);
+  margin: 0 auto 80px;
+}
+
+.methodology .title {
+  margin-top: 18px;
+  color: #ffffff;
+  font-size: clamp(40px, 5.4vw, 74px);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.methodology .subtitle {
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(17px, 1.55vw, 21px);
+  font-weight: 560;
+  line-height: 1.65;
+}
+
+.methodology-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 980px);
+  margin: 80px auto;
+  text-align: center;
+}
+
+.core-title {
+  color: #ffffff;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 920;
+  line-height: 1.12;
+}
+
+.core-diagram {
+  width: min(100%, 760px);
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: clamp(13px, 1.22vw, 16px);
+  font-weight: 760;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.judgment-box {
+  display: grid;
+  gap: 10px;
+  width: min(100%, 560px);
+  margin: 12px auto;
+  padding: 16px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.judgment-box div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.core-caption {
+  max-width: 660px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 15px;
+  font-weight: 620;
+  line-height: 1.65;
+}
+
+.methodology-axes {
+  display: grid;
+  width: min(100%, 1180px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin: 0 auto;
+}
+
+.methodology .axis {
+  min-width: 0;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.methodology .axis h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.methodology .axis p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15.5px;
+  font-weight: 560;
+  line-height: 1.62;
+}
+
+.methodology-projects {
+  width: min(100%, 1180px);
+  margin: 82px auto 0;
+}
+
+.methodology .section-title {
+  color: #ffffff;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 920;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.mapping-intro {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.methodology .project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.methodology .project-card {
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  align-content: start;
+  gap: 12px;
+  padding: 20px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 180ms var(--ease-standard), background 180ms var(--ease-standard);
+}
+
+.methodology .project-card::before {
+  content: none;
+}
+
+.methodology .project-card:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 77, 141, 0.34);
+  box-shadow: none;
+}
+
+.methodology .project-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(20px, 1.7vw, 24px);
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+.methodology .project-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 15px;
+  font-weight: 560;
+  line-height: 1.58;
+}
+
+.methodology .axis-tag {
+  color: #ff4d8d;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .methodology {
+    padding-top: 56px;
+    padding-bottom: 62px;
+  }
+
+  .methodology-hero {
+    margin-bottom: 56px;
+  }
+
+  .methodology .title {
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.08;
+  }
+
+  .methodology .subtitle br {
+    display: none;
+  }
+
+  .methodology-core {
+    margin: 56px auto;
+  }
+
+  .core-diagram {
+    width: 100%;
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .judgment-box {
+    padding: 14px;
+    text-align: left;
+  }
+
+  .methodology-axes,
+  .methodology .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .methodology-projects {
+    margin-top: 58px;
+  }
+}
