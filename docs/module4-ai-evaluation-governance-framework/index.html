@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI 应用评估与治理框架：从 Demo 到可试点状态的就绪度判断机制 | 项目详情</title>
+    <title>AI 应用评估与治理框架：从 Demo 到可试点状态的准入判断机制 | 项目详情</title>
     <meta
       name="description"
       content="项目 4 中文作品集项目页：AI 应用评估与治理框架，展示企业 AI 应用如何从 Demo 进入可试点、可评估、可持续迭代的业务状态。"
@@ -47,16 +47,13 @@
       .case-section,
       .case-container,
       .case-visual,
-      .visual-panel,
-      .visual-node,
       .card-grid,
       .opportunity-board,
       .readiness-grid,
       .gate-grid,
       .toolkit-grid,
       .loop-grid,
-      .source-grid,
-      .boundary-grid {
+      .source-grid {
         min-width: 0;
         max-width: 100%;
       }
@@ -95,12 +92,12 @@
         border-bottom-color: rgba(37, 99, 235, 0.42);
       }
 
-      .case-hero {
+      .governance-hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.88fr);
-        gap: clamp(28px, 5vw, 64px);
+        grid-template-columns: minmax(0, 0.95fr) minmax(520px, 1.05fr);
+        gap: clamp(28px, 4vw, 48px);
         align-items: center;
-        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        padding: clamp(44px, 5.4vw, 70px) clamp(20px, 5vw, 64px);
         background:
           radial-gradient(circle at top right, rgba(249, 115, 22, 0.13), transparent 34%),
           radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1), transparent 32%),
@@ -108,145 +105,271 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .case-subtitle {
-        max-width: 820px;
-        margin: 14px 0 0;
-        color: var(--ink);
-        font-size: clamp(24px, 3vw, 34px);
-        font-weight: 900;
-        line-height: 1.25;
+      .governance-hero-copy {
+        max-width: 700px;
       }
 
-      .case-hook-question {
-        max-width: 760px;
-        margin: 24px 0 0;
+      .governance-hero h1 {
+        max-width: 700px;
+        font-size: clamp(38px, 4vw, 56px);
+        line-height: 1.05;
+      }
+
+      .governance-hero .case-subtitle {
+        max-width: 620px;
+        margin: 12px 0 0;
+        color: var(--ink);
+        font-size: clamp(21px, 2.15vw, 28px);
+        font-weight: 860;
+        line-height: 1.28;
+      }
+
+      .governance-hero .case-hook-question {
+        max-width: 600px;
+        margin: 20px 0 0;
         color: var(--accent-strong);
-        font-size: clamp(22px, 2.4vw, 30px);
-        font-weight: 900;
+        font-size: clamp(19px, 1.85vw, 25px);
+        font-weight: 880;
         line-height: 1.35;
       }
 
-      .case-lead {
-        max-width: 850px;
-        margin: 20px 0 0;
+      .governance-hero .case-lead {
+        max-width: 600px;
+        margin: 18px 0 0;
         color: var(--text);
-        font-size: 18px;
-        line-height: 1.8;
+        font-size: 16.5px;
+        line-height: 1.68;
+      }
+
+      .governance-hero .case-lead + .case-lead {
+        margin-top: 8px;
       }
 
       .mobile-break {
         display: none;
       }
 
-      .status-card {
-        margin-top: 22px;
-        padding: 16px 18px;
-        color: var(--ink);
-        background: #ffffff;
-        border: 1px solid rgba(249, 115, 22, 0.22);
-        border-left: 4px solid #f97316;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--soft-shadow);
-        font-weight: 800;
-        line-height: 1.72;
-      }
-
-      .hero-anchor-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      .hero-anchor-card {
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.76);
-        border: 1px solid rgba(249, 115, 22, 0.2);
-        border-radius: var(--radius-md);
-        box-shadow: var(--soft-shadow);
-      }
-
-      .hero-anchor-card strong {
-        display: block;
-        color: var(--ink);
-        font-size: 15px;
-      }
-
-      .hero-anchor-card p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.6;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 26px;
-      }
-
-      .case-visual {
-        display: grid;
-        gap: 14px;
-        padding: 18px;
-        color: #ffffff;
-        background: var(--ink);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow);
-      }
-
-      .case-visual-header {
+      .governance-hero .hero-actions {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
         gap: 12px;
+        margin-top: 22px;
       }
 
-      .case-visual-header span {
-        color: var(--sun);
-        font-size: 12px;
+      .governance-hero .hero-home-link {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .governance-hero .hero-home-link:hover {
+        color: var(--accent-strong);
+      }
+
+      .governance-hero-visual {
+        display: grid;
+        width: min(100%, 720px);
+        justify-self: end;
+        gap: 14px;
+        padding: clamp(16px, 1.8vw, 22px);
+        color: var(--ink);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(241, 245, 249, 0.9)),
+          #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.11);
+      }
+
+      .judgment-filter-card {
+        display: grid;
+        gap: 15px;
+      }
+
+      .judgment-filter-header {
+        display: grid;
+        gap: 5px;
+      }
+
+      .judgment-filter-header span {
+        color: #c2410c;
+        font-size: 11px;
         font-weight: 900;
         text-transform: uppercase;
       }
 
-      .case-visual img {
-        display: block;
-        width: 100%;
-        height: auto;
-        padding: 12px;
-        background: #ffffff;
-        border-radius: var(--radius-md);
+      .judgment-filter-header strong {
+        color: var(--ink);
+        font-size: clamp(19px, 1.75vw, 23px);
+        line-height: 1.18;
       }
 
-      .visual-panel {
+      .judgment-filter-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .judgment-filter-rail {
+        position: relative;
         display: grid;
-        gap: 12px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: var(--radius-md);
+        gap: 0;
+        padding: 2px 0 0 26px;
       }
 
-      .visual-node {
-        padding: 14px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: var(--radius-sm);
+      .judgment-filter-rail::before {
+        position: absolute;
+        top: 30px;
+        bottom: 20px;
+        left: 8px;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(59, 130, 246, 0.24), rgba(249, 115, 22, 0.36), rgba(20, 184, 166, 0.3));
+        border-radius: 999px;
+        content: "";
       }
 
-      .visual-node strong {
-        display: block;
-        color: #ffffff;
-        font-size: 16px;
+      .judgment-filter-entry {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-self: start;
+        max-width: 100%;
+        padding: 0 0 10px;
+        color: #475569;
+        background: transparent;
+        border: 0;
+        font-size: 12.5px;
+        font-weight: 900;
       }
 
-      .visual-node span {
-        display: block;
-        margin-top: 6px;
-        color: rgba(255, 255, 255, 0.74);
-        font-size: 13px;
+      .judgment-filter-entry::before,
+      .judgment-filter-node::before,
+      .judgment-filter-terminal::before {
+        position: absolute;
+        top: 50%;
+        left: -22px;
+        z-index: 1;
+        width: 8px;
+        height: 8px;
+        background: #ffffff;
+        border: 2px solid rgba(249, 115, 22, 0.48);
+        border-radius: 999px;
+        box-shadow: 0 0 0 4px rgba(255, 247, 237, 0.8);
+        content: "";
+        transform: translateY(-50%);
+      }
+
+      .judgment-filter-entry::before {
+        border-color: rgba(59, 130, 246, 0.52);
+        box-shadow: 0 0 0 4px rgba(239, 246, 255, 0.95);
+      }
+
+      .judgment-filter-node,
+      .judgment-filter-terminal {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px 18px;
+        min-width: 0;
+        padding: 11px 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .judgment-filter-main {
+        display: inline-flex;
+        align-items: center;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .judgment-filter-rule {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 7px;
+        color: var(--ink);
+        font-size: 13.5px;
+        font-weight: 900;
+        line-height: 1.28;
+      }
+
+      .judgment-filter-label {
+        color: #7c2d12;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .judgment-not-equal {
+        color: #f97316;
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .judgment-filter-offramp {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+        justify-self: end;
+        color: #9a3412;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-size: 11.5px;
+        font-weight: 760;
+        line-height: 1.38;
+      }
+
+      .judgment-filter-offramp::before {
+        margin-right: 5px;
+        color: rgba(249, 115, 22, 0.72);
+        content: "↗";
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .judgment-filter-terminal::before {
+        border-color: rgba(20, 184, 166, 0.56);
+        box-shadow: 0 0 0 4px rgba(240, 253, 250, 0.94);
+      }
+
+      .judgment-filter-terminal .judgment-filter-main {
+        background: transparent;
+        border-color: transparent;
+      }
+
+      .judgment-filter-terminal-result {
+        display: inline-flex;
+        justify-self: end;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .judgment-filter-terminal-result span {
+        color: #0f766e;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-size: 11.5px;
+        font-weight: 820;
+      }
+
+      .judgment-filter-footnote {
+        margin: 0;
+        padding: 10px 0 0;
+        color: #64748b;
+        background: transparent;
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        font-size: 12.5px;
+        font-weight: 760;
+        line-height: 1.45;
       }
 
       .case-section {
@@ -279,8 +402,7 @@
       .gate-grid,
       .toolkit-grid,
       .loop-grid,
-      .source-grid,
-      .boundary-grid {
+      .source-grid {
         display: grid;
         width: 100%;
         gap: 14px;
@@ -290,9 +412,1890 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .opportunity-board,
-      .boundary-grid {
+      .opportunity-board {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .governance-judgment-overview {
+        padding-top: clamp(34px, 4.2vw, 50px);
+        padding-bottom: clamp(36px, 4.6vw, 56px);
+        background:
+          linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.93)),
+          #0f172a;
+        color: #ffffff;
+      }
+
+      .judgment-overview-header {
+        display: grid;
+        max-width: 920px;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .judgment-overview-kicker {
+        margin: 0;
+        color: #fdba74;
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+      }
+
+      .judgment-overview-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(23px, 2.1vw, 31px);
+        font-weight: 930;
+        line-height: 1.2;
+      }
+
+      .judgment-overview-description {
+        max-width: 900px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 15.5px;
+        line-height: 1.68;
+      }
+
+      .judgment-system-diagram {
+        display: grid;
+        gap: 14px;
+        padding: clamp(18px, 2.8vw, 28px);
+        color: var(--ink);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.95)),
+          #ffffff;
+        border: 1px solid rgba(226, 232, 240, 0.68);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 18px 48px rgba(15, 23, 42, 0.28);
+      }
+
+      .judgment-flow-zone,
+      .judgment-breakdown-zone {
+        border-radius: var(--radius-md);
+      }
+
+      .judgment-flow-zone {
+        display: grid;
+        gap: 15px;
+        padding: clamp(18px, 2.4vw, 24px);
+        background:
+          linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(248, 250, 252, 0.86) 50%, rgba(255, 247, 237, 0.62)),
+          #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .judgment-system-punch {
+        margin: 0;
+        color: #9a3412;
+        font-size: 14px;
+        font-weight: 950;
+        line-height: 1.45;
+      }
+
+      .stage-gate-map {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 2px;
+        overflow: visible;
+      }
+
+      .stage-gate-map .svg-main-path {
+        stroke: #475569;
+        stroke-width: 2.5;
+        fill: none;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+
+      .stage-gate-map .svg-branch-path {
+        stroke: #fb923c;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+
+      .stage-gate-map .svg-feedback-path {
+        stroke: #64748b;
+        stroke-width: 2.2;
+        stroke-dasharray: 8 7;
+        fill: none;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+
+      .stage-gate-map .svg-input-node {
+        fill: #eff6ff;
+        stroke: rgba(96, 165, 250, 0.46);
+        stroke-width: 1.5;
+      }
+
+      .stage-gate-map .svg-gate-node {
+        fill: #fff7ed;
+        stroke: rgba(249, 115, 22, 0.68);
+        stroke-width: 1.7;
+      }
+
+      .stage-gate-map .svg-offramp-node {
+        fill: rgba(255, 247, 237, 0.9);
+        stroke: rgba(251, 146, 60, 0.36);
+        stroke-width: 1.2;
+      }
+
+      .stage-gate-map .svg-pilot-node {
+        fill: #ecfdf5;
+        stroke: rgba(20, 184, 166, 0.44);
+        stroke-width: 1.5;
+      }
+
+      .stage-gate-map .svg-review-node {
+        fill: #f8fafc;
+        stroke: rgba(100, 116, 139, 0.38);
+        stroke-width: 1.3;
+      }
+
+      .stage-gate-map .svg-return-node {
+        fill: #eff6ff;
+        stroke: rgba(96, 165, 250, 0.4);
+        stroke-width: 1.4;
+      }
+
+      .stage-gate-map .svg-node-shadow {
+        filter: drop-shadow(0 8px 16px rgba(15, 23, 42, 0.08));
+      }
+
+      .stage-gate-map text {
+        font-family: var(--font);
+        letter-spacing: 0;
+      }
+
+      .stage-gate-map .svg-node-title {
+        fill: #1e3a8a;
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .stage-gate-map .svg-node-note {
+        fill: #64748b;
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      .stage-gate-map .svg-gate-title {
+        fill: #9a3412;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .stage-gate-map .svg-gate-rule {
+        fill: #1e293b;
+        font-size: 15px;
+        font-weight: 920;
+      }
+
+      .stage-gate-map .svg-gate-note {
+        fill: #64748b;
+        font-size: 11.5px;
+        font-weight: 720;
+      }
+
+      .stage-gate-map .svg-not-equal {
+        fill: #f97316;
+        font-size: 20px;
+        font-weight: 950;
+      }
+
+      .stage-gate-map .svg-path-label {
+        fill: #0f766e;
+        font-size: 11.5px;
+        font-weight: 900;
+      }
+
+      .stage-gate-map .svg-offramp-label {
+        fill: #9a3412;
+        font-size: 11.5px;
+        font-weight: 860;
+      }
+
+      .stage-gate-map .svg-pilot-title {
+        fill: #0f766e;
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .stage-gate-map .svg-feedback-title {
+        fill: #334155;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .judgment-system-flow {
+        display: grid;
+        grid-template-columns: minmax(150px, 1fr) 38px minmax(150px, 1fr) 38px minmax(190px, 1.12fr) 38px minmax(150px, 1fr) 38px minmax(150px, 1fr);
+        align-items: center;
+        gap: 0;
+      }
+
+      .judgment-system-node {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 74px;
+        padding: 13px 14px;
+        color: #1e3a8a;
+        background: #eff6ff;
+        border: 1.5px solid rgba(96, 165, 250, 0.34);
+        border-radius: 14px;
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.35;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.055);
+      }
+
+      .judgment-system-flow > .judgment-system-node:nth-of-type(4) {
+        color: #0f766e;
+        background: #ecfdf5;
+        border-color: rgba(20, 184, 166, 0.34);
+        box-shadow: 0 8px 18px rgba(20, 184, 166, 0.06);
+      }
+
+      .judgment-system-node.emphasis {
+        align-self: stretch;
+        display: grid;
+        align-content: center;
+        gap: 10px;
+        min-height: 74px;
+        padding: 13px 14px;
+        background: #fff7ed;
+        border: 1.5px solid rgba(249, 115, 22, 0.5);
+        border-radius: 14px;
+        box-shadow: 0 10px 24px rgba(249, 115, 22, 0.1);
+      }
+
+      .judgment-system-node.emphasis > strong {
+        color: #9a3412;
+        font-size: 13.5px;
+        line-height: 1.25;
+      }
+
+      .judgment-system-branch {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .judgment-system-branch span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 28px;
+        padding: 5px 7px;
+        color: #7c2d12;
+        background: #ffedd5;
+        border: 1px solid rgba(251, 146, 60, 0.28);
+        border-radius: 10px;
+        font-size: 11.5px;
+        font-weight: 880;
+      }
+
+      .judgment-system-arrow {
+        position: relative;
+        display: block;
+        height: 2.5px;
+        background: rgba(71, 85, 105, 0.48);
+        border-radius: 999px;
+      }
+
+      .judgment-system-arrow::after {
+        position: absolute;
+        right: -1px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-top: 2.5px solid rgba(71, 85, 105, 0.62);
+        border-right: 2.5px solid rgba(71, 85, 105, 0.62);
+        content: "";
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .judgment-system-arrow.core {
+        background: rgba(249, 115, 22, 0.58);
+      }
+
+      .judgment-system-arrow.core::after {
+        border-color: rgba(249, 115, 22, 0.68);
+      }
+
+      .judgment-system-layer-detail {
+        position: relative;
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        background: rgba(248, 250, 252, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .judgment-system-layer-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #9a3412;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .judgment-system-layer-title::before,
+      .judgment-system-layer-title::after {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.42), rgba(249, 115, 22, 0));
+        content: "";
+      }
+
+      .judgment-system-axis-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .judgment-system-axis {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        min-height: 100%;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.045);
+      }
+
+      .judgment-system-axis-title {
+        display: grid;
+        gap: 5px;
+      }
+
+      .judgment-system-axis-title > span {
+        color: #c2410c;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .judgment-system-axis-title strong {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 7px;
+        color: #1e293b;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      .judgment-system-axis p {
+        margin: 0;
+        color: #334155;
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+
+      .judgment-system-axis p strong {
+        color: #0f172a;
+      }
+
+      .judgment-system-axis-action {
+        margin-top: 2px !important;
+        padding-top: 8px;
+        color: #0f766e !important;
+        border-top: 1px solid rgba(20, 184, 166, 0.16);
+        font-weight: 860;
+      }
+
+      .governance-judgment-overview .judgment-not-equal {
+        color: #f97316;
+      }
+
+      .judgment-system-callout {
+        margin: 0;
+        padding-top: 13px;
+        color: #475569;
+        border-top: 1px solid rgba(148, 163, 184, 0.32);
+        font-size: 13px;
+        font-weight: 820;
+        line-height: 1.55;
+      }
+
+      .judgment-system-callout strong {
+        color: #0f172a;
+        font-weight: 950;
+      }
+
+      .framework-positioning-section,
+      .core-problem-section {
+        --method-card-bg: rgba(255, 255, 255, 0.98);
+        --method-card-tint: rgba(248, 250, 252, 0.94);
+        --method-line: rgba(148, 163, 184, 0.22);
+        --method-soft-shadow: 0 12px 28px rgba(15, 23, 42, 0.055);
+        --method-orange: #c2410c;
+        --method-orange-dark: #9a3412;
+        --method-teal: #0f766e;
+        --method-slate: #334155;
+        --method-muted: #64748b;
+      }
+
+      .framework-positioning-section .section-header,
+      .core-problem-section .section-header {
+        max-width: 900px;
+      }
+
+      .governance-framework-brief {
+        display: grid;
+        gap: 13px;
+      }
+
+      .governance-brief-definition {
+        display: grid;
+        min-width: 0;
+        gap: 8px;
+        padding: 16px 18px;
+        background:
+          linear-gradient(145deg, var(--method-card-bg), var(--method-card-tint)),
+          #ffffff;
+        border: 1px solid var(--method-line);
+        border-radius: var(--radius-md);
+        box-shadow: var(--method-soft-shadow);
+      }
+
+      .governance-brief-definition p {
+        margin: 0;
+        color: var(--method-slate);
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .governance-brief-definition strong {
+        color: #0f172a;
+        font-weight: 900;
+      }
+
+      .governance-shift-matrix {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .governance-shift-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1.12fr);
+        grid-template-areas:
+          "label label label"
+          "problem arrow output"
+          "note note note";
+        gap: 12px 13px;
+        align-items: stretch;
+        min-width: 0;
+        min-height: 178px;
+        padding: 16px;
+        background:
+          linear-gradient(145deg, var(--method-card-bg), var(--method-card-tint)),
+          #ffffff;
+        border: 1px solid var(--method-line);
+        border-radius: var(--radius-md);
+        box-shadow: var(--method-soft-shadow);
+      }
+
+      .governance-shift-label {
+        grid-area: label;
+        display: inline-grid;
+        justify-self: start;
+        place-items: center;
+        min-height: 28px;
+        padding: 5px 10px;
+        color: var(--method-orange-dark);
+        background: rgba(255, 237, 213, 0.86);
+        border: 1px solid rgba(251, 146, 60, 0.22);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .governance-shift-question,
+      .governance-shift-judgment {
+        display: grid;
+        align-content: center;
+        min-width: 0;
+        gap: 5px;
+        min-height: 70px;
+        padding: 12px;
+        border-radius: var(--radius-sm);
+      }
+
+      .governance-shift-question {
+        grid-area: problem;
+        background: rgba(248, 250, 252, 0.88);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .governance-shift-judgment {
+        grid-area: output;
+        background: rgba(240, 253, 250, 0.72);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+      }
+
+      .governance-shift-question strong,
+      .governance-shift-judgment strong {
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .governance-shift-question span,
+      .governance-shift-judgment span {
+        color: var(--method-muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .governance-shift-question span,
+      .governance-shift-judgment span {
+        order: -1;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .governance-shift-arrow {
+        grid-area: arrow;
+        display: inline-grid;
+        align-self: center;
+        justify-self: center;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        color: var(--method-orange);
+        background: rgba(255, 247, 237, 0.78);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+        border-radius: 999px;
+        font-size: 18px;
+        font-weight: 950;
+      }
+
+      .governance-shift-judgment {
+        padding-left: 12px;
+      }
+
+      .governance-shift-judgment strong {
+        color: var(--method-teal);
+        font-weight: 930;
+      }
+
+      .governance-shift-note {
+        grid-area: note;
+        margin: 0;
+        padding-top: 10px;
+        color: var(--method-muted);
+        border-top: 1px solid var(--method-line);
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+
+      .governance-brief-punch {
+        margin: 0;
+        padding: 12px 0 0 14px;
+        color: var(--method-orange-dark);
+        border-top: 1px solid var(--method-line);
+        border-left: 3px solid rgba(249, 115, 22, 0.48);
+        font-size: 14px;
+        font-weight: 930;
+        line-height: 1.55;
+      }
+
+      .problem-diagnosis-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .problem-diagnosis-strip {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(172px, 0.9fr) minmax(0, 1.28fr) minmax(180px, 0.76fr);
+        gap: 18px;
+        align-items: center;
+        min-width: 0;
+        padding: 17px 18px 17px 20px;
+        background:
+          linear-gradient(145deg, var(--method-card-bg), var(--method-card-tint)),
+          #ffffff;
+        border: 1px solid var(--method-line);
+        border-left: 4px solid rgba(249, 115, 22, 0.42);
+        border-radius: var(--radius-md);
+        box-shadow: var(--method-soft-shadow);
+      }
+
+      .problem-diagnosis-index {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .problem-diagnosis-index span {
+        display: inline-grid;
+        justify-self: start;
+        place-items: center;
+        min-height: 26px;
+        padding: 4px 9px;
+        color: var(--method-orange-dark);
+        background: rgba(255, 237, 213, 0.78);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+        border-radius: 999px;
+        font-size: 11.5px;
+        font-weight: 950;
+      }
+
+      .problem-diagnosis-index strong {
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.28;
+      }
+
+      .problem-diagnosis-main {
+        position: relative;
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+        padding-left: 18px;
+        border-left: 1px solid var(--method-line);
+      }
+
+      .problem-diagnosis-main::before {
+        color: var(--method-orange);
+        font-size: 11px;
+        font-weight: 950;
+        line-height: 1.2;
+        content: "诊断判断";
+      }
+
+      .problem-diagnosis-main strong {
+        color: #0f172a;
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .problem-diagnosis-main p {
+        margin: 0;
+        color: var(--method-muted);
+        line-height: 1.62;
+      }
+
+      .problem-diagnosis-symptom {
+        display: grid;
+        gap: 5px;
+        align-content: center;
+        min-width: 0;
+        padding: 11px 12px 11px 14px;
+        color: var(--method-orange-dark);
+        background: rgba(255, 247, 237, 0.58);
+        border: 1px solid rgba(251, 146, 60, 0.14);
+        border-left: 2px solid rgba(249, 115, 22, 0.3);
+        border-radius: var(--radius-sm);
+      }
+
+      .problem-diagnosis-symptom span {
+        color: var(--method-orange);
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .problem-diagnosis-symptom strong {
+        font-size: 14px;
+        line-height: 1.38;
+      }
+
+      .problem-diagnosis-conclusion {
+        margin: 4px 0 0;
+        padding: 12px 0 0 14px;
+        color: #0f172a;
+        border-top: 1px solid var(--method-line);
+        border-left: 3px solid rgba(20, 184, 166, 0.46);
+        font-size: 15px;
+        font-weight: 930;
+        line-height: 1.58;
+      }
+
+      .opportunity-screening-section {
+        --screening-card-bg: rgba(255, 255, 255, 0.98);
+        --screening-card-tint: rgba(248, 250, 252, 0.94);
+        --screening-line: rgba(148, 163, 184, 0.22);
+        --screening-orange: #c2410c;
+        --screening-orange-dark: #9a3412;
+        --screening-teal: #0f766e;
+        --screening-slate: #334155;
+        --screening-muted: #64748b;
+      }
+
+      .opportunity-screening-section .section-header {
+        max-width: 920px;
+      }
+
+      .opportunity-screening-board {
+        display: grid;
+        gap: 12px;
+      }
+
+      .opportunity-screening-input,
+      .opportunity-screening-output {
+        display: grid;
+        min-width: 0;
+        gap: 12px;
+        background:
+          linear-gradient(145deg, var(--screening-card-bg), var(--screening-card-tint)),
+          #ffffff;
+        border: 1px solid var(--screening-line);
+        border-radius: var(--radius-md);
+      }
+
+      .opportunity-screening-input {
+        gap: 10px;
+        grid-template-columns: minmax(150px, 0.48fr) minmax(0, 1.52fr);
+        align-items: center;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.78);
+        border-color: rgba(148, 163, 184, 0.16);
+        box-shadow: none;
+      }
+
+      .opportunity-screening-input h3,
+      .opportunity-screening-output h3 {
+        margin: 0;
+        color: #0f172a;
+        font-size: 17px;
+        line-height: 1.28;
+      }
+
+      .opportunity-screening-input p,
+      .opportunity-screening-output p {
+        margin: 5px 0 0;
+        color: var(--screening-muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .opportunity-screening-input-label,
+      .opportunity-screening-output-label {
+        display: inline-grid;
+        justify-self: start;
+        place-items: center;
+        min-height: 25px;
+        margin-bottom: 7px;
+        padding: 4px 9px;
+        color: var(--screening-orange-dark);
+        background: rgba(255, 237, 213, 0.86);
+        border: 1px solid rgba(251, 146, 60, 0.22);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .opportunity-screening-input-fields {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .opportunity-screening-input-field {
+        min-width: 0;
+        padding: 2px 0 2px 10px;
+        background: transparent;
+        border-left: 2px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .opportunity-screening-input-field span,
+      .opportunity-screening-field > span {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--screening-muted);
+        font-size: 11px;
+        font-weight: 920;
+        letter-spacing: 0.04em;
+      }
+
+      .opportunity-screening-input-field strong {
+        display: block;
+        color: var(--screening-slate);
+        font-size: 13px;
+        line-height: 1.42;
+      }
+
+      .opportunity-screening-workbench {
+        display: grid;
+        min-width: 0;
+        padding: 14px;
+        background:
+          linear-gradient(145deg, rgba(241, 245, 249, 0.82), rgba(240, 253, 250, 0.34)),
+          #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+      }
+
+      .opportunity-screening-worksheet {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .opportunity-screening-item {
+        display: grid;
+        align-content: start;
+        gap: 9px;
+        min-width: 0;
+        min-height: 100%;
+        padding: 15px;
+        background:
+          linear-gradient(145deg, var(--screening-card-bg), var(--screening-card-tint)),
+          #ffffff;
+        border: 1px solid var(--screening-line);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      }
+
+      .opportunity-screening-item-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .opportunity-screening-number {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        color: var(--screening-orange-dark);
+        background: rgba(255, 237, 213, 0.88);
+        border: 1px solid rgba(251, 146, 60, 0.22);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .opportunity-screening-item-header h3 {
+        margin: 0;
+        color: #0f172a;
+        font-size: 17px;
+        line-height: 1.28;
+      }
+
+      .opportunity-screening-field {
+        min-width: 0;
+        padding: 8px 0 0;
+        background: transparent;
+        border-top: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .opportunity-screening-field p {
+        margin: 0;
+        color: var(--screening-slate);
+        font-size: 14px;
+        line-height: 1.58;
+      }
+
+      .opportunity-screening-field.is-risk {
+        padding: 8px 10px;
+        background: rgba(255, 247, 237, 0.52);
+        border: 0;
+        border-left: 2px solid rgba(249, 115, 22, 0.36);
+        border-radius: var(--radius-sm);
+      }
+
+      .opportunity-screening-field.is-risk > span {
+        color: var(--screening-orange-dark);
+      }
+
+      .opportunity-screening-field.is-pass {
+        padding: 8px 10px;
+        background: rgba(240, 253, 250, 0.58);
+        border: 0;
+        border-left: 2px solid rgba(20, 184, 166, 0.28);
+        border-radius: var(--radius-sm);
+      }
+
+      .opportunity-screening-field.is-pass > span {
+        color: var(--screening-teal);
+      }
+
+      .opportunity-screening-field.is-action > span {
+        color: var(--screening-muted);
+      }
+
+      .opportunity-screening-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .opportunity-screening-tags span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 4px 8px;
+        color: #7c2d12;
+        background: rgba(255, 247, 237, 0.62);
+        border: 1px solid rgba(251, 146, 60, 0.18);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 850;
+        line-height: 1.2;
+      }
+
+      .opportunity-screening-tags .is-positive {
+        color: var(--screening-teal);
+        background: rgba(240, 253, 250, 0.72);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .opportunity-screening-output {
+        gap: 10px;
+        grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
+        align-items: center;
+        padding: 13px 14px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(240, 253, 250, 0.42)),
+          #ffffff;
+        border-color: rgba(20, 184, 166, 0.16);
+        border-top: 2px solid rgba(20, 184, 166, 0.2);
+        box-shadow: none;
+      }
+
+      .opportunity-screening-output-label {
+        color: var(--screening-teal);
+        background: rgba(240, 253, 250, 0.78);
+        border-color: rgba(20, 184, 166, 0.18);
+      }
+
+      .opportunity-screening-output-head {
+        display: grid;
+        gap: 2px;
+      }
+
+      .opportunity-screening-output-options {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .opportunity-screening-output-options span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 5px 9px;
+        color: #475569;
+        background: rgba(248, 250, 252, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 880;
+        line-height: 1.2;
+      }
+
+      .opportunity-screening-output-options .is-hold {
+        color: #7c2d12;
+        background: rgba(255, 247, 237, 0.66);
+        border-color: rgba(251, 146, 60, 0.18);
+      }
+
+      .opportunity-screening-output-options .is-rule {
+        color: #334155;
+        background: rgba(241, 245, 249, 0.96);
+        border-color: rgba(100, 116, 139, 0.18);
+      }
+
+      .opportunity-screening-output-options .is-positive {
+        color: var(--screening-teal);
+        background: rgba(240, 253, 250, 0.72);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .opportunity-screening-summary {
+        grid-column: 1 / -1;
+        margin: 0;
+        padding: 11px 0 0 13px;
+        color: var(--screening-orange-dark);
+        border-top: 1px solid var(--screening-line);
+        border-left: 3px solid rgba(249, 115, 22, 0.48);
+        font-size: 14px;
+        font-weight: 930;
+        line-height: 1.55;
+      }
+
+      .productization-layer-section {
+        --productization-line: rgba(148, 163, 184, 0.22);
+        --productization-risk: #b45309;
+        --productization-risk-dark: #92400e;
+        --productization-safe: #c2410c;
+        --productization-safe-dark: #9a3412;
+        --productization-value: #0f766e;
+        --productization-value-dark: #115e59;
+        --productization-blue: #1e3a8a;
+        --productization-slate: #334155;
+        --productization-muted: #64748b;
+      }
+
+      .productization-layer-section .section-header {
+        max-width: 980px;
+      }
+
+      .productization-layer-title span {
+        display: inline-block;
+      }
+
+      .productization-layer-punch {
+        margin: 0 0 14px;
+        padding: 12px 0 0 14px;
+        color: #0f172a;
+        border-top: 1px solid var(--productization-line);
+        border-left: 3px solid rgba(249, 115, 22, 0.48);
+        font-size: 15px;
+        font-weight: 930;
+        line-height: 1.55;
+      }
+
+      .productization-layer-map {
+        display: grid;
+        grid-template-columns: minmax(210px, 0.78fr) minmax(360px, 1.44fr) minmax(210px, 0.78fr);
+        gap: 16px;
+        align-items: stretch;
+        min-width: 0;
+      }
+
+      .productization-side-panel,
+      .productization-safety-layer {
+        min-width: 0;
+        border-radius: var(--radius-lg);
+      }
+
+      .productization-side-panel {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .productization-side-panel.is-risk {
+        background:
+          linear-gradient(180deg, rgba(255, 241, 242, 0.84), rgba(255, 247, 237, 0.44) 58%, rgba(255, 255, 255, 0.94)),
+          #ffffff;
+        border-color: rgba(244, 63, 94, 0.18);
+      }
+
+      .productization-side-panel.is-controlled {
+        background:
+          linear-gradient(180deg, rgba(240, 253, 250, 0.72), rgba(255, 255, 255, 0.9)),
+          #ffffff;
+        border-color: rgba(20, 184, 166, 0.18);
+      }
+
+      .productization-panel-head {
+        display: grid;
+        gap: 7px;
+      }
+
+      .productization-panel-tag,
+      .productization-layer-head span {
+        display: inline-grid;
+        justify-self: start;
+        place-items: center;
+        min-height: 26px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 11.5px;
+        font-weight: 950;
+      }
+
+      .productization-side-panel.is-risk .productization-panel-tag {
+        color: #9f1239;
+        background: rgba(255, 228, 230, 0.78);
+        border: 1px solid rgba(244, 63, 94, 0.16);
+      }
+
+      .productization-side-panel.is-controlled .productization-panel-tag {
+        color: var(--productization-value-dark);
+        background: rgba(240, 253, 250, 0.86);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+      }
+
+      .productization-panel-head h3,
+      .productization-layer-head h3 {
+        margin: 0;
+        color: #0f172a;
+        font-size: 18px;
+        line-height: 1.28;
+      }
+
+      .productization-panel-head p,
+      .productization-layer-head p {
+        margin: 0;
+        color: var(--productization-slate);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .productization-risk-list,
+      .productization-object-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .productization-risk-list li,
+      .productization-object-list li {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .productization-risk-list li:first-child,
+      .productization-object-list li:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .productization-risk-list li:last-child,
+      .productization-object-list li:last-child {
+        padding-bottom: 0;
+      }
+
+      .productization-risk-list span,
+      .productization-object-list span {
+        display: inline-grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .productization-risk-list span {
+        color: #9f1239;
+        background: rgba(255, 228, 230, 0.78);
+        border: 1px solid rgba(244, 63, 94, 0.16);
+      }
+
+      .productization-object-list span {
+        color: var(--productization-value-dark);
+        background: rgba(240, 253, 250, 0.82);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+      }
+
+      .productization-risk-list strong,
+      .productization-object-list strong {
+        display: block;
+        color: #0f172a;
+        font-size: 13.5px;
+        font-weight: 930;
+        line-height: 1.35;
+      }
+
+      .productization-risk-list p,
+      .productization-object-list p {
+        margin: 3px 0 0;
+        color: var(--productization-muted);
+        font-size: 12.5px;
+        line-height: 1.52;
+      }
+
+      .productization-safety-layer {
+        position: relative;
+        display: grid;
+        gap: 15px;
+        padding: 21px;
+        background:
+          linear-gradient(145deg, rgba(255, 251, 235, 0.52), rgba(255, 255, 255, 0.98) 52%, rgba(255, 247, 237, 0.42)),
+          #ffffff;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.075);
+      }
+
+      .productization-safety-layer::before,
+      .productization-safety-layer::after {
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        width: 4px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(249, 115, 22, 0.22), rgba(20, 184, 166, 0.2));
+        content: "";
+      }
+
+      .productization-safety-layer::before {
+        left: 9px;
+      }
+
+      .productization-safety-layer::after {
+        right: 9px;
+      }
+
+      .productization-layer-head {
+        display: grid;
+        gap: 7px;
+        min-width: 0;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(249, 115, 22, 0.18);
+      }
+
+      .productization-layer-head span {
+        color: var(--productization-safe-dark);
+        background: rgba(255, 237, 213, 0.88);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+      }
+
+      .productization-layer-role {
+        display: grid;
+        gap: 4px;
+        margin: 0;
+        padding: 12px 13px;
+        color: var(--productization-safe-dark);
+        background: rgba(255, 251, 235, 0.64);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+        border-radius: var(--radius-md);
+        line-height: 1.5;
+      }
+
+      .productization-layer-role strong {
+        font-size: 13px;
+        font-weight: 950;
+        line-height: 1.35;
+      }
+
+      .productization-layer-role span {
+        color: var(--productization-slate);
+        font-size: 12.5px;
+        font-weight: 760;
+        line-height: 1.55;
+      }
+
+      .productization-mechanism-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .productization-mechanism-item {
+        display: grid;
+        align-content: start;
+        gap: 7px;
+        min-width: 0;
+        padding: 13px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(249, 115, 22, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .productization-mechanism-item strong {
+        color: var(--productization-safe-dark);
+        font-size: 13px;
+        font-weight: 950;
+        line-height: 1.28;
+      }
+
+      .productization-mechanism-item p {
+        margin: 0;
+        color: var(--productization-muted);
+        font-size: 12.5px;
+        line-height: 1.48;
+      }
+
+      .productization-layer-summary {
+        margin: 16px 0 0;
+        padding: 13px 14px 0;
+        color: #0f172a;
+        border-top: 1px solid var(--productization-line);
+        border-left: 3px solid rgba(20, 184, 166, 0.46);
+        font-size: 14.5px;
+        font-weight: 930;
+        line-height: 1.58;
+      }
+
+      .pilot-validation-section {
+        --pilot-loop-line: rgba(148, 163, 184, 0.22);
+        --pilot-loop-ink: #0f172a;
+        --pilot-loop-slate: #334155;
+        --pilot-loop-muted: #64748b;
+        --pilot-loop-orange: #c2410c;
+        --pilot-loop-orange-dark: #9a3412;
+        --pilot-loop-teal: #0f766e;
+        --pilot-loop-teal-dark: #115e59;
+        --pilot-loop-blue: #1e3a8a;
+      }
+
+      .pilot-validation-section .section-header {
+        max-width: 980px;
+      }
+
+      .pilot-loop-punch {
+        margin: 0 0 16px;
+        padding: 12px 0 0 14px;
+        color: var(--pilot-loop-ink);
+        border-top: 1px solid var(--pilot-loop-line);
+        border-left: 3px solid rgba(249, 115, 22, 0.52);
+        font-size: 15px;
+        font-weight: 930;
+        line-height: 1.55;
+      }
+
+      .pilot-loop-canvas {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(200px, 1fr) 620px minmax(200px, 1fr);
+        align-items: center;
+        gap: 18px;
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding: 22px;
+        background:
+          radial-gradient(circle at 50% 46%, rgba(255, 237, 213, 0.42), transparent 24%),
+          radial-gradient(circle at 50% 46%, rgba(240, 253, 250, 0.3), transparent 36%),
+          linear-gradient(145deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.98));
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.055);
+        overflow: hidden;
+      }
+
+      .pilot-loop-index-column {
+        display: grid;
+        gap: 10px;
+      }
+
+      .pilot-loop-stage {
+        position: relative;
+        width: 620px;
+        height: 620px;
+        justify-self: center;
+      }
+
+      .pilot-loop-ring-lines {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .pilot-loop-node,
+      .pilot-loop-pool {
+        position: absolute;
+        z-index: 1;
+        min-width: 0;
+      }
+
+      .pilot-loop-node {
+        display: grid;
+        place-items: center;
+        gap: 5px;
+        width: 104px;
+        height: 66px;
+        padding: 8px 10px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 999px;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.045);
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .pilot-loop-node.is-signal {
+        background:
+          linear-gradient(180deg, rgba(239, 246, 255, 0.72), rgba(255, 255, 255, 0.94)),
+          #ffffff;
+        border-color: rgba(37, 99, 235, 0.28);
+      }
+
+      .pilot-loop-node.is-badcase {
+        background:
+          linear-gradient(180deg, rgba(255, 247, 237, 0.78), rgba(255, 255, 255, 0.94)),
+          #ffffff;
+        border-color: rgba(249, 115, 22, 0.34);
+      }
+
+      .pilot-loop-node.is-repair {
+        background:
+          linear-gradient(180deg, rgba(240, 253, 250, 0.72), rgba(255, 255, 255, 0.94)),
+          #ffffff;
+        border-color: rgba(20, 184, 166, 0.3);
+      }
+
+      .pilot-loop-node-header {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .pilot-loop-node-num {
+        display: inline-grid;
+        flex: 0 0 auto;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        color: var(--pilot-loop-orange-dark);
+        background: rgba(255, 237, 213, 0.86);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .pilot-loop-node h3 {
+        margin: 0;
+        color: var(--pilot-loop-ink);
+        font-size: 11.5px;
+        line-height: 1.22;
+      }
+
+      .pilot-loop-callout p {
+        margin: 0;
+        color: var(--pilot-loop-slate);
+        font-size: 11.8px;
+        line-height: 1.45;
+      }
+
+      .pilot-loop-callout-head {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--pilot-loop-ink);
+        font-size: 12px;
+        font-weight: 920;
+        line-height: 1.25;
+      }
+
+      .pilot-loop-callout-head span {
+        display: inline-grid;
+        flex: 0 0 auto;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        color: var(--pilot-loop-orange-dark);
+        background: rgba(255, 237, 213, 0.72);
+        border: 1px solid rgba(251, 146, 60, 0.16);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 950;
+      }
+
+      .pilot-loop-callout {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+        min-height: 114px;
+        align-content: start;
+        padding: 11px 12px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-left: 3px solid rgba(148, 163, 184, 0.22);
+        border-radius: 13px;
+      }
+
+      .pilot-loop-callout.is-signal {
+        border-left-color: rgba(37, 99, 235, 0.38);
+      }
+
+      .pilot-loop-callout.is-badcase {
+        border-left-color: rgba(249, 115, 22, 0.46);
+      }
+
+      .pilot-loop-callout.is-repair {
+        border-left-color: rgba(20, 184, 166, 0.42);
+      }
+
+      .pilot-loop-keywords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .pilot-loop-keywords span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 20px;
+        padding: 2px 5px;
+        color: var(--pilot-loop-muted);
+        background: rgba(248, 250, 252, 0.62);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 850;
+        line-height: 1.2;
+      }
+
+      .pilot-loop-pool {
+        display: grid;
+        place-items: center;
+        gap: 8px;
+        top: 50%;
+        left: 50%;
+        width: 190px;
+        height: 190px;
+        padding: 20px;
+        background:
+          linear-gradient(145deg, rgba(255, 247, 237, 0.92), rgba(255, 255, 255, 0.96) 58%, rgba(240, 253, 250, 0.55)),
+          #ffffff;
+        border: 1px solid rgba(249, 115, 22, 0.28);
+        border-radius: 999px;
+        box-shadow:
+          0 0 0 14px rgba(255, 237, 213, 0.22),
+          0 14px 26px rgba(15, 23, 42, 0.06);
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .pilot-loop-pool span {
+        display: inline-grid;
+        justify-self: center;
+        min-height: 26px;
+        place-items: center;
+        padding: 4px 9px;
+        color: var(--pilot-loop-orange-dark);
+        background: rgba(255, 237, 213, 0.9);
+        border: 1px solid rgba(251, 146, 60, 0.2);
+        border-radius: 999px;
+        font-size: 11.5px;
+        font-weight: 950;
+      }
+
+      .pilot-loop-pool h3 {
+        margin: 0;
+        color: var(--pilot-loop-ink);
+        font-size: 20px;
+        line-height: 1.26;
+      }
+
+      .pilot-loop-pool p {
+        margin: 0;
+        color: var(--pilot-loop-slate);
+        font-size: 12px;
+        line-height: 1.58;
+      }
+
+      .pilot-loop-step-1 {
+        top: 88px;
+        left: 50%;
+      }
+
+      .pilot-loop-step-2 {
+        top: 204px;
+        left: calc(50% + 190px);
+      }
+
+      .pilot-loop-step-3 {
+        top: 416px;
+        left: calc(50% + 190px);
+      }
+
+      .pilot-loop-step-4 {
+        top: 532px;
+        left: 50%;
+      }
+
+      .pilot-loop-step-5 {
+        top: 416px;
+        left: calc(50% - 190px);
+      }
+
+      .pilot-loop-step-6 {
+        top: 204px;
+        left: calc(50% - 190px);
+      }
+
+      .pilot-loop-summary {
+        margin: 16px 0 0;
+        padding: 12px 0 0 14px;
+        color: var(--pilot-loop-ink);
+        border-top: 1px solid var(--pilot-loop-line);
+        border-left: 3px solid rgba(20, 184, 166, 0.48);
+        font-size: 14.5px;
+        font-weight: 930;
+        line-height: 1.58;
+      }
+
+      .source-abstraction-section .section-header {
+        max-width: 980px;
+      }
+
+      .source-abstraction-punch {
+        margin: 0 0 18px;
+        padding: 12px 0 0 14px;
+        color: var(--ink);
+        border-top: 1px solid var(--line);
+        border-left: 3px solid rgba(249, 115, 22, 0.52);
+        font-size: 15px;
+        font-weight: 930;
+        line-height: 1.55;
+      }
+
+      .source-abstraction-map {
+        display: grid;
+        gap: 10px;
+        padding: clamp(18px, 2.4vw, 26px);
+        background:
+          linear-gradient(145deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 0.98)),
+          #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.055);
+      }
+
+      .source-project-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        padding-bottom: 22px;
+      }
+
+      .source-project-row::before {
+        position: absolute;
+        right: calc(16.666% - 5px);
+        bottom: 10px;
+        left: calc(16.666% - 5px);
+        height: 1px;
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.12), rgba(249, 115, 22, 0.34), rgba(20, 184, 166, 0.12));
+        content: "";
+      }
+
+      .source-project-row::after {
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 1px;
+        height: 18px;
+        background: rgba(249, 115, 22, 0.34);
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .source-project-card {
+        position: relative;
+      }
+
+      .source-project-card::after {
+        position: absolute;
+        bottom: -13px;
+        left: 50%;
+        width: 1px;
+        height: 12px;
+        background: rgba(148, 163, 184, 0.28);
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .source-project-card,
+      .source-axis-card {
+        display: grid;
+        min-width: 0;
+        align-content: start;
+        gap: 9px;
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+      }
+
+      .source-project-card {
+        padding: 14px;
+      }
+
+      .source-project-card span,
+      .source-axis-kicker {
+        display: inline-grid;
+        justify-self: start;
+        place-items: center;
+        padding: 5px 8px;
+        color: #c2410c;
+        background: #ffedd5;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .source-project-card h3,
+      .source-axis-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
+      .source-project-card p,
+      .source-axis-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.58;
+      }
+
+      .source-abstraction-bridge {
+        position: relative;
+        display: grid;
+        justify-items: center;
+        gap: 6px;
+        padding: 18px 20px;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(255, 247, 237, 0.86), rgba(240, 253, 250, 0.68)),
+          #ffffff;
+        border: 1px solid rgba(249, 115, 22, 0.2);
+        border-radius: var(--radius-md);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+        text-align: center;
+      }
+
+      .source-abstraction-bridge::before,
+      .source-abstraction-bridge::after {
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        height: 16px;
+        background: rgba(249, 115, 22, 0.34);
+        border-radius: 999px;
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .source-abstraction-bridge::before {
+        top: -16px;
+      }
+
+      .source-abstraction-bridge::after {
+        bottom: -16px;
+      }
+
+      .source-abstraction-bridge span {
+        color: #9a3412;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .source-abstraction-bridge strong {
+        font-size: clamp(18px, 1.7vw, 23px);
+        line-height: 1.32;
+      }
+
+      .source-abstraction-bridge p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.52;
+      }
+
+      .source-axis-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        padding-top: 22px;
+      }
+
+      .source-axis-grid::before {
+        position: absolute;
+        top: 10px;
+        right: calc(12.5% - 5px);
+        left: calc(12.5% - 5px);
+        height: 1px;
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.2), rgba(249, 115, 22, 0.3), rgba(20, 184, 166, 0.2));
+        content: "";
+      }
+
+      .source-axis-card {
+        position: relative;
+        gap: 10px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.64);
+        box-shadow: none;
+      }
+
+      .source-axis-card::before {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        width: 1px;
+        height: 12px;
+        background: rgba(148, 163, 184, 0.24);
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .source-axis-card.is-demand {
+        border-color: rgba(37, 99, 235, 0.18);
+      }
+
+      .source-axis-card.is-result,
+      .source-axis-card.is-efficiency {
+        border-color: rgba(249, 115, 22, 0.2);
+      }
+
+      .source-axis-card.is-pilot {
+        border-color: rgba(20, 184, 166, 0.2);
+      }
+
+      .source-axis-meta {
+        display: grid;
+        gap: 6px;
+        padding-top: 2px;
+      }
+
+      .source-axis-meta div {
+        display: grid;
+        gap: 3px;
+        padding-top: 6px;
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+      }
+
+      .source-axis-meta strong {
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .source-axis-meta span {
+        color: #475569;
+        font-size: 12.5px;
+        line-height: 1.48;
+      }
+
+      .source-abstraction-close,
+      .source-boundary-note {
+        margin: 14px 0 0;
+        color: var(--ink);
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+
+      .source-abstraction-close {
+        padding: 12px 0 0 14px;
+        border-top: 1px solid var(--line);
+        border-left: 3px solid rgba(20, 184, 166, 0.44);
+        font-weight: 900;
+      }
+
+      .source-boundary-note {
+        padding: 10px 12px;
+        color: var(--muted);
+        background: rgba(248, 250, 252, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: var(--radius-md);
+        font-size: 13px;
       }
 
       .readiness-grid,
@@ -315,7 +2318,7 @@
       .toolkit-card,
       .loop-card,
       .source-card,
-      .boundary-card {
+      .source-card {
         min-width: 0;
         padding: 18px;
         background: var(--surface);
@@ -329,8 +2332,7 @@
       .gate-card,
       .toolkit-card,
       .loop-card,
-      .source-card,
-      .boundary-card {
+      .source-card {
         display: grid;
         align-content: start;
         gap: 10px;
@@ -362,8 +2364,7 @@
       .gate-card span,
       .toolkit-card span,
       .loop-card span,
-      .source-card span,
-      .boundary-card span {
+      .source-card span {
         display: inline-grid;
         min-height: 28px;
         place-items: center;
@@ -382,8 +2383,7 @@
       .gate-card h3,
       .toolkit-card h3,
       .loop-card h3,
-      .source-card h3,
-      .boundary-card h3 {
+      .source-card h3 {
         margin: 12px 0 8px;
         color: var(--ink);
         font-size: 19px;
@@ -396,8 +2396,7 @@
       .gate-card p,
       .toolkit-card p,
       .loop-card p,
-      .source-card p,
-      .boundary-card p {
+      .source-card p {
         margin: 0;
         color: var(--muted);
         line-height: 1.65;
@@ -405,8 +2404,7 @@
 
       .opportunity-card p + p,
       .readiness-card p + p,
-      .source-card p + p,
-      .boundary-card p + p {
+      .source-card p + p {
         margin-top: 10px;
       }
 
@@ -537,21 +2535,131 @@
       }
 
       @media (max-width: 1180px) {
-        .case-hero,
+        .governance-hero,
         .card-grid,
         .readiness-grid,
         .toolkit-grid,
         .source-grid,
         .loop-grid,
-        .gate-grid,
-        .hero-anchor-grid {
+        .gate-grid {
           grid-template-columns: 1fr;
         }
 
-        .opportunity-board,
-        .boundary-grid {
+        .opportunity-board {
           grid-template-columns: 1fr;
         }
+
+        .opportunity-screening-input,
+        .opportunity-screening-input-fields,
+        .opportunity-screening-worksheet,
+        .opportunity-screening-output {
+          grid-template-columns: 1fr;
+        }
+
+        .opportunity-screening-workbench {
+          padding: 12px;
+        }
+
+        .productization-layer-map {
+          grid-template-columns: 1fr;
+        }
+
+        .productization-side-panel,
+        .productization-safety-layer {
+          padding: 16px;
+        }
+
+        .source-axis-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .source-axis-grid::before {
+          display: none;
+        }
+
+        .source-axis-card::before {
+          display: none;
+        }
+
+        .opportunity-screening-item {
+          gap: 12px;
+        }
+
+        .pilot-loop-canvas {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          width: 100%;
+          height: auto;
+          min-height: 0;
+          padding: 14px;
+          overflow: visible;
+        }
+
+        .pilot-loop-ring-lines {
+          display: none;
+        }
+
+        .pilot-loop-node,
+        .pilot-loop-pool {
+          position: relative;
+          top: auto;
+          right: auto;
+          bottom: auto;
+          left: auto;
+          width: 100%;
+          height: auto;
+          transform: none;
+        }
+
+        .pilot-loop-stage {
+          display: grid;
+          gap: 10px;
+          width: 100%;
+          height: auto;
+          aspect-ratio: auto;
+          order: 0;
+        }
+
+        .pilot-loop-index-column {
+          order: 1;
+        }
+
+        .pilot-loop-index-column + .pilot-loop-stage + .pilot-loop-index-column {
+          order: 2;
+        }
+
+        .pilot-loop-pool {
+          min-height: auto;
+        }
+
+        .pilot-loop-node {
+          min-height: 0;
+          border-radius: var(--radius-md);
+        }
+
+        .pilot-loop-pool {
+          order: 0;
+          border-radius: var(--radius-lg);
+        }
+
+        .pilot-loop-step-1 { order: 1; }
+        .pilot-loop-step-2 { order: 2; }
+        .pilot-loop-step-3 { order: 3; }
+        .pilot-loop-step-4 { order: 4; }
+        .pilot-loop-step-5 { order: 5; }
+        .pilot-loop-step-6 { order: 6; }
+
+        .pilot-loop-callout {
+          padding: 10px 12px;
+        }
+
+        .governance-hero-copy,
+        .governance-hero-visual {
+          width: min(100%, 760px);
+          justify-self: start;
+        }
+
       }
 
       @media (max-width: 720px) {
@@ -571,30 +2679,29 @@
         }
 
         .case-header,
-        .case-hero,
+        .governance-hero,
         .case-section,
         .case-footer {
           width: 100%;
           max-width: 100%;
         }
 
-        .case-hero {
+        .governance-hero {
           display: block;
           padding: 44px 20px 48px;
           overflow: hidden;
         }
 
-        .case-hero > *,
+        .governance-hero > *,
         .case-nav,
-        .hero-tags,
-        .hero-actions,
-        .case-visual {
+        .governance-hero .hero-actions,
+        .governance-hero-visual {
           width: calc(100vw - 40px);
           max-width: calc(100vw - 40px);
           min-width: 0;
         }
 
-        .case-hero h1 {
+        .governance-hero h1 {
           width: 100%;
           max-width: 100%;
           font-size: 30px;
@@ -605,7 +2712,7 @@
           display: block;
         }
 
-        .case-subtitle,
+        .governance-hero .case-subtitle,
         .section-title {
           width: 100%;
           max-width: 100%;
@@ -613,19 +2720,16 @@
           line-height: 1.22;
         }
 
-        .case-hook-question {
+        .governance-hero .case-hook-question {
           width: 100%;
           max-width: 100%;
           font-size: 22px;
           line-height: 1.28;
         }
 
-        .case-lead,
-        .case-subtitle,
-        .case-hook-question,
-        .status-card,
-        .hero-anchor-grid,
-        .hero-anchor-card,
+        .governance-hero .case-lead,
+        .governance-hero .case-subtitle,
+        .governance-hero .case-hook-question,
         .section-description,
         .section-hook,
         .summary-line,
@@ -637,39 +2741,64 @@
         .gate-card p,
         .toolkit-card p,
         .loop-card p,
-        .source-card p,
-        .boundary-card p {
+        .source-card p {
           width: 100%;
           max-width: 100%;
           font-size: 16px;
         }
 
-        .status-card,
-        .hero-anchor-grid,
-        .hero-anchor-card {
-          width: 100%;
-          max-width: 100%;
-          min-width: 0;
-          white-space: normal;
-          overflow-wrap: anywhere;
-          word-break: break-all;
+        .opportunity-screening-item {
+          padding: 14px;
         }
 
-        .case-visual {
+        .opportunity-screening-number {
+          width: 30px;
+          height: 30px;
+        }
+
+        .opportunity-screening-input p,
+        .opportunity-screening-output p,
+        .opportunity-screening-input-field strong,
+        .opportunity-screening-field p,
+        .opportunity-screening-tags span,
+        .opportunity-screening-output-options span,
+        .opportunity-screening-summary {
+          font-size: 14px;
+        }
+
+        .productization-mechanism-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .productization-risk-list li,
+        .productization-object-list li {
+          grid-template-columns: 26px minmax(0, 1fr);
+        }
+
+        .source-project-row,
+        .source-axis-grid {
+          grid-template-columns: 1fr;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .source-project-row::before,
+        .source-project-row::after,
+        .source-project-card::after,
+        .source-abstraction-bridge::before,
+        .source-abstraction-bridge::after {
+          display: none;
+        }
+
+        .source-abstraction-map {
+          gap: 12px;
+          padding: 16px;
+        }
+
+        .governance-hero-visual {
           margin-top: 28px;
           padding: 16px;
           overflow: hidden;
-        }
-
-        .case-visual img,
-        .hero-tags span,
-        .visual-panel,
-        .visual-node,
-        .visual-node strong,
-        .visual-node span {
-          width: 100%;
-          max-width: 100%;
-          min-width: 0;
         }
 
         .case-header {
@@ -681,18 +2810,36 @@
           display: grid;
           width: 100%;
           grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 6px 10px;
+          gap: 6px 8px;
           font-size: 12px;
         }
 
         .case-nav a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: flex-start;
           min-width: 0;
+          max-width: 100%;
           padding: 4px 0;
           white-space: normal;
         }
 
-        .hero-actions .button-primary,
-        .hero-actions .button-secondary {
+        .case-nav .nav-link--lang,
+        .case-nav .nav-link--home {
+          grid-column: 1 / -1;
+          justify-content: center;
+          width: 100%;
+          min-width: 0 !important;
+          max-width: 100% !important;
+          inline-size: 100% !important;
+          min-inline-size: 0 !important;
+          max-inline-size: 100% !important;
+          padding: 8px 10px;
+          box-sizing: border-box;
+        }
+
+        .governance-hero .hero-actions .button-primary,
+        .governance-hero .hero-actions .button-secondary {
           width: 100%;
           text-align: center;
           white-space: normal;
@@ -701,351 +2848,1003 @@
         .case-section {
           padding: 56px 20px;
         }
+
+        .judgment-filter-rail {
+          padding-left: 20px;
+        }
+
+        .judgment-filter-node,
+        .judgment-filter-terminal {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .judgment-filter-offramp,
+        .judgment-filter-terminal-result {
+          justify-self: start;
+          width: 100%;
+          min-width: 0;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: normal;
+        }
+
+        .judgment-filter-terminal-result {
+          display: grid;
+          gap: 4px;
+        }
+
+        .judgment-filter-offramp::before {
+          flex: 0 0 auto;
+        }
+
+        .judgment-filter-footnote {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          white-space: normal;
+          overflow-wrap: anywhere;
+          word-break: normal;
+        }
+
+        .judgment-system-diagram {
+          padding: 16px;
+        }
+
+        .judgment-system-flow {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .judgment-system-arrow {
+          width: 1px;
+          height: 18px;
+          justify-self: center;
+        }
+
+        .judgment-system-arrow::after {
+          right: 50%;
+          top: auto;
+          bottom: -1px;
+          transform: translateX(50%) rotate(135deg);
+        }
+
+        .judgment-system-branch {
+          grid-template-columns: 1fr;
+        }
+
+        .judgment-system-axis-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .governance-shift-matrix {
+          grid-template-columns: 1fr;
+        }
+
+        .governance-shift-strip {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "label"
+            "problem"
+            "arrow"
+            "output"
+            "note";
+          gap: 9px;
+          min-height: 0;
+        }
+
+        .governance-shift-arrow {
+          width: 30px;
+          height: 30px;
+          transform: rotate(90deg);
+        }
+
+        .governance-shift-judgment {
+          padding: 12px;
+          border: 1px solid rgba(20, 184, 166, 0.16);
+        }
+
+        .problem-diagnosis-strip {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .problem-diagnosis-main {
+          padding-left: 0;
+          padding-top: 10px;
+          border-left: 0;
+          border-top: 1px solid rgba(249, 115, 22, 0.18);
+        }
+
       }
     </style>
   </head>
   <body>
     <header class="case-header">
-      <a class="brand" href="/ai-product-portfolio/index.html">
+      <a class="brand" href="../../index.html">
         <span class="brand-mark">M4</span>
         <span>AI 应用评估与治理框架</span>
       </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#overview">项目概览</a>
+        <a href="#overview">总览</a>
+        <a href="#judgment-overview">判断系统</a>
+        <a href="#problem">框架定位</a>
         <a href="#core-question">核心问题</a>
         <a href="#opportunity">机会筛选</a>
         <a href="#layer">中间层</a>
-        <a href="#readiness">就绪度六问</a>
-        <a href="#gate">阶段门槛</a>
-        <a href="#toolkit">工具包</a>
-        <a href="#loop">治理闭环</a>
-        <a href="#sources">来源</a>
-        <a href="#boundary">边界</a>
-        <a class="nav-link--lang" href="/ai-product-portfolio/en/docs/module4-ai-evaluation-governance-framework/index.html">EN</a>
-        <a class="nav-link--home" href="/ai-product-portfolio/index.html">返回首页</a>
+        <a href="#loop">试点闭环</a>
+        <a href="#sources">框架来源</a>
+        <a class="nav-link--lang" href="../../en/docs/module4-ai-evaluation-governance-framework/index.html">EN</a>
+        <a class="nav-link--home" href="../../index.html">返回首页</a>
       </nav>
     </header>
 
     <main>
-      <section class="case-hero" id="overview">
-        <div>
+      <section class="case-hero governance-hero" id="overview">
+        <div class="governance-hero-copy">
           <p class="section-kicker">项目 04｜AI 应用评估与治理</p>
           <h1>AI 应用评估与治理框架</h1>
-          <p class="case-subtitle">从 Demo 到可试点状态的<br class="mobile-break" />就绪度判断机制</p>
+          <p class="case-subtitle">从 Demo 到可试点状态的<br class="mobile-break" />准入判断机制</p>
           <p class="case-hook-question">Demo 只要一次成功，<br class="mobile-break" />上线要一直不翻车。</p>
           <p class="case-lead">
-            这个框架关注的不是“AI 能不能演示一次”，而是一个 AI 应用在进入真实业务前，是否具备场景清晰、风险可控、人审明确、效果可验证、上线后可持续迭代的条件。
+            这套框架先不问 AI 怎么上线，而是先判断一个想法是否成立：它是真业务问题，还是模型能力驱动的伪需求。
           </p>
-          <div class="status-card">
-            这是从项目 1 / 项目 2 / 项目 3 中抽象出的产品化判断框架，不是 AI 合规论文、完整治理平台，也不是第四个单点功能工具。
-          </div>
-          <div class="hero-anchor-grid">
-            <article class="hero-anchor-card"><strong>场景准入</strong><p>判断哪些 AI 想法值得进入试点池。</p></article>
-            <article class="hero-anchor-card"><strong>风险与人审</strong><p>定义哪些可以自动化，哪些必须人工确认。</p></article>
-            <article class="hero-anchor-card"><strong>评估与迭代</strong><p>用指标、badcase、版本记录和回归测试支撑持续优化。</p></article>
-          </div>
-          <div class="hero-tags">
-            <span>就绪度判断</span><span>阶段门槛</span><span>badcase 闭环</span><span>Pilot 试点</span><span>产品化判断</span>
-          </div>
+          <p class="case-lead">
+            如果输出无法被确认、分流和复盘，或只是让局部步骤变快，正确动作不是继续推进，而是暂缓、降级、只做辅助，甚至不做。
+          </p>
           <div class="hero-actions">
             <a class="button-primary" href="#opportunity">查看机会筛选板</a>
-            <a class="button-secondary" href="#readiness">查看就绪度六问</a>
-            <a class="button-secondary" href="/ai-product-portfolio/index.html">返回作品集首页</a>
+            <a class="button-secondary" href="#judgment-overview">查看准入判断机制</a>
+            <a class="hero-home-link" href="/ai-product-portfolio/index.html">返回作品集首页</a>
           </div>
         </div>
-        <aside class="case-visual" aria-label="产品化中间层示意图">
-          <div class="case-visual-header">
-            <strong>Demo → 就绪度判断 → Pilot-ready</strong>
-            <span>就绪度承接层</span>
-          </div>
-          <img src="assets/diagrams/fig7_readiness_operating_layer_light_v052.svg" alt="AI Demo 通过产品化中间层进入可试点状态的示意图" />
-          <div class="visual-panel">
-            <div class="visual-node"><strong>不是看一次演示</strong><span>而是判断是否能进入真实任务。</span></div>
-            <div class="visual-node"><strong>不是重型平台</strong><span>而是场景、风险、人审、评估和迭代的最小机制。</span></div>
+        <aside class="case-visual governance-hero-visual" aria-label="AI 想法准入分流器">
+          <div class="judgment-filter-card">
+            <div class="judgment-filter-header">
+              <span>准入判断</span>
+              <strong>AI 想法准入分流器</strong>
+              <p>先筛掉误判，再决定是否进入试点。</p>
+            </div>
+            <div class="judgment-filter-rail">
+              <div class="judgment-filter-entry">
+                <span>输入：AI 想法 / 模型能力</span>
+              </div>
+
+              <div class="judgment-filter-node">
+                <div class="judgment-filter-main">
+                  <div class="judgment-filter-rule">
+                    <span class="judgment-filter-label">01 伪需求筛查｜</span><span>模型能力</span><span class="judgment-not-equal">≠</span><span>业务需求</span>
+                  </div>
+                </div>
+                <div class="judgment-filter-offramp">不成立 → 不做 / 改规则 / 延后观察</div>
+              </div>
+
+              <div class="judgment-filter-node">
+                <div class="judgment-filter-main">
+                  <div class="judgment-filter-rule">
+                    <span class="judgment-filter-label">02 伪结果筛查｜</span><span>AI 输出</span><span class="judgment-not-equal">≠</span><span>业务结果</span>
+                  </div>
+                </div>
+                <div class="judgment-filter-offramp">不成立 → 只做候选 / 保留人工确认</div>
+              </div>
+
+              <div class="judgment-filter-node">
+                <div class="judgment-filter-main">
+                  <div class="judgment-filter-rule">
+                    <span class="judgment-filter-label">03 伪效率筛查｜</span><span>生成速度</span><span class="judgment-not-equal">≠</span><span>流程效率</span>
+                  </div>
+                </div>
+                <div class="judgment-filter-offramp">不成立 → 降级为辅助工具</div>
+              </div>
+
+              <div class="judgment-filter-terminal">
+                <div class="judgment-filter-main">
+                  <div class="judgment-filter-rule">
+                    <span class="judgment-filter-label">04 准入判断｜</span><span>可演示</span><span class="judgment-not-equal">≠</span><span>可试点</span>
+                  </div>
+                </div>
+                <div class="judgment-filter-terminal-result"><span>通过 → 进入试点</span><span>未通过 → 暂缓 / 降级 / 不做</span></div>
+              </div>
+            </div>
+            <p class="judgment-filter-footnote">这套框架首先负责踩刹车：把不该进入业务的 AI 想法挡在试点之前。</p>
           </div>
         </aside>
       </section>
 
-      <section class="case-section alt" id="problem">
+      <section class="case-section governance-judgment-overview" id="judgment-overview">
         <div class="case-container">
-          <div class="insight-callout">
-            <strong>AI 功能上线了，AI 产品还没成立。</strong>
-            <p>Demo 跑通只能说明技术链路能演示；MVP 要证明核心任务能闭环；Pilot 要证明真实用户愿意持续使用；进入更正式业务流程前，还需要权限、责任、人审、评估、回滚和持续维护机制。</p>
-          </div>
-          <div class="section-header">
-            <p class="section-kicker">01｜项目概览</p>
-            <h2 class="section-title">项目概览：从三个应用案例抽象出的上线判断框架</h2>
-            <p class="section-description">
-              项目 4 不再展示一个新的单点 AI 工具，而是回答企业更常见的问题：哪些 AI 场景值得做，哪些适合快速试点，哪些只能作为辅助，哪些暂时不该做。
+          <div class="judgment-overview-header">
+            <p class="judgment-overview-kicker">00｜判断系统总览</p>
+            <h2 class="judgment-overview-title">先判断边界，再决定 AI 如何进入流程</h2>
+            <p class="judgment-overview-description">
+              这套框架不是为了证明 AI 能做什么，而是为了提前识别：哪些 AI 想法不该做、不该自动流转、不该直接进入试点。
             </p>
           </div>
-          <div class="card-grid">
-            <article class="info-card"><span>不是论文</span><h3>不是 AI 合规论文</h3><p>页面不从法规或风控专家视角展开，而从 AI 产品经理的试点推进视角展开。</p></article>
-            <article class="info-card"><span>不是平台</span><h3>不是完整治理平台</h3><p>这里讨论的是试点前后可执行的最小机制，而不是大而全企业中台。</p></article>
-            <article class="info-card"><span>不是工具</span><h3>不是第四个单点功能</h3><p>它抽象前三个项目的共性问题，用来判断 AI 应用是否具备进入试点的条件。</p></article>
+          <div class="judgment-system-diagram" aria-label="AI 判断系统方法论图纸">
+            <div class="judgment-flow-zone">
+              <p class="judgment-system-punch">不是给 AI 找理由上线，而是给业务设置准入边界。</p>
+              <svg class="stage-gate-map" viewBox="0 0 1200 620" role="img" aria-label="AI 想法准入判断闭环图">
+                <defs>
+                  <marker id="sg-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M 0 0 L 8 4 L 0 8 Z" fill="#475569"></path>
+                  </marker>
+                  <marker id="sg-branch-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M 0 0 L 8 4 L 0 8 Z" fill="#fb923c"></path>
+                  </marker>
+                  <marker id="sg-feedback-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M 0 0 L 8 4 L 0 8 Z" fill="#64748b"></path>
+                  </marker>
+                </defs>
+
+                <rect class="svg-input-node svg-node-shadow" x="30" y="28" width="240" height="84" rx="16"></rect>
+                <text x="150" y="58" text-anchor="middle" class="svg-node-title">AI 想法 / 业务信号</text>
+                <text x="150" y="82" text-anchor="middle" class="svg-node-note">模型能力、业务痛点</text>
+                <text x="150" y="99" text-anchor="middle" class="svg-node-note">场景问题、流程断点</text>
+                <path class="svg-main-path" d="M 150 112 L 150 136" marker-end="url(#sg-arrow)"></path>
+
+                <path class="svg-main-path" d="M 250 205 L 300 205" marker-end="url(#sg-arrow)"></path>
+                <path class="svg-main-path" d="M 505 205 L 555 205" marker-end="url(#sg-arrow)"></path>
+                <path class="svg-main-path" d="M 760 205 L 810 205" marker-end="url(#sg-arrow)"></path>
+                <path class="svg-main-path" d="M 1015 205 L 1055 205" marker-end="url(#sg-arrow)"></path>
+                <text x="275" y="190" text-anchor="middle" class="svg-path-label">通过</text>
+                <text x="530" y="190" text-anchor="middle" class="svg-path-label">通过</text>
+                <text x="785" y="190" text-anchor="middle" class="svg-path-label">通过</text>
+                <text x="1035" y="190" text-anchor="middle" class="svg-path-label">通过</text>
+
+                <g aria-label="Gate 01 伪需求判断">
+                  <rect class="svg-gate-node svg-node-shadow" x="45" y="150" width="205" height="110" rx="16"></rect>
+                  <rect x="45" y="170" width="4" height="70" rx="2" fill="#f97316"></rect>
+                  <text x="147.5" y="178" text-anchor="middle" class="svg-gate-title">Gate 01｜伪需求判断</text>
+                  <text x="147.5" y="207" text-anchor="middle" class="svg-gate-rule"><tspan>模型能力 </tspan><tspan class="svg-not-equal">≠</tspan><tspan> 业务需求</tspan></text>
+                  <text x="147.5" y="234" text-anchor="middle" class="svg-gate-note">拦住“AI 能做，所以就该做”</text>
+                  <path class="svg-branch-path" d="M 147.5 260 L 147.5 303" marker-end="url(#sg-branch-arrow)"></path>
+                  <text x="147.5" y="288" text-anchor="middle" class="svg-offramp-label">未通过</text>
+                </g>
+                <rect class="svg-offramp-node" x="42" y="315" width="212" height="58" rx="13"></rect>
+                <text x="148" y="340" text-anchor="middle" class="svg-offramp-label">不做 / 改规则</text>
+                <text x="148" y="358" text-anchor="middle" class="svg-offramp-label">延后观察</text>
+
+                <g aria-label="Gate 02 伪结果判断">
+                  <rect class="svg-gate-node svg-node-shadow" x="300" y="150" width="205" height="110" rx="16"></rect>
+                  <rect x="300" y="170" width="4" height="70" rx="2" fill="#f97316"></rect>
+                  <text x="402.5" y="178" text-anchor="middle" class="svg-gate-title">Gate 02｜伪结果判断</text>
+                  <text x="402.5" y="207" text-anchor="middle" class="svg-gate-rule"><tspan>AI 输出 </tspan><tspan class="svg-not-equal">≠</tspan><tspan> 业务结果</tspan></text>
+                  <text x="402.5" y="228" text-anchor="middle" class="svg-gate-note">
+                    <tspan x="402.5" dy="0">拦住没人接、没人认</tspan>
+                    <tspan x="402.5" dy="15">没人跟进的输出</tspan>
+                  </text>
+                  <path class="svg-branch-path" d="M 402.5 260 L 402.5 303" marker-end="url(#sg-branch-arrow)"></path>
+                  <text x="402.5" y="288" text-anchor="middle" class="svg-offramp-label">未通过</text>
+                </g>
+                <rect class="svg-offramp-node" x="292" y="315" width="222" height="58" rx="13"></rect>
+                <text x="403" y="340" text-anchor="middle" class="svg-offramp-label">只做候选 / 保留人工确认</text>
+                <text x="403" y="358" text-anchor="middle" class="svg-offramp-label">不自动流转</text>
+
+                <g aria-label="Gate 03 伪效率判断">
+                  <rect class="svg-gate-node svg-node-shadow" x="555" y="150" width="205" height="110" rx="16"></rect>
+                  <rect x="555" y="170" width="4" height="70" rx="2" fill="#f97316"></rect>
+                  <text x="657.5" y="178" text-anchor="middle" class="svg-gate-title">Gate 03｜伪效率判断</text>
+                  <text x="657.5" y="207" text-anchor="middle" class="svg-gate-rule"><tspan>生成速度 </tspan><tspan class="svg-not-equal">≠</tspan><tspan> 流程效率</tspan></text>
+                  <text x="657.5" y="234" text-anchor="middle" class="svg-gate-note">拦住错误更快扩散的伪效率</text>
+                  <path class="svg-branch-path" d="M 657.5 260 L 657.5 303" marker-end="url(#sg-branch-arrow)"></path>
+                  <text x="657.5" y="288" text-anchor="middle" class="svg-offramp-label">未通过</text>
+                </g>
+                <rect class="svg-offramp-node" x="550" y="315" width="215" height="58" rx="13"></rect>
+                <text x="657.5" y="340" text-anchor="middle" class="svg-offramp-label">降级为辅助工具</text>
+                <text x="657.5" y="358" text-anchor="middle" class="svg-offramp-label">不进入主流程</text>
+
+                <g aria-label="Gate 04 准入判断">
+                  <rect class="svg-gate-node svg-node-shadow" x="810" y="150" width="205" height="110" rx="16"></rect>
+                  <rect x="810" y="170" width="4" height="70" rx="2" fill="#f97316"></rect>
+                  <text x="912.5" y="178" text-anchor="middle" class="svg-gate-title">Gate 04｜准入判断</text>
+                  <text x="912.5" y="207" text-anchor="middle" class="svg-gate-rule"><tspan>可演示 </tspan><tspan class="svg-not-equal">≠</tspan><tspan> 可试点</tspan></text>
+                  <text x="912.5" y="228" text-anchor="middle" class="svg-gate-note">
+                    <tspan x="912.5" dy="0">拦住边界、责任、风险</tspan>
+                    <tspan x="912.5" dy="15">不清的 Demo</tspan>
+                  </text>
+                  <path class="svg-branch-path" d="M 912.5 260 L 912.5 303" marker-end="url(#sg-branch-arrow)"></path>
+                  <text x="912.5" y="288" text-anchor="middle" class="svg-offramp-label">未通过</text>
+                </g>
+                <rect class="svg-offramp-node" x="810" y="315" width="205" height="58" rx="13"></rect>
+                <text x="912.5" y="348" text-anchor="middle" class="svg-offramp-label">暂缓 / 降级 / 不做</text>
+
+                <rect class="svg-pilot-node svg-node-shadow" x="1055" y="160" width="112" height="90" rx="16"></rect>
+                <text x="1111" y="194" text-anchor="middle" class="svg-pilot-title">进入试点</text>
+                <text x="1111" y="218" text-anchor="middle" class="svg-node-note">真实使用</text>
+
+                <path class="svg-main-path" d="M 1111 250 L 1111 312 L 1030 312 L 1030 396" marker-end="url(#sg-arrow)"></path>
+                <rect class="svg-review-node svg-node-shadow" x="900" y="405" width="260" height="72" rx="15"></rect>
+                <text x="1030" y="431" text-anchor="middle" class="svg-feedback-title">试点结果 / badcase / 复盘</text>
+                <text x="1030" y="452" text-anchor="middle" class="svg-node-note">暴露失败样本、边界漏洞</text>
+                <text x="1030" y="469" text-anchor="middle" class="svg-node-note">和规则缺口</text>
+
+                <path class="svg-feedback-path" d="M 1030 477 L 1030 545 L 790 545" marker-end="url(#sg-feedback-arrow)"></path>
+                <rect class="svg-return-node svg-node-shadow" x="420" y="510" width="360" height="70" rx="16"></rect>
+                <text x="600" y="540" text-anchor="middle" class="svg-node-title">返回：边界定义 / 判断条件 / 准入标准</text>
+                <text x="600" y="562" text-anchor="middle" class="svg-node-note">修正规则，再进入下一轮判断</text>
+                <path class="svg-feedback-path" d="M 420 545 L 18 545 L 18 120 L 132 120" marker-end="url(#sg-feedback-arrow)"></path>
+              </svg>
+            </div>
+            <div class="judgment-system-layer-detail judgment-breakdown-zone" aria-label="AI 判断层展开">
+              <div class="judgment-system-layer-title">AI 判断层展开：四个筛查挡板</div>
+              <div class="judgment-system-axis-grid">
+                <article class="judgment-system-axis">
+                  <div class="judgment-system-axis-title">
+                    <span>01 伪需求筛查</span>
+                    <strong><span>模型能力</span><span class="judgment-not-equal">≠</span><span>业务需求</span></strong>
+                  </div>
+                  <p>最常见的误判，不是没看见需求，而是把模型能力误当成了业务需求。</p>
+                  <p>“AI 能做”只说明技术上可行，不代表业务上值得做。</p>
+                  <p class="judgment-system-axis-action"><strong>处置：</strong>不做 / 改规则 / 延后观察</p>
+                </article>
+                <article class="judgment-system-axis">
+                  <div class="judgment-system-axis-title">
+                    <span>02 伪结果筛查</span>
+                    <strong><span>AI 输出</span><span class="judgment-not-equal">≠</span><span>业务结果</span></strong>
+                  </div>
+                  <p>AI 会说、会写、会识别，不等于业务真的有人接、有人认、有人跟进。</p>
+                  <p>最容易自我感动的结果，是 AI 输出了很多，但流程什么都没发生。</p>
+                  <p class="judgment-system-axis-action"><strong>处置：</strong>只做候选 / 保留人工确认 / 不自动流转</p>
+                </article>
+                <article class="judgment-system-axis">
+                  <div class="judgment-system-axis-title">
+                    <span>03 伪效率筛查</span>
+                    <strong><span>生成速度</span><span class="judgment-not-equal">≠</span><span>流程效率</span></strong>
+                  </div>
+                  <p>AI 生成很快，但出错也可能更快、扩散更快、失控更快。</p>
+                  <p>如果没有进入审核、复用、发布和回流链路，快的只是出稿，不是生产。</p>
+                  <p class="judgment-system-axis-action"><strong>处置：</strong>降级为辅助工具 / 不进入主流程</p>
+                </article>
+                <article class="judgment-system-axis">
+                  <div class="judgment-system-axis-title">
+                    <span>04 准入判断</span>
+                    <strong><span>可演示</span><span class="judgment-not-equal">≠</span><span>可试点</span></strong>
+                  </div>
+                  <p>Demo 赢的是掌声，试点暴露的是代价。</p>
+                  <p>场景、责任、风险和验证方式不清楚时，跑通一次没有意义。</p>
+                  <p class="judgment-system-axis-action"><strong>处置：</strong>进入试点 / 暂缓 / 降级 / 不做</p>
+                </article>
+              </div>
+            </div>
+            <p class="judgment-system-callout">接上模型只是开始，接住任务才算产品。真正的问题从来不是 AI 能不能做，而是业务能不能接得住。</p>
           </div>
         </div>
       </section>
 
-      <section class="case-section" id="core-question">
+      <section class="case-section alt governance-project-overview framework-positioning-section" id="problem">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">01｜框架定位</p>
+            <h2 class="section-title">这套框架在判断什么？</h2>
+            <p class="section-description">
+              它不是 AI 项目的上线包装，也不是技术可行性评估，而是产品经理在 AI 想法进入试点前，用来判断边界、责任、承接方式和处置路径的一套准入机制。
+            </p>
+          </div>
+          <div class="governance-framework-brief" aria-label="框架定位与使用边界说明">
+            <div class="governance-brief-definition">
+              <p><strong>它判断的不是 AI 能不能做，而是这个 AI 想法是否值得进入业务，以及应该以什么方式进入。</strong></p>
+              <p>一个想法可以进入试点，也可以被暂缓、降级为辅助工具、保留人工确认、只做候选结果，甚至直接不做。</p>
+            </div>
+            <div class="governance-shift-matrix" aria-label="判断转向矩阵">
+              <article class="governance-shift-strip">
+                <span class="governance-shift-label">框架定位</span>
+                <div class="governance-shift-question">
+                  <strong>AI 能不能演示一次</strong>
+                  <span>表面问题</span>
+                </div>
+                <span class="governance-shift-arrow" aria-hidden="true">→</span>
+                <div class="governance-shift-judgment">
+                  <strong>是否值得进入真实业务流程</strong>
+                  <span>产品判断</span>
+                </div>
+                <p class="governance-shift-note">Demo 成功，只证明能力出现过；不证明业务接得住。</p>
+              </article>
+              <article class="governance-shift-strip">
+                <span class="governance-shift-label">使用阶段</span>
+                <div class="governance-shift-question">
+                  <strong>上线前还缺什么材料</strong>
+                  <span>表面问题</span>
+                </div>
+                <span class="governance-shift-arrow" aria-hidden="true">→</span>
+                <div class="governance-shift-judgment">
+                  <strong>试点前哪些边界必须先设清楚</strong>
+                  <span>产品判断</span>
+                </div>
+                <p class="governance-shift-note">不是补材料，而是先设准入边界。</p>
+              </article>
+              <article class="governance-shift-strip">
+                <span class="governance-shift-label">产品责任</span>
+                <div class="governance-shift-question">
+                  <strong>能不能把输出自动流转出去</strong>
+                  <span>表面问题</span>
+                </div>
+                <span class="governance-shift-arrow" aria-hidden="true">→</span>
+                <div class="governance-shift-judgment">
+                  <strong>谁确认、谁承接、谁复盘、谁负责</strong>
+                  <span>产品判断</span>
+                </div>
+                <p class="governance-shift-note">人工确认不是能力不足，而是责任边界。</p>
+              </article>
+              <article class="governance-shift-strip">
+                <span class="governance-shift-label">判断产出</span>
+                <div class="governance-shift-question">
+                  <strong>上线还是不上线</strong>
+                  <span>表面问题</span>
+                </div>
+                <span class="governance-shift-arrow" aria-hidden="true">→</span>
+                <div class="governance-shift-judgment">
+                  <strong>试点、候选、辅助、暂缓、降级，还是不做</strong>
+                  <span>产品判断</span>
+                </div>
+                <p class="governance-shift-note">产品判断不是二选一，而是找到合适处置路径。</p>
+              </article>
+            </div>
+            <p class="governance-brief-punch">不是所有能做出来的 AI，都应该进入业务流程。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section governance-core-problem core-problem-section" id="core-question">
         <div class="case-container">
           <div class="section-header">
             <p class="section-kicker">02｜核心问题</p>
-            <h2 class="section-title">核心问题：AI 功能上线了，不代表 AI 产品成立</h2>
-            <p class="section-hook">AI 功能上线了，AI 产品还没成立。</p>
+            <h2 class="section-title">AI 功能上线了，为什么还不算产品成立？</h2>
             <p class="section-description">
-              很多企业并不缺 AI Demo，也不缺临时试用的 AI 工具。真正缺的是一套产品化判断机制，把模糊想法变成可评估、可试点、可复盘的产品问题。
+              因为 AI 的输出只是能力出现，不等于业务已经形成动作。一个 AI 功能真正成立，需要进入任务、有人确认、被流程承接，并且能在失败后被复盘和修正。
             </p>
           </div>
-          <div class="card-grid">
-            <article class="info-card"><span>01</span><h3>场景值不值得做？</h3><p>先判断频率、价值和验证条件，而不是先做 Demo。</p></article>
-            <article class="info-card"><span>02</span><h3>嵌入哪个业务节点？</h3><p>AI 必须进入任务流，而不是只停在入口或页面按钮上。</p></article>
-            <article class="info-card"><span>03</span><h3>出错会造成什么后果？</h3><p>风险决定它是自动执行、辅助建议、人审确认还是暂缓。</p></article>
-            <article class="info-card"><span>04</span><h3>效果怎么证明？</h3><p>Demo 好看不够，需要指标、样本和评估方式。</p></article>
-            <article class="info-card"><span>05</span><h3>谁审核、谁维护？</h3><p>人审、owner、维护节奏和责任边界必须提前明确。</p></article>
-            <article class="info-card"><span>06</span><h3>何时进入试点？</h3><p>从 Demo 到 Pilot 要有阶段门槛，而不是一次演示后直接上线。</p></article>
+          <div class="problem-diagnosis-list" aria-label="AI 产品成立前的三个断点诊断">
+            <article class="problem-diagnosis-strip">
+              <div class="problem-diagnosis-index">
+                <span>01 输出断点</span>
+                <strong>AI 说出来了，但业务没有接住</strong>
+              </div>
+              <div class="problem-diagnosis-main">
+                <strong>有答案，不等于有结果。</strong>
+                <p>如果 AI 输出不能进入确认、分流、处理和复盘，它只是一次生成结果，不是业务能力。</p>
+              </div>
+              <div class="problem-diagnosis-symptom">
+                <span>典型症状</span>
+                <strong>回答很多，但没有下一步动作。</strong>
+              </div>
+            </article>
+            <article class="problem-diagnosis-strip">
+              <div class="problem-diagnosis-index">
+                <span>02 责任断点</span>
+                <strong>AI 自动流转了，但没人真正负责</strong>
+              </div>
+              <div class="problem-diagnosis-main">
+                <strong>自动化不能替代责任边界。</strong>
+                <p>人工确认不是 AI 能力不足，而是产品责任设计的一部分。没有确认人、承接人和复盘人，自动化只会放大不确定性。</p>
+              </div>
+              <div class="problem-diagnosis-symptom">
+                <span>典型症状</span>
+                <strong>看似更快，实际没人敢认。</strong>
+              </div>
+            </article>
+            <article class="problem-diagnosis-strip">
+              <div class="problem-diagnosis-index">
+                <span>03 验证断点</span>
+                <strong>Demo 跑通了，但无法持续不翻车</strong>
+              </div>
+              <div class="problem-diagnosis-main">
+                <strong>一次成功，不等于可持续使用。</strong>
+                <p>真实业务会暴露异常样本、边界场景和 badcase。如果没有指标、样本、回流和版本迭代，试点很容易停在演示阶段。</p>
+              </div>
+              <div class="problem-diagnosis-symptom">
+                <span>典型症状</span>
+                <strong>演示顺利，试点失控。</strong>
+              </div>
+            </article>
           </div>
+          <p class="problem-diagnosis-conclusion">AI 产品成立的标志，不是它能输出，而是输出之后有人接、有人判、有人改。</p>
         </div>
       </section>
 
-      <section class="case-section alt" id="opportunity">
+      <section class="case-section alt opportunity-screening-section" id="opportunity">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">03｜AI 机会筛选板</p>
-            <h2 class="section-title">AI 机会筛选板：把企业内部 AI 点子分级推进</h2>
+            <p class="section-kicker">03｜机会筛选</p>
+            <h2 class="section-title">AI 想法进入项目之前，先过一张机会筛选板</h2>
             <p class="section-description">
-              如果公司内部已经有很多 AI 想法、AI Demo 和管理层需求，这张板帮助企业先判断哪些快速试点，哪些重点推进，哪些只能辅助，哪些暂时不做。
+              不是所有业务痛点都适合用 AI 解决，也不是所有模型能力都值得产品化。机会筛选板用于在立项前快速判断：这个想法是否是真问题、是否适合 AI、是否能被流程接住，以及不做会不会更合理。
             </p>
           </div>
-          <div class="opportunity-board" aria-label="AI 机会筛选板">
-            <article class="opportunity-card quick">
-              <h3>快速验证</h3>
-              <span class="card-label">Quick Win</span>
-              <div class="card-field"><strong>判断逻辑</strong>高频、低风险、易验证。</div>
-              <div class="card-field"><strong>示例</strong>会议纪要、知识检索、内部摘要、素材归类。</div>
-              <div class="card-field"><strong>产品动作</strong>快速 MVP，短周期验证可用性。</div>
-            </article>
-            <article class="opportunity-card pilot">
-              <h3>重点试点</h3>
-              <span class="card-label">Strategic Pilot</span>
-              <div class="card-field"><strong>判断逻辑</strong>价值高，需要流程嵌入。</div>
-              <div class="card-field"><strong>示例</strong>需求分流、业务信号识别、Agent 工作流、跨系统协同。</div>
-              <div class="card-field"><strong>产品动作</strong>设计 Pilot，明确 owner、指标、人审节点。</div>
-            </article>
-            <article class="opportunity-card assist">
-              <h3>受控辅助</h3>
-              <span class="card-label">Controlled Assist</span>
-              <div class="card-field"><strong>判断逻辑</strong>有价值但风险高。</div>
-              <div class="card-field"><strong>示例</strong>客户回复建议、方案推荐、预算判断、对外内容草稿。</div>
-              <div class="card-field"><strong>产品动作</strong>只做辅助，不做自动决策或自动外发。</div>
-            </article>
-            <article class="opportunity-card stop">
-              <h3>暂缓 / 不做</h3>
-              <span class="card-label">Hold / No-Go</span>
-              <div class="card-field"><strong>判断逻辑</strong>条件不成熟或风险过高。</div>
-              <div class="card-field"><strong>示例</strong>涉密自动外发、不可逆审批、无 owner 的炫技 Demo。</div>
-              <div class="card-field"><strong>产品动作</strong>暂缓，先补数据、流程和责任边界。</div>
-            </article>
+          <div class="opportunity-screening-board" aria-label="AI 机会筛选板">
+            <div class="opportunity-screening-input" aria-label="AI 想法输入卡">
+              <div>
+                <span class="opportunity-screening-input-label">输入</span>
+                <h3>一条 AI 想法</h3>
+                <p>先把想法写成可判断的 brief，再决定是否进入项目。</p>
+              </div>
+              <div class="opportunity-screening-input-fields">
+                <div class="opportunity-screening-input-field">
+                  <span>来源</span>
+                  <strong>业务痛点 / 模型能力 / 流程断点 / 用户反馈</strong>
+                </div>
+                <div class="opportunity-screening-input-field">
+                  <span>目标任务</span>
+                  <strong>它想替谁完成什么动作？</strong>
+                </div>
+                <div class="opportunity-screening-input-field">
+                  <span>预期输出</span>
+                  <strong>生成、识别、推荐或自动流转什么？</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="opportunity-screening-workbench">
+              <div class="opportunity-screening-worksheet" aria-label="四项机会筛选工作表">
+                <article class="opportunity-screening-item">
+                  <div class="opportunity-screening-item-header">
+                    <span class="opportunity-screening-number">01</span>
+                    <h3>真问题筛选</h3>
+                  </div>
+                  <div class="opportunity-screening-field">
+                    <span>筛选问题</span>
+                    <p>这是业务问题，还是模型能力驱动的想法？</p>
+                  </div>
+                  <div class="opportunity-screening-field is-risk">
+                    <span>红灯信号</span>
+                    <p>只是因为 AI 能做，所以开始找场景套进去。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-pass">
+                    <span>通过标准</span>
+                    <p>有明确使用者、业务节点和待完成任务。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-action">
+                    <span>未通过处置</span>
+                    <div class="opportunity-screening-tags">
+                      <span>不做</span>
+                      <span>延后观察</span>
+                      <span>改为规则方案</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="opportunity-screening-item">
+                  <div class="opportunity-screening-item-header">
+                    <span class="opportunity-screening-number">02</span>
+                    <h3>AI 适配筛选</h3>
+                  </div>
+                  <div class="opportunity-screening-field">
+                    <span>筛选问题</span>
+                    <p>这个问题真的需要 AI 吗？</p>
+                  </div>
+                  <div class="opportunity-screening-field is-risk">
+                    <span>红灯信号</span>
+                    <p>规则、流程或信息架构就能解决，却强行引入 AI。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-pass">
+                    <span>通过标准</span>
+                    <p>问题存在不确定性、语义判断、复杂上下文或多源信息整合。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-action">
+                    <span>未通过处置</span>
+                    <div class="opportunity-screening-tags">
+                      <span>改规则</span>
+                      <span>改流程</span>
+                      <span>不进入 AI 项目</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="opportunity-screening-item">
+                  <div class="opportunity-screening-item-header">
+                    <span class="opportunity-screening-number">03</span>
+                    <h3>流程承接筛选</h3>
+                  </div>
+                  <div class="opportunity-screening-field">
+                    <span>筛选问题</span>
+                    <p>AI 输出之后，谁确认、谁承接、谁复盘？</p>
+                  </div>
+                  <div class="opportunity-screening-field is-risk">
+                    <span>红灯信号</span>
+                    <p>输出之后没人接、没人判、没人改，只是在系统里制造更多待处理信息。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-pass">
+                    <span>通过标准</span>
+                    <p>有确认人、承接人、状态流转和复盘入口。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-action">
+                    <span>未通过处置</span>
+                    <div class="opportunity-screening-tags">
+                      <span>只做候选</span>
+                      <span>保留人工确认</span>
+                      <span>不自动流转</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="opportunity-screening-item">
+                  <div class="opportunity-screening-item-header">
+                    <span class="opportunity-screening-number">04</span>
+                    <h3>试点价值筛选</h3>
+                  </div>
+                  <div class="opportunity-screening-field">
+                    <span>筛选问题</span>
+                    <p>它值得进入试点，还是只适合作为辅助能力？</p>
+                  </div>
+                  <div class="opportunity-screening-field is-risk">
+                    <span>红灯信号</span>
+                    <p>Demo 很顺，但样本、指标、风险边界和回流机制不清楚。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-pass">
+                    <span>通过标准</span>
+                    <p>有试点样本、验证指标、风险边界和 badcase 回流机制。</p>
+                  </div>
+                  <div class="opportunity-screening-field is-action">
+                    <span>未通过处置</span>
+                    <div class="opportunity-screening-tags">
+                      <span class="is-positive">进入试点</span>
+                      <span>降级辅助</span>
+                      <span>暂缓</span>
+                      <span>不做</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="opportunity-screening-output" aria-label="筛选结果输出">
+              <div class="opportunity-screening-output-head">
+                <span class="opportunity-screening-output-label">输出</span>
+                <h3>筛选结果不是“做 / 不做”二选一</h3>
+                <p>同一个 AI 想法可以被推进，也可以被改造、降级、保留人工确认或暂缓。</p>
+              </div>
+              <div class="opportunity-screening-output-options">
+                <span class="is-hold">不做</span>
+                <span class="is-rule">改规则 / 改流程</span>
+                <span>只做候选</span>
+                <span>保留人工确认</span>
+                <span class="is-hold">降级为辅助工具</span>
+                <span class="is-positive">进入试点</span>
+              </div>
+              <p class="opportunity-screening-summary">先筛机会，再谈方案；先判断该不该做，再判断怎么做。</p>
+            </div>
           </div>
-          <p class="summary-line">这张板不是为了展示“会做一个 AI 工具”，而是展示我能帮助企业把散点 AI 想法变成可执行的试点路线图。</p>
         </div>
       </section>
 
-      <section class="case-section" id="layer">
+      <section class="case-section productization-layer-section" id="layer">
         <div class="case-container">
           <div class="section-header">
             <p class="section-kicker">04｜产品化中间层</p>
-            <h2 class="section-title">产品化中间层：为什么 Demo 不能直接跳到真实试点？</h2>
+            <h2 class="section-title productization-layer-title"><span>AI 不能直接进业务：</span><br><span>中间层是安全边界，不只是转换接口</span></h2>
             <p class="section-description">
-              基础模型能力增强后，Demo 的技术门槛会下降，但企业上线需要的不只是生成能力，还包括上下文边界、数据和权限控制、证据追溯、人审节点、责任归属、指标评估、状态同步、版本记录、badcase 迭代、回滚与降级机制。
+              模型可以回答、生成、识别和推荐，但企业流程需要的是有上下文、有状态、有责任、有边界、可追踪、可复盘的业务对象。产品化中间层的作用，是让 AI 输出在进入正式流程前，先被约束、确认、分流和回收。
             </p>
           </div>
-          <div class="insight-callout">
-            <strong>AI 应用产品化中间层</strong>
-            <p class="card-label">Readiness Operating Layer｜就绪度承接层</p>
-            <p>它不是重型平台，也不是为了再造一个新系统，而是一组把模型能力、业务场景、人工判断和持续治理连接起来的最小可行机制。</p>
-          </div>
-          <figure class="diagram-frame figure-card">
-            <p class="diagram-title">产品化中间层：把 Demo 接进可试点状态</p>
-            <img src="assets/diagrams/fig7_readiness_operating_layer_light_v052.svg" alt="AI 应用产品化中间层示意图" />
-          </figure>
-          <div class="card-grid">
-            <article class="info-card"><span>场景断点</span><h3>没有判断优先级</h3><p>老板或业务方提出“这里能不能 AI 一下”，但没有判断优先级。</p><div class="output-box">AI 机会筛选板、场景准入矩阵。</div></article>
-            <article class="info-card"><span>上下文断点</span><h3>不知道依据什么回答</h3><p>模型不知道该基于哪些资料、规则和历史记录回答。</p><div class="output-box">知识边界、引用来源、资料版本、权限范围。</div></article>
-            <article class="info-card"><span>流程断点</span><h3>生成后没人接</h3><p>AI 生成了内容，但不知道流向谁、谁确认、下一步是什么。</p><div class="output-box">人审节点、任务分流、状态同步、owner 责任。</div></article>
-            <article class="info-card"><span>评估断点</span><h3>无法证明真实效果</h3><p>Demo 看起来不错，但无法证明真实效果。</p><div class="output-box">评估指标卡、最小评估集、采纳率、错误率、处理时长。</div></article>
-            <article class="info-card"><span>风险断点</span><h3>自动化边界不清</h3><p>不知道哪些输出可自动化，哪些必须人工确认。</p><div class="output-box">风险分级、Auto / Assist / Human / No-Go 边界。</div></article>
-            <article class="info-card"><span>迭代断点</span><h3>错误没有沉淀</h3><p>出错后只会人工修，不会沉淀为系统改进。</p><div class="output-box">badcase、归因分析、版本记录、回归测试。</div></article>
-          </div>
-          <p class="summary-line">这层机制的核心价值，是把“AI 能生成什么”转化为“AI 可以在什么边界内被组织使用”。</p>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="readiness">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">05｜就绪度六问</p>
-            <h2 class="section-title">AI 应用上线 Readiness 六问</h2>
-            <p class="section-description">
-              这六问的价值，是把企业里大量模糊的 AI 想法，变成可以讨论、可以打分、可以试点、可以复盘的产品决策流程。
-            </p>
-          </div>
-          <div class="readiness-grid">
-            <article class="readiness-card"><span>Should we build it?</span><h3>这个场景是否值得 AI 化？</h3><div class="card-field"><strong>判断重点</strong>是否高频、可验证、有明确用户和业务价值。</div><div class="output-box">场景准入结论，Go / Hold / No-Go。</div></article>
-            <article class="readiness-card"><span>How risky is it?</span><h3>AI 出错会造成什么后果？</h3><div class="card-field"><strong>判断重点</strong>错误是否影响客户、资金、合规、声誉或不可逆决策。</div><div class="output-box">风险等级与自动化边界，Auto / Assist / Human / No-Go。</div></article>
-            <article class="readiness-card"><span>How do we measure it?</span><h3>效果如何证明？</h3><div class="card-field"><strong>判断重点</strong>是否能用任务效果、业务效率和风险指标证明价值。</div><div class="output-box">指标体系、评估集、验证方式。</div></article>
-            <article class="readiness-card"><span>Where should humans stay in the loop?</span><h3>人应该在哪些节点介入？</h3><div class="card-field"><strong>判断重点</strong>哪些输出需要确认、修改、审批或升级处理。</div><div class="output-box">AI / 人 / 负责人分工与审核节点。</div></article>
-            <article class="readiness-card"><span>When is it ready to launch?</span><h3>满足什么条件才能从 Demo 进入试点？</h3><div class="card-field"><strong>判断重点</strong>是否完成核心任务闭环、指标、样本和人审机制。</div><div class="output-box">Demo / MVP / Pilot / Pilot-ready 阶段门槛。</div></article>
-            <article class="readiness-card"><span>How do we keep it reliable?</span><h3>上线后如何持续可靠？</h3><div class="card-field"><strong>判断重点</strong>失败样本是否能进入下一轮系统改进。</div><div class="output-box">badcase、版本、评估集、规则迭代闭环。</div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-section" id="gate">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">06｜阶段门槛与 Launch Gate</p>
-            <h2 class="section-title">阶段门槛：Demo 不是终点，每一阶段都要过 Gate</h2>
-            <p class="section-description">
-              不是 Demo 做出来就能上线，而是每一阶段都要有进入下一阶段的 Gate。本页面将终点收敛为可试点 AI 应用，避免过度承诺生产级上线。
-            </p>
-          </div>
-          <figure class="diagram-frame">
-            <p class="diagram-title">Idea → Demo → MVP → Pilot → Pilot-ready AI Application</p>
-            <div class="gate-grid">
-              <article class="gate-card"><span>Idea｜想法阶段</span><h3>值得 AI 化吗？</h3><div class="card-field"><strong>门槛</strong>明确用户、痛点、AI 介入点、预期价值和风险上限。</div></article>
-              <article class="gate-card"><span>Demo｜演示阶段</span><h3>链路跑通了吗？</h3><div class="card-field"><strong>门槛</strong>能用典型样例演示技术路径，但不承诺稳定性和业务效果。</div></article>
-              <article class="gate-card"><span>MVP｜最小可用阶段</span><h3>核心任务闭环了吗？</h3><div class="card-field"><strong>门槛</strong>有基础流程、典型样本、初步指标和人工确认机制。</div></article>
-              <article class="gate-card"><span>Pilot｜试点阶段</span><h3>真实用户持续使用吗？</h3><div class="card-field"><strong>门槛</strong>小范围真实试点，有指标、badcase、责任人和反馈机制。</div></article>
-              <article class="gate-card"><span>Pilot-ready｜可试点 AI 应用</span><h3>是否具备进入更正式业务流的准备？</h3><div class="card-field"><strong>门槛</strong>权限、监控、回滚、评估集、版本记录、培训和维护机制有初步承接。</div></article>
-            </div>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="toolkit">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">07｜AI 试点推进工具包</p>
-            <h2 class="section-title">AI 试点推进工具包：让方法论变成可执行动作</h2>
-            <p class="section-description">
-              这组交付物能让框架从“懂 AI 趋势”变成“能把 AI 试点推进成组织可执行动作”。
-            </p>
-          </div>
-          <div class="toolkit-grid">
-            <article class="toolkit-card"><span>01</span><h3>AI 场景机会池</h3><div class="card-field"><strong>作用</strong>收集业务痛点、AI 点子、现有 Demo 和管理层需求。</div></article>
-            <article class="toolkit-card"><span>02</span><h3>场景准入矩阵</h3><div class="card-field"><strong>作用</strong>判断 Quick Win / Strategic Pilot / Controlled Assist / Hold / No-Go。</div></article>
-            <article class="toolkit-card"><span>03</span><h3>风险边界卡</h3><div class="card-field"><strong>作用</strong>定义 Auto / Assist / Human / No-Go 的自动化边界。</div></article>
-            <article class="toolkit-card"><span>04</span><h3>评估指标卡</h3><div class="card-field"><strong>作用</strong>明确任务效果、业务效率、人机协作和风险指标。</div></article>
-            <article class="toolkit-card"><span>05</span><h3>Pilot 阶段门槛</h3><div class="card-field"><strong>作用</strong>定义 Idea / Demo / MVP / Pilot 的阶段 Gate。</div></article>
-            <article class="toolkit-card"><span>06</span><h3>badcase 与版本闭环</h3><div class="card-field"><strong>作用</strong>支撑失败样本、评估集、回归测试和版本记录。</div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-section" id="loop">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">08｜最小可行治理闭环</p>
-            <h2 class="section-title">最小可行治理闭环：让 AI 在真实使用中持续变好</h2>
-            <p class="section-description">
-              这不是重型合规体系，而是试点阶段就能执行的最小闭环。badcase 不只是错误记录，而是产品迭代资产。
-            </p>
-          </div>
-          <figure class="diagram-frame">
-            <p class="diagram-title">真实使用 → badcase 收集 → 归因分析 → 调整 → 回归测试 → 版本记录 → 下一轮试点</p>
-            <div class="loop-grid">
-              <article class="loop-card"><span>真实使用</span><h3>进入任务场景</h3><p>让真实用户在真实任务中使用，暴露演示阶段看不到的问题。</p></article>
-              <article class="loop-card"><span>badcase 收集</span><h3>记录失败样本</h3><p>收集错误输出、误召回、误分类、低采纳和人审修改记录。</p></article>
-              <article class="loop-card"><span>归因分析</span><h3>定位问题来源</h3><p>判断问题来自检索、生成、分类、流程、权限还是组织协作。</p></article>
-              <article class="loop-card"><span>调整机制</span><h3>修改规则 / Prompt / 流程 / 数据</h3><p>把问题沉淀为可复现、可修复、可验证的产品改动。</p></article>
-              <article class="loop-card"><span>回归测试</span><h3>评估集再验证</h3><p>修复后进入评估集回归，避免只修一个点、引出新问题。</p></article>
-              <article class="loop-card"><span>版本记录</span><h3>进入下一轮试点</h3><p>记录版本变化、回滚说明和下一轮试点观察点。</p></article>
-            </div>
-          </figure>
-          <div class="card-grid">
-            <article class="info-card"><span>检索失败</span><h3>找不到正确资料</h3><div class="card-field"><strong>例子</strong>找不到正确资料、召回不相关文档。</div><div class="output-box">调整切片、索引、召回策略、知识库结构。</div></article>
-            <article class="info-card"><span>生成错误</span><h3>编造结论或语气不合适</h3><div class="card-field"><strong>例子</strong>编造结论、语气不合适、内容不可用。</div><div class="output-box">调整 Prompt、输出模板、事实约束、人审规则。</div></article>
-            <article class="info-card"><span>分类错误</span><h3>需求分错部门</h3><div class="card-field"><strong>例子</strong>需求分错部门、标签不准。</div><div class="output-box">增加样本、优化标签体系、加入人工确认。</div></article>
-            <article class="info-card"><span>流程错误</span><h3>状态未同步</h3><div class="card-field"><strong>例子</strong>状态未同步、任务未闭环。</div><div class="output-box">明确系统接口、任务状态、责任人和提醒机制。</div></article>
-            <article class="info-card"><span>权限错误</span><h3>不该看到的内容被召回</h3><div class="card-field"><strong>例子</strong>不该看到的内容被召回。</div><div class="output-box">权限继承、数据分级、角色隔离、访问日志。</div></article>
-            <article class="info-card"><span>组织错误</span><h3>业务方不用、不反馈</h3><div class="card-field"><strong>例子</strong>业务方不用、不反馈、没人维护。</div><div class="output-box">调整流程嵌入方式、明确 owner、建立反馈节奏。</div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="sources">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">09｜这套框架从哪里来</p>
-            <h2 class="section-title">这套框架不是空降理论，而是从三个项目里长出来的</h2>
-            <p class="section-description">
-              前三个项目不是彼此孤立，而是分别验证了知识型、流程型、内容型 AI 应用的落地问题；项目 4 把它们抽象成统一的上线判断框架。
-            </p>
-          </div>
-          <div class="source-grid">
-            <article class="source-card">
-              <span>项目 1｜知识型 AI 应用</span>
-              <h3>企业知识工作台</h3>
-              <p><strong>共性问题：</strong>知识是否可信、来源是否可追溯、权限是否可控、badcase 如何进入版本回归。</p>
-              <p><strong>对应就绪度判断：</strong>上下文边界、引用溯源、评估集、版本回滚。</p>
+          <p class="productization-layer-punch">没有中间层，AI 输出会直接撞进业务流程；有中间层，AI 输出才会先被约束、确认、分流和回收。</p>
+          <div class="productization-layer-map" aria-label="AI 输出进入业务流程前的产品化中间层">
+            <article class="productization-side-panel is-risk">
+              <div class="productization-panel-head">
+                <span class="productization-panel-tag">没有中间层</span>
+                <h3>AI 输出直连业务</h3>
+                <p>如果模型输出直接触发业务动作，AI 的不确定性会被放进企业流程里自动扩散。</p>
+              </div>
+              <ol class="productization-risk-list">
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>输出直接变动作</strong>
+                    <p>AI 一识别就建单，一建议就分流，一生成就发布。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>错误直接扩散</strong>
+                    <p>模型判断错了，但结果已经进入 CRM、任务系统、内容发布或需求池。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>责任被稀释</strong>
+                    <p>没人知道是谁确认的、谁承接的、谁要复盘。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>04</span>
+                  <div>
+                    <strong>边界不可控</strong>
+                    <p>哪些能自动走，哪些必须转人工，哪些不能做，没有规则拦截。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>05</span>
+                  <div>
+                    <strong>badcase 没有回收口</strong>
+                    <p>失败只是失败，不能反过来修正规则、边界和准入标准。</p>
+                  </div>
+                </li>
+              </ol>
             </article>
-            <article class="source-card">
-              <span>项目 2｜流程型 AI 应用</span>
-              <h3>AI 业务需求流转工作台</h3>
-              <p><strong>共性问题：</strong>AI 输出是否能进入流程，责任方是否确认，状态是否可追踪，规则是否能迭代。</p>
-              <p><strong>对应就绪度判断：</strong>人审分流、任务闭环、owner 责任、规则反馈。</p>
-            </article>
-            <article class="source-card">
-              <span>项目 3｜内容型 AI 应用</span>
-              <h3>AI 营销内容生产工作流</h3>
-              <p><strong>共性问题：</strong>生成内容是否可审核、品牌风险是否可控、效果是否能回流、经验是否能沉淀。</p>
-              <p><strong>对应就绪度判断：</strong>品牌审核、合规确认、效果回流、badcase 与素材规则库。</p>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      <section class="case-section" id="boundary">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">10｜表达边界</p>
-            <h2 class="section-title">表达边界：这是产品化判断框架，不是完整 AI 合规治理体系</h2>
-            <p class="section-description">
-              这个框架面向企业 AI 应用试点和产品化落地，用于判断场景优先级、风险边界、评估指标、人审机制、阶段门槛和持续迭代路径。
-            </p>
-          </div>
-          <div class="boundary-grid">
-            <article class="boundary-card">
-              <span>不声称</span>
-              <h3>不是完整治理体系</h3>
-              <div class="tag-list">
-                <span>不声称已建立企业级 AI 合规治理体系</span>
-                <span>不声称已负责 AI 法规审查</span>
-                <span>不声称已设计完整 AI 风控平台</span>
-                <span>不声称已落地大规模生产系统</span>
-                <span>不声称已证明真实生产级业务结果</span>
+            <article class="productization-safety-layer">
+              <div class="productization-layer-head">
+                <span>产品化中间层</span>
+                <h3>把 AI 输出挡在正式动作之前</h3>
+                <p>它不是多做一层包装，而是在 AI 输出和业务系统之间设置一层缓冲区。</p>
+              </div>
+              <div class="productization-layer-role">
+                <strong>安全边界 / 缓冲区 / 判断闸门</strong>
+                <span>中间层不是包装层，而是 AI 输出进入正式业务动作前的安全缓冲区。</span>
+              </div>
+              <div class="productization-mechanism-grid">
+                <div class="productization-mechanism-item">
+                  <strong>候选化</strong>
+                  <p>先变候选，不直接变结果。</p>
+                </div>
+                <div class="productization-mechanism-item">
+                  <strong>确认点</strong>
+                  <p>先进入待确认，不直接自动流转。</p>
+                </div>
+                <div class="productization-mechanism-item">
+                  <strong>上下文绑定</strong>
+                  <p>先绑定任务、角色和业务节点，不脱离场景。</p>
+                </div>
+                <div class="productization-mechanism-item">
+                  <strong>责任人</strong>
+                  <p>先定义谁确认、谁承接、谁复盘，不让模型替组织负责。</p>
+                </div>
+                <div class="productization-mechanism-item">
+                  <strong>降级规则</strong>
+                  <p>先设置何时转人工、何时停、何时只做辅助。</p>
+                </div>
+                <div class="productization-mechanism-item">
+                  <strong>回流口</strong>
+                  <p>先沉淀 badcase，让错误能回到规则和边界。</p>
+                </div>
               </div>
             </article>
-            <article class="boundary-card">
-              <span>准确表达</span>
-              <h3>AI 产品经理可执行的工作方法</h3>
-              <div class="tag-list">
-                <span>面向企业 AI 应用试点和产品化落地</span>
-                <span>用于判断场景优先级</span>
-                <span>定义风险边界</span>
-                <span>设计评估指标</span>
-                <span>明确人审机制</span>
-                <span>规划阶段门槛与持续迭代路径</span>
+
+            <article class="productization-side-panel is-controlled">
+              <div class="productization-panel-head">
+                <span class="productization-panel-tag">有中间层</span>
+                <h3>AI 输出以可控对象进入流程</h3>
+                <p>AI 不再直接变成正式业务动作，而是先变成组织能识别、能分配、能确认、能追踪、能复盘的对象。</p>
               </div>
-              <p>它不是法规专家视角的治理论文，而是 AI 产品经理可执行的推进方法。</p>
+              <ol class="productization-object-list">
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>候选需求</strong>
+                    <p>不是正式需求，而是等待确认和分流的需求候选。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>待确认任务</strong>
+                    <p>不是自动执行，而是带上下文进入确认池。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>辅助建议</strong>
+                    <p>不是替人决策，而是提供可采纳、可拒绝、可追踪的建议。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>04</span>
+                  <div>
+                    <strong>试点样本</strong>
+                    <p>不是全面上线，而是进入小范围验证。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>05</span>
+                  <div>
+                    <strong>复盘记录</strong>
+                    <p>不是一次失败就结束，而是形成 badcase、规则修正和版本迭代。</p>
+                  </div>
+                </li>
+              </ol>
             </article>
           </div>
+          <p class="productization-layer-summary">没有中间层，AI 的不确定性会直接进入组织流程；有中间层，AI 才能以可确认、可追踪、可复盘的方式进入业务。</p>
+        </div>
+      </section>
+
+      <section class="case-section pilot-validation-section" id="loop">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">05｜试点验证闭环</p>
+            <h2 class="section-title">试点不是上线前彩排，而是 badcase 回收机制</h2>
+            <p class="section-description">
+              AI 试点的价值，不是证明它演示时表现不错，而是在小范围真实使用中暴露异常样本、责任断点和边界问题，再把这些失败反馈回规则、流程和下一版判断。
+            </p>
+          </div>
+          <p class="pilot-loop-punch">试点不是为了找一个成功案例，而是为了找到系统会在哪里失败。</p>
+          <div class="pilot-loop-canvas" aria-label="AI 试点 badcase 回收闭环">
+            <div class="pilot-loop-index-column">
+              <article class="pilot-loop-callout pilot-loop-callout-1 is-signal">
+                <div class="pilot-loop-callout-head"><span>01</span><strong>小范围试点</strong></div>
+                <p>不是全面上线，而是在可控场景中让 AI 进入真实任务。</p>
+                <div class="pilot-loop-keywords"><span>小范围</span><span>可控场景</span><span>人工确认</span></div>
+              </article>
+              <article class="pilot-loop-callout pilot-loop-callout-6 is-repair">
+                <div class="pilot-loop-callout-head"><span>06</span><strong>下一版判断</strong></div>
+                <p>根据试点结果决定继续放大、维持小范围、降级为辅助、暂缓，还是停止。</p>
+                <div class="pilot-loop-keywords"><span>放大</span><span>维持</span><span>降级</span><span>暂缓</span><span>停止</span></div>
+              </article>
+              <article class="pilot-loop-callout pilot-loop-callout-5 is-repair">
+                <div class="pilot-loop-callout-head"><span>05</span><strong>规则与边界修正</strong></div>
+                <p>把失败样本反过来更新适用范围、禁用条件、转人工规则和下一版准入标准。</p>
+                <div class="pilot-loop-keywords"><span>适用范围</span><span>禁用条件</span><span>降级规则</span><span>准入标准</span></div>
+              </article>
+            </div>
+            <div class="pilot-loop-stage">
+              <svg class="pilot-loop-ring-lines" viewBox="0 0 620 620" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <defs>
+                  <marker id="pilot-loop-arrow-blue" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 1.5 L 8.8 5 L 0 8.5 z" fill="rgba(37, 99, 235, 0.78)"></path>
+                  </marker>
+                  <marker id="pilot-loop-arrow-orange" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 1.5 L 8.8 5 L 0 8.5 z" fill="rgba(249, 115, 22, 0.8)"></path>
+                  </marker>
+                  <marker id="pilot-loop-arrow-teal" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 1.5 L 8.8 5 L 0 8.5 z" fill="rgba(20, 184, 166, 0.82)"></path>
+                  </marker>
+                </defs>
+                <circle cx="310" cy="310" r="210" fill="none" stroke="rgba(15, 23, 42, 0.075)" stroke-width="5"></circle>
+                <circle cx="310" cy="310" r="150" fill="none" stroke="rgba(249, 115, 22, 0.1)" stroke-width="1.2"></circle>
+                <path d="M408.6 124.6 A210 210 0 0 1 466.1 169.5" fill="none" stroke="rgba(37, 99, 235, 0.58)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-blue)"></path>
+                <path d="M509.7 245.1 A210 210 0 0 1 509.7 374.9" fill="none" stroke="rgba(37, 99, 235, 0.58)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-blue)"></path>
+                <path d="M466.1 450.5 A210 210 0 0 1 408.6 495.4" fill="none" stroke="rgba(249, 115, 22, 0.62)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-orange)"></path>
+                <path d="M211.4 495.4 A210 210 0 0 1 153.9 450.5" fill="none" stroke="rgba(249, 115, 22, 0.62)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-orange)"></path>
+                <path d="M110.3 374.9 A210 210 0 0 1 110.3 245.1" fill="none" stroke="rgba(20, 184, 166, 0.64)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-teal)"></path>
+                <path d="M153.9 169.5 A210 210 0 0 1 211.4 124.6" fill="none" stroke="rgba(20, 184, 166, 0.64)" stroke-width="5.2" stroke-linecap="round" marker-end="url(#pilot-loop-arrow-teal)"></path>
+              </svg>
+              <article class="pilot-loop-node pilot-loop-step-1 is-signal">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">01</span>
+                  <h3>小范围试点</h3>
+                </div>
+              </article>
+              <article class="pilot-loop-node pilot-loop-step-2 is-signal">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">02</span>
+                  <h3>真实使用样本</h3>
+                </div>
+              </article>
+              <article class="pilot-loop-node pilot-loop-step-3 is-badcase">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">03</span>
+                  <h3>badcase 捕获</h3>
+                </div>
+              </article>
+              <article class="pilot-loop-pool">
+                <span>中心机制</span>
+                <h3>badcase 回收池</h3>
+                <p>失败样本不是废料，而是下一版规则、边界和判断的输入。</p>
+              </article>
+              <article class="pilot-loop-node pilot-loop-step-4 is-badcase">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">04</span>
+                  <h3>原因归类</h3>
+                </div>
+              </article>
+              <article class="pilot-loop-node pilot-loop-step-5 is-repair">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">05</span>
+                  <h3>规则与边界修正</h3>
+                </div>
+              </article>
+              <article class="pilot-loop-node pilot-loop-step-6 is-repair">
+                <div class="pilot-loop-node-header">
+                  <span class="pilot-loop-node-num">06</span>
+                  <h3>下一版判断</h3>
+                </div>
+              </article>
+            </div>
+            <div class="pilot-loop-index-column">
+              <article class="pilot-loop-callout pilot-loop-callout-2 is-signal">
+                <div class="pilot-loop-callout-head"><span>02</span><strong>真实使用样本</strong></div>
+                <p>收集真实任务中的输入、输出、人工判断和后续动作，而不是只看演示样例。</p>
+                <div class="pilot-loop-keywords"><span>输入</span><span>输出</span><span>人工判断</span><span>后续动作</span></div>
+              </article>
+              <article class="pilot-loop-callout pilot-loop-callout-3 is-badcase">
+                <div class="pilot-loop-callout-head"><span>03</span><strong>badcase 捕获</strong></div>
+                <p>重点不是只记录失败，而是记录 AI 为什么失败、失败在哪里扩散、谁需要介入。</p>
+                <div class="pilot-loop-keywords"><span>错误类型</span><span>扩散点</span><span>介入人</span></div>
+              </article>
+              <article class="pilot-loop-callout pilot-loop-callout-4 is-badcase">
+                <div class="pilot-loop-callout-head"><span>04</span><strong>原因归类</strong></div>
+                <p>区分是模型能力问题、上下文不足、规则不清、流程断点，还是责任边界不清。</p>
+                <div class="pilot-loop-keywords"><span>模型</span><span>上下文</span><span>规则</span><span>流程</span><span>责任</span></div>
+              </article>
+            </div>
+          </div>
+          <p class="pilot-loop-summary">只有 badcase 能回流，AI 试点才不是一次性演示，而是可迭代的产品机制。</p>
+        </div>
+      </section>
+
+      <section class="case-section alt source-abstraction-section" id="sources">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">06｜这套框架从哪里来</p>
+            <h2 class="section-title">四个判断轴：从三个 AI 应用断点中抽象出来</h2>
+            <p class="section-description">
+              前三个项目分别暴露了知识型、流程型、内容型 AI 应用在落地中的共性问题：不是模型不会，而是业务问题被误读、输出无法承接、效率没有进入生产链路。这个方法论页把这些问题抽象成四个判断轴，用来判断 AI 是否值得做、能否进入流程、是否真的提升效率，以及是否具备试点条件。
+            </p>
+          </div>
+          <p class="source-abstraction-punch">方法论不是多写一层总结，而是把反复出现的失败模式变成可复用判断。</p>
+          <div class="source-abstraction-map">
+            <div class="source-project-row" aria-label="前三个 AI 应用项目来源">
+              <article class="source-project-card">
+                <span>知识型 AI</span>
+                <h3>企业知识工作台</h3>
+                <p>暴露出知识问答背后的上下文、角色和下一步动作问题。</p>
+              </article>
+              <article class="source-project-card">
+                <span>流程型 AI</span>
+                <h3>AI 业务需求流转工作台</h3>
+                <p>暴露出 AI 输出无法被确认、分流、追踪和复盘的问题。</p>
+              </article>
+              <article class="source-project-card">
+                <span>内容型 AI</span>
+                <h3>AI 营销内容生产工作流</h3>
+                <p>暴露出生成速度没有进入审核、复用、发布和回流链路的问题。</p>
+              </article>
+            </div>
+
+            <div class="source-abstraction-bridge">
+              <span>共性断点抽象层</span>
+              <strong>不是模型不会，而是业务没有被正确接住。</strong>
+              <p>从三个项目反复出现的失败模式中，抽象出可复用的产品判断轴。</p>
+            </div>
+
+            <div class="source-axis-grid" aria-label="四个产品判断轴">
+              <article class="source-axis-card is-demand">
+                <span class="source-axis-kicker">01 伪需求判断｜模型能力 ≠ 业务需求</span>
+                <h3>这是业务问题，还是模型能力驱动出来的想法？</h3>
+                <div class="source-axis-meta">
+                  <div><strong>来源项目</strong><span>企业知识工作台</span></div>
+                  <div><strong>暴露断点</strong><span>知识问答不是全部，真正的问题常常是上下文、任务、角色和下一步动作没有被定义清楚。</span></div>
+                  <div><strong>收束</strong><span>知道制度，不等于知道自己是否适用；知识型 AI 不能只回答问题，还要帮助用户判断依据、适用边界和下一步动作。</span></div>
+                </div>
+              </article>
+              <article class="source-axis-card is-result">
+                <span class="source-axis-kicker">02 伪结果判断｜AI 输出 ≠ 业务结果</span>
+                <h3>信息能否变成可确认、可分流、可追踪的业务动作？</h3>
+                <div class="source-axis-meta">
+                  <div><strong>来源项目</strong><span>AI 业务需求流转工作台</span></div>
+                  <div><strong>暴露断点</strong><span>AI 识别出信息，不代表业务已经形成可确认、可分流、可追踪的结果。</span></div>
+                  <div><strong>收束</strong><span>信息不是结果，只有进入确认、分流、处理和复盘流程，才形成业务能力。</span></div>
+                </div>
+              </article>
+              <article class="source-axis-card is-efficiency">
+                <span class="source-axis-kicker">03 伪效率判断｜生成速度 ≠ 流程效率</span>
+                <h3>生成是否真的进入可复用、可审核、可复盘的生产链路？</h3>
+                <div class="source-axis-meta">
+                  <div><strong>来源项目</strong><span>AI 营销内容生产工作流</span></div>
+                  <div><strong>暴露断点</strong><span>内容生成不是终点，只有进入审核、复用、发布和效果回流，才可能形成真实效率。</span></div>
+                  <div><strong>收束</strong><span>生成更快不等于流程更快；没有进入生产链路的生成，只是局部加速。</span></div>
+                </div>
+              </article>
+              <article class="source-axis-card is-pilot">
+                <span class="source-axis-kicker">04 试点边界判断｜可演示 ≠ 可试点</span>
+                <h3>这个 AI 能力应该进入试点、降级为辅助、暂缓，还是不做？</h3>
+                <div class="source-axis-meta">
+                  <div><strong>来源</strong><span>三个项目共同暴露出的上线前问题</span></div>
+                  <div><strong>暴露断点</strong><span>Demo 可以跑通一次，但试点需要场景、责任、边界、人工确认、badcase 回流和下一版判断。</span></div>
+                  <div><strong>收束</strong><span>可演示只证明能力出现过，可试点才说明它能被业务以可控方式接住。</span></div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p class="source-abstraction-close">这套框架的价值，不是替 AI 项目背书，而是帮助产品经理在试点前后做出更清楚的判断。</p>
+          <p class="source-boundary-note">边界说明：这不是完整 AI 合规治理体系，也不是模型评测论文，而是一套面向 AI 应用试点与产品化落地的产品判断框架。</p>
         </div>
       </section>
     </main>
     <footer class="case-footer">
-      <span>AI 应用评估与治理框架 · 从 Demo 到可试点状态的就绪度判断机制</span>
+      <span>AI 应用评估与治理框架 · 从 Demo 到可试点状态的准入判断机制</span>
       <a href="/ai-product-portfolio/index.html">返回作品集首页</a>
     </footer>
   </body>
