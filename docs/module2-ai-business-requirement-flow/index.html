@@ -41,6 +41,10 @@
       section,
       .case-header,
       .case-hero,
+      .module2-hero-v3,
+      .hero-copy,
+      .signal-mechanism-card,
+      .signal-mechanism-svg,
       .case-section,
       .case-container,
       .case-visual,
@@ -92,160 +96,2751 @@
         border-bottom-color: rgba(37, 99, 235, 0.42);
       }
 
-      .case-hero {
+      .module2-hero-v3 {
         display: grid;
         max-width: 100vw;
-        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
-        gap: clamp(28px, 5vw, 64px);
+        grid-template-columns: minmax(540px, 1fr) minmax(420px, 0.96fr);
+        gap: clamp(28px, 4vw, 54px);
         align-items: center;
-        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        padding: clamp(56px, 6.8vw, 88px) clamp(20px, 5vw, 64px);
         background:
-          radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
-          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
+          radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), transparent 32%),
+          radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.08), transparent 30%),
           #f8fafc;
         border-bottom: 1px solid var(--line);
       }
 
-      .case-hero-copy {
+      .hero-copy {
         min-width: 0;
+        max-width: 720px;
       }
 
-      .case-short-title {
+      .hero-eyebrow {
         margin: 0 0 12px;
         color: var(--accent-strong);
         font-size: 15px;
         font-weight: 900;
       }
 
-      .case-subtitle {
-        margin: 14px 0 0;
+      .hero-title {
+        max-width: 720px;
+        margin: 0;
         color: var(--ink);
-        font-size: clamp(24px, 3vw, 34px);
+        font-size: clamp(48px, 4vw, 56px);
         font-weight: 900;
-        line-height: 1.22;
+        line-height: 1.02;
+        letter-spacing: 0;
       }
 
-      .case-hook-question {
-        max-width: 760px;
-        margin: 24px 0 0;
-        color: var(--accent-strong);
-        font-size: clamp(22px, 2.4vw, 30px);
-        font-weight: 900;
-        line-height: 1.35;
-      }
-
-      .case-lead {
-        max-width: 820px;
+      .hero-judgement-line {
+        max-width: 620px;
         margin: 20px 0 0;
+        padding-left: 14px;
+        color: var(--ink);
+        border-left: 3px solid rgba(20, 184, 166, 0.7);
+        font-size: clamp(28px, 2.8vw, 34px);
+        font-weight: 900;
+        line-height: 1.18;
+      }
+
+      .hero-judgement-line .no-break {
+        white-space: nowrap;
+      }
+
+      .hero-description {
+        max-width: 660px;
+        margin: 22px 0 0;
         color: var(--text);
-        font-size: 18px;
-        line-height: 1.8;
+        font-size: 17px;
+        line-height: 1.72;
       }
 
       .mobile-break {
         display: none;
       }
 
-      .status-card {
-        margin-top: 22px;
-        padding: 16px 18px;
+      .hero-principle {
+        display: inline-flex;
+        max-width: 620px;
+        align-items: center;
+        gap: 7px;
+        margin-top: 18px;
+        padding: 6px 9px;
         color: var(--ink);
-        background: #ffffff;
-        border: 1px solid rgba(37, 99, 235, 0.2);
-        border-left: 4px solid var(--accent);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--soft-shadow);
-        font-weight: 800;
-      }
-
-      .hero-anchor-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      .hero-anchor-card {
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.76);
-        border: 1px solid rgba(37, 99, 235, 0.18);
-        border-radius: var(--radius-md);
-        box-shadow: var(--soft-shadow);
-      }
-
-      .hero-anchor-card strong {
-        display: block;
-        color: var(--ink);
-        font-size: 15px;
-      }
-
-      .hero-anchor-card p {
-        margin: 8px 0 0;
-        color: var(--muted);
+        background: rgba(240, 253, 250, 0.42);
+        border: 1px solid rgba(20, 184, 166, 0.12);
+        border-radius: var(--radius-sm);
         font-size: 13px;
-        line-height: 1.6;
+        font-weight: 900;
+        line-height: 1.28;
+      }
+
+      .hero-principle::before {
+        display: inline-grid;
+        width: 15px;
+        height: 15px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 9px;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 26px;
+        margin-top: 24px;
       }
 
-      .case-visual {
+      .signal-mechanism-card {
+        width: 100%;
+        max-width: 740px;
+        justify-self: end;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 20px;
+        box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      }
+
+      .signal-mechanism-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .module2-problem-v2 {
         display: grid;
-        min-width: 0;
-        gap: 14px;
-        padding: 18px;
-        color: #ffffff;
-        background: var(--ink);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow);
+        grid-template-columns: minmax(500px, 0.88fr) minmax(0, 1.12fr);
+        gap: clamp(32px, 4.2vw, 52px);
+        align-items: start;
       }
 
-      .case-visual-header {
+      .problem-copy {
+        max-width: 540px;
+      }
+
+      .problem-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(38px, 3vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .problem-title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .problem-title .problem-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .problem-description {
+        margin: 22px 0 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.72;
+      }
+
+      .problem-punch-line {
+        display: inline-grid;
+        max-width: 100%;
+        grid-template-columns: auto 1fr;
+        column-gap: 10px;
+        row-gap: 3px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 10px 13px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 18px;
+        font-weight: 760;
+        line-height: 1.38;
+      }
+
+      .problem-punch-line::before {
+        display: inline-grid;
+        width: 20px;
+        height: 20px;
+        grid-row: 1 / span 2;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .signal-leakage-map {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .signal-leakage-header {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        margin-bottom: 22px;
       }
 
-      .case-visual-header span {
-        color: var(--sun);
-        font-size: 12px;
+      .signal-leakage-header strong {
+        color: var(--ink);
+        font-size: 17px;
         font-weight: 900;
-        text-transform: uppercase;
       }
 
-      .visual-panel {
+      .signal-leakage-header span {
+        color: #9a3412;
+        background: rgba(255, 247, 237, 0.58);
+        border: 1px solid rgba(254, 215, 170, 0.72);
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 10.5px;
+        font-weight: 800;
+      }
+
+      .leakage-track {
+        position: relative;
         display: grid;
-        gap: 12px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 19px 22px;
+        align-items: stretch;
+      }
+
+      .leakage-track::before {
+        display: none;
+      }
+
+      .leakage-step {
+        position: relative;
+        min-width: 0;
+        min-height: 142px;
+        padding: 16px 15px 15px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.22);
         border-radius: var(--radius-md);
       }
 
-      .visual-node {
-        padding: 14px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+      .leakage-step::before {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: rgba(37, 99, 235, 0.42);
+        content: attr(data-step);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .leakage-step:nth-child(n + 3)::before {
+        color: rgba(249, 115, 22, 0.45);
+      }
+
+      .leakage-step:nth-child(n + 5)::before {
+        color: rgba(100, 116, 139, 0.44);
+      }
+
+      .leakage-step::after {
+        position: absolute;
+        z-index: 1;
+        color: rgba(37, 99, 235, 0.62);
+        font-size: 18px;
+        font-weight: 850;
+        line-height: 1;
+      }
+
+      .leakage-step:nth-child(1)::after,
+      .leakage-step:nth-child(2)::after {
+        top: 50%;
+        right: -18px;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      .leakage-step:nth-child(3)::after {
+        bottom: -21px;
+        left: 50%;
+        color: rgba(249, 115, 22, 0.58);
+        content: "↓";
+        transform: translateX(-50%);
+      }
+
+      .leakage-step:nth-child(4) {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      .leakage-step:nth-child(5) {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .leakage-step:nth-child(6) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .leakage-step:nth-child(4)::after,
+      .leakage-step:nth-child(5)::after {
+        top: 50%;
+        left: -18px;
+        color: rgba(100, 116, 139, 0.58);
+        content: "←";
+        transform: translateY(-50%);
+      }
+
+      .leakage-step h3 {
+        margin: 0;
+        color: var(--ink);
+        padding-right: 28px;
+        font-size: 14.5px;
+        font-weight: 850;
+        line-height: 1.3;
+        white-space: nowrap;
+        word-break: keep-all;
+      }
+
+      .leakage-step p {
+        margin: 9px 0 0;
+        color: var(--text);
+        font-size: 12.8px;
+        font-weight: 500;
+        line-height: 1.48;
+      }
+
+      .leakage-breakpoint {
+        display: block;
+        margin-top: 10px;
+        padding-top: 9px;
+        color: rgba(154, 52, 18, 0.86);
+        border-top: 1px dashed rgba(249, 115, 22, 0.22);
+        font-size: 11.5px;
+        font-weight: 700;
+        line-height: 1.38;
+      }
+
+      .problem-insight-card {
+        margin-top: 16px;
+        padding: 7px 10px;
+        color: rgba(15, 23, 42, 0.78);
+        background: rgba(240, 253, 250, 0.32);
+        border: 1px solid rgba(20, 184, 166, 0.12);
+        border-radius: var(--radius-sm);
+        font-size: 12.8px;
+        font-weight: 650;
+        line-height: 1.45;
+      }
+
+      .module2-sample-v2 {
+        display: block;
+      }
+
+      .sample-copy {
+        max-width: none;
+      }
+
+      .sample-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(38px, 3vw, 46px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .sample-title span {
+        display: block;
+      }
+
+      .sample-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .sample-description {
+        margin: 20px 0 0;
+        max-width: 1080px;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .sample-workbench {
+        width: 100%;
+        min-width: 0;
+        margin: 28px 0 0;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-workbench-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 5px 6px;
+        background: rgba(248, 250, 252, 0.24);
+        border: 1px solid rgba(148, 163, 184, 0.06);
         border-radius: var(--radius-sm);
       }
 
-      .visual-node strong {
-        display: block;
-        color: #ffffff;
-        font-size: 16px;
+      .sample-task-strip {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
       }
 
-      .visual-node span {
+      .sample-task-strip > span {
+        color: var(--accent-strong);
+        font-size: 11.5px;
+        font-weight: 900;
+      }
+
+      .sample-task-strip strong {
+        color: var(--ink);
+        font-size: 14.6px;
+        font-weight: 900;
+        line-height: 1.38;
+      }
+
+      .sample-task-dimensions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin: 1px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sample-task-dimensions li {
+        color: var(--text);
+        background: rgba(239, 246, 255, 0.34);
+        border: 1px solid rgba(191, 219, 254, 0.34);
+        border-radius: 999px;
+        padding: 2px 6px;
+        font-size: 10.8px;
+        font-weight: 720;
+      }
+
+      .sample-workbench-badge {
+        flex: 0 0 auto;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.36);
+        border: 1px solid rgba(191, 219, 254, 0.42);
+        border-radius: 999px;
+        padding: 2px 6px;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .sample-merge-map {
+        display: grid;
+        grid-template-columns: minmax(400px, 0.96fr) minmax(255px, 0.74fr) minmax(310px, 0.82fr);
+        gap: 18px;
+        align-items: center;
+        margin-top: 7px;
+      }
+
+      .source-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .source-grid::after {
+        position: absolute;
+        top: 16px;
+        right: -13px;
+        bottom: 16px;
+        width: 10px;
+        border-top: 1.5px solid rgba(37, 99, 235, 0.2);
+        border-right: 1.5px solid rgba(37, 99, 235, 0.32);
+        border-bottom: 1.5px solid rgba(37, 99, 235, 0.2);
+        border-radius: 0 12px 12px 0;
+        content: "";
+      }
+
+      .source-card,
+      .theme-node,
+      .candidate-object-card {
+        min-width: 0;
+        border-radius: var(--radius-md);
+      }
+
+      .source-card {
+        min-height: 88px;
+        padding: 9px;
+        background: #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .source-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 13.5px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .source-card p {
+        margin: 5px 0 0;
+        color: var(--text);
+        font-size: 12px;
+        line-height: 1.42;
+      }
+
+      .theme-node {
+        position: relative;
+        min-height: 184px;
+        padding: 34px 22px;
+        text-align: center;
+        background: rgba(239, 246, 255, 0.82);
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        box-shadow: 0 14px 34px rgba(37, 99, 235, 0.08);
+      }
+
+      .theme-node::before,
+      .theme-node::after {
+        position: absolute;
+        top: 50%;
+        color: rgba(37, 99, 235, 0.54);
+        font-size: 23px;
+        font-weight: 900;
+        transform: translateY(-50%);
+      }
+
+      .theme-node::before {
+        left: -19px;
+        content: "→";
+      }
+
+      .theme-node::after {
+        right: -19px;
+        content: "→";
+      }
+
+      .theme-node span {
         display: block;
-        margin-top: 6px;
-        color: rgba(255, 255, 255, 0.74);
+        color: var(--accent-strong);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .theme-node strong {
+        display: block;
+        margin-top: 12px;
+        color: var(--ink);
+        font-size: 20.5px;
+        line-height: 1.32;
+      }
+
+      .theme-node em {
+        display: inline-flex;
+        margin-top: 12px;
+        color: #0f766e;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .candidate-object-card {
+        padding: 15px;
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+      }
+
+      .candidate-object-card header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .candidate-object-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .candidate-object-card header span {
+        flex: 0 0 auto;
+        color: #0f766e;
+        background: rgba(204, 251, 241, 0.46);
+        border: 1px solid rgba(153, 246, 228, 0.52);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .candidate-core {
+        margin: 0 0 10px;
+        padding: 8px 10px;
+        color: #0f766e;
+        background: rgba(204, 251, 241, 0.42);
+        border: 1px solid rgba(153, 246, 228, 0.44);
+        border-radius: var(--radius-sm);
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .candidate-fields {
+        display: grid;
+        gap: 7px;
+        margin: 0;
+      }
+
+      .candidate-field {
+        display: grid;
+        gap: 4px;
+        padding: 7px 9px;
+        background: rgba(255, 255, 255, 0.56);
+        border: 1px solid rgba(153, 246, 228, 0.34);
+        border-radius: var(--radius-sm);
+      }
+
+      .candidate-field span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .candidate-field strong {
+        color: var(--text);
+        font-size: 12.6px;
+        font-weight: 750;
+        line-height: 1.42;
+      }
+
+      .candidate-note {
+        margin-top: 9px;
+        padding: 7px 9px;
+        color: rgba(15, 118, 110, 0.9);
+        background: rgba(240, 253, 250, 0.42);
+        border: 1px dashed rgba(20, 184, 166, 0.16);
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 780;
+        line-height: 1.42;
+      }
+
+      .sample-principle-footer {
+        display: inline-grid;
+        width: auto;
+        max-width: 920px;
+        grid-template-columns: auto 1fr;
+        gap: 11px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 11px 14px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.64);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: var(--radius-sm);
+        font-size: 19px;
+        font-weight: 820;
+        line-height: 1.36;
+      }
+
+      .sample-principle-footer::before {
+        display: inline-grid;
+        width: 22px;
+        height: 22px;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
         font-size: 13px;
+        font-weight: 900;
+      }
+
+      .module2-readiness-v2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .readiness-copy {
+        max-width: 1040px;
+      }
+
+      .readiness-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 2.9vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .readiness-title span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .readiness-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .readiness-description {
+        margin: 18px 0 0;
+        max-width: 920px;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .readiness-principle {
+        display: inline-flex;
+        max-width: 860px;
+        gap: 9px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 16.5px;
+        font-weight: 780;
+        line-height: 1.35;
+      }
+
+      .readiness-principle::before {
+        display: inline-grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .readiness-gate-board {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .readiness-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .readiness-board-header strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .readiness-board-header span {
+        flex: 0 0 auto;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.58);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 10.5px;
+        font-weight: 850;
+      }
+
+      .readiness-board-layout {
+        display: grid;
+        gap: 12px;
+      }
+
+      .readiness-input-strip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+        padding: 10px 12px;
+        background: rgba(239, 246, 255, 0.62);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-sm);
+      }
+
+      .readiness-input-strip span {
+        color: var(--accent-strong);
+        font-size: 11.5px;
+        font-weight: 900;
+      }
+
+      .readiness-input-strip strong {
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .readiness-input-strip em {
+        margin-left: auto;
+        color: #0f766e;
+        background: rgba(204, 251, 241, 0.55);
+        border: 1px solid rgba(153, 246, 228, 0.58);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .readiness-gate-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .readiness-gate {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 7px;
+        min-width: 0;
+        padding: 12px;
+        background: #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: var(--radius-md);
+      }
+
+      .readiness-gate:not(:last-child)::after {
+        position: absolute;
+        top: 22px;
+        right: -8px;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.42);
+        content: "→";
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .readiness-gate .gate-label {
+        color: var(--accent-strong);
+        font-size: 11.5px;
+        font-weight: 900;
+      }
+
+      .readiness-gate h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.34;
+      }
+
+      .gate-checkpoints {
+        display: grid;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .gate-checkpoints li {
+        color: var(--muted);
+        font-size: 11.6px;
+        line-height: 1.36;
+      }
+
+      .gate-checkpoints li::before {
+        color: var(--accent-strong);
+        content: "• ";
+        font-weight: 900;
+      }
+
+      .gate-route {
+        display: grid;
+        gap: 3px;
+        padding-top: 7px;
+        border-top: 1px dashed rgba(148, 163, 184, 0.26);
+      }
+
+      .gate-route span {
+        color: #0f766e;
+        font-size: 11.2px;
+        font-weight: 850;
+        line-height: 1.36;
+      }
+
+      .gate-route em {
+        color: rgba(154, 52, 18, 0.8);
+        font-size: 11.2px;
+        font-style: normal;
+        font-weight: 760;
+        line-height: 1.36;
+      }
+
+      .readiness-destination-strip {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .readiness-result-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 0;
+        color: rgba(100, 116, 139, 0.72);
+        font-size: 10.5px;
+        font-weight: 760;
+      }
+
+      .readiness-result-label::before,
+      .readiness-result-label::after {
+        height: 1px;
+        flex: 1 1 auto;
+        background: rgba(148, 163, 184, 0.14);
+        content: "";
+      }
+
+      .readiness-destination {
+        display: grid;
+        gap: 4px;
+        padding: 10px 12px;
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        line-height: 1.42;
+      }
+
+      .readiness-destination strong {
+        font-size: 12.5px;
+        font-weight: 900;
+      }
+
+      .readiness-destination.pass {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.7);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+      }
+
+      .readiness-destination.fail {
+        color: rgba(154, 52, 18, 0.88);
+        background: rgba(255, 247, 237, 0.72);
+        border: 1px solid rgba(254, 215, 170, 0.42);
+      }
+
+      .readiness-transition {
+        margin: 12px 0 0;
+        padding: 8px 10px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(240, 253, 250, 0.22);
+        border: 1px solid rgba(20, 184, 166, 0.08);
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      .module2-before-after-v2 {
+        display: block;
+      }
+
+      .before-after-copy {
+        max-width: 1040px;
+      }
+
+      .before-after-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 2.9vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .before-after-title span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .before-after-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .before-after-description {
+        max-width: 960px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .before-after-principle {
+        display: inline-flex;
+        max-width: 860px;
+        gap: 9px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 16.5px;
+        font-weight: 780;
+        line-height: 1.35;
+      }
+
+      .before-after-principle::before {
+        display: inline-grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .ai-flow-board {
+        width: 100%;
+        min-width: 0;
+        margin: 28px 0 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .ai-flow-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .ai-flow-board-header strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .ai-flow-board-header span {
+        flex: 0 0 auto;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.58);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 10.5px;
+        font-weight: 850;
+      }
+
+      .ai-intervention-focus {
+        display: grid;
+        gap: 11px;
+        min-width: 0;
+        height: 100%;
+        padding: 20px;
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.92), rgba(240, 253, 250, 0.7));
+        border: 1px solid rgba(37, 99, 235, 0.24);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 18px 48px rgba(37, 99, 235, 0.13);
+      }
+
+      .ai-intervention-focus span {
+        justify-self: start;
+        color: var(--accent-strong);
+        background: rgba(219, 234, 254, 0.72);
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .ai-intervention-focus strong {
+        color: var(--ink);
+        font-size: 23px;
+        font-weight: 900;
+        line-height: 1.22;
+      }
+
+      .ai-intervention-focus small {
+        color: var(--accent-strong);
+        font-size: 12.5px;
+        font-weight: 760;
+        line-height: 1.45;
+      }
+
+      .ai-intervention-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 2px 0 0;
+      }
+
+      .ai-intervention-step {
+        min-width: 0;
+        padding: 6px 8px;
+        background: rgba(255, 255, 255, 0.66);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+      }
+
+      .ai-intervention-step strong {
+        display: block;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 820;
+        line-height: 1.2;
+      }
+
+      .ai-intervention-step small {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 11.5px;
+        line-height: 1.42;
+      }
+
+      .ai-flow-compare {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(286px, 1.08fr) minmax(0, 0.9fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .ai-flow-compare::before,
+      .ai-flow-compare::after {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.5);
+        content: "→";
+        font-size: 21px;
+        font-weight: 900;
+        line-height: 1;
+        transform: translateY(-50%);
+      }
+
+      .ai-flow-compare::before {
+        left: calc(31.5% - 8px);
+      }
+
+      .ai-flow-compare::after {
+        right: calc(31.5% - 8px);
+      }
+
+      .ai-flow-lane {
+        min-width: 0;
+        padding: 14px;
+        background: rgba(248, 250, 252, 0.62);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: var(--radius-md);
+      }
+
+      .ai-flow-lane.before {
+        order: 1;
+      }
+
+      .ai-flow-lane.after {
+        order: 3;
+        background: rgba(240, 253, 250, 0.36);
+        border-color: rgba(20, 184, 166, 0.13);
+      }
+
+      .ai-flow-lane.intervention {
+        order: 2;
+        padding: 0;
+        background: transparent;
+        border: 0;
+      }
+
+      .ai-flow-lane h3 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .ai-flow-steps {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ai-flow-steps li {
+        position: relative;
+        min-height: 0;
+        padding: 8px 0 8px 13px;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .ai-flow-steps li::before {
+        position: absolute;
+        top: 14px;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background: rgba(100, 116, 139, 0.42);
+        border-radius: 999px;
+        content: "";
+      }
+
+      .ai-flow-steps li:not(:last-child)::after {
+        position: absolute;
+        top: 23px;
+        bottom: -4px;
+        left: 2px;
+        width: 1px;
+        background: rgba(148, 163, 184, 0.2);
+        content: "";
+      }
+
+      .ai-flow-lane.after .ai-flow-steps li {
+        border-color: transparent;
+      }
+
+      .ai-flow-lane.after .ai-flow-steps li::before {
+        background: rgba(20, 184, 166, 0.58);
+      }
+
+      .ai-flow-lane.after .ai-flow-steps li:not(:last-child)::after {
+        background: rgba(20, 184, 166, 0.2);
+      }
+
+      .ai-flow-steps strong {
+        display: block;
+        color: var(--ink);
+        font-size: 13.5px;
+        font-weight: 900;
+        line-height: 1.32;
+      }
+
+      .ai-flow-steps small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 11.5px;
+        line-height: 1.42;
+      }
+
+      .flow-break-note,
+      .flow-boundary-note {
+        margin-top: 10px;
+        padding: 7px 9px;
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .flow-break-note {
+        color: rgba(154, 52, 18, 0.86);
+        background: rgba(255, 247, 237, 0.72);
+        border: 1px solid rgba(254, 215, 170, 0.42);
+      }
+
+      .flow-boundary-note {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.72);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+      }
+
+      .ai-human-boundary {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+        margin-top: 12px;
+        padding: 8px 10px;
+        color: rgba(15, 23, 42, 0.7);
+        background: rgba(248, 250, 252, 0.48);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .boundary-label {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .boundary-mini-card {
+        display: inline;
+        min-width: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .boundary-mini-card.ai {
+        color: var(--accent-strong);
+      }
+
+      .boundary-mini-card.human {
+        color: rgba(154, 52, 18, 0.88);
+      }
+
+      .boundary-mini-card::before {
+        color: rgba(148, 163, 184, 0.72);
+        content: "｜";
+        font-weight: 600;
+      }
+
+      .boundary-mini-card strong {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .boundary-mini-card ul {
+        display: inline;
+        margin: 0 0 0 3px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .boundary-mini-card li {
+        display: inline;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .boundary-mini-card li::before {
+        content: "";
+      }
+
+      .before-after-transition {
+        margin: 12px 0 0;
+        padding: 7px 9px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(240, 253, 250, 0.14);
+        border: 1px solid rgba(20, 184, 166, 0.06);
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      .module2-unit-v2 {
+        display: block;
+      }
+
+      .unit-copy {
+        max-width: 1040px;
+      }
+
+      .unit-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 2.9vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .unit-title span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .unit-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .unit-description {
+        max-width: 960px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .unit-principle {
+        display: inline-flex;
+        max-width: 860px;
+        gap: 9px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 16.5px;
+        font-weight: 780;
+        line-height: 1.35;
+      }
+
+      .unit-principle::before {
+        display: inline-grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .object-responsibility-board {
+        width: 100%;
+        margin: 30px 0 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .object-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .object-board-header strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .object-board-header span {
+        flex: 0 0 auto;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.58);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 10.5px;
+        font-weight: 850;
+      }
+
+      .object-flow-cards {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(292px, 1.12fr) minmax(0, 0.95fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .object-flow-cards::before,
+      .object-flow-cards::after {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.44);
+        content: "→";
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1;
+        transform: translateY(-50%);
+      }
+
+      .object-flow-cards::before {
+        left: calc(32% - 8px);
+      }
+
+      .object-flow-cards::after {
+        right: calc(32% - 8px);
+      }
+
+      .object-card {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 12px;
+        min-width: 0;
+        padding: 18px;
+        background: rgba(248, 250, 252, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+      }
+
+      .object-card.signal {
+        background: rgba(248, 250, 252, 0.72);
+      }
+
+      .object-card.card {
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.94), rgba(240, 253, 250, 0.68));
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 16px 42px rgba(37, 99, 235, 0.1);
+      }
+
+      .object-card.task {
+        background: rgba(240, 253, 250, 0.58);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .object-card-label {
+        justify-self: start;
+        color: var(--accent-strong);
+        background: rgba(219, 234, 254, 0.64);
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .object-card.task .object-card-label {
+        color: #0f766e;
+        background: rgba(204, 251, 241, 0.64);
+      }
+
+      .object-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.24;
+      }
+
+      .object-core {
+        margin: 0;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 820;
+        line-height: 1.48;
+      }
+
+      .object-card.card .object-core {
+        font-size: 15px;
+      }
+
+      .object-fields {
+        display: grid;
+        gap: 7px;
+      }
+
+      .object-field {
+        display: grid;
+        gap: 3px;
+        padding-top: 7px;
+        border-top: 1px solid rgba(148, 163, 184, 0.12);
+      }
+
+      .object-field:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .object-field strong {
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+      }
+
+      .object-field span {
+        color: var(--muted);
+        font-size: 11.8px;
+        line-height: 1.48;
+      }
+
+      .object-boundary {
+        margin: 0;
+        padding: 7px 9px;
+        color: rgba(15, 23, 42, 0.66);
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.09);
+        border-radius: var(--radius-sm);
+        font-size: 11.8px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      .object-state-flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+        margin-top: 16px;
+        padding: 10px 12px;
+        background: rgba(248, 250, 252, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: var(--radius-sm);
+      }
+
+      .object-state-flow span {
+        color: rgba(15, 23, 42, 0.7);
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      .object-state-flow span:not(:last-child)::after {
+        margin-left: 7px;
+        color: rgba(37, 99, 235, 0.42);
+        content: "→";
+        font-weight: 900;
+      }
+
+      .object-interface-reference {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin: 20px 0 0;
+      }
+
+      .object-interface-reference .module-figure {
+        margin: 0;
+      }
+
+      .unit-transition {
+        margin: 18px 0 0;
+        padding: 8px 10px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(240, 253, 250, 0.14);
+        border: 1px solid rgba(20, 184, 166, 0.06);
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      .module2-interfaces-v2 {
+        display: block;
+      }
+
+      .interfaces-copy {
+        max-width: 1040px;
+      }
+
+      .interfaces-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 2.9vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .interfaces-title span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .interfaces-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .interfaces-description {
+        max-width: 960px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .interfaces-principle {
+        display: inline-flex;
+        max-width: 860px;
+        gap: 9px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 16.5px;
+        font-weight: 780;
+        line-height: 1.35;
+      }
+
+      .interfaces-principle::before {
+        display: inline-grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .interface-workflow-board {
+        width: 100%;
+        margin: 30px 0 0;
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .interface-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .interface-board-header strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .interface-board-header span {
+        flex: 0 0 auto;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.58);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 10.5px;
+        font-weight: 850;
+      }
+
+      .interface-object-flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+        margin: 0 0 16px;
+        padding: 10px 12px;
+        background: rgba(248, 250, 252, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: var(--radius-sm);
+      }
+
+      .interface-object-flow span {
+        color: rgba(15, 23, 42, 0.72);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .interface-object-flow span:not(:last-child)::after {
+        margin-left: 7px;
+        color: rgba(37, 99, 235, 0.42);
+        content: "→";
+        font-weight: 900;
+      }
+
+      .interface-module-map {
+        display: grid;
+        gap: 10px;
+        margin: 0 0 16px;
+        padding: 12px;
+        background: rgba(248, 250, 252, 0.54);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: var(--radius-md);
+      }
+
+      .interface-module-map header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .interface-module-map strong {
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .interface-module-map p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .module-map-items {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .module-map-item {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+        padding: 8px 9px;
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: var(--radius-sm);
+      }
+
+      .module-map-item span {
+        color: var(--accent-strong);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .module-map-item em {
+        color: var(--text);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 760;
+        line-height: 1.35;
+      }
+
+      .workflow-interface-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.96fr) minmax(292px, 1.08fr) minmax(0, 0.96fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .workflow-interface-card {
+        display: grid;
+        grid-template-rows: auto auto auto 1fr auto;
+        gap: 12px;
+        min-width: 0;
+        padding: 16px;
+        background: rgba(248, 250, 252, 0.66);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+      }
+
+      .workflow-interface-card.card {
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.92), rgba(240, 253, 250, 0.64));
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 16px 42px rgba(37, 99, 235, 0.09);
+      }
+
+      .workflow-interface-card.task {
+        background: rgba(240, 253, 250, 0.56);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .workflow-interface-card header {
+        display: grid;
+        gap: 6px;
+      }
+
+      .workflow-interface-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.24;
+      }
+
+      .workflow-object-badge {
+        justify-self: start;
+        color: var(--accent-strong);
+        background: rgba(219, 234, 254, 0.64);
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .workflow-interface-card.task .workflow-object-badge {
+        color: #0f766e;
+        background: rgba(204, 251, 241, 0.64);
+      }
+
+      .workflow-shot {
+        margin: 0;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-radius: var(--radius-sm);
+        transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      }
+
+      .workflow-shot:hover,
+      .workflow-shot:focus-within {
+        border-color: rgba(37, 99, 235, 0.28);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .interface-shot-trigger {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-radius: 10px;
+        cursor: zoom-in;
+      }
+
+      .workflow-shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 10px;
+        transition: transform 190ms ease, filter 190ms ease;
+      }
+
+      .interface-shot-trigger:hover img,
+      .interface-shot-trigger:focus-visible img {
+        filter: saturate(1.04);
+        transform: scale(1.02);
+      }
+
+      .interface-shot-trigger:focus-visible {
+        outline: 2px solid rgba(37, 99, 235, 0.72);
+        outline-offset: 3px;
+      }
+
+      .interface-shot-zoom-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 11px;
+        font-weight: 850;
+        line-height: 1.2;
+        opacity: 0;
+        transform: translateY(-3px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .interface-shot-trigger:hover .interface-shot-zoom-label,
+      .interface-shot-trigger:focus-visible .interface-shot-zoom-label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.interface-lightbox-open {
+        overflow: hidden;
+      }
+
+      .interface-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(15, 23, 42, 0.74);
+      }
+
+      .interface-lightbox.is-open {
+        display: flex;
+      }
+
+      .interface-lightbox-panel {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        width: min(96vw, 1280px);
+        max-height: 94vh;
+      }
+
+      .interface-lightbox-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 850;
+        line-height: 1.35;
+      }
+
+      .interface-lightbox-image-wrap {
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: var(--radius-md);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+      }
+
+      .interface-lightbox-image {
+        display: block;
+        max-width: min(96vw, 1280px);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      .interface-lightbox-close {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        display: inline-grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .interface-lightbox-close:focus-visible {
+        outline: 2px solid rgba(191, 219, 254, 0.9);
+        outline-offset: 3px;
+      }
+
+      .workflow-role {
+        margin: 0;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 720;
+        line-height: 1.48;
+      }
+
+      .workflow-facts {
+        display: grid;
+        gap: 8px;
+      }
+
+      .workflow-fact {
+        display: grid;
+        gap: 3px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(148, 163, 184, 0.12);
+      }
+
+      .workflow-fact:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .workflow-fact strong {
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .workflow-fact span,
+      .workflow-fact ul {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11.8px;
+        line-height: 1.48;
+      }
+
+      .workflow-fact ul {
+        display: grid;
+        gap: 2px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .workflow-fact li::before {
+        color: var(--accent-strong);
+        content: "• ";
+        font-weight: 900;
+      }
+
+      .workflow-output {
+        margin: 0;
+        padding: 7px 9px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: var(--radius-sm);
+        font-size: 11.8px;
+        font-weight: 700;
+        line-height: 1.42;
+      }
+
+      .interface-workflow-transition {
+        margin: 16px 0 0;
+        padding: 8px 10px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(240, 253, 250, 0.14);
+        border: 1px solid rgba(20, 184, 166, 0.06);
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      .module2-architecture-v2 {
+        display: block;
+      }
+
+      .architecture-copy {
+        max-width: 1040px;
+      }
+
+      .architecture-title-v2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 2.9vw, 42px);
+        font-weight: 900;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .architecture-title-v2 span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .architecture-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .architecture-description-v2 {
+        max-width: 1200px;
+        margin: 16px 0 0;
+        color: var(--text);
+        font-size: 16.5px;
+        line-height: 1.6;
+        text-wrap: pretty;
+      }
+
+      .architecture-principle {
+        display: inline-flex;
+        max-width: 900px;
+        gap: 9px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.58);
+        border: 1px solid rgba(20, 184, 166, 0.18);
+        border-radius: var(--radius-sm);
+        font-size: 16.5px;
+        font-weight: 780;
+        line-height: 1.35;
+      }
+
+      .architecture-principle::before {
+        display: inline-grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(20, 184, 166, 0.82);
+        border-radius: 999px;
+        content: "✓";
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .architecture-judgment-board {
+        width: 100%;
+        margin: 24px 0 0;
+        padding: 18px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .architecture-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .architecture-board-header strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .architecture-board-header span {
+        flex: 0 0 auto;
+        color: rgba(37, 99, 235, 0.76);
+        background: rgba(239, 246, 255, 0.4);
+        border: 1px solid rgba(191, 219, 254, 0.42);
+        border-radius: 999px;
+        padding: 2px 7px;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .architecture-layer-stack {
+        display: grid;
+        gap: 6px;
+      }
+
+      .architecture-layer {
+        display: grid;
+        grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 11px 13px;
+        background: rgba(248, 250, 252, 0.66);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: var(--radius-md);
+      }
+
+      .architecture-layer.signal {
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.92), rgba(240, 253, 250, 0.72));
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 12px 34px rgba(37, 99, 235, 0.08);
+      }
+
+      .architecture-layer-header {
+        display: grid;
+        gap: 3px;
+      }
+
+      .architecture-layer-label {
+        color: var(--accent-strong);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .architecture-layer h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1.28;
+      }
+
+      .architecture-layer p {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 11.8px;
+        font-weight: 650;
+        line-height: 1.38;
+      }
+
+      .architecture-layer-main {
+        min-width: 0;
+      }
+
+      .architecture-layer-items,
+      .architecture-object-flow,
+      .architecture-interface-flow,
+      .architecture-counterexample-points {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .architecture-layer-items span,
+      .architecture-object-flow span,
+      .architecture-interface-flow span,
+      .architecture-counterexample-points span {
+        color: rgba(15, 23, 42, 0.7);
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 999px;
+        padding: 4px 7px;
+        font-size: 11px;
+        font-weight: 780;
+        line-height: 1.2;
+      }
+
+      .architecture-layer.signal .architecture-layer-items span {
+        color: rgba(37, 99, 235, 0.76);
+        background: rgba(255, 255, 255, 0.56);
+        border-color: rgba(191, 219, 254, 0.34);
+      }
+
+      .architecture-object-flow span {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.72);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .architecture-object-flow span:not(:last-child)::after {
+        margin-left: 7px;
+        color: rgba(37, 99, 235, 0.42);
+        content: "→";
+        font-weight: 900;
+      }
+
+      .architecture-interface-flow span {
+        color: rgba(15, 23, 42, 0.62);
+        background: rgba(248, 250, 252, 0.82);
+      }
+
+      .architecture-layer-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        color: rgba(37, 99, 235, 0.62);
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .architecture-layer-arrow::before,
+      .architecture-layer-arrow::after {
+        width: 42px;
+        height: 1px;
+        background: rgba(37, 99, 235, 0.2);
+        content: "";
+      }
+
+      .architecture-counterexample {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 8px 12px;
+        align-items: center;
+        margin-top: 10px;
+        padding: 9px 10px;
+        background: rgba(255, 247, 237, 0.42);
+        border: 1px solid rgba(254, 215, 170, 0.34);
+        border-radius: var(--radius-sm);
+      }
+
+      .architecture-counterexample strong {
+        color: rgba(154, 52, 18, 0.9);
+        font-size: 12.5px;
+        font-weight: 900;
+      }
+
+      .architecture-counterexample p {
+        margin: 0;
+        color: rgba(15, 23, 42, 0.68);
+        font-size: 11.8px;
+        font-weight: 650;
+        line-height: 1.38;
+      }
+
+      .architecture-counterexample-points span {
+        color: rgba(154, 52, 18, 0.74);
+        background: rgba(255, 255, 255, 0.48);
+        border-color: rgba(254, 215, 170, 0.28);
+        padding: 2px 5px;
+        font-size: 10px;
+        font-weight: 720;
+      }
+
+      .architecture-cutaway {
+        display: grid;
+        gap: 8px;
+        justify-items: center;
+      }
+
+      .architecture-source-band,
+      .architecture-downstream {
+        width: min(100%, 1060px);
+      }
+
+      .architecture-source-band {
+        display: grid;
+        grid-template-columns: minmax(140px, 0.2fr) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px 12px;
+        background: rgba(248, 250, 252, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .architecture-layer-name {
+        display: grid;
+        gap: 2px;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .architecture-layer-name span {
+        color: var(--accent-strong);
+        font-size: 10.5px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .architecture-source-content,
+      .architecture-downstream-content {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .architecture-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .architecture-chip-row span {
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 999px;
+        padding: 4px 7px;
+        font-size: 11px;
+        font-weight: 760;
+        line-height: 1.2;
+      }
+
+      .architecture-layer-note {
+        margin: 0;
+        color: rgba(15, 23, 42, 0.52);
+        font-size: 11.5px;
+        font-weight: 650;
+        line-height: 1.35;
+      }
+
+      .architecture-center-arrow {
+        display: grid;
+        justify-items: center;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+
+      .architecture-center-arrow::before {
+        color: rgba(37, 99, 235, 0.48);
+        content: "↓";
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .architecture-signal-hub {
+        display: grid;
+        width: min(84%, 980px);
+        gap: 10px;
+        justify-items: center;
+        padding: 18px 20px;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.96), rgba(240, 253, 250, 0.78));
+        border: 1px solid rgba(37, 99, 235, 0.28);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 18px 48px rgba(37, 99, 235, 0.11);
+      }
+
+      .architecture-signal-hub .architecture-layer-name {
+        justify-items: center;
+        font-size: 20px;
+      }
+
+      .architecture-signal-hub strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+        line-height: 1.3;
+      }
+
+      .architecture-signal-hub em {
+        color: rgba(37, 99, 235, 0.72);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 760;
+      }
+
+      .architecture-signal-hub .architecture-chip-row {
+        justify-content: center;
+      }
+
+      .architecture-signal-hub .architecture-chip-row span {
+        color: rgba(37, 99, 235, 0.74);
+        background: rgba(255, 255, 255, 0.58);
+        border-color: rgba(191, 219, 254, 0.34);
+        font-size: 10.8px;
+        font-weight: 720;
+      }
+
+      .architecture-downstream {
+        display: grid;
+        gap: 7px;
+      }
+
+      .architecture-flow-band {
+        display: grid;
+        grid-template-columns: minmax(140px, 0.2fr) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 9px 11px;
+        background: rgba(248, 250, 252, 0.58);
+        border: 1px solid rgba(148, 163, 184, 0.11);
+        border-radius: var(--radius-sm);
+      }
+
+      .architecture-flow-band.objects {
+        background: rgba(240, 253, 250, 0.5);
+        border-color: rgba(20, 184, 166, 0.13);
+      }
+
+      .architecture-flow-band.objects .architecture-chip-row span {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.72);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .architecture-compare-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .architecture-option {
+        display: grid;
+        gap: 13px;
+        min-width: 0;
+        padding: 16px;
+        border-radius: var(--radius-md);
+      }
+
+      .architecture-option.wrong {
+        background: rgba(255, 247, 237, 0.54);
+        border: 1px solid rgba(254, 215, 170, 0.46);
+      }
+
+      .architecture-option.recommended {
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.9), rgba(240, 253, 250, 0.62));
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        box-shadow: 0 16px 42px rgba(37, 99, 235, 0.08);
+      }
+
+      .architecture-option h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.28;
+      }
+
+      .system-source-chips,
+      .signal-layer-capabilities,
+      .architecture-path {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .system-source-chips span,
+      .signal-layer-capabilities span,
+      .architecture-path span {
+        color: rgba(15, 23, 42, 0.72);
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 999px;
+        padding: 5px 8px;
+        font-size: 11.5px;
+        font-weight: 780;
+        line-height: 1.2;
+      }
+
+      .signal-layer-capabilities {
+        gap: 5px;
+      }
+
+      .signal-layer-capabilities span {
+        color: rgba(15, 23, 42, 0.56);
+        background: rgba(255, 255, 255, 0.4);
+        border-color: rgba(148, 163, 184, 0.08);
+        padding: 3px 6px;
+        font-size: 10.5px;
+        font-weight: 660;
+      }
+
+      .direct-model-box,
+      .signal-layer-core {
+        display: grid;
+        gap: 6px;
+        padding: 13px;
+        border-radius: var(--radius-sm);
+      }
+
+      .direct-model-box {
+        color: rgba(154, 52, 18, 0.92);
+        background: rgba(255, 237, 213, 0.54);
+        border: 1px solid rgba(254, 215, 170, 0.56);
+      }
+
+      .signal-layer-core {
+        color: var(--accent-strong);
+        background: rgba(219, 234, 254, 0.58);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+      }
+
+      .direct-model-box strong,
+      .signal-layer-core strong {
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .direct-model-box span,
+      .signal-layer-core span {
+        font-size: 12px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .architecture-problems {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .architecture-problems li {
+        color: rgba(154, 52, 18, 0.86);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.42;
+      }
+
+      .architecture-problems li::before {
+        content: "× ";
+        font-weight: 900;
+      }
+
+      .architecture-core-judgment {
+        margin: 0;
+        padding: 8px 10px;
+        color: rgba(15, 23, 42, 0.7);
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 760;
+        line-height: 1.42;
+      }
+
+      .architecture-path span {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.68);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .architecture-path span:not(:last-child)::after {
+        margin-left: 7px;
+        color: rgba(37, 99, 235, 0.42);
+        content: "→";
+        font-weight: 900;
+      }
+
+      .architecture-explain-strip {
+        margin: 16px 0 0;
+        padding: 9px 11px;
+        color: rgba(15, 23, 42, 0.72);
+        background: rgba(239, 246, 255, 0.36);
+        border: 1px solid rgba(191, 219, 254, 0.28);
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.45;
+      }
+
+      .architecture-principles-title {
+        margin: 12px 0 7px;
+        color: rgba(15, 23, 42, 0.72);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+      }
+
+      .architecture-principles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 0;
+      }
+
+      .architecture-principle-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2px 8px;
+        min-width: 0;
+        padding: 9px 10px;
+        background: rgba(248, 250, 252, 0.62);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: var(--radius-sm);
+      }
+
+      .architecture-principle-card span {
+        grid-row: 1 / span 2;
+        color: var(--accent-strong);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .architecture-principle-card strong {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .architecture-principle-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11.2px;
+        line-height: 1.35;
+      }
+
+      .architecture-transition {
+        margin: 12px 0 0;
+        padding: 7px 9px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(240, 253, 250, 0.14);
+        border: 1px solid rgba(20, 184, 166, 0.06);
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 680;
+        line-height: 1.42;
+      }
+
+      @media (min-width: 1024px) {
+        .hero-title {
+          white-space: nowrap;
+        }
       }
 
       .case-section {
@@ -745,6 +3340,880 @@
         font-weight: 900;
       }
 
+      .module2-evolution-v2 .section-header {
+        max-width: 1120px;
+      }
+
+      .evolution-title-v2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(40px, 5vw, 58px);
+        font-weight: 950;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .evolution-title-v2 span {
+        display: block;
+      }
+
+      .evolution-title-v2 .evolution-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .evolution-description-v2 {
+        max-width: 1120px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.72;
+        text-wrap: pretty;
+      }
+
+      .evolution-principle {
+        display: inline-grid;
+        width: auto;
+        max-width: 900px;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px 14px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.62);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: 999px;
+        font-size: 17px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .evolution-principle::before {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        color: #ffffff;
+        background: #0f766e;
+        border-radius: 999px;
+        content: "✓";
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .evolution-path-board {
+        margin: 34px 0 0;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 24px;
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+      }
+
+      .evolution-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .evolution-board-header strong {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1.35;
+      }
+
+      .evolution-board-header span {
+        flex: 0 0 auto;
+        padding: 5px 10px;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.7);
+        border: 1px solid rgba(191, 219, 254, 0.64);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .evolution-path-track {
+        display: grid;
+        gap: 12px;
+      }
+
+      .evolution-path-group {
+        display: grid;
+        min-width: 0;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 12px;
+        align-items: stretch;
+        padding: 14px;
+        background: rgba(248, 250, 252, 0.66);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 20px;
+      }
+
+      .evolution-path-group.judge {
+        background: rgba(239, 246, 255, 0.72);
+        border-color: rgba(37, 99, 235, 0.18);
+      }
+
+      .evolution-path-group.loop {
+        background: rgba(240, 253, 250, 0.58);
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .evolution-group-header {
+        display: grid;
+        align-content: center;
+        gap: 8px;
+        min-width: 0;
+        padding: 4px 2px 4px 4px;
+      }
+
+      .evolution-group-header h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 950;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      .evolution-group-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12.2px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .evolution-stage-row {
+        display: grid;
+        min-width: 0;
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .evolution-path-group.see .evolution-stage-row {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      }
+
+      .evolution-path-group.judge .evolution-stage-row {
+        grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+      }
+
+      .evolution-path-group.loop .evolution-stage-row {
+        grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr) auto minmax(190px, 1fr);
+      }
+
+      .evolution-path-connector,
+      .evolution-section-bridge {
+        display: grid;
+        min-width: 20px;
+        align-items: center;
+        justify-items: center;
+        color: rgba(37, 99, 235, 0.52);
+        font-size: 17px;
+        font-weight: 950;
+      }
+
+      .evolution-section-bridge {
+        min-width: 32px;
+      }
+
+      .evolution-band-transition {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        justify-self: center;
+        gap: 8px;
+        margin: -1px 0;
+        padding: 0 6px;
+        color: rgba(100, 116, 139, 0.78);
+        font-size: 10.8px;
+        font-weight: 820;
+      }
+
+      .evolution-band-transition::before {
+        width: 54px;
+        height: 1px;
+        background: rgba(148, 163, 184, 0.34);
+        content: "";
+      }
+
+      .evolution-band-transition::after {
+        content: "↓";
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .evolution-band-transition.gate-transition {
+        gap: 7px;
+      }
+
+      .evolution-band-transition.gate-transition::before {
+        width: 36px;
+      }
+
+      .evolution-band-transition.gate-transition em {
+        color: rgba(100, 116, 139, 0.8);
+        font-style: normal;
+        white-space: nowrap;
+      }
+
+      .evolution-gate {
+        display: inline-flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        width: max-content;
+        max-width: 140px;
+        min-height: 30px;
+        padding: 4px 9px;
+        color: #9a3412;
+        white-space: nowrap;
+        background: rgba(255, 237, 213, 0.78);
+        border: 1px solid rgba(253, 186, 116, 0.42);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+
+      .evolution-stage {
+        position: relative;
+        display: grid;
+        min-width: 0;
+        grid-template-rows: auto auto 1fr;
+        gap: 8px;
+        padding: 13px 14px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 18px;
+      }
+
+      .evolution-stage.ai {
+        background: rgba(239, 246, 255, 0.82);
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 14px 34px rgba(37, 99, 235, 0.08);
+      }
+
+      .evolution-stage.human {
+        background: rgba(255, 247, 237, 0.72);
+        border-color: rgba(253, 186, 116, 0.38);
+      }
+
+      .evolution-stage.action {
+        background: rgba(240, 253, 250, 0.72);
+        border-color: rgba(20, 184, 166, 0.22);
+      }
+
+      .evolution-stage-number {
+        color: var(--accent-strong);
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+      }
+
+      .evolution-stage h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 950;
+        line-height: 1.25;
+      }
+
+      .evolution-stage dl {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .evolution-stage dt {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .evolution-stage dd {
+        margin: 3px 0 0;
+        color: var(--text);
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1.42;
+      }
+
+      .evolution-path-summary,
+      .evolution-next {
+        margin: 18px 0 0;
+        padding: 11px 13px;
+        border-radius: var(--radius-md);
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.58;
+      }
+
+      .evolution-path-summary {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.54);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+      }
+
+      .evolution-next {
+        color: rgba(15, 23, 42, 0.72);
+        background: rgba(248, 250, 252, 0.78);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .module2-validation-v2 .section-header {
+        max-width: 1120px;
+      }
+
+      .validation-title-v2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(40px, 5vw, 58px);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1.1;
+      }
+
+      .validation-title-v2 span {
+        display: block;
+      }
+
+      .validation-title-v2 .validation-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .validation-description-v2 {
+        max-width: 1040px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.68;
+        text-wrap: pretty;
+      }
+
+      .validation-principle {
+        display: inline-grid;
+        width: auto;
+        max-width: 900px;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px 14px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.62);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: 999px;
+        font-size: 17px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .validation-principle::before {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        color: #ffffff;
+        background: #0f766e;
+        border-radius: 999px;
+        content: "✓";
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .validation-board {
+        margin: 34px 0 0;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 24px;
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+      }
+
+      .validation-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .validation-board-header strong {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1.35;
+      }
+
+      .validation-board-header span {
+        flex: 0 0 auto;
+        padding: 5px 10px;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.7);
+        border: 1px solid rgba(191, 219, 254, 0.64);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .validation-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .validation-card {
+        display: grid;
+        min-width: 0;
+        gap: 12px;
+        align-content: start;
+        padding: 16px;
+        background: #eff6ff;
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 20px;
+      }
+
+      .validation-card.human {
+        background: rgba(255, 247, 237, 0.86);
+        border-color: rgba(249, 115, 22, 0.22);
+      }
+
+      .validation-card.loop {
+        background: rgba(240, 253, 250, 0.82);
+        border-color: rgba(20, 184, 166, 0.2);
+      }
+
+      .validation-card-top {
+        display: grid;
+        gap: 8px;
+      }
+
+      .validation-card-index {
+        justify-self: start;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .validation-card.human .validation-card-index {
+        color: #9a3412;
+        border-color: rgba(249, 115, 22, 0.16);
+      }
+
+      .validation-card.loop .validation-card-index {
+        color: #0f766e;
+        border-color: rgba(20, 184, 166, 0.16);
+      }
+
+      .validation-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 21px;
+        font-weight: 950;
+        line-height: 1.24;
+      }
+
+      .validation-question {
+        margin: 0;
+        color: var(--ink);
+        font-size: 13.5px;
+        font-weight: 850;
+        line-height: 1.46;
+      }
+
+      .validation-block {
+        display: grid;
+        gap: 7px;
+      }
+
+      .validation-block strong {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.02em;
+      }
+
+      .validation-block ul {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .validation-block li {
+        position: relative;
+        padding-left: 13px;
+        color: var(--text);
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1.42;
+      }
+
+      .validation-block li::before {
+        position: absolute;
+        top: 0.68em;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background: rgba(37, 99, 235, 0.56);
+        border-radius: 999px;
+        content: "";
+      }
+
+      .validation-card.human .validation-block li::before {
+        background: rgba(249, 115, 22, 0.58);
+      }
+
+      .validation-card.loop .validation-block li::before {
+        background: rgba(20, 184, 166, 0.58);
+      }
+
+      .validation-block.badcase {
+        gap: 8px;
+      }
+
+      .validation-block.badcase strong {
+        color: rgba(15, 23, 42, 0.68);
+      }
+
+      .validation-block.badcase ul {
+        gap: 5px;
+      }
+
+      .validation-block.badcase li {
+        padding: 6px 8px;
+        color: rgba(15, 23, 42, 0.68);
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 720;
+      }
+
+      .validation-block.badcase li::before {
+        display: none;
+      }
+
+      .validation-boundary,
+      .validation-output {
+        margin: 0;
+        padding: 10px 11px;
+        border-radius: var(--radius-sm);
+        font-size: 12.5px;
+        font-weight: 780;
+        line-height: 1.46;
+      }
+
+      .validation-boundary {
+        color: rgba(15, 23, 42, 0.78);
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .validation-boundary strong,
+      .validation-output strong {
+        color: var(--ink);
+        font-weight: 950;
+      }
+
+      .validation-output {
+        color: #0f766e;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(20, 184, 166, 0.14);
+      }
+
+      .release-rule-strip {
+        margin: 18px 0 0;
+        padding: 16px;
+        background: rgba(248, 250, 252, 0.74);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 18px;
+      }
+
+      .release-rule-strip h3 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 950;
+      }
+
+      .release-rule-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .release-rule-item {
+        min-width: 0;
+        padding: 11px 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-sm);
+      }
+
+      .release-rule-item strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .release-rule-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12.5px;
+        font-weight: 740;
+        line-height: 1.42;
+      }
+
+      .non-automation-callout {
+        margin: 18px 0 0;
+        padding: 17px;
+        background: rgba(255, 247, 237, 0.84);
+        border: 1px solid rgba(253, 186, 116, 0.34);
+        border-radius: 18px;
+      }
+
+      .non-automation-callout h3 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 950;
+      }
+
+      .non-automation-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .non-automation-list li {
+        padding: 7px 10px;
+        color: #9a3412;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(253, 186, 116, 0.24);
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 850;
+        line-height: 1.25;
+      }
+
+      .non-automation-callout p {
+        margin: 12px 0 0;
+        color: rgba(15, 23, 42, 0.74);
+        font-size: 13.5px;
+        font-weight: 820;
+        line-height: 1.52;
+      }
+
+      .validation-summary,
+      .validation-transition {
+        margin: 18px 0 0;
+        padding: 12px 14px;
+        border-radius: var(--radius-md);
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.58;
+      }
+
+      .validation-summary {
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.54);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+      }
+
+      .validation-transition {
+        color: rgba(15, 23, 42, 0.72);
+        background: rgba(248, 250, 252, 0.78);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .module2-summary-v2 .section-header {
+        max-width: 1120px;
+      }
+
+      .summary-title-v2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(40px, 5vw, 58px);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1.1;
+      }
+
+      .summary-title-v2 span {
+        display: block;
+      }
+
+      .summary-title-v2 .summary-title-focus {
+        color: var(--accent-strong);
+      }
+
+      .summary-description-v2 {
+        max-width: 1080px;
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.68;
+        text-wrap: pretty;
+      }
+
+      .summary-principle {
+        display: inline-grid;
+        width: auto;
+        max-width: 940px;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px 14px;
+        color: var(--ink);
+        background: rgba(240, 253, 250, 0.62);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: 999px;
+        font-size: 17px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .summary-principle::before {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        color: #ffffff;
+        background: #0f766e;
+        border-radius: 999px;
+        content: "✓";
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .summary-board {
+        margin: 34px 0 0;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 24px;
+        box-shadow: 0 20px 56px rgba(15, 23, 42, 0.07);
+      }
+
+      .summary-board-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .summary-board-header strong {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1.35;
+      }
+
+      .summary-board-header span {
+        flex: 0 0 auto;
+        padding: 5px 10px;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.68);
+        border: 1px solid rgba(191, 219, 254, 0.62);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .summary-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .summary-object-card {
+        display: grid;
+        min-width: 0;
+        gap: 12px;
+        align-content: start;
+        padding: 17px;
+        background: rgba(248, 250, 252, 0.88);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 18px;
+      }
+
+      .summary-object-card.card {
+        background: rgba(239, 246, 255, 0.82);
+        border-color: rgba(37, 99, 235, 0.18);
+      }
+
+      .summary-object-card.task {
+        background: rgba(240, 253, 250, 0.82);
+        border-color: rgba(20, 184, 166, 0.2);
+      }
+
+      .summary-object-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1.25;
+      }
+
+      .summary-object-card p {
+        margin: 0;
+        color: var(--text);
+        font-size: 13.5px;
+        font-weight: 760;
+        line-height: 1.5;
+      }
+
+      .summary-object-card dl {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .summary-object-card dt {
+        color: rgba(15, 23, 42, 0.68);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .summary-object-card dd {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 12.5px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .summary-final-judgment {
+        margin: 18px 0 0;
+        padding: 12px 14px;
+        color: #0f766e;
+        background: rgba(240, 253, 250, 0.54);
+        border: 1px solid rgba(20, 184, 166, 0.16);
+        border-radius: var(--radius-md);
+        font-size: 14px;
+        font-weight: 820;
+        line-height: 1.58;
+      }
+
       .module2-tag-list {
         display: flex;
         flex-wrap: wrap;
@@ -861,12 +4330,23 @@
         .role-grid,
         .interface-grid,
         .boundary-grid,
-        .architecture-questions {
+        .architecture-questions,
+        .architecture-compare-grid,
+        .architecture-principles-grid {
           grid-template-columns: 1fr;
         }
 
-        .case-hero {
+        .case-hero,
+        .module2-hero-v3,
+        .module2-problem-v2,
+        .module2-sample-v2,
+        .module2-readiness-v2 {
           grid-template-columns: 1fr;
+        }
+
+        .signal-mechanism-card {
+          justify-self: start;
+          width: 100%;
         }
 
         .problem-grid {
@@ -888,16 +4368,115 @@
         .architecture-map,
         .lane-compare,
         .module2-lane-grid,
+        .leakage-track,
         .evidence-grid,
         .role-grid,
         .object-strip {
           grid-template-columns: 1fr;
+        }
+
+        .problem-copy {
+          max-width: 760px;
+        }
+
+        .leakage-track {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .sample-copy {
+          max-width: 760px;
+        }
+
+        .readiness-copy {
+          max-width: 760px;
+        }
+
+        .readiness-board-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .object-flow-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .workflow-interface-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .module-map-items {
+          grid-template-columns: 1fr;
+        }
+
+        .object-flow-cards::before,
+        .object-flow-cards::after {
+          display: none;
+        }
+
+        .object-interface-reference {
+          grid-template-columns: 1fr;
+        }
+
+        .readiness-gate-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .ai-flow-compare {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-flow-compare::before,
+        .ai-flow-compare::after {
+          display: none;
+        }
+
+        .evolution-path-track {
+          grid-template-columns: 1fr;
+        }
+
+        .evolution-section-bridge {
+          min-height: 22px;
+        }
+
+        .evolution-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .ai-intervention-steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sample-merge-map {
+          grid-template-columns: 1fr;
+        }
+
+        .source-grid::after {
+          display: none;
+        }
+
+        .theme-node::before,
+        .theme-node::after {
+          top: auto;
+          right: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .theme-node::before {
+          top: -21px;
+          content: "↓";
+        }
+
+        .theme-node::after {
+          bottom: -21px;
+          content: "↓";
         }
       }
 
       @media (max-width: 720px) {
         .case-header,
         .case-hero,
+        .module2-hero-v3,
         .case-section,
         .case-footer {
           width: 100%;
@@ -905,7 +4484,13 @@
         }
 
         .case-hero > *,
+        .module2-hero-v3 > *,
         .case-hero h1,
+        .hero-title,
+        .hero-copy,
+        .hero-judgement-line,
+        .hero-description,
+        .hero-principle,
         .case-subtitle,
         .case-hook-question,
         .case-lead,
@@ -919,9 +4504,12 @@
         }
 
         .case-hero-copy,
+        .hero-copy,
         .case-container,
         .section-header,
         .case-visual,
+        .signal-mechanism-card,
+        .signal-mechanism-svg,
         .diagram-frame,
         .module-figure,
         .callout-card,
@@ -941,11 +4529,20 @@
           overflow: hidden;
         }
 
+        .module2-hero-v3 {
+          display: block;
+          grid-template-columns: minmax(0, 1fr);
+          padding: 46px 20px 52px;
+          overflow: hidden;
+        }
+
         .case-hero > *,
+        .module2-hero-v3 > *,
         .case-nav,
         .hero-tags,
         .hero-actions,
         .case-visual,
+        .signal-mechanism-card,
         .visual-panel,
         .visual-node {
           width: 100%;
@@ -959,6 +4556,19 @@
           word-break: break-all;
         }
 
+        .hero-title {
+          font-size: clamp(38px, 10.4vw, 46px);
+          line-height: 1.06;
+          white-space: normal;
+          word-break: break-word;
+        }
+
+        .hero-judgement-line {
+          padding-left: 14px;
+          font-size: clamp(24px, 7.4vw, 31px);
+          word-break: break-word;
+        }
+
         .mobile-break {
           display: block;
         }
@@ -968,6 +4578,14 @@
           line-height: 1.22;
           overflow-wrap: anywhere;
           word-break: break-all;
+        }
+
+        .architecture-title-v2 {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .architecture-title-v2 span {
+          white-space: normal;
         }
 
         .case-subtitle,
@@ -981,11 +4599,13 @@
         }
 
         .case-lead,
-        .status-card {
+        .status-card,
+        .hero-description,
+        .hero-principle {
           font-size: 16px;
           max-width: calc(100vw - 40px);
           overflow-wrap: anywhere;
-          word-break: break-all;
+          word-break: break-word;
         }
 
         .case-header {
@@ -1015,6 +4635,17 @@
           margin-top: 28px;
           padding: 16px;
           overflow: hidden;
+        }
+
+        .signal-mechanism-card {
+          margin-top: 28px;
+          padding: 16px;
+          overflow-x: auto;
+        }
+
+        .signal-mechanism-svg {
+          min-width: 680px;
+          max-width: none;
         }
 
         .visual-panel {
@@ -1048,6 +4679,10 @@
         }
 
         .problem-grid,
+        .module2-problem-v2,
+        .module2-sample-v2,
+        .module2-readiness-v2,
+        .leakage-track,
         .signal-loss,
         .intervention-map,
         .responsibility-chain,
@@ -1058,6 +4693,305 @@
         .boundary-grid,
         .hero-anchor-grid,
         .module2-lane-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .signal-leakage-map {
+          padding: 18px;
+        }
+
+        .architecture-judgment-board {
+          padding: 18px;
+        }
+
+        .architecture-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .architecture-layer,
+        .architecture-source-band,
+        .architecture-flow-band,
+        .architecture-counterexample,
+        .architecture-principle-card {
+          grid-template-columns: 1fr;
+        }
+
+        .architecture-principle-card span {
+          grid-row: auto;
+        }
+
+        .evolution-title-v2 {
+          font-size: clamp(34px, 10vw, 44px);
+        }
+
+        .evolution-principle {
+          width: 100%;
+          border-radius: var(--radius-md);
+          font-size: 15.5px;
+        }
+
+        .evolution-path-board {
+          padding: 18px;
+        }
+
+        .evolution-path-track {
+          grid-template-columns: 1fr;
+        }
+
+        .evolution-path-group {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .evolution-path-group.see .evolution-stage-row,
+        .evolution-path-group.judge .evolution-stage-row,
+        .evolution-path-group.loop .evolution-stage-row {
+          grid-template-columns: 1fr;
+        }
+
+        .evolution-path-connector,
+        .evolution-section-bridge {
+          min-height: 18px;
+          font-size: 15px;
+        }
+
+        .evolution-path-connector {
+          transform: rotate(90deg);
+        }
+
+        .validation-title-v2 {
+          font-size: clamp(32px, 9vw, 42px);
+        }
+
+        .validation-principle {
+          width: 100%;
+          border-radius: var(--radius-md);
+          font-size: 15.5px;
+        }
+
+        .validation-board {
+          padding: 18px;
+        }
+
+        .validation-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .validation-card-grid,
+        .release-rule-grid,
+        .summary-card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .non-automation-list li {
+          width: 100%;
+          border-radius: var(--radius-sm);
+        }
+
+        .summary-title-v2 {
+          font-size: clamp(32px, 9vw, 42px);
+        }
+
+        .summary-principle {
+          width: 100%;
+          border-radius: var(--radius-md);
+          font-size: 15.5px;
+        }
+
+        .summary-board {
+          padding: 18px;
+        }
+
+        .summary-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .problem-title {
+          font-size: clamp(21px, 6.2vw, 30px);
+          line-height: 1.16;
+        }
+
+        .signal-leakage-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .leakage-track::before {
+          display: none;
+        }
+
+        .leakage-step {
+          grid-column: auto !important;
+          grid-row: auto !important;
+          min-height: auto;
+          padding: 16px 15px;
+        }
+
+        .leakage-step::before {
+          top: 12px;
+          right: 12px;
+          left: auto;
+        }
+
+        .leakage-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -17px;
+          left: 18px;
+          color: rgba(100, 116, 139, 0.42);
+          content: "↓";
+          transform: none;
+        }
+
+        .leakage-step:last-child::after {
+          display: none;
+        }
+
+        .sample-title {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .readiness-title {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .readiness-title span {
+          white-space: normal;
+        }
+
+        .before-after-title {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .before-after-title span {
+          white-space: normal;
+        }
+
+        .unit-title {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .unit-title span {
+          white-space: normal;
+        }
+
+        .interfaces-title {
+          font-size: clamp(26px, 7vw, 34px);
+        }
+
+        .interfaces-title span {
+          white-space: normal;
+        }
+
+        .readiness-gate-board {
+          padding: 18px;
+        }
+
+        .ai-flow-board {
+          padding: 18px;
+        }
+
+        .object-responsibility-board,
+        .interface-workflow-board {
+          padding: 18px;
+        }
+
+        .interface-lightbox {
+          padding: 12px;
+        }
+
+        .interface-lightbox-panel {
+          width: 100%;
+        }
+
+        .interface-lightbox-close {
+          top: 8px;
+          right: 8px;
+          width: 42px;
+          height: 42px;
+        }
+
+        .interface-lightbox-title {
+          padding-right: 52px;
+        }
+
+        .object-board-header,
+        .interface-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .readiness-board-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .ai-flow-board-header,
+        .ai-intervention-focus {
+          align-items: flex-start;
+          grid-template-columns: 1fr;
+        }
+
+        .ai-flow-board-header {
+          flex-direction: column;
+        }
+
+        .readiness-gate-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .readiness-gate::after {
+          display: none;
+        }
+
+        .readiness-input-strip em {
+          margin-left: 0;
+        }
+
+        .readiness-destination-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-human-boundary {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-intervention-steps {
+          grid-template-columns: 1fr;
+        }
+
+        .sample-workbench-header {
+          flex-direction: column;
+        }
+
+        .sample-merge-map,
+        .source-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .theme-node::before,
+        .theme-node::after {
+          top: auto;
+          right: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .theme-node::before {
+          top: -19px;
+          content: "↓";
+        }
+
+        .theme-node::after {
+          bottom: -19px;
+          content: "↓";
+        }
+
+        .sample-task-dimensions {
+          display: grid;
           grid-template-columns: 1fr;
         }
 
@@ -1097,470 +5031,1167 @@
         <span>AI 业务需求流转工作台</span>
       </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#product-overview">产品形态</a>
         <a href="#problem">业务问题</a>
         <a href="#sample">贯穿样例</a>
+        <a href="#product-overview">产品形态</a>
+        <a href="#readiness">准入判断</a>
         <a href="#before-after">接入前后</a>
-        <a href="#intervention">AI 介入点</a>
         <a href="#signal-layer">信号层</a>
         <a href="#unit">责任单元</a>
         <a href="#interfaces">关键界面</a>
         <a href="#evolution">演进</a>
         <a href="#validation">验证与边界</a>
-        <a class="nav-link--lang" href="/ai-product-portfolio/en/docs/module2-ai-business-requirement-flow/index.html">EN</a>
+        <a class="nav-link--lang" href="../../en/docs/module2-ai-business-requirement-flow/index.html">EN</a>
         <a class="nav-link--home" href="/ai-product-portfolio/index.html">返回首页</a>
       </nav>
     </header>
 
     <main>
-      <section class="case-hero" id="overview">
-        <div class="case-hero-copy">
-          <p class="section-kicker">项目 02｜流程型 AI 应用</p>
-          <h1>AI 业务需求流转工作台</h1>
-          <p class="case-subtitle">从多源业务信号到需求分流与任务闭环</p>
-          <p class="case-hook-question">会规划的 Agent 很多，能落进流程的 Agent 很少。</p>
-          <p class="case-lead">
-            这个项目关注的不是让 AI 生成一份需求总结，而是让分散在销售、售后、质量、会议和 CRM 中的业务信号，经过 AI 识别、人审确认、责任分流和状态追踪，真正进入组织行动闭环。
+      <section class="module2-hero-v3" id="overview">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">项目 02｜流程型 AI 应用</p>
+          <h1 class="hero-title">AI 业务需求流转工作台</h1>
+          <p class="hero-judgement-line">客户说了一句话，<br />不等于组织接住了<span class="no-break">这个信号</span>。</p>
+          <p class="hero-description">
+            这个项目不是让 AI 写一份更漂亮的需求总结，而是设计一层业务信号中间层：把分散在销售、售后、CRM、会议和质量反馈中的原始信号，变成可确认、可分流、可追踪、可复盘的业务对象。
           </p>
-          <div class="hero-anchor-grid">
-            <article class="hero-anchor-card">
-              <strong>多源业务信号</strong>
-              <p>销售、售后、客服、质量、CRM、会议和区域反馈。</p>
-            </article>
-            <article class="hero-anchor-card">
-              <strong>人审分流闭环</strong>
-              <p>AI 识别与卡片初稿，人确认类型、优先级和责任方。</p>
-            </article>
-            <article class="hero-anchor-card">
-              <strong>经营洞察沉淀</strong>
-              <p>闭环状态、重复问题、部门响应和规则迭代。</p>
-            </article>
-          </div>
-          <div class="hero-tags">
-            <span>场景化 AI 产品设计案例</span>
-            <span>企业 AI 工作流</span>
-            <span>多源业务信号</span>
-            <span>AI 介入点</span>
-            <span>人审分流</span>
-            <span>轻量 AI 业务信号层</span>
-            <span>组织行动闭环</span>
-          </div>
+          <div class="hero-principle">AI 只生成候选，组织负责确认。先把信息变成对象，再让对象进入流程。</div>
           <div class="hero-actions">
-            <a class="button-primary" href="#intervention">查看 AI 介入点</a>
-            <a class="button-secondary" href="#signal-layer">查看轻量架构判断</a>
-            <a class="button-secondary" href="../../assets/docs/module2_ai_business_demand_workbench_prd_out_v1.1.pdf">下载产品设计文档 PDF</a>
+            <a class="button-primary" href="../../assets/docs/module2_ai_business_demand_workbench_prd_out_v1.1.pdf">下载产品设计文档 PDF</a>
             <a class="button-secondary" href="/ai-product-portfolio/assets/docs/module2_ai_business_requirement_flow_product_design_brief_en_v0.1.pdf">英文产品设计简报</a>
-            <a class="button-secondary" href="/ai-product-portfolio/index.html">返回作品集首页</a>
           </div>
         </div>
 
-        <aside class="case-visual" aria-label="项目 2 业务信号闭环概览">
-          <div class="case-visual-header">
-            <strong>业务信号闭环</strong>
-            <span>信号到行动</span>
-          </div>
-          <div class="visual-panel">
-            <div class="visual-node"><strong>多源输入</strong><span>销售、售后、质量、会议、CRM</span></div>
-            <div class="visual-node"><strong>AI 识别</strong><span>分类、聚类、证据提取、卡片初稿</span></div>
-            <div class="visual-node"><strong>人审分流</strong><span>优先级、责任方、是否进入正式流程</span></div>
-            <div class="visual-node"><strong>状态闭环</strong><span>追踪、复盘、规则沉淀、经营洞察</span></div>
-          </div>
+        <aside class="signal-mechanism-card" aria-label="一个业务信号如何进入组织行动">
+          <svg class="signal-mechanism-svg" viewBox="0 0 900 560" role="img" aria-label="一个业务信号如何进入组织行动">
+            <defs>
+              <marker id="arrow-main" markerWidth="5.2" markerHeight="5.2" refX="4.6" refY="2.6" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L5.2,2.6 L0,5.2 Z" fill="#2563eb" />
+              </marker>
+              <marker id="arrow-loop" markerWidth="5" markerHeight="5" refX="4.4" refY="2.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L5,2.5 L0,5 Z" fill="#60a5fa" />
+              </marker>
+              <filter id="gate-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#9a3412" flood-opacity="0.08" />
+              </filter>
+            </defs>
+
+            <text x="40" y="50" font-size="18" font-weight="800" fill="#0f172a">一个业务信号，如何进入组织行动</text>
+            <rect x="650" y="28" width="204" height="30" rx="15" fill="#f6f9ff" />
+            <text x="752" y="47" text-anchor="middle" font-size="10.5" font-weight="800" fill="#2563eb">HUMAN GATE BEFORE ROUTING</text>
+
+            <path d="M175 235 V287" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-main)" />
+            <path d="M270 358 H315 V308 H355" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-main)" />
+            <path d="M585 266 H615 V154 H670" fill="none" stroke="#94a3b8" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-main)" />
+            <path d="M585 302 H632 V254 H670" fill="none" stroke="#f97316" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-main)" />
+            <path d="M585 358 H622 V405 H650" fill="none" stroke="#14b8a6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-main)" />
+            <path d="M755 490 V497" fill="none" stroke="#60a5fa" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.62" marker-end="url(#arrow-loop)" />
+            <path d="M290 520 H175 V428" fill="none" stroke="#60a5fa" stroke-width="1.35" stroke-dasharray="5 7" stroke-linecap="round" stroke-linejoin="round" opacity="0.52" marker-end="url(#arrow-loop)" />
+
+            <rect x="80" y="120" width="190" height="115" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+            <text x="98" y="151" font-size="16" font-weight="800" fill="#0f172a">原始反馈</text>
+            <text x="98" y="180" font-size="14" font-weight="700" fill="#0f172a">后排空间小</text>
+            <text x="98" y="201" font-size="14" font-weight="700" fill="#0f172a">家庭乘坐不舒适</text>
+            <text x="98" y="224" font-size="11.5" font-weight="500" fill="#64748b">销售 / CRM / 售后 / 会议</text>
+
+            <rect x="80" y="295" width="190" height="125" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+            <text x="98" y="326" font-size="16" font-weight="800" fill="#0f172a">AI 候选卡片</text>
+            <text x="98" y="356" font-size="14" font-weight="700" fill="#0f172a">体验问题 / 转化风险</text>
+            <text x="98" y="383" font-size="11.5" font-weight="500" fill="#475569">聚合反馈 · 提取证据 · 初判类型</text>
+            <text x="98" y="407" font-size="11.5" font-weight="600" fill="#1e3a8a">AI 生成候选，不是结果</text>
+
+            <rect x="355" y="220" width="230" height="175" rx="16" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.1" filter="url(#gate-shadow)" />
+            <rect x="520" y="208" width="48" height="22" rx="11" fill="#fb923c" />
+            <text x="544" y="223" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">GATE</text>
+            <text x="377" y="252" font-size="16" font-weight="800" fill="#c2410c">Human Gate｜人审确认闸门</text>
+            <rect x="377" y="274" width="186" height="50" rx="10" fill="#fff5e8" stroke="#fed7aa" stroke-width="0.8" stroke-opacity="0.72" />
+            <text x="392" y="296" font-size="13.5" font-weight="650" fill="#9a3412">不直接自动派单，</text>
+            <text x="392" y="315" font-size="13.5" font-weight="650" fill="#9a3412">先判断是否进入流程。</text>
+            <text x="377" y="352" font-size="11.5" font-weight="500" fill="#64748b">类型成立？</text>
+            <text x="455" y="352" font-size="11.5" font-weight="500" fill="#64748b">证据足够？</text>
+            <text x="535" y="352" font-size="11.5" font-weight="500" fill="#64748b">谁承接？</text>
+
+            <rect x="670" y="120" width="180" height="68" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+            <text x="688" y="149" font-size="13.5" font-weight="700" fill="#0f172a">不成立 / 证据不足</text>
+            <text x="688" y="171" font-size="11.5" font-weight="500" fill="#64748b">观察池 / 待补充</text>
+
+            <rect x="670" y="220" width="180" height="68" rx="14" fill="#fff7ed" stroke="#fed7aa" stroke-width="1" />
+            <text x="688" y="249" font-size="13.5" font-weight="700" fill="#9a3412">高风险</text>
+            <text x="688" y="271" font-size="11.5" font-weight="500" fill="#9a3412">升级处理</text>
+
+            <rect x="650" y="350" width="210" height="140" rx="14" fill="#f8fffc" stroke="#99f6e4" stroke-width="1" />
+            <text x="668" y="376" font-size="13.5" font-weight="700" fill="#0f766e">成立</text>
+            <text x="668" y="396" font-size="11.5" font-weight="500" fill="#0f766e">进入组织行动分流</text>
+            <path d="M668 408 H842" fill="none" stroke="#ccfbf1" stroke-width="1" />
+            <text x="668" y="427" font-size="16" font-weight="800" fill="#0f172a">组织行动分流</text>
+            <rect x="666" y="438" width="82" height="24" rx="7" fill="#ecfdf5" stroke="#99f6e4" stroke-width="1" />
+            <text x="707" y="454" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f766e">产品：体验优化</text>
+            <rect x="762" y="438" width="82" height="24" rx="7" fill="#ecfdf5" stroke="#99f6e4" stroke-width="1" />
+            <text x="803" y="454" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f766e">销售：话术调整</text>
+            <rect x="666" y="466" width="82" height="24" rx="7" fill="#ecfdf5" stroke="#99f6e4" stroke-width="1" />
+            <text x="707" y="482" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f766e">市场：传播修正</text>
+            <rect x="762" y="466" width="82" height="24" rx="7" fill="#ecfdf5" stroke="#99f6e4" stroke-width="1" />
+            <text x="803" y="482" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f766e">服务：后续动作</text>
+
+            <rect x="290" y="500" width="510" height="40" rx="12" fill="#f8fbff" stroke="#dbeafe" stroke-dasharray="4 4" />
+            <text x="318" y="525" font-size="14" fill="#60a5fa">↺</text>
+            <text x="338" y="525" font-size="13" font-weight="700" fill="#2563eb">复盘结果 / 规则沉淀</text>
+            <text x="486" y="525" font-size="11.5" font-weight="500" fill="#64748b">回流到 AI 判断规则与人审标准</text>
+
+            <rect x="192" y="248" width="98" height="18" rx="6" fill="#ffffff" fill-opacity="0.88" stroke="#cbd5e1" stroke-opacity="0.22" />
+            <text x="241" y="261" text-anchor="middle" font-size="10.5" font-weight="600" fill="#64748b">AI 识别为候选</text>
+            <rect x="276" y="328" width="76" height="18" rx="6" fill="#ffffff" fill-opacity="0.88" stroke="#cbd5e1" stroke-opacity="0.22" />
+            <text x="314" y="341" text-anchor="middle" font-size="10.5" font-weight="600" fill="#64748b">候选不是结果</text>
+          </svg>
         </aside>
       </section>
 
-      <section class="case-section alt" id="product-overview">
-        <div class="case-container">
-          <div class="insight-callout">
-            <strong>一个“后排空间反馈”，不该死在销售、CRM、售后和会议之间。</strong>
-            <p>真正的问题不是客户说了一句话，而是这句话有没有被组织识别、分流、追踪和复盘。AI 的价值也不只是总结反馈，而是把分散信号转化为可处理的需求、风险和行动。</p>
-          </div>
-          <div class="section-header">
-            <p class="section-kicker">02｜产品形态</p>
-            <h2 class="section-title">产品形态总览：持续运行的业务信号工作台</h2>
-            <p class="section-description">
-              先用一个低保真界面说明这个项目的产品形态：它不是抽象流程图，而是围绕新增信号、待确认卡片、高风险问题、未关闭事项和部门响应情况持续运行的工作台。
-            </p>
-          </div>
-          <figure class="module-figure">
-            <img src="assets/screenshots/dashboard_overview.png" alt="业务信号总览 Dashboard 低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：业务信号总览 Dashboard，用于查看新增信号、待确认卡片、高风险问题、未关闭事项和部门响应情况。</figcaption>
-          </figure>
-        </div>
-      </section>
-
       <section class="case-section" id="problem">
-        <div class="case-container module2-content-wrap">
-          <div class="section-header">
-            <p class="section-kicker">03｜业务问题</p>
-            <h2 class="section-title">业务问题：企业不是没有反馈，而是缺少持续运行的业务信号处理机制</h2>
-            <p class="section-description">
-              在传统企业中，销售、售后、客服、质量、CRM 和会议每天都会产生大量业务信号，但这些信号经常散落在不同系统和沟通渠道中，没有稳定进入产品、质量、销售、供应链和管理决策流程。
+        <div class="case-container module2-content-wrap module2-problem-v2">
+          <div class="problem-copy">
+            <p class="section-kicker">01｜业务问题</p>
+            <h2 class="problem-title"><span class="problem-title-line">企业不是没有反馈，</span><span class="problem-title-line problem-title-focus">而是信号没有被组织接住。</span></h2>
+            <p class="problem-description">
+              销售反馈、售后记录、CRM 备注、区域会议和质量问题里，其实已经包含大量业务信号。真正的断点不在于“有没有信息”，而在于这些信息进入组织后，会在转述、摘要、分派和复盘中逐步失去证据、语境、责任和状态。
             </p>
-          </div>
-          <div class="problem-grid module2-breakpoint-grid">
-            <article class="mini-card"><span>信号散</span><h3>入口分散</h3><p>反馈散落在销售、售后、客服、会议、CRM 等入口。</p></article>
-            <article class="mini-card"><span>类型混</span><h3>难以判断</h3><p>需求、问题、风险、情绪和噪音混在一起。</p></article>
-            <article class="mini-card"><span>责任不清</span><h3>找不到责任方</h3><p>不知道该由产品、质量、销售、供应链还是运营处理。</p></article>
-            <article class="mini-card"><span>状态难追</span><h3>推进靠人工</h3><p>任务推进依赖群聊、表格和人工催办。</p></article>
-            <article class="mini-card"><span>复盘滞后</span><h3>趋势后置</h3><p>管理层看到的是事后总结，而不是持续变化的业务趋势。</p></article>
+            <div class="problem-punch-line">
+              <span>信息存在，不代表需求成立；</span>
+              <span>反馈被记录，不代表组织会行动。</span>
+            </div>
           </div>
 
-          <figure class="diagram-frame module2-flow-panel">
-            <p class="diagram-title">没有 AI 时：业务信号如何流失</p>
-            <div class="signal-loss module2-flow-grid">
-              <div class="diagram-node source"><strong>销售 / 售后 / CRM</strong><small>反馈进入不同系统和沟通渠道</small></div>
-              <div class="diagram-node source"><strong>会议 / 表格 / 群聊</strong><small>线索被临时整理，口径不统一</small></div>
-              <div class="diagram-node human"><strong>人工判断</strong><small>依赖经验判断类型、优先级和责任方</small></div>
-              <div class="diagram-node human"><strong>人工推进</strong><small>状态散落，阻塞和延期难以暴露</small></div>
-              <div class="diagram-node output"><strong>事后汇总</strong><small>复盘滞后，难以形成持续业务趋势</small></div>
+          <figure class="signal-leakage-map" aria-label="业务信号流失链路">
+            <div class="signal-leakage-header">
+              <strong>一条反馈，如何在组织里失去行动力</strong>
+              <span>业务信号流失链路</span>
             </div>
-            <figcaption class="diagram-caption">问题不只是效率低，而是业务信号无法稳定转化为组织行动。</figcaption>
+            <div class="leakage-track">
+              <article class="leakage-step" data-step="01">
+                <h3>多源业务信号</h3>
+                <p>销售、售后、CRM、会议、质量反馈都有线索。</p>
+                <span class="leakage-breakpoint">入口分散，无法统一看见。</span>
+              </article>
+              <article class="leakage-step" data-step="02">
+                <h3>人工转述 / 摘要</h3>
+                <p>反馈进入群聊、纪要、表格或周报。</p>
+                <span class="leakage-breakpoint">原话被压缩，场景被削弱。</span>
+              </article>
+              <article class="leakage-step" data-step="03">
+                <h3>证据与语境丢失</h3>
+                <p>后续只剩“客户反馈空间小”。</p>
+                <span class="leakage-breakpoint">来源、频次、区域和原文证据消失。</span>
+              </article>
+              <article class="leakage-step" data-step="04">
+                <h3>责任方不清</h3>
+                <p>不确定由产品、销售、市场还是服务承接。</p>
+                <span class="leakage-breakpoint">问题被记录，却没有进入责任链。</span>
+              </article>
+              <article class="leakage-step" data-step="05">
+                <h3>状态不可见</h3>
+                <p>谁在处理、为何阻塞、是否关闭都不清楚。</p>
+                <span class="leakage-breakpoint">反馈进入黑箱，业务侧无法追踪。</span>
+              </article>
+              <article class="leakage-step" data-step="06">
+                <h3>复盘断层</h3>
+                <p>处理结果没有沉淀为规则、话术或配置建议。</p>
+                <span class="leakage-breakpoint">相似反馈下一次仍从零开始。</span>
+              </article>
+            </div>
+            <figcaption class="problem-insight-card">
+              下一步，不是让 AI 直接总结反馈，而是先定义哪些信号可以进入确认闸门。
+            </figcaption>
           </figure>
         </div>
       </section>
 
       <section class="case-section alt" id="sample">
-        <div class="case-container module2-content-wrap">
-          <div class="section-header">
-            <p class="section-kicker">04｜贯穿样例</p>
-            <h2 class="section-title">贯穿样例：一个客户反馈如何从一线信息变成组织行动？</h2>
-            <p class="section-description">
-              以下是场景化推演，用来说明这个项目的主线机制：一个关于后排空间体验的客户反馈，如何从销售、CRM、售后、会议和市场观察中被识别为同一业务主题。
+        <div class="case-container module2-content-wrap module2-sample-v2">
+          <div class="sample-copy">
+            <p class="section-kicker">02｜贯穿样例 / 用户任务</p>
+            <h2 class="sample-title"><span>先别急着生成需求，</span><span class="sample-title-focus">先判断它是不是同一个信号。</span></h2>
+            <p class="sample-description">
+              以“后排空间小 / 家庭乘坐不舒适”为例。它不会一开始就以“需求”的形式出现，而是散落在销售沟通、CRM 备注、售后反馈和区域会议里。产品判断的第一步，不是让 AI 直接生成需求，而是先识别：这些分散表达是否指向同一个业务信号。
             </p>
-          </div>
-          <div class="evidence-grid">
-            <article class="evidence-card"><strong>销售反馈</strong><p>客户在对比竞品时，多次认为本车型后排空间体验不足。</p></article>
-            <article class="evidence-card"><strong>CRM 记录</strong><p>部分商机停滞原因被标记为“家庭用户顾虑后排舒适性”。</p></article>
-            <article class="evidence-card"><strong>客服 / 售后反馈</strong><p>已有车主反馈后排长途乘坐体验一般。</p></article>
-            <article class="evidence-card"><strong>区域会议</strong><p>区域经理提到该问题影响部分家庭用户成交。</p></article>
-            <article class="evidence-card"><strong>市场观察</strong><p>竞品近期强化“家庭舒适性”和“后排空间”传播。</p></article>
-            <article class="evidence-card"><strong>关键判断</strong><p>单点看，每条都只是局部反馈；聚合看，它可能是“产品体验问题 + 销售转化风险”。</p></article>
-          </div>
-          <div class="callout-card">
-            <strong>单条反馈看似只是销售异议，但跨渠道聚合后，它可能同时指向产品体验问题、销售转化风险和市场传播缺口。</strong>
-          </div>
-          <figure class="diagram-frame module2-flow-panel">
-            <p class="diagram-title">样例链路：从分散反馈到组织行动</p>
-            <div class="sample-flow module2-flow-grid">
-              <div class="diagram-node source"><strong>销售反馈 + CRM + 售后 + 区域会议</strong><small>家庭用户反复提到后排空间和舒适性顾虑</small></div>
-              <div class="diagram-node ai"><strong>AI 聚合与识别</strong><small>识别为“产品体验问题 + 销售转化风险”</small></div>
-              <div class="diagram-node human"><strong>生成卡片并人审</strong><small>确认优先级、证据是否充分、责任方是否合理</small></div>
-              <div class="diagram-node output"><strong>分流与复盘输入</strong><small>产品、销售运营、市场支持形成后续动作</small></div>
+            <div class="sample-principle-footer">
+              候选卡片不是结果，它只是进入确认闸门的起点。
             </div>
-            <figcaption class="diagram-caption">输出可以是销售话术调整、配置优化建议或区域复盘输入，而不是单纯生成一份总结。</figcaption>
-          </figure>
-          <div class="unit-grid">
-            <article class="mini-card"><span>AI 作用 01</span><h3>聚合相似反馈</h3><p>将分散在不同渠道的相似反馈聚合为同一业务主题。</p></article>
-            <article class="mini-card"><span>AI 作用 02</span><h3>判断业务类型</h3><p>判断它不是单纯投诉，也不是普通需求，而是产品体验问题 + 销售转化风险。</p></article>
-            <article class="mini-card"><span>AI 作用 03</span><h3>保留来源证据</h3><p>提取原始证据片段，标记影响区域、客户群体和潜在业务影响。</p></article>
-            <article class="mini-card"><span>AI 作用 04</span><h3>生成卡片初稿</h3><p>生成问题卡片和需求卡片初稿，建议分流给产品、销售运营和市场支持。</p></article>
-            <article class="mini-card"><span>AI 作用 05</span><h3>追踪后续动作</h3><p>跟踪该问题是否进入销售话术、产品规划或区域复盘。</p></article>
-            <article class="mini-card"><span>人审节点</span><h3>确认取舍</h3><p>人确认类型、优先级、责任方和是否进入正式流程。</p></article>
           </div>
+
+          <figure class="sample-workbench" aria-label="四源反馈汇聚为候选信号">
+            <div class="sample-workbench-header">
+              <div class="sample-task-strip">
+                <span>用户任务</span>
+                <strong>从四类散落反馈中判断：这些表达是否指向同一个业务信号？</strong>
+                <ul class="sample-task-dimensions">
+                  <li>是否重复出现</li>
+                  <li>是否有证据来源</li>
+                  <li>是否影响体验 / 转化 / 服务</li>
+                  <li>是否值得进入确认闸门</li>
+                </ul>
+              </div>
+              <span class="sample-workbench-badge">模拟样例 / 示例表达</span>
+            </div>
+            <div class="sample-merge-map">
+              <div class="source-grid" aria-label="散落反馈来源">
+                <article class="source-card">
+                  <h3>销售反馈</h3>
+                  <p>家庭用户试乘后，反复询问后排空间是否够用。</p>
+                </article>
+                <article class="source-card">
+                  <h3>CRM 备注</h3>
+                  <p>客户犹豫点集中在后排舒适性与儿童乘坐体验。</p>
+                </article>
+                <article class="source-card">
+                  <h3>售后 / 客服</h3>
+                  <p>部分用户反馈长时间乘坐后排有压抑感。</p>
+                </article>
+                <article class="source-card">
+                  <h3>区域会议</h3>
+                  <p>区域销售提到竞品在空间感传播上更占优势。</p>
+                </article>
+              </div>
+
+              <div class="theme-node">
+                <span>同一业务主题</span>
+                <strong>后排空间小 /<br />家庭乘坐不舒适</strong>
+                <em>体验问题 + 转化风险</em>
+              </div>
+
+              <article class="candidate-object-card">
+                <header>
+                  <h3>候选信号卡</h3>
+                  <span>待确认</span>
+                </header>
+                <p class="candidate-core">体验问题 / 转化风险</p>
+                <div class="candidate-fields">
+                  <div class="candidate-field"><span>证据</span><strong>销售、CRM、售后、会议中的相似表达</strong></div>
+                  <div class="candidate-field"><span>影响对象</span><strong>家庭用户 / 试乘转化</strong></div>
+                  <div class="candidate-field"><span>下一步</span><strong>进入 Human Gate / Readiness 判断</strong></div>
+                </div>
+                <p class="candidate-note">这不是正式需求，也不会直接自动派单。</p>
+              </article>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="readiness">
+        <div class="case-container module2-content-wrap module2-readiness-v2">
+          <div class="readiness-copy">
+            <p class="section-kicker">03｜准入判断</p>
+            <h2 class="readiness-title"><span>候选不是结果，</span><span class="readiness-title-focus">过了判断门才进流程。</span></h2>
+            <p class="readiness-description">
+              AI 聚合出的候选信号，仍然只是“待确认对象”。它能不能进入流程，要先判断：问题是否成立，证据是否足够，是否真的需要组织行动，以及是否适合进入小范围试点。
+            </p>
+            <div class="readiness-principle">
+              不是所有候选都值得流转；能过判断门，才进入组织行动。
+            </div>
+          </div>
+
+          <figure class="readiness-gate-board" aria-label="候选信号进入流程前的四道判断门">
+            <div class="readiness-board-header">
+              <strong>候选信号进入流程前，先过四道准入判断</strong>
+              <span>进入流程前的准入判断</span>
+            </div>
+            <div class="readiness-board-layout">
+              <div class="readiness-input-strip">
+                <span>候选信号卡</span>
+                <strong>后排空间小 / 家庭乘坐不舒适</strong>
+                <em>状态：待确认</em>
+              </div>
+              <div class="readiness-gate-grid">
+                <article class="readiness-gate">
+                  <span class="gate-label">判断 01｜伪需求</span>
+                  <h3>它是业务问题，还是单次抱怨？</h3>
+                  <ul class="gate-checkpoints">
+                    <li>是否重复出现</li>
+                    <li>是否影响具体场景</li>
+                    <li>是否有业务后果</li>
+                  </ul>
+                  <div class="gate-route">
+                    <span>通过：指向体验、转化或服务问题</span>
+                    <em>未通过：观察池 / 补证据</em>
+                  </div>
+                </article>
+                <article class="readiness-gate">
+                  <span class="gate-label">判断 02｜伪结果</span>
+                  <h3>AI 输出的是结果，还是候选？</h3>
+                  <ul class="gate-checkpoints">
+                    <li>是否保留来源证据</li>
+                    <li>是否允许人审修改</li>
+                    <li>是否标注不确定性</li>
+                  </ul>
+                  <div class="gate-route">
+                    <span>通过：只生成候选卡，不直接生成正式需求</span>
+                    <em>未通过：退回证据补充 / 人审修正</em>
+                  </div>
+                </article>
+                <article class="readiness-gate">
+                  <span class="gate-label">判断 03｜伪效率</span>
+                  <h3>自动化是否真的降低组织成本？</h3>
+                  <ul class="gate-checkpoints">
+                    <li>是否减少重复整理</li>
+                    <li>是否降低转述成本</li>
+                    <li>是否让责任更清楚</li>
+                  </ul>
+                  <div class="gate-route">
+                    <span>通过：AI 负责整理和候选生成</span>
+                    <em>未通过：降级为人工辅助</em>
+                  </div>
+                </article>
+                <article class="readiness-gate">
+                  <span class="gate-label">判断 04｜试点准入</span>
+                  <h3>是否适合进入小范围试点？</h3>
+                  <ul class="gate-checkpoints">
+                    <li>是否有稳定来源</li>
+                    <li>是否有明确责任方</li>
+                    <li>是否可追踪状态</li>
+                    <li>是否能复盘闭环</li>
+                  </ul>
+                  <div class="gate-route">
+                    <span>通过：进入人审确认闸门 / 责任分流</span>
+                    <em>未通过：暂存观察池 / 等待更多样本</em>
+                  </div>
+                </article>
+              </div>
+              <div class="readiness-result-label">判断结果去向</div>
+              <div class="readiness-destination-strip" aria-label="准入判断后的两路去向">
+                <div class="readiness-destination pass">
+                  <strong>通过</strong>
+                  <span>进入人审确认闸门 / 责任分流</span>
+                </div>
+                <div class="readiness-destination fail">
+                  <strong>未通过</strong>
+                  <span>观察池 / 补证据 / 人审修正 / 暂不进入流程</span>
+                </div>
+              </div>
+            </div>
+            <figcaption class="readiness-transition">
+              通过准入判断的候选，才进入 AI 接入前后的流程设计：AI 负责整理和候选生成，人负责确认与分流。
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <section class="case-section" id="before-after">
-        <div class="case-container module2-content-wrap">
-          <div class="section-header">
-            <p class="section-kicker">05｜AI 接入前后</p>
-            <h2 class="section-title">AI 接入前后：从分散反馈到业务闭环</h2>
-            <p class="section-description">
-              AI 不是替代人做最终决策，而是在业务流中承担信号识别、分类聚类、证据提取、卡片初稿、分流建议和风险提醒；人负责确认分类、判断优先级、确认责任方、决定是否进入正式流程和是否关闭任务。
+        <div class="case-container module2-content-wrap module2-before-after-v2">
+          <div class="before-after-copy">
+            <p class="section-kicker">04｜AI 接入前后</p>
+            <h2 class="before-after-title"><span>AI 到底接在哪？</span><span class="before-after-title-focus">它改变了哪一步，又没有接管哪一步？</span></h2>
+            <p class="before-after-description">
+              AI 接在流程前段：把散落在销售、CRM、售后和会议里的反馈，整理成可确认的候选信号卡。它改变的是“候选生成”这一步，不是责任确认、优先级判断或正式分流。
             </p>
+            <div class="before-after-principle">
+              AI 负责整理和候选生成，人负责确认、分流和承担结果。
+            </div>
           </div>
-          <div class="module2-lane-grid">
-            <article class="module2-lane before">
-              <h3>改造前</h3>
-              <ol class="module2-step-list">
-                <li>多源业务信号</li>
-                <li>人工收集</li>
-                <li>人工判断问题类型</li>
-                <li>会议协调</li>
-                <li>手动分流责任部门</li>
-                <li>群聊 / 表格 / 会议纪要追踪</li>
-                <li>周报 / 月报复盘</li>
-                <li>部分经验沉淀，大量信号流失</li>
-              </ol>
-            </article>
-            <article class="module2-lane after">
-              <h3>改造后</h3>
-              <ol class="module2-step-list">
-                <li>多源业务信号</li>
-                <li>AI 识别 / 分类 / 聚类</li>
-                <li>证据提取与相似问题匹配</li>
-                <li>需求 / 问题 / 风险卡片初稿</li>
-                <li>人工确认与修正</li>
-                <li>分流到责任部门</li>
-                <li>状态追踪与风险提醒</li>
-                <li>经营洞察 / 规则沉淀</li>
-                <li>反哺分类规则与处理路径</li>
-              </ol>
-            </article>
-          </div>
-          <div class="role-grid">
-            <article class="role-card"><strong>AI 承担预处理和辅助判断</strong><p>识别信号、分类聚类、提取证据、生成卡片初稿、给出分流建议和风险提醒。</p></article>
-            <article class="role-card"><strong>人保留确认和最终判断</strong><p>确认分类、判断优先级、确认责任方、决定是否进入正式流程、对外结论和任务关闭。</p></article>
-          </div>
+
+          <figure class="ai-flow-board" aria-label="AI 接入前后流程对比">
+            <div class="ai-flow-board-header">
+              <strong>AI 改变的是候选生成节点，不是责任决策节点</strong>
+              <span>AI 介入点</span>
+            </div>
+            <div class="ai-flow-compare">
+              <article class="ai-flow-lane before">
+                <h3>接入前｜反馈靠人工转述</h3>
+                <ol class="ai-flow-steps">
+                  <li><strong>多源反馈</strong><small>销售、CRM、售后、会议</small></li>
+                  <li><strong>人工摘要</strong><small>群聊、周报、会议纪要</small></li>
+                  <li><strong>临时判断</strong><small>靠个人经验判断是否重要</small></li>
+                  <li><strong>状态断点</strong><small>责任不清、是否关闭难追踪</small></li>
+                </ol>
+                <p class="flow-break-note">断点：信息被记录，但没有稳定对象。</p>
+              </article>
+              <article class="ai-flow-lane intervention">
+                <div class="ai-intervention-focus">
+                  <span>AI 介入点</span>
+                  <strong>散落反馈 → 候选信号卡</strong>
+                  <small>只发生在 Human Gate 之前</small>
+                  <div class="ai-intervention-steps" aria-label="AI 介入点放大镜">
+                    <article class="ai-intervention-step"><strong>聚合相似反馈</strong></article>
+                    <article class="ai-intervention-step"><strong>抽取证据片段</strong></article>
+                    <article class="ai-intervention-step"><strong>初判业务类型</strong></article>
+                    <article class="ai-intervention-step"><strong>生成候选信号卡</strong></article>
+                  </div>
+                  <p class="flow-boundary-note">边界：只生成候选，不直接派单。</p>
+                </div>
+              </article>
+              <article class="ai-flow-lane after">
+                <h3>接入后｜形成可确认对象</h3>
+                <ol class="ai-flow-steps">
+                  <li><strong>候选信号卡</strong><small>后排空间小 / 家庭乘坐不舒适</small></li>
+                  <li><strong>证据可追溯</strong><small>来源、原文片段、相似表达可回看</small></li>
+                  <li><strong>状态待确认</strong><small>不是正式需求，不进入自动派单</small></li>
+                  <li><strong>下一步</strong><small>进入 Human Gate / 责任分流确认</small></li>
+                </ol>
+                <p class="flow-boundary-note">边界：是否进入流程，仍由人确认。</p>
+              </article>
+            </div>
+            <div class="ai-human-boundary" aria-label="AI 与人的责任边界">
+              <span class="boundary-label">边界划分</span>
+              <article class="boundary-mini-card ai">
+                <strong>AI</strong>
+                <ul>
+                  <li>聚合相似反馈 / 抽取证据 / 初判类型 / 生成候选卡</li>
+                </ul>
+              </article>
+              <article class="boundary-mini-card human">
+                <strong>人</strong>
+                <ul>
+                  <li>确认问题成立 / 判断责任方 / 决定是否进入流程 / 推动复盘</li>
+                </ul>
+              </article>
+            </div>
+            <figcaption class="before-after-transition">
+              当 AI 介入点被限定在“候选生成”后，下一步才是定义产品对象：哪些信息成为 Signal，哪些被封装成 Card，哪些进入 Task。
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="case-section" id="intervention">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">06｜AI 介入点</p>
-            <h2 class="section-title">AI 介入点：预识别、证据提取、卡片初稿与分流建议</h2>
-            <p class="section-description">
-              AI 不直接替代业务负责人决策，而是先完成跨源信号识别、聚类、证据提取和卡片初稿。关键节点仍由人确认：是否生成正式卡片、如何确定优先级、责任部门是谁、是否关闭、是否沉淀为规则。
+      <section class="case-section module2-unit-v2" id="unit">
+        <div class="case-container module2-content-wrap">
+          <div class="unit-copy">
+            <p class="section-kicker">05｜核心产品责任单元</p>
+            <h2 class="unit-title">
+              <span>别急着叫它需求，</span>
+              <span class="unit-title-focus">先看它是哪种对象。</span>
+            </h2>
+            <p class="unit-description">
+              在这个系统里，产品设计的关键不是把业务信息直接命名为需求，而是先拆成可流转、可确认、可追踪的对象。Signal 保留原始信号和证据，Candidate Card 承接 AI 候选生成与人审确认，Task 才进入责任分流和状态追踪。
             </p>
+            <div class="unit-principle">Signal 不是需求，Card 不是结果，Task 才进入组织行动。</div>
           </div>
 
-          <figure class="diagram-frame">
-            <p class="diagram-title">AI 介入点：从信号识别到复盘洞察</p>
-            <div class="intervention-map">
-              <div class="diagram-node source"><strong>信号进入</strong><small>AI 识别有效反馈与噪音</small></div>
-              <div class="diagram-node ai"><strong>问题判断</strong><small>分类、聚类、标签化</small></div>
-              <div class="diagram-node ai"><strong>证据整理</strong><small>提取来源片段和上下文</small></div>
-              <div class="diagram-node ai"><strong>卡片生成</strong><small>需求 / 问题 / 风险初稿</small></div>
-              <div class="diagram-node human"><strong>分流派发</strong><small>人确认责任方和路径</small></div>
-              <div class="diagram-node output"><strong>状态追踪</strong><small>暴露阻塞和未关闭事项</small></div>
-              <div class="diagram-node output"><strong>经营复盘</strong><small>生成趋势摘要和复盘草稿</small></div>
+          <figure class="object-responsibility-board" aria-label="Signal Candidate Card Task 三类产品责任对象">
+            <div class="object-board-header">
+              <strong>三类对象，接住一条业务信号的不同阶段</strong>
+              <span>产品责任对象</span>
+            </div>
+            <div class="object-flow-cards">
+              <article class="object-card signal">
+                <span class="object-card-label">输入对象</span>
+                <h3>Signal｜业务信号</h3>
+                <p class="object-core">原始反馈不是需求，只是待识别的业务信号。</p>
+                <div class="object-fields">
+                  <div class="object-field">
+                    <strong>输入</strong>
+                    <span>销售反馈 / CRM 备注 / 售后记录 / 会议纪要 / 质量反馈</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>状态</strong>
+                    <span>未识别 / 已聚合 / 待补证据</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>输出</strong>
+                    <span>相似信号簇 / 来源证据 / 原文片段</span>
+                  </div>
+                </div>
+                <p class="object-boundary">责任边界：AI 可以整理和聚合，人需要判断是否值得继续。</p>
+              </article>
+
+              <article class="object-card card">
+                <span class="object-card-label">候选对象</span>
+                <h3>Candidate Card｜候选信号卡</h3>
+                <p class="object-core">AI 生成的是候选对象，不是正式结果。</p>
+                <div class="object-fields">
+                  <div class="object-field">
+                    <strong>输入</strong>
+                    <span>Signal 簇 / 证据片段 / 相似表达 / 初步类型</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>状态</strong>
+                    <span>待确认 / 已确认 / 退回补证据 / 暂不进入流程</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>输出</strong>
+                    <span>问题类型 / 证据摘要 / 影响对象 / 建议责任方 / 下一步</span>
+                  </div>
+                </div>
+                <p class="object-boundary">责任边界：AI 生成初稿，人审确认类型、证据和是否进入流程。</p>
+              </article>
+
+              <article class="object-card task">
+                <span class="object-card-label">行动对象</span>
+                <h3>Task｜责任任务</h3>
+                <p class="object-core">只有被确认后的对象，才进入责任任务。</p>
+                <div class="object-fields">
+                  <div class="object-field">
+                    <strong>输入</strong>
+                    <span>已确认 Card / 责任方 / 优先级 / 处理要求</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>状态</strong>
+                    <span>待分流 / 处理中 / 阻塞 / 已关闭 / 待复盘</span>
+                  </div>
+                  <div class="object-field">
+                    <strong>输出</strong>
+                    <span>处理动作 / 状态记录 / 复盘结论 / 规则沉淀</span>
+                  </div>
+                </div>
+                <p class="object-boundary">责任边界：人负责承接、推进、关闭和复盘；AI 只能辅助整理与提醒。</p>
+              </article>
+            </div>
+            <div class="object-state-flow" aria-label="对象状态流">
+              <span>原始反馈</span>
+              <span>Signal</span>
+              <span>候选 Card</span>
+              <span>人审确认</span>
+              <span>Task</span>
+              <span>状态追踪</span>
+              <span>复盘沉淀</span>
             </div>
           </figure>
 
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>业务节点</th><th>AI 角色</th><th>人的角色</th></tr></thead>
-              <tbody>
-                <tr><td>信号进入</td><td>识别有效反馈与噪音</td><td>判断是否纳入正式流程</td></tr>
-                <tr><td>问题判断</td><td>分类、聚类、标签化</td><td>确认类型是否正确</td></tr>
-                <tr><td>证据整理</td><td>提取来源片段和上下文</td><td>判断证据是否足够</td></tr>
-                <tr><td>卡片生成</td><td>生成需求 / 问题 / 风险卡片初稿</td><td>修改标题、背景、优先级</td></tr>
-                <tr><td>分流派发</td><td>推荐责任部门和下一步动作</td><td>确认责任方和处理路径</td></tr>
-                <tr><td>状态追踪</td><td>暴露阻塞、延期和未关闭事项</td><td>推动组织协同</td></tr>
-                <tr><td>经营复盘</td><td>生成趋势摘要和复盘草稿</td><td>判断是否沉淀为规则或策略</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <figure class="module-figure">
-            <img src="assets/screenshots/ai_review_confirmation.png" alt="AI 识别结果和人工确认低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：AI 先生成识别草稿、提取证据片段、推荐责任方，再由人工确认优先级、责任部门和是否生成正式卡片。</figcaption>
-          </figure>
+          <p class="unit-transition">
+            对象被定义清楚后，界面设计才有依据：哪些页面负责看信号，哪些页面确认卡片，哪些页面追踪任务。
+          </p>
         </div>
       </section>
 
-      <section class="case-section alt" id="signal-layer">
+      <section class="case-section alt module2-interfaces-v2" id="interfaces">
         <div class="case-container module2-content-wrap">
-          <div class="section-header">
-            <p class="section-kicker">07｜轻量业务信号层</p>
-            <h2 class="section-title">产品架构判断：为什么需要轻量 AI 业务信号层？</h2>
-            <p class="section-description">
-              本项目不重做 CRM、售后、质量或项目管理系统，而是在既有系统之间增加一个轻量 AI 业务信号层。它负责跨源信号识别、证据追溯、人审分流、状态同步和规则迭代，让分散在不同系统中的业务反馈进入同一个需求 / 问题 / 风险闭环。
+          <div class="interfaces-copy">
+            <p class="section-kicker">06｜关键界面 / 工作流</p>
+            <h2 class="interfaces-title">
+              <span>页面不是展示层，</span>
+              <span class="interfaces-title-focus">而是责任流转的承接点。</span>
+            </h2>
+            <p class="interfaces-description">
+              对象定义清楚后，界面才有职责边界。信号池不是为了展示所有反馈，而是让 Signal 被看见和聚合；卡片详情页不是为了展示 AI 结果，而是让 Candidate Card 被确认；分流与任务看板不是为了展示任务，而是让 Task 被承接、追踪和复盘。
             </p>
+            <div class="interfaces-principle">Signal 被看见，Card 被确认，Task 被追踪；页面才真正接入了组织流程。</div>
           </div>
-          <div class="architecture-questions">
-            <article class="mini-card">
-              <span>为什么不能只靠基础模型？</span>
-              <h3>模型输出不能自动进入流程</h3>
-              <p>基础模型可以总结文本、抽取信息、生成卡片初稿，但它不知道企业内部的产品线、区域规则、责任部门、历史处理习惯、流程状态和人审记录。</p>
-            </article>
-            <article class="mini-card">
-              <span>为什么不能只靠单点系统？</span>
-              <h3>同一问题会散落在多个系统</h3>
-              <p>CRM、售后、质量和项目管理系统各自管理局部对象，但同一个业务问题可能同时出现在销售异议、售后投诉、质量记录和区域会议里。</p>
-            </article>
-            <article class="mini-card">
-              <span>轻量业务信号层做什么？</span>
-              <h3>补足跨源识别和闭环承接</h3>
-              <p>它不替代既有系统，而是在系统之间补足跨源信号聚合、AI 识别与结构化、证据追溯、人审分流、状态同步、规则迭代和经营复盘。</p>
-            </article>
-          </div>
-          <figure class="diagram-frame module2-flow-panel">
-            <p class="diagram-title">轻量 AI 业务信号层：不替代系统，而是连接系统</p>
-            <div class="architecture-map module2-flow-grid">
-              <div class="diagram-node source"><strong>既有系统</strong><small>CRM / 售后 / 质量 / 会议 / 项目管理</small></div>
-              <div class="diagram-node ai"><strong>轻量 AI 业务信号层</strong><small>跨源聚合、AI 识别、证据追溯、人审分流、状态同步、规则迭代</small></div>
-              <div class="diagram-node human"><strong>可确认对象</strong><small>需求卡片 / 问题卡片 / 风险卡片</small></div>
-              <div class="diagram-node output"><strong>组织响应</strong><small>产品 / 销售 / 质量 / 供应链 / 管理层</small></div>
-            </div>
-          </figure>
-          <figure class="module-figure">
-            <img src="assets/screenshots/signal_pool.png" alt="多源业务信号池低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：多源业务信号池，汇聚来自 CRM、售后、会议纪要、质量系统和手工录入的反馈，并由 AI 初步分类为需求 / 问题 / 风险。</figcaption>
-          </figure>
-        </div>
-      </section>
 
-      <section class="case-section" id="unit">
-        <div class="case-container module2-content-wrap">
-          <div class="section-header">
-            <p class="section-kicker">08｜核心产品责任单元</p>
-            <h2 class="section-title">核心产品责任单元：从信号池到组织行动闭环</h2>
-            <p class="section-description">这个项目的核心不是“生成需求卡片”，而是把信号池、AI 识别、卡片、人审、分流、状态追踪和经营洞察组织成一条可推进的主链路。</p>
-          </div>
-          <figure class="diagram-frame module2-flow-panel module2-chain-panel">
-            <p class="diagram-title">主链路：信号池 → AI 识别 → 卡片 → 人审 → 分流 → 复盘</p>
-            <div class="responsibility-chain">
-              <div class="chain-step">
-                <span>输入层</span>
-                <strong>多源业务信号池</strong>
-                <p>来源：销售、售后、客服、质量、CRM、会议、区域反馈。</p>
-                <p>作用：统一承接分散反馈，保留来源和原文证据。</p>
-              </div>
-              <div class="chain-step">
-                <span>识别层</span>
-                <strong>AI 识别与分类</strong>
-                <p>能力：分类、聚类、打标签、提取证据、识别重复主题和相似问题。</p>
-                <p>作用：把噪音和有效信号先分开。</p>
-              </div>
-              <div class="chain-step">
-                <span>承接层</span>
-                <strong>需求 / 问题 / 风险卡片</strong>
-                <p>能力：卡片分型、证据片段、影响范围、初步责任方。</p>
-                <p>作用：把反馈转成可确认、可分流、可追踪的业务对象。</p>
-              </div>
-              <div class="chain-step">
-                <span>确认层</span>
-                <strong>人工确认</strong>
-                <p>能力：确认类型、优先级、责任方、是否进入正式流程。</p>
-                <p>作用：让 AI 建议进入人的判断和取舍。</p>
-              </div>
-              <div class="chain-step">
-                <span>执行层</span>
-                <strong>分流与状态追踪</strong>
-                <p>能力：责任部门、任务看板、延期提醒、阻塞标记和关闭记录。</p>
-                <p>作用：减少“谁在处理、处理到哪里”的不确定性。</p>
-              </div>
-              <div class="chain-step">
-                <span>复盘层</span>
-                <strong>经营洞察与规则沉淀</strong>
-                <p>能力：高频问题、部门响应、闭环率和趋势变化。</p>
-                <p>作用：反哺规则、处理路径和组织复盘。</p>
+          <figure class="interface-workflow-board" aria-label="Signal Candidate Card Task 对应关键界面工作流">
+            <div class="interface-board-header">
+              <strong>三个关键界面，分别接住 Signal / Card / Task</strong>
+              <span>关键工作流</span>
+            </div>
+            <div class="interface-module-map" aria-label="产品形态总览模块地图">
+              <header>
+                <strong>产品形态总览｜一个工作台，围绕三类对象组织页面</strong>
+                <p>这个工作台不是把页面堆起来，而是让 Signal、Candidate Card、Task 在不同页面中被看见、确认、分流和追踪。</p>
+              </header>
+              <div class="module-map-items">
+                <div class="module-map-item"><span>Signal 入口</span><em>信号池 / 信号列表</em></div>
+                <div class="module-map-item"><span>Card 确认</span><em>候选卡片详情 / 人审确认页</em></div>
+                <div class="module-map-item"><span>Task 执行</span><em>分流与任务看板</em></div>
+                <div class="module-map-item"><span>Insight 复盘</span><em>状态追踪 / 复盘沉淀</em></div>
               </div>
             </div>
+            <div class="interface-object-flow" aria-label="对象与界面流转">
+              <span>Signal｜信号池</span>
+              <span>Candidate Card｜卡片详情</span>
+              <span>Task｜任务看板</span>
+            </div>
+
+            <div class="workflow-interface-grid">
+              <article class="workflow-interface-card signal">
+                <header>
+                  <span class="workflow-object-badge">接住 Signal</span>
+                  <h3>01｜信号池 / 信号列表</h3>
+                </header>
+                <figure class="workflow-shot">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="信号池 / 信号列表">
+                    <img src="assets/screenshots/signal_pool.png" alt="多源业务信号池低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                </figure>
+                <p class="workflow-role">把销售、CRM、售后、会议和质量反馈中的原始信号集中到一个可查看、可筛选、可聚合的位置。</p>
+                <div class="workflow-facts">
+                  <div class="workflow-fact">
+                    <strong>接住的断点</strong>
+                    <span>入口分散，业务信号无法统一看见。</span>
+                  </div>
+                  <div class="workflow-fact">
+                    <strong>用户判断</strong>
+                    <ul>
+                      <li>哪些信号重复出现？</li>
+                      <li>哪些信号证据不足？</li>
+                      <li>哪些信号值得进入候选生成？</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="workflow-output">输出：相似信号簇 / 证据片段 / 候选生成入口</p>
+              </article>
+
+              <article class="workflow-interface-card card">
+                <header>
+                  <span class="workflow-object-badge">接住 Candidate Card</span>
+                  <h3>02｜候选卡片详情 / 人审确认页</h3>
+                </header>
+                <figure class="workflow-shot">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="候选卡片详情 / 人审确认页">
+                    <img src="assets/screenshots/card_detail.png" alt="需求问题风险卡片详情页低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                </figure>
+                <p class="workflow-role">把 AI 生成的候选卡片变成可被人审确认的对象：确认问题类型、证据是否充分、影响对象、建议责任方和是否进入流程。</p>
+                <div class="workflow-facts">
+                  <div class="workflow-fact">
+                    <strong>接住的断点</strong>
+                    <span>AI 生成候选，但还不能直接成为正式需求或任务。</span>
+                  </div>
+                  <div class="workflow-fact">
+                    <strong>用户判断</strong>
+                    <ul>
+                      <li>问题类型是否正确？</li>
+                      <li>证据是否足够？</li>
+                      <li>责任方建议是否合理？</li>
+                      <li>是否进入 Human Gate / 正式流程？</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="workflow-output">输出：已确认 Card / 退回补证据 / 暂不进入流程</p>
+              </article>
+
+              <article class="workflow-interface-card task">
+                <header>
+                  <span class="workflow-object-badge">接住 Task</span>
+                  <h3>03｜分流与任务看板</h3>
+                </header>
+                <figure class="workflow-shot">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="分流与任务看板">
+                    <img src="assets/screenshots/kanban_board.png" alt="分流与任务看板低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                </figure>
+                <p class="workflow-role">把已确认对象进入责任分流、处理状态、阻塞点和复盘记录中，让业务行动可追踪。</p>
+                <div class="workflow-facts">
+                  <div class="workflow-fact">
+                    <strong>接住的断点</strong>
+                    <span>问题进入组织后，谁负责、处理到哪一步、是否关闭和是否复盘不清楚。</span>
+                  </div>
+                  <div class="workflow-fact">
+                    <strong>用户判断</strong>
+                    <ul>
+                      <li>谁负责承接？</li>
+                      <li>当前状态是什么？</li>
+                      <li>是否阻塞或关闭？</li>
+                      <li>是否需要复盘沉淀？</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="workflow-output">输出：责任任务 / 状态记录 / 处理动作 / 复盘结论</p>
+              </article>
+            </div>
+
+            <figcaption class="interface-workflow-transition">
+              Signal 被看见，Card 被确认，Task 被追踪；界面设计的职责，就是让对象在正确的位置被处理。
+            </figcaption>
           </figure>
-          <figure class="module-figure">
-            <img src="assets/screenshots/card_detail.png" alt="需求问题风险卡片详情页低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：卡片详情页，将原始业务信号沉淀为可流转、可追踪、可复盘的需求 / 问题 / 风险对象，并保留来源证据、责任方、优先级、状态和活动日志。</figcaption>
-          </figure>
-          <figure class="module-figure">
-            <img src="assets/screenshots/kanban_board.png" alt="分流与任务看板低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：分流与任务看板，按待确认、已分流、处理中、阻塞、已关闭等状态追踪事项，推动业务问题从识别进入组织行动闭环。</figcaption>
-          </figure>
-          <div class="object-strip">
-            <article class="module-card"><h3>信号</h3><p>来自 CRM、售后、销售、质量、会议等入口的原始业务信号，保留来源和上下文。</p></article>
-            <article class="module-card"><h3>卡片</h3><p>经过 AI 识别和人审确认后的需求 / 问题 / 风险对象，包含证据、类型和建议责任方。</p></article>
-            <article class="module-card"><h3>任务</h3><p>进入分流和状态追踪的后续动作，记录责任方、处理状态、阻塞点和复盘结论。</p></article>
-          </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="interfaces">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">09｜关键界面</p>
-            <h2 class="section-title">页面原型：业务信号如何被看见、确认和追踪</h2>
-            <p class="section-description">
-              这个项目需要承接六个核心界面，分别服务管理总览、信号进入、AI 识别、人审确认、分流推进和经营复盘。
+      <section class="case-section alt module2-architecture-v2" id="signal-layer">
+        <div class="case-container module2-content-wrap">
+          <div class="architecture-copy">
+            <p class="section-kicker">07｜产品架构判断</p>
+            <h2 class="architecture-title-v2">
+              <span>别急着接模型，</span>
+              <span class="architecture-title-focus">先把信号变成对象。</span>
+            </h2>
+            <p class="architecture-description-v2">
+              模型直接连接 CRM、售后、会议、质量和项目系统，确实能读到更多信息，但这些信息仍然缺少统一对象、证据来源、状态和责任边界。这个项目先建立一层轻量业务信号层，把不同来源的反馈统一成 Signal，保留证据和上下文，再生成 Candidate Card，最后由人确认后进入&nbsp;Task。
             </p>
+            <div class="architecture-principle">先有信号层，AI 输出才有对象、状态和责任。</div>
           </div>
-          <div class="interface-grid">
-            <article class="interface-card"><strong>总览 Dashboard</strong><p>让管理层和流程负责人看到当前业务信号健康度。</p></article>
-            <article class="interface-card"><strong>多源业务信号池</strong><p>让散落反馈先进入统一信号池，避免信息流失。</p></article>
-            <article class="interface-card"><strong>AI 识别结果页</strong><p>展示分类、置信度、证据片段、相似问题和人工纠错入口。</p></article>
-            <article class="interface-card"><strong>需求 / 问题 / 风险卡片详情页</strong><p>把业务信号转化为可以被推进和追踪的最小产品责任单元。</p></article>
-            <article class="interface-card"><strong>分流任务看板</strong><p>让组织行动透明化，减少“谁在处理、处理到哪里”的不确定性。</p></article>
-            <article class="interface-card"><strong>经营洞察 / 复盘页</strong><p>将一线反馈、问题闭环和部门响应转化为管理层可用的经营洞察。</p></article>
-          </div>
+
+          <figure class="architecture-judgment-board" aria-label="业务信号层产品架构层级图">
+            <div class="architecture-board-header">
+              <strong>业务信号层，把模型读取的信息变成产品对象</strong>
+              <span>业务信号层</span>
+            </div>
+            <div class="architecture-cutaway" aria-label="中心业务信号层产品架构切面图">
+              <article class="architecture-source-band">
+                <div class="architecture-layer-name">
+                  <span>01</span>
+                  业务来源层
+                </div>
+                <div class="architecture-source-content">
+                  <div class="architecture-chip-row">
+                    <span>CRM</span>
+                    <span>售后</span>
+                    <span>会议</span>
+                    <span>质量</span>
+                    <span>销售反馈</span>
+                    <span>项目系统</span>
+                  </div>
+                  <p class="architecture-layer-note">多源系统输入，先不要直接变成模型输出；来源多，不等于对象稳定。</p>
+                </div>
+              </article>
+
+              <div class="architecture-center-arrow">归一化输入</div>
+
+              <article class="architecture-signal-hub">
+                <div class="architecture-layer-name">
+                  <span>02</span>
+                  业务信号层
+                </div>
+                <strong>先把不同来源的反馈变成统一 Signal</strong>
+                <em>统一来源、证据、上下文、状态和责任边界</em>
+                <div class="architecture-chip-row">
+                  <span>来源归一</span>
+                  <span>证据保留</span>
+                  <span>上下文保留</span>
+                  <span>状态标记</span>
+                  <span>责任边界</span>
+                  <span>人审入口</span>
+                </div>
+              </article>
+
+              <div class="architecture-center-arrow">对象化</div>
+
+              <div class="architecture-downstream">
+                <article class="architecture-flow-band objects">
+                  <div class="architecture-layer-name">
+                    <span>03</span>
+                    产品对象层
+                  </div>
+                  <div class="architecture-downstream-content">
+                    <div class="architecture-chip-row architecture-object-flow">
+                      <span>Signal</span>
+                      <span>Candidate Card</span>
+                      <span>Human Gate</span>
+                      <span>Task</span>
+                    </div>
+                    <p class="architecture-layer-note">对象稳定后，AI 才参与候选生成与人审流转。</p>
+                  </div>
+                </article>
+                <article class="architecture-flow-band">
+                  <div class="architecture-layer-name">
+                    <span>04</span>
+                    界面 / 流程层
+                  </div>
+                  <div class="architecture-downstream-content">
+                    <div class="architecture-chip-row architecture-interface-flow">
+                      <span>信号池</span>
+                      <span>卡片详情</span>
+                      <span>任务看板</span>
+                      <span>状态追踪</span>
+                      <span>复盘沉淀</span>
+                    </div>
+                    <p class="architecture-layer-note">页面负责让对象进入具体工作流。</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <aside class="architecture-counterexample" aria-label="模型直连系统反例">
+              <strong>反例｜模型直连系统</strong>
+              <p>能读取更多内容，但来源、证据、状态和责任仍然不稳定，最后只会生成一段难进入流程的总结或建议。</p>
+              <div class="architecture-counterexample-points">
+                <span>来源语义不统一</span>
+                <span>证据片段易丢失</span>
+                <span>对象边界不稳定</span>
+                <span>状态难追踪</span>
+                <span>责任难复盘</span>
+              </div>
+            </aside>
+
+            <p class="architecture-principles-title">这层架构解决三个问题</p>
+            <div class="architecture-principles-grid" aria-label="业务信号层架构原则">
+              <article class="architecture-principle-card">
+                <span>原则 01</span>
+                <strong>统一入口</strong>
+                <p>不同系统的信息先进入同一套 Signal 对象。</p>
+              </article>
+              <article class="architecture-principle-card">
+                <span>原则 02</span>
+                <strong>保留证据</strong>
+                <p>AI 输出必须能回看来源、原文片段和上下文。</p>
+              </article>
+              <article class="architecture-principle-card">
+                <span>原则 03</span>
+                <strong>稳定责任</strong>
+                <p>只有被确认的对象，才进入 Task 与状态追踪。</p>
+              </article>
+            </div>
+            <figcaption class="architecture-transition">
+              当业务信号层被定义清楚后，系统才可以分阶段演进：先收集信号，再生成候选卡，最后进入任务流转和复盘闭环。
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="case-section alt" id="evolution">
+      <section class="case-section alt module2-evolution-v2" id="evolution">
         <div class="case-container module2-content-wrap">
           <div class="section-header">
-            <p class="section-kicker">10｜产品演进路径</p>
-            <h2 class="section-title">产品演进路径：从看见信号到形成机制</h2>
-            <p class="section-description">
-              版本演进不是功能越做越多，而是组织响应能力的演进：先让企业看见分散信号，再让信号进入行动，最后让闭环反哺管理机制。
+            <p class="section-kicker">08｜产品演进路径</p>
+            <h2 class="evolution-title-v2">
+              <span>闭环不是起点，</span>
+              <span class="evolution-title-focus">信号流才是演进路径。</span>
+            </h2>
+            <p class="evolution-description-v2">
+              这条路径不是按功能堆版本，而是沿着业务信号最容易断的地方推进：先让信号进入统一入口并保留证据，再生成候选卡并人审确认，最后进入责任分流、状态追踪和复盘沉淀。
             </p>
+            <div class="evolution-principle">产品演进不是补功能，而是补信号流转里的断点。</div>
           </div>
-          <div class="timeline-map module2-evolution-grid">
-            <article class="evolution-card">
-              <span>V1｜业务信号结构化</span>
-              <h3>让企业看见信号。</h3>
-              <p>把散乱反馈变成可识别、可管理的信号池。</p>
-              <strong class="ability-label">核心能力</strong>
-              <div class="module2-tag-list">
-                <span>多源录入</span><span>AI 分类</span><span>标签生成</span><span>证据片段提取</span><span>重复问题识别</span><span>卡片初稿</span><span>人工确认</span>
-              </div>
-            </article>
-            <article class="evolution-card">
-              <span>V2｜分流闭环</span>
-              <h3>让信号进入行动。</h3>
-              <p>把需求 / 问题 / 风险卡片分流到责任部门，并追踪状态。</p>
-              <strong class="ability-label">核心能力</strong>
-              <div class="module2-tag-list">
-                <span>卡片分型</span><span>责任方建议</span><span>分流看板</span><span>状态追踪</span><span>延期 / 阻塞提醒</span><span>关闭原因记录</span>
-              </div>
-            </article>
-            <article class="evolution-card">
-              <span>V3｜经营洞察与机制沉淀</span>
-              <h3>让闭环反哺管理。</h3>
-              <p>把闭环数据沉淀为趋势洞察、处理规则和组织复盘。</p>
-              <strong class="ability-label">核心能力</strong>
-              <div class="module2-tag-list">
-                <span>趋势分析</span><span>复盘报告</span><span>部门响应效率</span><span>高频问题沉淀</span><span>销售话术 / 产品规划 / 质量改进联动</span><span>规则迭代</span>
-              </div>
-            </article>
-          </div>
-          <p class="summary-line">这条版本线不是功能堆叠，而是 AI 从信息处理逐步进入组织响应机制的过程：看见信号 → 推动行动 → 形成机制。</p>
-          <figure class="module-figure">
-            <img src="assets/screenshots/insights_review.png" alt="经营洞察与复盘页低保真界面示意" loading="lazy" />
-            <figcaption>低保真界面示意：经营洞察与复盘页，在 V3 阶段基于闭环数据生成高频问题、闭环率、部门响应效率和 AI 复盘摘要，为产品规划、质量改进和管理复盘提供输入。</figcaption>
+
+          <figure class="evolution-path-board" aria-label="从信号可见到责任闭环的产品演进路径">
+            <div class="evolution-board-header">
+              <strong>从信号可见，到责任闭环</strong>
+              <span>产品演进路径</span>
+            </div>
+
+            <div class="evolution-path-track">
+              <section class="evolution-path-group see" aria-label="先看见">
+                <div class="evolution-group-header">
+                  <h3>第一段｜先看见</h3>
+                  <p>先解决信号入口和证据链问题。</p>
+                </div>
+                <div class="evolution-stage-row">
+                  <article class="evolution-stage">
+                    <span class="evolution-stage-number">01</span>
+                    <h3>信号池</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>入口分散，看不见全量信号。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>统一入口 / Signal 列表</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <span class="evolution-path-connector" aria-hidden="true">→</span>
+                  <article class="evolution-stage">
+                    <span class="evolution-stage-number">02</span>
+                    <h3>证据保留</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>原文被压缩，来源和语境丢失。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>来源 / 原文片段 / 上下文</dd>
+                      </div>
+                    </dl>
+                  </article>
+                </div>
+              </section>
+
+              <span class="evolution-band-transition">进入候选判断</span>
+
+              <section class="evolution-path-group judge" aria-label="再判断">
+                <div class="evolution-group-header">
+                  <h3>第二段｜再判断</h3>
+                  <p>再解决候选是否成立、是否能进入流程的问题。</p>
+                </div>
+                <div class="evolution-stage-row">
+                  <article class="evolution-stage ai">
+                    <span class="evolution-stage-number">03</span>
+                    <h3>AI 候选卡</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>反馈很多，但无法形成候选对象。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>Candidate Card</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <span class="evolution-gate">候选是否成立？</span>
+                  <article class="evolution-stage human">
+                    <span class="evolution-stage-number">04</span>
+                    <h3>人审确认</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>AI 输出不能直接进入正式流程。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>确认 / 退回补证据 / 暂不处理</dd>
+                      </div>
+                    </dl>
+                  </article>
+                </div>
+              </section>
+
+              <span class="evolution-band-transition gate-transition">
+                <span class="evolution-gate">是否值得进入流程？</span>
+                <em>进入责任闭环</em>
+              </span>
+
+              <section class="evolution-path-group loop" aria-label="后闭环">
+                <div class="evolution-group-header">
+                  <h3>第三段｜后闭环</h3>
+                  <p>最后解决责任、状态和经验回流问题。</p>
+                </div>
+                <div class="evolution-stage-row">
+                  <article class="evolution-stage action">
+                    <span class="evolution-stage-number">05</span>
+                    <h3>责任分流</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>问题成立后，不知道谁承接。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>责任方 / 优先级 / 处理要求</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <span class="evolution-path-connector" aria-hidden="true">→</span>
+                  <article class="evolution-stage action">
+                    <span class="evolution-stage-number">06</span>
+                    <h3>状态追踪</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>进入流程后，不知道处理到哪一步。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>处理中 / 阻塞 / 已关闭 / 待复盘</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <span class="evolution-path-connector" aria-hidden="true">→</span>
+                  <article class="evolution-stage action">
+                    <span class="evolution-stage-number">07</span>
+                    <h3>复盘沉淀</h3>
+                    <dl>
+                      <div>
+                        <dt>断点</dt>
+                        <dd>处理结束后，规则和经验没有回流。</dd>
+                      </div>
+                      <div>
+                        <dt>输出</dt>
+                        <dd>高频问题 / 规则沉淀 / 经验回流</dd>
+                      </div>
+                    </dl>
+                  </article>
+                </div>
+              </section>
+            </div>
+
+            <p class="evolution-path-summary">这条演进路径不是为了更快自动化，而是为了让每一次 AI 介入都先补上一个真实业务断点。</p>
+            <figcaption class="evolution-next">
+              路径画出来以后，还要验证每一段是否真的成立：哪些候选会误判，哪些证据不足，哪些动作不能交给 AI 自动完成。
+            </figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="case-section" id="validation">
-        <div class="case-container">
+      <section class="case-section module2-validation-v2" id="validation">
+        <div class="case-container module2-content-wrap">
           <div class="section-header">
-            <p class="section-kicker">11｜验证方式与项目边界</p>
-            <h2 class="section-title">验证方式与项目边界</h2>
-            <p class="section-description">
-              这是一个场景化 AI 产品设计案例，用传统企业典型业务流来推演 AI 如何进入业务信号流转场景。它不声明已经在真实车企或制造业公司上线，也不包装成真实业务增长结果。
+            <p class="section-kicker">09｜验证方式 / 边界</p>
+            <h2 class="validation-title-v2">
+              <span>验证不是看 AI 多聪明，</span>
+              <span class="validation-title-focus">而是看哪一步不能放行。</span>
+            </h2>
+            <p class="validation-description-v2">
+              这套流程的验证重点，不是证明 AI 能生成候选卡，而是判断每一段能不能放行：候选是否误判，证据是否足够，人审是否能判断，责任是否清晰，状态和复盘是否能沉淀。
             </p>
+            <div class="validation-principle">能生成，不等于能放行；能放行，也不等于能自动闭环。</div>
           </div>
-          <div class="boundary-grid">
-            <article class="boundary-card">
-              <strong>原型 / 样例流程验证</strong>
-              <p>用模拟或脱敏样例信号验证 AI 是否能完成识别、分类、证据提取、卡片生成、人审和分流流程。</p>
-            </article>
-            <article class="boundary-card">
-              <strong>未来真实试点评估</strong>
-              <p>如果进入企业真实试点，可用分类准确率、人工修改率、卡片确认率、责任方确认率、闭环率、平均关闭周期和部门响应效率评估产品效果。</p>
-            </article>
+
+          <figure class="validation-board" aria-label="验证与边界判断">
+            <div class="validation-board-header">
+              <strong>验证的不是模型能力，而是流程里的放行条件</strong>
+              <span>验证与边界</span>
+            </div>
+
+            <div class="validation-card-grid">
+              <article class="validation-card candidate">
+                <div class="validation-card-top">
+                  <span class="validation-card-index">01｜候选验证</span>
+                  <h3>AI 生成的 Candidate Card 是否真的成立？</h3>
+                  <p class="validation-question">先判断候选对象本身能不能进入下一段。</p>
+                </div>
+                <div class="validation-block">
+                  <strong>验证什么</strong>
+                  <ul>
+                    <li>是否聚合同一类业务信号</li>
+                    <li>是否保留来源和原文证据</li>
+                    <li>问题类型是否可被人理解</li>
+                  </ul>
+                </div>
+                <div class="validation-block badcase">
+                  <strong>典型 badcase</strong>
+                  <ul>
+                    <li>把相似但不同的问题合并成一类</li>
+                    <li>只保留总结，丢失原始证据</li>
+                    <li>把一次性抱怨误判为高频问题</li>
+                  </ul>
+                </div>
+                <p class="validation-boundary"><strong>边界：</strong>AI 可以生成候选卡，但不能把候选卡直接变成正式需求。</p>
+                <p class="validation-output"><strong>输出：</strong>通过 / 退回补证据 / 暂不进入流程</p>
+              </article>
+
+              <article class="validation-card human">
+                <div class="validation-card-top">
+                  <span class="validation-card-index">02｜人审验证</span>
+                  <h3>人是否能基于证据做出判断？</h3>
+                  <p class="validation-question">Human Gate 要让判断依据看得见。</p>
+                </div>
+                <div class="validation-block">
+                  <strong>验证什么</strong>
+                  <ul>
+                    <li>人审是否能看回来源</li>
+                    <li>证据是否足够支撑判断</li>
+                    <li>责任方和优先级是否可解释</li>
+                  </ul>
+                </div>
+                <div class="validation-block badcase">
+                  <strong>典型 badcase</strong>
+                  <ul>
+                    <li>证据不足，人审只能凭感觉判断</li>
+                    <li>AI 给出责任方，但无法解释原因</li>
+                    <li>优先级看似合理，但缺少影响范围</li>
+                  </ul>
+                </div>
+                <p class="validation-boundary"><strong>边界：</strong>人确认问题成立、责任和是否进入流程；AI 只能辅助整理和建议。</p>
+                <p class="validation-output"><strong>输出：</strong>确认进入 / 退回修正 / 暂不处理</p>
+              </article>
+
+              <article class="validation-card loop">
+                <div class="validation-card-top">
+                  <span class="validation-card-index">03｜闭环验证</span>
+                  <h3>进入 Task 后，是否真的可追踪、可关闭、可复盘？</h3>
+                  <p class="validation-question">闭环要能看见责任、状态、关闭和复盘。</p>
+                </div>
+                <div class="validation-block">
+                  <strong>验证什么</strong>
+                  <ul>
+                    <li>责任方是否明确</li>
+                    <li>任务状态是否可追踪</li>
+                    <li>复盘结论是否能回流</li>
+                  </ul>
+                </div>
+                <div class="validation-block badcase">
+                  <strong>典型 badcase</strong>
+                  <ul>
+                    <li>问题进入任务后，没有人承接</li>
+                    <li>状态长期停留在处理中</li>
+                    <li>关闭了任务，但没有复盘原因</li>
+                  </ul>
+                </div>
+                <p class="validation-boundary"><strong>边界：</strong>AI 可以提醒、整理和生成复盘草稿，但关闭任务必须由负责人确认，不能替代负责人承担结果。</p>
+                <p class="validation-output"><strong>输出：</strong>责任任务 / 状态记录 / 关闭确认 / 复盘沉淀</p>
+              </article>
+            </div>
+
+            <div class="release-rule-strip" aria-label="进入下一段的放行规则">
+              <h3>三段放行条件</h3>
+              <div class="release-rule-grid">
+                <div class="release-rule-item">
+                  <strong>候选放行</strong>
+                  <p>有来源、有证据、类型可解释</p>
+                </div>
+                <div class="release-rule-item">
+                  <strong>人审放行</strong>
+                  <p>问题成立、责任清晰、进入流程有必要</p>
+                </div>
+                <div class="release-rule-item">
+                  <strong>闭环放行</strong>
+                  <p>状态可追踪、关闭可确认、复盘可沉淀</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="non-automation-callout" aria-label="不能交给 AI 自动完成的事">
+              <h3>不能交给 AI 自动完成的事</h3>
+              <ul class="non-automation-list">
+                <li>直接决定责任方</li>
+                <li>直接决定优先级</li>
+                <li>直接进入正式流程</li>
+                <li>无人确认地关闭任务</li>
+                <li>替负责人承担结果</li>
+              </ul>
+              <p>AI 可以整理、生成候选和提醒，但责任动作必须由人确认。</p>
+            </div>
+
+            <p class="validation-summary">
+              这套验证不是为了证明 AI 多聪明，而是为了确认：哪些输出能进入下一段，哪些必须退回、补证据或留在人审判断里。
+            </p>
+            <figcaption class="validation-transition">
+              最终，项目重点不是“AI 能不能生成需求”，而是“AI 如何进入组织行动，同时不越过责任边界”。
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section alt module2-summary-v2" id="summary">
+        <div class="case-container module2-content-wrap">
+          <div class="section-header">
+            <p class="section-kicker">10｜项目总结</p>
+            <h2 class="summary-title-v2">
+              <span>我做的不是需求生成器，</span>
+              <span class="summary-title-focus">而是一套信号进入责任链的机制。</span>
+            </h2>
+            <p class="summary-description-v2">
+              从业务问题、样例、准入判断、对象定义、界面承接、架构层、演进路径到验证边界，这个项目的核心不是让 AI 替组织判断，而是让 AI 在责任边界内，把分散反馈整理成可被人确认和推进的对象。
+            </p>
+            <div class="summary-principle">AI 不替组织下判断，只让正确的判断更早出现、被追踪、能复盘。</div>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>评估维度</th><th>示例指标</th></tr></thead>
-              <tbody>
-                <tr><td>AI 识别质量</td><td>分类准确率、漏识别率、证据片段命中率、人工修改率</td></tr>
-                <tr><td>流程效率</td><td>信号到卡片时间、责任方确认时间、平均关闭周期</td></tr>
-                <tr><td>业务闭环</td><td>问题闭环率、可进入产品规划的需求数量</td></tr>
-                <tr><td>组织协同</td><td>责任方确认率、未关闭问题比例、复盘结论复用次数</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="boundary-grid">
-            <article class="boundary-card">
-              <strong>边界说明</strong>
-              <p>不声称真实车企 / 制造业已上线；不声称已取得投诉下降、成交提升或成本节约；不替代业务负责人做最终判断；不做完全自动派单；不替代 CRM / 售后 / 质量 / 项目管理系统；不处理高敏感或强合规审批决策。</p>
-            </article>
-            <article class="boundary-card">
-              <strong>正向总结</strong>
-              <p>这个项目要证明的不是“我做了一个需求卡片工具”，而是我能从传统企业业务流出发，判断 AI 应该在哪些节点介入，并把识别、证据、人审、分流、追踪和复盘组织成一个可推进的流程型 AI 产品责任单元。</p>
-            </article>
-          </div>
+
+          <figure class="summary-board" aria-label="Signal 到 Candidate Card 再到 Task 的项目总结">
+            <div class="summary-board-header">
+              <strong>这个机制最终定义三类产品对象</strong>
+              <span>Signal → Card → Task</span>
+            </div>
+
+            <div class="summary-card-grid">
+              <article class="summary-object-card signal">
+                <h3>Signal｜业务信号</h3>
+                <p>把销售、CRM、售后、会议和质量反馈变成可识别的业务信号。</p>
+                <dl>
+                  <div>
+                    <dt>解决的问题</dt>
+                    <dd>入口分散 / 证据丢失 / 语境断裂</dd>
+                  </div>
+                  <div>
+                    <dt>责任边界</dt>
+                    <dd>AI 可以整理和聚合，人判断是否值得继续。</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="summary-object-card card">
+                <h3>Candidate Card｜候选信号卡</h3>
+                <p>把相似反馈聚合成候选对象，进入人审确认。</p>
+                <dl>
+                  <div>
+                    <dt>解决的问题</dt>
+                    <dd>反馈很多但无法形成对象 / AI 输出不能直接进入正式流程</dd>
+                  </div>
+                  <div>
+                    <dt>责任边界</dt>
+                    <dd>AI 生成候选，人确认类型、证据和是否放行。</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="summary-object-card task">
+                <h3>Task｜责任任务</h3>
+                <p>只有被确认的对象，才进入责任分流、状态追踪和复盘沉淀。</p>
+                <dl>
+                  <div>
+                    <dt>解决的问题</dt>
+                    <dd>责任不清 / 状态不可见 / 经验无法回流</dd>
+                  </div>
+                  <div>
+                    <dt>责任边界</dt>
+                    <dd>AI 可以提醒和整理，但不能替负责人关闭任务或承担结果。</dd>
+                  </div>
+                </dl>
+              </article>
+            </div>
+
+            <figcaption class="summary-final-judgment">
+              这个项目的产品判断不是“让 AI 多生成一点”，而是定义：哪些信息可以成为 Signal，哪些候选可以成为 Card，哪些确认后的对象才值得进入 Task。
+            </figcaption>
+          </figure>
         </div>
       </section>
     </main>
@@ -1569,5 +6200,66 @@
       <span>AI 业务需求流转工作台 · 场景化 AI 产品设计案例</span>
       <a href="/ai-product-portfolio/index.html">返回作品集首页</a>
     </footer>
+    <div class="interface-lightbox" id="interfaceLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="interface-lightbox-panel" role="document">
+        <button class="interface-lightbox-close" type="button" aria-label="关闭大图预览">×</button>
+        <p class="interface-lightbox-title" id="interfaceLightboxTitle"></p>
+        <div class="interface-lightbox-image-wrap">
+          <img class="interface-lightbox-image" src="" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const interfaceSection = document.querySelector("#interfaces");
+        const lightbox = document.querySelector("#interfaceLightbox");
+        if (!interfaceSection || !lightbox) return;
+
+        const triggers = interfaceSection.querySelectorAll(".interface-shot-trigger");
+        const image = lightbox.querySelector(".interface-lightbox-image");
+        const title = lightbox.querySelector("#interfaceLightboxTitle");
+        const closeButton = lightbox.querySelector(".interface-lightbox-close");
+        let lastActiveTrigger = null;
+
+        const closeLightbox = () => {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("interface-lightbox-open");
+          image.removeAttribute("src");
+          image.setAttribute("alt", "");
+          if (lastActiveTrigger) {
+            lastActiveTrigger.focus();
+            lastActiveTrigger = null;
+          }
+        };
+
+        const openLightbox = (trigger) => {
+          const thumbnail = trigger.querySelector("img");
+          if (!thumbnail) return;
+          lastActiveTrigger = trigger;
+          image.src = thumbnail.currentSrc || thumbnail.src;
+          image.alt = thumbnail.alt || "";
+          title.textContent = trigger.dataset.lightboxTitle || thumbnail.alt || "界面大图预览";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("interface-lightbox-open");
+          closeButton.focus();
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => openLightbox(trigger));
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
