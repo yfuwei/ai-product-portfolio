@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enterprise Knowledge Workspace | Project 01</title>
+    <title>Enterprise Knowledge Workspace: Agent Workflow Evolution for Knowledge Reuse and Decision Preparation | Project Detail</title>
     <meta
       name="description"
-      content="Project 01 case study: a knowledge-based AI application that turns enterprise knowledge into trusted context, agent workflow, human review, badcase evaluation, and rollback-ready iteration."
+      content="Enterprise Knowledge Workspace product case: trusted context, Agent workflow, human review, validation iteration, and maintainable knowledge operations."
     />
+    <meta property="og:title" content="Enterprise Knowledge Workspace: Agent Workflow Evolution for Knowledge Reuse and Decision Preparation" />
+    <meta
+      property="og:description"
+      content="A product case that organizes retrieval, citation, project recap, experience feedback, and evaluation into a citable, traceable, maintainable AI knowledge workspace."
+    />
+    <meta property="og:image" content="../../../docs/module1-enterprise-knowledge-workspace/assets/diagrams/enterprise_knowledge_agent_workflow_en.png" />
+    <meta property="og:url" content="./index.html" />
     <link rel="stylesheet" href="../../../src/styles/main.css" />
     <style>
-      html,
       body {
-        width: 100%;
-        max-width: 100%;
         overflow-x: hidden;
-      }
-
-      body {
         background: linear-gradient(180deg, #ffffff 0%, var(--bg) 46%, #ffffff 100%);
       }
 
@@ -26,9 +27,9 @@
       h3,
       p,
       li,
-      a,
-      strong {
-        overflow-wrap: anywhere;
+      strong,
+      a {
+        overflow-wrap: break-word;
         word-break: break-word;
       }
 
@@ -37,11 +38,12 @@
         top: 0;
         z-index: 50;
         display: flex;
+        max-width: 100vw;
         align-items: center;
         justify-content: space-between;
         gap: 18px;
         padding: 14px clamp(20px, 5vw, 64px);
-        background: rgba(248, 250, 252, 0.92);
+        background: rgba(248, 250, 252, 0.9);
         border-bottom: 1px solid var(--line);
         backdrop-filter: blur(14px);
       }
@@ -68,10 +70,11 @@
 
       .case-hero {
         display: grid;
-        grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.92fr);
-        gap: clamp(28px, 5vw, 64px);
+        max-width: 100vw;
+        grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+        gap: clamp(24px, 4vw, 52px);
         align-items: center;
-        padding: clamp(48px, 6vw, 82px) clamp(20px, 5vw, 64px);
+        padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 64px);
         background:
           radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
           radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
@@ -79,112 +82,203 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .case-subtitle {
+      .case-hero-copy {
+        min-width: 0;
+      }
+
+      .case-hero h1 {
         max-width: 820px;
+        font-size: clamp(42px, 4.1vw, 56px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .hero-title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .case-subtitle {
+        max-width: 860px;
         margin: 14px 0 0;
         color: var(--ink);
-        font-size: clamp(22px, 3vw, 34px);
-        font-weight: 900;
-        line-height: 1.25;
+        font-size: clamp(20px, 2.25vw, 28px);
+        font-weight: 850;
+        line-height: 1.22;
+        white-space: nowrap;
       }
 
       .case-hook-question {
-        max-width: 820px;
-        margin: 24px 0 0;
+        max-width: 780px;
+        margin: 22px 0 0;
         color: var(--accent-strong);
-        font-size: clamp(22px, 2.4vw, 30px);
-        font-weight: 900;
-        line-height: 1.45;
+        font-size: clamp(17px, 1.55vw, 21px);
+        font-weight: 750;
+        line-height: 1.42;
       }
 
       .case-lead {
-        max-width: 820px;
+        max-width: 780px;
         margin: 14px 0 0;
         color: var(--text);
         font-size: 18px;
         line-height: 1.8;
       }
 
-      .hero-actions,
-      .hero-tags {
+      .status-card {
+        margin-top: 22px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 800;
+      }
+
+      .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 24px;
-      }
-
-      .hero-tags span {
-        padding: 8px 11px;
-        color: var(--accent-strong);
-        background: var(--accent-soft);
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .case-visual,
-      .module-card,
-      .info-card,
-      .trace-card,
-      .badcase-card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--soft-shadow);
+        margin-top: 28px;
       }
 
       .case-visual {
         display: grid;
-        gap: 14px;
-        padding: 18px;
-        color: #ffffff;
-        background: var(--ink);
-        box-shadow: var(--shadow);
+        min-width: 0;
+        overflow: hidden;
+        gap: 9px;
+        padding: 15px;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
       }
 
       .case-visual-header {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        gap: 8px;
+        color: var(--ink);
       }
 
       .case-visual-header span {
-        color: var(--sun);
-        font-size: 12px;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 11px;
         font-weight: 900;
         text-transform: uppercase;
       }
 
       .visual-panel {
         display: grid;
-        gap: 12px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        min-width: 0;
+        gap: 8px;
+        padding: 12px;
+        color: var(--ink);
+        background: #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.22);
         border-radius: var(--radius-md);
       }
 
+      .visual-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
       .visual-node {
+        min-height: 86px;
         padding: 14px;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: var(--radius-sm);
       }
 
-      .visual-node strong,
+      .visual-node strong {
+        display: block;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
       .visual-node span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+      }
+
+      .hero-flow {
+        display: grid;
+        gap: 4px;
+      }
+
+      .hero-flow-step {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+        padding: 9px 11px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+      }
+
+      .hero-flow-step em {
+        display: inline-grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: #eef4ff;
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: 999px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .hero-flow-step strong,
+      .hero-flow-step span {
         display: block;
       }
 
-      .visual-node span {
-        margin-top: 6px;
-        color: rgba(255, 255, 255, 0.75);
+      .hero-flow-step span {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.38;
+      }
+
+      .hero-flow-arrow {
+        color: rgba(37, 99, 235, 0.48);
         font-size: 13px;
-        line-height: 1.55;
+        font-weight: 900;
+        line-height: 0.8;
+        text-align: center;
+      }
+
+      .hero-principle {
+        padding: 11px 13px;
+        color: #065f46;
+        background: #ecfdf5;
+        border: 1px solid rgba(20, 184, 166, 0.24);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1.5;
       }
 
       .case-section {
+        max-width: 100vw;
         padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
         border-top: 1px solid var(--line);
       }
@@ -194,6 +288,7 @@
       }
 
       .case-container {
+        min-width: 0;
         width: min(100%, 1180px);
         margin: 0 auto;
       }
@@ -203,41 +298,1277 @@
         margin-left: 0;
       }
 
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .step-grid,
-      .badcase-grid {
+      #summary .section-header {
+        max-width: min(100%, 1120px);
+      }
+
+      #summary .section-title {
+        max-width: none;
+      }
+
+      .text-nowrap {
+        white-space: nowrap;
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .role-grid,
+      .choice-grid,
+      .maintenance-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .choice-grid,
+      .maintenance-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        margin-bottom: 24px;
+      }
+
+      .task-chain,
+      .trace-flow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-top: 24px;
+        padding: 18px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .task-chain span,
+      .trace-flow span {
+        display: inline-flex;
+        min-height: 34px;
+        align-items: center;
+        padding: 7px 10px;
+        color: var(--ink);
+        background: var(--surface-alt);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .task-chain i,
+      .trace-flow i {
+        color: var(--accent-strong);
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .problem-chain,
+      .source-grid,
+      .context-card-fields {
         display: grid;
         gap: 14px;
       }
 
-      .grid-4 {
+      .problem-chain {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
-      .grid-3,
-      .badcase-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .problem-principle,
+      .sample-principle,
+      .context-principle {
+        margin-top: 20px;
+        padding: 18px 20px;
+        color: var(--ink);
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(37, 99, 235, 0.08));
+        border: 1px solid rgba(20, 184, 166, 0.24);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.6;
       }
 
-      .grid-2 {
+      .sample-layout,
+      .context-layer-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .sample-layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) minmax(0, 1fr);
+      }
+
+      .sample-brief,
+      .context-card-anatomy {
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-brief h3,
+      .context-card-anatomy h3 {
+        margin-top: 0;
+        color: var(--ink);
+        font-size: clamp(22px, 2.2vw, 30px);
+        line-height: 1.18;
+      }
+
+      .sample-brief p,
+      .context-card-anatomy p {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .sample-scenario {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 14px;
+        align-items: start;
+        margin-bottom: 14px;
+        padding: 18px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-scenario h3,
+      .sample-step h3,
+      .context-product-card h3,
+      .context-gate-panel h3 {
+        margin: 0;
+        color: var(--ink);
+        line-height: 1.2;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      .sample-scenario h3 {
+        font-size: clamp(22px, 2.2vw, 30px);
+      }
+
+      .sample-scenario p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.58;
+      }
+
+      .sample-scenario-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sample-scenario-list li {
+        padding: 7px 10px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.28;
+      }
+
+      .sample-path {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .sample-step {
+        position: relative;
+        min-width: 0;
+        padding: 13px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-step:not(:last-child)::after {
+        position: absolute;
+        top: 24px;
+        right: -9px;
+        z-index: 1;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 13px;
+        font-weight: 900;
+        content: "→";
+      }
+
+      .sample-step-label {
+        display: inline-flex;
+        min-height: 24px;
+        align-items: center;
+        margin-bottom: 9px;
+        padding: 3px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .sample-step h3 {
+        font-size: 17px;
+      }
+
+      .sample-step p {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .sample-source-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 8px;
+      }
+
+      .sample-source-chips span {
+        padding: 4px 7px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .source-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .step-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+      .sample-task-list {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
       }
 
-      .module-card,
-      .info-card,
+      .sample-task-list li {
+        padding: 11px 13px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .sample-object-chain,
+      .context-flow-vertical {
+        display: grid;
+        gap: 8px;
+      }
+
+      .sample-object-node {
+        padding: 13px 14px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+      }
+
+      .sample-object-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .sample-object-arrow,
+      .context-flow-down {
+        color: rgba(37, 99, 235, 0.5);
+        font-weight: 900;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .context-flow {
+        display: grid;
+        gap: 10px;
+      }
+
+      .context-flow-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+      }
+
+      .context-flow-node {
+        min-height: 72px;
+        padding: 14px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        font-weight: 900;
+      }
+
+      .context-flow-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .context-flow-arrow {
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .context-card-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .context-layer-layout {
+        grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      }
+
+      .context-product-card,
+      .context-gate-panel {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .context-product-card {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      }
+
+      .context-product-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .context-product-label {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        margin-bottom: 8px;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-product-status {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 4px 9px;
+        color: #92400e;
+        background: #fffbeb;
+        border: 1px solid rgba(245, 158, 11, 0.28);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-product-card h3,
+      .context-gate-panel h3 {
+        font-size: clamp(21px, 1.9vw, 28px);
+      }
+
+      .context-candidate {
+        margin-bottom: 11px;
+        padding: 13px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+      }
+
+      .context-candidate strong,
+      .context-product-block strong,
+      .context-gate strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .context-candidate p,
+      .context-product-block p,
+      .context-gate p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .context-product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .context-product-block {
+        padding: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-gate-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .context-gate {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 9px;
+        padding: 11px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-gate em {
+        display: inline-grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-field {
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-field strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .context-field span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #problem .mini-card h3,
+      #sample .mini-card h3,
+      .sample-brief h3,
+      .context-card-anatomy h3,
+      .sample-step h3,
+      .context-product-card h3,
+      .context-gate-panel h3,
+      .context-product-block strong,
+      .context-gate strong,
+      .context-field strong,
+      .context-flow-node,
+      .sample-object-node {
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      #problem .mini-card p,
+      #sample .mini-card p,
+      .context-field span {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-compare {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        padding: 12px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.72), rgba(248, 250, 252, 0.94));
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+      }
+
+      #before-after .section-description,
+      #intervention .section-description,
+      #unit .section-description {
+        width: 100%;
+        max-width: none;
+      }
+
+      #before-after .section-header,
+      #intervention .section-header,
+      #unit .section-header {
+        max-width: none;
+      }
+
+      @media (min-width: 1081px) {
+        #before-after .section-description,
+        #intervention .section-description {
+          white-space: nowrap;
+        }
+
+        #unit .section-title {
+          max-width: none;
+          white-space: nowrap;
+        }
+      }
+
+      .rag-card,
+      .object-card,
+      .interface-card {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .rag-card {
+        position: relative;
+      }
+
+      #before-after .rag-card {
+        padding: 6px 18px 6px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      #before-after .rag-card:first-child {
+        border-left: 0;
+      }
+
+      .rag-card:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        color: rgba(37, 99, 235, 0.5);
+        font-weight: 900;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      #before-after .rag-card span {
+        min-height: 0;
+        padding: 0;
+        color: var(--accent-strong);
+        background: transparent;
+        border-radius: 0;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+
+      .rag-card span,
+      .object-card span,
+      .interface-card span,
+      .interface-evidence span {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-card h3,
+      .object-card h3,
+      .interface-card h3 {
+        margin: 12px 0 8px;
+        color: var(--ink);
+        font-size: 19px;
+        line-height: 1.25;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      #before-after .rag-card h3 {
+        margin: 7px 0 5px;
+        font-size: 17px;
+      }
+
+      #before-after .rag-card p {
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .rag-card p,
+      .object-card p,
+      .interface-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.58;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-boundary {
+        margin-top: 18px;
+        padding: 14px 16px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .rag-work-nodes {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .rag-work-node {
+        padding: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .rag-work-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .rag-work-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .rag-mechanism-board {
+        margin: 20px 0 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), var(--soft-shadow);
+      }
+
+      .rag-mechanism-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .rag-mechanism-header strong {
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .rag-mechanism-header span {
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) auto minmax(0, 1.2fr) auto minmax(0, 0.9fr);
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .rag-mechanism-column {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid transparent;
+        border-radius: var(--radius-md);
+      }
+
+      .rag-mechanism-column.problem {
+        background: rgba(255, 251, 235, 0.72);
+        border-color: rgba(245, 158, 11, 0.18);
+      }
+
+      .rag-mechanism-column.ai {
+        background: rgba(239, 246, 255, 0.82);
+        border-color: rgba(37, 99, 235, 0.16);
+      }
+
+      .rag-mechanism-column.product {
+        background: rgba(240, 253, 250, 0.76);
+        border-color: rgba(20, 184, 166, 0.18);
+      }
+
+      .rag-mechanism-column header {
+        display: grid;
+        gap: 6px;
+      }
+
+      .rag-mechanism-column span {
+        width: fit-content;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-column h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.2;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      .rag-mechanism-column ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rag-mechanism-column li {
+        display: grid;
+        gap: 3px;
+        padding: 2px 0 2px 10px;
+        color: var(--text);
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(37, 99, 235, 0.18);
+        border-radius: 0;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-mechanism-column li strong {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .rag-mechanism-column li span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .rag-mechanism-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.68);
+        font-size: 26px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-note {
+        margin: 12px 0 0;
+        padding-top: 10px;
+        color: var(--muted);
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .object-chain {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .object-card {
+        display: grid;
+        align-content: start;
+        gap: 9px;
+      }
+
+      .object-card dl {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .object-source {
+        margin: 0;
+        padding: 0 0 6px;
+        color: var(--muted);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+        font-size: 11.5px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .object-source strong {
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .object-card .object-label {
+        min-height: 0;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .object-card h3 {
+        margin: 0;
+      }
+
+      .object-card dt {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .object-card dd {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .object-principle {
+        margin-top: 18px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(37, 99, 235, 0.07));
+        border: 1px solid rgba(20, 184, 166, 0.22);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .interface-layout {
+        display: grid;
+        gap: 18px;
+      }
+
+      .interface-cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.72), rgba(240, 253, 250, 0.52));
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+      }
+
+      .interface-card {
+        padding: 4px 0 4px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 3px solid rgba(37, 99, 235, 0.22);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .interface-card h3 {
+        margin: 0 0 3px;
+        font-size: 17px;
+      }
+
+      .interface-card span {
+        min-height: 0;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .interface-card p {
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .interface-evidence-group {
+        margin-top: 6px;
+        padding: 18px;
+        background: linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), var(--soft-shadow);
+      }
+
+      .interface-evidence-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .interface-evidence-header h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .interface-evidence-header p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .interface-evidence {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .interface-evidence figure {
+        margin: 0;
+        padding: 10px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      }
+
+      .interface-evidence figure:hover,
+      .interface-evidence figure:focus-within {
+        border-color: rgba(37, 99, 235, 0.28);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .interface-evidence img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        transition: transform 190ms ease, filter 190ms ease;
+      }
+
+      .interface-evidence figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .interface-shot-trigger {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-radius: var(--radius-sm);
+        cursor: zoom-in;
+      }
+
+      .interface-shot-trigger:hover img,
+      .interface-shot-trigger:focus-visible img {
+        filter: saturate(1.04);
+        transform: scale(1.02);
+      }
+
+      .interface-shot-trigger:focus-visible {
+        outline: 2px solid rgba(37, 99, 235, 0.72);
+        outline-offset: 3px;
+      }
+
+      .interface-shot-zoom-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        padding: 4px 8px;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 850;
+        line-height: 1.2;
+        opacity: 0;
+        transform: translateY(-3px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .interface-shot-trigger:hover .interface-shot-zoom-label,
+      .interface-shot-trigger:focus-visible .interface-shot-zoom-label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.interface-lightbox-open {
+        overflow: hidden;
+      }
+
+      .interface-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(15, 23, 42, 0.74);
+      }
+
+      .interface-lightbox.is-open {
+        display: flex;
+      }
+
+      .interface-lightbox-panel {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        width: min(96vw, 1280px);
+        max-height: 94vh;
+      }
+
+      .interface-lightbox-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 850;
+        line-height: 1.35;
+      }
+
+      .interface-lightbox-image-wrap {
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: var(--radius-md);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+      }
+
+      .interface-lightbox-image {
+        display: block;
+        max-width: min(96vw, 1280px);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      .interface-lightbox-close {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        display: inline-grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .interface-lightbox-close:focus-visible {
+        outline: 2px solid rgba(191, 219, 254, 0.9);
+        outline-offset: 3px;
+      }
+
+      .architecture-figure-group {
+        margin-top: 0;
+      }
+
+      .architecture-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-gallery figure {
+        padding: 12px;
+      }
+
+      .architecture-principle,
+      .validation-principle {
+        margin-top: 18px;
+        padding: 15px 17px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .lane-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .lane {
+        padding: 22px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .lane.before {
+        background: #f8fafc;
+      }
+
+      .lane.after {
+        border-color: rgba(37, 99, 235, 0.22);
+        background: linear-gradient(180deg, rgba(239, 246, 255, 0.8), #ffffff);
+      }
+
+      .lane h3,
+      .trace-card h3 {
+        margin-top: 0;
+      }
+
+      .lane-steps {
+        display: grid;
+        gap: 18px;
+        margin: 16px 0;
+      }
+
+      .lane-steps span {
+        position: relative;
+        display: block;
+        padding: 10px 12px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+      }
+
+      .lane-steps span:not(:last-child)::after {
+        position: absolute;
+        right: 50%;
+        bottom: -16px;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1;
+        content: "↓";
+        transform: translateX(50%);
+      }
+
+      .lane.after .lane-steps span {
+        border-color: rgba(37, 99, 235, 0.18);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tag-list li {
+        padding: 6px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .choice-card,
       .trace-card,
       .badcase-card {
         padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
       }
 
-      .module-card span,
-      .info-card span,
+      .choice-card span,
       .trace-card span,
       .badcase-card span {
         display: inline-flex;
@@ -251,29 +1582,227 @@
         font-weight: 900;
       }
 
-      .module-card h3,
-      .info-card h3,
+      .choice-card h3,
       .trace-card h3,
       .badcase-card h3 {
         margin-top: 12px;
         font-size: 19px;
       }
 
-      .module-card p,
-      .info-card p,
+      .choice-card p,
       .trace-card p,
       .badcase-card p {
         color: var(--muted);
       }
 
-      .tag-list {
+      .evolution-figure-group {
+        margin-top: 0;
+      }
+
+      .evolution-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .evolution-gallery figure {
+        padding: 12px;
+      }
+
+      .trace-card dl,
+      .badcase-card dl,
+      .maintenance-grid ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text);
+      }
+
+      .trace-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .trace-card dl,
+      .badcase-card dl {
+        display: grid;
+        gap: 10px;
+        padding-left: 0;
+      }
+
+      .trace-card div,
+      .badcase-card div {
+        padding: 10px 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .trace-card dt,
+      .badcase-card dt {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .trace-card dd,
+      .badcase-card dd {
+        margin: 4px 0 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .badcase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .validation-layout {
+        display: grid;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .validation-panel {
+        display: grid;
+        gap: 14px;
+      }
+
+      .validation-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0;
+        padding: 14px;
+        align-items: stretch;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+      }
+
+      .validation-dimension {
+        position: relative;
+        display: grid;
+        gap: 7px;
+        align-content: start;
+        min-width: 0;
+        padding: 10px 14px;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .validation-dimension:not(:first-child) {
+        border-left: 1px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .validation-dimension:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -8px;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.5);
+        font-size: 16px;
+        font-weight: 900;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      .validation-dimension strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.28;
+      }
+
+      .validation-dimension p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .validation-step-label {
+        color: var(--accent-strong);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .validation-loop-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .validation-feedback {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+        color: #065f46;
+        background: rgba(236, 253, 245, 0.9);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .validation-feedback strong {
+        color: var(--ink);
+      }
+
+      .validation-detail-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 12px 14px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+      }
+
+      .validation-detail {
+        padding: 0 10px;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .validation-detail + .validation-detail {
+        border-left: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .validation-detail h3 {
+        margin: 0 0 9px;
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
+      .validation-detail p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .validation-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-top: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
 
-      .tag-list span {
+      .validation-actions li {
         padding: 7px 9px;
         color: var(--accent-strong);
         background: var(--accent-soft);
@@ -282,32 +1811,173 @@
         font-weight: 900;
       }
 
-      .trace-list {
-        display: grid;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
+      .validation-gallery {
+        grid-template-columns: 1fr;
       }
 
-      .trace-list li {
+      #agent .section-header,
+      #evolution .section-header,
+      #evaluation .section-header {
+        max-width: none;
+      }
+
+      #agent .section-description,
+      #evolution .section-description,
+      #evaluation .section-description {
+        width: 100%;
+        max-width: none;
+      }
+
+      #agent .section-title,
+      #evolution .section-title,
+      #evaluation .section-title {
+        max-width: none;
+        word-break: keep-all;
+        overflow-wrap: normal;
+      }
+
+      @media (min-width: 1024px) {
+        #evaluation .section-title {
+          font-size: clamp(34px, 3vw, 44px);
+          white-space: nowrap;
+        }
+      }
+
+      .card-grid {
         display: grid;
-        grid-template-columns: 110px 1fr;
-        gap: 12px;
-        padding: 10px 12px;
-        background: #f8fafc;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .unit-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .mini-card,
+      .flow-card,
+      .loop-card {
+        padding: 18px;
+        background: var(--surface);
         border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .mini-card span,
+      .flow-card span,
+      .loop-card span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 5px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .mini-card h3,
+      .flow-card h3,
+      .loop-card h3 {
+        margin-top: 12px;
+        font-size: 19px;
+      }
+
+      .mini-card p,
+      .flow-card p,
+      .loop-card p {
+        color: var(--muted);
+      }
+
+      .flow-diagram {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .flow-diagram .flow-card {
+        position: relative;
+        min-height: 178px;
+      }
+
+      .flow-card ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--text);
+      }
+
+      .callout-card {
+        padding: 22px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .callout-card strong {
+        display: block;
+        color: var(--ink);
+        font-size: 22px;
+        line-height: 1.35;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 15px 16px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+
+      th {
+        color: var(--ink);
+        background: var(--surface-alt);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .diagram-frame {
+        overflow: hidden;
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .diagram-frame img {
+        width: 100%;
+        height: auto;
         border-radius: var(--radius-md);
       }
 
-      .trace-list strong {
-        color: var(--ink);
+      .diagram-caption {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
       }
 
       .portfolio-figure {
-        margin: 22px 0 0;
-        overflow: hidden;
-        background: var(--surface);
+        margin: 30px 0 0;
+        padding: 14px;
+        background: #ffffff;
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--soft-shadow);
@@ -316,16 +1986,21 @@
       .portfolio-figure img {
         display: block;
         width: 100%;
-        max-width: 100%;
+        max-width: 1120px;
         height: auto;
-        background: #f8fafc;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 14px;
       }
 
       .portfolio-figure figcaption {
-        padding: 14px 16px 16px;
+        max-width: 980px;
+        margin: 12px auto 0;
         color: var(--muted);
         font-size: 14px;
         line-height: 1.65;
+        text-align: center;
       }
 
       .figure-title {
@@ -333,6 +2008,294 @@
         margin-bottom: 4px;
         color: var(--ink);
         font-weight: 900;
+      }
+
+      .loop-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .loop-card {
+        min-height: 150px;
+      }
+
+      .closing-loop-panel {
+        margin-top: 18px;
+        padding: 22px;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 54%, #f0fdfa 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      }
+
+      .closing-loop-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .closing-loop-header h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(24px, 2.3vw, 34px);
+        line-height: 1.18;
+      }
+
+      .closing-loop-header p {
+        max-width: 680px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .closing-loop-diagram {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .closing-loop-node {
+        display: grid;
+        gap: 9px;
+        min-width: 0;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-left: 4px solid rgba(37, 99, 235, 0.46);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-loop-node.return {
+        border-left-color: rgba(20, 184, 166, 0.7);
+      }
+
+      .closing-loop-node em {
+        color: var(--accent-strong);
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .closing-loop-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.25;
+      }
+
+      .closing-loop-node p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .closing-loop-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .closing-loop-tags li,
+      .closing-role-tags li {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 7px;
+        color: var(--accent-strong);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .closing-loop-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.56);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .closing-loop-return {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-top: 12px;
+        padding: 11px 13px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px dashed rgba(20, 184, 166, 0.38);
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .closing-loop-return strong {
+        color: #065f46;
+      }
+
+      .closing-side-notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .closing-note {
+        display: grid;
+        gap: 8px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-note h3,
+      .closing-roles h3,
+      .closing-compare h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .closing-note p,
+      .closing-roles p,
+      .closing-compare p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .closing-note-list,
+      .closing-boundary-list {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .closing-roles,
+      .closing-compare {
+        margin-top: 12px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.48);
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-role-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 8px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .closing-maintain-line {
+        margin-top: 6px;
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .closing-compare p + p {
+        margin-top: 8px;
+      }
+
+      .summary-final {
+        margin-top: 16px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .boundary-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 18px;
+      }
+
+      .boundary-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .boundary-compare-card {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+      }
+
+      .boundary-compare-card h4 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .boundary-compare-card dl {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+      }
+
+      .boundary-compare-card div {
+        display: grid;
+        gap: 4px;
+      }
+
+      .boundary-compare-card dt {
+        color: var(--accent-strong);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .boundary-compare-card dd {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .boundary-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .boundary-list li {
+        padding: 12px 14px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
       }
 
       .case-footer {
@@ -347,16 +2310,205 @@
 
       @media (max-width: 1080px) {
         .case-hero,
-        .grid-4,
-        .grid-3,
-        .grid-2,
-        .step-grid,
-        .badcase-grid {
+        .problem-grid,
+        .role-grid,
+        .problem-chain,
+        .source-grid,
+        .sample-scenario,
+        .sample-path,
+        .sample-layout,
+        .context-layer-layout,
+        .context-product-grid,
+        .context-card-fields,
+        .rag-compare,
+        .rag-work-nodes,
+        .rag-mechanism-grid,
+        .object-chain,
+        .interface-layout,
+        .interface-cards,
+        .interface-evidence,
+        .choice-grid,
+        .maintenance-grid,
+        .lane-compare,
+        .validation-layout,
+        .validation-grid,
+        .validation-detail-row,
+        .trace-layout,
+        .badcase-grid,
+        .closing-loop-diagram,
+        .closing-side-notes,
+        .boundary-compare,
+        .card-grid,
+        .unit-grid,
+        .flow-diagram,
+        .loop-grid,
+        .boundary-grid {
           grid-template-columns: 1fr;
+        }
+
+        .visual-row {
+          grid-template-columns: 1fr;
+        }
+
+        .sample-path {
+          gap: 24px;
+        }
+
+        .sample-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .rag-card:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .rag-mechanism-arrow,
+        .validation-loop-arrow {
+          transform: rotate(90deg);
+        }
+
+        .validation-dimension:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -15px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .validation-dimension:not(:first-child),
+        .validation-detail + .validation-detail {
+          border-top: 1px solid rgba(148, 163, 184, 0.18);
+          border-left: 0;
+        }
+
+        .closing-loop-arrow {
+          transform: rotate(90deg);
         }
       }
 
       @media (max-width: 720px) {
+        .case-header,
+        .case-hero,
+        .case-section,
+        .case-footer {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .case-hero-copy,
+        .case-container,
+        .section-header,
+        .case-visual,
+        .visual-panel,
+        .visual-node,
+        .hero-flow-step,
+        .sample-scenario,
+        .sample-step,
+        .sample-object-node,
+        .context-product-card,
+        .context-gate-panel,
+        .context-product-block,
+        .context-gate,
+        .rag-card,
+        .rag-work-node,
+        .rag-mechanism-board,
+        .rag-mechanism-column,
+        .object-card,
+        .interface-card,
+        .interface-evidence figure,
+        .context-flow-node,
+        .context-field,
+        .mini-card,
+        .flow-card,
+        .loop-card,
+        .choice-card,
+        .trace-card,
+        .badcase-card,
+        .closing-loop-panel,
+        .closing-loop-node,
+        .closing-note,
+        .closing-roles,
+        .closing-compare,
+        .lane,
+        .module-card,
+        .callout-card,
+        .table-wrap,
+        .diagram-frame,
+        .portfolio-figure {
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .case-hero h1 {
+          max-width: none;
+          font-size: clamp(28px, 8vw, 32px);
+          line-height: 1.18;
+          overflow-wrap: break-word;
+          word-break: keep-all;
+        }
+
+        .case-hero h1 br {
+          display: block;
+        }
+
+        .hero-title-line {
+          white-space: normal;
+        }
+
+        .case-subtitle,
+        .case-hook-question {
+          width: 100%;
+          max-width: 100%;
+          overflow-wrap: break-word;
+          white-space: normal;
+          word-break: keep-all;
+        }
+
+        h2,
+        .section-title {
+          max-width: 100%;
+          font-size: clamp(24px, 7.2vw, 30px);
+          line-height: 1.22;
+          overflow-wrap: break-word;
+          word-break: keep-all;
+        }
+
+        .case-lead,
+        .status-card {
+          max-width: none;
+          font-size: 16px;
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+
+        .callout-card {
+          padding: 18px;
+        }
+
+        .callout-card strong {
+          font-size: 20px;
+          line-height: 1.45;
+          overflow-wrap: break-word;
+          word-break: keep-all;
+        }
+
+        .case-hero {
+          grid-template-columns: minmax(0, 1fr);
+          padding: 44px 20px 48px;
+          overflow: hidden;
+        }
+
         .case-header {
           align-items: flex-start;
           flex-direction: column;
@@ -365,56 +2517,488 @@
         .case-nav {
           display: grid;
           width: 100%;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          max-width: 100%;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 6px 10px;
           font-size: 12px;
         }
 
-        .case-hero {
-          display: block;
-          padding: 44px 20px 48px;
+        .case-nav a {
+          min-width: 0;
+          padding: 4px 0;
+          overflow-wrap: break-word;
+          text-align: left;
+          white-space: normal;
+        }
+
+        .case-visual-header span {
+          display: none;
         }
 
         .case-visual {
-          margin-top: 28px;
+          width: 100%;
+          max-width: none;
+          padding: 14px;
         }
 
-        .portfolio-figure {
-          margin-top: 18px;
+        .visual-panel {
+          padding: 12px;
+        }
+
+        .interface-lightbox {
+          padding: 12px;
+        }
+
+        .interface-lightbox-panel {
+          width: 100%;
+        }
+
+        .interface-lightbox-close {
+          top: 8px;
+          right: 8px;
+          width: 42px;
+          height: 42px;
+        }
+
+        .interface-lightbox-title {
+          padding-right: 52px;
+        }
+
+        .visual-node strong,
+        .visual-node span,
+        .hero-flow-step strong,
+        .hero-flow-step span,
+        .context-flow-node,
+        .context-field,
+        .mini-card p,
+        .flow-card p,
+        .loop-card p,
+        td,
+        th {
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+
+        .context-flow-row {
+          grid-template-columns: 1fr;
+        }
+
+        .context-flow-arrow {
+          text-align: center;
+          transform: rotate(90deg);
+        }
+
+        .hero-actions .button-primary,
+        .hero-actions .button-secondary {
+          width: 100%;
+          padding-right: 12px;
+          padding-left: 12px;
+          text-align: center;
+          white-space: normal;
         }
 
         .case-section {
           padding: 56px 20px;
         }
 
-        .trace-list li {
+        table {
+          min-width: 640px;
+        }
+
+        .portfolio-figure {
+          padding: 10px;
+        }
+      }
+
+      html[lang="en"] .section-title,
+      html[lang="en"] .section-description,
+      html[lang="en"] .case-subtitle,
+      html[lang="en"] .case-hook-question {
+        text-wrap: balance;
+      }
+
+      html[lang="en"] .section-description {
+        max-width: 980px;
+      }
+
+      html[lang="en"] #before-after .section-description,
+      html[lang="en"] #intervention .section-description,
+      html[lang="en"] #unit .section-description,
+      html[lang="en"] #agent .section-description,
+      html[lang="en"] #evolution .section-description,
+      html[lang="en"] #evaluation .section-description {
+        white-space: normal;
+      }
+
+      html[lang="en"] .object-source,
+      html[lang="en"] .object-source strong {
+        line-height: 1.35;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+
+      html[lang="en"] .closing-side-notes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      html[lang="en"] .closing-note {
+        grid-template-rows: auto 1fr auto;
+      }
+
+      html[lang="en"] .case-hero {
+        grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+      }
+
+      html[lang="en"] .case-hero-copy,
+      html[lang="en"] .case-visual,
+      html[lang="en"] .section-header,
+      html[lang="en"] .sample-scenario > div {
+        min-width: 0;
+      }
+
+      html[lang="en"] .case-hero-copy {
+        max-width: min(100%, 760px);
+      }
+
+      html[lang="en"] .case-hero h1 {
+        max-width: 100%;
+        font-size: clamp(30px, 2.25vw, 36px);
+        line-height: 1.08;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] .hero-title-line {
+        display: block;
+        white-space: normal;
+      }
+
+      html[lang="en"] .case-subtitle {
+        max-width: 760px;
+        font-size: clamp(18px, 1.75vw, 24px);
+        line-height: 1.22;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      html[lang="en"] .case-hook-question {
+        max-width: 660px;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] .case-hook-question span {
+        display: block;
+      }
+
+      html[lang="en"] #problem .section-header,
+      html[lang="en"] #sample .section-header,
+      html[lang="en"] #context-layer .section-header,
+      html[lang="en"] #before-after .section-header,
+      html[lang="en"] #intervention .section-header {
+        width: 100%;
+        max-width: 1180px;
+      }
+
+      html[lang="en"] #problem .section-title,
+      html[lang="en"] #sample .section-title,
+      html[lang="en"] #context-layer .section-title,
+      html[lang="en"] #intervention .section-title {
+        max-width: 1120px;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      html[lang="en"] #problem .section-title span,
+      html[lang="en"] #sample .section-title span,
+      html[lang="en"] #context-layer .section-title span,
+      html[lang="en"] #intervention .section-title span {
+        display: block;
+      }
+
+      html[lang="en"] #problem .section-description,
+      html[lang="en"] #sample .section-description,
+      html[lang="en"] #context-layer .section-description,
+      html[lang="en"] #before-after .section-description,
+      html[lang="en"] #intervention .section-description {
+        max-width: 1120px;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] #sample .sample-scenario {
+        grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+        align-items: center;
+      }
+
+      html[lang="en"] #sample .sample-scenario h3 {
+        max-width: 720px;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      html[lang="en"] #sample .sample-scenario-list {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      html[lang="en"] #sample .sample-scenario-list li {
+        width: fit-content;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      html[lang="en"] #unit .section-header,
+      html[lang="en"] #agent .section-header,
+      html[lang="en"] #evolution .section-header,
+      html[lang="en"] #evaluation .section-header,
+      html[lang="en"] #summary .section-header {
+        width: 100%;
+        max-width: 1180px;
+      }
+
+      html[lang="en"] #unit .section-title,
+      html[lang="en"] #agent .section-title,
+      html[lang="en"] #evolution .section-title,
+      html[lang="en"] #evaluation .section-title,
+      html[lang="en"] #summary .section-title {
+        max-width: 1120px;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] #unit .section-title span,
+      html[lang="en"] #agent .section-title span,
+      html[lang="en"] #evolution .section-title span,
+      html[lang="en"] #evaluation .section-title span,
+      html[lang="en"] #summary .section-title span,
+      html[lang="en"] .balanced-title-line {
+        display: block;
+      }
+
+      html[lang="en"] #unit .section-description,
+      html[lang="en"] #agent .section-description,
+      html[lang="en"] #evolution .section-description,
+      html[lang="en"] #evaluation .section-description,
+      html[lang="en"] #summary .section-description {
+        max-width: 1120px;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] #before-after .section-description,
+      html[lang="en"] #intervention .section-description,
+      html[lang="en"] #evolution .section-description,
+      html[lang="en"] #evaluation .section-description {
+        max-width: 1180px;
+      }
+
+      html[lang="en"] #evolution .section-description,
+      html[lang="en"] #summary .section-description,
+      html[lang="en"] #evolution .interface-evidence-header p,
+      html[lang="en"] #evolution .interface-evidence figcaption,
+      html[lang="en"] #summary .closing-loop-header p,
+      html[lang="en"] #summary .summary-final {
+        text-wrap: wrap;
+      }
+
+      html[lang="en"] #summary .section-description,
+      html[lang="en"] #summary .closing-loop-header p {
+        max-width: 1180px;
+      }
+
+      html[lang="en"] #unit .interface-card,
+      html[lang="en"] #agent .interface-evidence-group,
+      html[lang="en"] #evolution .interface-evidence-group,
+      html[lang="en"] #evaluation .interface-evidence-group,
+      html[lang="en"] #evaluation .validation-dimension,
+      html[lang="en"] #evaluation .validation-detail,
+      html[lang="en"] #summary .closing-loop-panel,
+      html[lang="en"] #summary .closing-loop-node,
+      html[lang="en"] #summary .closing-note,
+      html[lang="en"] #summary .closing-roles,
+      html[lang="en"] #summary .closing-compare {
+        min-width: 0;
+      }
+
+      html[lang="en"] #unit .interface-card h3,
+      html[lang="en"] .interface-evidence-header h3,
+      html[lang="en"] .interface-evidence figcaption,
+      html[lang="en"] .interface-evidence figcaption span,
+      html[lang="en"] #evaluation .validation-dimension strong,
+      html[lang="en"] #evaluation .validation-detail h3,
+      html[lang="en"] #summary .closing-loop-header h3,
+      html[lang="en"] #summary .closing-loop-node strong,
+      html[lang="en"] #summary .closing-note h3,
+      html[lang="en"] #summary .closing-roles h3,
+      html[lang="en"] #summary .closing-compare h3 {
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] .interface-evidence-header h3 {
+        max-width: 820px;
+      }
+
+      html[lang="en"] #unit .interface-evidence-header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 14px 24px;
+      }
+
+      html[lang="en"] #unit .interface-evidence-header p {
+        max-width: none;
+        font-size: 13px;
+        line-height: 1.45;
+        white-space: nowrap;
+      }
+
+      html[lang="en"] #agent .section-title {
+        max-width: 1180px;
+        font-size: clamp(32px, 3vw, 40px);
+        line-height: 1.12;
+      }
+
+      html[lang="en"] #agent .interface-evidence-header,
+      html[lang="en"] #evolution .interface-evidence-header,
+      html[lang="en"] #evaluation .interface-evidence-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 6px;
+      }
+
+      html[lang="en"] #agent .interface-evidence-header h3,
+      html[lang="en"] #evolution .interface-evidence-header h3,
+      html[lang="en"] #evaluation .interface-evidence-header h3 {
+        max-width: none;
+      }
+
+      html[lang="en"] #agent .interface-evidence-header p,
+      html[lang="en"] #evolution .interface-evidence-header p,
+      html[lang="en"] #evaluation .interface-evidence-header p {
+        max-width: 100%;
+      }
+
+      html[lang="en"] #agent .interface-evidence figcaption,
+      html[lang="en"] #evolution .interface-evidence figcaption {
+        display: block;
+        width: 100%;
+        line-height: 1.55;
+      }
+
+      html[lang="en"] #agent .interface-evidence figcaption span,
+      html[lang="en"] #evolution .interface-evidence figcaption span {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      html[lang="en"] #evolution .interface-evidence figcaption {
+        max-width: none;
+      }
+
+      html[lang="en"] .interface-evidence-header p,
+      html[lang="en"] .interface-evidence figcaption,
+      html[lang="en"] #evaluation .validation-feedback span,
+      html[lang="en"] #summary .closing-loop-header p,
+      html[lang="en"] #summary .closing-loop-return span,
+      html[lang="en"] #summary .summary-final {
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] #summary .summary-final {
+        display: block;
+        max-width: 100%;
+        white-space: normal;
+        text-wrap: wrap;
+      }
+
+      html[lang="en"] #evaluation .validation-dimension strong {
+        display: block;
+        max-width: 100%;
+      }
+
+      html[lang="en"] #summary .closing-side-notes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      html[lang="en"] #summary .closing-note {
+        display: flex;
+        min-height: 100%;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      html[lang="en"] #summary .closing-note h3 {
+        min-height: 2.6em;
+        margin-bottom: 0;
+      }
+
+      html[lang="en"] #summary .closing-note p,
+      html[lang="en"] #summary .closing-note ul {
+        margin-top: 0;
+      }
+
+      html[lang="en"] #summary .closing-loop-tags,
+      html[lang="en"] #summary .closing-role-tags {
+        min-width: 0;
+      }
+
+      html[lang="en"] #summary .closing-loop-tags li,
+      html[lang="en"] #summary .closing-role-tags li {
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      @media (max-width: 900px) {
+        html[lang="en"] #unit .interface-evidence-header {
           grid-template-columns: 1fr;
         }
 
-        .hero-actions .button-primary,
-        .hero-actions .button-secondary {
-          width: 100%;
-          text-align: center;
+        html[lang="en"] #unit .interface-evidence-header p {
           white-space: normal;
         }
       }
+
     </style>
   </head>
   <body>
     <header class="case-header">
       <a class="brand" href="/ai-product-portfolio/en/index.html">
-        <span class="brand-mark">P1</span>
+        <span class="brand-mark">M1</span>
         <span>Enterprise Knowledge Workspace</span>
       </a>
       <nav class="case-nav" aria-label="Case navigation">
         <a href="#problem">Problem</a>
-        <a href="#roles">Roles</a>
-        <a href="#before-after">Before / After</a>
-        <a href="#judgment">Product Judgment</a>
+        <a href="#sample">Scenario</a>
+        <a href="#context-layer">Trusted Context Layer</a>
+        <a href="#before-after">Before / After RAG</a>
+        <a href="#intervention">Core Objects</a>
+        <a href="#unit">Key Interfaces</a>
+        <a href="#agent">Architecture</a>
         <a href="#evolution">Evolution</a>
-        <a href="#agent">Agent Workflow</a>
-        <a href="#maintainability">Maintainability</a>
-        <a href="#boundary">Boundary</a>
+        <a href="#evaluation">Validation Boundary</a>
+        <a href="#summary">Project Summary</a>
         <a class="nav-link--lang" href="/ai-product-portfolio/docs/module1-enterprise-knowledge-workspace/index.html">CN</a>
         <a class="nav-link--home" href="/ai-product-portfolio/en/index.html">Home</a>
       </nav>
@@ -422,32 +3006,50 @@
 
     <main>
       <section class="case-hero" id="overview">
-        <div>
-          <p class="section-kicker">Project 01｜Knowledge-based AI Application</p>
-          <h1>Enterprise Knowledge Workspace</h1>
-          <p class="case-subtitle">From trusted context to agentic workflow</p>
-          <p class="case-hook-question">If foundation models are already so capable, why do enterprises still need their own knowledge systems?</p>
-          <p class="case-lead">This project is not a simple RAG demo. It explores how enterprise knowledge can become a trusted context layer, and how that context can support traceable answers, human review, task workflows, badcase tracking, and versioned iteration.</p>
+        <div class="case-hero-copy">
+          <p class="section-kicker">Project 01 | Enterprise Knowledge Workspace</p>
+          <h1><span class="hero-title-line">Finding knowledge is only the beginning.</span><span class="hero-title-line">Being trusted in use is the product.</span></h1>
+          <p class="case-subtitle">From trusted context to Agent workflow productization.</p>
+          <p class="case-hook-question"><span>If models are already this powerful,</span><span>why do enterprises still need their own knowledge systems?</span></p>
+          <p class="case-lead">
+            This project is not a knowledge-base Q&A bot. It is an enterprise knowledge workspace that turns knowledge scattered across documents, policies, meetings, project materials, and historical experience into trusted context that can be cited, traced, reviewed, and carried into workflow.
+          </p>
+          <div class="status-card">
+            AI can organize knowledge, but business judgment must be grounded in source, permission, version, and scope.
+          </div>
           <div class="hero-tags">
-            <span>Trusted context layer</span>
-            <span>Agent workflow</span>
-            <span>Evaluation and rollback</span>
+            <span>Citable</span>
+            <span>Traceable</span>
+            <span>Human Review</span>
+            <span>Ready for Workspace Tasks</span>
           </div>
           <div class="hero-actions">
-            <a class="button-primary" href="../../../assets/docs/enterprise_knowledge_workspace_product_design_brief_out_en_v0.3.pdf">View English Brief</a>
-            <a class="button-secondary" href="../../../assets/docs/enterprise_knowledge_workspace_prd_out_cn_v1.2.pdf">View Chinese PRD</a>
-            <a class="button-secondary" href="/ai-product-portfolio/en/index.html">Back to Portfolio</a>
+            <a class="button-primary" href="../../../assets/docs/enterprise_knowledge_workspace_product_design_brief_out_en_v0.3.pdf">English Product Brief</a>
+            <a class="button-secondary" href="/ai-product-portfolio/docs/module1-enterprise-knowledge-workspace/index.html">Chinese Version</a>
+            <a class="button-secondary" href="/ai-product-portfolio/en/index.html">Portfolio Home</a>
           </div>
         </div>
-        <aside class="case-visual" aria-label="Enterprise knowledge workspace overview">
+
+        <aside class="case-visual" aria-label="Enterprise knowledge workflow mechanism overview">
           <div class="case-visual-header">
-            <strong>Knowledge AI Productization Path</strong>
-            <span>Context to Workflow</span>
+            <strong>Enterprise knowledge enters trusted workflow</strong>
+            <span>Knowledge to Workflow</span>
           </div>
           <div class="visual-panel">
-            <div class="visual-node"><strong>Trusted Context</strong><span>Source grounding, citations, updates, permissions</span></div>
-            <div class="visual-node"><strong>Agent Workflow</strong><span>Router, Tool, Memory, Human Review, continuous knowledge tasks</span></div>
-            <div class="visual-node"><strong>Evaluation Loop</strong><span>badcase, eval set, version record, rollback</span></div>
+            <div class="hero-flow">
+              <div class="hero-flow-step"><em>1</em><div><strong>Scattered Knowledge</strong><span>Documents, policies, meetings, project materials, historical experience</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>2</em><div><strong>Trusted Context Layer</strong><span>Source, permission, version, citation, scope</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>3</em><div><strong>Context Check / Human Review</strong><span>Confirm whether this knowledge can be used for the current task</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>4</em><div><strong>Workspace Task / Action Brief</strong><span>Enter a reviewable and follow-up-ready workspace object</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>5</em><div><strong>Review / Knowledge Update</strong><span>Record feedback, update evidence, and sediment reusable context</span></div></div>
+            </div>
+            <div class="hero-principle">
+              Not letting the model answer freely, but letting knowledge pass through context checks before entering a citable, traceable, confirmable workflow.
+            </div>
           </div>
         </aside>
       </section>
@@ -455,99 +3057,375 @@
       <section class="case-section alt" id="problem">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">01 · Business Problem</p>
-            <h2 class="section-title">Enterprise knowledge work needs more than a fluent answer.</h2>
-            <p class="section-description">A usable enterprise knowledge system has to show where the answer came from, whether the material is current, who can access it, and how failures are located, fixed, and tested again.</p>
+            <p class="section-kicker">01 | Business Problem</p>
+            <h2 class="section-title"><span>The enterprise problem is not missing knowledge,</span><span>but knowledge that cannot be trusted in use.</span></h2>
+            <p class="section-description">Enterprise documents, policies, meeting notes, project materials, and historical experience are rarely absent. The real breakpoint is that even when AI finds knowledge, people still cannot tell where it came from, whether it is current, who can use it, and whether it fits the current judgment.</p>
           </div>
-          <div class="grid-4">
-            <article class="info-card"><span>Traceability</span><h3>Where did the answer come from?</h3><p>Answers need citations, source snippets, and paths back to original material.</p></article>
-            <article class="info-card"><span>Context Fit</span><h3>Does it apply here?</h3><p>Enterprise knowledge depends on project, time, role, policy, and business context.</p></article>
-            <article class="info-card"><span>Control</span><h3>Who can see and confirm it?</h3><p>Permission boundaries and human confirmation are part of the product, not add-ons.</p></article>
-            <article class="info-card"><span>Iteration</span><h3>How does it improve?</h3><p>badcases, eval sets, and version records turn errors into system improvements.</p></article>
+          <div class="problem-chain">
+            <article class="mini-card">
+              <span>Scattered Sources</span>
+              <h3>Found does not mean usable.</h3>
+              <p>Product manuals, policies, meeting notes, project materials, and FAQs live in many places. A single search rarely restores the full evidence chain.</p>
+            </article>
+            <article class="mini-card">
+              <span>Version Constraint</span>
+              <h3>Seen does not mean valid.</h3>
+              <p>Plans, policies, and workflows change. Without version and update time, AI-organized content can only stay at the reference level.</p>
+            </article>
+            <article class="mini-card">
+              <span>Scope Fit</span>
+              <h3>Relevant does not mean applicable.</h3>
+              <p>The same knowledge may only apply to a specific customer type, product version, region, or workflow stage. It cannot directly enter business judgment.</p>
+            </article>
+            <article class="mini-card">
+              <span>Traceability Gap</span>
+              <h3>Used does not mean reviewable.</h3>
+              <p>Without source, permission, citation, and human review entry, AI output is hard to review and hard to carry into workspace tasks.</p>
+            </article>
           </div>
-          <figure class="portfolio-figure">
-            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="Enterprise Knowledge Workspace overview screen" loading="lazy" />
-            <figcaption><span class="figure-title">Product view: Enterprise Knowledge Workspace</span>The workspace connects knowledge search, project review, reusable experience, and evaluation entry points in one product surface.</figcaption>
-          </figure>
+          <div class="problem-principle">
+            What enterprises truly lack is not more answers, but trusted context that supports judgment, review, and action.
+          </div>
         </div>
       </section>
 
-      <section class="case-section" id="roles">
+      <section class="case-section" id="sample">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">02 · User Roles and Knowledge Tasks</p>
-            <h2 class="section-title">This is not a general chat knowledge base.</h2>
-            <p class="section-description">The product serves high-frequency knowledge work: finding evidence, preparing decisions, reviewing projects, and turning experience into reusable organizational knowledge.</p>
+            <p class="section-kicker">02 | Scenario / User Task</p>
+            <h2 class="section-title"><span>A business judgment requires trusted context,</span><span>not just an AI answer.</span></h2>
+            <p class="section-description">Before asking AI to answer, a sales, operations, or product teammate preparing a client proposal, judgment note, or project review needs to assemble citable, reviewable context that can support the next action.</p>
           </div>
-          <div class="grid-4">
-            <article class="module-card"><span>Product / Project Lead</span><h3>Find decision evidence</h3><p>Quickly retrieve historical plans, review materials, and decision rationale.</p></article>
-            <article class="module-card"><span>New Team Member</span><h3>Understand project history</h3><p>Build context around past judgments, key files, and project background.</p></article>
-            <article class="module-card"><span>Manager / Decision Participant</span><h3>Review sources and risks</h3><p>Check the evidence behind conclusions before using them in decisions.</p></article>
-            <article class="module-card"><span>PMO / Knowledge Ops</span><h3>Maintain organizational memory</h3><p>Turn repeated questions and reviews into reusable knowledge assets.</p></article>
-          </div>
-          <figure class="module-card" style="margin-top: 18px;">
-            <h3>Knowledge task chain</h3>
-            <div class="step-grid">
-              <span>Find sources</span><span>Verify evidence</span><span>Draft conclusions</span><span>Prepare review</span><span>Store lessons</span>
+          <article class="sample-scenario">
+            <div>
+              <h3>Scenario: preparing a client proposal, business judgment note, or project review material</h3>
+              <p>The user is not asking AI a question. They are completing a business judgment that requires evidence, constraints, and follow-up action.</p>
             </div>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="before-after">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">03 · Before / After AI</p>
-            <h2 class="section-title">From manual document hunting to a traceable knowledge workflow.</h2>
-          </div>
-          <div class="grid-2">
-            <article class="module-card">
-              <span>Before AI</span>
-              <h3>Knowledge work depends on memory and manual search.</h3>
-              <p>Materials are created, scattered, searched by keywords, manually compared, summarized, and then scattered again after reports or reviews.</p>
+            <ul class="sample-scenario-list">
+              <li>Is this client suitable for a specific product capability?</li>
+              <li>Which promises can be cited?</li>
+              <li>Which constraints must be stated upfront?</li>
+              <li>Which past project experience can be reused?</li>
+            </ul>
+          </article>
+          <div class="sample-path" aria-label="Task chain received by the workspace">
+            <article class="sample-step">
+              <span class="sample-step-label">1. Judgment Task</span>
+              <h3>Define what needs to be completed.</h3>
+              <p>Clarify the proposal, judgment note, or project review material that needs evidence.</p>
             </article>
-            <article class="module-card">
-              <span>After AI</span>
-              <h3>AI handles recall, structuring, and source grounding.</h3>
-              <p>The user submits a knowledge task, AI retrieves specified materials, returns cited sources, drafts structure, waits for human confirmation, and feeds badcases into iteration.</p>
+            <article class="sample-step">
+              <span class="sample-step-label">2. Trusted Sources</span>
+              <h3>Find usable evidence.</h3>
+              <p>Retrieve material that supports the current judgment, not just similar text.</p>
+              <div class="sample-source-chips" aria-label="Trusted source examples">
+                <span>Product manual</span>
+                <span>Policy files</span>
+                <span>Meeting notes / FAQ</span>
+                <span>Historical projects / past cases</span>
+              </div>
+            </article>
+            <article class="sample-step">
+              <span class="sample-step-label">3. Context Card</span>
+              <h3>Organize candidate context.</h3>
+              <p>Keep source, citation, version, and scope visible.</p>
+            </article>
+            <article class="sample-step">
+              <span class="sample-step-label">4. Context Check</span>
+              <h3>Confirm whether the context can be used.</h3>
+              <p>Review source reliability, version validity, scope, and risk.</p>
+            </article>
+            <article class="sample-step">
+              <span class="sample-step-label">5. Action Brief</span>
+              <h3>Ready for Workspace Tasks</h3>
+              <p>Carry confirmed context into a proposal, recap, or next-action material.</p>
             </article>
           </div>
-          <figure class="portfolio-figure">
-            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig01_ai_intervention_product_unit.png" alt="AI intervention points and product responsibility unit for the knowledge workspace" loading="lazy" />
-            <figcaption><span class="figure-title">Workflow view: from business problem to AI product unit</span>AI is not only added as document Q&A. It enters retrieval, source grounding, review, and maintainability points that form a product responsibility unit.</figcaption>
+          <div class="sample-principle">
+            AI helps recall, summarize, and organize context. People confirm whether the source is reliable, the version is valid, the scope applies, and the next step can proceed.
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="context-layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03 | Trusted Context Layer</p>
+            <h2 class="section-title"><span>RAG is not the endpoint.</span><span>Trusted context is the starting point.</span></h2>
+            <p class="section-description">RAG retrieves relevant knowledge, but the product layer must decide which knowledge can enter context, which context can be cited, and which outputs require human confirmation before entering workflow.</p>
+          </div>
+          <div class="context-layer-layout">
+            <article class="context-product-card">
+              <div class="context-product-header">
+                <div>
+                  <span class="context-product-label">Context Card | Candidate Context Object</span>
+                  <h3>A context card with evidence, boundaries, and human review entry</h3>
+                </div>
+                <span class="context-product-status">Status: Pending Review</span>
+              </div>
+              <div class="context-candidate">
+                <strong>Candidate judgment</strong>
+                <p>This knowledge may support a capability statement in the current client proposal, but source, version, scope, and risk must be confirmed first.</p>
+              </div>
+              <div class="context-product-grid">
+                <div class="context-product-block">
+                  <strong>Evidence</strong>
+                  <p>Source / Citation: from product manual v2.1, historical project recap, meeting FAQ, with traceable excerpts or paragraph locations.</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>Usage Conditions</strong>
+                  <p>Permission / Version: whether the current user can use it, and whether the related product, policy, or workflow version is still valid.</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>Scope Fit</strong>
+                  <p>Scope / Freshness: which customer, region, product version, or workflow stage it applies to, and whether it may be outdated.</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>Risk & Review</strong>
+                  <p>Risk / Human Review: whether evidence is insufficient, the context is semantically similar but not applicable, or a business owner must confirm it.</p>
+                </div>
+              </div>
+            </article>
+            <aside class="context-gate-panel" aria-label="Validation gate before context enters workflow">
+              <h3>A gate before context enters workflow</h3>
+              <div class="context-gate-list">
+                <div class="context-gate">
+                  <em>01</em>
+                  <div><strong>Can it be cited?</strong><p>Clear source, excerpt, and location.</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>02</em>
+                  <div><strong>Can it be used?</strong><p>Matches current permission and valid version.</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>03</em>
+                  <div><strong>Does it apply?</strong><p>Fits the current customer, scenario, region, or workflow stage.</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>04</em>
+                  <div><strong>Does it need human review?</strong><p>High-risk, low-confidence, or commitment-related content must be confirmed.</p></div>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="context-principle">
+            The value of a trusted context layer is not making AI say more. It prevents knowledge from being misused without permission, version, and responsibility boundaries.
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="before-after">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">04 | Before / After AI / RAG</p>
+            <h2 class="section-title">RAG changes context organization, not business judgment.</h2>
+            <p class="section-description"><span class="balanced-title-line">The value after AI is not a complete-looking chat answer.</span><span class="balanced-title-line">It is turning scattered knowledge into candidate context that can be reviewed, confirmed, and carried into workflow.</span></p>
+          </div>
+          <div class="rag-compare" aria-label="Context organization before and after RAG">
+            <article class="rag-card">
+              <span>Before</span>
+              <h3>Manual document lookup</h3>
+              <p>Users search across manuals, policies, meeting notes, FAQs, historical projects, and past cases, then still need to judge version, permission, scope, and risk.</p>
+            </article>
+            <article class="rag-card">
+              <span>AI Organizes Context</span>
+              <h3>Recall, aggregate, and annotate leads</h3>
+              <p>AI recalls relevant knowledge, groups similar excerpts, and attaches source, citation, version clues, and risk hints.</p>
+            </article>
+            <article class="rag-card">
+              <span>After</span>
+              <h3>Output enters a Context Card</h3>
+              <p>The output is not a chat answer. It becomes a reviewable and confirmable Context Card.</p>
+            </article>
+            <article class="rag-card">
+              <span>Human Boundary</span>
+              <h3>Final judgment still requires confirmation</h3>
+              <p>AI does not directly produce a final business conclusion and does not replace the owner's confirmation of applicability.</p>
+            </article>
+          </div>
+          <div class="rag-boundary">
+            The product judgment here is: RAG is not the endpoint. It only turns knowledge into candidate context; the workspace still needs to handle source, permission, version, citation, scope, and human review.
+          </div>
+          <figure class="rag-mechanism-board" aria-label="Mechanism from business breakpoints to AI RAG intervention and product responsibility units">
+            <div class="rag-mechanism-header">
+              <strong>From business breakpoints to product objects</strong>
+              <span>Breakpoint -> Candidate Context -> Product Object</span>
+            </div>
+            <div class="rag-mechanism-grid">
+              <section class="rag-mechanism-column problem">
+                <header>
+                  <span>Stage 1</span>
+                  <h3>Business Breakpoint</h3>
+                </header>
+                <ul>
+                  <li><strong>Scattered materials</strong><span>Documents, policies, meetings, and FAQs live in many places.</span></li>
+                  <li><strong>Experience is hard to reuse</strong><span>Past judgments stay in projects or personal experience.</span></li>
+                  <li><strong>Evidence is hard to trace</strong><span>Even after finding text, people still do not know whether it can be cited.</span></li>
+                  <li><strong>Recap is hard to sediment</strong><span>After projects end, experience is scattered again.</span></li>
+                </ul>
+              </section>
+              <div class="rag-mechanism-arrow" aria-hidden="true">→</div>
+              <section class="rag-mechanism-column ai">
+                <header>
+                  <span>Stage 2</span>
+                  <h3>AI / RAG Intervention</h3>
+                </header>
+                <ul>
+                  <li><strong>Find material</strong><span>Semantic retrieval of relevant excerpts.</span></li>
+                  <li><strong>Find evidence</strong><span>Locate citation sources and evidence positions.</span></li>
+                  <li><strong>Organize conclusion</strong><span>Synthesize multiple documents into candidate context.</span></li>
+                  <li><strong>Project Recap</strong><span>Sediment confirmed context into recap material.</span></li>
+                  <li><strong>Iteration</strong><span>badcase, eval, and version records flow back.</span></li>
+                </ul>
+              </section>
+              <div class="rag-mechanism-arrow" aria-hidden="true">→</div>
+              <section class="rag-mechanism-column product">
+                <header>
+                  <span>Stage 3</span>
+                  <h3>Product Responsibility Unit</h3>
+                </header>
+                <ul>
+                  <li><strong>Context Card</strong><span>Carries candidate context.</span></li>
+                  <li><strong>Search & Citation</strong><span>Carries source and citation excerpts.</span></li>
+                  <li><strong>Knowledge Task</strong><span>Carries retrieval, citation, tool calls, and memory.</span></li>
+                  <li><strong>Human Review</strong><span>Keeps a human confirmation entry.</span></li>
+                  <li><strong>Review Record / Knowledge Update</strong><span>Sediments review and update records.</span></li>
+                </ul>
+              </section>
+            </div>
+            <figcaption class="rag-mechanism-note">
+              This mechanism turns business breakpoints into candidate context, and then lets product objects carry the context into workflow.
+            </figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="case-section" id="judgment">
+      <section class="case-section alt" id="intervention">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">04 · Product Judgment</p>
-            <h2 class="section-title">When does an AI application need a trusted context layer?</h2>
-            <p class="section-description">Not every AI application needs RAG. But when the task depends on specified materials, source tracing, permission boundaries, updates, and organizational memory, the product needs a trusted context layer between the model and enterprise knowledge assets.</p>
+            <p class="section-kicker">05 | Core Product Objects</p>
+            <h2 class="section-title"><span>Knowledge is not the answer.</span><span>Context is the object inside the workspace.</span></h2>
+            <p class="section-description"><span class="balanced-title-line">The key of this project is not adding more AI capabilities,</span><span class="balanced-title-line">but defining which product objects carry review, confirm, reuse, and update knowledge after it enters the workspace.</span></p>
           </div>
-          <div class="grid-3">
-            <article class="module-card"><span>Direct LLM</span><h3>Use as a generation layer</h3><p>Good for general writing and low-risk summarization, not as the source of enterprise truth.</p></article>
-            <article class="module-card"><span>Search</span><h3>Keep as supporting capability</h3><p>Useful when filenames, titles, or exact terms are known; weak for fuzzy intent and cross-document synthesis.</p></article>
-            <article class="module-card"><span>Trusted Context Layer</span><h3>V1 product foundation</h3><p>Needed for specified sources, citation grounding, updates, and knowledge verification.</p></article>
+          <div class="object-chain" aria-label="Core product object chain in the Enterprise Knowledge Workspace">
+            <article class="object-card">
+              <h3>Knowledge Source</h3>
+              <span class="object-label">Knowledge Source</span>
+              <p class="object-source"><strong>Connects to:</strong> knowledge search, version management, source management</p>
+              <dl>
+                <div><dt>What it is</dt><dd>Documents, policies, meeting notes, FAQs, project materials, and historical cases with source, permission, version, and update time.</dd></div>
+                <div><dt>What it is not</dt><dd>Not a raw material pile handed directly to the model.</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>Context Card</h3>
+              <span class="object-label">Context Card</span>
+              <p class="object-source"><strong>Connects to:</strong> citation source, search result, evidence excerpt</p>
+              <dl>
+                <div><dt>What it is</dt><dd>Candidate context with source, citation, permission, version, scope, and risk hints.</dd></div>
+                <div><dt>What it is not</dt><dd>Not the final answer, but work material that can be checked and confirmed.</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>Knowledge Task</h3>
+              <span class="object-label">Knowledge Task</span>
+              <p class="object-source"><strong>Connects to:</strong> knowledge Q&A, Agent workflow, tool calls, memory, human review</p>
+              <dl>
+                <div><dt>What it is</dt><dd>A traceable process that turns complex knowledge requests into retrieval, citation, context organization, tool calls, and human confirmation.</dd></div>
+                <div><dt>What it is not</dt><dd>Not a single chat turn, but a maintainable knowledge workflow.</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>Action Brief / Workspace Task</h3>
+              <span class="object-label">Action Brief / Workspace Task</span>
+              <p class="object-source"><strong>Connects to:</strong> project recap, experience sedimentation, pending decisions</p>
+              <dl>
+                <div><dt>What it is</dt><dd>Reviewed context entering a proposal, recap, task, or collaboration space.</dd></div>
+                <div><dt>What it is not</dt><dd>Not an AI-generated final result, but input material for the next action.</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>Review / Knowledge Update</h3>
+              <span class="object-label">Review Record / Knowledge Update</span>
+              <p class="object-source"><strong>Connects to:</strong> badcase, eval, dashboard, rollback, knowledge update</p>
+              <dl>
+                <div><dt>What it is</dt><dd>Records which context was used, corrected, moved into badcase / eval, or updated as a knowledge source.</dd></div>
+                <div><dt>What it is not</dt><dd>Not a simple log, but a feedback mechanism that keeps the workspace maintainable.</dd></div>
+              </dl>
+            </article>
           </div>
-          <figure class="portfolio-figure">
-            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="Search and citation results screen for the enterprise knowledge workspace" loading="lazy" />
-            <figcaption><span class="figure-title">Trusted context: search and citation results</span>The answer is paired with cited snippets, source documents, and original reference paths so users can verify the conclusion.</figcaption>
-          </figure>
+          <div class="object-principle">
+            02 explains how a user task is received by the workspace; 05 explains which product objects carry responsibility inside the system. With clear objects, later Agent workflows do not connect directly to raw knowledge bases.
+          </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="evolution">
+      <section class="case-section" id="unit">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">05 · Product Evolution</p>
-            <h2 class="section-title">From trusted context to maintainable agent workflow.</h2>
+            <p class="section-kicker">06 | Key Interfaces / Workflow</p>
+            <h2 class="section-title"><span>The interface is not a knowledge display layer,</span><span>but a workspace for trusted context.</span></h2>
+            <p class="section-description"><span class="balanced-title-line">The interface must let knowledge be retrieved, cited, reviewed, and carried into recap, task, and collaboration workspaces.</span><span class="balanced-title-line">The following prototypes show how this mechanism lands on concrete product screens.</span></p>
           </div>
-          <div class="grid-3">
-            <article class="module-card"><span>V1</span><h3>Trusted Knowledge Retrieval</h3><p><strong>Question:</strong> why do we need a trusted context layer?</p><p>Because enterprise answers must be grounded in specified, reviewable, and updateable material.</p><div class="tag-list"><span>source ingestion</span><span>semantic retrieval</span><span>source-grounded QA</span><span>original review</span></div></article>
-            <article class="module-card"><span>V2</span><h3>Agent Workflow</h3><p><strong>Question:</strong> why is RAG not enough?</p><p>Users need continuous knowledge tasks, not only one answer.</p><div class="tag-list"><span>Router</span><span>search_docs Tool</span><span>Memory</span><span>Execution Trace</span><span>Human Review</span></div></article>
-            <article class="module-card"><span>V3</span><h3>Maintainable MVP</h3><p><strong>Question:</strong> why is Agent not enough?</p><p>Without eval, badcases, changelog, and rollback, an agent workflow is still a one-off demo.</p><div class="tag-list"><span>eval set</span><span>badcase log</span><span>versioning</span><span>rollback</span><span>review checkpoints</span></div></article>
+          <div class="interface-layout">
+            <div class="interface-cards" aria-label="Key interface responsibilities">
+              <article class="interface-card">
+                <h3>Source Library</h3>
+                <span>Source Management</span>
+                <p>Manage documents, policies, meeting notes, FAQs, project materials, and historical cases with source, permission, version, and update time.</p>
+              </article>
+              <article class="interface-card">
+                <h3>Search & Citation</h3>
+                <span>Search & Citation</span>
+                <p>Recall relevant knowledge while showing cited excerpts, source location, and possible risks.</p>
+              </article>
+              <article class="interface-card">
+                <h3>Project Recap</h3>
+                <span>Reviewed Reuse</span>
+                <p>Move confirmed context into recap material, pending decisions, and reusable experience.</p>
+              </article>
+              <article class="interface-card">
+                <h3>Knowledge Task</h3>
+                <span>Traceable Workflow</span>
+                <p>Turn complex knowledge requests into traceable retrieval, citation, context organization, tool calls, and human confirmation.</p>
+              </article>
+            </div>
+            <div class="interface-evidence-group">
+              <div class="interface-evidence-header">
+                <h3>Key workspace screens</h3>
+                <p>The following prototype screens show how knowledge is retrieved, cited, confirmed, and carried into recap and knowledge task workspaces.</p>
+              </div>
+              <div class="interface-evidence" aria-label="Key workspace screens">
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Workspace Home">
+                    <img src="../../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="Enterprise Knowledge Workspace home prototype" loading="lazy" />
+                    <span class="interface-shot-zoom-label">View full image</span>
+                  </button>
+                <figcaption><span>Workspace Home</span> Connects knowledge sources, search entry, recap tasks, and follow-up work areas; not a single chat window.</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Search & Citation">
+                    <img src="../../../assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="Search and citation results prototype" loading="lazy" />
+                    <span class="interface-shot-zoom-label">View full image</span>
+                  </button>
+                  <figcaption><span>Search & Citation</span> Search results show cited excerpts and source locations to support the evidence base of a Context Card.</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Project Recap">
+                    <img src="../../../assets/images/module1-enterprise-knowledge/fig06_project_review.png" alt="Project recap prototype" loading="lazy" />
+                    <span class="interface-shot-zoom-label">View full image</span>
+                  </button>
+                  <figcaption><span>Project Recap</span> Confirmed context can enter recap or collaboration material instead of staying in a one-time answer.</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Knowledge Task Answer">
+                    <img src="../../../assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="Knowledge task answer prototype" loading="lazy" />
+                    <span class="interface-shot-zoom-label">View full image</span>
+                  </button>
+                  <figcaption><span>Knowledge Task Answer</span> The answer screen continues retrieval, citation, context organization, and human confirmation as evidence for a Knowledge Task.</figcaption>
+                </figure>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -555,65 +3433,325 @@
       <section class="case-section" id="agent">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">06 · Agent Workflow</p>
-            <h2 class="section-title">The execution path must be visible, not a black box.</h2>
-            <p class="section-description">The first step of an agent is not execution. It is deciding the route. If the Router is wrong, stronger tools do not solve the product problem.</p>
+            <p class="section-kicker">07 | Product Architecture Judgment</p>
+            <h2 class="section-title"><span>Do not let Agents connect directly to raw knowledge bases.</span><span>Build a trusted context layer first.</span></h2>
+            <p class="section-description"><span class="balanced-title-line">Enterprise knowledge should not become free-form input for an Agent.</span><span class="balanced-title-line">Before an Agent uses knowledge, it must pass through trusted context, task orchestration, human confirmation, and feedback loops.</span></p>
           </div>
-          <article class="trace-card">
-            <span>Execution Trace</span>
-            <h3>One knowledge task trace</h3>
-            <ul class="trace-list">
-              <li><strong>Route</strong><span>retrieve</span></li>
-              <li><strong>Reason</strong><span>The question references specified project materials and needs a knowledge-base search.</span></li>
-              <li><strong>Tool</strong><span>search_docs</span></li>
-              <li><strong>Sources</strong><span>Three source snippets returned with citations.</span></li>
-              <li><strong>Answer</strong><span>Structured response generated from retrieved sources.</span></li>
-              <li><strong>Human Review</strong><span>User confirms whether it becomes a review draft.</span></li>
+          <div class="interface-evidence-group architecture-figure-group">
+            <div class="interface-evidence-header">
+              <h3>Enterprise Knowledge Task Agent Workflow Architecture</h3>
+              <p>A controllable workflow for user input, Agent orchestration, trusted context, tool calls, human review, and feedback.</p>
+            </div>
+            <div class="interface-evidence architecture-gallery" aria-label="Enterprise Knowledge Task Agent Workflow Architecture">
+              <figure>
+                <button class="interface-shot-trigger" type="button" data-lightbox-title="Enterprise Knowledge Task Agent Workflow Architecture">
+                  <img src="../../../docs/module1-enterprise-knowledge-workspace/assets/diagrams/enterprise_knowledge_agent_workflow_en.png" alt="Enterprise Knowledge Task Agent Workflow Architecture" loading="lazy" />
+                  <span class="interface-shot-zoom-label">View full image</span>
+                </button>
+                <figcaption><span>Enterprise Knowledge Task Agent Workflow Architecture</span> The architecture organizes context, Agent orchestration, human collaboration, experience feedback, and improvement loops around real knowledge tasks.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="architecture-principle">
+            The architecture is not about letting the Agent read more. It is about restricting the Agent to candidate knowledge that has been processed, cited, traced, and confirmed.
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="evolution">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08 | Product Evolution Path</p>
+            <h2 class="section-title"><span>The path is not jumping from RAG to Agent.</span><span>It is making context trustworthy first.</span></h2>
+            <p class="section-description">The V1 / V2 / V3 evolution is not about stacking more features. It strengthens product trust and workflow readiness step by step: first make knowledge findable, then usable with trust, and finally maintainable inside knowledge tasks.</p>
+          </div>
+          <div class="interface-evidence-group evolution-figure-group">
+            <div class="interface-evidence-header">
+              <h3>Product Evolution from Knowledge Retrieval to Agent Workflow</h3>
+              <p>This path is not from RAG directly to Agent. It first solves “can it be found,” then “can it be trusted,” and finally lets trusted context enter maintainable knowledge tasks, recaps, and continuous updates.</p>
+            </div>
+            <div class="interface-evidence evolution-gallery" aria-label="Product Evolution from Knowledge Retrieval to Agent Workflow">
+              <figure>
+                <button class="interface-shot-trigger" type="button" data-lightbox-title="Product Evolution from Knowledge Retrieval to Agent Workflow">
+                  <img src="../../../docs/module1-enterprise-knowledge-workspace/assets/diagrams/enterprise_knowledge_workspace_evolution_en.png" alt="Product Evolution from Knowledge Retrieval to Agent Workflow" loading="lazy" />
+                  <span class="interface-shot-zoom-label">View full image</span>
+                </button>
+                <figcaption><span>Product Evolution from Knowledge Retrieval to Agent Workflow</span> Knowledge evolves from “findable” into work material that is trustworthy, task-ready, and continuously maintainable.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="evaluation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">09 | Validation / Boundary</p>
+            <h2 class="section-title"><span>Validation is not whether the answer sounds right.</span><span>It is whether the evidence can be trusted.</span></h2>
+            <p class="section-description"><span class="balanced-title-line">Generated answers do not prove that context is trustworthy.</span><span class="balanced-title-line">Validation checks retrieval, citation review, permission and version constraints, scope fit, and whether high-risk content enters human review.</span></p>
+          </div>
+          <div class="validation-layout">
+            <div class="validation-panel">
+              <div class="validation-grid" aria-label="Trusted context validation loop">
+                <article class="validation-dimension">
+                  <span class="validation-step-label">01 | Validation Input</span>
+                  <strong>Candidate context</strong>
+                  <p>Includes citation excerpts, Context Cards, Knowledge Task outputs, and action material that needs confirmation.</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">02 | Validation Dimensions</span>
+                  <strong>Evidence trust check</strong>
+                  <p>Check retrieval quality, citation evidence, permission and version, scope fit, and human review boundaries.</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">03 | badcase Detection</span>
+                  <strong>Unusable knowledge</strong>
+                  <p>Identify outdated versions, missing citations, unauthorized content, scope mismatch, non-reviewable answers, or unconfirmed actions.</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">04 | Correction Action</span>
+                  <strong>Correction records</strong>
+                  <p>Move issues into evaluation sets, recap correction, version rollback, knowledge source update, and review rule adjustment.</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">05 | Continuous Feedback</span>
+                  <strong>Context rule feedback</strong>
+                  <p>Feed results back into the next round of context generation and knowledge maintenance.</p>
+                </article>
+              </div>
+              <div class="validation-feedback">
+                <strong>Loop judgment</strong>
+                <span>Validation is not scoring whether an answer sounds fluent. It checks whether a piece of knowledge can be found, cited, reviewed, authorized, and corrected after failure.</span>
+              </div>
+              <div class="validation-detail-row" aria-label="Validation loop details">
+                <article class="validation-detail">
+                <h3>Validation dimensions</h3>
+                  <p>Retrieval quality, citation evidence, permission / version, scope fit, human review boundary, badcase feedback.</p>
+                </article>
+                <article class="validation-detail">
+                <h3>Typical issues</h3>
+                  <p>Outdated versions, missing or unlocatable citations, unauthorized content, scope mismatch, non-reviewable answers, unconfirmed actions.</p>
+                </article>
+                <article class="validation-detail">
+                <h3>Correction actions</h3>
+                  <p>Evaluation set, recap correction, version rollback, knowledge source update, human review rule adjustment.</p>
+                </article>
+              </div>
+            </div>
+            <aside class="interface-evidence-group">
+              <div class="interface-evidence-header">
+                <h3>Evaluation Dashboard</h3>
+                <p>The dashboard tracks issue samples, validation dimensions, version corrections, and knowledge updates, keeping trusted context maintainable.</p>
+              </div>
+              <div class="interface-evidence validation-gallery" aria-label="Evaluation & Iteration Dashboard prototype">
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Evaluation & Iteration Dashboard">
+                    <img src="../../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="Evaluation and iteration dashboard prototype" loading="lazy" />
+                    <span class="interface-shot-zoom-label">View full image</span>
+                  </button>
+                  <figcaption><span>Evaluation & Iteration Dashboard</span> The dashboard tracks issue samples, validation dimensions, version corrections, and knowledge updates, keeping trusted context maintainable.</figcaption>
+                </figure>
+              </div>
+            </aside>
+          </div>
+          <div class="validation-principle">
+            The boundary of validation is not to make answers sound more fluent. It is to ensure each knowledge use can return to source, permission, version, scope, and human responsibility.
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="summary">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">10 | Project Summary</p>
+            <h2 class="section-title"><span>Not a knowledge Q&amp;A bot,</span><span>but a mechanism for knowledge entering trusted workflows.</span></h2>
+            <p class="section-description">The core of this project is not making AI answer more questions. It defines which knowledge can enter context, which context can be cited, and which content must be confirmed by people before it enters tasks, recaps, and continuous updates.</p>
+          </div>
+
+          <div class="closing-loop-panel">
+            <div class="closing-loop-header">
+              <h3><span class="balanced-title-line">A closed-loop mechanism</span><span class="balanced-title-line">for enterprise knowledge entering trusted workflows</span></h3>
+              <p>From knowledge sources to trusted context, workflow handoff, and review updates, the system forms a product mechanism that is citable, traceable, reviewable, and confirmable.</p>
+            </div>
+            <div class="closing-loop-diagram" aria-label="A closed-loop mechanism for enterprise knowledge entering trusted workflows">
+              <article class="closing-loop-node">
+                <em>01</em>
+                <strong>Knowledge Sources Managed</strong>
+                <p>Documents, policies, meeting notes, FAQs, project materials, and historical experience first carry source, permission, version, and update time.</p>
+                <ul class="closing-loop-tags">
+                  <li>Source</li>
+                  <li>Permission</li>
+                  <li>Version</li>
+                  <li>Freshness</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node">
+                <em>02</em>
+                <strong>Context Reviewed</strong>
+                <p>AI-recalled and organized content does not become the answer directly. It enters a Context Card with citations, scope, risk hints, and human review entry.</p>
+                <ul class="closing-loop-tags">
+                  <li>Citation</li>
+                  <li>Scope Fit</li>
+                  <li>Risk</li>
+                  <li>Human Review</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node">
+                <em>03</em>
+                <strong>Workflow Handoff</strong>
+                <p>Reviewed context enters Action Briefs, project recaps, Knowledge Tasks, and Review Records as material that can be followed up.</p>
+                <ul class="closing-loop-tags">
+                  <li>Action Brief</li>
+                  <li>Project Recap</li>
+                  <li>Knowledge Task</li>
+                  <li>Review Record / Knowledge Update</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node return">
+                <em>04</em>
+                <strong>Review & Knowledge Update</strong>
+                <p>Errors, omissions, and inapplicable content enter evaluation, recap correction, rollback, and knowledge update to improve the next context rule.</p>
+                <ul class="closing-loop-tags">
+                  <li>badcase</li>
+                  <li>eval</li>
+                  <li>rollback</li>
+                  <li>Knowledge Update</li>
+                </ul>
+              </article>
+            </div>
+            <div class="closing-loop-return">
+              <strong>↺ Feedback relationship</strong>
+              <span>Feedback returns to knowledge sources, context rules, and human review boundaries to avoid repeating the same misuse in the next round.</span>
+            </div>
+          </div>
+
+          <div class="closing-side-notes">
+            <article class="closing-note">
+              <h3>When is a trusted context layer needed?</h3>
+              <ul class="closing-note-list">
+                <li>When specified materials are involved, the system must return to source.</li>
+                <li>When business judgment is involved, the scope must be confirmed.</li>
+                <li>When organizational knowledge is involved, permission and version must be managed.</li>
+                <li>When knowledge is used continuously, evaluation, rollback, and knowledge update must exist.</li>
+              </ul>
+            </article>
+            <article class="closing-note">
+              <h3>Project Boundary</h3>
+              <p>This is a product-level prototype and mechanism design, not an enterprise production system.</p>
+              <ul class="closing-boundary-list">
+                <li>It does not claim real enterprise deployment.</li>
+                <li>It does not cover full permission, audit, multi-user, and system integration in this prototype stage.</li>
+                <li>It does not automatically write, delete, or publish content.</li>
+                <li>It does not let AI replace business owner judgment.</li>
+                <li>It does not let Agents directly read the entire enterprise knowledge base.</li>
+              </ul>
+            </article>
+            <article class="closing-note">
+              <h3>Maintainability</h3>
+              <p>Tasks and memory have boundaries; versions and decisions have records; errors and regressions have feedback loops; human confirmation has checkpoints.</p>
+              <ul class="closing-note-list">
+                <li>Task boundary</li>
+                <li>Version record</li>
+                <li>Feedback loop</li>
+                <li>Human checkpoint</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="closing-roles">
+            <h3>It serves judgment, recap, and action rather than “asking questions”</h3>
+            <p>Project owners / product managers, new project members, managers / decision participants, and operations / PMO / knowledge management roles use it to confirm evidence, reuse experience, and move work forward.</p>
+            <ul class="closing-role-tags" aria-label="Applicable roles">
+              <li>Project owners / product managers</li>
+              <li>New project members</li>
+              <li>Managers / decision participants</li>
+              <li>Operations / PMO / knowledge management roles</li>
             </ul>
-          </article>
-          <figure class="portfolio-figure">
-            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="Knowledge task Q&A screen with cited sources and review context" loading="lazy" />
-            <figcaption><span class="figure-title">Agent workflow: knowledge task Q&A</span>The interface is organized around retrieval, citations, answer structuring, and confirmation rather than an open-ended chat window.</figcaption>
-          </figure>
-        </div>
-      </section>
+            <p class="closing-maintain-line">Maintainability: tasks and memory have boundaries; versions and decisions have records; errors and regressions have feedback loops; human confirmation has checkpoints.</p>
+          </div>
 
-      <section class="case-section alt" id="maintainability">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">07 · Maintainability Mechanisms</p>
-            <h2 class="section-title">Make AI workflow traceable, evaluable, and rollback-ready.</h2>
+          <div class="closing-compare">
+            <h3>Boundary with Project 2</h3>
+            <p>Project 1 handles how enterprise knowledge enters trusted workflows: turning historical materials, experience, and judgment into context that can be searched, cited, and reviewed.</p>
+            <p>Project 2 handles how business signals enter responsibility workflows: turning new feedback, meeting conclusions, and requirement clues into tasks that can be confirmed, decomposed, and executed.</p>
+            <p>One solves how knowledge can be trusted in use; the other solves how signals enter a responsibility chain.</p>
           </div>
-          <div class="grid-3">
-            <article class="module-card"><span>Tasks and Memory</span><h3>plan.md / memory_policy.md</h3><p>Define task decomposition, memory scope, and context cleanup rules.</p></article>
-            <article class="module-card"><span>Versions and Decisions</span><h3>prompt_version / changelog / decision log</h3><p>Record changes in prompts, workflows, and product judgments.</p></article>
-            <article class="module-card"><span>Evaluation and Rollback</span><h3>badcase / eval set / rollback note</h3><p>Turn errors, tests, failed versions, and human review points into maintenance assets.</p></article>
-          </div>
-          <figure class="portfolio-figure">
-            <img src="/ai-product-portfolio/assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="Evaluation and iteration dashboard for badcase tracking and version review" loading="lazy" />
-            <figcaption><span class="figure-title">Maintainability layer: evaluation and iteration dashboard</span>The product needs badcase tracking, evaluation signals, and version records so the workflow can keep improving after the demo.</figcaption>
-          </figure>
-        </div>
-      </section>
 
-      <section class="case-section" id="boundary">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">08 · Project Boundary</p>
-            <h2 class="section-title">A product prototype, not a production enterprise system.</h2>
-            <p class="section-description">The value of this project is to validate a productization path: trusted context first, then continuous knowledge tasks, then human review, evaluation, badcase handling, and versioned iteration.</p>
-          </div>
-          <div class="grid-2">
-            <article class="badcase-card"><span>Current boundary</span><h3>Demonstrable MVP</h3><p>This project does not claim real enterprise deployment, full permission control, audit, multi-user operation, or system integration.</p></article>
-            <article class="badcase-card"><span>Project 1 vs Project 2</span><h3>Knowledge assets vs new business signals</h3><p>Project 1 focuses on knowledge assets, historical experience, and decision references. Project 2 focuses on new business signals, task ownership, state tracking, and operational closure.</p></article>
+          <div class="summary-final">
+            The product judgment is not “make AI answer more.” It is to make enterprise knowledge citable, traceable, reviewable, and confirmable before it is used.
           </div>
         </div>
       </section>
     </main>
 
     <footer class="case-footer">
-      <span>Enterprise Knowledge Workspace · From trusted context to agentic workflow</span>
+      <span>Enterprise Knowledge Workspace · Agent workflow evolution for knowledge reuse and decision preparation</span>
       <a href="/ai-product-portfolio/en/index.html">Back to Portfolio</a>
     </footer>
+    <div class="interface-lightbox" id="interfaceLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="interface-lightbox-panel" role="document">
+        <button class="interface-lightbox-close" type="button" aria-label="Close full image preview">×</button>
+        <p class="interface-lightbox-title" id="interfaceLightboxTitle"></p>
+        <div class="interface-lightbox-image-wrap">
+          <img class="interface-lightbox-image" src="" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const lightbox = document.querySelector("#interfaceLightbox");
+        if (!lightbox) return;
+
+        const triggers = document.querySelectorAll("#agent .interface-shot-trigger, #unit .interface-shot-trigger, #evolution .interface-shot-trigger, #evaluation .interface-shot-trigger");
+        if (!triggers.length) return;
+
+        const image = lightbox.querySelector(".interface-lightbox-image");
+        const title = lightbox.querySelector("#interfaceLightboxTitle");
+        const closeButton = lightbox.querySelector(".interface-lightbox-close");
+        let lastActiveTrigger = null;
+
+        const closeLightbox = () => {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("interface-lightbox-open");
+          image.removeAttribute("src");
+          image.setAttribute("alt", "");
+          if (lastActiveTrigger) {
+            lastActiveTrigger.focus();
+            lastActiveTrigger = null;
+          }
+        };
+
+        const openLightbox = (trigger) => {
+          const thumbnail = trigger.querySelector("img");
+          if (!thumbnail) return;
+          lastActiveTrigger = trigger;
+          image.src = thumbnail.currentSrc || thumbnail.src;
+          image.alt = thumbnail.alt || "";
+          title.textContent = trigger.dataset.lightboxTitle || thumbnail.alt || "Full image preview";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("interface-lightbox-open");
+          closeButton.focus();
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => openLightbox(trigger));
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

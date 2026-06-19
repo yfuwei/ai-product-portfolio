@@ -71,10 +71,10 @@
       .case-hero {
         display: grid;
         max-width: 100vw;
-        grid-template-columns: minmax(0, 0.98fr) minmax(340px, 1.02fr);
-        gap: clamp(28px, 5vw, 64px);
+        grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+        gap: clamp(24px, 4vw, 52px);
         align-items: center;
-        padding: clamp(44px, 6vw, 76px) clamp(20px, 5vw, 64px);
+        padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 64px);
         background:
           radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 34%),
           radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent 32%),
@@ -87,25 +87,34 @@
       }
 
       .case-hero h1 {
-        max-width: 860px;
+        max-width: 820px;
+        font-size: clamp(42px, 4.1vw, 56px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .hero-title-line {
+        display: block;
+        white-space: nowrap;
       }
 
       .case-subtitle {
-        max-width: 820px;
+        max-width: 860px;
         margin: 14px 0 0;
         color: var(--ink);
-        font-size: clamp(22px, 3vw, 34px);
-        font-weight: 900;
-        line-height: 1.25;
+        font-size: clamp(20px, 2.25vw, 28px);
+        font-weight: 850;
+        line-height: 1.22;
+        white-space: nowrap;
       }
 
       .case-hook-question {
         max-width: 780px;
-        margin: 24px 0 0;
+        margin: 22px 0 0;
         color: var(--accent-strong);
-        font-size: clamp(22px, 2.4vw, 30px);
-        font-weight: 900;
-        line-height: 1.45;
+        font-size: clamp(17px, 1.55vw, 21px);
+        font-weight: 750;
+        line-height: 1.42;
       }
 
       .case-lead {
@@ -139,11 +148,12 @@
         display: grid;
         min-width: 0;
         overflow: hidden;
-        gap: 14px;
-        padding: 18px;
-        background: var(--ink);
+        gap: 9px;
+        padding: 15px;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid rgba(148, 163, 184, 0.24);
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow);
+        box-shadow: var(--soft-shadow);
       }
 
       .case-visual-header {
@@ -151,13 +161,17 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        color: #ffffff;
+        gap: 8px;
+        color: var(--ink);
       }
 
       .case-visual-header span {
-        color: var(--sun);
-        font-size: 12px;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 11px;
         font-weight: 900;
         text-transform: uppercase;
       }
@@ -165,11 +179,11 @@
       .visual-panel {
         display: grid;
         min-width: 0;
-        gap: 12px;
-        padding: 18px;
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        gap: 8px;
+        padding: 12px;
+        color: var(--ink);
+        background: #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.22);
         border-radius: var(--radius-md);
       }
 
@@ -200,6 +214,69 @@
         font-size: 13px;
       }
 
+      .hero-flow {
+        display: grid;
+        gap: 4px;
+      }
+
+      .hero-flow-step {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+        padding: 9px 11px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+      }
+
+      .hero-flow-step em {
+        display: inline-grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: #eef4ff;
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: 999px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .hero-flow-step strong,
+      .hero-flow-step span {
+        display: block;
+      }
+
+      .hero-flow-step span {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.38;
+      }
+
+      .hero-flow-arrow {
+        color: rgba(37, 99, 235, 0.48);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 0.8;
+        text-align: center;
+      }
+
+      .hero-principle {
+        padding: 11px 13px;
+        color: #065f46;
+        background: #ecfdf5;
+        border: 1px solid rgba(20, 184, 166, 0.24);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
       .case-section {
         max-width: 100vw;
         padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
@@ -219,6 +296,18 @@
       .case-section .section-header {
         margin-right: 0;
         margin-left: 0;
+      }
+
+      #summary .section-header {
+        max-width: min(100%, 1120px);
+      }
+
+      #summary .section-title {
+        max-width: none;
+      }
+
+      .text-nowrap {
+        white-space: nowrap;
       }
 
       .problem-grid {
@@ -274,6 +363,1120 @@
         color: var(--accent-strong);
         font-style: normal;
         font-weight: 900;
+      }
+
+      .problem-chain,
+      .source-grid,
+      .context-card-fields {
+        display: grid;
+        gap: 14px;
+      }
+
+      .problem-chain {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .problem-principle,
+      .sample-principle,
+      .context-principle {
+        margin-top: 20px;
+        padding: 18px 20px;
+        color: var(--ink);
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(37, 99, 235, 0.08));
+        border: 1px solid rgba(20, 184, 166, 0.24);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.6;
+      }
+
+      .sample-layout,
+      .context-layer-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .sample-layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) minmax(0, 1fr);
+      }
+
+      .sample-brief,
+      .context-card-anatomy {
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-brief h3,
+      .context-card-anatomy h3 {
+        margin-top: 0;
+        color: var(--ink);
+        font-size: clamp(22px, 2.2vw, 30px);
+        line-height: 1.18;
+      }
+
+      .sample-brief p,
+      .context-card-anatomy p {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .sample-scenario {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 14px;
+        align-items: start;
+        margin-bottom: 14px;
+        padding: 18px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-scenario h3,
+      .sample-step h3,
+      .context-product-card h3,
+      .context-gate-panel h3 {
+        margin: 0;
+        color: var(--ink);
+        line-height: 1.2;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      .sample-scenario h3 {
+        font-size: clamp(22px, 2.2vw, 30px);
+      }
+
+      .sample-scenario p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.58;
+      }
+
+      .sample-scenario-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sample-scenario-list li {
+        padding: 7px 10px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.28;
+      }
+
+      .sample-path {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .sample-step {
+        position: relative;
+        min-width: 0;
+        padding: 13px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .sample-step:not(:last-child)::after {
+        position: absolute;
+        top: 24px;
+        right: -9px;
+        z-index: 1;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 13px;
+        font-weight: 900;
+        content: "→";
+      }
+
+      .sample-step-label {
+        display: inline-flex;
+        min-height: 24px;
+        align-items: center;
+        margin-bottom: 9px;
+        padding: 3px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .sample-step h3 {
+        font-size: 17px;
+      }
+
+      .sample-step p {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .sample-source-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 8px;
+      }
+
+      .sample-source-chips span {
+        padding: 4px 7px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .source-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sample-task-list {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sample-task-list li {
+        padding: 11px 13px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .sample-object-chain,
+      .context-flow-vertical {
+        display: grid;
+        gap: 8px;
+      }
+
+      .sample-object-node {
+        padding: 13px 14px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+      }
+
+      .sample-object-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .sample-object-arrow,
+      .context-flow-down {
+        color: rgba(37, 99, 235, 0.5);
+        font-weight: 900;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .context-flow {
+        display: grid;
+        gap: 10px;
+      }
+
+      .context-flow-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+      }
+
+      .context-flow-node {
+        min-height: 72px;
+        padding: 14px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        font-weight: 900;
+      }
+
+      .context-flow-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .context-flow-arrow {
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .context-card-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .context-layer-layout {
+        grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      }
+
+      .context-product-card,
+      .context-gate-panel {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .context-product-card {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      }
+
+      .context-product-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .context-product-label {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        margin-bottom: 8px;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-product-status {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 4px 9px;
+        color: #92400e;
+        background: #fffbeb;
+        border: 1px solid rgba(245, 158, 11, 0.28);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-product-card h3,
+      .context-gate-panel h3 {
+        font-size: clamp(21px, 1.9vw, 28px);
+      }
+
+      .context-candidate {
+        margin-bottom: 11px;
+        padding: 13px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+      }
+
+      .context-candidate strong,
+      .context-product-block strong,
+      .context-gate strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .context-candidate p,
+      .context-product-block p,
+      .context-gate p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .context-product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .context-product-block {
+        padding: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-gate-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .context-gate {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 9px;
+        padding: 11px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-gate em {
+        display: inline-grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .context-field {
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .context-field strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .context-field span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #problem .mini-card h3,
+      #sample .mini-card h3,
+      .sample-brief h3,
+      .context-card-anatomy h3,
+      .sample-step h3,
+      .context-product-card h3,
+      .context-gate-panel h3,
+      .context-product-block strong,
+      .context-gate strong,
+      .context-field strong,
+      .context-flow-node,
+      .sample-object-node {
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      #problem .mini-card p,
+      #sample .mini-card p,
+      .context-field span {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-compare {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        padding: 12px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.72), rgba(248, 250, 252, 0.94));
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+      }
+
+      #before-after .section-description,
+      #intervention .section-description,
+      #unit .section-description {
+        width: 100%;
+        max-width: none;
+      }
+
+      #before-after .section-header,
+      #intervention .section-header,
+      #unit .section-header {
+        max-width: none;
+      }
+
+      @media (min-width: 1081px) {
+        #before-after .section-description,
+        #intervention .section-description {
+          white-space: nowrap;
+        }
+
+        #unit .section-title {
+          max-width: none;
+          white-space: nowrap;
+        }
+      }
+
+      .rag-card,
+      .object-card,
+      .interface-card {
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .rag-card {
+        position: relative;
+      }
+
+      #before-after .rag-card {
+        padding: 6px 18px 6px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      #before-after .rag-card:first-child {
+        border-left: 0;
+      }
+
+      .rag-card:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        color: rgba(37, 99, 235, 0.5);
+        font-weight: 900;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      #before-after .rag-card span {
+        min-height: 0;
+        padding: 0;
+        color: var(--accent-strong);
+        background: transparent;
+        border-radius: 0;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+
+      .rag-card span,
+      .object-card span,
+      .interface-card span,
+      .interface-evidence span {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-card h3,
+      .object-card h3,
+      .interface-card h3 {
+        margin: 12px 0 8px;
+        color: var(--ink);
+        font-size: 19px;
+        line-height: 1.25;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      #before-after .rag-card h3 {
+        margin: 7px 0 5px;
+        font-size: 17px;
+      }
+
+      #before-after .rag-card p {
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .rag-card p,
+      .object-card p,
+      .interface-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.58;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-boundary {
+        margin-top: 18px;
+        padding: 14px 16px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .rag-work-nodes {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .rag-work-node {
+        padding: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+      }
+
+      .rag-work-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .rag-work-node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .rag-mechanism-board {
+        margin: 20px 0 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), var(--soft-shadow);
+      }
+
+      .rag-mechanism-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .rag-mechanism-header strong {
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .rag-mechanism-header span {
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) auto minmax(0, 1.2fr) auto minmax(0, 0.9fr);
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .rag-mechanism-column {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid transparent;
+        border-radius: var(--radius-md);
+      }
+
+      .rag-mechanism-column.problem {
+        background: rgba(255, 251, 235, 0.72);
+        border-color: rgba(245, 158, 11, 0.18);
+      }
+
+      .rag-mechanism-column.ai {
+        background: rgba(239, 246, 255, 0.82);
+        border-color: rgba(37, 99, 235, 0.16);
+      }
+
+      .rag-mechanism-column.product {
+        background: rgba(240, 253, 250, 0.76);
+        border-color: rgba(20, 184, 166, 0.18);
+      }
+
+      .rag-mechanism-column header {
+        display: grid;
+        gap: 6px;
+      }
+
+      .rag-mechanism-column span {
+        width: fit-content;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-column h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.2;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      .rag-mechanism-column ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rag-mechanism-column li {
+        display: grid;
+        gap: 3px;
+        padding: 2px 0 2px 10px;
+        color: var(--text);
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(37, 99, 235, 0.18);
+        border-radius: 0;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      .rag-mechanism-column li strong {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .rag-mechanism-column li span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .rag-mechanism-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.68);
+        font-size: 26px;
+        font-weight: 900;
+      }
+
+      .rag-mechanism-note {
+        margin: 12px 0 0;
+        padding-top: 10px;
+        color: var(--muted);
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .object-chain {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .object-card {
+        display: grid;
+        align-content: start;
+        gap: 9px;
+      }
+
+      .object-card dl {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .object-source {
+        margin: 0;
+        padding: 0 0 6px;
+        color: var(--muted);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+        font-size: 11.5px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .object-source strong {
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .object-card .object-label {
+        min-height: 0;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .object-card h3 {
+        margin: 0;
+      }
+
+      .object-card dt {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .object-card dd {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .object-principle {
+        margin-top: 18px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(37, 99, 235, 0.07));
+        border: 1px solid rgba(20, 184, 166, 0.22);
+        border-left: 4px solid var(--mint);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .interface-layout {
+        display: grid;
+        gap: 18px;
+      }
+
+      .interface-cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.72), rgba(240, 253, 250, 0.52));
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+      }
+
+      .interface-card {
+        padding: 4px 0 4px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 3px solid rgba(37, 99, 235, 0.22);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .interface-card h3 {
+        margin: 0 0 3px;
+        font-size: 17px;
+      }
+
+      .interface-card span {
+        min-height: 0;
+        padding: 0;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .interface-card p {
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .interface-evidence-group {
+        margin-top: 6px;
+        padding: 18px;
+        background: linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), var(--soft-shadow);
+      }
+
+      .interface-evidence-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .interface-evidence-header h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .interface-evidence-header p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .interface-evidence {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .interface-evidence figure {
+        margin: 0;
+        padding: 10px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      }
+
+      .interface-evidence figure:hover,
+      .interface-evidence figure:focus-within {
+        border-color: rgba(37, 99, 235, 0.28);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .interface-evidence img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: var(--radius-sm);
+        transition: transform 190ms ease, filter 190ms ease;
+      }
+
+      .interface-evidence figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .interface-shot-trigger {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-radius: var(--radius-sm);
+        cursor: zoom-in;
+      }
+
+      .interface-shot-trigger:hover img,
+      .interface-shot-trigger:focus-visible img {
+        filter: saturate(1.04);
+        transform: scale(1.02);
+      }
+
+      .interface-shot-trigger:focus-visible {
+        outline: 2px solid rgba(37, 99, 235, 0.72);
+        outline-offset: 3px;
+      }
+
+      .interface-shot-zoom-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        padding: 4px 8px;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 850;
+        line-height: 1.2;
+        opacity: 0;
+        transform: translateY(-3px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .interface-shot-trigger:hover .interface-shot-zoom-label,
+      .interface-shot-trigger:focus-visible .interface-shot-zoom-label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.interface-lightbox-open {
+        overflow: hidden;
+      }
+
+      .interface-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(15, 23, 42, 0.74);
+      }
+
+      .interface-lightbox.is-open {
+        display: flex;
+      }
+
+      .interface-lightbox-panel {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        width: min(96vw, 1280px);
+        max-height: 94vh;
+      }
+
+      .interface-lightbox-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 850;
+        line-height: 1.35;
+      }
+
+      .interface-lightbox-image-wrap {
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: var(--radius-md);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+      }
+
+      .interface-lightbox-image {
+        display: block;
+        max-width: min(96vw, 1280px);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      .interface-lightbox-close {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        display: inline-grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .interface-lightbox-close:focus-visible {
+        outline: 2px solid rgba(191, 219, 254, 0.9);
+        outline-offset: 3px;
+      }
+
+      .architecture-figure-group {
+        margin-top: 0;
+      }
+
+      .architecture-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-gallery figure {
+        padding: 12px;
+      }
+
+      .architecture-principle,
+      .validation-principle {
+        margin-top: 18px;
+        padding: 15px 17px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-weight: 900;
+        line-height: 1.55;
       }
 
       .lane-compare {
@@ -356,7 +1559,6 @@
       }
 
       .choice-card,
-      .evolution-card,
       .trace-card,
       .badcase-card {
         padding: 18px;
@@ -367,7 +1569,6 @@
       }
 
       .choice-card span,
-      .evolution-card span,
       .trace-card span,
       .badcase-card span {
         display: inline-flex;
@@ -382,7 +1583,6 @@
       }
 
       .choice-card h3,
-      .evolution-card h3,
       .trace-card h3,
       .badcase-card h3 {
         margin-top: 12px;
@@ -390,64 +1590,23 @@
       }
 
       .choice-card p,
-      .evolution-card p,
       .trace-card p,
       .badcase-card p {
         color: var(--muted);
       }
 
-      .evolution-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+      .evolution-figure-group {
+        margin-top: 0;
       }
 
-      .evolution-card {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+      .evolution-gallery {
+        grid-template-columns: 1fr;
       }
 
-      .evolution-card h3 {
-        margin: 0;
-        color: var(--ink);
-        font-size: clamp(22px, 2vw, 28px);
-        line-height: 1.18;
+      .evolution-gallery figure {
+        padding: 12px;
       }
 
-      .evolution-question {
-        margin: 0;
-        color: var(--accent-strong);
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 1.45;
-      }
-
-      .evolution-summary {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.65;
-      }
-
-      .evolution-abilities {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 2px;
-      }
-
-      .evolution-abilities span {
-        min-height: 26px;
-        padding: 5px 8px;
-        color: var(--accent-strong);
-        background: #eef4ff;
-        border: 1px solid rgba(37, 99, 235, 0.14);
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .evolution-card ul,
       .trace-card dl,
       .badcase-card dl,
       .maintenance-grid ul {
@@ -497,6 +1656,191 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
         margin-top: 18px;
+      }
+
+      .validation-layout {
+        display: grid;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .validation-panel {
+        display: grid;
+        gap: 14px;
+      }
+
+      .validation-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0;
+        padding: 14px;
+        align-items: stretch;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+      }
+
+      .validation-dimension {
+        position: relative;
+        display: grid;
+        gap: 7px;
+        align-content: start;
+        min-width: 0;
+        padding: 10px 14px;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .validation-dimension:not(:first-child) {
+        border-left: 1px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .validation-dimension:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -8px;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.5);
+        font-size: 16px;
+        font-weight: 900;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      .validation-dimension strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.28;
+      }
+
+      .validation-dimension p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .validation-step-label {
+        color: var(--accent-strong);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .validation-loop-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.58);
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .validation-feedback {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+        color: #065f46;
+        background: rgba(236, 253, 245, 0.9);
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .validation-feedback strong {
+        color: var(--ink);
+      }
+
+      .validation-detail-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 12px 14px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius-md);
+      }
+
+      .validation-detail {
+        padding: 0 10px;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .validation-detail + .validation-detail {
+        border-left: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .validation-detail h3 {
+        margin: 0 0 9px;
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
+      .validation-detail p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .validation-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .validation-actions li {
+        padding: 7px 9px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .validation-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      #agent .section-header,
+      #evolution .section-header,
+      #evaluation .section-header {
+        max-width: none;
+      }
+
+      #agent .section-description,
+      #evolution .section-description,
+      #evaluation .section-description {
+        width: 100%;
+        max-width: none;
+      }
+
+      #agent .section-title,
+      #evolution .section-title,
+      #evaluation .section-title {
+        max-width: none;
+        word-break: keep-all;
+        overflow-wrap: normal;
+      }
+
+      @media (min-width: 1024px) {
+        #evaluation .section-title {
+          font-size: clamp(34px, 3vw, 44px);
+          white-space: nowrap;
+        }
       }
 
       .card-grid {
@@ -677,6 +2021,218 @@
         min-height: 150px;
       }
 
+      .closing-loop-panel {
+        margin-top: 18px;
+        padding: 22px;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 54%, #f0fdfa 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      }
+
+      .closing-loop-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .closing-loop-header h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(24px, 2.3vw, 34px);
+        line-height: 1.18;
+      }
+
+      .closing-loop-header p {
+        max-width: 680px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .closing-loop-diagram {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .closing-loop-node {
+        display: grid;
+        gap: 9px;
+        min-width: 0;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-left: 4px solid rgba(37, 99, 235, 0.46);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-loop-node.return {
+        border-left-color: rgba(20, 184, 166, 0.7);
+      }
+
+      .closing-loop-node em {
+        color: var(--accent-strong);
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .closing-loop-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.25;
+      }
+
+      .closing-loop-node p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .closing-loop-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .closing-loop-tags li,
+      .closing-role-tags li {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 7px;
+        color: var(--accent-strong);
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .closing-loop-arrow {
+        display: grid;
+        place-items: center;
+        color: rgba(37, 99, 235, 0.56);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .closing-loop-return {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-top: 12px;
+        padding: 11px 13px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px dashed rgba(20, 184, 166, 0.38);
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .closing-loop-return strong {
+        color: #065f46;
+      }
+
+      .closing-side-notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .closing-note {
+        display: grid;
+        gap: 8px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-note h3,
+      .closing-roles h3,
+      .closing-compare h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .closing-note p,
+      .closing-roles p,
+      .closing-compare p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .closing-note-list,
+      .closing-boundary-list {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .closing-roles,
+      .closing-compare {
+        margin-top: 12px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.48);
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        border-radius: var(--radius-md);
+      }
+
+      .closing-role-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 8px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .closing-maintain-line {
+        margin-top: 6px;
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .closing-compare p + p {
+        margin-top: 8px;
+      }
+
+      .summary-final {
+        margin-top: 16px;
+        padding: 16px 18px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid rgba(245, 158, 11, 0.24);
+        border-left: 4px solid var(--sun);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
       .boundary-grid {
         display: grid;
         grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -756,12 +2312,31 @@
         .case-hero,
         .problem-grid,
         .role-grid,
+        .problem-chain,
+        .source-grid,
+        .sample-scenario,
+        .sample-path,
+        .sample-layout,
+        .context-layer-layout,
+        .context-product-grid,
+        .context-card-fields,
+        .rag-compare,
+        .rag-work-nodes,
+        .rag-mechanism-grid,
+        .object-chain,
+        .interface-layout,
+        .interface-cards,
+        .interface-evidence,
         .choice-grid,
         .maintenance-grid,
         .lane-compare,
-        .evolution-grid,
+        .validation-layout,
+        .validation-grid,
+        .validation-detail-row,
         .trace-layout,
         .badcase-grid,
+        .closing-loop-diagram,
+        .closing-side-notes,
         .boundary-compare,
         .card-grid,
         .unit-grid,
@@ -773,6 +2348,52 @@
 
         .visual-row {
           grid-template-columns: 1fr;
+        }
+
+        .sample-path {
+          gap: 24px;
+        }
+
+        .sample-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .rag-card:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -18px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .rag-mechanism-arrow,
+        .validation-loop-arrow {
+          transform: rotate(90deg);
+        }
+
+        .validation-dimension:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -15px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .validation-dimension:not(:first-child),
+        .validation-detail + .validation-detail {
+          border-top: 1px solid rgba(148, 163, 184, 0.18);
+          border-left: 0;
+        }
+
+        .closing-loop-arrow {
+          transform: rotate(90deg);
         }
       }
 
@@ -791,13 +2412,34 @@
         .case-visual,
         .visual-panel,
         .visual-node,
+        .hero-flow-step,
+        .sample-scenario,
+        .sample-step,
+        .sample-object-node,
+        .context-product-card,
+        .context-gate-panel,
+        .context-product-block,
+        .context-gate,
+        .rag-card,
+        .rag-work-node,
+        .rag-mechanism-board,
+        .rag-mechanism-column,
+        .object-card,
+        .interface-card,
+        .interface-evidence figure,
+        .context-flow-node,
+        .context-field,
         .mini-card,
         .flow-card,
         .loop-card,
         .choice-card,
-        .evolution-card,
         .trace-card,
         .badcase-card,
+        .closing-loop-panel,
+        .closing-loop-node,
+        .closing-note,
+        .closing-roles,
+        .closing-compare,
         .lane,
         .module-card,
         .callout-card,
@@ -813,7 +2455,15 @@
           font-size: clamp(28px, 8vw, 32px);
           line-height: 1.18;
           overflow-wrap: anywhere;
-          word-break: break-all;
+          word-break: keep-all;
+        }
+
+        .case-hero h1 br {
+          display: block;
+        }
+
+        .hero-title-line {
+          white-space: normal;
         }
 
         .case-subtitle,
@@ -821,7 +2471,8 @@
           width: 100%;
           max-width: 100%;
           overflow-wrap: anywhere;
-          word-break: break-all;
+          white-space: normal;
+          word-break: keep-all;
         }
 
         h2,
@@ -830,7 +2481,7 @@
           font-size: clamp(24px, 7.2vw, 30px);
           line-height: 1.22;
           overflow-wrap: anywhere;
-          word-break: break-all;
+          word-break: keep-all;
         }
 
         .case-lead,
@@ -849,7 +2500,7 @@
           font-size: 20px;
           line-height: 1.45;
           overflow-wrap: anywhere;
-          word-break: break-all;
+          word-break: keep-all;
         }
 
         .case-hero {
@@ -894,8 +2545,31 @@
           padding: 12px;
         }
 
+        .interface-lightbox {
+          padding: 12px;
+        }
+
+        .interface-lightbox-panel {
+          width: 100%;
+        }
+
+        .interface-lightbox-close {
+          top: 8px;
+          right: 8px;
+          width: 42px;
+          height: 42px;
+        }
+
+        .interface-lightbox-title {
+          padding-right: 52px;
+        }
+
         .visual-node strong,
         .visual-node span,
+        .hero-flow-step strong,
+        .hero-flow-step span,
+        .context-flow-node,
+        .context-field,
         .mini-card p,
         .flow-card p,
         .loop-card p,
@@ -903,6 +2577,15 @@
         th {
           overflow-wrap: anywhere;
           word-break: break-word;
+        }
+
+        .context-flow-row {
+          grid-template-columns: 1fr;
+        }
+
+        .context-flow-arrow {
+          text-align: center;
+          transform: rotate(90deg);
         }
 
         .hero-actions .button-primary,
@@ -935,16 +2618,16 @@
         <span>企业知识工作台</span>
       </a>
       <nav class="case-nav" aria-label="案例导航">
-        <a href="#problem">问题定义</a>
-        <a href="#roles">用户任务</a>
-        <a href="#before-after">流程对比</a>
-        <a href="#intervention">AI 介入点</a>
+        <a href="#problem">业务问题</a>
+        <a href="#sample">贯穿样例</a>
         <a href="#context-layer">可信上下文层</a>
+        <a href="#before-after">RAG 接入前后</a>
+        <a href="#intervention">核心对象</a>
+        <a href="#unit">关键界面</a>
+        <a href="#agent">架构判断</a>
         <a href="#evolution">演进</a>
-        <a href="#agent">Agent 工作流</a>
-        <a href="#maintainability">可维护机制</a>
-        <a href="#evaluation">验证闭环</a>
-        <a href="#boundary">边界</a>
+        <a href="#evaluation">验证边界</a>
+        <a href="#summary">项目总结</a>
         <a class="nav-link--lang" href="/ai-product-portfolio/en/docs/module1-enterprise-knowledge-workspace/index.html">EN</a>
         <a class="nav-link--home" href="/ai-product-portfolio/index.html">返回首页</a>
       </nav>
@@ -953,20 +2636,21 @@
     <main>
       <section class="case-hero" id="overview">
         <div class="case-hero-copy">
-          <p class="section-kicker">项目 01｜知识型 AI 应用</p>
-          <h1>企业知识工作台</h1>
-          <p class="case-subtitle">从可信上下文到 Agent 工作流的产品化演进</p>
+          <p class="section-kicker">项目 01｜企业知识工作台</p>
+          <h1><span class="hero-title-line">知识被找到只是开始，</span><span class="hero-title-line">被可信使用才是产品。</span></h1>
+          <p class="case-subtitle">从可信上下文到 Agent 工作流的产品化演进。</p>
           <p class="case-hook-question">模型都这么强了，为什么企业还需要自己的知识系统？</p>
           <p class="case-lead">
-            因为企业不只需要“一个像样的回答”，还需要知道答案来自哪里、是否适用于当前场景、资料是否更新、权限是否可控，以及出错后能否定位、修正和回滚。
+            这个项目不是做一个知识库问答机器人，而是设计一套企业知识工作台：把分散在文档、制度、会议、项目资料和历史经验中的知识，整理成可引用、可追溯、可校验、可进入任务流程的可信上下文。
           </p>
           <div class="status-card">
-            项目状态：产品级原型 / 可演示 MVP，用于验证企业知识复用与 Agent 工作流在真实工作场景中的可行性。
+            AI 可以组织知识，但业务判断必须建立在来源、权限、版本和适用范围之上。
           </div>
           <div class="hero-tags">
-            <span>可信上下文层</span>
-            <span>Agent 工作流</span>
-            <span>评估与回滚</span>
+            <span>可引用</span>
+            <span>可追溯</span>
+            <span>人审确认</span>
+            <span>进入工作台任务</span>
           </div>
           <div class="hero-actions">
             <a class="button-primary" href="../../assets/docs/enterprise_knowledge_workspace_prd_out_cn_v1.2.pdf">查看中文产品设计文档 PDF</a>
@@ -977,111 +2661,184 @@
 
         <aside class="case-visual" aria-label="企业知识工作台产品责任单元概览">
           <div class="case-visual-header">
-            <strong>企业知识 AI 的产品化路径</strong>
-            <span>从上下文到工作流</span>
+            <strong>企业知识进入可信工作流</strong>
+            <span>知识进入工作流</span>
           </div>
           <div class="visual-panel">
-            <div class="visual-row">
-              <div class="visual-node"><strong>可信上下文层</strong><span>指定资料、引用溯源、知识更新、权限边界</span></div>
-              <div class="visual-node"><strong>Agent 工作流</strong><span>Router、Tool、Memory、人审确认、连续知识任务</span></div>
-              <div class="visual-node"><strong>评估与回滚</strong><span>badcase、eval set、版本记录、rollback</span></div>
+            <div class="hero-flow">
+              <div class="hero-flow-step"><em>1</em><div><strong>分散知识</strong><span>文档、制度、会议、项目资料、历史经验</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>2</em><div><strong>可信上下文层</strong><span>来源、权限、版本、引用、适用范围</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>3</em><div><strong>上下文校验 / 人审确认</strong><span>确认这段知识是否能被当前任务使用</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>4</em><div><strong>工作台任务 / 行动简报</strong><span>进入可复核、可继续推进的工作台对象</span></div></div>
+              <div class="hero-flow-arrow">↓</div>
+              <div class="hero-flow-step"><em>5</em><div><strong>复核记录 / 知识更新</strong><span>记录反馈、更新依据、沉淀可复用上下文</span></div></div>
             </div>
-            <div class="visual-node">
-              <strong>核心判断</strong>
-              <span>不是让模型自由回答，而是让 AI 输出进入可核验、可确认、可评估、可回滚的企业知识工作流。</span>
+            <div class="hero-principle">
+              不是让模型自由回答，而是让知识先经过上下文校验，再进入可引用、可追溯、可确认的工作流。
             </div>
           </div>
         </aside>
       </section>
 
-      <section class="case-section alt" id="workspace-home">
-        <div class="case-container">
-          <div class="insight-callout">
-            <strong>从“能回答”到“敢采用”，企业知识 AI 的关键不是更聪明，而是有证据、有边界、可追溯、可回滚。</strong>
-            <p>在企业场景中，答案本身不是终点。业务负责人真正关心的是：这句话从哪里来，是否适用于当前情境，出了错能否定位和修正。</p>
-          </div>
-          <div class="section-header">
-            <p class="section-kicker">产品形态</p>
-            <h2 class="section-title">产品形态：从分散资料进入结构化知识工作流</h2>
-            <p class="section-description">项目 1 不是纯文字方案，也不是单点 RAG Demo。页面先展示工作台首页形态，让读者看到知识检索、项目复盘、经验沉淀和评估入口如何被组织到同一个产品界面中。</p>
-          </div>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="企业知识工作台首页示意" loading="lazy" />
-            <figcaption><span class="figure-title">工作台首页示意</span>首页统一承接知识检索、项目复盘、经验沉淀与评估入口，帮助用户从分散资料进入一套结构化的知识工作流。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section" id="problem">
+      <section class="case-section alt" id="problem">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">业务问题</p>
-            <h2 class="section-title">业务问题定义</h2>
-            <p class="section-description">本项目先定义企业知识复用与决策准备场景，再判断 AI 应该进入哪些知识工作节点。</p>
+            <p class="section-kicker">01｜业务问题</p>
+            <h2 class="section-title">企业不是缺知识，而是知识不能被可信使用。</h2>
+            <p class="section-description">企业文档、制度、会议纪要、项目资料和历史经验并不少。真正的断点在于：知识即使被 AI 找到，业务仍然不知道它来自哪里、是不是最新、谁能使用、适不适用于当前判断，因此很难进入方案、复盘或下一步行动。</p>
           </div>
-          <div class="problem-grid">
+          <div class="problem-chain">
             <article class="mini-card">
-              <span>资料分散</span>
-              <h3>资料不在同一处</h3>
-              <p>项目资料、会议记录、复盘文档和规则说明散落在不同位置。</p>
+              <span>来源分散</span>
+              <h3>找到了，也不敢用</h3>
+              <p>产品手册、制度、会议纪要和 FAQ 分散在多处，单次搜索很难还原完整依据链。</p>
             </article>
             <article class="mini-card">
-              <span>经验难复用</span>
-              <h3>经验留在人脑里</h3>
-              <p>历史项目经验依赖个人记忆，新人或跨部门接手成本高。</p>
+              <span>版本约束</span>
+              <h3>看到了，也未必有效</h3>
+              <p>方案、政策和流程会更新。没有版本与更新时间，内容只能停留在参考。</p>
             </article>
             <article class="mini-card">
-              <span>依据难追溯</span>
-              <h3>结论缺少来源</h3>
-              <p>结论被复用时，来源、依据和历史判断难以确认。</p>
+              <span>适用范围</span>
+              <h3>相关，不代表适用</h3>
+              <p>同一句知识可能只适用于特定客户、产品版本、区域或流程阶段。</p>
             </article>
             <article class="mini-card">
-              <span>复盘难沉淀</span>
-              <h3>项目结束即沉默</h3>
-              <p>材料留在文档里，没有进入可持续检索和迭代机制。</p>
+              <span>追溯断点</span>
+              <h3>用了，也难以复核</h3>
+              <p>没有来源、权限、引用和人审入口，输出难以复核，也难进入工作台任务。</p>
             </article>
+          </div>
+          <div class="problem-principle">
+            企业真正缺的不是更多答案，而是能支撑判断、复核和行动的可信上下文。
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="roles">
+      <section class="case-section" id="sample">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">用户角色</p>
-            <h2 class="section-title">用户角色与核心任务</h2>
-            <p class="section-description">这不是一个给所有人闲聊的知识库，而是服务于高频知识工作的角色。用户表面上是在“搜索资料”，实际是在完成一段需要依据、判断和沉淀的知识工作。</p>
+            <p class="section-kicker">02｜贯穿样例 / 用户任务</p>
+            <h2 class="section-title">一次业务判断，需要哪些可信上下文？</h2>
+            <p class="section-description">先别急着让 AI 回答。一个销售、运营或产品同学准备客户方案、业务判断材料或项目复盘材料时，真正要完成的不是“问 AI 一个问题”，而是基于可信来源整理一份可引用、可复核、可进入下一步行动的上下文。</p>
           </div>
-          <div class="role-grid">
-            <article class="mini-card">
-              <span>项目负责人 / 产品经理</span>
-              <h3>快速找到历史判断</h3>
-              <p>查找历史方案、复盘资料和决策依据，用于新项目判断和方案准备。</p>
+          <article class="sample-scenario">
+            <div>
+              <h3>场景：准备客户方案、业务判断或项目复盘材料</h3>
+              <p>用户不是在问 AI 一个问题，而是在完成一次需要依据、限制和后续行动的业务判断。</p>
+            </div>
+            <ul class="sample-scenario-list">
+              <li>当前客户是否适合某个产品能力？</li>
+              <li>哪些承诺可以引用？</li>
+              <li>哪些限制必须提前说明？</li>
+              <li>过去项目里有哪些经验可以复用？</li>
+            </ul>
+          </article>
+          <div class="sample-path" aria-label="业务判断被工作台接住的任务链路">
+            <article class="sample-step">
+              <span class="sample-step-label">1. 判断任务</span>
+              <h3>明确要完成什么</h3>
+              <p>准备客户方案、业务判断材料或项目复盘材料。</p>
             </article>
-            <article class="mini-card">
-              <span>新接手成员</span>
-              <h3>快速理解项目背景</h3>
-              <p>补齐项目上下文，了解历史取舍、关键资料和已有结论。</p>
+            <article class="sample-step">
+              <span class="sample-step-label">2. 可信来源</span>
+              <h3>找到可用依据</h3>
+              <p>召回与当前判断相关的资料，而不是只找相似文本。</p>
+              <div class="sample-source-chips" aria-label="可信来源示例">
+                <span>产品手册</span>
+                <span>制度文件</span>
+                <span>会议纪要 / FAQ</span>
+                <span>历史项目 / 过往案例</span>
+              </div>
             </article>
-            <article class="mini-card">
-              <span>管理者 / 决策参与者</span>
-              <h3>确认结论是否可信</h3>
-              <p>查看结论依据、历史案例和风险点，减少只看摘要带来的误判。</p>
+            <article class="sample-step">
+              <span class="sample-step-label">3. 上下文卡</span>
+              <h3>组织候选上下文</h3>
+              <p>把相关知识整理成带来源、引用、版本和适用范围的候选上下文。</p>
             </article>
-            <article class="mini-card">
-              <span>运营 / PMO / 知识管理角色</span>
-              <h3>沉淀组织知识</h3>
-              <p>维护项目经验，把重复沟通转成可检索、可复盘、可迭代的知识资产。</p>
+            <article class="sample-step">
+              <span class="sample-step-label">4. 上下文校验</span>
+              <h3>确认能不能用</h3>
+              <p>由人确认来源是否可靠、版本是否有效、范围是否适用。</p>
+            </article>
+            <article class="sample-step">
+              <span class="sample-step-label">5. 行动简报</span>
+              <h3>进入工作台任务</h3>
+              <p>确认后的上下文进入方案、复盘或下一步行动材料。</p>
             </article>
           </div>
-          <div class="task-chain" aria-label="知识工作任务链">
-            <span>找资料</span><i>→</i>
-            <span>找依据</span><i>→</i>
-            <span>整理结论</span><i>→</i>
-            <span>项目复盘</span><i>→</i>
-            <span>决策准备</span><i>→</i>
-            <span>形成参考建议</span><i>→</i>
-            <span>沉淀经验</span><i>→</i>
-            <span>连续追问</span>
+          <div class="sample-principle">
+            AI 负责召回、归纳和组织上下文；人负责确认来源、版本、适用范围和下一步使用。
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="context-layer">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">03｜可信上下文层</p>
+            <h2 class="section-title">RAG 不是终点，可信上下文才是起点。</h2>
+            <p class="section-description">上下文卡不是一段 AI 摘要，而是一组进入工作流前必须被检查的使用条件。它让用户先看依据、边界和风险，再决定是否把它放进行动简报。</p>
+          </div>
+          <div class="context-layer-layout">
+            <article class="context-product-card">
+              <div class="context-product-header">
+                <div>
+                  <span class="context-product-label">上下文卡｜候选上下文对象</span>
+                  <h3>一张带依据、边界和人审入口的上下文卡</h3>
+                </div>
+                <span class="context-product-status">状态：待确认</span>
+              </div>
+              <div class="context-candidate">
+                <strong>候选判断</strong>
+                <p>这段知识可能支持当前客户方案中的某项能力说明，但必须先确认来源、版本、适用范围和风险。</p>
+              </div>
+              <div class="context-product-grid">
+                <div class="context-product-block">
+                  <strong>证据依据</strong>
+                  <p>来源与引用：来自产品手册 v2.1、历史项目复盘、会议 FAQ，并保留可追溯的原文片段或段落位置。</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>使用条件</strong>
+                  <p>权限与版本：当前用户是否有权使用？对应的产品、政策或流程版本是否仍然有效？</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>适用范围</strong>
+                  <p>适用范围与更新时间：适用于什么客户、地区、产品版本或流程阶段？是否可能已经过期？</p>
+                </div>
+                <div class="context-product-block">
+                  <strong>风险与人审</strong>
+                  <p>风险与人审：证据不足、语义相近但场景不同、影响承诺的内容，需要业务负责人确认。</p>
+                </div>
+              </div>
+            </article>
+            <aside class="context-gate-panel" aria-label="上下文进入工作流前的校验门">
+              <h3>进入工作流前的校验门</h3>
+              <div class="context-gate-list">
+                <div class="context-gate">
+                  <em>01</em>
+                  <div><strong>能不能引用？</strong><p>有明确来源、原文片段和段落位置。</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>02</em>
+                  <div><strong>能不能使用？</strong><p>符合当前用户的权限和有效版本要求。</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>03</em>
+                  <div><strong>适不适用？</strong><p>匹配当前客户、场景、地区或流程阶段。</p></div>
+                </div>
+                <div class="context-gate">
+                  <em>04</em>
+                  <div><strong>需不需要人审？</strong><p>高风险、低置信或影响承诺的内容必须由人确认。</p></div>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="context-principle">
+            可信上下文层的价值不是让 AI 多说一点，而是防止知识在没有权限、版本和责任边界的情况下被误用。
           </div>
         </div>
       </section>
@@ -1089,464 +2846,461 @@
       <section class="case-section" id="before-after">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">流程对比</p>
-            <h2 class="section-title">AI 接入前后：从人工翻资料到可追溯知识工作流</h2>
-            <p class="section-description">同样是“找资料”，接入 AI 工作台前后最大的差异不是速度，而是结论、依据、人审和后续沉淀是否被组织进同一条任务链。</p>
+            <p class="section-kicker">04｜AI / RAG 接入前后</p>
+            <h2 class="section-title">RAG 改变的是上下文组织，不是替人判断。</h2>
+            <p class="section-description">AI 接入后的价值不是给出一个看似完整的聊天回答，而是把分散知识整理成可复核、可确认、可进入工作流的候选上下文。</p>
           </div>
-          <div class="lane-compare">
-            <article class="lane before">
-              <h3>改造前：没有 AI 工作台时</h3>
-              <div class="lane-steps">
-                <span>产生资料</span>
-                <span>散落存储</span>
-                <span>人工搜索</span>
-                <span>打开多个文档</span>
-                <span>手动对比</span>
-                <span>整理结论</span>
-                <span>写汇报或复盘</span>
-                <span>经验再次散落</span>
-              </div>
-              <ul class="tag-list">
-                <li>依赖关键词和路径记忆</li>
-                <li>找到文件后仍要人工翻阅</li>
-                <li>结论和依据分离</li>
-                <li>复盘难以沉淀为组织资产</li>
-              </ul>
+          <div class="rag-compare" aria-label="RAG 接入前后的上下文组织变化">
+            <article class="rag-card">
+              <span>接入前</span>
+              <h3>人手动翻资料</h3>
+              <p>在产品手册、制度、会议纪要、FAQ 和历史项目中找材料，还要自行判断版本、权限和适用范围。</p>
             </article>
-            <article class="lane after">
-              <h3>改造后：有 AI 工作台后</h3>
-              <div class="lane-steps">
-                <span>提出知识任务</span>
-                <span>AI 判断任务类型</span>
-                <span>检索指定资料</span>
-                <span>返回引用来源</span>
-                <span>生成结构化草稿</span>
-                <span>人工确认</span>
-                <span>进入复盘 / 经验沉淀 / eval set</span>
-              </div>
-              <ul class="tag-list">
-                <li>AI 负责召回、整理、溯源</li>
-                <li>人负责判断、确认、取舍</li>
-                <li>badcase 进入迭代机制</li>
-                <li>输出进入可维护知识工作流</li>
-              </ul>
+            <article class="rag-card">
+              <span>AI 组织上下文</span>
+              <h3>召回、聚合、标注线索</h3>
+              <p>召回相关知识，聚合相似片段，并附带来源、引用、版本线索和风险提示。</p>
+            </article>
+            <article class="rag-card">
+              <span>接入后</span>
+              <h3>输出进入上下文卡</h3>
+              <p>输出不再只是聊天回答，而是进入可复核、可确认的上下文卡。</p>
+            </article>
+            <article class="rag-card">
+              <span>人审边界</span>
+              <h3>最终判断仍需确认</h3>
+              <p>AI 不直接给最终业务结论，也不替业务负责人确认知识是否适用。</p>
             </article>
           </div>
+          <div class="rag-boundary">
+            这一屏的产品判断是：RAG 不是终点，它只把知识变成候选上下文；可信工作台要继续处理来源、权限、版本、引用、适用范围和人审边界。
+          </div>
+          <figure class="rag-mechanism-board" aria-label="业务问题到 AI RAG 介入点再到产品责任单元的机制图">
+            <div class="rag-mechanism-header">
+              <strong>从业务断点到产品对象的转译机制</strong>
+              <span>业务断点 → 候选上下文 → 产品对象</span>
+            </div>
+            <div class="rag-mechanism-grid">
+              <section class="rag-mechanism-column problem">
+                <header>
+                  <span>第一段</span>
+                  <h3>业务断点</h3>
+                </header>
+                <ul>
+                  <li><strong>资料分散</strong><span>文档、制度、会议和 FAQ 分散在多处</span></li>
+                  <li><strong>经验难复用</strong><span>历史判断留在项目和个人经验里</span></li>
+                  <li><strong>依据难追溯</strong><span>找到文本后仍不知道能否引用</span></li>
+                  <li><strong>复盘难沉淀</strong><span>项目结束后经验再次散落</span></li>
+                </ul>
+              </section>
+              <div class="rag-mechanism-arrow" aria-hidden="true">→</div>
+              <section class="rag-mechanism-column ai">
+                <header>
+                  <span>第二段</span>
+                  <h3>AI 介入点</h3>
+                </header>
+                <ul>
+                  <li><strong>找资料</strong><span>语义检索相关片段</span></li>
+                  <li><strong>找依据</strong><span>定位引用来源和证据片段</span></li>
+                  <li><strong>整理结论</strong><span>多文档归纳为候选上下文</span></li>
+                  <li><strong>项目复盘</strong><span>把确认后的上下文沉淀为复盘材料</span></li>
+                  <li><strong>迭代优化</strong><span>badcase、eval 和版本记录回流</span></li>
+                </ul>
+              </section>
+              <div class="rag-mechanism-arrow" aria-hidden="true">→</div>
+              <section class="rag-mechanism-column product">
+                <header>
+                  <span>第三段</span>
+                  <h3>产品责任单元</h3>
+                </header>
+                <ul>
+                  <li><strong>上下文卡</strong><span>承接候选上下文</span></li>
+                  <li><strong>检索与引用</strong><span>承接来源和引用片段</span></li>
+                  <li><strong>知识任务</strong><span>承接检索、引用、工具调用和记忆</span></li>
+                  <li><strong>人审确认</strong><span>保留人工确认入口</span></li>
+                  <li><strong>复核记录</strong><span>沉淀复核和更新记录</span></li>
+                </ul>
+              </section>
+            </div>
+            <figcaption class="rag-mechanism-note">
+              这套机制说明：AI / RAG 不是直接替业务判断，而是把分散知识转化为可复核的候选上下文，再由产品对象承接进入工作流。
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <section class="case-section alt" id="intervention">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">AI 介入点</p>
-            <h2 class="section-title">AI 介入点设计</h2>
-            <p class="section-description">AI 不是只用于“文档问答”这一个点，而是嵌入知识工作流的多个节点：找资料、找依据、整理结论、项目复盘、经验沉淀和迭代优化。</p>
+            <p class="section-kicker">05｜核心产品对象</p>
+            <h2 class="section-title">知识不是答案，上下文才是工作台里的对象。</h2>
+            <p class="section-description">项目 1 的关键不是多做几个 AI 能力点，而是定义清楚知识进入工作台后由哪些产品对象承接、校验、确认、复用和更新。</p>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>工作节点</th><th>AI 介入点</th><th>产品价值</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>找资料</td><td>语义检索 + 相关片段召回</td><td>降低查找成本</td></tr>
-                <tr><td>找依据</td><td>引用溯源 + 证据片段</td><td>让结论可核验</td></tr>
-                <tr><td>整理结论</td><td>多文档归纳 + 结构化总结</td><td>提升整理效率</td></tr>
-                <tr><td>项目复盘</td><td>复盘模板 + 关键经验提炼</td><td>沉淀组织记忆</td></tr>
-                <tr><td>迭代优化</td><td>badcase + eval + 版本记录</td><td>支持持续改进</td></tr>
-              </tbody>
-            </table>
+          <div class="object-chain" aria-label="企业知识工作台核心产品对象链">
+            <article class="object-card">
+              <h3>知识来源</h3>
+              <span class="object-label">Knowledge Source</span>
+              <p class="object-source"><strong>承接：</strong>知识检索、版本管理、资料来源管理</p>
+              <dl>
+                <div><dt>它是什么</dt><dd>文档、制度、会议纪要、FAQ、项目资料和历史案例，带来源、权限、版本和更新时间。</dd></div>
+                <div><dt>它不是什么</dt><dd>不是直接交给模型自由使用的原始材料堆。</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>可信上下文卡</h3>
+              <span class="object-label">Context Card</span>
+              <p class="object-source"><strong>承接：</strong>引用溯源、搜索与引用结果、证据片段</p>
+              <dl>
+                <div><dt>它是什么</dt><dd>带来源、引用、权限、版本、适用范围和风险提示的候选上下文。</dd></div>
+                <div><dt>它不是什么</dt><dd>不是最终答案，而是可被检查和确认的工作材料。</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>知识任务</h3>
+              <span class="object-label">Knowledge Task</span>
+              <p class="object-source"><strong>承接：</strong>知识任务问答、Agent 执行过程、工具调用、上下文记忆与人工确认</p>
+              <dl>
+                <div><dt>它是什么</dt><dd>把复杂知识请求拆成可追踪的过程，包括检索、引用、上下文组织、工具调用和人工确认。</dd></div>
+                <div><dt>它不是什么</dt><dd>不是单轮聊天，而是可维护的知识工作流。</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>行动简报 / 工作台任务</h3>
+              <span class="object-label">Action Brief / Workspace Task</span>
+              <p class="object-source"><strong>承接：</strong>项目复盘、经验沉淀、待确认事项</p>
+              <dl>
+                <div><dt>它是什么</dt><dd>经过确认的上下文进入方案、复盘、任务或协作空间。</dd></div>
+                <div><dt>它不是什么</dt><dd>不是由 AI 直接完成的结果，而是下一步行动的输入材料。</dd></div>
+              </dl>
+            </article>
+            <article class="object-card">
+              <h3>复核记录 / 知识更新</h3>
+              <span class="object-label">Review Record / Knowledge Update</span>
+              <p class="object-source"><strong>承接：</strong>badcase / eval、评估看板、版本回滚与知识更新</p>
+              <dl>
+                <div><dt>它是什么</dt><dd>记录哪些上下文被使用、哪些被修正、哪些进入 badcase / eval，哪些需要更新知识来源。</dd></div>
+                <div><dt>它不是什么</dt><dd>不是简单日志，而是让工作台持续维护的反馈机制。</dd></div>
+              </dl>
+            </article>
           </div>
-          <div class="flow-diagram" aria-label="业务问题到 AI 产品化流程">
-            <article class="flow-card">
-              <span>业务问题</span>
-              <h3>资料、经验、依据分散</h3>
-              <ul>
-                <li>找不到</li>
-                <li>难复用</li>
-                <li>不可追溯</li>
-              </ul>
-            </article>
-            <article class="flow-card">
-              <span>AI 介入点</span>
-              <h3>检索、归纳、复盘、评估</h3>
-              <ul>
-                <li>引用溯源</li>
-                <li>多文档总结</li>
-                <li>badcase 回流</li>
-              </ul>
-            </article>
-            <article class="flow-card">
-              <span>产品责任单元</span>
-              <h3>可验证的知识工作台</h3>
-              <ul>
-                <li>可检索</li>
-                <li>可复盘</li>
-                <li>可迭代</li>
-              </ul>
-            </article>
+          <div class="object-principle">
+            02 讲一次用户任务如何被工作台接住；05 讲系统里哪些产品对象负责接住。对象定义清楚，后续 Agent 工作流才不会直接裸连知识库。
           </div>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig01_ai_intervention_product_unit.png" alt="业务问题到 AI 介入点再到产品责任单元示意" loading="lazy" />
-            <figcaption><span class="figure-title">业务问题 → AI 介入点 → 产品责任单元</span>从知识分散与经验难复用出发，AI 并不是只做文档问答，而是嵌入到知识工作流的多个节点，并最终形成一个可验证、可追溯、可维护的 AI 产品责任单元。</figcaption>
-          </figure>
         </div>
       </section>
 
       <section class="case-section" id="unit">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">产品责任单元</p>
-            <h2 class="section-title">产品责任单元定义</h2>
+            <p class="section-kicker">06｜关键界面 / 工作流</p>
+            <h2 class="section-title">页面不是知识展示层，而是可信上下文的工作区。</h2>
+            <p class="section-description">界面要让知识被检索、引用、确认，并进入复盘、任务和协作工作区。以下原型展示这套机制如何落到具体页面。</p>
           </div>
-          <div class="callout-card">
-            <strong>本项目不是“做一个问答机器人”，而是设计一个面向企业知识复用与决策准备的 AI 工作台。它负责将分散资料转化为可检索、可追溯、可复盘、可沉淀、可迭代的知识工作流。</strong>
-          </div>
-          <div class="unit-grid" style="margin-top: 18px">
-            <article class="module-card"><h3>知识检索</h3><p>找到相关资料和依据。</p></article>
-            <article class="module-card"><h3>引用溯源</h3><p>降低幻觉风险，支持人工核验。</p></article>
-            <article class="module-card"><h3>知识任务型问答</h3><p>从“找答案”升级为“完成知识整理任务”。</p></article>
-            <article class="module-card"><h3>项目复盘</h3><p>把历史资料转成结构化复盘。</p></article>
-            <article class="module-card"><h3>Memory 机制</h3><p>保留任务上下文和当前目标。</p></article>
-            <article class="module-card"><h3>badcase / eval</h3><p>支持质量回归和持续迭代。</p></article>
-            <article class="module-card"><h3>版本管理</h3><p>保证工作流可追踪、可回滚。</p></article>
-          </div>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig06_project_review.png" alt="企业知识工作台项目复盘页示意" loading="lazy" />
-            <figcaption><span class="figure-title">项目复盘页示意</span>历史资料和过程记录不止用于查找答案，还可以沉淀为结构化复盘，支撑经验复用和决策准备。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="context-layer">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">关键产品判断</p>
-            <h2 class="section-title">关键产品判断：什么时候需要可信上下文层？</h2>
-            <p class="section-description">
-              不是所有 AI 应用都需要 RAG。如果只是通用问答、低风险文本生成、一次性内容整理，可以直接调用大模型。但当场景涉及指定资料、引用依据、权限边界、持续更新和组织记忆时，就必须在基础模型和企业知识资产之间设计可信上下文层。
-            </p>
-            <p class="section-description">
-              RAG 不是最终价值，可信上下文层才是产品价值。它位于基础模型与企业知识资产之间，用于承接检索、引用、权限、记忆、评估和版本管理，让知识回答从“能生成”进入“可核验、可维护”的产品状态。
-            </p>
-          </div>
-          <div class="choice-grid" aria-label="方案选择判断">
-            <article class="choice-card">
-              <span>直接调用大模型</span>
-              <h3>可作为生成层</h3>
-              <p>适合通用问答、写作润色；不适合作为企业指定资料和来源追溯的知识来源。</p>
-            </article>
-            <article class="choice-card">
-              <span>关键词搜索</span>
-              <h3>保留为辅助能力</h3>
-              <p>适合明确文件名、术语、标题；不擅长模糊意图和跨文档总结。</p>
-            </article>
-            <article class="choice-card">
-              <span>模型微调</span>
-              <h3>暂不优先</h3>
-              <p>适合稳定格式、分类、风格；不适合频繁更新的企业知识和引用溯源。</p>
-            </article>
-            <article class="choice-card">
-              <span>RAG / 可信上下文层</span>
-              <h3>V1 主方案</h3>
-              <p>适合指定资料、引用溯源、知识更新，是企业知识回答可信度的基础设施。</p>
-            </article>
-            <article class="choice-card">
-              <span>Agent 工作流</span>
-              <h3>V2 升级方向</h3>
-              <p>适合连续知识任务、路由、工具调用和人审确认，让 AI 进入真实任务流。</p>
-            </article>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>问题</th><th>直接调用大模型</th><th>可信上下文层</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>企业内部资料</td><td>不保证覆盖最新内部资料</td><td>接入指定资料范围</td></tr>
-                <tr><td>引用与依据</td><td>难以稳定追溯</td><td>可回到原文核验</td></tr>
-                <tr><td>知识更新</td><td>依赖模型或手动上下文</td><td>可随资料库更新</td></tr>
-                <tr><td>权限边界</td><td>难以管理</td><td>可按资料范围设计</td></tr>
-                <tr><td>组织记忆</td><td>难以沉淀</td><td>可结合复盘、badcase 和版本记录</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="企业知识工作台搜索与引用结果页示意" loading="lazy" />
-            <figcaption><span class="figure-title">搜索与引用结果页示意</span>用户不仅获得整理后的回答，还能看到引用片段、来源文档和原文定位，从而降低“回答看似合理但无法核验”的风险。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section" id="evolution">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">产品演进</p>
-            <h2 class="section-title">产品演进路径：从可信上下文到可维护 Agent 工作流</h2>
-            <p class="section-description">V1 / V2 / V3 的演进不是“技术越来越复杂”，而是产品化要求越来越高：先解决可信上下文，再解决连续知识任务，最后解决评估、回滚和长期维护。</p>
-          </div>
-          <div class="evolution-grid">
-            <article class="evolution-card">
-              <span>V1</span>
-              <h3>可信知识检索</h3>
-              <p class="evolution-question">为什么需要可信上下文层？</p>
-              <p class="evolution-summary">先解决资料找得到、答案有依据、结论可复核。</p>
-              <strong>核心能力</strong>
-              <div class="evolution-abilities">
-                <span>指定资料接入</span>
-                <span>语义检索</span>
-                <span>来源问答</span>
-                <span>原文复核</span>
+          <div class="interface-layout">
+            <div class="interface-cards" aria-label="关键界面责任">
+              <article class="interface-card">
+                <h3>知识源管理</h3>
+                <span>Source Library</span>
+                <p>管理文档、制度、会议纪要、FAQ、项目资料和历史案例，重点关注来源、权限、版本和更新时间。</p>
+              </article>
+              <article class="interface-card">
+                <h3>检索与引用</h3>
+                <span>Search & Citation</span>
+                <p>AI 召回相关知识，但必须展示引用片段、来源位置和可能风险。</p>
+              </article>
+              <article class="interface-card">
+                <h3>复盘与确认</h3>
+                <span>Project Recap</span>
+                <p>把已确认的上下文沉淀为复盘材料、待确认事项和可复用经验。</p>
+              </article>
+              <article class="interface-card">
+                <h3>知识任务工作流</h3>
+                <span>Knowledge Task</span>
+                <p>把复杂知识请求拆成可追踪的检索、引用、上下文组织、工具调用和人工确认过程。</p>
+              </article>
+            </div>
+            <div class="interface-evidence-group">
+              <div class="interface-evidence-header">
+                <h3>知识工作台关键界面</h3>
+                <p>以下界面原型展示知识如何被检索、引用、确认，并进入复盘和知识任务工作区。</p>
               </div>
-            </article>
-            <article class="evolution-card">
-              <span>V2</span>
-              <h3>Agent 工作流</h3>
-              <p class="evolution-question">为什么 RAG 不够？</p>
-              <p class="evolution-summary">用户要完成连续知识任务，需要 Router、Tool、Memory 和 Human Review。</p>
-              <strong>核心能力</strong>
-              <div class="evolution-abilities">
-                <span>Router</span>
-                <span>search_docs Tool</span>
-                <span>Memory</span>
-                <span>执行轨迹</span>
-                <span>Human Review</span>
-              </div>
-            </article>
-            <article class="evolution-card">
-              <span>V3</span>
-              <h3>可维护 MVP</h3>
-              <p class="evolution-question">为什么 Agent 还不够？</p>
-              <p class="evolution-summary">没有 eval、badcase、changelog、rollback，AI 工作流仍然只是一次性 Demo。</p>
-              <strong>核心能力</strong>
-              <div class="evolution-abilities">
-                <span>eval set</span>
-                <span>badcase log</span>
-                <span>prompt / workflow versioning</span>
-                <span>rollback</span>
-                <span>human review checkpoints</span>
-              </div>
-            </article>
-          </div>
-          <figure class="diagram-frame">
-            <img src="assets/diagrams/enterprise_knowledge_workspace_evolution_cn.png" alt="企业知识工作台 V1 V2 V3 产品化演进图" />
-            <figcaption class="diagram-caption">V1 可信上下文层 → V2 Agent 工作流 → V3 工程脚手架。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section alt" id="agent">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">Agent 工作流</p>
-            <h2 class="section-title">Agent 工作流：从单轮问答到连续知识任务</h2>
-            <p class="section-description">Agent 的第一步不是执行，而是判断任务路径。如果 Router 判断错，后面的工具再强也没有意义。因此页面要展示路由判断、工具调用、来源片段、回答结果和 Human Review 状态。</p>
-          </div>
-          <div class="unit-grid">
-            <article class="module-card"><h3>Router</h3><p>判断用户是在查资料、做复盘、生成总结，还是需要澄清。</p></article>
-            <article class="module-card"><h3>Tool</h3><p>将检索、总结、复盘等能力封装为可调用工具。</p></article>
-            <article class="module-card"><h3>可信上下文层</h3><p>提供可追溯的知识依据。</p></article>
-            <article class="module-card"><h3>Memory</h3><p>保留当前项目背景和最近上下文。</p></article>
-            <article class="module-card"><h3>Agent Core</h3><p>组织多步骤执行链路。</p></article>
-            <article class="module-card"><h3>Human Review</h3><p>在关键输出前保留人工确认。</p></article>
-            <article class="module-card"><h3>badcase 复盘</h3><p>将错误案例沉淀为下一轮迭代素材。</p></article>
-          </div>
-          <div class="trace-layout" style="margin-top: 24px">
-            <div class="trace-card">
-              <span>执行轨迹</span>
-              <h3>执行过程不是黑盒：让 Agent 的判断路径可见</h3>
-              <p>用户输入后，系统先判断是直接回答、检索资料还是需要澄清，再决定是否调用 search_docs，并把来源片段、回答结果和 Human Review 状态展示给用户。</p>
-              <div class="trace-flow" aria-label="Agent 执行路径">
-                <span>用户输入</span><i>→</i>
-                <span>Router 判断直接回答 / 检索 / 澄清</span><i>→</i>
-                <span>Tool 调用 search_docs</span><i>→</i>
-                <span>返回来源片段</span><i>→</i>
-                <span>结合 Memory 生成回答</span><i>→</i>
-                <span>展示答案 + 来源 + 执行过程</span><i>→</i>
-                <span>人工确认关键输出</span>
+              <div class="interface-evidence" aria-label="知识工作台关键界面">
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="工作台首页">
+                    <img src="../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="企业知识工作台首页低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><span>工作台首页</span> 首页承接知识源、检索入口、复盘任务和后续工作区，说明它不是单一聊天窗口。</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="检索与引用结果">
+                    <img src="../../assets/images/module1-enterprise-knowledge/fig04_search_citation_results.png" alt="企业知识工作台检索与引用结果低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><span>检索与引用</span> 结果页展示引用片段和来源位置，用于支撑上下文卡的证据依据。</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="项目复盘">
+                    <img src="../../assets/images/module1-enterprise-knowledge/fig06_project_review.png" alt="企业知识工作台项目复盘低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><span>项目复盘</span> 确认后的上下文可以进入复盘或协作材料，而不是停留在一次问答。</figcaption>
+                </figure>
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="知识任务问答">
+                    <img src="../../assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="企业知识工作台知识任务问答低保真界面示意" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><span>知识任务问答</span> 问答页围绕检索、引用、整理和确认组织，承接可追踪的知识任务过程。</figcaption>
+                </figure>
               </div>
             </div>
-            <div class="trace-card">
-              <span>示例记录</span>
-              <h3>一次知识任务的执行轨迹</h3>
-              <dl>
-                <div><dt>路由结果</dt><dd>检索。</dd></div>
-                <div><dt>判断原因</dt><dd>问题涉及指定项目资料，需要调用知识库。</dd></div>
-                <div><dt>工具调用</dt><dd>search_docs。</dd></div>
-                <div><dt>来源片段</dt><dd>3 个来源片段，包含会议记录、复盘文档和历史方案。</dd></div>
-                <div><dt>回答结果</dt><dd>基于来源生成结构化回答，并保留原文复核入口。</dd></div>
-                <div><dt>Human Review</dt><dd>待用户确认是否进入复盘草稿。</dd></div>
-              </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="agent">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">07｜产品架构判断</p>
+            <h2 class="section-title">不要让 Agent 裸连知识库，先建立可信上下文层。</h2>
+            <p class="section-description">企业知识不能直接作为 Agent 的自由输入。Agent 要使用知识，必须经过可信上下文、任务编排、人审确认和反馈回流。</p>
+          </div>
+          <div class="interface-evidence-group architecture-figure-group">
+            <div class="interface-evidence-header">
+              <h3>企业知识任务 Agent 工作流架构</h3>
+              <p>围绕真实知识任务，架构将用户输入、Agent 编排、可信上下文、工具调用、人审确认与经验沉淀组织在同一条工作流里。</p>
+            </div>
+            <div class="interface-evidence architecture-gallery" aria-label="企业知识任务 Agent 工作流架构图">
+              <figure>
+                <button class="interface-shot-trigger" type="button" data-lightbox-title="企业知识任务 Agent 工作流架构">
+                  <img src="assets/diagrams/enterprise_knowledge_agent_workflow_cn.png" alt="企业知识任务 Agent 工作流架构图" loading="lazy" />
+                  <span class="interface-shot-zoom-label">点击查看大图</span>
+                </button>
+                <figcaption><span>企业知识任务 Agent 工作流架构</span> 围绕知识任务组织上下文、Agent 编排、人机协同、经验沉淀与反馈回流。</figcaption>
+              </figure>
             </div>
           </div>
-          <figure class="diagram-frame">
-            <img src="assets/diagrams/enterprise_knowledge_agent_workflow_cn.png" alt="企业知识工作台 Agent 工作流架构图" />
-            <figcaption class="diagram-caption">用户任务经 Router 判断后，调用检索、总结、复盘等 Tool，并通过可信上下文层、Memory 与 Human Review 保持可控。</figcaption>
-          </figure>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig05_knowledge_task_qa.png" alt="企业知识工作台知识任务问答页示意" loading="lazy" />
-            <figcaption><span class="figure-title">知识任务问答页示意</span>问答页不只是聊天窗口，而是围绕“检索、引用、整理、确认”组织起来的知识任务执行界面。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section" id="maintainability">
-        <div class="case-container">
-          <div class="section-header">
-            <p class="section-kicker">可维护机制</p>
-            <h2 class="section-title">可维护机制：让 AI 工作流不是一次性 Demo</h2>
-            <p class="section-description">如果这个知识工作台不是演示一次，而是持续服务一个团队，就必须回答：哪些信息能进入记忆？提示词和工作流如何记录版本？badcase 如何沉淀？修复后如何回归测试？失败版本如何回滚？哪些输出必须人工确认？</p>
-          </div>
-          <div class="maintenance-grid">
-            <article class="choice-card">
-              <span>任务与记忆</span>
-              <h3>plan.md / memory_policy.md</h3>
-              <p>记录任务拆解、记忆范围、上下文清理规则，避免 Memory 变成无限堆积的聊天历史。</p>
-            </article>
-            <article class="choice-card">
-              <span>版本与判断</span>
-              <h3>prompt_version.md / workflow_changelog.md / decision_log.md</h3>
-              <p>记录提示词、工作流和关键产品判断的变化，让改动有原因、有版本、有回看路径。</p>
-            </article>
-            <article class="choice-card">
-              <span>验证与回滚</span>
-              <h3>badcase_log.md / eval_set.md / rollback_note.md</h3>
-              <p>把错误案例、测试问题和失败版本纳入持续维护，避免同类问题在下一版重复出现。</p>
-            </article>
-            <article class="choice-card">
-              <span>人工确认</span>
-              <h3>human_review_checkpoints.md</h3>
-              <p>明确哪些输出必须人工确认，尤其是复盘结论、决策建议和对外引用内容。</p>
-            </article>
-            <article class="choice-card">
-              <span>产品原则</span>
-              <h3>可追踪、可评估、可回滚</h3>
-              <p>让版本、问题、修复和人工确认都能被团队持续追踪。</p>
-            </article>
-          </div>
-          <div class="insight-callout" style="margin-top: 24px">
-            <strong>工程脚手架不是为了炫技，而是为了让 AI 工作流可追踪、可评估、可回滚。</strong>
-            <p>没有版本、badcase、eval set 和回滚记录，Agent 工作流即使演示成功，也很难进入持续迭代。</p>
+          <div class="architecture-principle">
+            产品架构的关键不是让 Agent 读得更多，而是限制它只能使用经过上下文处理、可引用、可追溯、可确认的候选知识。
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="evaluation">
+      <section class="case-section alt" id="evolution">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">验证与迭代闭环</p>
-            <h2 class="section-title">验证与 badcase 闭环</h2>
-            <p class="section-description">这个项目不是一次性 Demo，而是把错误输出、路径误判和引用问题纳入回归测试与版本迭代。每个 badcase 都要回答：问题发生在哪一层，怎么修复，沉淀出什么原则，如何进入 eval set。</p>
+            <p class="section-kicker">08｜产品演进路径</p>
+            <h2 class="section-title">不是从 RAG 一步跳到 Agent，而是先让上下文可信。</h2>
+            <p class="section-description">V1 / V2 / V3 的演进不是功能越堆越多，而是产品可信度和工作流承接能力逐步增强：先能找，再能可信使用，最后进入可维护的知识任务。</p>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>维度</th><th>验证重点</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>检索层</td><td>正确来源是否进入召回结果。</td></tr>
-                <tr><td>生成层</td><td>回答是否基于来源，是否承认不确定。</td></tr>
-                <tr><td>Agent 层</td><td>Router 是否选对路径，Memory 是否串扰。</td></tr>
-                <tr><td>治理层</td><td>badcase 是否进入回归测试，版本是否可追踪。</td></tr>
-              </tbody>
-            </table>
+          <div class="interface-evidence-group evolution-figure-group">
+            <div class="interface-evidence-header">
+              <h3>从知识检索到 Agent 工作流的产品演进</h3>
+              <p>这条演进路径不是从 RAG 直接跳到 Agent，而是先解决“找得到”，再解决“敢使用”，最后让可信上下文进入可维护的知识任务、复盘和持续更新。</p>
+            </div>
+            <div class="interface-evidence evolution-gallery" aria-label="从知识检索到 Agent 工作流的产品演进图">
+              <figure>
+                <button class="interface-shot-trigger" type="button" data-lightbox-title="从知识检索到 Agent 工作流的产品演进">
+                  <img src="assets/diagrams/enterprise_knowledge_workspace_evolution_cn.png" alt="企业知识工作台 V1 V2 V3 产品演进图" loading="lazy" />
+                  <span class="interface-shot-zoom-label">点击查看大图</span>
+                </button>
+                <figcaption><span>从知识检索到 Agent 工作流的产品演进</span> 从“能被找到”逐步变成“可被信任、可进入任务、可持续维护”的工作材料。</figcaption>
+              </figure>
+            </div>
           </div>
-          <div class="badcase-grid">
-            <article class="badcase-card">
-              <span>Badcase 01</span>
-              <h3>语义相近导致误召回</h3>
-              <dl>
-                <div><dt>问题现象</dt><dd>用户询问某历史项目复盘时，系统召回了另一个语义相近但业务对象不同的项目资料。</dd></div>
-                <div><dt>发生层级</dt><dd>检索层。</dd></div>
-                <div><dt>修复动作</dt><dd>增加 project_name、source_type、path 等元数据；query rewrite 时补充项目对象；增加来源筛选。</dd></div>
-                <div><dt>沉淀原则</dt><dd>相似度高不等于业务相关。企业知识检索不能只看向量相似度，还要结合业务对象和元数据过滤。</dd></div>
-                <div><dt>进入 eval set</dt><dd>加入“相似项目区分”测试问题，后续版本必须回归。</dd></div>
-              </dl>
-            </article>
-            <article class="badcase-card">
-              <span>Badcase 02</span>
-              <h3>来源不足但强行回答</h3>
-              <dl>
-                <div><dt>问题现象</dt><dd>来源片段不足以支持结论时，模型仍生成了完整、流畅但依据不足的回答。</dd></div>
-                <div><dt>发生层级</dt><dd>生成层。</dd></div>
-                <div><dt>修复动作</dt><dd>增加引用覆盖检查；当来源不足时输出“不确定”和缺失依据；把需要人工补充的资料显式列出。</dd></div>
-                <div><dt>沉淀原则</dt><dd>可信度优先于流畅度。宁可承认不确定，也不要编造。</dd></div>
-                <div><dt>进入 eval set</dt><dd>加入“低证据回答”测试问题，检查回答是否主动降级并提示人工确认。</dd></div>
-              </dl>
-            </article>
-            <article class="badcase-card">
-              <span>Badcase 03</span>
-              <h3>Router 误判</h3>
-              <dl>
-                <div><dt>问题现象</dt><dd>用户明确询问指定资料，但 Router 误判为直接回答，导致系统没有调用 search_docs。</dd></div>
-                <div><dt>发生层级</dt><dd>Agent 控制层。</dd></div>
-                <div><dt>修复动作</dt><dd>补充 Router 判定规则；将“指定项目、指定文档、历史复盘”等触发词优先路由到检索；记录路由原因。</dd></div>
-                <div><dt>沉淀原则</dt><dd>Agent 的第一步是判断任务路径。Router 错了，工具再强也没有意义。</dd></div>
-                <div><dt>进入 eval set</dt><dd>加入“指定资料必须检索”测试问题，检查路由、工具调用和来源片段是否完整。</dd></div>
-              </dl>
-            </article>
-          </div>
-          <div class="loop-grid" aria-label="badcase 闭环图">
-            <article class="loop-card"><span>步骤 1</span><h3>badcase</h3><p>记录错误输出、误召回或路径误判。</p></article>
-            <article class="loop-card"><span>步骤 2</span><h3>定位</h3><p>判断问题来自检索、生成、Router 还是 Memory。</p></article>
-            <article class="loop-card"><span>步骤 3</span><h3>修复</h3><p>调整规则、提示词、工具路径或评估样本。</p></article>
-            <article class="loop-card"><span>步骤 4</span><h3>回归测试</h3><p>进入 eval set，防止同类问题反复出现。</p></article>
-          </div>
-          <figure class="portfolio-figure">
-            <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板示意" loading="lazy" />
-            <figcaption><span class="figure-title">评估与迭代看板示意</span>系统不仅需要“能回答”，还需要通过指标、badcase 和版本记录持续验证与迭代，避免停留在一次性 Demo。</figcaption>
-          </figure>
         </div>
       </section>
 
-      <section class="case-section alt" id="boundary">
+      <section class="case-section" id="evaluation">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">项目边界</p>
-            <h2 class="section-title">项目边界与后续扩展</h2>
-            <p class="section-description">这个项目的价值，不在于把企业知识系统一次性做完整，而在于验证一条可扩展的产品化路径：先建立可信上下文层，再让 AI 进入连续知识任务，最后用人审、评估、badcase 和版本机制把它变成可维护的工作流。</p>
+            <p class="section-kicker">09｜验证方式 / 边界</p>
+            <h2 class="section-title">验证不是看回答像不像，而是看依据是否可信。</h2>
+            <p class="section-description">答案能生成，不代表上下文可信。验证要看关键知识能否找到、引用能否复核、权限和版本是否正确、适用范围是否匹配，以及高风险内容是否进入人审。</p>
           </div>
-          <div class="boundary-grid">
-            <div class="module-card">
-              <h3>当前边界</h3>
-              <ul class="boundary-list">
-                <li>当前阶段是产品级原型 / 可演示 MVP。</li>
-                <li>不声称真实企业生产部署。</li>
-                <li>不做完整权限、审计、多用户和系统集成。</li>
-                <li>不自动写入、删除、发布。</li>
-                <li>不替代人工判断。</li>
+          <div class="validation-layout">
+            <div class="validation-panel">
+              <div class="validation-grid" aria-label="可信上下文验证闭环">
+                <article class="validation-dimension">
+                  <span class="validation-step-label">01｜验证输入</span>
+                  <strong>候选上下文与 Agent 输出</strong>
+                  <p>包括引用片段、适用范围、上下文卡、知识任务输出和需要确认的行动材料。</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">02｜验证维度</span>
+                  <strong>依据是否可信</strong>
+                  <p>检查召回质量、引用证据、权限版本、适用范围和人审边界。</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">03｜问题识别</span>
+                  <strong>找到不可用的知识使用</strong>
+                  <p>识别过期版本、引用缺失、无权限内容、场景不适用或未确认动作。</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">04｜处理动作</span>
+                  <strong>修正并留下记录</strong>
+                  <p>进入评估集、复盘修正、版本回滚、知识源更新和人审规则调整。</p>
+                </article>
+                <article class="validation-dimension">
+                  <span class="validation-step-label">05｜持续回流</span>
+                  <strong>更新规则和知识源</strong>
+                  <p>把问题结果回流到下一轮上下文生成、评估规则和知识维护。</p>
+                </article>
+              </div>
+              <div class="validation-feedback">
+                <strong>闭环判断</strong>
+                <span>验证不是给回答打分，而是判断这段知识是否能被找到、引用、复核、授权使用，并在出错后回到知识源和上下文规则中。</span>
+              </div>
+              <div class="validation-detail-row" aria-label="验证闭环细节">
+                <article class="validation-detail">
+                  <h3>验证维度</h3>
+                  <p>召回质量、引用证据、权限版本、适用范围、人审边界和问题回流。</p>
+                </article>
+                <article class="validation-detail">
+                  <h3>典型问题</h3>
+                  <p>过期版本、引用缺失或无法定位、无权限内容、场景不适用、不可复核答案、未确认动作。</p>
+                </article>
+                <article class="validation-detail">
+                  <h3>处理动作</h3>
+                  <p>进入评估集、复盘修正、版本回滚、知识源更新、人审规则调整。</p>
+                </article>
+              </div>
+            </div>
+            <aside class="interface-evidence-group">
+              <div class="interface-evidence-header">
+                <h3>评估与迭代看板</h3>
+                <p>看板用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</p>
+              </div>
+              <div class="interface-evidence validation-gallery" aria-label="评估与迭代看板界面原型">
+                <figure>
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="评估与迭代看板">
+                    <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板界面原型" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><span>评估与迭代看板</span> 用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</figcaption>
+                </figure>
+              </div>
+            </aside>
+          </div>
+          <div class="validation-principle">
+            这套验证边界的重点不是追求回答更像答案，而是确保每一次知识使用都能回到来源、权限、版本、适用范围和人审责任。
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="summary">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">10｜项目总结</p>
+            <h2 class="section-title">不是知识问答机器人，而是知识进入<span class="text-nowrap">可信工作流</span>的机制。</h2>
+            <p class="section-description">这个项目的核心不在于让 AI 多回答几个问题，而在于定义：哪些知识可以进入上下文，哪些上下文可以被引用，哪些内容必须经过人确认后才能进入任务、复盘和持续更新。</p>
+          </div>
+
+          <div class="closing-loop-panel">
+            <div class="closing-loop-header">
+              <h3>企业知识进入可信工作流的闭环机制</h3>
+              <p>从知识来源到可信上下文，再到工作流承接和复核更新，形成一条可引用、可追溯、可校验、可确认的产品机制。</p>
+            </div>
+            <div class="closing-loop-diagram" aria-label="企业知识进入可信工作流的闭环机制">
+              <article class="closing-loop-node">
+                <em>01</em>
+                <strong>知识来源被管理</strong>
+                <p>文档、制度、会议纪要、FAQ、项目资料和历史经验，先带上来源、权限、版本和更新时间。</p>
+                <ul class="closing-loop-tags">
+                  <li>来源</li>
+                  <li>权限</li>
+                  <li>版本</li>
+                  <li>更新时间</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node">
+                <em>02</em>
+                <strong>上下文被校验</strong>
+                <p>AI 召回和整理的内容不直接成为答案，而是进入上下文卡，保留引用片段、适用范围、风险提示和人审入口。</p>
+                <ul class="closing-loop-tags">
+                  <li>引用片段</li>
+                  <li>适用范围</li>
+                  <li>风险提示</li>
+                  <li>人审入口</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node">
+                <em>03</em>
+                <strong>工作流被承接</strong>
+                <p>经过确认的上下文进入行动简报、项目复盘、知识任务和复核记录，成为可继续推进的工作材料。</p>
+                <ul class="closing-loop-tags">
+                  <li>行动简报</li>
+                  <li>项目复盘</li>
+                  <li>知识任务</li>
+                  <li>复核记录</li>
+                </ul>
+              </article>
+              <div class="closing-loop-arrow" aria-hidden="true">→</div>
+              <article class="closing-loop-node return">
+                <em>04</em>
+                <strong>复核与知识更新</strong>
+                <p>错误、遗漏和不适用内容进入评估、复盘、版本回滚和知识更新，反向修正下一轮上下文规则。</p>
+                <ul class="closing-loop-tags">
+                  <li>badcase</li>
+                  <li>eval</li>
+                  <li>rollback</li>
+                  <li>知识更新</li>
+                </ul>
+              </article>
+            </div>
+            <div class="closing-loop-return">
+              <strong>↺ 回流关系</strong>
+              <span>复核结果回到知识来源、上下文规则和人审边界，避免同类错误在下一轮知识使用中重复出现。</span>
+            </div>
+          </div>
+
+          <div class="closing-side-notes">
+            <article class="closing-note">
+              <h3>什么时候需要可信上下文层？</h3>
+              <ul class="closing-note-list">
+                <li>涉及指定资料，要能回到来源。</li>
+                <li>涉及业务判断，要能确认适用范围。</li>
+                <li>涉及组织知识，要能管理权限和版本。</li>
+                <li>涉及持续使用，要能进入评估、回滚和知识更新。</li>
               </ul>
-            </div>
-            <div class="module-card">
-              <h3>项目 1 与项目 2 的边界</h3>
-              <div class="boundary-compare">
-                <article class="boundary-compare-card">
-                  <h4>项目 1：企业知识工作台</h4>
-                  <dl>
-                    <div>
-                      <dt>核心对象</dt>
-                      <dd>知识资产、历史经验、决策依据</dd>
-                    </div>
-                    <div>
-                      <dt>回答的问题</dt>
-                      <dd>企业过去积累的资料、经验和判断，如何被检索、引用、复盘和沉淀。</dd>
-                    </div>
-                  </dl>
-                </article>
-                <article class="boundary-compare-card">
-                  <h4>项目 2：AI 业务需求流转工作台</h4>
-                  <dl>
-                    <div>
-                      <dt>核心对象</dt>
-                      <dd>当前需求、任务、责任链路、状态流转</dd>
-                    </div>
-                    <div>
-                      <dt>回答的问题</dt>
-                      <dd>新需求从会议和沟通中产生后，如何被识别、确认、拆解、执行和复盘。</dd>
-                    </div>
-                  </dl>
-                </article>
-              </div>
-            </div>
+            </article>
+            <article class="closing-note">
+              <h3>这个项目的边界</h3>
+              <p>这是产品级原型与机制设计，不是企业生产系统交付。</p>
+              <ul class="closing-boundary-list">
+                <li>不声称真实企业生产部署。</li>
+                <li>本原型阶段不展开完整权限、审计、多用户和系统集成。</li>
+                <li>不自动写入、删除或发布内容。</li>
+                <li>不让 AI 替代业务负责人做最终判断。</li>
+                <li>不让 Agent 直接读取全部企业知识库。</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="closing-roles">
+            <h3>它服务的不是“提问”，而是判断、复盘和行动</h3>
+            <p>项目负责人 / 产品经理、新接手成员、管理者 / 决策参与者、运营 / PMO / 知识管理角色，都通过它确认依据、复盘经验和推进下一步行动。</p>
+            <ul class="closing-role-tags" aria-label="适用角色">
+              <li>项目负责人 / 产品经理</li>
+              <li>新接手成员</li>
+              <li>管理者 / 决策参与者</li>
+              <li>运营 / PMO / 知识管理角色</li>
+            </ul>
+            <p class="closing-maintain-line">可维护机制：任务和记忆有边界，版本和判断有记录，错误和回归有闭环，人工确认有检查点。</p>
+          </div>
+
+          <div class="closing-compare">
+            <h3>与项目 2 的边界</h3>
+            <p>项目 1 处理的是企业知识如何进入可信工作流：把历史资料、经验和判断转化为可检索、可引用、可复盘的上下文。</p>
+            <p>项目 2 处理的是业务信号如何进入责任流程：把新产生的反馈、会议结论和需求线索转化为可确认、可拆解、可执行的任务。</p>
+            <p>一个解决“知识如何可信使用”，一个解决“信号如何进入责任链”。</p>
+          </div>
+
+          <div class="summary-final">
+            这个项目的产品判断不是“让 AI 回答得更多”，而是让企业知识在被使用之前，先变得可引用、可追溯、可校验、可确认。
           </div>
         </div>
       </section>
@@ -1556,5 +3310,67 @@
       <span>企业知识工作台 · 面向知识复用与决策准备的 Agent 工作流演进</span>
       <a href="/ai-product-portfolio/index.html">返回作品集首页</a>
     </footer>
+    <div class="interface-lightbox" id="interfaceLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="interface-lightbox-panel" role="document">
+        <button class="interface-lightbox-close" type="button" aria-label="关闭大图预览">×</button>
+        <p class="interface-lightbox-title" id="interfaceLightboxTitle"></p>
+        <div class="interface-lightbox-image-wrap">
+          <img class="interface-lightbox-image" src="" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const lightbox = document.querySelector("#interfaceLightbox");
+        if (!lightbox) return;
+
+        const triggers = document.querySelectorAll("#agent .interface-shot-trigger, #unit .interface-shot-trigger, #evolution .interface-shot-trigger, #evaluation .interface-shot-trigger");
+        if (!triggers.length) return;
+
+        const image = lightbox.querySelector(".interface-lightbox-image");
+        const title = lightbox.querySelector("#interfaceLightboxTitle");
+        const closeButton = lightbox.querySelector(".interface-lightbox-close");
+        let lastActiveTrigger = null;
+
+        const closeLightbox = () => {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("interface-lightbox-open");
+          image.removeAttribute("src");
+          image.setAttribute("alt", "");
+          if (lastActiveTrigger) {
+            lastActiveTrigger.focus();
+            lastActiveTrigger = null;
+          }
+        };
+
+        const openLightbox = (trigger) => {
+          const thumbnail = trigger.querySelector("img");
+          if (!thumbnail) return;
+          lastActiveTrigger = trigger;
+          image.src = thumbnail.currentSrc || thumbnail.src;
+          image.alt = thumbnail.alt || "";
+          title.textContent = trigger.dataset.lightboxTitle || thumbnail.alt || "界面大图预览";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("interface-lightbox-open");
+          closeButton.focus();
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => openLightbox(trigger));
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
