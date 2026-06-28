@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 综合场景样板间｜AI 如何进入 HR 招聘流程</title>
+    <meta
+      name="description"
+      content="从一句“招个懂 AI 的人”开始，看 HR 和业务方如何把用人判断做清楚。"
+    />
+    <link rel="stylesheet" href="../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        background: #f8fafc;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      p,
+      a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      main {
+        background: #ffffff;
+      }
+
+      .hr-room-section {
+        padding-right: clamp(20px, 5vw, 64px);
+        padding-left: clamp(20px, 5vw, 64px);
+      }
+
+      .hr-room-inner {
+        width: min(100%, 1180px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hr-room-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr);
+        gap: clamp(28px, 3.2vw, 48px);
+        align-items: center;
+        width: 100%;
+        margin-bottom: clamp(82px, 8vw, 118px);
+        padding-top: clamp(82px, 8vw, 116px);
+        padding-right: max(clamp(20px, 5vw, 64px), calc((100vw - 1320px) / 2));
+        padding-bottom: clamp(82px, 8vw, 116px);
+        padding-left: max(clamp(20px, 5vw, 64px), calc((100vw - 1320px) / 2));
+        background:
+          radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.1), transparent 34%),
+          linear-gradient(135deg, #f8fafc 0%, #f1f7ff 58%, #fbfaf7 100%);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .scene-label {
+        display: block;
+        width: fit-content;
+        margin: 0 0 14px;
+        padding: 0;
+        color: var(--rose);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: none;
+      }
+
+      .hero-copy .scene-label {
+        display: block;
+        width: fit-content;
+        padding: 0;
+        color: var(--rose);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+      }
+
+      .hero-copy h1 {
+        max-width: 480px;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(30px, 2.55vw, 36px);
+        font-weight: 690;
+        line-height: 1.14;
+        letter-spacing: 0;
+      }
+
+      .hero-title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .hero-title-highlight {
+        color: #3b82f6;
+      }
+
+      .hero-subtitle {
+        max-width: 450px;
+        margin: 22px 0 0;
+        color: var(--ink);
+        font-size: clamp(22px, 1.75vw, 26px);
+        font-weight: 700;
+        line-height: 1.36;
+      }
+
+      .hero-group-title {
+        max-width: 480px;
+        margin: 18px 0 0;
+        color: #64748b;
+        font-size: clamp(16px, 1.15vw, 17px);
+        font-weight: 760;
+        line-height: 1.35;
+      }
+
+      .hero-support {
+        max-width: 480px;
+        margin: 14px 0 0;
+        color: #64748b;
+        font-size: clamp(15px, 1.05vw, 16px);
+        line-height: 1.48;
+      }
+
+      .hero-support + .hero-support {
+        margin-top: 16px;
+      }
+
+      .hero-block-title,
+      .hero-block-keywords,
+      .hero-block-result {
+        display: block;
+      }
+
+      .hero-block-title {
+        color: var(--ink);
+        font-weight: 690;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 160ms ease, text-decoration-color 160ms ease;
+      }
+
+      .hero-block-title::after {
+        content: "↗";
+        display: inline-block;
+        margin-left: 6px;
+        color: #94a3b8;
+        font-size: 0.78em;
+        font-weight: 700;
+        line-height: 1;
+        opacity: 0.5;
+        transform: translateY(-1px);
+        transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+      }
+
+      .hero-block-title:hover {
+        color: var(--rose);
+        text-decoration: underline;
+        text-decoration-color: rgba(244, 114, 182, 0.46);
+        text-underline-offset: 3px;
+      }
+
+      .hero-block-title:hover::after,
+      .hero-block-title:focus-visible::after {
+        color: var(--rose);
+        opacity: 0.78;
+        transform: translate(1px, -2px);
+      }
+
+      .hero-block-title:focus-visible {
+        color: var(--rose);
+        outline: 2px solid rgba(244, 114, 182, 0.42);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .hero-block-keywords {
+        margin-top: 4px;
+        color: #7c8ca3;
+        font-weight: 480;
+      }
+
+      .hero-block-result {
+        display: block;
+        margin-top: 3px;
+        color: #3b82f6;
+        font-weight: 560;
+      }
+
+      .hero-art {
+        margin: 0;
+        width: min(112%, 1040px);
+        min-width: 0;
+        justify-self: end;
+      }
+
+      .hero-art img {
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 8px;
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+      }
+
+      .case-section {
+        max-width: 100vw;
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .opening-scene {
+        background: #ffffff;
+      }
+
+      .opening-scene .case-container {
+        max-width: 1180px;
+      }
+
+      .opening-scene h2 {
+        max-width: 1180px;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(24px, 2.15vw, 32px);
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .opening-title-line {
+        display: inline;
+        white-space: nowrap;
+      }
+
+      .opening-title-quote {
+        white-space: nowrap;
+      }
+
+      .opening-title-highlight {
+        color: #3b82f6;
+      }
+
+      .opening-copy {
+        max-width: 1180px;
+        margin-top: 34px;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.78;
+      }
+
+      .opening-copy p {
+        margin: 0;
+      }
+
+      .opening-intro {
+        max-width: 1180px;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.72;
+      }
+
+      .opening-preline {
+        max-width: 1180px;
+        margin-top: 18px;
+        color: var(--ink);
+        font-size: clamp(16.5px, 1.15vw, 18px);
+        font-weight: 820;
+        line-height: 1.52;
+        white-space: nowrap;
+      }
+
+      .opening-analysis-figure {
+        margin: clamp(32px, 3vw, 40px) 0 0;
+      }
+
+      .opening-analysis-crop {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1432 / 974;
+      }
+
+      .opening-analysis-crop img {
+        display: block;
+        width: calc(100% * 1448 / 1432);
+        max-width: none;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        transform: translate(-0.5525%, -9.5764%);
+      }
+
+      .opening-final-block {
+        max-width: 1180px;
+        margin-top: clamp(24px, 3vw, 36px);
+      }
+
+      .opening-final {
+        color: var(--ink);
+        font-size: clamp(19px, 1.55vw, 23px);
+        font-weight: 860;
+        line-height: 1.56;
+      }
+
+      .judgment-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .judgment-scene .opening-preline {
+        white-space: normal;
+      }
+
+      .judgment-scene .opening-analysis-figure {
+        margin-top: clamp(24px, 2.4vw, 32px);
+      }
+
+      .judgment-scene .opening-final-block {
+        margin-top: clamp(20px, 2.4vw, 30px);
+      }
+
+      .judgment-scene .opening-final {
+        font-size: clamp(18px, 1.35vw, 21px);
+        font-weight: 820;
+      }
+
+      .wrong-automation-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .wrong-automation-scene .opening-final-block {
+        margin-top: clamp(18px, 2vw, 26px);
+      }
+
+      .wrong-automation-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .ai-governance-figure {
+        width: min(106%, 1250px);
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .ai-governance-figure img {
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .ai-governance-scene .opening-final-block {
+        margin-top: clamp(44px, 4.5vw, 60px);
+      }
+
+      .ai-governance-scene .opening-final {
+        color: var(--ink);
+        font-size: inherit;
+        font-weight: 500;
+        line-height: 1.72;
+      }
+
+      .process-entry-image-crop {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1536 / 1038;
+        background: #ffffff;
+      }
+
+      .process-entry-image-crop img {
+        width: 102.4%;
+        max-width: none;
+        transform: translate(-0.73%, -0.58%);
+      }
+
+      .scoring-image-crop {
+        overflow: hidden;
+        width: 100%;
+        background: #ffffff;
+      }
+
+      .scoring-image-crop-cn {
+        aspect-ratio: 1448 / 992;
+      }
+
+      .scoring-image-crop img {
+        display: block;
+        width: 100%;
+        max-width: none;
+        transform: translateY(-8.65%);
+      }
+
+      .judgment-analysis-crop {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .judgment-analysis-crop img {
+        display: block;
+        max-width: none;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .judgment-analysis-crop-cn {
+        aspect-ratio: 1394 / 1018;
+      }
+
+      .judgment-analysis-crop-cn img {
+        width: calc(100% * 1402 / 1394);
+        transform: translate(-0.2853%, -8.9127%);
+      }
+
+      .scenario-mining-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .scenario-mining-scene .opening-preline {
+        white-space: normal;
+      }
+
+      .hr-scenario-mining-board {
+        --hr-blue: #1d4ed8;
+        --hr-blue-dark: #0b1f4d;
+        --hr-blue-soft: #eef5ff;
+        --hr-border: #d7e4ff;
+        --hr-text: #14213d;
+        --hr-muted: #53657d;
+        --hr-red: #e53935;
+        --hr-pink-soft: #fff1f3;
+        margin-top: clamp(34px, 4vw, 52px);
+        color: var(--hr-text);
+      }
+
+      .mining-area {
+        border: 1px solid var(--hr-border);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .mining-area + .mining-area,
+      .mining-middle,
+      .mining-flow {
+        margin-top: clamp(24px, 3vw, 36px);
+      }
+
+      .mining-area-header {
+        padding: 20px 22px 0;
+      }
+
+      .mining-area-title {
+        margin: 0;
+        color: var(--hr-blue);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .mining-area-note,
+      .mining-summary,
+      .mining-punch {
+        margin: 10px 0 0;
+        color: var(--hr-muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .domain-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+        gap: 34px;
+        padding: 22px;
+      }
+
+      .domain-map::before {
+        content: "";
+        position: absolute;
+        top: 82px;
+        bottom: 82px;
+        left: 278px;
+        border-left: 1px dashed rgba(29, 78, 216, 0.36);
+      }
+
+      .domain-root {
+        align-self: center;
+        padding: 22px 18px;
+        color: var(--hr-blue-dark);
+        background: var(--hr-blue-soft);
+        border: 1px solid #b7ccff;
+        border-radius: 8px;
+        font-weight: 900;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .domain-root::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 242px;
+        width: 36px;
+        border-top: 2px solid rgba(29, 78, 216, 0.44);
+      }
+
+      .domain-branches {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 14px;
+      }
+
+      .domain-line {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto minmax(76px, 1fr) auto;
+        min-width: 0;
+        min-height: 188px;
+        padding: 14px;
+        border: 1px solid var(--hr-border);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .domain-line::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: -25px;
+        width: 25px;
+        border-top: 1px dashed rgba(29, 78, 216, 0.42);
+      }
+
+      .domain-line.is-selected {
+        background: #fff7f7;
+        border-color: rgba(229, 57, 53, 0.36);
+      }
+
+      .domain-line-title {
+        margin: 0;
+        color: var(--hr-blue-dark);
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .domain-tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: start;
+        align-self: stretch;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .domain-tag {
+        padding: 3px 7px;
+        color: #27507f;
+        background: #f5f8ff;
+        border: 1px solid #dfe9ff;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 720;
+        line-height: 1.3;
+      }
+
+      .domain-question {
+        align-self: end;
+        margin-top: 10px;
+        color: var(--hr-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.45;
+      }
+
+      .mining-middle {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(24px, 3vw, 36px);
+        align-items: start;
+      }
+
+      .scenario-matrix-area,
+      .selection-reason-area {
+        min-width: 0;
+      }
+
+      .matrix-scroll {
+        overflow-x: visible;
+        padding: 14px 14px 18px;
+        scrollbar-color: rgba(148, 163, 184, 0.32) transparent;
+        scrollbar-width: thin;
+      }
+
+      .matrix-scroll::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      .matrix-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .matrix-scroll::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.28);
+        border-radius: 999px;
+      }
+
+      .scenario-matrix {
+        table-layout: fixed;
+        width: 100%;
+        min-width: 0;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        font-size: 12.5px;
+      }
+
+      .scenario-matrix th {
+        height: 68px;
+        padding: 0 6px 8px;
+        color: #375477;
+        font-size: 11px;
+        font-weight: 860;
+        line-height: 1.35;
+        text-align: center;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+
+      .scenario-matrix th:first-child,
+      .scenario-matrix td:first-child {
+        width: 15%;
+        text-align: left;
+      }
+
+      .scenario-matrix th:last-child,
+      .scenario-matrix td:last-child {
+        width: 18%;
+      }
+
+      .scenario-matrix small {
+        display: block;
+        margin-top: 3px;
+        color: #7a8aa0;
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      .scenario-matrix td {
+        padding: 11px 6px;
+        background: #f8fbff;
+        border-top: 1px solid #e4edff;
+        border-bottom: 1px solid #e4edff;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .scenario-matrix td:first-child {
+        border-left: 1px solid #e4edff;
+        border-radius: 8px 0 0 8px;
+        font-weight: 900;
+        color: var(--hr-blue-dark);
+      }
+
+      .scenario-matrix td:last-child {
+        border-right: 1px solid #e4edff;
+        border-radius: 0 8px 8px 0;
+        color: #425670;
+        font-weight: 760;
+        text-align: left;
+      }
+
+      .scenario-matrix tr.is-priority td {
+        background: var(--hr-pink-soft);
+        border-color: rgba(229, 57, 53, 0.42);
+      }
+
+      .matrix-choice {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .priority-label {
+        padding: 3px 7px;
+        color: #b42318;
+        background: #ffe3e3;
+        border: 1px solid rgba(229, 57, 53, 0.32);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 860;
+        white-space: nowrap;
+      }
+
+      .score-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 860;
+        line-height: 1.2;
+      }
+
+      .score-high {
+        color: #fff;
+        background: var(--hr-blue);
+      }
+
+      .score-mid {
+        color: var(--hr-blue-dark);
+        background: #dfeaff;
+      }
+
+      .score-low {
+        color: #64748b;
+        background: #f8fafc;
+        border: 1px solid #d8e1ec;
+      }
+
+      .matrix-summary {
+        padding: 0 22px 20px;
+        color: var(--hr-blue-dark);
+        font-size: 15px;
+        font-weight: 820;
+        line-height: 1.58;
+      }
+
+      .selection-reason-area {
+        position: relative;
+        background: linear-gradient(180deg, #fff8f8 0%, #ffffff 42%);
+        border-color: rgba(229, 57, 53, 0.3);
+      }
+
+      .selection-kicker {
+        display: inline-flex;
+        margin-top: 12px;
+        padding: 4px 8px;
+        color: #b42318;
+        background: #ffe5e5;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 860;
+      }
+
+      .reason-list {
+        display: block;
+        margin: 0;
+        padding: 18px 22px 0;
+        list-style: none;
+      }
+
+      .reason-item {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 13px;
+        align-items: center;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(215, 228, 255, 0.68);
+      }
+
+      .reason-item:first-child {
+        padding-top: 0;
+      }
+
+      .reason-item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .reason-no {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        color: #fff;
+        background: var(--hr-red);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .reason-item > div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .reason-title {
+        flex: 0 0 auto;
+        margin: 0;
+        color: var(--hr-blue-dark);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .reason-copy {
+        flex: 1 1 auto;
+        margin: 0;
+        color: #52647c;
+        font-size: 13px;
+        line-height: 1.68;
+      }
+
+      .selection-punch {
+        margin: 18px 22px 24px 65px;
+        padding: 14px 16px 15px;
+        color: #b42318;
+        background: rgba(255, 229, 229, 0.42);
+        border-top: 1px solid rgba(229, 57, 53, 0.14);
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .mining-flow {
+        padding: 18px 22px;
+      }
+
+      .flow-rail {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-top: 14px;
+        color: #50657f;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .flow-node {
+        padding: 5px 9px;
+        border: 1px solid #dce7fb;
+        border-radius: 999px;
+        background: #fbfdff;
+      }
+
+      .flow-arrow {
+        color: #94a8c3;
+      }
+
+      @media (max-width: 900px) {
+        .hr-room-hero {
+          grid-template-columns: 1fr;
+          padding: clamp(46px, 8vw, 66px) clamp(28px, 6vw, 42px);
+        }
+
+        .hero-copy h1,
+        .hero-subtitle,
+        .hero-support {
+          max-width: 720px;
+        }
+
+        .hero-art {
+          width: 100%;
+        }
+
+        .domain-map {
+          grid-template-columns: 1fr;
+        }
+
+        .domain-map::before,
+        .domain-root::after,
+        .domain-line::before {
+          display: none;
+        }
+
+        .domain-branches {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .mining-middle {
+          grid-template-columns: 1fr;
+        }
+
+        .matrix-scroll {
+          overflow-x: auto;
+        }
+
+        .scenario-matrix {
+          min-width: 980px;
+        }
+
+        .reason-list {
+          display: block;
+        }
+
+        .selection-punch {
+          margin-left: 22px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .case-header {
+          position: static;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          justify-content: flex-start;
+        }
+
+        .hr-room-section {
+          overflow: hidden;
+          padding-right: clamp(16px, 5vw, 20px);
+          padding-left: clamp(16px, 5vw, 20px);
+        }
+
+        .hr-room-inner,
+        .opening-scene .case-container,
+        .hero-copy,
+        .hero-subtitle,
+        .hero-support,
+        .opening-copy,
+        .opening-analysis-figure,
+        .opening-analysis-crop,
+        .opening-analysis-crop img,
+        .hero-art,
+        .hero-art img {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .hr-room-inner,
+        .opening-scene .case-container {
+          max-width: 100%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .hr-room-hero {
+          margin-bottom: 72px;
+          padding-top: 28px;
+          padding-right: 20px;
+          padding-bottom: 56px;
+          padding-left: 20px;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(28px, 7.5vw, 31px);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+          word-break: keep-all;
+        }
+
+        .hero-subtitle {
+          margin-top: 18px;
+          font-size: 20px;
+        }
+
+        .hero-group-title {
+          margin-top: 18px;
+          font-size: 17px;
+        }
+
+        .hero-support {
+          margin-top: 14px;
+          font-size: 15px;
+        }
+
+        .hero-support + .hero-support {
+          margin-top: 14px;
+        }
+
+        .hero-art {
+          width: 92%;
+          max-width: 92%;
+          margin-top: 4px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .hero-art img {
+          display: block;
+        }
+
+        .opening-scene h2 {
+          font-size: clamp(22px, 6.4vw, 28px);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+          word-break: keep-all;
+          white-space: normal;
+        }
+
+        .opening-copy {
+          font-size: 16.5px;
+          line-height: 1.76;
+          overflow-wrap: anywhere;
+        }
+
+        .opening-copy p,
+        .opening-analysis-figure,
+        .opening-analysis-crop,
+        .opening-analysis-crop img {
+          max-width: 100%;
+        }
+
+        .opening-intro {
+          font-size: 16.5px;
+        }
+
+        .opening-preline {
+          white-space: normal;
+        }
+
+        .opening-title-quote {
+          font-size: 0.94em;
+          white-space: nowrap;
+        }
+
+        .domain-map,
+        .matrix-scroll,
+        .mining-flow {
+          padding-right: 14px;
+          padding-left: 14px;
+        }
+
+        .domain-branches {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-rail {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .flow-arrow {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">AI</span>
+        <span>AI Builder · 苑夫唯</span>
+      </a>
+      <nav class="case-nav" aria-label="样板间导航">
+        <a href="#hero">00 Hero</a>
+        <a href="#scenario-mining">01 场景挖掘</a>
+        <a href="#opening">02 判断失焦</a>
+        <a href="#judgment-clarification">03 判断澄清</a>
+        <a href="#wrong-automation">04 错误自动化</a>
+        <a href="#process-entry">05 进入流程</a>
+        <a href="#scoring-explanation">06 分数误判</a>
+        <a href="#ai-governance">07 AI 治理</a>
+        <a class="nav-link--lang" href="../../en/docs/hr-comprehensive-scenario-sample-room/index.html">EN</a>
+        <a class="nav-link--home" href="../../index.html">返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hr-room-section hr-room-hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="scene-label">AI 样板间</p>
+          <h1 id="hero-title"><span class="hero-title-line hero-title-highlight">AI 场景样板间：</span><span class="hero-title-line">HR 招聘 × AI 决策流程</span></h1>
+          <p class="hero-subtitle">从“招个懂 AI 的人”开始</p>
+          <p class="hero-group-title">样板间构建：</p>
+          <p class="hero-support"><a class="hero-block-title" href="../module1-enterprise-knowledge-workspace/index.html" aria-label="查看项目1：可信上下文">01｜项目1：信息承重墙（可信上下文｜输入层）</a><span class="hero-block-keywords">JD / 职级 / 面评 / 历史记录</span><span class="hero-block-result">→ 招聘判断的信息基础</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module2-ai-business-requirement-flow/index.html" aria-label="查看项目2：业务信号流转">02｜项目2：决策动线（业务信号流转｜流程层）</a><span class="hero-block-keywords">需求 → 澄清 → 筛选 → 面试 → 决策</span><span class="hero-block-result">→ 招聘流程中的决策流转路径</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module3-ai-content-operations-workflow/index.html" aria-label="查看项目3：结构化输出">03｜项目3：决策装配单元（结构化输出｜输出层）</a><span class="hero-block-keywords">JD / 面试题 / 候选包</span><span class="hero-block-result">→ 结构化招聘决策结果</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module4-ai-evaluation-governance-framework/index.html" aria-label="查看项目4：判断闸门">04｜项目4：判断闸门（方法论底座｜控制层）</a><span class="hero-block-keywords">场景 / 边界 / 闸门</span><span class="hero-block-result">→ AI 在招聘流程中的介入控制规则</span></p>
+        </div>
+        <figure class="hero-art">
+          <img
+            src="../../assets/images/hr-sample-room/hr-hero-cn.png"
+            alt="AI 综合场景样板间 Hero 图"
+            width="1447"
+            height="1087"
+          />
+        </figure>
+      </section>
+
+      <section id="scenario-mining" class="case-section opening-scene scenario-mining-scene" aria-labelledby="scenario-mining-title">
+        <div class="case-container">
+          <p class="scene-label">01 场景挖掘</p>
+          <h2 id="scenario-mining-title">不是所有 HR 流程都适合先做 AI，要先找到<span class="opening-title-highlight">最值得被 AI 接住</span>的判断节点。</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">HR 不是一条招聘流程，而是一组围绕“人和组织”的复杂判断链路。招聘、绩效、晋升、培训、组织诊断都可能被 AI 辅助，但起点不应该是“哪里能加 AI”。这一屏先做一次场景挖掘：从 HR 全域业务里拆出候选判断场景，再用判断模糊度、多角色分歧、信息分散度、流程放大效应、确认闸门和 AI 适配度做比较，选出第一条样板线——招聘判断。</p>
+            <p class="opening-preline">招聘线被选中，不是因为它最容易做，而是因为它最能检验 AI 是否真正进入业务判断。</p>
+            <div class="hr-scenario-mining-board" aria-label="HR 全域业务与 AI 场景挖掘矩阵">
+              <section class="mining-area domain-area" aria-labelledby="domain-map-title">
+                <div class="mining-area-header">
+                  <h3 id="domain-map-title" class="mining-area-title">A｜HR 全域业务：一组围绕人与组织的判断链路</h3>
+                </div>
+                <div class="domain-map">
+                  <div class="domain-root">HR 全域业务<br />人与组织判断体系</div>
+                  <div class="domain-branches">
+                    <article class="domain-line is-selected">
+                      <h4 class="domain-line-title">招聘与配置</h4>
+                      <div class="domain-tags"><span class="domain-tag">需求提出</span><span class="domain-tag">岗位澄清</span><span class="domain-tag">JD 撰写</span><span class="domain-tag">简历筛选</span><span class="domain-tag">面试评估</span><span class="domain-tag">录用确认</span></div>
+                      <div class="domain-question">判断问题：这个人适不适合？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">入转调离</h4>
+                      <div class="domain-tags"><span class="domain-tag">入职融入</span><span class="domain-tag">转岗匹配</span><span class="domain-tag">调动协同</span><span class="domain-tag">离职交接</span></div>
+                      <div class="domain-question">判断问题：这个变化是否顺畅、风险是否可控？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">绩效管理</h4>
+                      <div class="domain-tags"><span class="domain-tag">目标设定</span><span class="domain-tag">过程反馈</span><span class="domain-tag">绩效评定</span><span class="domain-tag">结果校准</span></div>
+                      <div class="domain-question">判断问题：这个结果是否达标？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">晋升 / 人才盘点</h4>
+                      <div class="domain-tags"><span class="domain-tag">潜力识别</span><span class="domain-tag">继任评估</span><span class="domain-tag">晋升评审</span><span class="domain-tag">人才盘点会</span></div>
+                      <div class="domain-question">判断问题：这个人是否准备好承担更大责任？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">培训发展</h4>
+                      <div class="domain-tags"><span class="domain-tag">能力缺口识别</span><span class="domain-tag">培训匹配</span><span class="domain-tag">学习路径</span><span class="domain-tag">成长复盘</span></div>
+                      <div class="domain-question">判断问题：这个能力缺口是否值得补？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">组织诊断</h4>
+                      <div class="domain-tags"><span class="domain-tag">职责不清</span><span class="domain-tag">协作断点</span><span class="domain-tag">结构效率</span><span class="domain-tag">团队健康</span></div>
+                      <div class="domain-question">判断问题：问题在人、流程，还是组织结构？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">薪酬激励</h4>
+                      <div class="domain-tags"><span class="domain-tag">薪酬带宽</span><span class="domain-tag">调薪评估</span><span class="domain-tag">激励分配</span><span class="domain-tag">贡献匹配</span></div>
+                      <div class="domain-question">判断问题：激励是否匹配贡献？</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">员工关系</h4>
+                      <div class="domain-tags"><span class="domain-tag">事件处理</span><span class="domain-tag">合规风险</span><span class="domain-tag">冲突协调</span><span class="domain-tag">风险升级</span></div>
+                      <div class="domain-question">判断问题：哪些问题需要被升级处理？</div>
+                    </article>
+                  </div>
+                </div>
+                <p class="matrix-summary">HR 的核心不是事务清单，而是一组持续发生的人与组织判断。</p>
+              </section>
+
+              <div class="mining-middle">
+                <section class="mining-area scenario-matrix-area" aria-labelledby="scenario-matrix-title">
+                  <div class="mining-area-header">
+                    <h3 id="scenario-matrix-title" class="mining-area-title">B｜AI 场景挖掘：先比较判断价值，再决定 AI 从哪里进入</h3>
+                    <p class="mining-area-note">从 HR 全域业务中抽取代表性候选场景，用同一套判断维度比较：哪里标准更模糊、角色分歧更多、信息更分散、流程偏差更容易被放大，也更适合由 AI 做澄清、组织和对齐。</p>
+                  </div>
+                  <div class="matrix-scroll">
+                    <table class="scenario-matrix">
+                      <thead>
+                        <tr>
+                          <th>候选场景</th>
+                          <th>判断模糊度<small>标准是否容易说不清</small></th>
+                          <th>多角色分歧<small>是否容易各看各的</small></th>
+                          <th>信息分散度<small>资料、反馈、记录是否分散</small></th>
+                          <th>流程放大效应<small>前一步是否影响后续</small></th>
+                          <th>确认闸门强度<small>是否必须由人确认责任</small></th>
+                          <th>AI 边界清晰度<small>适合澄清、组织、对齐</small></th>
+                          <th>样板完整度<small>能否展示澄清、规则、证据、确认</small></th>
+                          <th>结论</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="is-priority">
+                          <td><span class="matrix-choice">招聘与配置 <span class="priority-label">优先样板线</span></span></td>
+                          <td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td>
+                          <td>优先样板线</td>
+                        </tr>
+                        <tr>
+                          <td>绩效管理</td>
+                          <td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td>
+                          <td>可迁移，但反馈周期更长</td>
+                        </tr>
+                        <tr>
+                          <td>晋升 / 人才盘点</td>
+                          <td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td>
+                          <td>高价值，但组织敏感度更高</td>
+                        </tr>
+                        <tr>
+                          <td>培训发展</td>
+                          <td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-low">低</span></td>
+                          <td>适合后续扩展</td>
+                        </tr>
+                        <tr>
+                          <td>组织诊断</td>
+                          <td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td>
+                          <td>复杂度高，但切口不如招聘清晰</td>
+                        </tr>
+                        <tr>
+                          <td>员工关系</td>
+                          <td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-mid">中</span></td><td><span class="score-badge score-high">高</span></td><td><span class="score-badge score-low">低</span></td><td><span class="score-badge score-low">低</span></td>
+                          <td>高风险，不适合作为第一条样板线</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="matrix-summary">不是哪里能用 AI，就先做哪里；而是先找“判断最模糊、分歧最多、信息最散、又最值得被组织起来”的场景。</p>
+                </section>
+
+                <section class="mining-area selection-reason-area" aria-labelledby="selection-reason-title">
+                  <div class="mining-area-header">
+                    <h3 id="selection-reason-title" class="mining-area-title">C｜为什么第一条样板线是招聘</h3>
+                    <span class="selection-kicker">矩阵筛选结果：招聘线被选中</span>
+                  </div>
+                  <ol class="reason-list">
+                    <li class="reason-item"><span class="reason-no">1</span><div><p class="reason-title">判断入口最常模糊</p><p class="reason-copy">一句“我们想招个懂 AI 的人”，就足以启动流程，但远远不构成标准。</p></div></li>
+                    <li class="reason-item"><span class="reason-no">2</span><div><p class="reason-title">多角色参与最明显</p><p class="reason-copy">用人方、HR、技术、产品、业务都会参与解释“什么叫合适”。</p></div></li>
+                    <li class="reason-item"><span class="reason-no">3</span><div><p class="reason-title">信息输入最分散</p><p class="reason-copy">JD、简历、作品集、面评、历史记录、用人偏好都会进入同一张判断桌。</p></div></li>
+                    <li class="reason-item"><span class="reason-no">4</span><div><p class="reason-title">流程放大效应最强</p><p class="reason-copy">岗位定义一旦模糊，后面的 JD、筛选、面试、录用会一路漂移。</p></div></li>
+                    <li class="reason-item"><span class="reason-no">5</span><div><p class="reason-title">AI 介入边界最清楚</p><p class="reason-copy">AI 可以帮助澄清、组织、对齐、生成执行材料，但不能替人录用。</p></div></li>
+                    <li class="reason-item"><span class="reason-no">6</span><div><p class="reason-title">最适合作为样板动线</p><p class="reason-copy">既常见、又复杂、又能完整展示 AI 如何进入真实业务判断。</p></div></li>
+                  </ol>
+                  <p class="selection-punch">招聘不是 HR 里唯一适合 AI 介入的地方，而是最能检验 AI 是否真正进入业务判断的第一条样板线。</p>
+                </section>
+              </div>
+
+              <section class="mining-area mining-flow" aria-labelledby="mining-flow-title">
+                <h3 id="mining-flow-title" class="mining-area-title">D｜招聘线被选中之后，样板间主线才真正开始</h3>
+                <div class="flow-rail" aria-label="样板间主线">
+                  <span class="flow-node">场景挖掘</span><span class="flow-arrow">→</span><span class="flow-node">判断失焦</span><span class="flow-arrow">→</span><span class="flow-node">判断澄清</span><span class="flow-arrow">→</span><span class="flow-node">规则翻译</span><span class="flow-arrow">→</span><span class="flow-node">证据对齐</span><span class="flow-arrow">→</span><span class="flow-node">反馈收敛</span><span class="flow-arrow">→</span><span class="flow-node">确认闸门</span>
+                </div>
+                <p class="mining-summary">先选对场景，后面的判断澄清、规则生成、证据对齐和确认闸门才有意义。</p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="opening" class="case-section opening-scene" aria-labelledby="opening-title">
+        <div class="case-container">
+          <p class="scene-label">02 判断失焦</p>
+          <h2 id="opening-title"><span class="opening-title-line">故事从一句<span class="opening-title-highlight">模糊需求</span>开始：</span><span class="opening-title-line opening-title-quote">“我们想招一个懂 AI 的人”</span></h2>
+          <div class="opening-copy">
+            <p class="opening-intro">一句看似明确的需求进入招聘流程后，不会自动变成岗位标准。业务、技术、产品、HR 会各自翻译它，也会各自拉偏它。</p>
+            <p class="opening-preline">这张图看的不是流程本身，而是判断如何失焦：信息并不少，但在筛选和面试前，还没有被组织成 HR 与业务方都能共同确认的判断结构。</p>
+            <figure class="opening-analysis-figure">
+              <div class="opening-analysis-crop">
+                <img
+                  src="../../assets/images/hr-sample-room/hr-01-analysis-cn-latest.png"
+                  alt="HR 01 开场屏招聘需求失焦分析图"
+                  width="1448"
+                  height="1086"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">所以，AI 在这里首先要接住的不是“筛选动作”，而是筛选之前的判断澄清：把模糊说法、分散反馈和漂移的辅助评价，变成 HR 与用人方都能确认的判断结构。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="judgment-clarification" class="case-section opening-scene judgment-scene" aria-labelledby="judgment-title">
+        <div class="case-container">
+          <p class="scene-label">03 判断澄清</p>
+          <h2 id="judgment-title">AI 不先筛简历，而是先帮团队说清楚：<span class="opening-title-highlight">什么叫“合适”</span>。</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">一句“招个懂 AI 的人”还停在口头经验里时，最危险的不是没人投简历，而是团队已经开始往下筛。JD、筛选、面试会把还没说清的标准一路带偏。</p>
+            <p class="opening-intro">所以这里先把动作停在筛选之前：先追问用人方到底要解决什么问题，哪些能力必须具备，哪些评价只是辅助验证。</p>
+            <p class="opening-preline">在主标准没有显性化之前，筛得越快，偏得越快；先把“什么叫合适”说清楚，后面的 JD、筛选、面试和录用才会开始收敛。</p>
+            <figure class="opening-analysis-figure">
+              <div class="judgment-analysis-crop judgment-analysis-crop-cn">
+                <img
+                  src="../../assets/images/hr-sample-room/hr-02-judgment-clarification-cn.png"
+                  alt="HR 02 判断澄清主分析图"
+                  width="1402"
+                  height="1122"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">有了岗位判断结构，下一步才是把它转成可执行的 JD 与筛选规则。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wrong-automation" class="case-section opening-scene judgment-scene wrong-automation-scene" aria-labelledby="wrong-automation-title">
+        <div class="case-container">
+          <p class="scene-label">04 错误自动化</p>
+          <h2 id="wrong-automation-title">AI 不是怕做得慢，而是怕<span class="opening-title-highlight">把错的判断做得太快</span>。</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">上一屏把“什么叫合适”放回判断桌上，这一屏回答的是：为什么这一步不能跳过。在主标准没有澄清前，AI 写 JD、筛简历、排候选人，看起来是在提效，实际上是在把早期偏差更快复制到后续流程里；流程越自动化，错误越一致，也越难纠正。</p>
+            <p class="opening-preline">自动化本身不是问题，自动化一个还没被说清楚的判断，才是问题。</p>
+            <figure class="opening-analysis-figure wrong-automation-figure">
+              <img
+                src="../../assets/images/hr-sample-room/hr-04-wrong-automation-cn.png"
+                alt="HR 04 错误自动化主分析图"
+                width="1672"
+                height="941"
+              />
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">接住判断闸门之后，AI 才能进入证据对齐、分歧定位和人工确认。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="process-entry" class="case-section opening-scene judgment-scene process-entry-scene" aria-labelledby="process-entry-title">
+        <div class="case-container">
+          <p class="scene-label">05 进入流程</p>
+          <h2 id="process-entry-title">AI 输出不是终点，<span class="opening-title-highlight">进入流程才是终点</span>。</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">上一屏说明了：判断没有澄清前，不要急着自动化。到了这一屏，问题变成：AI 生成的 JD、筛选规则、候选人摘要和风险提示，怎样才不只是停在文档里的内容？只有当它们被绑定到判断结构、使用角色、流程节点和回流机制里，才会真正被业务接住。</p>
+            <p class="opening-preline">AI 生成了什么，不等于业务真的用了什么。</p>
+            <figure class="opening-analysis-figure wrong-automation-figure process-entry-figure">
+              <div class="process-entry-image-crop">
+                <img
+                  src="../../assets/images/hr-sample-room/hr-05-process-entry-cn.png"
+                  alt="HR 05 进入流程主分析图"
+                  width="1536"
+                  height="1024"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">只有当输出被角色接住、在节点使用、影响下一步动作并形成回流，它才从内容变成流程资产。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scoring-explanation" class="case-section opening-scene judgment-scene scoring-explanation-scene" aria-labelledby="scoring-explanation-title">
+        <div class="case-container">
+          <p class="scene-label">06 分数误判</p>
+          <h2 id="scoring-explanation-title">AI 不是再算一个总分，而是<span class="opening-title-highlight">把评分背后的判断拆清楚</span>。</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">评分和权重加总本身不是问题，它能帮助团队快速排序，也能提供基础可比性。真正的问题是：当候选人的差异无法被同一把尺子机械加总时，一个清楚的面试评分反而可能掩盖主标准、证据、风险和适配边界。AI 要做的，是让这些被分数压平的判断重新变得可解释、可比较、可追问。</p>
+            <p class="opening-preline">分数当然有用，但当候选人差异无法被同一把尺子机械加总时，AI 的价值就不是再算一个总分，而是把判断拆得更清楚。</p>
+            <figure class="opening-analysis-figure wrong-automation-figure scoring-explanation-figure">
+              <div class="scoring-image-crop scoring-image-crop-cn">
+                <img
+                  src="../../assets/images/hr-sample-room/hr-06-scoring-explanation-cn.png"
+                  alt="HR 06 分数误判主分析图"
+                  width="1448"
+                  height="1086"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">当 AI 把面试评分拆成主标准、证据、风险和追问点时，候选人比较才从“谁分高”变成“谁更值得推进，为什么值得推进”。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-governance" class="case-section opening-scene judgment-scene wrong-automation-scene ai-governance-scene" aria-labelledby="ai-governance-title">
+        <div class="case-container">
+          <p class="scene-label">07 AI 治理</p>
+          <h2 id="ai-governance-title">别让 AI 的“建议位”滑进“动作位”</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">到这一屏，问题已经不是 AI 能不能参与招聘判断，而是它参与之后，这些输出该怎么进入流程。AI 可以解释评分、比较候选人、提示风险、生成追问，也可能给出排序、推进、暂缓、淘汰或 offer。产品真正要设计的，不只是“AI 能出什么”，而是每一条输出在进入流程前，要先判断它是信息还是动作，有没有证据、是否放大风险、谁来确认，以及最终应该停在哪个位置。</p>
+            <figure class="opening-analysis-figure wrong-automation-figure ai-governance-figure">
+              <img
+                src="../../assets/images/hr-sample-room/hr-07-ai-governance-cn.png"
+                alt="HR 07 AI 治理正文主图"
+                width="1122"
+                height="1402"
+              />
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">当 AI 输出先被放到记录位、追问位、待确认位、拦截位、执行位或复核位，AI 才不是直接替招聘流程做决定，而是以可控、可追溯、可复盘的方式参与招聘判断。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

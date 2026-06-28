@@ -1,0 +1,1361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Integrated Scenario Sample Room | How AI Enters HR Recruitment Process</title>
+    <meta
+      name="description"
+      content="Starting from a vague request like “we need someone who understands AI”, showing how HR and business teams clarify hiring decisions."
+    />
+    <link rel="stylesheet" href="../../../src/styles/main.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        background: #f8fafc;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      p,
+      a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .case-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        background: rgba(248, 250, 252, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .case-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .case-nav a {
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .case-nav a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: rgba(37, 99, 235, 0.42);
+      }
+
+      main {
+        background: #ffffff;
+      }
+
+      .hr-room-section {
+        padding-right: clamp(20px, 5vw, 64px);
+        padding-left: clamp(20px, 5vw, 64px);
+      }
+
+      .hr-room-inner {
+        width: min(100%, 1180px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hr-room-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+        gap: clamp(40px, 4vw, 58px);
+        align-items: start;
+        width: 100%;
+        margin-bottom: clamp(82px, 8vw, 118px);
+        padding-top: clamp(72px, 6.5vw, 94px);
+        padding-right: max(clamp(20px, 5vw, 64px), calc((100vw - 1320px) / 2));
+        padding-bottom: clamp(72px, 6.5vw, 94px);
+        padding-left: max(clamp(20px, 5vw, 64px), calc((100vw - 1320px) / 2));
+        background:
+          radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.1), transparent 34%),
+          linear-gradient(135deg, #f8fafc 0%, #f1f7ff 58%, #fbfaf7 100%);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .scene-label {
+        display: block;
+        width: fit-content;
+        margin: 0 0 14px;
+        padding: 0;
+        color: var(--rose);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: none;
+      }
+
+      .hero-copy h1 {
+        max-width: 680px;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(44px, 3.9vw, 56px);
+        font-weight: 720;
+        line-height: 1.06;
+        letter-spacing: 0;
+        text-wrap: balance;
+      }
+
+      .hero-subtitle {
+        max-width: 620px;
+        margin: 20px 0 0;
+        color: var(--ink);
+        font-size: clamp(22px, 1.65vw, 25px);
+        font-weight: 700;
+        line-height: 1.36;
+      }
+
+      .hero-support {
+        max-width: 620px;
+        margin: 14px 0 0;
+        color: #64748b;
+        font-size: clamp(17px, 1.25vw, 18px);
+        line-height: 1.58;
+      }
+
+      .hero-group-title {
+        max-width: 620px;
+        margin: 16px 0 0;
+        color: #64748b;
+        font-size: clamp(16px, 1.15vw, 17px);
+        font-weight: 760;
+        line-height: 1.35;
+      }
+
+      .hero-support + .hero-support {
+        margin-top: 12px;
+      }
+
+      .hero-block-title,
+      .hero-block-keywords,
+      .hero-block-result {
+        display: block;
+      }
+
+      .hero-block-title {
+        color: var(--ink);
+        font-weight: 690;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 160ms ease, text-decoration-color 160ms ease;
+      }
+
+      .hero-block-title::after {
+        content: "↗";
+        display: inline-block;
+        margin-left: 6px;
+        color: #94a3b8;
+        font-size: 0.78em;
+        font-weight: 700;
+        line-height: 1;
+        opacity: 0.5;
+        transform: translateY(-1px);
+        transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+      }
+
+      .hero-block-title:hover {
+        color: var(--rose);
+        text-decoration: underline;
+        text-decoration-color: rgba(244, 114, 182, 0.46);
+        text-underline-offset: 3px;
+      }
+
+      .hero-block-title:hover::after,
+      .hero-block-title:focus-visible::after {
+        color: var(--rose);
+        opacity: 0.78;
+        transform: translate(1px, -2px);
+      }
+
+      .hero-block-title:focus-visible {
+        color: var(--rose);
+        outline: 2px solid rgba(244, 114, 182, 0.42);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .hero-block-keywords {
+        margin-top: 2px;
+        color: #7c8ca3;
+        font-weight: 480;
+      }
+
+      .hero-block-result {
+        display: block;
+        margin-top: 2px;
+        color: #3b82f6;
+        font-weight: 560;
+      }
+
+      .hero-art {
+        margin: 0;
+        width: min(104%, 940px);
+        min-width: 0;
+        justify-self: end;
+        align-self: start;
+        margin-top: clamp(38px, 4vw, 56px);
+      }
+
+      .hero-art img {
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 8px;
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+      }
+
+      .case-section {
+        max-width: 100vw;
+        padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .case-container {
+        width: min(100%, 1180px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .opening-scene {
+        background: #ffffff;
+      }
+
+      .opening-scene h2 {
+        max-width: 1180px;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(27px, 2.9vw, 37px);
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .opening-title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .opening-title-quote {
+        white-space: nowrap;
+      }
+
+      .opening-title-highlight {
+        color: #3b82f6;
+      }
+
+      .opening-copy {
+        max-width: 1180px;
+        margin-top: 34px;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.78;
+      }
+
+      .opening-copy p {
+        margin: 0;
+      }
+
+      .opening-intro {
+        max-width: 1120px;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.72;
+      }
+
+      .opening-preline {
+        max-width: 1120px;
+        margin-top: 18px;
+        color: var(--ink);
+        font-size: clamp(18px, 1.45vw, 21px);
+        font-weight: 860;
+        line-height: 1.48;
+      }
+
+      .opening-analysis-figure {
+        margin: clamp(32px, 4vw, 48px) 0 0;
+      }
+
+      .opening-analysis-crop {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1432 / 974;
+      }
+
+      .opening-analysis-crop img {
+        display: block;
+        width: calc(100% * 1448 / 1432);
+        max-width: none;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        transform: translate(-0.5525%, -9.5764%);
+      }
+
+      .opening-final-block {
+        max-width: 1180px;
+        margin-top: clamp(24px, 3vw, 36px);
+      }
+
+      .opening-final {
+        color: var(--ink);
+        font-size: clamp(19px, 1.55vw, 23px);
+        font-weight: 860;
+        line-height: 1.56;
+      }
+
+      .judgment-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .judgment-scene .opening-analysis-figure {
+        margin-top: clamp(24px, 2.4vw, 32px);
+      }
+
+      .judgment-scene .opening-final-block {
+        margin-top: clamp(20px, 2.4vw, 30px);
+      }
+
+      .judgment-scene .opening-final {
+        font-size: clamp(18px, 1.35vw, 21px);
+        font-weight: 820;
+      }
+
+      .wrong-automation-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .wrong-automation-scene .opening-final-block {
+        margin-top: clamp(18px, 2vw, 26px);
+      }
+
+      .wrong-automation-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .ai-governance-figure {
+        width: min(106%, 1250px);
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .ai-governance-figure img {
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .ai-governance-scene .opening-final-block {
+        margin-top: clamp(44px, 4.5vw, 60px);
+      }
+
+      .ai-governance-scene .opening-final {
+        color: var(--ink);
+        font-size: inherit;
+        font-weight: 500;
+        line-height: 1.72;
+      }
+
+      .process-entry-image-crop {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1536 / 1038;
+        background: #ffffff;
+      }
+
+      .process-entry-image-crop img {
+        width: 102.4%;
+        max-width: none;
+        transform: translate(-0.73%, -0.58%);
+      }
+
+      .scoring-image-crop {
+        overflow: hidden;
+        width: 100%;
+        background: #ffffff;
+      }
+
+      .scoring-image-crop-en {
+        aspect-ratio: 1402 / 1000;
+      }
+
+      .scoring-image-crop img {
+        display: block;
+        width: 100%;
+        max-width: none;
+        transform: translateY(-10.9%);
+      }
+
+      .judgment-analysis-crop {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .judgment-analysis-crop img {
+        display: block;
+        max-width: none;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .judgment-analysis-crop-en {
+        aspect-ratio: 1440 / 1006;
+      }
+
+      .judgment-analysis-crop-en img {
+        width: calc(100% * 1448 / 1440);
+        transform: translate(-0.2762%, -6.9982%);
+      }
+
+      .scenario-mining-scene h2 {
+        font-size: clamp(24px, 2.15vw, 32px);
+        white-space: normal;
+      }
+
+      .hr-scenario-mining-board {
+        --hr-blue: #1d4ed8;
+        --hr-blue-dark: #0b1f4d;
+        --hr-blue-soft: #eef5ff;
+        --hr-border: #d7e4ff;
+        --hr-text: #14213d;
+        --hr-muted: #53657d;
+        --hr-red: #e53935;
+        --hr-pink-soft: #fff1f3;
+        margin-top: clamp(34px, 4vw, 52px);
+        color: var(--hr-text);
+      }
+
+      .mining-area {
+        border: 1px solid var(--hr-border);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .mining-area + .mining-area,
+      .mining-middle,
+      .mining-flow {
+        margin-top: clamp(24px, 3vw, 36px);
+      }
+
+      .mining-area-header {
+        padding: 20px 22px 0;
+      }
+
+      .mining-area-title {
+        margin: 0;
+        color: var(--hr-blue);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .mining-area-note,
+      .mining-summary,
+      .mining-punch {
+        margin: 10px 0 0;
+        color: var(--hr-muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .domain-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+        gap: 24px;
+        padding: 22px;
+      }
+
+      .domain-root {
+        align-self: center;
+        padding: 22px 18px;
+        color: var(--hr-blue-dark);
+        background: var(--hr-blue-soft);
+        border: 1px solid #b7ccff;
+        border-radius: 8px;
+        font-weight: 900;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .domain-root::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 242px;
+        width: 24px;
+        border-top: 1px dashed #7aa2f7;
+      }
+
+      .domain-branches {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 14px;
+      }
+
+      .domain-line {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto minmax(90px, 1fr) auto;
+        min-width: 0;
+        min-height: 212px;
+        padding: 14px;
+        border: 1px solid var(--hr-border);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .domain-line::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: -15px;
+        width: 15px;
+        border-top: 1px dashed #9bb8f7;
+      }
+
+      .domain-line.is-selected {
+        background: #fff7f7;
+        border-color: rgba(229, 57, 53, 0.36);
+      }
+
+      .domain-line-title {
+        margin: 0;
+        color: var(--hr-blue-dark);
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .domain-tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: start;
+        align-self: stretch;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .domain-tag {
+        padding: 3px 7px;
+        color: #27507f;
+        background: #f5f8ff;
+        border: 1px solid #dfe9ff;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 720;
+        line-height: 1.3;
+      }
+
+      .domain-question {
+        align-self: end;
+        margin-top: 10px;
+        color: var(--hr-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.45;
+      }
+
+      .mining-middle {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(24px, 3vw, 36px);
+        align-items: start;
+      }
+
+      .scenario-matrix-area,
+      .selection-reason-area {
+        min-width: 0;
+      }
+
+      .matrix-scroll {
+        overflow-x: visible;
+        padding: 14px 14px 18px;
+      }
+
+      .scenario-matrix {
+        table-layout: fixed;
+        width: 100%;
+        min-width: 0;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        font-size: 12px;
+      }
+
+      .scenario-matrix th {
+        height: 70px;
+        padding: 0 5px 8px;
+        color: #375477;
+        font-size: 10.5px;
+        font-weight: 860;
+        line-height: 1.35;
+        text-align: center;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+
+      .scenario-matrix th:first-child,
+      .scenario-matrix td:first-child {
+        width: 15%;
+        text-align: left;
+      }
+
+      .scenario-matrix th:last-child,
+      .scenario-matrix td:last-child {
+        width: 18%;
+      }
+
+      .scenario-matrix small {
+        display: block;
+        margin-top: 3px;
+        color: #7a8aa0;
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      .scenario-matrix td {
+        padding: 11px 5px;
+        background: #f8fbff;
+        border-top: 1px solid #e4edff;
+        border-bottom: 1px solid #e4edff;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .scenario-matrix td:first-child {
+        border-left: 1px solid #e4edff;
+        border-radius: 8px 0 0 8px;
+        font-weight: 900;
+        color: var(--hr-blue-dark);
+      }
+
+      .scenario-matrix td:last-child {
+        border-right: 1px solid #e4edff;
+        border-radius: 0 8px 8px 0;
+        color: #425670;
+        font-weight: 760;
+        text-align: left;
+      }
+
+      .scenario-matrix tr.is-priority td {
+        background: var(--hr-pink-soft);
+        border-color: rgba(229, 57, 53, 0.42);
+      }
+
+      .matrix-choice {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .priority-label {
+        padding: 3px 7px;
+        color: #b42318;
+        background: #ffe3e3;
+        border: 1px solid rgba(229, 57, 53, 0.32);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 860;
+        white-space: nowrap;
+      }
+
+      .score-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 54px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 860;
+        line-height: 1.2;
+      }
+
+      .score-high {
+        color: #fff;
+        background: var(--hr-blue);
+      }
+
+      .score-mid {
+        color: var(--hr-blue-dark);
+        background: #dfeaff;
+      }
+
+      .score-low {
+        color: #64748b;
+        background: #f8fafc;
+        border: 1px solid #d8e1ec;
+      }
+
+      .matrix-summary {
+        padding: 0 22px 20px;
+        color: var(--hr-blue-dark);
+        font-size: 15px;
+        font-weight: 820;
+        line-height: 1.58;
+      }
+
+      .selection-reason-area {
+        background: linear-gradient(180deg, #fff8f8 0%, #ffffff 42%);
+        border-color: rgba(229, 57, 53, 0.3);
+      }
+
+      .selection-kicker {
+        display: inline-flex;
+        margin-top: 12px;
+        padding: 4px 8px;
+        color: #b42318;
+        background: #ffe5e5;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 860;
+      }
+
+      .reason-list {
+        display: block;
+        margin: 0;
+        padding: 18px 22px 0;
+        list-style: none;
+      }
+
+      .reason-item {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 13px;
+        align-items: center;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(215, 228, 255, 0.68);
+      }
+
+      .reason-item:first-child {
+        padding-top: 0;
+      }
+
+      .reason-item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .reason-no {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        color: #fff;
+        background: var(--hr-red);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .reason-item > div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .reason-title {
+        flex: 0 0 auto;
+        margin: 0;
+        color: var(--hr-blue-dark);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .reason-copy {
+        flex: 1 1 auto;
+        margin: 0;
+        color: #52647c;
+        font-size: 13px;
+        line-height: 1.68;
+      }
+
+      .selection-punch {
+        margin: 18px 22px 24px 65px;
+        padding: 14px 16px 15px;
+        color: #b42318;
+        background: rgba(255, 229, 229, 0.42);
+        border-top: 1px solid rgba(229, 57, 53, 0.18);
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .mining-flow {
+        padding: 18px 22px;
+      }
+
+      .flow-rail {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-top: 14px;
+        color: #50657f;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .flow-node {
+        padding: 5px 9px;
+        border: 1px solid #dce7fb;
+        border-radius: 999px;
+        background: #fbfdff;
+      }
+
+      .flow-arrow {
+        color: #94a8c3;
+      }
+
+      @media (max-width: 900px) {
+        .hr-room-hero {
+          grid-template-columns: 1fr;
+          padding: clamp(46px, 8vw, 66px) clamp(28px, 6vw, 42px);
+        }
+
+        .hero-copy h1,
+        .hero-subtitle,
+        .hero-support {
+          max-width: 720px;
+        }
+
+        .hero-art {
+          width: 100%;
+        }
+
+        .domain-map {
+          grid-template-columns: 1fr;
+        }
+
+        .domain-root::after,
+        .domain-line::before {
+          display: none;
+        }
+
+        .domain-branches {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .mining-middle {
+          grid-template-columns: 1fr;
+        }
+
+        .matrix-scroll {
+          overflow-x: auto;
+        }
+
+        .scenario-matrix {
+          min-width: 1040px;
+        }
+
+        .reason-list {
+          display: block;
+        }
+
+        .selection-punch {
+          margin-left: 22px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .case-header {
+          position: static;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-nav {
+          justify-content: flex-start;
+        }
+
+        .hr-room-section {
+          overflow: hidden;
+          padding-right: clamp(16px, 5vw, 20px);
+          padding-left: clamp(16px, 5vw, 20px);
+        }
+
+        .hr-room-inner,
+        .opening-scene .case-container,
+        .hero-copy,
+        .hero-subtitle,
+        .hero-support,
+        .opening-copy,
+        .opening-analysis-figure,
+        .opening-analysis-crop,
+        .opening-analysis-crop img,
+        .hero-art,
+        .hero-art img {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .hr-room-inner,
+        .opening-scene .case-container {
+          max-width: 100%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .hr-room-hero {
+          margin-bottom: 72px;
+          padding-top: 28px;
+          padding-right: 20px;
+          padding-bottom: 56px;
+          padding-left: 20px;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(34px, 9vw, 42px);
+          line-height: 1.08;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          text-wrap: wrap;
+        }
+
+        .hero-subtitle {
+          margin-top: 18px;
+          font-size: 19px;
+        }
+
+        .hero-support {
+          margin-top: 16px;
+          font-size: 16px;
+        }
+
+        .hero-art {
+          width: 92%;
+          max-width: 92%;
+          margin-top: 4px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .hero-art img {
+          display: block;
+        }
+
+        .opening-scene h2 {
+          font-size: clamp(22px, 6vw, 30px);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+          word-break: keep-all;
+        }
+
+        .opening-copy {
+          font-size: 16.5px;
+          line-height: 1.76;
+          overflow-wrap: anywhere;
+        }
+
+        .opening-copy p {
+          max-width: 100%;
+        }
+
+        .opening-intro {
+          font-size: 16.5px;
+        }
+
+        .opening-title-quote {
+          font-size: 0.9em;
+          white-space: nowrap;
+        }
+
+        .domain-map,
+        .matrix-scroll,
+        .mining-flow {
+          padding-right: 14px;
+          padding-left: 14px;
+        }
+
+        .domain-branches {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-rail {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .flow-arrow {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="brand" href="../../../en/index.html">
+        <span class="brand-mark">AI</span>
+        <span>AI Builder · Frey Yuan</span>
+      </a>
+      <nav class="case-nav" aria-label="Sample room navigation">
+        <a href="#hero">00 Hero</a>
+        <a href="#scenario-mining">01 Scenario Mining</a>
+        <a href="#opening">02 Judgment Drift</a>
+        <a href="#judgment-clarification">03 Judgment Clarification</a>
+        <a href="#wrong-automation">04 Wrong Automation</a>
+        <a href="#process-entry">05 Entering the Process</a>
+        <a href="#scoring-explanation">06 Score Misjudgment</a>
+        <a href="#ai-governance">07 AI Governance</a>
+        <a class="nav-link--lang" href="../../../docs/hr-comprehensive-scenario-sample-room/index.html">中</a>
+        <a class="nav-link--home" href="../../../en/index.html">Back Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hr-room-section hr-room-hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="scene-label">00 Hero</p>
+          <h1 id="hero-title">AI Integrated Scenario Sample Room | How AI Enters HR Recruitment Process</h1>
+          <p class="hero-subtitle">Starting from a vague request like “we need someone who understands AI”, showing how HR and business teams clarify hiring decisions.</p>
+          <p class="hero-support">Previous modules represent capabilities; this page is a sample room where they are placed into a real hiring scenario.</p>
+          <p class="hero-group-title">Sample room construction:</p>
+          <p class="hero-support"><a class="hero-block-title" href="../module1-enterprise-knowledge-workspace/index.html" aria-label="View Project 1: Trusted Context">01｜Project 1: Load-bearing Context Wall (Trusted Context｜Input Layer)</a><span class="hero-block-keywords">JD / level / interview feedback / historical records</span><span class="hero-block-result">→ Information foundation for hiring judgment</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module2-ai-business-requirement-flow/index.html" aria-label="View Project 2: Business Signal Flow">02｜Project 2: Decision Pathway (Business Signal Flow｜Process Layer)</a><span class="hero-block-keywords">Intake → clarification → screening → interview → decision</span><span class="hero-block-result">→ Decision flow inside recruitment</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module3-ai-content-operations-workflow/index.html" aria-label="View Project 3: Structured Output">03｜Project 3: Decision Assembly Unit (Structured Output｜Output Layer)</a><span class="hero-block-keywords">JD / interview questions / candidate package</span><span class="hero-block-result">→ Structured recruitment decision outputs</span></p>
+          <p class="hero-support"><a class="hero-block-title" href="../module4-ai-evaluation-governance-framework/index.html" aria-label="View Project 4: Judgment Gate">04｜Project 4: Judgment Gate (Methodology Base｜Control Layer)</a><span class="hero-block-keywords">scenario / boundary / gate</span><span class="hero-block-result">→ AI intervention control rules in recruitment</span></p>
+        </div>
+        <figure class="hero-art">
+          <img
+            src="../../../assets/images/hr-sample-room/hr-hero-en.png"
+            alt="AI Integrated Scenario Sample Room hero image"
+            width="1448"
+            height="1086"
+          />
+        </figure>
+      </section>
+
+      <section id="scenario-mining" class="case-section opening-scene scenario-mining-scene" aria-labelledby="scenario-mining-title">
+        <div class="case-container">
+          <p class="scene-label">01 Scenario Mining</p>
+          <h2 id="scenario-mining-title">Not every HR workflow should start with AI. First, find the judgment node that AI is <span class="opening-title-highlight">truly worth catching</span>.</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">HR is not a single recruiting process. It is a network of recurring judgments about people and organizations. Recruiting, performance, promotion, learning, org diagnosis, compensation, and employee relations can all be supported by AI, but the starting point should not be “where can we add AI?”</p>
+            <p class="opening-intro">This screen performs the scenario-mining step first: map the HR domain, compare candidate judgment scenarios across ambiguity, role conflict, information dispersion, process impact, confirmation gates, AI boundary fit, and sample-line completeness, then choose the first sample-room route: recruiting judgment.</p>
+            <p class="opening-preline">Recruiting is selected not because it is the easiest HR workflow, but because it best tests whether AI can enter real business judgment without taking over responsibility.</p>
+            <div class="hr-scenario-mining-board" aria-label="HR domain map and AI scenario-mining matrix">
+              <section class="mining-area domain-area" aria-labelledby="domain-map-title">
+                <div class="mining-area-header">
+                  <h3 id="domain-map-title" class="mining-area-title">A｜HR domain map: a network of people-and-organization judgments</h3>
+                </div>
+                <div class="domain-map">
+                  <div class="domain-root">HR Domain<br />People &amp; Organization Judgment System</div>
+                  <div class="domain-branches">
+                    <article class="domain-line is-selected">
+                      <h4 class="domain-line-title">Recruiting &amp; Staffing</h4>
+                      <div class="domain-tags"><span class="domain-tag">Demand intake</span><span class="domain-tag">Role clarification</span><span class="domain-tag">JD drafting</span><span class="domain-tag">Resume screening</span><span class="domain-tag">Interview evaluation</span><span class="domain-tag">Hiring confirmation</span></div>
+                      <div class="domain-question">Judgment question: Is this person the right fit?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Onboarding, Transfer &amp; Exit</h4>
+                      <div class="domain-tags"><span class="domain-tag">Onboarding</span><span class="domain-tag">Role transfer fit</span><span class="domain-tag">Internal move coordination</span><span class="domain-tag">Exit handoff</span></div>
+                      <div class="domain-question">Judgment question: Is this change smooth and risk-controllable?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Performance Management</h4>
+                      <div class="domain-tags"><span class="domain-tag">Goal setting</span><span class="domain-tag">Process feedback</span><span class="domain-tag">Performance review</span><span class="domain-tag">Calibration</span></div>
+                      <div class="domain-question">Judgment question: Has this result met the standard?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Promotion &amp; Talent Review</h4>
+                      <div class="domain-tags"><span class="domain-tag">Potential identification</span><span class="domain-tag">Succession assessment</span><span class="domain-tag">Promotion review</span><span class="domain-tag">Talent review meeting</span></div>
+                      <div class="domain-question">Judgment question: Is this person ready for larger responsibility?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Learning &amp; Development</h4>
+                      <div class="domain-tags"><span class="domain-tag">Capability gap identification</span><span class="domain-tag">Training match</span><span class="domain-tag">Learning path</span><span class="domain-tag">Growth review</span></div>
+                      <div class="domain-question">Judgment question: Is this capability gap worth closing?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Org Diagnosis</h4>
+                      <div class="domain-tags"><span class="domain-tag">Unclear responsibilities</span><span class="domain-tag">Collaboration gaps</span><span class="domain-tag">Structural efficiency</span><span class="domain-tag">Team health</span></div>
+                      <div class="domain-question">Judgment question: Is the problem in people, process, or structure?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Compensation &amp; Incentives</h4>
+                      <div class="domain-tags"><span class="domain-tag">Pay band</span><span class="domain-tag">Salary adjustment review</span><span class="domain-tag">Incentive allocation</span><span class="domain-tag">Contribution match</span></div>
+                      <div class="domain-question">Judgment question: Does the incentive match contribution?</div>
+                    </article>
+                    <article class="domain-line">
+                      <h4 class="domain-line-title">Employee Relations</h4>
+                      <div class="domain-tags"><span class="domain-tag">Incident handling</span><span class="domain-tag">Compliance risk</span><span class="domain-tag">Conflict coordination</span><span class="domain-tag">Risk escalation</span></div>
+                      <div class="domain-question">Judgment question: Which issues need escalation?</div>
+                    </article>
+                  </div>
+                </div>
+                <p class="matrix-summary">HR is not a task list. It is a recurring set of people-and-organization judgments.</p>
+              </section>
+
+              <div class="mining-middle">
+                <section class="mining-area scenario-matrix-area" aria-labelledby="scenario-matrix-title">
+                  <div class="mining-area-header">
+                    <h3 id="scenario-matrix-title" class="mining-area-title">B｜AI scenario mining: do not start everywhere; first find the judgment scenario worth catching</h3>
+                    <p class="mining-area-note">From the HR domain map, representative judgment scenarios are compared through the same set of AI scenario-mining dimensions: where the judgment is ambiguous, divided, information-heavy, process-amplifying, human-confirmed, and suitable for AI support.</p>
+                  </div>
+                  <div class="matrix-scroll">
+                    <table class="scenario-matrix">
+                      <thead>
+                        <tr>
+                          <th>Candidate Scenario</th>
+                          <th>Judgment Ambiguity</th>
+                          <th>Role Conflict</th>
+                          <th>Information Dispersion</th>
+                          <th>Process Amplification</th>
+                          <th>Confirmation Gate</th>
+                          <th>AI Boundary Clarity</th>
+                          <th>Sample-Line Completeness</th>
+                          <th>Conclusion</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="is-priority">
+                          <td><span class="matrix-choice">Recruiting &amp; Staffing <span class="priority-label">First sample line</span></span></td>
+                          <td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td>
+                          <td>First sample line</td>
+                        </tr>
+                        <tr>
+                          <td>Performance Management</td>
+                          <td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td>
+                          <td>Transferable, but feedback cycles are longer</td>
+                        </tr>
+                        <tr>
+                          <td>Promotion &amp; Talent Review</td>
+                          <td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td>
+                          <td>High value, but more organization-sensitive</td>
+                        </tr>
+                        <tr>
+                          <td>Learning &amp; Development</td>
+                          <td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-low">Low</span></td>
+                          <td>Good for later expansion</td>
+                        </tr>
+                        <tr>
+                          <td>Org Diagnosis</td>
+                          <td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td>
+                          <td>Complex, but less clear as the first entry point</td>
+                        </tr>
+                        <tr>
+                          <td>Employee Relations</td>
+                          <td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-mid">Medium</span></td><td><span class="score-badge score-high">High</span></td><td><span class="score-badge score-low">Low</span></td><td><span class="score-badge score-low">Low</span></td>
+                          <td>High-risk; not suitable as the first sample line</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="matrix-summary">Do not start wherever AI can be added. Start where judgment is ambiguous, divided, information-heavy, and worth organizing.</p>
+                </section>
+
+                <section class="mining-area selection-reason-area" aria-labelledby="selection-reason-title">
+                  <div class="mining-area-header">
+                    <h3 id="selection-reason-title" class="mining-area-title">C｜Why recruiting becomes the first sample line</h3>
+                    <span class="selection-kicker">Matrix result: recruiting is selected</span>
+                  </div>
+                  <ol class="reason-list">
+                    <li class="reason-item"><span class="reason-no">1</span><div><p class="reason-title">The judgment starts vague</p><p class="reason-copy">A request like “someone who understands AI” can start the process, but it is not yet a standard.</p></div></li>
+                    <li class="reason-item"><span class="reason-no">2</span><div><p class="reason-title">Multiple roles participate</p><p class="reason-copy">Hiring managers, HR, technical reviewers, product reviewers, and business stakeholders all interpret what “fit” means.</p></div></li>
+                    <li class="reason-item"><span class="reason-no">3</span><div><p class="reason-title">Information is scattered</p><p class="reason-copy">JDs, resumes, portfolios, interview notes, historical records, and hiring preferences all enter the same judgment desk.</p></div></li>
+                    <li class="reason-item"><span class="reason-no">4</span><div><p class="reason-title">Early ambiguity gets amplified</p><p class="reason-copy">If the role definition is vague, JD writing, screening, interviews, and hiring decisions all drift downstream.</p></div></li>
+                    <li class="reason-item"><span class="reason-no">5</span><div><p class="reason-title">AI’s boundary is clear</p><p class="reason-copy">AI can clarify, organize, align, and generate execution materials, but it cannot make the hiring decision for people.</p></div></li>
+                    <li class="reason-item"><span class="reason-no">6</span><div><p class="reason-title">It forms a complete sample line</p><p class="reason-copy">It is common, complex, and complete enough to show how AI enters real business judgment.</p></div></li>
+                  </ol>
+                  <p class="selection-punch">Recruiting is not the only HR area where AI can help. It is the first sample line that best tests whether AI has truly entered business judgment.</p>
+                </section>
+              </div>
+
+              <section class="mining-area mining-flow" aria-labelledby="mining-flow-title">
+                <h3 id="mining-flow-title" class="mining-area-title">D｜Once recruiting is selected, the sample-room route can begin</h3>
+                <div class="flow-rail" aria-label="Sample-room route">
+                  <span class="flow-node">Scenario Mining</span><span class="flow-arrow">→</span><span class="flow-node">Judgment Drift</span><span class="flow-arrow">→</span><span class="flow-node">Judgment Clarification</span><span class="flow-arrow">→</span><span class="flow-node">Rule Translation</span><span class="flow-arrow">→</span><span class="flow-node">Evidence Alignment</span><span class="flow-arrow">→</span><span class="flow-node">Feedback Convergence</span><span class="flow-arrow">→</span><span class="flow-node">Confirmation Gate</span>
+                </div>
+                <p class="mining-summary">Choose the right scenario first. Only then do judgment clarification, rule generation, evidence alignment, and confirmation gates become meaningful.</p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="opening" class="case-section opening-scene" aria-labelledby="opening-title">
+        <div class="case-container">
+          <p class="scene-label">02 Judgment Drift</p>
+          <h2 id="opening-title"><span class="opening-title-line">The story begins with a vague hiring request:</span><span class="opening-title-line opening-title-quote">“We want to hire someone who understands AI”</span></h2>
+          <div class="opening-copy">
+            <p class="opening-intro">A request that sounds clear at first does not automatically become a hiring standard once it enters the recruitment process. Business, technical, product, and HR teams each translate it differently — and each translation pulls the role in a different direction.</p>
+            <p class="opening-preline">This diagram shows that loss of focus: there is no shortage of information, but before screening and interviews begin, the information has not yet been organized into a judgment structure that everyone can confirm.</p>
+            <figure class="opening-analysis-figure">
+              <div class="opening-analysis-crop">
+                <img
+                  src="../../../assets/images/hr-sample-room/hr-01-analysis-en-latest.png"
+                  alt="HR 01 opening scene analysis diagram"
+                  width="1448"
+                  height="1086"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">So the first thing AI should support here is not the screening action itself, but the judgment clarification before screening: turning vague language, scattered feedback, and drifting supporting evaluations into a decision structure HR and the hiring team can confirm together.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="judgment-clarification" class="case-section opening-scene judgment-scene" aria-labelledby="judgment-title">
+        <div class="case-container">
+          <p class="scene-label">03 Judgment Clarification</p>
+          <h2 id="judgment-title">AI should not start by screening resumes. It should first clarify <span class="opening-title-highlight">what “fit” actually means</span>.</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">In the previous scene, a request like “someone who understands AI” entered the hiring process and was pulled off course by JD writing, screening, interviews, and competing evaluation standards.</p>
+            <p class="opening-intro">This scene pauses before screening begins. Instead of asking AI to judge candidates too early, it first asks what problem the hiring team actually needs to solve, which capabilities are must-haves, and which evaluations are only supporting signals.</p>
+            <p class="opening-preline">If the primary standard is not explicit, faster screening only creates faster drift. Clarify what “fit” means first, and the later JD, screening, interviews, and hiring decision can begin to converge.</p>
+            <figure class="opening-analysis-figure">
+              <div class="judgment-analysis-crop judgment-analysis-crop-en">
+                <img
+                  src="../../../assets/images/hr-sample-room/hr-02-judgment-clarification-en.png"
+                  alt="HR 02 judgment clarification analysis diagram"
+                  width="1448"
+                  height="1086"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">Once the role judgment structure is clear, the next step is turning it into an executable JD and screening rules.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wrong-automation" class="case-section opening-scene judgment-scene wrong-automation-scene" aria-labelledby="wrong-automation-title">
+        <div class="case-container">
+          <p class="scene-label">04 Wrong Automation</p>
+          <h2 id="wrong-automation-title">AI is not risky because it is slow. It is risky when it <span class="opening-title-highlight">makes the wrong judgment faster</span>.</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">The previous section brought “what fit means” back to the judgment desk. This section explains why that step cannot be skipped. Before the primary standard is clarified, asking AI to write JDs, screen resumes, or rank candidates may look like efficiency, but it copies early bias into every downstream step; the more automated the flow becomes, the more consistent — and harder to correct — the error becomes.</p>
+            <p class="opening-preline">Automation itself is not the problem. Automating a judgment that has not been clarified is the problem.</p>
+            <figure class="opening-analysis-figure wrong-automation-figure">
+              <img
+                src="../../../assets/images/hr-sample-room/hr-04-wrong-automation-en.png"
+                alt="HR 04 wrong automation analysis diagram"
+                width="1672"
+                height="941"
+              />
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">Once the judgment gate is in place, AI can move into evidence alignment, disagreement localization, and human confirmation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="process-entry" class="case-section opening-scene judgment-scene process-entry-scene" aria-labelledby="process-entry-title">
+        <div class="case-container">
+          <p class="scene-label">05 Entering the Process</p>
+          <h2 id="process-entry-title">AI output is not the endpoint. <span class="opening-title-highlight">Entering the process is the endpoint</span>.</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">The previous section showed why AI should not automate before judgment is clarified. Here, the question becomes: how can AI-generated JD drafts, screening rules, candidate summaries, and risk alerts become more than documents? Only when they are bound to judgment structures, user roles, process nodes, and feedback loops can the business process actually use them.</p>
+            <p class="opening-preline">What AI generates is not the same as what the business actually uses.</p>
+            <figure class="opening-analysis-figure wrong-automation-figure process-entry-figure">
+              <div class="process-entry-image-crop">
+                <img
+                  src="../../../assets/images/hr-sample-room/hr-05-process-entry-en.png"
+                  alt="HR 05 entering the process analysis diagram"
+                  width="1536"
+                  height="1024"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">Only when an output is owned by a role, used at a process node, affects the next action, and flows back into the structure does it become a process asset.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scoring-explanation" class="case-section opening-scene judgment-scene scoring-explanation-scene" aria-labelledby="scoring-explanation-title">
+        <div class="case-container">
+          <p class="scene-label">06 Score Misjudgment</p>
+          <h2 id="scoring-explanation-title">AI should not calculate another score. It should <span class="opening-title-highlight">make the judgment behind the score clear</span>.</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">Scoring and weighted evaluation are not the problem. They help teams rank candidates quickly and create a basic layer of comparability. The real problem appears when candidate differences cannot be compressed into the same mechanical interview score. A clear score may hide core criteria, evidence quality, risks, and role-fit boundaries. AI should make the judgment behind the score explainable, comparable, and open to follow-up.</p>
+            <p class="opening-preline">Scores are useful. But when candidate differences cannot be compressed into the same mechanical yardstick, AI’s value is not to calculate another score, but to make the judgment clearer.</p>
+            <figure class="opening-analysis-figure wrong-automation-figure scoring-explanation-figure">
+              <div class="scoring-image-crop scoring-image-crop-en">
+                <img
+                  src="../../../assets/images/hr-sample-room/hr-06-scoring-explanation-en.png"
+                  alt="HR 06 score misjudgment analysis diagram"
+                  width="1402"
+                  height="1122"
+                />
+              </div>
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">When AI breaks interview scores into core criteria, evidence, risks, and follow-up questions, candidate comparison shifts from “who scored higher” to “who is worth advancing, and why.”</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-governance" class="case-section opening-scene judgment-scene wrong-automation-scene ai-governance-scene" aria-labelledby="ai-governance-title">
+        <div class="case-container">
+          <p class="scene-label">07 AI Governance</p>
+          <h2 id="ai-governance-title">Don’t let AI output slide from the “recommendation layer” into the “action layer”</h2>
+          <div class="opening-copy">
+            <p class="opening-intro">At this stage, the question is no longer whether AI can take part in hiring judgment. The real question is how its outputs should enter the workflow once they are produced. AI may explain scores, compare candidates, surface risks, or suggest follow-up questions. It may also recommend who should move forward, be held for review, be rejected, or receive an offer. The product challenge is not simply “what can AI generate,” but how each output is handled before it enters the process: whether it is information or action, whether the evidence is sufficient, whether it amplifies risk, who needs to confirm it, and where it should stop.</p>
+            <figure class="opening-analysis-figure wrong-automation-figure ai-governance-figure">
+              <img
+                src="../../../assets/images/hr-sample-room/hr-07-ai-governance-en.png"
+                alt="HR 07 AI governance main content diagram"
+                width="1122"
+                height="1402"
+              />
+            </figure>
+            <div class="opening-final-block">
+              <p class="opening-final">Once AI outputs are routed into the right handling mode — record, follow-up, confirmation, interception, execution, or review — AI is no longer making hiring decisions on its own. It is participating in hiring judgment in a way that remains controllable, traceable, and reviewable.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
