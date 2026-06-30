@@ -17,6 +17,590 @@
     <meta property="og:url" content="./index.html" />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./src/styles/main.css" />
+    <style>
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .productization-hero {
+        --accent-blue: var(--hero-blue);
+        --hero-left-accent: var(--accent-blue);
+      }
+
+      html[lang="zh-CN"] .hero-punch-title-line,
+      html[lang="zh-CN"] .hero-punch-copy-line,
+      html[lang="zh-CN"] .hero-punch-closing-line {
+        display: block;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-title-line {
+        color: #f8fafc;
+        font-size: clamp(46px, 4vw, 60px);
+        font-weight: 820;
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-title-line + .hero-punch-title-line {
+        width: max-content;
+        max-width: 100%;
+        margin-top: 4px;
+        margin-left: clamp(78px, 10vw, 160px);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-title-accent {
+        display: inline;
+        color: var(--hero-left-accent);
+        font-weight: 880;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel {
+        position: relative;
+        overflow: visible;
+        padding: 0 0 clamp(8px, 1.2vw, 14px);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel::before {
+        display: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel::after {
+        position: absolute;
+        top: 14px;
+        right: clamp(32px, 5vw, 72px);
+        bottom: 14px;
+        z-index: 0;
+        display: block;
+        width: clamp(118px, 17vw, 230px);
+        background:
+          linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(37, 107, 255, 0.13) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) right 0 top 4px / 112px 16px no-repeat,
+          linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(255, 255, 255, 0.12) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) right 0 top 34px / 164px 16px no-repeat,
+          linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(37, 107, 255, 0.1) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) right 0 top 64px / 218px 16px no-repeat,
+          linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(255, 255, 255, 0.09) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) right 0 top 94px / 142px 16px no-repeat;
+        pointer-events: none;
+        content: "";
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel h1 {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-demo-panel .hero-punch-explainer {
+        margin: 0;
+        color: rgba(215, 224, 236, 0.74);
+        font-size: clamp(15.5px, 1.18vw, 18px);
+        font-weight: 420;
+        line-height: 1.52;
+        letter-spacing: 0.005em;
+        white-space: normal;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-judgment-panel {
+        margin-top: 0;
+        padding-top: 16px;
+        padding-bottom: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-judgment-panel::before {
+        right: auto;
+        width: clamp(72px, 8vw, 108px);
+        background: rgba(203, 213, 225, 0.24);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-speed-warning {
+        margin: 0 0 10px;
+        color: var(--hero-left-accent);
+        font-size: clamp(18px, 1.35vw, 21px);
+        font-weight: 650;
+        line-height: 1.3;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-closing {
+        margin: 0;
+        color: #f8fafc;
+        font-size: clamp(21px, 1.65vw, 26px);
+        font-weight: 680;
+        line-height: 1.28;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-closing-accent {
+        color: var(--hero-left-accent);
+        font-weight: 760;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions {
+        margin-top: 12px;
+        padding-top: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .primary-action,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .secondary-action {
+        color: rgba(248, 250, 252, 0.82);
+        background: transparent;
+        border-color: rgba(148, 163, 184, 0.42);
+        box-shadow: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .scenario-action {
+        color: #ffffff;
+        background: var(--hero-left-accent);
+        border-color: var(--hero-left-accent);
+        box-shadow: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .primary-action:hover,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .primary-action:focus-visible,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .secondary-action:hover,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .secondary-action:focus-visible {
+        color: #ffffff;
+        background: rgba(37, 107, 255, 0.1);
+        border-color: rgba(37, 107, 255, 0.62);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .scenario-action:hover,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-actions .scenario-action:focus-visible {
+        color: #ffffff;
+        background: rgba(37, 107, 255, 0.86);
+        border-color: var(--hero-left-accent);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-scenario {
+        align-items: stretch;
+        grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-copy {
+        display: flex;
+        min-height: 100%;
+        flex-direction: column;
+        gap: 16px;
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1338 / 906;
+        grid-column: 2;
+        grid-row: 1;
+        border-radius: 7px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-subtitle {
+        margin-top: 11px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-description {
+        margin-top: 12px;
+        line-height: 1.5;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header {
+        display: grid;
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: start;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-title-group {
+        min-width: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header .featured-scenario-link {
+        align-self: start;
+        justify-self: end;
+        margin-top: 17px;
+        min-height: 30px;
+        padding: 6px 12px;
+        font-size: 12.5px;
+        font-weight: 760;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build {
+        margin-top: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-title {
+        margin-bottom: 8px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-grid {
+        gap: 8px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-item {
+        min-height: 0;
+        padding-top: 9px;
+        padding-bottom: 9px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-item .scenario-build-layer {
+        line-height: 1.24;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        margin-top: 0;
+        padding-top: 8px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions .featured-scenario-tags {
+        gap: 5px;
+        opacity: 0.82;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions .featured-scenario-tags span {
+        padding: 4px 7px;
+        color: rgba(226, 232, 240, 0.58);
+        background: rgba(255, 255, 255, 0.018);
+        border-color: rgba(255, 119, 169, 0.18);
+        font-size: 10.5px;
+        font-weight: 430;
+        line-height: 1.15;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card {
+        --project-directory-tint: rgba(96, 165, 250, 0.82);
+        --project-directory-tint-soft: rgba(96, 165, 250, 0.1);
+        height: 76px;
+        min-height: 76px;
+        position: relative;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        grid-template-rows: auto auto auto;
+        column-gap: 16px;
+        row-gap: 3px;
+        align-content: center;
+        padding: 7px 13px 7px 12px;
+        background:
+          linear-gradient(90deg, var(--project-directory-tint-soft), transparent 38%),
+          rgba(15, 23, 42, 0.18);
+        border: 1px solid rgba(203, 213, 225, 0.24);
+        border-left-width: 2px;
+        border-left-color: var(--project-directory-tint);
+        border-radius: 5px;
+        box-shadow: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-one {
+        --project-directory-tint: rgba(96, 165, 250, 0.86);
+        --project-directory-tint-soft: rgba(96, 165, 250, 0.11);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-two {
+        --project-directory-tint: rgba(45, 212, 191, 0.78);
+        --project-directory-tint-soft: rgba(45, 212, 191, 0.1);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-three {
+        --project-directory-tint: rgba(167, 139, 250, 0.8);
+        --project-directory-tint-soft: rgba(167, 139, 250, 0.1);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-four {
+        --project-directory-tint: rgba(245, 158, 11, 0.82);
+        --project-directory-tint-soft: rgba(245, 158, 11, 0.1);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card::before,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card::after {
+        display: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card:hover,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card:focus-visible {
+        transform: none;
+        background:
+          linear-gradient(90deg, var(--project-directory-tint-soft), transparent 42%),
+          rgba(30, 41, 59, 0.28);
+        border-color: rgba(203, 213, 225, 0.34);
+        border-left-color: var(--project-directory-tint);
+        box-shadow: none;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta {
+        display: flex;
+        min-width: 0;
+        grid-column: 1;
+        grid-row: 1;
+        align-items: center;
+        gap: 4px;
+        color: var(--project-directory-tint);
+        font-size: 9.8px;
+        font-weight: 650;
+        line-height: 1.05;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta .project-number,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta .project-label,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta .project-separator {
+        display: inline;
+        min-width: 0;
+        grid-column: auto;
+        grid-row: auto;
+        align-self: auto;
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        opacity: 1;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta .project-number,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-meta .project-label {
+        color: color-mix(in srgb, var(--project-directory-tint) 78%, rgba(203, 213, 225, 0.6));
+        font-weight: 610;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-punch {
+        min-width: 0;
+        color: rgba(248, 250, 252, 0.88);
+        font-size: clamp(13px, 0.92vw, 14px);
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-summary {
+        display: block;
+        min-width: 0;
+        grid-column: 1;
+        grid-row: 3;
+        max-width: 100%;
+        color: rgba(226, 232, 240, 0.68);
+        font-size: 11.2px;
+        font-weight: 400;
+        line-height: 1.16;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-hook {
+        display: inline;
+        min-width: 0;
+        color: rgba(226, 232, 240, 0.66);
+        font-size: inherit;
+        font-weight: 400;
+        line-height: inherit;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-name {
+        display: block;
+        min-width: 0;
+        grid-column: 1;
+        grid-row: 2;
+        color: #f8fafc;
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.12;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-separator {
+        display: inline;
+        color: rgba(148, 163, 184, 0.7);
+        font-weight: 420;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-action {
+        display: flex;
+        min-width: 0;
+        grid-column: 2;
+        grid-row: 1 / 4;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 9px;
+        align-self: center;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-cta {
+        position: static;
+        margin: 0;
+        color: var(--project-directory-tint);
+        font-size: 28px;
+        font-weight: 520;
+        line-height: 1;
+        opacity: 0.82;
+        transform: none;
+        transition: opacity 160ms var(--ease-standard), transform 160ms var(--ease-standard);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card:hover .project-cta,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card:focus-visible .project-cta {
+        opacity: 1;
+        transform: translateX(3px);
+      }
+
+      @media (min-width: 981px) {
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .productization-hero {
+          grid-template-columns: minmax(0, 1fr) minmax(420px, 0.8fr);
+          grid-template-rows: auto auto auto auto;
+          gap: 16px 22px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel {
+          grid-column: 1 / -1;
+          grid-row: 1;
+          width: 100%;
+          margin: 0 0 6px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-demo-panel {
+          grid-column: 1;
+          grid-row: 2;
+          padding-top: 3px;
+          padding-bottom: 4px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-judgment-panel {
+          grid-column: 1;
+          grid-row: 3;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels {
+          grid-column: 2;
+          grid-row: 2 / 4;
+          align-self: start;
+          gap: 3px;
+          margin-top: 0;
+          padding-top: 0;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-heading {
+          display: flex;
+          align-items: baseline;
+          gap: 5px;
+          margin-bottom: 0;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-title {
+          margin: 0;
+          color: var(--accent-blue);
+          font-size: 12.5px;
+          font-weight: 620;
+          line-height: 1.2;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-title::after {
+          content: none;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-separator {
+          color: rgba(148, 163, 184, 0.62);
+          font-size: 11.5px;
+          line-height: 1.2;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-mark {
+          color: var(--accent-blue);
+          font-size: 9px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-capability-kicker {
+          margin: 0;
+          color: rgba(203, 213, 225, 0.62);
+          font-size: 11.5px;
+          font-weight: 500;
+          line-height: 1.2;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card {
+          height: 74px;
+          min-height: 74px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+
+      }
+
+      @media (max-width: 980px) {
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-scenario {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-copy {
+          display: flex;
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image {
+          grid-column: 1;
+          grid-row: 2;
+        }
+      }
+
+      @media (max-width: 640px) {
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header .featured-scenario-link {
+          justify-self: start;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-title-line {
+          font-size: clamp(30px, 8.2vw, 34px);
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-title-line + .hero-punch-title-line {
+          margin-left: clamp(18px, 8vw, 32px);
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-headline-panel::after {
+          display: none;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-demo-panel .hero-punch-explainer {
+          font-size: 14.5px;
+          line-height: 1.64;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-speed-warning {
+          font-size: 17px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-punch-closing {
+          font-size: 19.5px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .hero-project-card {
+          height: auto;
+          min-height: 100px;
+          padding: 10px 11px;
+        }
+
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-punch {
+          font-size: 17px;
+        }
+
+      }
+    </style>
   </head>
   <body class="home-comic-hero zh-home-v2">
     <header class="site-header">
@@ -37,40 +621,26 @@
       <section id="home" class="hero-section productization-hero">
         <div class="hero-headline-panel">
           <h1>
-            <span class="hero-title-context" data-i18n="hero.title.line1">很多 AI 项目不是做不出来，</span>
-            <span class="hero-title-punch" data-i18n-html="hero.title.line2"><span class="hero-title-pivot">而是</span><span class="hero-title-focus">做出来也<span class="hero-title-nowrap">进不了业务。</span></span></span>
+            <span class="hero-punch-title-line">AI 项目最常见的陷阱，</span>
+            <span class="hero-punch-title-line">是“<span class="hero-title-accent">先上车，后补票</span>”。</span>
           </h1>
         </div>
 
         <div class="hero-demo-panel">
-          <p class="hero-subclaim" data-i18n-html="hero.subtitle">我不是从 AI 出发看业务，而是从业务出发看 AI。</p>
-          <div class="hero-keywords" aria-label="首页关键词" data-i18n-attr="aria-label:hero.keywordsAria">
-            <span data-i18n="hero.keyword1">复杂业务</span>
-            <span data-i18n="hero.keyword2">产品判断</span>
-            <span data-i18n="hero.keyword3">人机协同</span>
-            <span data-i18n="hero.keyword4">AI 落地</span>
-          </div>
+          <p class="hero-punch-explainer">
+            <span class="hero-punch-copy-line">先做 Demo，后找场景；</span>
+            <span class="hero-punch-copy-line">先接模型，后补流程；</span>
+            <span class="hero-punch-copy-line">先证明“AI 能做”，</span>
+            <span class="hero-punch-copy-line">再回头问“谁真的会用”。</span>
+          </p>
         </div>
 
         <div class="hero-judgment-panel">
-          <p class="hero-closing" data-i18n-html="hero.closing">接上模型，只是开始；接住任务，才算产品。</p>
-          <ul class="hero-judgment-list" aria-label="AI 应用产品化判断点" data-i18n-attr="aria-label:hero.judgmentListAria">
-            <li>
-              <span class="judgment-index" aria-hidden="true">01</span>
-              <strong data-i18n="hero.dimension1.title">哪一步值得被 AI 接住</strong>
-              <p data-i18n="hero.dimension1.text">看这个节点是否有明确输入、上下文和后续动作。</p>
-            </li>
-            <li>
-              <span class="judgment-index" aria-hidden="true">02</span>
-              <strong data-i18n="hero.dimension2.title">哪一步必须由人负责</strong>
-              <p data-i18n="hero.dimension2.text">明确责任边界、风险兜底和最终确认。</p>
-            </li>
-            <li>
-              <span class="judgment-index" aria-hidden="true">03</span>
-              <strong data-i18n="hero.dimension3.title">什么输出能进入业务流程</strong>
-              <p data-i18n="hero.dimension3.text">能被确认、流转、追踪和复盘，才算进入业务。</p>
-            </li>
-          </ul>
+          <p class="hero-speed-warning">做得越快，错得越深。</p>
+          <p class="hero-punch-closing">
+            <span class="hero-punch-closing-line">接上模型，只是开始；</span>
+            <span class="hero-punch-closing-line"><span class="hero-closing-accent">接住任务</span>，才算产品。</span>
+          </p>
           <div class="hero-actions">
             <a class="primary-action" href="#entries"><span data-i18n="hero.primary">查看项目案例</span> <span aria-hidden="true">→</span></a>
             <a class="secondary-action" href="#philosophy"><span data-i18n="hero.secondary">查看我的产品判断</span> <span aria-hidden="true">→</span></a>
@@ -83,11 +653,16 @@
         <article class="hero-featured-scenario" aria-labelledby="featured-scenario-title">
           <div class="featured-scenario-copy">
             <div class="featured-scenario-intro">
-              <p class="featured-scenario-eyebrow"><span aria-hidden="true">★</span> 综合场景入口</p>
-              <div class="featured-scenario-title-row">
-                <h2 id="featured-scenario-title">AI 综合场景样板间</h2>
+              <div class="featured-scenario-header">
+                <div class="featured-scenario-title-group">
+                  <p class="featured-scenario-eyebrow"><span aria-hidden="true">★</span> 综合场景入口</p>
+                  <div class="featured-scenario-title-row">
+                    <h2 id="featured-scenario-title">AI 综合场景样板间</h2>
+                  </div>
+                  <p class="featured-scenario-subtitle">AI 如何进入 HR 招聘流程</p>
+                </div>
+                <a class="featured-scenario-link" href="docs/hr-comprehensive-scenario-sample-room/index.html">进入样板间 <span aria-hidden="true">→</span></a>
               </div>
-              <p class="featured-scenario-subtitle">AI 如何进入 HR 招聘流程</p>
               <p class="featured-scenario-description">从“招个懂 AI 的人”这类模糊需求开始，把前面四个项目重新装配进一个 HR 招聘流程。</p>
             </div>
             <div class="scenario-build" aria-label="样板间构建">
@@ -95,27 +670,23 @@
               <div class="scenario-build-grid">
                 <article class="scenario-build-item">
                   <div class="scenario-build-head"><span>01</span><strong>项目 1：信息承重墙</strong></div>
-                  <p class="scenario-build-layer">可信上下文｜输入层</p>
+                  <p class="scenario-build-layer">可信上下文｜输入层｜招聘判断的信息基础</p>
                   <p>JD / 职级 / 面评 / 历史记录</p>
-                  <p class="scenario-build-value">→ 招聘判断的信息基础</p>
                 </article>
                 <article class="scenario-build-item">
                   <div class="scenario-build-head"><span>02</span><strong>项目 2：决策动线</strong></div>
-                  <p class="scenario-build-layer">业务信号流转｜流程层</p>
+                  <p class="scenario-build-layer">业务信号流转｜流程层｜招聘流程中的决策流转路径</p>
                   <p>需求 → 澄清 → 筛选 → 面试 → 决策</p>
-                  <p class="scenario-build-value">→ 招聘流程中的决策流转路径</p>
                 </article>
                 <article class="scenario-build-item">
                   <div class="scenario-build-head"><span>03</span><strong>项目 3：决策装配单元</strong></div>
-                  <p class="scenario-build-layer">结构化输出｜输出层</p>
+                  <p class="scenario-build-layer">结构化输出｜输出层｜结构化招聘决策结果</p>
                   <p>JD / 面试题 / 候选包</p>
-                  <p class="scenario-build-value">→ 结构化招聘决策结果</p>
                 </article>
                 <article class="scenario-build-item">
                   <div class="scenario-build-head"><span>04</span><strong>项目 4：判断闸门</strong></div>
-                  <p class="scenario-build-layer">方法论底座｜控制层</p>
+                  <p class="scenario-build-layer">方法论底座｜控制层｜AI 在招聘流程中的介入控制规则</p>
                   <p>场景 / 边界 / 闸门</p>
-                  <p class="scenario-build-value">→ AI 在招聘流程中的介入控制规则</p>
                 </article>
               </div>
             </div>
@@ -126,46 +697,42 @@
                 <span>端到端演示</span>
                 <span>可复用与治理</span>
               </div>
-              <a class="featured-scenario-link" href="docs/hr-comprehensive-scenario-sample-room/index.html">进入样板间 <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <figure class="featured-scenario-image">
-            <img src="assets/images/hr-sample-room/home-hero-hr-sample-room-cn-cropped.png" alt="HR 招聘流程样板间示意图" width="1338" height="976" decoding="async">
+            <img src="assets/images/hr-sample-room/home-hero-hr-sample-room-cn-cropped.png" alt="HR 招聘流程示意图" width="1338" height="976" decoding="async">
           </figure>
         </article>
 
         <div class="hero-project-panels" aria-label="核心项目入口" data-i18n-attr="aria-label:hero.projectsAria">
           <div class="hero-capability-heading">
             <p class="hero-capability-title"><span class="hero-capability-mark" aria-hidden="true">◆</span> AI 能力模块</p>
+            <span class="hero-capability-separator" aria-hidden="true">｜</span>
             <p class="hero-capability-kicker">项目精选</p>
           </div>
           <a class="hero-project-card project-one" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n-attr="href:entry1.href">
-            <span class="project-number" aria-hidden="true">01</span>
-            <span class="project-label" data-i18n="showcase.card1.tag">知识型 AI 应用</span>
-            <strong data-i18n="showcase.card1.title">企业知识工作台</strong>
-            <span class="project-hook" data-i18n="showcase.card1.hook">企业知识库失败，很多时候不是因为知识找不到。</span>
-            <span class="project-cta" aria-hidden="true">→</span>
+            <span class="project-meta"><span class="project-number">01</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">知识型 AI 应用</span></span>
+            <span class="project-name">企业知识工作台</span>
+            <span class="project-summary" title="企业知识库失败，很多时候不是因为知识找不到。"><span class="project-hook">企业知识库失败，很多时候不是因为知识找不到。</span></span>
+            <span class="project-action"><strong class="project-punch">找到，不等于敢用</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
           <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n-attr="href:entry2.href">
-            <span class="project-number" aria-hidden="true">02</span>
-            <span class="project-label" data-i18n="showcase.card2.tag">流程型 AI 应用</span>
-            <strong data-i18n="showcase.card2.title">AI 业务需求流转工作台</strong>
-            <span class="project-hook" data-i18n="showcase.card2.hook">AI 识别能力越强，反而越容易把产品做坏。</span>
-            <span class="project-cta" aria-hidden="true">→</span>
+            <span class="project-meta"><span class="project-number">02</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">流程型 AI 应用</span></span>
+            <span class="project-name">AI 业务需求流转工作台</span>
+            <span class="project-summary" title="AI 识别能力越强，反而越容易把产品做坏。"><span class="project-hook">AI 识别能力越强，反而越容易把产品做坏。</span></span>
+            <span class="project-action"><strong class="project-punch">会识别，不等于能流转</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
           <a class="hero-project-card project-three" href="./docs/module3-ai-content-operations-workflow/index.html" data-i18n-attr="href:entry3.href">
-            <span class="project-number" aria-hidden="true">03</span>
-            <span class="project-label" data-i18n="showcase.card3.tag">内容型 AI 应用</span>
-            <strong data-i18n="showcase.card3.title">AI 营销内容生产工作流</strong>
-            <span class="project-hook" data-i18n="showcase.card3.hook">内容生成不是终点。</span>
-            <span class="project-cta" aria-hidden="true">→</span>
+            <span class="project-meta"><span class="project-number">03</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">内容型 AI 应用</span></span>
+            <span class="project-name">AI 营销内容生产工作流</span>
+            <span class="project-summary" title="内容生成不是终点，进入生产链路才是。"><span class="project-hook">内容生成不是终点，进入生产链路才是。</span></span>
+            <span class="project-action"><strong class="project-punch">会生成，不等于有产能</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
           <a class="hero-project-card project-four" href="./docs/module4-ai-evaluation-governance-framework/index.html" data-i18n-attr="href:entry4.href">
-            <span class="project-number" aria-hidden="true">04</span>
-            <span class="project-label" data-i18n="showcase.card4.tag">AI 应用评估与治理</span>
-            <strong data-i18n="showcase.card4.title">AI 应用评估与治理框架</strong>
-            <span class="project-hook" data-i18n="hero.project4.hook">什么 AI 不该做，也是一种产品判断。</span>
-            <span class="project-cta" aria-hidden="true">→</span>
+            <span class="project-meta"><span class="project-number">04</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">AI 应用评估与治理</span></span>
+            <span class="project-name">AI 应用评估与治理框架</span>
+            <span class="project-summary" title="什么 AI 不该做，也是一种产品判断。"><span class="project-hook">什么 AI 不该做，也是一种产品判断。</span></span>
+            <span class="project-action"><strong class="project-punch">跑通，不等于能上线</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
         </div>
       </section>
