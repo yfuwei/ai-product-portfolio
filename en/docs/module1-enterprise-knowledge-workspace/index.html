@@ -1495,6 +1495,260 @@
         line-height: 1.55;
       }
 
+      .evidence-banner,
+      .bottom-route {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 12px 16px;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.8);
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-radius: var(--radius-md);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .evidence-banner::before {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border: 2px solid currentColor;
+        border-radius: 999px;
+        content: "i";
+        font-size: 14px;
+      }
+
+      .prototype-overview-figure {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .prototype-overview-figure img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+      }
+
+      .qa-block {
+        display: grid;
+        gap: 5px;
+      }
+
+      .qa-block + .qa-block {
+        padding-top: 2px;
+      }
+
+      .qa-block strong {
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .qa-block p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.58;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+      }
+
+      .qa-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .build-decision-chain {
+        display: grid;
+        gap: 14px;
+      }
+
+      .build-decision {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.31fr) minmax(0, 1fr);
+        gap: 18px;
+        min-width: 0;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .decision-stage {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        min-width: 0;
+        padding-right: 18px;
+        border-right: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .decision-stage span {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 24px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .decision-stage h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(18px, 1.7vw, 22px);
+        line-height: 1.28;
+        overflow-wrap: normal;
+        text-wrap: balance;
+        word-break: keep-all;
+      }
+
+      .decision-stage p,
+      .decision-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+      }
+
+      .decision-body {
+        display: grid;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .decision-body h4,
+      .retrieval-decision h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.35;
+        overflow-wrap: normal;
+        text-wrap: balance;
+        word-break: keep-all;
+      }
+
+      .evidence-flow {
+        padding: 12px 14px;
+        color: var(--ink);
+        background: rgba(239, 246, 255, 0.72);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+      }
+
+      .responsibility-list,
+      .decision-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .responsibility-list li,
+      .decision-list li {
+        position: relative;
+        padding-left: 14px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .responsibility-list li::before,
+      .decision-list li::before {
+        position: absolute;
+        left: 0;
+        color: var(--accent-strong);
+        content: "•";
+        font-weight: 900;
+      }
+
+      .retrieval-decision-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .retrieval-decision {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        min-width: 0;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .retrieval-decision.wide {
+        grid-column: span 3;
+      }
+
+      .retrieval-decision.compact {
+        grid-column: span 2;
+      }
+
+      .bottom-route {
+        justify-content: center;
+        margin-top: 14px;
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .bottom-route span {
+        color: var(--accent-strong);
+      }
+
+      .evidence-metric-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .evidence-metric {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .evidence-metric strong {
+        display: block;
+        margin-top: 10px;
+        color: var(--ink);
+        font-size: 26px;
+        line-height: 1.05;
+      }
+
+      .evidence-metric p {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
       .lane-compare {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1831,12 +2085,20 @@
         grid-template-columns: 1fr;
       }
 
+      #tech-overview .section-header,
+      #implementation .section-header,
+      #pipeline .section-header,
+      #agent-judgment .section-header,
       #agent .section-header,
       #evolution .section-header,
       #evaluation .section-header {
         max-width: none;
       }
 
+      #tech-overview .section-description,
+      #implementation .section-description,
+      #pipeline .section-description,
+      #agent-judgment .section-description,
       #agent .section-description,
       #evolution .section-description,
       #evaluation .section-description {
@@ -1855,7 +2117,7 @@
       @media (min-width: 1024px) {
         #evaluation .section-title {
           font-size: clamp(34px, 3vw, 44px);
-          white-space: nowrap;
+          white-space: normal;
         }
       }
 
@@ -2343,6 +2605,9 @@
         .interface-layout,
         .interface-cards,
         .interface-evidence,
+        .build-decision,
+        .retrieval-decision-grid,
+        .evidence-metric-grid,
         .choice-grid,
         .maintenance-grid,
         .lane-compare,
@@ -2443,6 +2708,10 @@
         .object-card,
         .interface-card,
         .interface-evidence figure,
+        .build-decision,
+        .retrieval-decision,
+        .evidence-metric,
+        .prototype-overview-figure,
         .context-flow-node,
         .context-field,
         .mini-card,
@@ -2640,6 +2909,9 @@
       html[lang="en"] #before-after .section-description,
       html[lang="en"] #intervention .section-description,
       html[lang="en"] #unit .section-description,
+      html[lang="en"] #tech-overview .section-description,
+      html[lang="en"] #implementation .section-description,
+      html[lang="en"] #pipeline .section-description,
       html[lang="en"] #agent .section-description,
       html[lang="en"] #evolution .section-description,
       html[lang="en"] #evaluation .section-description {
@@ -2775,12 +3047,21 @@
       }
 
       html[lang="en"] #unit .section-header,
+      html[lang="en"] #tech-overview .section-header,
+      html[lang="en"] #implementation .section-header,
+      html[lang="en"] #pipeline .section-header,
       html[lang="en"] #agent .section-header,
       html[lang="en"] #evolution .section-header,
       html[lang="en"] #evaluation .section-header,
       html[lang="en"] #summary .section-header {
         width: 100%;
         max-width: 1180px;
+      }
+
+      html[lang="en"] #tech-overview .section-header,
+      html[lang="en"] #implementation .section-header,
+      html[lang="en"] #pipeline .section-header {
+        max-width: none;
       }
 
       html[lang="en"] #unit .section-title,
@@ -2804,6 +3085,9 @@
       }
 
       html[lang="en"] #unit .section-description,
+      html[lang="en"] #tech-overview .section-description,
+      html[lang="en"] #implementation .section-description,
+      html[lang="en"] #pipeline .section-description,
       html[lang="en"] #agent .section-description,
       html[lang="en"] #evolution .section-description,
       html[lang="en"] #evaluation .section-description,
@@ -2812,6 +3096,14 @@
         overflow-wrap: normal;
         word-break: normal;
         text-wrap: balance;
+      }
+
+      html[lang="en"] #tech-overview .section-description,
+      html[lang="en"] #implementation .section-description,
+      html[lang="en"] #pipeline .section-description {
+        width: 100%;
+        max-width: none;
+        justify-self: stretch;
       }
 
       html[lang="en"] #before-after .section-description,
@@ -2996,6 +3288,99 @@
         }
       }
 
+
+
+      /* Detail page header guardrail: keep brand readable while nav wraps in its own area. */
+      .case-header {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+        gap: 12px 18px;
+        align-items: center;
+      }
+
+      .case-header > .brand,
+      .case-header > a:first-child {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+        max-width: 320px;
+        color: var(--ink);
+        font-weight: 900;
+        line-height: 1.25;
+        overflow-wrap: normal;
+        text-decoration: none;
+        white-space: normal;
+        word-break: keep-all;
+      }
+
+      .case-header > .brand span:last-child,
+      .case-header > a:first-child span:last-child,
+      .case-header > a:first-child span {
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: keep-all;
+      }
+
+      .case-header .brand-mark {
+        flex: 0 0 auto;
+      }
+
+      .case-nav {
+        display: flex;
+        min-width: 0;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px 10px;
+      }
+
+      .case-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+        text-align: right;
+        overflow-wrap: normal;
+        white-space: nowrap;
+        word-break: normal;
+      }
+
+      .case-nav .nav-link--lang {
+        margin-left: 0;
+      }
+
+      .case-nav .nav-link--lang,
+      .case-nav .nav-link--home {
+        white-space: nowrap;
+      }
+
+      @media (max-width: 760px) {
+        .case-header {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-header > .brand,
+        .case-header > a:first-child {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .case-nav {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .case-nav .nav-link--lang {
+          margin-left: 0;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -3011,10 +3396,14 @@
         <a href="#before-after">Before / After RAG</a>
         <a href="#intervention">Core Objects</a>
         <a href="#unit">Key Interfaces</a>
+        <a href="#tech-overview">Tech Stack</a>
+        <a href="#implementation">Prototype</a>
+        <a href="#pipeline">Retrieval Chain</a>
+        <a href="#agent-judgment">Agent Judgment</a>
         <a href="#agent">Architecture</a>
         <a href="#evolution">Evolution</a>
-        <a href="#evaluation">Validation Boundary</a>
-        <a href="#summary">Project Summary</a>
+        <a href="#evaluation">Validation</a>
+        <a href="#summary">Summary</a>
         <a class="nav-link--lang" href="../../../docs/module1-enterprise-knowledge-workspace/index.html">CN</a>
         <a class="nav-link--home" href="../../index.html">Home</a>
       </nav>
@@ -3445,10 +3834,336 @@
         </div>
       </section>
 
-      <section class="case-section" id="agent">
+      <section class="case-section alt" id="tech-overview">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">07 | Product Architecture Judgment</p>
+            <p class="section-kicker">07 | Tech Stack Overview &amp; Build Journey</p>
+            <h2 class="section-title">This is not a concept diagram, but a working AI product minimum loop.</h2>
+            <p class="section-description">From local documents to indexing, retrieval, cited answers, and human review, this is a complete AI product minimum loop. It prioritizes local control, traceability, and reviewability over chasing model capability limits.</p>
+          </div>
+          <figure class="prototype-overview-figure">
+            <img src="./assets/prototype-overview-local-ai-product-loop-en.png" alt="Local AI product prototype tech stack overview and build journey" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="implementation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08 | From Concept to a Local Runnable Prototype</p>
+            <h2 class="section-title">How was this chain built?</h2>
+            <p class="section-description">This is not a tech stack description. It is an Architecture Review of the local prototype: define the knowledge boundary first, prove the minimum loop, and return the answer to human judgment.</p>
+          </div>
+          <div class="build-decision-chain" aria-label="Local prototype build decision chain">
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 01 | Local-First</span>
+                <h3>Why choose a local chain instead of cloud APIs?</h3>
+                <p>Constrain the knowledge boundary before validating whether the AI knowledge loop is trustworthy.</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>Problem Background</h4>
+                  <p>The prototype needs to validate a trusted knowledge chain, not the upper bound of model capability. An enterprise knowledge workspace must first prove that documents can be indexed, retrieved, cited, and reviewed locally before chasing a stronger model.</p>
+                </div>
+                <div>
+                  <h4>Alternative</h4>
+                  <p><strong>Alternative A:</strong> Use cloud API / cloud embedding for faster speed and stronger model capability. <strong>Alternative B:</strong> Build a local-first MVP to validate data boundaries, controllable logs, and citation answer behavior first.</p>
+                </div>
+                <div>
+                  <h4>Decision</h4>
+                  <p>Documents, embeddings, indices, conversion cache, and logs stay local; Ollama handles local model calls. The data boundary and call chain are controlled first, then the answer is tested for whether it can return to source.</p>
+                </div>
+                <div>
+                  <h4>Implementation Evidence</h4>
+                  <p>The prototype runs on a 2020 Intel i5 MacBook Pro / 16GB / no GPU, with local execution, local indexing, and local retrieval. The local chain validates whether ingestion → embedding → Chroma → retrieval → citation answer can run repeatedly. This is a product-level demonstrable MVP, not an enterprise production deployment.</p>
+                </div>
+                <div>
+                  <h4>Trade-off &amp; Risk</h4>
+                  <p>It sacrifices part of speed and model capability in exchange for documents not leaving the machine, controllable logs, traceable badcases, and reviewable results. This is a low-spec MVP trade-off, not a rejection of future cloud capability.</p>
+                </div>
+                <div>
+                  <h4>Future Direction</h4>
+                  <p>Not implemented in MVP: cloud models, permission systems, audit logs, and system integration should be evaluated after the local retrieval + citation chain becomes stable.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 02 | Minimum Loop</span>
+                <h3>Why prove the minimum loop before building a full Agent?</h3>
+                <p>Validate the context layer before discussing Agent, Tool, or action capabilities.</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>Problem Background</h4>
+                  <p>If the project starts with a full Agent / Planning / multi-tool workflow, it hides the most basic questions: can documents be indexed, can questions be retrieved, and can answers return to source? Without trusted context, Agent summaries, suggestions, and actions have no stable basis.</p>
+                </div>
+                <div>
+                  <h4>Alternative</h4>
+                  <p><strong>Alternative A:</strong> Build a full Agent workflow with Planning, Tools, and automated actions from the start. <strong>Alternative B:</strong> First prove that the retrieval layer, citation layer, and human review can close the loop reliably.</p>
+                </div>
+                <div>
+                  <h4>Decision</h4>
+                  <p>First run the chain: local documents → document ingestion and conversion → chunk → embeddinggemma → Chroma → top_k 5 → qwen3:0.6b → FastAPI GUI. More complex Agent capability is discussed only after this chain works.</p>
+                </div>
+                <div>
+                  <h4>Implementation Evidence</h4>
+                  <p class="evidence-flow">Obsidian Markdown / local documents enter the indexing chain; Chroma stores chunks + embedding + source metadata; FastAPI GUI displays retrieval results, cited passages, and answers.</p>
+                </div>
+                <div>
+                  <h4>Component Responsibility</h4>
+                  <ul class="responsibility-list">
+                    <li><strong>embeddinggemma:</strong> moves documents into a retrievable representation instead of leaving them as a file pile.</li>
+                    <li><strong>Chroma:</strong> stores chunks, embeddings, and source metadata so retrieval can return to source.</li>
+                    <li><strong>qwen3:0.6b:</strong> generates a reviewable draft from retrieved context rather than freely guessing.</li>
+                    <li><strong>FastAPI GUI:</strong> turns indexing, retrieval, and citation review into a product surface that can be demonstrated and discussed.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Trade-off &amp; Risk</h4>
+                  <p>The implementation complexity is reduced to prove the AI product loop first. Planning, multi-tool collaboration, and automated actions are intentionally out of scope to avoid packaging unstable context as automation.</p>
+                </div>
+                <div>
+                  <h4>Future Direction</h4>
+                  <p>Not implemented in MVP: Memory, Tool, Workflow, and Agent action should enter the next stage only after retrieval + citation becomes stable.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 03 | Read-Only by Default</span>
+                <h3>Why stay read-only instead of auto-write or auto-action?</h3>
+                <p>Writing into enterprise knowledge must be governed more carefully than answer generation.</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>Problem Background</h4>
+                  <p>Auto-write, delete, sync, and publish may look more Agent-like, but they amplify the risk of false retrieval, Router misjudgment, and unclear user intent.</p>
+                </div>
+                <div>
+                  <h4>Alternative</h4>
+                  <p><strong>Alternative A:</strong> Enable write / delete / sync / publish to make the prototype feel like an autonomous action system. <strong>Alternative B:</strong> Keep the MVP read-only and route every write action through preview and human confirmation.</p>
+                </div>
+                <div>
+                  <h4>Decision</h4>
+                  <p>The default boundary is read-only. Write actions must go through preview + human confirmation. The prototype proves reviewability before actionability.</p>
+                </div>
+                <div>
+                  <h4>Implementation Evidence</h4>
+                  <p>The MVP validates indexing, retrieval, cited answers, and human review only. It does not automatically write, delete, sync, or publish content.</p>
+                </div>
+                <div>
+                  <h4>Trade-off &amp; Risk</h4>
+                  <p>This sacrifices automation in exchange for preventing the knowledge base from being polluted by accidental writes. Read-only by default is an Agent product boundary, not an unfinished feature.</p>
+                </div>
+                <div>
+                  <h4>Future Direction</h4>
+                  <p>Not implemented in MVP: write-back should become an independent workflow with diff, confirmation, and rollback before it is gradually opened.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 04 | Proof Boundary</span>
+                <h3>What does this local prototype prove, and what does it not prove?</h3>
+                <p>Honest boundaries build more trust than packaging the MVP as a full enterprise system.</p>
+              </div>
+              <div class="decision-body">
+                <div class="qa-columns">
+                  <div>
+                    <h4>Proven</h4>
+                    <ul class="decision-list">
+                      <li>Local documents can be indexed.</li>
+                      <li>Questions enter the retrieval chain before answer generation.</li>
+                      <li>Answers carry source path, title, passage, and source.</li>
+                      <li>Users can return to the original document for review.</li>
+                      <li>AI output can serve as judgment material.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Not Proven</h4>
+                    <ul class="decision-list">
+                      <li>This is not a production-grade enterprise system.</li>
+                      <li>It does not prove permissions, audit, multi-user, or system integration are complete.</li>
+                      <li>It does not prove model quality has reached production standard.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Boundary Purpose</h4>
+                  <p>The boundary makes the work more credible: it clarifies which capabilities have run, and which remain engineering and productization problems for later stages.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="bottom-route" aria-label="Minimum local prototype validation chain">
+            <span>Local Docs</span> →
+            <span>Local Model Calls</span> →
+            <span>Local Index</span> →
+            <span>Reviewable Retrieval</span> →
+            <span>Cited Answer</span> →
+            <span>Human Judgment</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="pipeline">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">09 | From Documents to Reviewable Answers</p>
+            <h2 class="section-title">How was this retrieval chain designed?</h2>
+            <p class="section-description">This section focuses on the retrieval layer trade-offs: the goal is not to stuff more documents into the model, but to connect source admission, chunking, retrieval range, citation, and refresh into trusted context infrastructure.</p>
+          </div>
+          <div class="retrieval-decision-grid" aria-label="Retrieval chain design decision records">
+            <article class="retrieval-decision wide">
+              <h3>Design Decision 05 | Trusted Context</h3>
+              <div class="qa-block"><strong>Problem Background</strong><p>The question is not whether an Agent can read documents. The issue is that raw documents have not yet entered a checkable context layer; free access creates ambiguity around source, version, permission, and applicability.</p></div>
+              <div class="qa-block"><strong>Alternative</strong><p><strong>Alternative A:</strong> Give Agent direct file access for a smoother surface. <strong>Alternative B:</strong> Build a retrieval layer + citation layer first, then let the Agent consume trusted context.</p></div>
+              <div class="qa-block"><strong>Decision</strong><p>Establish retrieval + citation before Agent summarization, organization, and suggestions. The Agent input is not a file pile, but source-backed context fragments that can be inspected.</p></div>
+              <div class="qa-block"><strong>Implementation Evidence</strong><p>Answers are based on retrieved passages instead of letting the model guess freely. The retrieval chain first turns documents into reviewable context, then passes them to the answer model for organization.</p></div>
+              <div class="qa-block"><strong>Trade-off &amp; Risk</strong><p>This sacrifices the surface fluency of direct chat in exchange for source traceability and reviewability. The design point is not the RAG label, but giving context permission to enter business judgment.</p></div>
+              <div class="qa-block"><strong>Future Direction</strong><p>Not implemented in MVP: Agent action should be connected only after citation answer is stable, avoiding decisions based on naked knowledge-base access.</p></div>
+            </article>
+
+            <article class="retrieval-decision wide">
+              <h3>Design Decision 06 | Source Admission</h3>
+              <div class="qa-block"><strong>Problem Background</strong><p>The key is not how many formats can be read, but which materials are allowed into the index. Knowledge-base quality starts with scope; wrong sources pollute every downstream retrieval and answer.</p></div>
+              <div class="qa-block"><strong>Alternative</strong><p><strong>Alternative A:</strong> Scan every file to maximize coverage. <strong>Alternative B:</strong> Read only configured source ranges after source admission, then run ingestion.</p></div>
+              <div class="qa-block"><strong>Decision</strong><p>The prototype supports md / txt / docx / pdf / pptx, but reads the allowed indexing scope from configuration instead of scanning the whole machine.</p></div>
+              <div class="qa-block"><strong>Implementation Evidence</strong><p>Source admission happens before ingestion; it covers common knowledge carriers such as notes, policies, proposals, and slide decks.</p></div>
+              <div class="qa-block"><strong>Trade-off &amp; Risk</strong><p>No full-disk scan. This avoids temporary files, private files, outdated materials, and irrelevant content entering the knowledge base. This is source governance and scope control, not a file-format showcase.</p></div>
+              <div class="qa-block"><strong>Future Direction</strong><p>Not implemented in MVP: permissions, directory-level policies, source_type, and project_name filters can be added after the source boundary is stable.</p></div>
+            </article>
+
+            <article class="retrieval-decision compact">
+              <h3>Design Decision 07 | Chunk Strategy</h3>
+              <div class="qa-block"><strong>Problem Background</strong><p>Chunking affects retrieval quality, indexing cost, and whether an answer can be reviewed. This project needed a stable, explainable cut before optimizing chunk intelligence.</p></div>
+              <div class="qa-block"><strong>Alternative</strong><p><strong>Alternative A:</strong> Smaller chunks, larger chunks, semantic chunk, or section-aware chunk. <strong>Alternative B:</strong> Use a fixed strategy first for reproducible MVP validation.</p></div>
+              <div class="qa-block"><strong>Decision</strong><p>The MVP does not yet implement semantic chunk or section-aware chunk. It uses chunk_target_chars 1200 / chunk_overlap_chars 150.</p></div>
+              <div class="qa-block"><strong>Implementation Evidence</strong><p>The value is chosen to preserve the semantic completeness of policy clauses, approval conditions, and project descriptions.</p></div>
+              <div class="qa-block"><strong>Trade-off &amp; Risk</strong><p>Too small cuts definitions, conditions, and exceptions; too large introduces noise and weakens retrieval control. overlap 150 keeps cross-paragraph context.</p></div>
+              <div class="qa-block"><strong>Future Direction</strong><p>Not implemented in MVP: later iterations can explore title hierarchy, document sections, and semantic boundaries.</p></div>
+            </article>
+
+            <article class="retrieval-decision compact">
+              <h3>Design Decision 08 | Retrieval Range</h3>
+              <div class="qa-block"><strong>Problem Background</strong><p>Retrieval count is not “more is better.” Noisy context can make an answer look complete while mixing sources and weakening credibility.</p></div>
+              <div class="qa-block"><strong>Alternative</strong><p><strong>Alternative A:</strong> Increase top_k, or introduce rerank / hybrid search / MMR / metadata filter. <strong>Alternative B:</strong> Keep retrieval simple and bounded for the MVP.</p></div>
+              <div class="qa-block"><strong>Decision</strong><p>The MVP has not introduced rerank / hybrid search / MMR. It sets top_k 5 to validate the retrieval + citation minimum loop first.</p></div>
+              <div class="qa-block"><strong>Implementation Evidence</strong><p>The answer model receives a limited, reviewable set of candidate passages instead of too much context at once.</p></div>
+              <div class="qa-block"><strong>Trade-off &amp; Risk</strong><p>Too few results may miss evidence; too many create noisy context and source-confused answers. top_k is answer quality control, not just a retrieval parameter.</p></div>
+              <div class="qa-block"><strong>Future Direction</strong><p>Not implemented in MVP: rerank, metadata filter, and hybrid search can be added later, but they are not claimed as current capabilities.</p></div>
+            </article>
+
+            <article class="retrieval-decision compact">
+              <h3>Design Decision 09 | Citation / Refresh</h3>
+              <div class="qa-block"><strong>Problem Background</strong><p>A trusted answer must solve two separate problems: whether the answer can be traced, and whether the knowledge state is current.</p></div>
+              <div class="qa-block"><strong>Alternative</strong><p><strong>Alternative A:</strong> Show only the generated answer, or append new chunks without clearing old ones. <strong>Alternative B:</strong> Make citation and path refresh core mechanisms.</p></div>
+              <div class="qa-block"><strong>Decision</strong><p>Citation displays source path, title, passage, and original source. When a document updates, old chunks are deleted by path and the index is rebuilt.</p></div>
+              <div class="qa-block"><strong>Implementation Evidence</strong><p>Citation solves answer traceability; path refresh solves stale knowledge state. The answer is not the endpoint; returning to the original document for review is the endpoint.</p></div>
+              <div class="qa-block"><strong>Trade-off &amp; Risk</strong><p>Refresh sacrifices some indexing speed for knowledge-state consistency, preventing old policies or old project descriptions from polluting new answers.</p></div>
+              <div class="qa-block"><strong>Future Direction</strong><p>Not implemented in MVP: version records, change diff, rollback, and audit trail can be layered on after the refresh mechanism is reliable.</p></div>
+            </article>
+          </div>
+          <div class="bottom-route" aria-label="From documents to reviewable answers">
+            <span>Source Scope</span> →
+            <span>Ingestion</span> →
+            <span>chunk</span> →
+            <span>embedding</span> →
+            <span>Chroma</span> →
+            <span>top_k Retrieval</span> →
+            <span>citation answer</span> →
+            <span>path refresh</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="agent-judgment">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">10 | From Trusted Context to Agent Judgment</p>
+            <h2 class="section-title">Why not send every problem to an Agent?</h2>
+            <p class="section-description">In enterprise knowledge workflows, Agent is not the default answer. The real product judgment is deciding when to retrieve, when to organize, when to enter Workflow, and when to stop before human confirmation. RAG / Retrieval / Citation is the input governance layer for Agent, not the final goal.</p>
+          </div>
+          <div class="build-decision-chain" aria-label="Product technical decisions from trusted context to Agent judgment">
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 10 | Context Before Agent</span>
+                <h3>Why should an Agent not read the knowledge base directly?</h3>
+                <p>Agent should consume verified context, not the entire knowledge base.</p>
+              </div>
+              <div class="decision-body">
+                <div><h4>Problem Background</h4><p>If an Agent directly reads the full knowledge base, source, version, permission, and applicability become unclear. The answer may sound natural, but the business cannot review it.</p></div>
+                <div><h4>Alternative</h4><p><strong>Alternative A:</strong> Agent directly reads all documents or queries the vector store and decides evidence by itself. <strong>Alternative B:</strong> Agent consumes only the trusted context produced by the retrieval + citation layer.</p></div>
+                <div><h4>Decision</h4><p>Agent does not directly consume the knowledge base. It consumes retrieved passages, source path, title, cited source, and reviewable evidence produced by the retrieval + citation layer.</p></div>
+                <div><h4>Implementation Evidence</h4><p class="evidence-flow">Verified Pipeline: Obsidian Markdown / local documents → ingestion → embeddinggemma → Chroma → top_k retrieval → citation answer → human review.</p></div>
+                <div><h4>Trade-off &amp; Risk</h4><p>This sacrifices part of answer fluency in exchange for source traceability, answer reviewability, and badcase localization.</p></div>
+                <div><h4>Future Direction</h4><p>Not implemented in MVP: Agent should be built on trusted Context and take responsibility for summary, organization, review, suggestion, and task generation only after retrieval + citation reliability is stable.</p></div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 11 | Route by Confidence</span>
+                <h3>Why should not every request enter Agent?</h3>
+                <p>Enterprise requests belong to different product paths, not one universal Agent path.</p>
+              </div>
+              <div class="decision-body">
+                <div><h4>Problem Background</h4><p>Knowledge lookup, policy search, evidence confirmation, project review, action suggestions, knowledge-base updates, and approval publishing are different task paths.</p></div>
+                <div><h4>Alternative</h4><p><strong>Alternative A:</strong> Route everything to Agent and let the model decide the next step. <strong>Alternative B:</strong> Route by confidence, then enter Retrieval / Citation Answer / Agent Summary / Workflow / Human Confirmation.</p></div>
+                <div><h4>Decision</h4><p>Not every request should enter Agent: information lookup → Retrieval; evidence confirmation → Citation Answer; content organization → Agent Summary; project review → Review Workflow; knowledge update → Preview + Human Confirmation; high-risk action → Workflow + Audit.</p></div>
+                <div><h4>Implementation Evidence</h4><p>Earlier Agentic RAG design materials already included Router, search_docs Tool, Memory, and Agent Core as design directions. The current MVP has validated Retrieval + Citation, but does not claim Router / Workflow / Agent Action as complete implementations.</p></div>
+                <div><h4>Trade-off &amp; Risk</h4><p>Router mistakes affect the entire downstream flow. Low confidence should trigger clarification or fallback to Retrieval instead of forcing the request into Agent.</p></div>
+                <div><h4>Future Direction</h4><p>Not implemented in MVP: route confidence, fallback, human confirmation, and route-level evaluation require a verifiable question set and failure-recovery rules.</p></div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 12 | Confirm Before Action</span>
+                <h3>Why should Agent not act automatically by default?</h3>
+                <p>The highest risk is not the answer, but turning the answer into action.</p>
+              </div>
+              <div class="decision-body">
+                <div><h4>Problem Background</h4><p>Write-back, delete, sync, publish, policy update, and approval can affect downstream business processes. Enterprise AI products must govern answers and actions separately.</p></div>
+                <div><h4>Alternative</h4><p><strong>Alternative A:</strong> Execute action immediately after the answer for a more automated assistant experience. <strong>Alternative B:</strong> Keep the default read-only; write actions must go through preview → diff → confirmation → execute.</p></div>
+                <div><h4>Decision</h4><p>First prove that answers are reviewable, then discuss automated action. The current boundary is read-only, and all write actions require preview → diff → confirmation → execute.</p></div>
+                <div><h4>Implementation Evidence</h4><p>The current MVP does not auto-write, delete, sync, or publish. The answer is only a reviewable draft, and the user must be able to return to the source before making judgment.</p></div>
+                <div><h4>Trade-off &amp; Risk</h4><p>This sacrifices automation experience to avoid polluting the knowledge base when sources are insufficient, retrieval is wrong, or user intent is unclear.</p></div>
+                <div><h4>Future Direction</h4><p>Not implemented in MVP: Action should enter independent workflow orchestration only after preview / diff / rollback / audit trail are established.</p></div>
+              </div>
+            </article>
+
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>Design Decision 13 | Memory Last</span>
+                <h3>Why put Memory at the end?</h3>
+                <p>Long-term memory becomes an asset only when write conditions are controlled.</p>
+              </div>
+              <div class="decision-body">
+                <div><h4>Problem Background</h4><p>Many Agents add long-term Memory early. In enterprise knowledge scenarios, low-quality Memory amplifies old rules, expired knowledge, unconfirmed judgments, and temporary wording.</p></div>
+                <div><h4>Alternative</h4><p><strong>Alternative A:</strong> Let Agent auto-save long-term Memory for a more continuous and personalized experience. <strong>Alternative B:</strong> First validate retrieval / citation / refresh / read-only boundary, then design Memory write conditions.</p></div>
+                <div><h4>Decision</h4><p>Memory is not a first-stage capability. First establish trusted context, traceable citation, and confirmed write-back; then decide what information deserves to enter long-term Memory.</p></div>
+                <div><h4>Implementation Evidence</h4><p>The current MVP focuses on Retrieval, Citation, Refresh, and Read-only Boundary. Memory, Tool, Workflow, and Agent Action belong to the next stage and are not described as implemented.</p></div>
+                <div><h4>Trade-off &amp; Risk</h4><p>This temporarily sacrifices continuous personalization to prevent low-quality information from becoming a hidden pollution source for future answers and actions.</p></div>
+                <div><h4>Future Direction</h4><p>Not implemented in MVP: Memory needs write conditions, conflict detection, human confirmation, update, deletion, and version management instead of append-only storage.</p></div>
+              </div>
+            </article>
+          </div>
+          <div class="architecture-principle">
+            The point of this section is not to prove “I understand Agents,” but to prove that I know when not to use an Agent. Agent becomes eligible for enterprise workflow only when context is trustworthy, routing is clear, and action boundaries are contained.
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="agent">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">11 | Product Architecture Judgment</p>
             <h2 class="section-title"><span>Do not let Agents connect directly to raw knowledge bases.</span><span>Build a trusted context layer first.</span></h2>
             <p class="section-description"><span class="balanced-title-line">Enterprise knowledge should not become free-form input for an Agent.</span><span class="balanced-title-line">Before an Agent uses knowledge, it must pass through trusted context, task orchestration, human confirmation, and feedback loops.</span></p>
           </div>
@@ -3473,10 +4188,10 @@
         </div>
       </section>
 
-      <section class="case-section alt" id="evolution">
+      <section class="case-section" id="evolution">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">08 | Product Evolution Path</p>
+            <p class="section-kicker">12 | Product Evolution Path</p>
             <h2 class="section-title"><span>The path is not jumping from RAG to Agent.</span><span>It is making context trustworthy first.</span></h2>
             <p class="section-description">The V1 / V2 / V3 evolution is not about stacking more features. It strengthens product trust and workflow readiness step by step: first make knowledge findable, then usable with trust, and finally maintainable inside knowledge tasks.</p>
           </div>
@@ -3498,143 +4213,138 @@
         </div>
       </section>
 
-      <section class="case-section" id="evaluation">
+      <section class="case-section alt" id="evaluation">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">09 | Validation / Boundary</p>
-            <h2 class="section-title"><span>Validation is not whether the answer sounds right.</span><span>It is whether the evidence can be trusted.</span></h2>
-            <p class="section-description"><span class="balanced-title-line">Generated answers do not prove that context is trustworthy.</span><span class="balanced-title-line">Validation checks retrieval, citation review, permission and version constraints, scope fit, and whether high-risk content enters human review.</span></p>
+            <p class="section-kicker">13 | Validation &amp; Badcase</p>
+            <h2 class="section-title">What needs to be validated is not whether AI can answer, but whether the whole product loop can be reviewed.</h2>
+            <p class="section-description">This prototype does not only validate whether an answer can be generated. It validates whether documents can be found, sources can be traced, answers are evidence-based, the Agent path is judged correctly, and high-risk actions are stopped before human confirmation.</p>
           </div>
           <div class="validation-layout">
             <div class="validation-panel">
-              <div class="validation-grid" aria-label="Trusted context validation loop">
-                <article class="validation-dimension">
-                  <span class="validation-step-label">01 | Validation Input</span>
-                  <strong>Candidate context</strong>
-                  <p>Includes citation excerpts, Context Cards, Knowledge Task outputs, and action material that needs confirmation.</p>
-                </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">02 | Validation Dimensions</span>
-                  <strong>Evidence trust check</strong>
-                  <p>Check retrieval quality, citation evidence, permission and version, scope fit, and human review boundaries.</p>
-                </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">03 | badcase Detection</span>
-                  <strong>Unusable knowledge</strong>
-                  <p>Identify outdated versions, missing citations, unauthorized content, scope mismatch, non-reviewable answers, or unconfirmed actions.</p>
-                </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">04 | Correction Action</span>
-                  <strong>Correction records</strong>
-                  <p>Move issues into evaluation sets, recap correction, version rollback, knowledge source update, and review rule adjustment.</p>
-                </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">05 | Continuous Feedback</span>
-                  <strong>Context rule feedback</strong>
-                  <p>Feed results back into the next round of context generation and knowledge maintenance.</p>
-                </article>
+              <div class="evidence-metric-grid" aria-label="Prototype validation evidence snapshot">
+                <article class="evidence-metric"><span>Indexed Files</span><strong>163</strong><p>Covers Obsidian notes and local documents, validating that materials can enter the indexing scope.</p></article>
+                <article class="evidence-metric"><span>Chunks</span><strong>390</strong><p>Used to validate chunking, metadata, and Chroma write-in behavior.</p></article>
+                <article class="evidence-metric"><span>Task Questions</span><strong>10</strong><p>Covers collaboration rules, GUI usage, index maintenance, project introduction, and cross-project recall.</p></article>
+                <article class="evidence-metric"><span>Recall</span><strong>9+1</strong><p>9 hits and 1 near hit; the focus is whether the right source enters Top-K.</p></article>
+                <article class="evidence-metric"><span>Usefulness</span><strong>8/10</strong><p>Not a fluency score, but whether the answer supports the next review and judgment step.</p></article>
               </div>
               <div class="validation-feedback">
-                <strong>Loop judgment</strong>
-                <span>Validation is not scoring whether an answer sounds fluent. It checks whether a piece of knowledge can be found, cited, reviewed, authorized, and corrected after failure.</span>
+                <strong>Validation Scope</strong>
+                <span>Validation has two layers: first, whether the retrieval chain can recover the correct source; second, whether the Agent calls retrieval when local documents are needed, stops when evidence is insufficient, and preserves human confirmation before high-risk actions.</span>
               </div>
-              <div class="validation-detail-row" aria-label="Validation loop details">
-                <article class="validation-detail">
-                <h3>Validation dimensions</h3>
-                  <p>Retrieval quality, citation evidence, permission / version, scope fit, human review boundary, badcase feedback.</p>
-                </article>
-                <article class="validation-detail">
-                <h3>Typical issues</h3>
-                  <p>Outdated versions, missing or unlocatable citations, unauthorized content, scope mismatch, non-reviewable answers, unconfirmed actions.</p>
-                </article>
-                <article class="validation-detail">
-                <h3>Correction actions</h3>
-                  <p>Evaluation set, recap correction, version rollback, knowledge source update, human review rule adjustment.</p>
-                </article>
+              <div class="table-wrap" aria-label="Observed product boundary cases and control strategies">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Product Boundary Case</th>
+                      <th>Observed Behavior</th>
+                      <th>Product Judgment</th>
+                      <th>Control Strategy</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>False retrieval</td>
+                      <td>Project-introduction questions may retrieve materials from another RAG project.</td>
+                      <td>Semantic similarity is not business relevance; enterprise retrieval must consider project, source, and path constraints.</td>
+                      <td>Add metadata constraints such as project_name, source_type, and path, and support source filtering.</td>
+                    </tr>
+                    <tr>
+                      <td>Partial long-document summary</td>
+                      <td>When summarizing a product design document, the answer may cover only one section.</td>
+                      <td>Basic RAG is better for local Q&amp;A; long-document summary needs structured summaries and table-of-contents strategy.</td>
+                      <td>Summary tasks should retrieve table of contents, section summaries, and key passages, not only similar fragments.</td>
+                    </tr>
+                    <tr>
+                      <td>Router misjudgment</td>
+                      <td>“How should I present this project?” can be misrouted as direct, without retrieving local materials.</td>
+                      <td>The first Agent step is not execution, but correct route judgment. If Router is wrong, Tool use and answers are wrong.</td>
+                      <td>Add local-document signal rules to Router; when confidence is low, clarify first or run retrieval first.</td>
+                    </tr>
+                    <tr>
+                      <td>Write-back risk</td>
+                      <td>When users ask to write back to Obsidian or update files, mistaken writes and overwrites are possible.</td>
+                      <td>Agent capability boundaries must come before capability expansion. Write actions cannot share the same permission as retrieval answers.</td>
+                      <td>Read-only by default; write, delete, sync, and publish actions must be previewed and confirmed by a human.</td>
+                    </tr>
+                    <tr>
+                      <td>No forced answer when evidence is insufficient</td>
+                      <td>When retrieved evidence is insufficient, the model may still generate a complete-looking answer.</td>
+                      <td>In enterprise knowledge contexts, a wrong but fluent answer is more dangerous than “I do not know.”</td>
+                      <td>When citations cannot support the conclusion, indicate insufficient materials, narrow the scope, or transfer to human judgment.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="validation-detail-row" aria-label="Validation dimensions and control rules">
+                <article class="validation-detail"><h3>Retrieval Strategy</h3><p>Validate whether retrieval can hit top_k 5 and return to the original document path and passage.</p></article>
+                <article class="validation-detail"><h3>Prompt Strategy</h3><p>Validate whether answers are constrained by citation, and whether insufficient citation leads to an evidence-insufficient response.</p></article>
+                <article class="validation-detail"><h3>Tool Flow Control</h3><p>Validate whether write, delete, sync, and publish actions must enter human confirmation.</p></article>
               </div>
             </div>
             <aside class="interface-evidence-group">
               <div class="interface-evidence-header">
-                <h3>Evaluation Dashboard</h3>
-                <p>The dashboard tracks issue samples, validation dimensions, version corrections, and knowledge updates, keeping trusted context maintainable.</p>
+                <h3>Validation &amp; Iteration Dashboard</h3>
+                <p>Used to track question samples, validation dimensions, version corrections, and knowledge updates so trusted context can be maintained continuously.</p>
               </div>
-              <div class="interface-evidence validation-gallery" aria-label="Evaluation & Iteration Dashboard prototype">
+              <div class="interface-evidence validation-gallery" aria-label="Evaluation and iteration dashboard prototype">
                 <figure>
-                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Evaluation & Iteration Dashboard">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="Validation &amp; Iteration Dashboard">
                     <img src="../../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="Evaluation and iteration dashboard prototype" loading="lazy" />
                     <span class="interface-shot-zoom-label">View full image</span>
                   </button>
-                  <figcaption><span>Evaluation & Iteration Dashboard</span> The dashboard tracks issue samples, validation dimensions, version corrections, and knowledge updates, keeping trusted context maintainable.</figcaption>
+                  <figcaption><span>Validation &amp; Iteration Dashboard</span> Tracks question samples, validation dimensions, version corrections, and knowledge updates so trusted context can be maintained continuously.</figcaption>
                 </figure>
               </div>
             </aside>
           </div>
           <div class="validation-principle">
-            The boundary of validation is not to make answers sound more fluent. It is to ensure each knowledge use can return to source, permission, version, scope, and human responsibility.
+            This validation shows that the prototype is no longer testing whether AI can answer, but whether product judgment can be reproduced consistently: with a question set, judgment criteria, boundary control, and an iteration dashboard.
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="summary">
+      <section class="case-section" id="summary">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">10 | Project Summary</p>
-            <h2 class="section-title"><span>Not a knowledge Q&amp;A bot,</span><span>but a mechanism for knowledge entering trusted workflows.</span></h2>
+            <p class="section-kicker">14 | Project Summary</p>
+            <h2 class="section-title">Not a knowledge Q&amp;A bot, but a mechanism for knowledge entering trusted workflows.</h2>
             <p class="section-description">The core of this project is not making AI answer more questions. It defines which knowledge can enter context, which context can be cited, and which content must be confirmed by people before it enters tasks, recaps, and continuous updates.</p>
           </div>
 
           <div class="closing-loop-panel">
             <div class="closing-loop-header">
-              <h3><span class="balanced-title-line">A closed-loop mechanism</span><span class="balanced-title-line">for enterprise knowledge entering trusted workflows</span></h3>
-              <p>From knowledge sources to trusted context, workflow handoff, and review updates, the system forms a product mechanism that is citable, traceable, reviewable, and confirmable.</p>
+              <h3>A closed-loop mechanism for enterprise knowledge entering trusted workflows</h3>
+              <p>From knowledge sources to trusted context, workflow handoff, and review updates, the system forms a product mechanism that is citable, traceable, verifiable, and confirmable.</p>
             </div>
             <div class="closing-loop-diagram" aria-label="A closed-loop mechanism for enterprise knowledge entering trusted workflows">
               <article class="closing-loop-node">
                 <em>01</em>
                 <strong>Knowledge Sources Managed</strong>
                 <p>Documents, policies, meeting notes, FAQs, project materials, and historical experience first carry source, permission, version, and update time.</p>
-                <ul class="closing-loop-tags">
-                  <li>Source</li>
-                  <li>Permission</li>
-                  <li>Version</li>
-                  <li>Freshness</li>
-                </ul>
+                <ul class="closing-loop-tags"><li>Source</li><li>Permission</li><li>Version</li><li>Freshness</li></ul>
               </article>
               <div class="closing-loop-arrow" aria-hidden="true">→</div>
               <article class="closing-loop-node">
                 <em>02</em>
                 <strong>Context Reviewed</strong>
                 <p>AI-recalled and organized content does not become the answer directly. It enters a Context Card with citations, scope, risk hints, and human review entry.</p>
-                <ul class="closing-loop-tags">
-                  <li>Citation</li>
-                  <li>Scope Fit</li>
-                  <li>Risk</li>
-                  <li>Human Review</li>
-                </ul>
+                <ul class="closing-loop-tags"><li>Citation</li><li>Scope Fit</li><li>Risk Hint</li><li>Human Review</li></ul>
               </article>
               <div class="closing-loop-arrow" aria-hidden="true">→</div>
               <article class="closing-loop-node">
                 <em>03</em>
                 <strong>Workflow Handoff</strong>
                 <p>Reviewed context enters Action Briefs, project recaps, Knowledge Tasks, and Review Records as material that can be followed up.</p>
-                <ul class="closing-loop-tags">
-                  <li>Action Brief</li>
-                  <li>Project Recap</li>
-                  <li>Knowledge Task</li>
-                  <li>Review Record / Knowledge Update</li>
-                </ul>
+                <ul class="closing-loop-tags"><li>Action Brief</li><li>Project Recap</li><li>Knowledge Task</li><li>Review Record</li></ul>
               </article>
               <div class="closing-loop-arrow" aria-hidden="true">→</div>
               <article class="closing-loop-node return">
                 <em>04</em>
-                <strong>Review & Knowledge Update</strong>
+                <strong>Review &amp; Knowledge Update</strong>
                 <p>Errors, omissions, and inapplicable content enter evaluation, recap correction, rollback, and knowledge update to improve the next context rule.</p>
-                <ul class="closing-loop-tags">
-                  <li>badcase</li>
-                  <li>eval</li>
-                  <li>rollback</li>
-                  <li>Knowledge Update</li>
-                </ul>
+                <ul class="closing-loop-tags"><li>badcase</li><li>eval</li><li>rollback</li><li>Knowledge Update</li></ul>
               </article>
             </div>
             <div class="closing-loop-return">
@@ -3650,53 +4360,41 @@
                 <li>When specified materials are involved, the system must return to source.</li>
                 <li>When business judgment is involved, the scope must be confirmed.</li>
                 <li>When organizational knowledge is involved, permission and version must be managed.</li>
-                <li>When knowledge is used continuously, evaluation, rollback, and knowledge update must exist.</li>
+                <li>When knowledge is used continuously, evaluation, feedback, and knowledge update must exist.</li>
               </ul>
             </article>
             <article class="closing-note">
               <h3>Project Boundary</h3>
               <p>This is a product-level prototype and mechanism design, not an enterprise production system.</p>
               <ul class="closing-boundary-list">
-                <li>It does not claim real enterprise deployment.</li>
-                <li>It does not cover full permission, audit, multi-user, and system integration in this prototype stage.</li>
+                <li>It does not claim real enterprise production deployment.</li>
+                <li>It does not claim permissions, audit, multi-user, or system integration are complete.</li>
                 <li>It does not automatically write, delete, or publish content.</li>
-                <li>It does not let AI replace business owner judgment.</li>
-                <li>It does not let Agents directly read the entire enterprise knowledge base.</li>
-              </ul>
-            </article>
-            <article class="closing-note">
-              <h3>Maintainability</h3>
-              <p>Tasks and memory have boundaries; versions and decisions have records; errors and regressions have feedback loops; human confirmation has checkpoints.</p>
-              <ul class="closing-note-list">
-                <li>Task boundary</li>
-                <li>Version record</li>
-                <li>Feedback loop</li>
-                <li>Human checkpoint</li>
+                <li>It does not let AI replace the business owner’s final judgment.</li>
+                <li>It does not let Agent directly read or take over the whole enterprise knowledge base.</li>
               </ul>
             </article>
           </div>
 
           <div class="closing-roles">
-            <h3>It serves judgment, recap, and action rather than “asking questions”</h3>
-            <p>Project owners / product managers, new project members, managers / decision participants, and operations / PMO / knowledge management roles use it to confirm evidence, reuse experience, and move work forward.</p>
+            <h3>It serves judgment, recap, and action rather than “asking AI.”</h3>
+            <p>It helps project owners, managers, PMO, and knowledge-management roles complete judgment, recap, and next action inside evidence-backed context.</p>
             <ul class="closing-role-tags" aria-label="Applicable roles">
-              <li>Project owners / product managers</li>
-              <li>New project members</li>
-              <li>Managers / decision participants</li>
-              <li>Operations / PMO / knowledge management roles</li>
+              <li>Project owners / PMs</li>
+              <li>Managers / reviewers</li>
+              <li>PMO</li>
+              <li>Knowledge management</li>
             </ul>
-            <p class="closing-maintain-line">Maintainability: tasks and memory have boundaries; versions and decisions have records; errors and regressions have feedback loops; human confirmation has checkpoints.</p>
           </div>
 
           <div class="closing-compare">
             <h3>Boundary with Project 2</h3>
-            <p>Project 1 handles how enterprise knowledge enters trusted workflows: turning historical materials, experience, and judgment into context that can be searched, cited, and reviewed.</p>
-            <p>Project 2 handles how business signals enter responsibility workflows: turning new feedback, meeting conclusions, and requirement clues into tasks that can be confirmed, decomposed, and executed.</p>
-            <p>One solves how knowledge can be trusted in use; the other solves how signals enter a responsibility chain.</p>
+            <p>Project 1 solves how knowledge can be trusted in use. Project 2 solves how business signals enter a responsibility chain.</p>
+            <p>One focuses on how knowledge can be cited; the other focuses on how signals become accountable tasks.</p>
           </div>
 
           <div class="summary-final">
-            The product judgment is not “make AI answer more.” It is to make enterprise knowledge citable, traceable, reviewable, and confirmable before it is used.
+            AI answers are only the output. The real product is making enterprise knowledge citable, traceable, verifiable, and confirmable before it enters judgment.
           </div>
         </div>
       </section>

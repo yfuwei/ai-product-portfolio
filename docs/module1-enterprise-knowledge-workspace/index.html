@@ -845,14 +845,20 @@
 
       #before-after .section-description,
       #intervention .section-description,
-      #unit .section-description {
+      #unit .section-description,
+      #tech-overview .section-description,
+      #implementation .section-description,
+      #pipeline .section-description {
         width: 100%;
         max-width: none;
       }
 
       #before-after .section-header,
       #intervention .section-header,
-      #unit .section-header {
+      #unit .section-header,
+      #tech-overview .section-header,
+      #implementation .section-header,
+      #pipeline .section-header {
         max-width: none;
       }
 
@@ -866,6 +872,828 @@
           max-width: none;
           white-space: nowrap;
         }
+      }
+
+      .proof-board {
+        display: grid;
+        gap: 18px;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.72), rgba(240, 253, 250, 0.52));
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+      }
+
+      .proof-card {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      }
+
+      .proof-card span,
+      .pipeline-step span,
+      .evidence-metric span {
+        display: inline-flex;
+        min-height: 24px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .proof-card h3,
+      .pipeline-step h3 {
+        margin: 10px 0 7px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.28;
+      }
+
+      .proof-card p,
+      .pipeline-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.58;
+      }
+
+      .proof-detail-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .proof-note,
+      .control-panel {
+        padding: 18px;
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .proof-note h3,
+      .control-panel h3 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .proof-note p,
+      .control-panel p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .control-list {
+        display: grid;
+        gap: 9px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .control-list li {
+        padding: 10px 12px;
+        color: var(--text);
+        background: #f8fafc;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .pipeline-flow {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        padding: 14px;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+      }
+
+      .pipeline-step {
+        position: relative;
+        padding: 14px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .pipeline-step:not(:last-child)::after {
+        position: absolute;
+        top: 50%;
+        right: -9px;
+        z-index: 2;
+        color: rgba(37, 99, 235, 0.5);
+        font-weight: 900;
+        content: "→";
+        transform: translateY(-50%);
+      }
+
+      .pipeline-config {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .decision-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .decision-card {
+        display: grid;
+        gap: 10px;
+        min-width: 0;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .decision-card span {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 24px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .decision-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.28;
+      }
+
+      .decision-card dl {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .decision-card div {
+        min-width: 0;
+      }
+
+      .decision-card dt {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .decision-card dd {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.56;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .prototype-choice-grid .decision-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .ptd-chain {
+        display: grid;
+        gap: 0;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .ptd-qa {
+        display: grid;
+        grid-template-columns: minmax(150px, 0.25fr) minmax(0, 1fr);
+        gap: 18px;
+        min-width: 0;
+        padding: 18px 20px;
+      }
+
+      .ptd-qa + .ptd-qa {
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .ptd-qa-label {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 24px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .ptd-qa-body {
+        min-width: 0;
+      }
+
+      .ptd-qa-body h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(18px, 1.8vw, 22px);
+        line-height: 1.28;
+      }
+
+      .ptd-qa-body p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.68;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .ptd-qa-body strong {
+        color: var(--ink);
+        font-weight: 900;
+      }
+
+      .ptd-flow-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-top: 4px;
+        padding: 14px 16px;
+        color: var(--ink);
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(37, 99, 235, 0.07));
+        border: 1px solid rgba(20, 184, 166, 0.2);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .ptd-flow-line span {
+        padding: 4px 8px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 999px;
+      }
+
+      .build-system-panel {
+        display: grid;
+        gap: 18px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .build-panel-title {
+        margin: 0;
+        color: var(--accent-strong);
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .build-flow {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .build-step {
+        position: relative;
+        display: grid;
+        min-width: 0;
+        align-content: start;
+        gap: 10px;
+        min-height: 124px;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-left: 4px solid rgba(37, 99, 235, 0.52);
+        border-radius: var(--radius-md);
+      }
+
+      .build-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .build-step-number {
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .build-step-icon {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        color: var(--accent-strong);
+        background: rgba(37, 99, 235, 0.08);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .build-step ul,
+      .stack-list,
+      .version-list,
+      .tradeoff-list,
+      .qa-points {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .build-step li,
+      .version-list li,
+      .qa-points li {
+        position: relative;
+        padding-left: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+
+      .build-step li::before,
+      .version-list li::before,
+      .qa-points li::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: var(--accent-strong);
+        content: "·";
+        font-weight: 900;
+      }
+
+      .build-detail-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 0.95fr) minmax(0, 1.25fr);
+        gap: 18px;
+      }
+
+      .build-detail-card,
+      .qa-card {
+        min-width: 0;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .build-detail-card {
+        padding: 18px;
+      }
+
+      .build-detail-card h3,
+      .qa-card h3 {
+        margin: 0;
+        color: var(--accent-strong);
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .stack-item {
+        display: grid;
+        gap: 4px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .stack-item:first-child {
+        border-top: 0;
+      }
+
+      .stack-icon,
+      .tradeoff-icon {
+        display: grid;
+        place-items: center;
+        color: var(--accent-strong);
+        background: rgba(37, 99, 235, 0.08);
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .stack-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .stack-item strong,
+      .tradeoff-item strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .stack-item span,
+      .tradeoff-item span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .stack-item em {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        padding: 3px 7px;
+        color: var(--accent-strong);
+        background: rgba(37, 99, 235, 0.08);
+        border-radius: 999px;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .stack-item p {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .version-route {
+        position: relative;
+        display: grid;
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .version-route::before {
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: 28px;
+        width: 2px;
+        background: rgba(37, 99, 235, 0.14);
+        content: "";
+      }
+
+      .version-node {
+        position: relative;
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .version-tag {
+        z-index: 1;
+        display: inline-flex;
+        width: 58px;
+        height: 26px;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-strong);
+        background: #eaf2ff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .version-node strong {
+        display: block;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .tradeoff-list {
+        margin-top: 10px;
+      }
+
+      .tradeoff-item {
+        display: grid;
+        gap: 5px;
+        padding: 14px 0;
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .tradeoff-item:first-child {
+        border-top: 0;
+      }
+
+      .tradeoff-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .evidence-banner,
+      .bottom-route {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 12px 16px;
+        color: var(--accent-strong);
+        background: rgba(239, 246, 255, 0.8);
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        border-radius: var(--radius-md);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .evidence-banner::before {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border: 2px solid currentColor;
+        border-radius: 999px;
+        content: "i";
+        font-size: 14px;
+      }
+
+      .prototype-overview-figure {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .prototype-overview-figure img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+      }
+
+      .qa-card-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .qa-card-grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .qa-card-grid.five {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .qa-card {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .qa-card h3 {
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+        font-size: 16px;
+      }
+
+      .qa-block {
+        display: grid;
+        gap: 5px;
+      }
+
+      .qa-block + .qa-block {
+        padding-top: 2px;
+      }
+
+      .qa-block strong {
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .qa-block p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.58;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+      }
+
+      .qa-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .build-decision-chain {
+        display: grid;
+        gap: 14px;
+      }
+
+      .build-decision {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.31fr) minmax(0, 1fr);
+        gap: 18px;
+        min-width: 0;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .decision-stage {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        min-width: 0;
+        padding-right: 18px;
+        border-right: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .decision-stage span {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 24px;
+        align-items: center;
+        padding: 4px 8px;
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .decision-stage h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(18px, 1.7vw, 22px);
+        line-height: 1.28;
+        overflow-wrap: normal;
+        text-wrap: balance;
+        word-break: keep-all;
+      }
+
+      .decision-stage p,
+      .decision-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+      }
+
+      .decision-body {
+        display: grid;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .decision-body h4,
+      .retrieval-decision h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.35;
+        overflow-wrap: normal;
+        text-wrap: balance;
+        word-break: keep-all;
+      }
+
+      .evidence-flow {
+        padding: 12px 14px;
+        color: var(--ink);
+        background: rgba(239, 246, 255, 0.72);
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+      }
+
+      .responsibility-list,
+      .decision-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .responsibility-list li,
+      .decision-list li {
+        position: relative;
+        padding-left: 14px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .responsibility-list li::before,
+      .decision-list li::before {
+        position: absolute;
+        left: 0;
+        color: var(--accent-strong);
+        content: "•";
+        font-weight: 900;
+      }
+
+      .retrieval-decision-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .retrieval-decision {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        min-width: 0;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .retrieval-decision.wide {
+        grid-column: span 3;
+      }
+
+      .retrieval-decision.compact {
+        grid-column: span 2;
+      }
+
+      .bottom-route {
+        justify-content: center;
+        margin-top: 14px;
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .bottom-route span {
+        color: var(--accent-strong);
+      }
+
+      .evidence-metric-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .evidence-metric {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: var(--radius-md);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .evidence-metric strong {
+        display: block;
+        margin-top: 10px;
+        color: var(--ink);
+        font-size: 26px;
+        line-height: 1.05;
+      }
+
+      .evidence-metric p {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
       }
 
       .rag-card,
@@ -1831,12 +2659,14 @@
         grid-template-columns: 1fr;
       }
 
+      #agent-judgment .section-header,
       #agent .section-header,
       #evolution .section-header,
       #evaluation .section-header {
         max-width: none;
       }
 
+      #agent-judgment .section-description,
       #agent .section-description,
       #evolution .section-description,
       #evaluation .section-description {
@@ -2343,6 +3173,19 @@
         .interface-layout,
         .interface-cards,
         .interface-evidence,
+        .proof-grid,
+        .proof-detail-panel,
+        .build-detail-grid,
+        .build-decision,
+        .retrieval-decision-grid,
+        .qa-card-grid.four,
+        .qa-card-grid.five,
+        .qa-columns,
+        .pipeline-flow,
+        .pipeline-config,
+        .decision-grid,
+        .ptd-qa,
+        .evidence-metric-grid,
         .choice-grid,
         .maintenance-grid,
         .lane-compare,
@@ -2362,8 +3205,23 @@
           grid-template-columns: 1fr;
         }
 
+        .build-flow {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .build-step:not(:last-child)::after {
+          display: none;
+        }
+
         .visual-row {
           grid-template-columns: 1fr;
+        }
+
+        .decision-stage {
+          padding-right: 0;
+          padding-bottom: 12px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(148, 163, 184, 0.18);
         }
 
         .sample-path {
@@ -2383,6 +3241,15 @@
           top: auto;
           right: auto;
           bottom: -18px;
+          left: 50%;
+          content: "↓";
+          transform: translateX(-50%);
+        }
+
+        .pipeline-step:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -15px;
           left: 50%;
           content: "↓";
           transform: translateX(-50%);
@@ -2443,6 +3310,18 @@
         .object-card,
         .interface-card,
         .interface-evidence figure,
+        .proof-card,
+        .proof-note,
+        .control-panel,
+        .build-system-panel,
+        .build-detail-card,
+        .build-step,
+        .qa-card,
+        .decision-card,
+        .ptd-qa,
+        .ptd-qa-body,
+        .pipeline-step,
+        .evidence-metric,
         .context-flow-node,
         .context-field,
         .mini-card,
@@ -2557,6 +3436,10 @@
           padding: 14px;
         }
 
+        .build-flow {
+          grid-template-columns: 1fr;
+        }
+
         .visual-panel {
           padding: 12px;
         }
@@ -2625,6 +3508,99 @@
           padding: 10px;
         }
       }
+
+
+      /* Detail page header guardrail: keep brand readable while nav wraps in its own area. */
+      .case-header {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+        gap: 12px 18px;
+        align-items: center;
+      }
+
+      .case-header > .brand,
+      .case-header > a:first-child {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+        max-width: 320px;
+        color: var(--ink);
+        font-weight: 900;
+        line-height: 1.25;
+        overflow-wrap: normal;
+        text-decoration: none;
+        white-space: normal;
+        word-break: keep-all;
+      }
+
+      .case-header > .brand span:last-child,
+      .case-header > a:first-child span:last-child,
+      .case-header > a:first-child span {
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: keep-all;
+      }
+
+      .case-header .brand-mark {
+        flex: 0 0 auto;
+      }
+
+      .case-nav {
+        display: flex;
+        min-width: 0;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px 10px;
+      }
+
+      .case-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+        text-align: right;
+        overflow-wrap: normal;
+        white-space: nowrap;
+        word-break: normal;
+      }
+
+      .case-nav .nav-link--lang {
+        margin-left: 0;
+      }
+
+      .case-nav .nav-link--lang,
+      .case-nav .nav-link--home {
+        white-space: nowrap;
+      }
+
+      @media (max-width: 760px) {
+        .case-header {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-header > .brand,
+        .case-header > a:first-child {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .case-nav {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .case-nav .nav-link--lang {
+          margin-left: 0;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -2640,10 +3616,14 @@
         <a href="#before-after">RAG 接入前后</a>
         <a href="#intervention">核心对象</a>
         <a href="#unit">关键界面</a>
+        <a href="#tech-overview">技术全貌</a>
+        <a href="#implementation">原型快照</a>
+        <a href="#pipeline">检索链路</a>
+        <a href="#agent-judgment">Agent 判断</a>
         <a href="#agent">架构判断</a>
         <a href="#evolution">演进</a>
-        <a href="#evaluation">验证边界</a>
-        <a href="#summary">项目总结</a>
+        <a href="#evaluation">验证 badcase</a>
+        <a href="#summary">总结</a>
         <a class="nav-link--lang" href="../../en/docs/module1-enterprise-knowledge-workspace/index.html">EN</a>
         <a class="nav-link--home" href="../../index.html">返回首页</a>
       </nav>
@@ -3074,10 +4054,490 @@
         </div>
       </section>
 
-      <section class="case-section" id="agent">
+      <section class="case-section alt" id="tech-overview">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">07｜产品架构判断</p>
+            <p class="section-kicker">07｜技术栈全貌与搭建路线</p>
+            <h2 class="section-title">这不是概念图，而是一条真正跑通的 AI 产品最小闭环。</h2>
+            <p class="section-description">从本地资料进入索引，到检索召回、带来源回答、再到人工复核，这是一条完整的 AI 产品最小链路。它优先验证本地可控、可回源、可复核，而不是追求模型能力上限。</p>
+          </div>
+          <figure class="prototype-overview-figure">
+            <img src="./assets/prototype-overview-local-ai-product-loop.png" alt="本地 AI 产品原型技术栈全貌与搭建路线图" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" id="implementation">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">08｜从概念到本地可跑原型</p>
+            <h2 class="section-title">这条链路是怎么搭出来的？</h2>
+            <p class="section-description">07 不是技术栈说明，而是本地原型的 Architecture Review：先定义 knowledge boundary，再跑通最小闭环，最后把回答交还给人工判断。</p>
+          </div>
+          <div class="build-decision-chain" aria-label="本地原型搭建决策链">
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 01｜本地优先</span>
+                <h3>为什么选择本地链路，而不是云端 API？</h3>
+                <p>先收住 knowledge boundary，再验证 AI 知识链路是否可信。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>这个原型要验证的是可信知识链路，而不是模型能力上限。企业知识工作台首先要证明资料能被本地索引、检索、引用和复核，而不是直接追求更强模型。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Use cloud API / cloud embedding，速度更快、模型上限更高。<br><strong>Alternative B：</strong>Local-first MVP，先验证数据边界、日志可控和 citation answer。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：资料、embedding、索引、转换缓存、日志留在本地；Ollama 负责本地模型调用。先把数据边界和调用链路控制住，再验证回答能否回到来源。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p>原型运行在 2020 Intel i5 MacBook Pro / 16GB / no GPU 上，本地运行、本地索引、本地检索。本地运行链路用于验证 ingestion → embedding → Chroma → retrieval → citation answer 是否能重复跑通。这是产品级可演示 MVP，不是企业生产部署。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>牺牲部分速度和模型能力，换取资料不外传、日志可控、badcase 可定位、结果可复核。这是低配 MVP 的取舍，不是排斥未来云端能力。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：云端模型、权限体系、审计日志和系统集成需要等本地 retrieval + citation 跑稳后再评估。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 02｜最小闭环</span>
+                <h3>为什么先跑最小闭环，而不是直接做完整 Agent？</h3>
+                <p>先验证 context layer，再讨论 Agent、Tool 或行动能力。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>如果一开始追求完整 Agent / Planning / 多工具协作，会掩盖最基础的问题：资料是否可索引、问题是否可检索、回答是否可回源。Agent 如果没有可信上下文，后续总结、建议和行动都没有稳定依据。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Build a full Agent workflow，一次性放入 Planning、Tool 和自动行动。<br><strong>Alternative B：</strong>先证明 retrieval layer、citation layer 和 human review 能稳定闭环。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：先跑通本地资料 → 文档读取与转换 → chunk → embeddinggemma → Chroma → top_k 5 → qwen3:0.6b → FastAPI GUI，再讨论更复杂的 Agent 能力。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p class="evidence-flow">Obsidian Markdown / 本地文档进入索引链路；Chroma 保存 chunks + embedding + source metadata；FastAPI GUI 展示检索结果、引用片段和回答。</p>
+                </div>
+                <div>
+                  <h4>组件产品责任</h4>
+                  <ul class="responsibility-list">
+                    <li><strong>embeddinggemma：</strong>让资料进入可检索空间，而不是停留在文件堆里。</li>
+                    <li><strong>Chroma：</strong>让 chunks、embedding、source metadata 可保存、可召回、可回源。</li>
+                    <li><strong>qwen3:0.6b：</strong>基于召回上下文生成可复核初稿，而不是自由猜答案。</li>
+                    <li><strong>FastAPI GUI：</strong>让索引、检索、引用查看进入可演示、可讨论的产品界面。</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>降低实现复杂度，先验证 AI 产品链路跑通；暂不追求 Planning、多工具协作、自动行动，避免把不稳定上下文包装成自动化能力。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：Memory、Tool、Workflow 和 Agent action 需要等 retrieval + citation 稳定后再进入下一阶段。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 03｜默认只读</span>
+                <h3>为什么默认只读，而不是自动写回 / 自动行动？</h3>
+                <p>企业知识库的写入动作必须比回答生成更谨慎。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>自动写回、删除、同步、发布看起来更像 Agent，但会放大误召回、Router 误判、用户意图不清的风险。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Enable write / delete / sync / publish，让原型更像自动行动系统。<br><strong>Alternative B：</strong>默认只读，所有写入类动作先进入 preview 与 human confirmation。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：默认只读；写入类动作必须 preview + human confirmation。原型先验证“可复核”，再讨论“可行动”。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p>原型只验证索引、检索、引用回答和复核，不自动执行写入 / 删除 / 同步 / 发布。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>牺牲自动化程度，换取知识库不被误写污染。默认只读不是功能没做完，而是先把“可复核”做稳的 Agent 产品边界。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：写回要作为独立 workflow，补齐 diff、confirmation、rollback 后再逐步开放。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 04｜证明边界</span>
+                <h3>这个本地原型证明了什么，不证明什么？</h3>
+                <p>诚实边界比包装成“大而全系统”更能建立可信度。</p>
+              </div>
+              <div class="decision-body">
+                <div class="qa-columns">
+                  <div>
+                    <h4>已证明</h4>
+                    <ul class="decision-list">
+                      <li>本地资料可索引</li>
+                      <li>问题先进入检索链路</li>
+                      <li>回答带 source path、标题、片段和来源</li>
+                      <li>用户可回原文复核</li>
+                      <li>AI 输出可以作为判断材料</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>未证明</h4>
+                    <ul class="decision-list">
+                      <li>不是生产级企业系统</li>
+                      <li>不证明权限、审计、多用户、系统集成已完成</li>
+                      <li>不证明模型效果达到生产标准</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>边界目的</h4>
+                  <p>诚实边界增强可信度，避免把 MVP 包装成生产系统；让读者知道哪些能力已经跑通，哪些仍属于后续工程化问题。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="bottom-route" aria-label="本地原型最小验证链路">
+            <span>本地资料</span> →
+            <span>本地模型调用</span> →
+            <span>本地索引</span> →
+            <span>可复核检索</span> →
+            <span>带来源回答</span> →
+            <span>人工判断</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="pipeline">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">09｜从资料到可复核回答</p>
+            <h2 class="section-title">这条检索链路是怎么设计的？</h2>
+            <p class="section-description">08 关注 retrieval layer 的设计取舍：不是把更多资料塞给模型，而是把资料准入、chunk、召回范围、citation 和 refresh 串成可信上下文基础设施。</p>
+          </div>
+          <div class="retrieval-decision-grid" aria-label="检索链路设计决策块">
+            <article class="retrieval-decision wide">
+              <h3>设计决策 05｜可信上下文</h3>
+              <div class="qa-block">
+                <strong>问题背景</strong>
+                <p>问题不是“Agent 能不能读资料”，而是原始资料还没有进入可检查的 context layer；自由读取会造成来源、版本、权限、适用范围不清。</p>
+              </div>
+              <div class="qa-block">
+                <strong>可选方案</strong>
+                <p><strong>Alternative A：</strong>Give Agent direct file access，表面更顺滑。<br><strong>Alternative B：</strong>先建立 retrieval layer + citation layer，再让 Agent 消费可信上下文。</p>
+              </div>
+              <div class="qa-block">
+                <strong>本轮选择</strong>
+                <p>Decision：先建立 retrieval layer + citation layer，再让 Agent 做总结、组织和建议。Agent 的输入不是文件堆，而是带来源、可检查的上下文片段。</p>
+              </div>
+              <div class="qa-block">
+                <strong>实现证据</strong>
+                <p>回答基于召回片段，而不是直接让模型自由猜；检索链路先把资料变成可复核上下文，再交给回答模型组织。</p>
+              </div>
+              <div class="qa-block">
+                <strong>取舍与风险</strong>
+                <p>牺牲直接对话的表面流畅度，换取来源可追踪、回答可复核。这里的重点不是技术名词，而是让上下文先具备进入业务判断的资格。</p>
+              </div>
+              <div class="qa-block">
+                <strong>后续方向</strong>
+                <p>Not implemented in MVP：Agent action 要等 citation answer 稳定后再接入，避免基于裸知识库做判断。</p>
+              </div>
+            </article>
+            <article class="retrieval-decision wide">
+              <h3>设计决策 06｜资料准入</h3>
+              <div class="qa-block">
+                <strong>问题背景</strong>
+                <p>关键不是能读多少格式，而是哪类资料可以进入索引。知识库质量首先取决于资料范围；错误资料进入索引，会污染后续所有召回和回答。</p>
+              </div>
+              <div class="qa-block">
+                <strong>可选方案</strong>
+                <p><strong>Alternative A：</strong>Full-disk ingestion，让覆盖看起来更完整。<br><strong>Alternative B：</strong>按配置做资料准入，先守住 knowledge boundary。</p>
+              </div>
+              <div class="qa-block">
+                <strong>本轮选择</strong>
+                <p>Decision：支持 md / txt / docx / pdf / pptx，但从配置读取允许索引范围，不做全盘扫描。</p>
+              </div>
+              <div class="qa-block">
+                <strong>实现证据</strong>
+                <p>先资料准入，再 ingestion；覆盖笔记、制度、方案、幻灯片等常见知识载体，但只处理被配置允许进入索引的资料。</p>
+              </div>
+              <div class="qa-block">
+                <strong>取舍与风险</strong>
+                <p>不全盘扫描，避免临时文件、私人文件、过期资料、无关资料进入知识库。这是资料治理和范围控制，不是文件格式展示。</p>
+              </div>
+              <div class="qa-block">
+                <strong>后续方向</strong>
+                <p>Not implemented in MVP：权限、目录级策略、source_type、project_name 要等资料准入和 ingestion 链路稳定后再扩展。</p>
+              </div>
+            </article>
+            <article class="retrieval-decision compact">
+              <h3>设计决策 07｜Chunk 策略</h3>
+              <div class="qa-block">
+                <strong>问题背景</strong>
+                <p>chunk 同时影响 retrieval confidence、索引成本和答案可复核性；在这个本地原型里，它不是参数展示，而是质量控制。</p>
+              </div>
+              <div class="qa-block">
+                <strong>可选方案</strong>
+                <p><strong>Alternative A：</strong>直接做 semantic chunk / section-aware chunk。<br><strong>Alternative B：</strong>固定 1200 / 150，先得到稳定、可复现的切分结果。</p>
+              </div>
+              <div class="qa-block">
+                <strong>本轮选择</strong>
+                <p>Decision：当前 MVP 暂未做 semantic chunk / section-aware chunk，先采用 chunk_target_chars 1200 / chunk_overlap_chars 150。</p>
+              </div>
+              <div class="qa-block">
+                <strong>实现证据</strong>
+                <p>这个取值用于尽量保留制度条款、审批条件、项目说明的完整语义，让召回片段仍然能被用户复核。</p>
+              </div>
+              <div class="qa-block">
+                <strong>取舍与风险</strong>
+                <p>chunk 太小会切断定义、条件、例外条款；chunk 太大会引入噪音，降低召回可控性。overlap 150 用来保留跨段上下文，这是语义完整、低配本地索引成本和召回质量之间的折中。</p>
+              </div>
+              <div class="qa-block">
+                <strong>后续方向</strong>
+                <p>Not implemented in MVP：标题层级、章节结构、语义边界切分需要更多文档结构样例验证。</p>
+              </div>
+            </article>
+            <article class="retrieval-decision compact">
+              <h3>设计决策 08｜召回范围</h3>
+              <div class="qa-block">
+                <strong>问题背景</strong>
+                <p>召回数量不是越多越好；在这个原型里，上下文噪音会影响回答可信度，也会让引用来源变得混乱。</p>
+              </div>
+              <div class="qa-block">
+                <strong>可选方案</strong>
+                <p><strong>Alternative A：</strong>提高 top_k 或加入 rerank / hybrid search / MMR。<br><strong>Alternative B：</strong>先固定 top_k 5，控制噪音并验证 citation answer。</p>
+              </div>
+              <div class="qa-block">
+                <strong>本轮选择</strong>
+                <p>Decision：当前 MVP 暂未引入 rerank / hybrid search / MMR，先将 top_k 设为 5，验证 retrieval + citation 最小闭环。</p>
+              </div>
+              <div class="qa-block">
+                <strong>实现证据</strong>
+                <p>让模型拿到有限、可复核的候选片段，而不是一次塞入过多资料；回答必须能被用户回到原文质疑。</p>
+              </div>
+              <div class="qa-block">
+                <strong>取舍与风险</strong>
+                <p>top_k 太少可能漏依据，太多会制造噪音上下文，生成看似完整但来源混乱的答案。这不是最优检索方案，而是当前阶段控制复杂度和噪音的选择。</p>
+              </div>
+              <div class="qa-block">
+                <strong>后续方向</strong>
+                <p>Not implemented in MVP：rerank、metadata filter、hybrid search 需要先有稳定 badcase 集和 route confidence 评估。</p>
+              </div>
+            </article>
+            <article class="retrieval-decision compact">
+              <h3>设计决策 09｜Citation / Refresh</h3>
+              <div class="qa-block">
+                <strong>问题背景</strong>
+                <p>可信回答需要同时解决两个问题：回答可追溯，知识状态不过期；否则答案即使流畅，也不能进入业务判断。</p>
+              </div>
+              <div class="qa-block">
+                <strong>可选方案</strong>
+                <p><strong>Alternative A：</strong>只展示回答，或只追加新 chunks。<br><strong>Alternative B：</strong>citation 回源 + path refresh，分别控制追溯风险和过期风险。</p>
+              </div>
+              <div class="qa-block">
+                <strong>本轮选择</strong>
+                <p>Decision：回答侧用 citation 展示 source path、标题、片段和原文来源；索引侧在文档更新时，按 path 删除旧 chunks 后重建索引。</p>
+              </div>
+              <div class="qa-block">
+                <strong>实现证据</strong>
+                <p>citation 解决“回答可追溯”；path refresh 通过“按 path 删除旧 chunks 后重建索引”解决“知识状态不过期”。</p>
+              </div>
+              <div class="qa-block">
+                <strong>取舍与风险</strong>
+                <p>refresh 牺牲一点索引速度，换取知识状态一致性。citation 和 refresh 分别控制追溯风险与过期风险，避免“答案看似正确，但来源不可查或知识已过期”。</p>
+              </div>
+              <div class="qa-block">
+                <strong>后续方向</strong>
+                <p>Not implemented in MVP：版本记录、变更 diff、rollback、audit trail 需要等 refresh 机制稳定后再产品化。</p>
+              </div>
+            </article>
+          </div>
+          <div class="bottom-route" aria-label="从资料到可复核回答的链路">
+            <span>本地资料</span> →
+            <span>受控索引</span> →
+            <span>chunk</span> →
+            <span>embedding</span> →
+            <span>Chroma</span> →
+            <span>top_k 召回</span> →
+            <span>带来源回答</span> →
+            <span>默认只读</span> →
+            <span>人工判断</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="agent-judgment">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">10｜从可信上下文到 Agent 判断</p>
+            <h2 class="section-title">为什么不是所有问题都交给 Agent？</h2>
+            <p class="section-description">企业知识工作流里，Agent 不是默认答案。Design Review 的关键不是“有没有 Agent”，而是判断：什么时候走 retrieval，什么时候做 summary，什么时候进入 workflow orchestration，什么时候必须停在 human confirmation 前。</p>
+          </div>
+          <div class="build-decision-chain" aria-label="从可信上下文到 Agent 判断的产品技术决策">
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 10｜Agent 输入边界</span>
+                <h3>为什么 Agent 不直接读知识库？</h3>
+                <p>Agent 的能力边界，先由 context quality 决定。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>Agent 如果直接读取全部知识库，容易造成来源不清、版本不清、权限不清、适用范围不清。回答虽然自然，但业务无法复核。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Give Agent direct access to the knowledge base，由模型自行决定依据。<br><strong>Alternative B：</strong>Agent 只消费 retrieval + citation layer 输出的可信上下文。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Agent 不直接消费知识库，而是消费 Retrieval + Citation Layer 输出的可信上下文：召回片段、source path、标题、引用来源和可复核证据。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p class="evidence-flow">Verified Pipeline：Obsidian Markdown / 本地文档 → ingestion → embeddinggemma → Chroma → top_k retrieval → citation answer → human review。</p>
+                  <p>06 / 07 / 08 已验证这条本地链路可以跑通。Agent 输入的是经过检索后的 Context，而不是全部知识。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>牺牲部分回答流畅度，换取来源可追踪、回答可复核、badcase 可定位。产品判断不是让 Agent 读得更多，而是让它只能读经过治理的上下文。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：Agent summary、复盘、建议和任务生成要等 retrieval + citation 可靠性稳定后再接入。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 11｜任务路由边界</span>
+                <h3>为什么不是所有问题都进入 Agent？</h3>
+                <p>Route by confidence，而不是默认进入 Agent。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>企业里的问题并不都属于 Agent。查资料、查制度、找依据、项目复盘、生成行动建议、更新知识库、审批发布，实际上属于不同任务路径。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Route everything to Agent，让模型决定下一步。<br><strong>Alternative B：</strong>Route by confidence，再进入 Retrieval / Citation Answer / Agent Summary / Workflow / Human Confirmation。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：先做 route by confidence，而不是所有请求都进入 Agent：资料查询 → Retrieval；依据确认 → Citation Answer；内容组织 → Agent Summary；项目复盘 → Review Workflow；写入更新 → Preview + Human Confirmation；高风险行动 → Workflow + Audit。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p>旧版 Agentic RAG 方案中已有 Router、search_docs Tool、Memory、Agent Core 等设计方向；当前 MVP 已验证 Retrieval + Citation，尚未把 Router / Workflow / Agent Action 写成完整实现。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>Router 判断错误会影响整个后续流程。因此低置信度优先澄清或回退 Retrieval，而不是强行进入 Agent。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：route confidence、fallback、人工确认和 route-level evaluation 需要可验证样例集与失败回退机制。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 12｜行动前确认</span>
+                <h3>为什么 Agent 默认不自动行动？</h3>
+                <p>真正高风险的不是回答，而是把回答变成动作。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>写回、删除、同步、发布、更新制度、审批都会影响后续业务流程。企业 AI 产品必须把回答和行动分开治理。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Execute action after answer，让体验更像自动化助手。<br><strong>Alternative B：</strong>默认只读，写入类动作必须 preview → diff → confirmation → execute。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：先证明回答可复核，再讨论自动行动。当前默认只读；所有写入类动作必须经过 preview → diff → confirmation → execute。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p>当前 MVP 不自动写回、不删除、不同步、不发布。回答只是可复核初稿，用户必须能够回到来源判断。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>牺牲自动化体验，避免在来源不足、召回错误、用户意图不清时污染知识库。默认只读是产品风险控制，不是功能缺口包装。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：Action 要独立进入 workflow orchestration，并先建立 preview / diff / rollback / audit trail。</p>
+                </div>
+              </div>
+            </article>
+            <article class="build-decision">
+              <div class="decision-stage">
+                <span>设计决策 13｜Memory 延后</span>
+                <h3>为什么 Memory 放在最后？</h3>
+                <p>长期记忆只有在写入条件可控时，才会成为资产。</p>
+              </div>
+              <div class="decision-body">
+                <div>
+                  <h4>问题背景</h4>
+                  <p>很多 Agent 优先加入长期 Memory。但企业知识场景里，低质量 Memory 会放大旧规则、过期知识、未确认判断和临时表达带来的错误。</p>
+                </div>
+                <div>
+                  <h4>可选方案</h4>
+                  <p><strong>Alternative A：</strong>Auto-save long-term Memory，让系统显得更连续、更个性化。<br><strong>Alternative B：</strong>先验证 retrieval / citation / refresh / read-only boundary，再设计 Memory 写入条件。</p>
+                </div>
+                <div>
+                  <h4>本轮选择</h4>
+                  <p>Decision：Memory 不是第一阶段能力。先建立可信上下文、引用可追溯、写回可确认，再讨论哪些信息值得进入长期 Memory。</p>
+                </div>
+                <div>
+                  <h4>实现证据</h4>
+                  <p>当前 MVP 重点验证 Retrieval、Citation、Refresh、Read-only Boundary。Memory、Tool、Workflow、Agent Action 属于下一阶段能力，不写成已实现。</p>
+                </div>
+                <div>
+                  <h4>取舍与风险</h4>
+                  <p>暂时牺牲连续个性化体验，避免低质量信息进入长期 Memory，成为后续回答和行动的隐性污染源。</p>
+                </div>
+                <div>
+                  <h4>后续方向</h4>
+                  <p>Not implemented in MVP：Memory 需要先有写入条件、冲突检测、人工确认、更新、删除和版本管理，而不是 append-only。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="architecture-principle">
+            这一屏的重点不是证明“我懂 Agent”，而是证明“我知道什么时候不应该用 Agent”：只有当上下文可信、路径判断清楚、行动边界被收住时，Agent 才有进入企业流程的资格。
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section alt" id="agent">
+        <div class="case-container">
+          <div class="section-header">
+            <p class="section-kicker">11｜产品架构判断</p>
             <h2 class="section-title">不要让 Agent 裸连知识库，先建立可信上下文层。</h2>
             <p class="section-description">企业知识不能直接作为 Agent 的自由输入。Agent 要使用知识，必须经过可信上下文、任务编排、人审确认和反馈回流。</p>
           </div>
@@ -3102,10 +4562,10 @@
         </div>
       </section>
 
-      <section class="case-section alt" id="evolution">
+      <section class="case-section" id="evolution">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">08｜产品演进路径</p>
+            <p class="section-kicker">12｜产品演进路径</p>
             <h2 class="section-title">不是从 RAG 一步跳到 Agent，而是先让上下文可信。</h2>
             <p class="section-description">V1 / V2 / V3 的演进不是功能越堆越多，而是产品可信度和工作流承接能力逐步增强：先能找，再能可信使用，最后进入可维护的知识任务。</p>
           </div>
@@ -3127,89 +4587,133 @@
         </div>
       </section>
 
-      <section class="case-section" id="evaluation">
+      <section class="case-section alt" id="evaluation">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">09｜验证方式 / 边界</p>
-            <h2 class="section-title">验证不是看回答像不像，而是看依据是否可信。</h2>
-            <p class="section-description">答案能生成，不代表上下文可信。验证要看关键知识能否找到、引用能否复核、权限和版本是否正确、适用范围是否匹配，以及高风险内容是否进入人审。</p>
+            <p class="section-kicker">13｜验证与 badcase</p>
+            <h2 class="section-title">真正要验证的，不是 AI 会不会回答，而是整条产品链路能不能被复核。</h2>
+            <p class="section-description">这个原型不是只验证“能不能生成答案”，而是验证资料能否被找到、来源能否被追溯、回答是否基于证据、Agent 是否判断对路径，以及高风险动作是否被挡在人工确认之前。</p>
           </div>
           <div class="validation-layout">
             <div class="validation-panel">
-              <div class="validation-grid" aria-label="可信上下文验证闭环">
-                <article class="validation-dimension">
-                  <span class="validation-step-label">01｜验证输入</span>
-                  <strong>候选上下文与 Agent 输出</strong>
-                  <p>包括引用片段、适用范围、上下文卡、知识任务输出和需要确认的行动材料。</p>
+              <div class="evidence-metric-grid" aria-label="原型验证数字快照">
+                <article class="evidence-metric">
+                  <span>Indexed Files</span>
+                  <strong>163</strong>
+                  <p>覆盖 Obsidian 笔记和本地文档，验证资料能进入索引范围。</p>
                 </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">02｜验证维度</span>
-                  <strong>依据是否可信</strong>
-                  <p>检查召回质量、引用证据、权限版本、适用范围和人审边界。</p>
+                <article class="evidence-metric">
+                  <span>Chunks</span>
+                  <strong>390</strong>
+                  <p>用于验证 chunk 切分、元数据和 Chroma 写入是否可用。</p>
                 </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">03｜问题识别</span>
-                  <strong>找到不可用的知识使用</strong>
-                  <p>识别过期版本、引用缺失、无权限内容、场景不适用或未确认动作。</p>
+                <article class="evidence-metric">
+                  <span>Task Questions</span>
+                  <strong>10</strong>
+                  <p>覆盖协作规则、GUI 使用、索引维护、项目介绍和跨项目召回。</p>
                 </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">04｜处理动作</span>
-                  <strong>修正并留下记录</strong>
-                  <p>进入评估集、复盘修正、版本回滚、知识源更新和人审规则调整。</p>
+                <article class="evidence-metric">
+                  <span>Recall</span>
+                  <strong>9+1</strong>
+                  <p>9 条命中，1 条基本命中；重点看正确来源是否进入 Top-K。</p>
                 </article>
-                <article class="validation-dimension">
-                  <span class="validation-step-label">05｜持续回流</span>
-                  <strong>更新规则和知识源</strong>
-                  <p>把问题结果回流到下一轮上下文生成、评估规则和知识维护。</p>
+                <article class="evidence-metric">
+                  <span>Usefulness</span>
+                  <strong>8/10</strong>
+                  <p>不是给流畅度打分，而是看回答是否能支撑下一步复核和判断。</p>
                 </article>
               </div>
               <div class="validation-feedback">
-                <strong>闭环判断</strong>
-                <span>验证不是给回答打分，而是判断这段知识是否能被找到、引用、复核、授权使用，并在出错后回到知识源和上下文规则中。</span>
+                <strong>验证范围</strong>
+                <span>验证分两层：第一层看检索链路是否能找回正确来源，第二层看 Agent 是否能在需要本地资料时调用检索、在证据不足时停止强答、在高风险动作前保留人工确认。</span>
               </div>
-              <div class="validation-detail-row" aria-label="验证闭环细节">
+              <div class="table-wrap" aria-label="验证中观察到的边界案例和控制策略">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>产品边界案例</th>
+                      <th>观察现象</th>
+                      <th>产品判断</th>
+                      <th>控制策略</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>误召回</td>
+                      <td>项目介绍类问题可能召回其他 RAG 项目资料。</td>
+                      <td>语义相似不等于业务相关，企业知识检索必须看项目、来源和路径约束。</td>
+                      <td>增加 project_name、source_type、path 等元数据约束，并支持来源筛选。</td>
+                    </tr>
+                    <tr>
+                      <td>长文档总结片面</td>
+                      <td>总结产品设计文档时，只覆盖某个章节。</td>
+                      <td>基础 RAG 更适合局部问答；长文档总结需要结构化摘要和目录策略。</td>
+                      <td>总结类问题优先召回目录、章节摘要和关键段落，而不是只拿相似片段。</td>
+                    </tr>
+                    <tr>
+                      <td>Router 误判</td>
+                      <td>“我这个项目怎么讲”被误判为 direct，没有检索本地资料。</td>
+                      <td>Agent 的第一步不是执行，而是正确判断任务路径；Router 错了，后面的 Tool 和回答都会错。</td>
+                      <td>给 Router 增加本地资料信号规则，低置信时先澄清或先做检索。</td>
+                    </tr>
+                    <tr>
+                      <td>写回风险</td>
+                      <td>用户要求写回 Obsidian 或更新资料时，存在误写和覆盖风险。</td>
+                      <td>Agent 能力边界必须先于能力扩展，写入类动作不能跟检索回答混在同一权限里。</td>
+                      <td>默认只读；写入、删除、同步、发布类动作必须先预览并人工确认。</td>
+                    </tr>
+                    <tr>
+                      <td>来源不足不强答</td>
+                      <td>召回证据不足时，模型仍可能生成看似完整的回答。</td>
+                      <td>企业知识场景里，错误但流畅的答案比“不知道”更危险。</td>
+                      <td>当引用不足以支撑结论时，提示资料不足、缩小范围或转人工判断。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="validation-detail-row" aria-label="验证维度与控制规则">
                 <article class="validation-detail">
-                  <h3>验证维度</h3>
-                  <p>召回质量、引用证据、权限版本、适用范围、人审边界和问题回流。</p>
+                  <h3>Retrieval Strategy</h3>
+                  <p>验证检索是否能命中 top_k 5，是否能回到原文路径和片段。</p>
                 </article>
                 <article class="validation-detail">
-                  <h3>典型问题</h3>
-                  <p>过期版本、引用缺失或无法定位、无权限内容、场景不适用、不可复核答案、未确认动作。</p>
+                  <h3>Prompt Strategy</h3>
+                  <p>验证回答是否受到引用约束，citation 不足时是否提示证据不足。</p>
                 </article>
                 <article class="validation-detail">
-                  <h3>处理动作</h3>
-                  <p>进入评估集、复盘修正、版本回滚、知识源更新、人审规则调整。</p>
+                  <h3>Tool Flow Control</h3>
+                  <p>验证写入、删除、同步、发布类动作是否必须进入人工确认。</p>
                 </article>
               </div>
             </div>
             <aside class="interface-evidence-group">
               <div class="interface-evidence-header">
-                <h3>评估与迭代看板</h3>
-                <p>看板用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</p>
+                <h3>验证与迭代看板</h3>
+                <p>用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</p>
               </div>
               <div class="interface-evidence validation-gallery" aria-label="评估与迭代看板界面原型">
                 <figure>
-                  <button class="interface-shot-trigger" type="button" data-lightbox-title="评估与迭代看板">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="验证与迭代看板">
                     <img src="../../assets/images/module1-enterprise-knowledge/fig08_evaluation_iteration_dashboard.png" alt="企业知识工作台评估与迭代看板界面原型" loading="lazy" />
                     <span class="interface-shot-zoom-label">点击查看大图</span>
                   </button>
-                  <figcaption><span>评估与迭代看板</span> 用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</figcaption>
+                  <figcaption><span>验证与迭代看板</span> 用于追踪问题样例、验证维度、版本修正和知识更新，让可信上下文可以持续维护。</figcaption>
                 </figure>
               </div>
             </aside>
           </div>
           <div class="validation-principle">
-            这套验证边界的重点不是追求回答更像答案，而是确保每一次知识使用都能回到来源、权限、版本、适用范围和人审责任。
+            这组验证说明：原型验证的已经不是 AI 是否能回答，而是产品判断是否能够稳定复现——有问题集、有判断标准、有边界控制、有迭代看板。
           </div>
         </div>
       </section>
 
-      <section class="case-section alt" id="summary">
+      <section class="case-section" id="summary">
         <div class="case-container">
           <div class="section-header">
-            <p class="section-kicker">10｜项目总结</p>
+            <p class="section-kicker">14｜项目总结</p>
             <h2 class="section-title">不是知识问答机器人，而是知识进入<span class="text-nowrap">可信工作流</span>的机制。</h2>
-            <p class="section-description">这个项目的核心不在于让 AI 多回答几个问题，而在于定义：哪些知识可以进入上下文，哪些上下文可以被引用，哪些内容必须经过人确认后才能进入任务、复盘和持续更新。</p>
+            <p class="section-description">这个项目的核心不在于让 AI 多回答几个问题，而是在定义：哪些知识可以进入上下文，哪些上下文可以被引用，哪些内容必须经过人工确认后才能进入任务、复盘和持续更新。</p>
           </div>
 
           <div class="closing-loop-panel">
@@ -3279,7 +4783,7 @@
                 <li>涉及指定资料，要能回到来源。</li>
                 <li>涉及业务判断，要能确认适用范围。</li>
                 <li>涉及组织知识，要能管理权限和版本。</li>
-                <li>涉及持续使用，要能进入评估、回滚和知识更新。</li>
+                <li>涉及持续使用，要能进入评估、回流和知识更新。</li>
               </ul>
             </article>
             <article class="closing-note">
@@ -3287,17 +4791,17 @@
               <p>这是产品级原型与机制设计，不是企业生产系统交付。</p>
               <ul class="closing-boundary-list">
                 <li>不声称真实企业生产部署。</li>
-                <li>本原型阶段不展开完整权限、审计、多用户和系统集成。</li>
+                <li>不声称权限、审计、多用户和系统集成已完成。</li>
                 <li>不自动写入、删除或发布内容。</li>
                 <li>不让 AI 替代业务负责人做最终判断。</li>
-                <li>不让 Agent 直接读取全部企业知识库。</li>
+                <li>不让 Agent 裸读或接管全部企业知识。</li>
               </ul>
             </article>
           </div>
 
           <div class="closing-roles">
             <h3>它服务的不是“提问”，而是判断、复盘和行动</h3>
-            <p>项目负责人 / 产品经理、新接手成员、管理者 / 决策参与者、运营 / PMO / 知识管理角色，都通过它确认依据、复盘经验和推进下一步行动。</p>
+            <p>它服务的不是“问 AI”，而是让项目负责人、管理者、PMO、知识管理角色在有依据的上下文中完成判断、复盘和下一步行动。</p>
             <ul class="closing-role-tags" aria-label="适用角色">
               <li>项目负责人 / 产品经理</li>
               <li>新接手成员</li>
@@ -3309,13 +4813,13 @@
 
           <div class="closing-compare">
             <h3>与项目 2 的边界</h3>
-            <p>项目 1 处理的是企业知识如何进入可信工作流：把历史资料、经验和判断转化为可检索、可引用、可复盘的上下文。</p>
-            <p>项目 2 处理的是业务信号如何进入责任流程：把新产生的反馈、会议结论和需求线索转化为可确认、可拆解、可执行的任务。</p>
-            <p>一个解决“知识如何可信使用”，一个解决“信号如何进入责任链”。</p>
+            <p>项目 1 解决“知识如何可信使用”：把历史资料、经验和判断转化为可检索、可引用、可复盘的上下文。</p>
+            <p>项目 2 解决“信号如何进入责任链”：把新产生的反馈、会议结论和需求线索转化为可确认、可拆解、可执行的任务。</p>
+            <p>一个解决“知识如何可被引用”，一个解决“信号如何进入责任链”。</p>
           </div>
 
           <div class="summary-final">
-            这个项目的产品判断不是“让 AI 回答得更多”，而是让企业知识在被使用之前，先变得可引用、可追溯、可校验、可确认。
+            AI 回答只是输出。真正的产品，是让企业知识在进入判断之前，先变得可引用、可追溯、可校验、可确认。
           </div>
         </div>
       </section>

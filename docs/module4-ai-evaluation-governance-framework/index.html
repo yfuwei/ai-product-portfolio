@@ -2974,6 +2974,99 @@
         }
 
       }
+
+
+      /* Detail page header guardrail: keep brand readable while nav wraps in its own area. */
+      .case-header {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+        gap: 12px 18px;
+        align-items: center;
+      }
+
+      .case-header > .brand,
+      .case-header > a:first-child {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+        max-width: 320px;
+        color: var(--ink);
+        font-weight: 900;
+        line-height: 1.25;
+        overflow-wrap: normal;
+        text-decoration: none;
+        white-space: normal;
+        word-break: keep-all;
+      }
+
+      .case-header > .brand span:last-child,
+      .case-header > a:first-child span:last-child,
+      .case-header > a:first-child span {
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: keep-all;
+      }
+
+      .case-header .brand-mark {
+        flex: 0 0 auto;
+      }
+
+      .case-nav {
+        display: flex;
+        min-width: 0;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px 10px;
+      }
+
+      .case-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+        text-align: right;
+        overflow-wrap: normal;
+        white-space: nowrap;
+        word-break: normal;
+      }
+
+      .case-nav .nav-link--lang {
+        margin-left: 0;
+      }
+
+      .case-nav .nav-link--lang,
+      .case-nav .nav-link--home {
+        white-space: nowrap;
+      }
+
+      @media (max-width: 760px) {
+        .case-header {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .case-header > .brand,
+        .case-header > a:first-child {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .case-nav {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .case-nav .nav-link--lang {
+          margin-left: 0;
+        }
+      }
+
     </style>
   </head>
   <body>
