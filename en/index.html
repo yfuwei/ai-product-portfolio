@@ -662,6 +662,29 @@
         box-shadow: none;
       }
 
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-inner {
+        grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
+        gap: clamp(26px, 3vw, 42px);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-lead {
+        max-width: 700px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-lead h2 {
+        font-size: clamp(29px, 2.95vw, 41px);
+        line-height: 1.08;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-header,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-lead-copy {
+        max-width: none;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-inner > .story-summary {
+        width: 100%;
+      }
+
       @media (max-width: 980px) {
         html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
           grid-template-columns: minmax(0, 1fr);
@@ -978,7 +1001,7 @@
         <div class="scenario-mining-inner">
           <div class="scenario-mining-heading">
             <p class="eyebrow section-eyebrow">Scenario Discovery</p>
-            <h2 id="scenario-mining-title">AI capability already exists.<br><span>The harder question is</span><br><span class="scenario-title-hit">where it should be used.</span></h2>
+            <h2 id="scenario-mining-title"><span>Not every business problem</span><br><span class="scenario-title-hit">deserves to be carried by AI.</span></h2>
             <p>I do not first ask, “Can this be done with AI?” I first ask whether the business has a repeated, costly, and verifiable problem.</p>
             <p class="scenario-mining-close">A strong AI scenario is not where a model is easiest to connect. It is where AI intervention can change a decision, action, or result.</p>
           </div>
@@ -1158,6 +1181,7 @@
           <div class="positioning-lead">
             <p class="eyebrow section-eyebrow">Differentiated Positioning</p>
             <h2 id="positioning-title">My differentiation is not that I know how to put AI on a page.<br>It is knowing where AI should enter — and <span class="positioning-title-hit">where it should stop.</span></h2>
+            <p class="positioning-principle" style="padding: 10px 13px; color: rgba(5, 10, 46, 0.84); background: color-mix(in srgb, var(--hero-blue) 7%, #ffffff); border-left: 3px solid rgba(37, 107, 255, 0.32); border-radius: 4px; font-weight: 850; line-height: 1.58;">An AI product manager does not only push projects toward approval; they also stop the wrong ones from being approved.</p>
             <p>I am best suited for teams that already see an AI opportunity, but have not yet clarified what to build, how to build it, and where to stop.</p>
             <p class="positioning-close">I do not want to own the stage of “making AI work” alone. I want to help AI move from demo to business, from capability to clear responsibility.</p>
           </div>
@@ -1214,7 +1238,7 @@
               </div>
             </article>
           </div>
-          <p class="story-summary">The industry changed. The question did not:<br>how to make complex judgment visible, organized, and productized.</p>
+          <p class="story-summary">The industry changed. The question did not: how to make complex judgment visible, organized, and productized.</p>
         </div>
       </section>
 

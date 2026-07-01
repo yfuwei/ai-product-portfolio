@@ -61,6 +61,22 @@
         border-bottom: 2px solid transparent;
       }
 
+      .case-nav a + a {
+        position: relative;
+        padding-left: 12px;
+      }
+
+      .case-nav a + a::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 12px;
+        background: rgba(100, 116, 139, 0.34);
+        content: "";
+        transform: translateY(-50%);
+      }
+
       .case-nav a:hover {
         color: var(--accent-strong);
         border-bottom-color: rgba(37, 99, 235, 0.42);
@@ -1108,7 +1124,7 @@
         <span>AI Builder · 苑夫唯</span>
       </a>
       <nav class="case-nav" aria-label="样板间导航">
-        <a href="#hero">00 Hero</a>
+        <a href="#hero">00 总览</a>
         <a href="#scenario-mining">01 场景挖掘</a>
         <a href="#opening">02 判断失焦</a>
         <a href="#judgment-clarification">03 判断澄清</a>

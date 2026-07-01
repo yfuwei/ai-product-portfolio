@@ -2710,7 +2710,7 @@ body.home-comic-hero .hero-project-note p span {
 .positioning-inner {
   display: grid;
   width: min(100%, 1180px);
-  grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+  grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
   gap: clamp(30px, 3.4vw, 48px);
   align-items: start;
   margin: 0 auto;
@@ -2718,7 +2718,7 @@ body.home-comic-hero .hero-project-note p span {
 
 .positioning-lead {
   display: grid;
-  max-width: 500px;
+  max-width: 560px;
   gap: 14px;
 }
 

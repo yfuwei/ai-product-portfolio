@@ -61,6 +61,22 @@
         border-bottom: 2px solid transparent;
       }
 
+      .case-nav a + a {
+        position: relative;
+        padding-left: 12px;
+      }
+
+      .case-nav a + a::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 12px;
+        background: rgba(100, 116, 139, 0.34);
+        content: "";
+        transform: translateY(-50%);
+      }
+
       .case-nav a:hover {
         color: var(--accent-strong);
         border-bottom-color: rgba(37, 99, 235, 0.42);
