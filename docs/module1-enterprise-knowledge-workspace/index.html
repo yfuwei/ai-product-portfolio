@@ -5565,6 +5565,7 @@
         --prd-blue-soft: #eff6ff;
         --prd-line: #dbe3ed;
         --prd-surface: #f8fafc;
+        --prd-anchor-gap: 20px;
         background: #ffffff;
       }
 
@@ -5672,7 +5673,7 @@
       .design-panel .prd-section {
         padding: 48px 0;
         border-top: 1px solid var(--prd-line);
-        scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + 24px);
+        scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + var(--prd-anchor-gap) - 48px);
       }
 
       .design-panel .prd-section-header {
@@ -9192,7 +9193,7 @@
                   <h3>7.2 双知识通道架构</h3>
                   <figure class="prd-diagram" aria-labelledby="wiki-architecture-caption">
                     <div class="prd-diagram-frame">
-                      <svg class="prd-diagram-svg is-desktop" viewBox="0 0 1080 356" role="img" aria-labelledby="wiki-architecture-desktop-title wiki-architecture-desktop-desc">
+                      <svg class="prd-diagram-svg is-desktop" viewBox="0 0 1080 486" role="img" aria-labelledby="wiki-architecture-desktop-title wiki-architecture-desktop-desc">
                         <title id="wiki-architecture-desktop-title">Raw、Wiki 与 Hybrid 双知识通道目标架构</title>
                         <desc id="wiki-architecture-desktop-desc">Obsidian 与本地文件供给 Raw Evidence 现有能力和 LLM Wiki 目标接入能力；用户任务由 Router 选择模式，search_docs 调用 raw、wiki 或双通道 hybrid，知识查询结果经过 Eligibility 使用准入后进入当前任务、人工确认或不进入任务。</desc>
                         <defs>
@@ -9200,52 +9201,52 @@
                           <marker id="wiki-control-arrow-desktop" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"></path></marker>
                         </defs>
                         <rect class="prd-diagram-node" x="450" y="4" width="180" height="34" rx="8"></rect><text class="prd-diagram-title" x="540" y="26">Obsidian / 本地文件</text>
-                        <path class="prd-diagram-line" d="M500 38 C480 42 445 43 405 44" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <path class="prd-diagram-line" d="M580 38 C600 42 645 43 685 44" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <rect class="prd-diagram-node is-raw" x="295" y="44" width="220" height="78" rx="9"></rect>
-                        <text class="prd-diagram-title" x="405" y="65">Raw Evidence｜现有能力</text>
-                        <text class="prd-diagram-copy" x="405" y="83">原始证据与最终核验</text>
-                        <text class="prd-diagram-copy" x="405" y="101">Chunk · Chroma · Path</text>
-                        <text class="prd-diagram-copy" x="405" y="117">Heading · Citation · 原文回查</text>
-                        <rect class="prd-diagram-node is-wiki" x="565" y="44" width="240" height="78" rx="9" stroke-dasharray="5 4"></rect>
-                        <text class="prd-diagram-title" x="685" y="65">LLM Wiki｜目标接入</text>
-                        <text class="prd-diagram-copy" x="685" y="83">知识组织与导航</text>
-                        <text class="prd-diagram-copy" x="685" y="101">Page · Concept · Link</text>
-                        <text class="prd-diagram-copy" x="685" y="117">Overview · Synthesis</text>
+                        <path class="prd-diagram-line" d="M500 38 C480 47 445 53 405 58" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <path class="prd-diagram-line" d="M580 38 C600 47 645 53 685 58" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <rect class="prd-diagram-node is-raw" x="295" y="58" width="220" height="78" rx="9"></rect>
+                        <text class="prd-diagram-title" x="405" y="79">Raw Evidence｜现有能力</text>
+                        <text class="prd-diagram-copy" x="405" y="97">原始证据与最终核验</text>
+                        <text class="prd-diagram-copy" x="405" y="115">Chunk · Chroma · Path</text>
+                        <text class="prd-diagram-copy" x="405" y="131">Heading · Citation · 原文回查</text>
+                        <rect class="prd-diagram-node is-wiki" x="565" y="58" width="240" height="78" rx="9" stroke-dasharray="5 4"></rect>
+                        <text class="prd-diagram-title" x="685" y="79">LLM Wiki｜目标接入</text>
+                        <text class="prd-diagram-copy" x="685" y="97">知识组织与导航</text>
+                        <text class="prd-diagram-copy" x="685" y="115">Page · Concept · Link</text>
+                        <text class="prd-diagram-copy" x="685" y="131">Overview · Synthesis</text>
 
-                        <rect class="prd-diagram-node" x="70" y="142" width="120" height="40" rx="8"></rect><text class="prd-diagram-title" x="130" y="167">用户任务</text>
-                        <path class="prd-diagram-line" d="M190 162 H220" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <polygon class="prd-diagram-node is-control" points="295,125 370,162 295,199 220,162"></polygon>
-                        <text class="prd-diagram-title" x="295" y="158">Router</text><text class="prd-diagram-copy" x="295" y="174">选择查询模式</text>
-                        <path class="prd-diagram-line is-control-flow" d="M370 162 H430" marker-end="url(#wiki-control-arrow-desktop)"></path><text class="prd-diagram-mode" x="400" y="152">mode</text>
-                        <rect class="prd-diagram-node is-control" x="430" y="136" width="220" height="52" rx="8"></rect>
-                        <text class="prd-diagram-title" x="540" y="157">search_docs</text><text class="prd-diagram-copy" x="540" y="175">接收 mode，调用对应知识通道</text>
-                        <path class="prd-diagram-line is-query" d="M500 136 V130 H405 V122" marker-end="url(#wiki-control-arrow-desktop)"></path>
-                        <text class="prd-diagram-mode" x="455" y="132">raw / hybrid</text>
-                        <path class="prd-diagram-line is-query" d="M580 136 V130 H685 V122" marker-end="url(#wiki-control-arrow-desktop)"></path>
-                        <text class="prd-diagram-mode" x="635" y="132">wiki / hybrid</text>
-                        <path class="prd-diagram-line" d="M390 122 V198 H460 V205" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <path class="prd-diagram-line" d="M700 122 V198 H620 V205" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <rect class="prd-diagram-node is-result" x="370" y="205" width="340" height="46" rx="8"></rect>
-                        <text class="prd-diagram-title" x="540" y="223">知识查询结果</text>
-                        <text class="prd-diagram-copy" x="540" y="240">raw / wiki 为单通道结果；hybrid 合并双通道结果</text>
+                        <rect class="prd-diagram-node" x="70" y="190" width="120" height="40" rx="8"></rect><text class="prd-diagram-title" x="130" y="215">用户任务</text>
+                        <path class="prd-diagram-line" d="M190 210 H220" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <polygon class="prd-diagram-node is-control" points="295,168 370,210 295,252 220,210"></polygon>
+                        <text class="prd-diagram-title" x="295" y="206">Router</text><text class="prd-diagram-copy" x="295" y="222">选择查询模式</text>
+                        <path class="prd-diagram-line is-control-flow" d="M370 210 H430" marker-end="url(#wiki-control-arrow-desktop)"></path><text class="prd-diagram-mode" x="400" y="198">mode</text>
+                        <rect class="prd-diagram-node is-control" x="430" y="178" width="220" height="64" rx="8"></rect>
+                        <text class="prd-diagram-title" x="540" y="201">search_docs</text><text class="prd-diagram-copy" x="540" y="220">接收 mode，调用对应知识通道</text>
+                        <path class="prd-diagram-line is-query" d="M500 178 V152 H405 V136" marker-end="url(#wiki-control-arrow-desktop)"></path>
+                        <text class="prd-diagram-mode" x="455" y="158">raw / hybrid</text>
+                        <path class="prd-diagram-line is-query" d="M580 178 V152 H685 V136" marker-end="url(#wiki-control-arrow-desktop)"></path>
+                        <text class="prd-diagram-mode" x="635" y="158">wiki / hybrid</text>
+                        <path class="prd-diagram-line" d="M390 136 V270 H460 V286" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <path class="prd-diagram-line" d="M700 136 V270 H620 V286" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <rect class="prd-diagram-node is-result" x="370" y="286" width="340" height="50" rx="8"></rect>
+                        <text class="prd-diagram-title" x="540" y="306">知识查询结果</text>
+                        <text class="prd-diagram-copy" x="540" y="326">raw / wiki 为单通道结果；hybrid 合并双通道结果</text>
 
-                        <path class="prd-diagram-line" d="M540 251 V257" marker-end="url(#wiki-arrow-desktop)"></path>
-                        <rect class="prd-diagram-node is-control" x="370" y="257" width="340" height="42" rx="8"></rect>
-                        <text class="prd-diagram-title" x="540" y="275">Eligibility｜使用准入</text>
-                        <text class="prd-diagram-copy" x="540" y="291">判断知识结果能否进入当前任务</text>
+                        <path class="prd-diagram-line" d="M540 336 V356" marker-end="url(#wiki-arrow-desktop)"></path>
+                        <rect class="prd-diagram-node is-control" x="370" y="356" width="340" height="52" rx="8"></rect>
+                        <text class="prd-diagram-title" x="540" y="377">Eligibility｜使用准入</text>
+                        <text class="prd-diagram-copy" x="540" y="397">判断知识结果能否进入当前任务</text>
 
-                        <path class="prd-diagram-line is-stop" d="M430 299 H280 V316" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="350" y="310">资格不通过</text>
-                        <path class="prd-diagram-line" d="M540 299 V316" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="475" y="308">待确认、高风险</text>
-                        <path class="prd-diagram-line" d="M650 299 H790 V316" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="730" y="310">资格通过、低风险</text>
+                        <path class="prd-diagram-line is-stop" d="M430 408 H280 V440" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="350" y="429">资格不通过</text>
+                        <path class="prd-diagram-line" d="M540 408 V440" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="475" y="427">待确认、高风险</text>
+                        <path class="prd-diagram-line" d="M650 408 H790 V440" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="730" y="429">资格通过、低风险</text>
 
-                        <rect class="prd-diagram-node is-muted" x="185" y="316" width="190" height="38" rx="8"></rect><text class="prd-diagram-title" x="280" y="329">不进入任务</text><text class="prd-diagram-copy" x="280" y="346">拒绝或资格不通过</text>
-                        <rect class="prd-diagram-node" x="445" y="316" width="190" height="38" rx="8"></rect><text class="prd-diagram-title" x="540" y="329">人工确认</text><text class="prd-diagram-copy" x="540" y="346">必要时确认并承担最终责任</text>
-                        <rect class="prd-diagram-node is-result" x="700" y="316" width="180" height="38" rx="8"></rect><text class="prd-diagram-title" x="790" y="339">当前任务</text>
-                        <path class="prd-diagram-line is-stop" d="M445 335 H375" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="410" y="330">拒绝</text>
-                        <path class="prd-diagram-line" d="M635 335 H700" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="667" y="330">确认通过</text>
+                        <rect class="prd-diagram-node is-muted" x="185" y="440" width="190" height="44" rx="8"></rect><text class="prd-diagram-title" x="280" y="456">不进入任务</text><text class="prd-diagram-copy" x="280" y="474">拒绝或资格不通过</text>
+                        <rect class="prd-diagram-node" x="445" y="440" width="190" height="44" rx="8"></rect><text class="prd-diagram-title" x="540" y="456">人工确认</text><text class="prd-diagram-copy" x="540" y="474">必要时确认并承担最终责任</text>
+                        <rect class="prd-diagram-node is-result" x="700" y="440" width="180" height="44" rx="8"></rect><text class="prd-diagram-title" x="790" y="466">当前任务</text>
+                        <path class="prd-diagram-line is-stop" d="M445 462 H375" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="410" y="454">拒绝</text>
+                        <path class="prd-diagram-line" d="M635 462 H700" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="667" y="454">确认通过</text>
                       </svg>
-                      <svg class="prd-diagram-svg is-mobile" viewBox="0 0 360 472" role="img" aria-labelledby="wiki-architecture-mobile-title wiki-architecture-mobile-desc">
+                      <svg class="prd-diagram-svg is-mobile" viewBox="0 0 360 592" role="img" aria-labelledby="wiki-architecture-mobile-title wiki-architecture-mobile-desc">
                         <title id="wiki-architecture-mobile-title">Raw、Wiki 与 Hybrid 双知识通道目标架构移动版</title>
                         <desc id="wiki-architecture-mobile-desc">Raw Evidence 现有能力与 LLM Wiki 目标接入能力并列；search_docs 根据 Router 模式调用单侧或双侧通道，知识查询结果经过 Eligibility 后进入当前任务、人工确认或不进入任务。</desc>
                         <defs>
@@ -9253,34 +9254,34 @@
                           <marker id="wiki-control-arrow-mobile" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"></path></marker>
                         </defs>
                         <rect class="prd-diagram-node" x="90" y="4" width="180" height="34" rx="8"></rect><text class="prd-diagram-title" x="180" y="26">Obsidian / 本地文件</text>
-                        <path class="prd-diagram-line" d="M140 38 C125 43 108 46 92.5 50" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M220 38 C235 43 252 46 267.5 50" marker-end="url(#wiki-arrow-mobile)"></path>
-                        <rect class="prd-diagram-node is-raw" x="10" y="50" width="165" height="96" rx="8"></rect>
-                        <text class="prd-diagram-title" x="92.5" y="71">Raw Evidence｜现有能力</text><text class="prd-diagram-copy" x="92.5" y="89">原始证据与最终核验</text><text class="prd-diagram-copy" x="92.5" y="110">Chunk · Chroma · Path</text><text class="prd-diagram-copy" x="92.5" y="128">Heading · Citation · 原文回查</text>
-                        <rect class="prd-diagram-node is-wiki" x="185" y="50" width="165" height="96" rx="8" stroke-dasharray="5 4"></rect>
-                        <text class="prd-diagram-title" x="267.5" y="71">LLM Wiki｜目标接入</text><text class="prd-diagram-copy" x="267.5" y="89">知识组织与导航</text><text class="prd-diagram-copy" x="267.5" y="110">Page · Concept · Link</text><text class="prd-diagram-copy" x="267.5" y="128">Overview · Synthesis</text>
+                        <path class="prd-diagram-line" d="M140 38 C125 47 108 53 92.5 58" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M220 38 C235 47 252 53 267.5 58" marker-end="url(#wiki-arrow-mobile)"></path>
+                        <rect class="prd-diagram-node is-raw" x="10" y="58" width="165" height="100" rx="8"></rect>
+                        <text class="prd-diagram-title" x="92.5" y="79">Raw Evidence｜现有能力</text><text class="prd-diagram-copy" x="92.5" y="97">原始证据与最终核验</text><text class="prd-diagram-copy" x="92.5" y="118">Chunk · Chroma · Path</text><text class="prd-diagram-copy" x="92.5" y="136">Heading · Citation · 原文回查</text>
+                        <rect class="prd-diagram-node is-wiki" x="185" y="58" width="165" height="100" rx="8" stroke-dasharray="5 4"></rect>
+                        <text class="prd-diagram-title" x="267.5" y="79">LLM Wiki｜目标接入</text><text class="prd-diagram-copy" x="267.5" y="97">知识组织与导航</text><text class="prd-diagram-copy" x="267.5" y="118">Page · Concept · Link</text><text class="prd-diagram-copy" x="267.5" y="136">Overview · Synthesis</text>
 
-                        <rect class="prd-diagram-node" x="5" y="176" width="75" height="38" rx="8"></rect><text class="prd-diagram-title" x="42.5" y="200">用户任务</text>
-                        <path class="prd-diagram-line" d="M80 195 H84" marker-end="url(#wiki-arrow-mobile)"></path>
-                        <polygon class="prd-diagram-node is-control" points="125,162 170,195 125,228 80,195"></polygon><text class="prd-diagram-title" x="125" y="191">Router</text><text class="prd-diagram-copy" x="125" y="207">选择查询模式</text>
-                        <path class="prd-diagram-line is-control-flow" d="M170 195 H175" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="172" y="184">mode</text>
-                        <rect class="prd-diagram-node is-control" x="175" y="168" width="175" height="54" rx="8"></rect><text class="prd-diagram-title" x="262.5" y="189">search_docs</text><text class="prd-diagram-copy" x="262.5" y="207">接收 mode，调用对应知识通道</text>
-                        <path class="prd-diagram-line is-query" d="M210 168 H170 V146" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="205" y="164">raw / hybrid</text>
-                        <path class="prd-diagram-line is-query" d="M285 168 H267.5 V146" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="320" y="164">wiki / hybrid</text>
-                        <path class="prd-diagram-line" d="M30 146 H2 V240 H110 V248" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M330 146 H358 V240 H250 V248" marker-end="url(#wiki-arrow-mobile)"></path>
+                        <rect class="prd-diagram-node" x="5" y="218" width="75" height="38" rx="8"></rect><text class="prd-diagram-title" x="42.5" y="242">用户任务</text>
+                        <path class="prd-diagram-line" d="M80 237 H84" marker-end="url(#wiki-arrow-mobile)"></path>
+                        <polygon class="prd-diagram-node is-control" points="125,202 170,237 125,272 80,237"></polygon><text class="prd-diagram-title" x="125" y="233">Router</text><text class="prd-diagram-copy" x="125" y="250">选择查询模式</text>
+                        <path class="prd-diagram-line is-control-flow" d="M170 237 H175" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="145" y="190">mode</text>
+                        <rect class="prd-diagram-node is-control" x="175" y="208" width="175" height="58" rx="8"></rect><text class="prd-diagram-title" x="262.5" y="231">search_docs</text><text class="prd-diagram-copy" x="262.5" y="249">接收 mode，调用对应知识通道</text>
+                        <path class="prd-diagram-line is-query" d="M210 208 H170 V158" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="205" y="198">raw / hybrid</text>
+                        <path class="prd-diagram-line is-query" d="M285 208 H267.5 V158" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="320" y="198">wiki / hybrid</text>
+                        <path class="prd-diagram-line" d="M30 158 H2 V310 H110 V320" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M330 158 H358 V310 H250 V320" marker-end="url(#wiki-arrow-mobile)"></path>
 
-                        <rect class="prd-diagram-node is-result" x="60" y="248" width="240" height="50" rx="8"></rect><text class="prd-diagram-title" x="180" y="269">知识查询结果</text><text class="prd-diagram-copy" x="180" y="286">raw / wiki 单通道；hybrid 合并双通道</text>
-                        <path class="prd-diagram-line" d="M180 298 V306" marker-end="url(#wiki-arrow-mobile)"></path>
-                        <rect class="prd-diagram-node is-control" x="60" y="306" width="240" height="48" rx="8"></rect><text class="prd-diagram-title" x="180" y="326">Eligibility｜使用准入</text><text class="prd-diagram-copy" x="180" y="343">判断知识结果能否进入当前任务</text>
+                        <rect class="prd-diagram-node is-result" x="60" y="320" width="240" height="54" rx="8"></rect><text class="prd-diagram-title" x="180" y="342">知识查询结果</text><text class="prd-diagram-copy" x="180" y="360">raw / wiki 单通道；hybrid 合并双通道</text>
+                        <path class="prd-diagram-line" d="M180 374 V396" marker-end="url(#wiki-arrow-mobile)"></path>
+                        <rect class="prd-diagram-node is-control" x="60" y="396" width="240" height="52" rx="8"></rect><text class="prd-diagram-title" x="180" y="418">Eligibility｜使用准入</text><text class="prd-diagram-copy" x="180" y="437">判断知识结果能否进入当前任务</text>
 
-                        <path class="prd-diagram-line is-stop" d="M120 354 H10 V380" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="55" y="369">资格不通过</text>
-                        <path class="prd-diagram-line" d="M180 354 H125 V380" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="180" y="373">待确认、高风险</text>
-                        <path class="prd-diagram-line" d="M240 354 H350 V380" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="305" y="369">资格通过、低风险</text>
+                        <path class="prd-diagram-line is-stop" d="M120 448 H10 V494" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="55" y="475">资格不通过</text>
+                        <path class="prd-diagram-line" d="M180 448 H125 V494" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="180" y="478">待确认、高风险</text>
+                        <path class="prd-diagram-line" d="M240 448 H350 V494" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="305" y="475">资格通过、低风险</text>
 
-                        <rect class="prd-diagram-node is-muted" x="5" y="380" width="100" height="60" rx="8"></rect><text class="prd-diagram-title" x="55" y="400">不进入任务</text><text class="prd-diagram-copy" x="55" y="417">拒绝或</text><text class="prd-diagram-copy" x="55" y="433">资格不通过</text>
-                        <rect class="prd-diagram-node" x="115" y="380" width="130" height="60" rx="8"></rect><text class="prd-diagram-title" x="180" y="405">人工确认</text><text class="prd-diagram-copy" x="180" y="424">必要时承担最终责任</text>
-                        <rect class="prd-diagram-node is-result" x="255" y="380" width="100" height="60" rx="8"></rect><text class="prd-diagram-title" x="305" y="414">当前任务</text>
-                        <path class="prd-diagram-line is-stop" d="M150 440 V466 H55 V440" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="102" y="457">拒绝</text>
-                        <path class="prd-diagram-line" d="M210 440 V466 H305 V440" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="258" y="457">确认通过</text>
+                        <rect class="prd-diagram-node is-muted" x="5" y="494" width="100" height="64" rx="8"></rect><text class="prd-diagram-title" x="55" y="515">不进入任务</text><text class="prd-diagram-copy" x="55" y="533">拒绝或</text><text class="prd-diagram-copy" x="55" y="550">资格不通过</text>
+                        <rect class="prd-diagram-node" x="115" y="494" width="130" height="64" rx="8"></rect><text class="prd-diagram-title" x="180" y="518">人工确认</text><text class="prd-diagram-copy" x="180" y="538">必要时承担最终责任</text>
+                        <rect class="prd-diagram-node is-result" x="255" y="494" width="100" height="64" rx="8"></rect><text class="prd-diagram-title" x="305" y="530">当前任务</text>
+                        <path class="prd-diagram-line is-stop" d="M150 558 V586 H55 V558" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="102" y="578">拒绝</text>
+                        <path class="prd-diagram-line" d="M210 558 V586 H305 V558" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="258" y="578">确认通过</text>
                       </svg>
                     </div>
                     <figcaption class="prd-diagram-caption" id="wiki-architecture-caption"><strong>图 B07-01｜Raw / Wiki / Hybrid 目标集成架构。</strong>Raw 是现有证据能力，Wiki 是目标接入能力；该图表达责任分工，不表示 LLM Wiki 已完成全面迁移。</figcaption>
@@ -10682,6 +10683,8 @@
             if (options.scroll) {
               window.requestAnimationFrame(scrollToTabs);
             }
+
+            document.dispatchEvent(new CustomEvent("projectviewchange", { detail: { view } }));
           };
 
           tabs.forEach((tab, index) => {
@@ -10743,6 +10746,23 @@
         const outlineLinks = Array.from(panel.querySelectorAll("[data-prd-section]"));
         const mobileOutline = panel.querySelector(".prd-mobile-outline");
         const returnButton = panel.querySelector("[data-prd-return-overview]");
+        const header = document.querySelector(".case-header");
+        const tabsShell = document.querySelector("#project-tabs-anchor");
+
+        const getStickyOffset = () => {
+          const headerHeight = header?.offsetHeight || 0;
+          const tabsHeight = tabsShell?.offsetHeight || 0;
+          const visualGap = parseFloat(getComputedStyle(panel).getPropertyValue("--prd-anchor-gap")) || 20;
+          return headerHeight + tabsHeight + visualGap;
+        };
+
+        const updateSectionScrollMargins = () => {
+          const stickyOffset = getStickyOffset();
+          sections.forEach((section) => {
+            const sectionPaddingTop = parseFloat(getComputedStyle(section).paddingTop) || 0;
+            section.style.scrollMarginTop = `${Math.max(0, stickyOffset - sectionPaddingTop)}px`;
+          });
+        };
 
         const setActiveSection = (sectionId) => {
           outlineLinks.forEach((link) => {
@@ -10755,21 +10775,37 @@
         };
 
         const updateActiveFromPosition = () => {
-          const headerHeight = document.querySelector(".case-header")?.offsetHeight || 0;
-          const tabsHeight = document.querySelector("#project-tabs-anchor")?.offsetHeight || 0;
-          const activationLine = headerHeight + tabsHeight + 26;
+          if (panel.hidden) return;
+          const activationLine = getStickyOffset();
           const current = sections
-            .filter((section) => section.getBoundingClientRect().top <= activationLine + 2)
+            .filter((section) => {
+              const sectionHeader = section.querySelector(".prd-section-header");
+              const sectionTop = sectionHeader?.getBoundingClientRect().top ?? section.getBoundingClientRect().top;
+              return sectionTop <= activationLine + 2;
+            })
             .at(-1) || sections[0];
           if (current) setActiveSection(current.id);
         };
 
         outlineLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            setActiveSection(link.dataset.prdSection);
+          link.addEventListener("click", (event) => {
+            const targetId = link.dataset.prdSection;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            event.preventDefault();
+            updateSectionScrollMargins();
+            setActiveSection(targetId);
             if (mobileOutline?.open && window.matchMedia("(max-width: 1080px)").matches) {
               mobileOutline.open = false;
             }
+            window.requestAnimationFrame(() => {
+              if (window.location.hash !== link.hash) {
+                window.location.hash = link.hash;
+              } else {
+                target.scrollIntoView({ block: "start", behavior: "auto" });
+              }
+              window.requestAnimationFrame(updateActiveFromPosition);
+            });
           });
         });
 
@@ -10785,7 +10821,19 @@
         }
 
         window.addEventListener("scroll", updateActiveFromPosition, { passive: true });
-        window.addEventListener("resize", updateActiveFromPosition);
+        window.addEventListener("resize", () => {
+          updateSectionScrollMargins();
+          updateActiveFromPosition();
+        });
+        window.addEventListener("popstate", () => window.requestAnimationFrame(updateActiveFromPosition));
+        document.addEventListener("projectviewchange", (event) => {
+          if (event.detail?.view !== "design") return;
+          window.requestAnimationFrame(() => {
+            updateSectionScrollMargins();
+            updateActiveFromPosition();
+          });
+        });
+        updateSectionScrollMargins();
         updateActiveFromPosition();
 
         returnButton?.addEventListener("click", () => {

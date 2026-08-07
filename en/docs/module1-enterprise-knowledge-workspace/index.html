@@ -5669,6 +5669,7 @@
         --prd-blue-soft: #eff6ff;
         --prd-line: #dbe3ed;
         --prd-surface: #f8fafc;
+        --prd-anchor-gap: 20px;
         background: #ffffff;
       }
 
@@ -5776,7 +5777,7 @@
       .design-panel .prd-section {
         padding: 48px 0;
         border-top: 1px solid var(--prd-line);
-        scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + 24px);
+        scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + var(--prd-anchor-gap) - 48px);
       }
 
       .design-panel .prd-section-header {
@@ -9417,7 +9418,7 @@
 <h3>7.2 Dual knowledge-channel architecture</h3>
 <figure aria-labelledby="wiki-architecture-caption" class="prd-diagram">
 <div class="prd-diagram-frame">
-<svg aria-labelledby="wiki-architecture-desktop-title wiki-architecture-desktop-desc" class="prd-diagram-svg is-desktop" role="img" viewbox="0 0 1080 430">
+<svg aria-labelledby="wiki-architecture-desktop-title wiki-architecture-desktop-desc" class="prd-diagram-svg is-desktop" role="img" viewbox="0 0 1080 524">
 <title id="wiki-architecture-desktop-title">Raw, Wiki, and Hybrid dual-channel target architecture</title>
 <desc id="wiki-architecture-desktop-desc">Obsidian and local files feed the existing Raw Evidence capability and the target LLM Wiki integration. The Router selects a mode, search_docs invokes raw, wiki, or hybrid, and Eligibility routes results to the current task, human confirmation, or exclusion.</desc>
 <defs>
@@ -9425,48 +9426,48 @@
 <marker id="wiki-control-arrow-desktop" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="7" refy="4" viewbox="0 0 8 8"><path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"></path></marker>
 </defs>
 <rect class="prd-diagram-node" height="34" rx="8" width="180" x="450" y="4"></rect><text class="prd-diagram-title" x="540" y="26">Obsidian / local files</text>
-<path class="prd-diagram-line" d="M500 38 C480 46 445 50 405 54" marker-end="url(#wiki-arrow-desktop)"></path>
-<path class="prd-diagram-line" d="M580 38 C600 46 645 50 685 54" marker-end="url(#wiki-arrow-desktop)"></path>
-<rect class="prd-diagram-node is-raw" height="78" rx="9" width="220" x="295" y="54"></rect>
-<text class="prd-diagram-title" x="405" y="75">Raw Evidence | Existing capability</text>
-<text class="prd-diagram-copy" x="405" y="93">Raw evidence and final verification</text>
-<text class="prd-diagram-copy" x="405" y="111">Chunk · Chroma · Path</text>
-<text class="prd-diagram-copy" x="405" y="127">Heading · citation · source review</text>
-<rect class="prd-diagram-node is-wiki" height="78" rx="9" stroke-dasharray="5 4" width="240" x="565" y="54"></rect>
-<text class="prd-diagram-title" x="685" y="75">LLM Wiki | Target integration</text>
-<text class="prd-diagram-copy" x="685" y="93">Knowledge organization and navigation</text>
-<text class="prd-diagram-copy" x="685" y="111">Page · Concept · Link</text>
-<text class="prd-diagram-copy" x="685" y="127">Overview · Synthesis</text>
-<rect class="prd-diagram-node" height="40" rx="8" width="120" x="70" y="170"></rect><text class="prd-diagram-title" x="130" y="195">User tasks</text>
-<path class="prd-diagram-line" d="M190 190 H220" marker-end="url(#wiki-arrow-desktop)"></path>
-<polygon class="prd-diagram-node is-control" points="295,153 370,190 295,227 220,190"></polygon>
-<text class="prd-diagram-title" x="295" y="186">Router</text><text class="prd-diagram-copy" x="295" y="202">Select query mode</text>
-<path class="prd-diagram-line is-control-flow" d="M370 190 H430" marker-end="url(#wiki-control-arrow-desktop)"></path><text class="prd-diagram-mode" x="400" y="178">mode</text>
-<rect class="prd-diagram-node is-control" height="64" rx="8" width="220" x="430" y="164"></rect>
-<text class="prd-diagram-title" x="540" y="185">search_docs</text><text class="prd-diagram-copy" x="540" y="202">Receive mode and call</text><text class="prd-diagram-copy" x="540" y="218">the selected channel</text>
-<path class="prd-diagram-line is-query" d="M500 164 V150 H405 V132" marker-end="url(#wiki-control-arrow-desktop)"></path>
-<text class="prd-diagram-mode" x="455" y="145">raw / hybrid</text>
-<path class="prd-diagram-line is-query" d="M580 164 V150 H685 V132" marker-end="url(#wiki-control-arrow-desktop)"></path>
-<text class="prd-diagram-mode" x="635" y="145">wiki / hybrid</text>
-<path class="prd-diagram-line" d="M390 132 V230 H460 V238" marker-end="url(#wiki-arrow-desktop)"></path>
-<path class="prd-diagram-line" d="M700 132 V230 H620 V238" marker-end="url(#wiki-arrow-desktop)"></path>
-<rect class="prd-diagram-node is-result" height="46" rx="8" width="340" x="370" y="238"></rect>
-<text class="prd-diagram-title" x="540" y="256">Knowledge query result</text>
-<text class="prd-diagram-copy" x="540" y="274">raw / wiki returns one channel; hybrid combines both</text>
-<path class="prd-diagram-line" d="M540 284 V298" marker-end="url(#wiki-arrow-desktop)"></path>
-<rect class="prd-diagram-node is-control" height="48" rx="8" width="340" x="370" y="298"></rect>
-<text class="prd-diagram-title" x="540" y="316">Eligibility | Task admission</text>
-<text class="prd-diagram-copy" x="540" y="334">Decide whether results may enter the current task</text>
-<path class="prd-diagram-line is-stop" d="M430 346 H280 V378" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="350" y="365">Eligibility failed</text>
-<path class="prd-diagram-line" d="M540 346 V378" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="470" y="365">Pending confirmation, high risk</text>
-<path class="prd-diagram-line" d="M650 346 H790 V378" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="730" y="365">Eligible, low risk</text>
-<rect class="prd-diagram-node is-muted" height="48" rx="8" width="190" x="185" y="378"></rect><text class="prd-diagram-title" x="280" y="397">Do not enter task</text><text class="prd-diagram-copy" x="280" y="415">Rejected or ineligible</text>
-<rect class="prd-diagram-node" height="48" rx="8" width="190" x="445" y="378"></rect><text class="prd-diagram-title" x="540" y="395">Human confirmation</text><text class="prd-diagram-copy" x="540" y="409">Confirm when needed; assume</text><text class="prd-diagram-copy" x="540" y="421">final accountability</text>
-<rect class="prd-diagram-node is-result" height="48" rx="8" width="180" x="700" y="378"></rect><text class="prd-diagram-title" x="790" y="407">Current task</text>
-<path class="prd-diagram-line is-stop" d="M445 402 H375" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="410" y="396">Reject</text>
-<path class="prd-diagram-line" d="M635 402 H700" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="667" y="396">Confirmed</text>
+<path class="prd-diagram-line" d="M500 38 C480 48 445 55 405 60" marker-end="url(#wiki-arrow-desktop)"></path>
+<path class="prd-diagram-line" d="M580 38 C600 48 645 55 685 60" marker-end="url(#wiki-arrow-desktop)"></path>
+<rect class="prd-diagram-node is-raw" height="78" rx="9" width="220" x="295" y="60"></rect>
+<text class="prd-diagram-title" x="405" y="81">Raw Evidence | Existing capability</text>
+<text class="prd-diagram-copy" x="405" y="99">Raw evidence and final verification</text>
+<text class="prd-diagram-copy" x="405" y="117">Chunk · Chroma · Path</text>
+<text class="prd-diagram-copy" x="405" y="133">Heading · citation · source review</text>
+<rect class="prd-diagram-node is-wiki" height="78" rx="9" stroke-dasharray="5 4" width="240" x="565" y="60"></rect>
+<text class="prd-diagram-title" x="685" y="81">LLM Wiki | Target integration</text>
+<text class="prd-diagram-copy" x="685" y="99">Knowledge organization and navigation</text>
+<text class="prd-diagram-copy" x="685" y="117">Page · Concept · Link</text>
+<text class="prd-diagram-copy" x="685" y="133">Overview · Synthesis</text>
+<rect class="prd-diagram-node" height="40" rx="8" width="120" x="70" y="188"></rect><text class="prd-diagram-title" x="130" y="213">User tasks</text>
+<path class="prd-diagram-line" d="M190 208 H220" marker-end="url(#wiki-arrow-desktop)"></path>
+<polygon class="prd-diagram-node is-control" points="295,166 370,208 295,250 220,208"></polygon>
+<text class="prd-diagram-title" x="295" y="204">Router</text><text class="prd-diagram-copy" x="295" y="220">Select query mode</text>
+<path class="prd-diagram-line is-control-flow" d="M370 208 H430" marker-end="url(#wiki-control-arrow-desktop)"></path><text class="prd-diagram-mode" x="400" y="196">mode</text>
+<rect class="prd-diagram-node is-control" height="72" rx="8" width="220" x="430" y="176"></rect>
+<text class="prd-diagram-title" x="540" y="199">search_docs</text><text class="prd-diagram-copy" x="540" y="218">Receive mode and call</text><text class="prd-diagram-copy" x="540" y="235">the selected channel</text>
+<path class="prd-diagram-line is-query" d="M500 176 V156 H405 V138" marker-end="url(#wiki-control-arrow-desktop)"></path>
+<text class="prd-diagram-mode" x="455" y="154">raw / hybrid</text>
+<path class="prd-diagram-line is-query" d="M580 176 V156 H685 V138" marker-end="url(#wiki-control-arrow-desktop)"></path>
+<text class="prd-diagram-mode" x="635" y="154">wiki / hybrid</text>
+<path class="prd-diagram-line" d="M390 138 V274 H460 V292" marker-end="url(#wiki-arrow-desktop)"></path>
+<path class="prd-diagram-line" d="M700 138 V274 H620 V292" marker-end="url(#wiki-arrow-desktop)"></path>
+<rect class="prd-diagram-node is-result" height="50" rx="8" width="340" x="370" y="292"></rect>
+<text class="prd-diagram-title" x="540" y="312">Knowledge query result</text>
+<text class="prd-diagram-copy" x="540" y="331">raw / wiki returns one channel; hybrid combines both</text>
+<path class="prd-diagram-line" d="M540 342 V366" marker-end="url(#wiki-arrow-desktop)"></path>
+<rect class="prd-diagram-node is-control" height="54" rx="8" width="340" x="370" y="366"></rect>
+<text class="prd-diagram-title" x="540" y="386">Eligibility | Task admission</text>
+<text class="prd-diagram-copy" x="540" y="406">Decide whether results may enter the current task</text>
+<path class="prd-diagram-line is-stop" d="M430 420 H280 V458" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="350" y="446">Eligibility failed</text>
+<path class="prd-diagram-line" d="M540 420 V458" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="470" y="444">Pending confirmation, high risk</text>
+<path class="prd-diagram-line" d="M650 420 H790 V458" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="730" y="446">Eligible, low risk</text>
+<rect class="prd-diagram-node is-muted" height="60" rx="8" width="190" x="185" y="458"></rect><text class="prd-diagram-title" x="280" y="479">Do not enter task</text><text class="prd-diagram-copy" x="280" y="499">Rejected or ineligible</text>
+<rect class="prd-diagram-node" height="60" rx="8" width="190" x="445" y="458"></rect><text class="prd-diagram-title" x="540" y="477">Human confirmation</text><text class="prd-diagram-copy" x="540" y="494">Confirm when needed; assume</text><text class="prd-diagram-copy" x="540" y="510">final accountability</text>
+<rect class="prd-diagram-node is-result" height="60" rx="8" width="180" x="700" y="458"></rect><text class="prd-diagram-title" x="790" y="493">Current task</text>
+<path class="prd-diagram-line is-stop" d="M445 488 H375" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="410" y="480">Reject</text>
+<path class="prd-diagram-line" d="M635 488 H700" marker-end="url(#wiki-arrow-desktop)"></path><text class="prd-diagram-label" x="667" y="480">Confirmed</text>
 </svg>
-<svg aria-labelledby="wiki-architecture-mobile-title wiki-architecture-mobile-desc" class="prd-diagram-svg is-mobile" role="img" viewbox="0 0 360 582">
+<svg aria-labelledby="wiki-architecture-mobile-title wiki-architecture-mobile-desc" class="prd-diagram-svg is-mobile" role="img" viewbox="0 0 360 658">
 <title id="wiki-architecture-mobile-title">Raw, Wiki, and Hybrid dual-channel target architecture, mobile layout</title>
 <desc id="wiki-architecture-mobile-desc">The existing Raw Evidence capability and target LLM Wiki integration run in parallel. search_docs invokes one or both channels by Router mode, then Eligibility admits, confirms, or excludes the result.</desc>
 <defs>
@@ -9474,30 +9475,30 @@
 <marker id="wiki-control-arrow-mobile" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="7" refy="4" viewbox="0 0 8 8"><path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"></path></marker>
 </defs>
 <rect class="prd-diagram-node" height="34" rx="8" width="180" x="90" y="4"></rect><text class="prd-diagram-title" x="180" y="26">Obsidian / local files</text>
-<path class="prd-diagram-line" d="M140 38 C125 45 108 51 92.5 56" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M220 38 C235 45 252 51 267.5 56" marker-end="url(#wiki-arrow-mobile)"></path>
-<rect class="prd-diagram-node is-raw" height="136" rx="8" width="165" x="10" y="56"></rect>
-<text class="prd-diagram-title" x="92.5" y="76">Raw Evidence</text><text class="prd-diagram-capability is-existing" x="92.5" y="93">Existing capability</text><text class="prd-diagram-copy" x="92.5" y="111">Raw evidence and</text><text class="prd-diagram-copy" x="92.5" y="127">final verification</text><text class="prd-diagram-copy" x="92.5" y="146">Chunk · Chroma · Path</text><text class="prd-diagram-copy" x="92.5" y="164">Heading · citation</text><text class="prd-diagram-copy" x="92.5" y="180">source review</text>
-<rect class="prd-diagram-node is-wiki" height="136" rx="8" stroke-dasharray="5 4" width="165" x="185" y="56"></rect>
-<text class="prd-diagram-title" x="267.5" y="76">LLM Wiki</text><text class="prd-diagram-capability is-target" x="267.5" y="93">Target integration</text><text class="prd-diagram-copy" x="267.5" y="111">Knowledge organization</text><text class="prd-diagram-copy" x="267.5" y="127">and navigation</text><text class="prd-diagram-copy" x="267.5" y="146">Page · Concept · Link</text><text class="prd-diagram-copy" x="267.5" y="164">Overview · Synthesis</text>
-<rect class="prd-diagram-node" height="38" rx="8" width="75" x="5" y="226"></rect><text class="prd-diagram-title" x="42.5" y="250">User tasks</text>
-<path class="prd-diagram-line" d="M80 245 H84" marker-end="url(#wiki-arrow-mobile)"></path>
-<polygon class="prd-diagram-node is-control" points="125,212 170,245 125,278 80,245"></polygon><text class="prd-diagram-title" x="125" y="241">Router</text><text class="prd-diagram-copy" x="125" y="257">Select mode</text>
-<path class="prd-diagram-line is-control-flow" d="M170 245 H175" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="172" y="234">mode</text>
-<rect class="prd-diagram-node is-control" height="66" rx="8" width="175" x="175" y="218"></rect><text class="prd-diagram-title" x="262.5" y="239">search_docs</text><text class="prd-diagram-copy" x="262.5" y="256">Receive mode and call</text><text class="prd-diagram-copy" x="262.5" y="272">the selected channel</text>
-<path class="prd-diagram-line is-query" d="M210 218 H170 V192" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="205" y="208">raw / hybrid</text>
-<path class="prd-diagram-line is-query" d="M285 218 H267.5 V192" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="320" y="208">wiki / hybrid</text>
-<path class="prd-diagram-line" d="M30 192 H2 V302 H110 V310" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M330 192 H358 V302 H250 V310" marker-end="url(#wiki-arrow-mobile)"></path>
-<rect class="prd-diagram-node is-result" height="62" rx="8" width="240" x="60" y="310"></rect><text class="prd-diagram-title" x="180" y="331">Knowledge query result</text><text class="prd-diagram-copy" x="180" y="348">raw / wiki uses one channel;</text><text class="prd-diagram-copy" x="180" y="364">hybrid combines both</text>
-<path class="prd-diagram-line" d="M180 372 V384" marker-end="url(#wiki-arrow-mobile)"></path>
-<rect class="prd-diagram-node is-control" height="60" rx="8" width="240" x="60" y="384"></rect><text class="prd-diagram-title" x="180" y="405">Eligibility | Task admission</text><text class="prd-diagram-copy" x="180" y="422">Decide whether results may enter</text><text class="prd-diagram-copy" x="180" y="438">the current task</text>
-<path class="prd-diagram-line is-stop" d="M120 444 H10 V480" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="55" y="466">Eligibility failed</text>
-<path class="prd-diagram-line" d="M180 444 H125 V480" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="180" y="468">Pending confirmation, high risk</text>
-<path class="prd-diagram-line" d="M240 444 H350 V480" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="305" y="466">Eligible, low risk</text>
-<rect class="prd-diagram-node is-muted" height="66" rx="8" width="100" x="5" y="480"></rect><text class="prd-diagram-title" x="55" y="499">Do not enter</text><text class="prd-diagram-title" x="55" y="514">task</text><text class="prd-diagram-copy" x="55" y="530">Rejected or</text><text class="prd-diagram-copy" x="55" y="543">ineligible</text>
-<rect class="prd-diagram-node" height="66" rx="8" width="130" x="115" y="480"></rect><text class="prd-diagram-title" x="180" y="499">Human confirmation</text><text class="prd-diagram-copy" x="180" y="514">Confirm when needed</text><text class="prd-diagram-copy" x="180" y="529">Assume final</text><text class="prd-diagram-copy" x="180" y="542">accountability</text>
-<rect class="prd-diagram-node is-result" height="66" rx="8" width="100" x="255" y="480"></rect><text class="prd-diagram-title" x="305" y="517">Current task</text>
-<path class="prd-diagram-line is-stop" d="M150 546 V574 H55 V546" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="102" y="566">Reject</text>
-<path class="prd-diagram-line" d="M210 546 V574 H305 V546" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="258" y="566">Confirmed</text>
+<path class="prd-diagram-line" d="M140 38 C125 48 108 55 92.5 60" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M220 38 C235 48 252 55 267.5 60" marker-end="url(#wiki-arrow-mobile)"></path>
+<rect class="prd-diagram-node is-raw" height="140" rx="8" width="165" x="10" y="60"></rect>
+<text class="prd-diagram-title" x="92.5" y="80">Raw Evidence</text><text class="prd-diagram-capability is-existing" x="92.5" y="97">Existing capability</text><text class="prd-diagram-copy" x="92.5" y="115">Raw evidence and</text><text class="prd-diagram-copy" x="92.5" y="131">final verification</text><text class="prd-diagram-copy" x="92.5" y="150">Chunk · Chroma · Path</text><text class="prd-diagram-copy" x="92.5" y="168">Heading · citation</text><text class="prd-diagram-copy" x="92.5" y="184">source review</text>
+<rect class="prd-diagram-node is-wiki" height="140" rx="8" stroke-dasharray="5 4" width="165" x="185" y="60"></rect>
+<text class="prd-diagram-title" x="267.5" y="80">LLM Wiki</text><text class="prd-diagram-capability is-target" x="267.5" y="97">Target integration</text><text class="prd-diagram-copy" x="267.5" y="115">Knowledge organization</text><text class="prd-diagram-copy" x="267.5" y="131">and navigation</text><text class="prd-diagram-copy" x="267.5" y="150">Page · Concept · Link</text><text class="prd-diagram-copy" x="267.5" y="168">Overview · Synthesis</text>
+<rect class="prd-diagram-node" height="38" rx="8" width="75" x="5" y="246"></rect><text class="prd-diagram-title" x="42.5" y="270">User tasks</text>
+<path class="prd-diagram-line" d="M80 265 H84" marker-end="url(#wiki-arrow-mobile)"></path>
+<polygon class="prd-diagram-node is-control" points="125,230 170,265 125,300 80,265"></polygon><text class="prd-diagram-title" x="125" y="261">Router</text><text class="prd-diagram-copy" x="125" y="278">Select mode</text>
+<path class="prd-diagram-line is-control-flow" d="M170 265 H175" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="145" y="226">mode</text>
+<rect class="prd-diagram-node is-control" height="68" rx="8" width="175" x="175" y="232"></rect><text class="prd-diagram-title" x="262.5" y="253">search_docs</text><text class="prd-diagram-copy" x="262.5" y="270">Receive mode and call</text><text class="prd-diagram-copy" x="262.5" y="286">the selected channel</text>
+<path class="prd-diagram-line is-query" d="M210 232 H170 V200" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="205" y="222">raw / hybrid</text>
+<path class="prd-diagram-line is-query" d="M285 232 H267.5 V200" marker-end="url(#wiki-control-arrow-mobile)"></path><text class="prd-diagram-mode" x="320" y="222">wiki / hybrid</text>
+<path class="prd-diagram-line" d="M30 200 H2 V340 H110 V350" marker-end="url(#wiki-arrow-mobile)"></path><path class="prd-diagram-line" d="M330 200 H358 V340 H250 V350" marker-end="url(#wiki-arrow-mobile)"></path>
+<rect class="prd-diagram-node is-result" height="64" rx="8" width="240" x="60" y="350"></rect><text class="prd-diagram-title" x="180" y="371">Knowledge query result</text><text class="prd-diagram-copy" x="180" y="388">raw / wiki uses one channel;</text><text class="prd-diagram-copy" x="180" y="404">hybrid combines both</text>
+<path class="prd-diagram-line" d="M180 414 V438" marker-end="url(#wiki-arrow-mobile)"></path>
+<rect class="prd-diagram-node is-control" height="62" rx="8" width="240" x="60" y="438"></rect><text class="prd-diagram-title" x="180" y="459">Eligibility | Task admission</text><text class="prd-diagram-copy" x="180" y="476">Decide whether results may enter</text><text class="prd-diagram-copy" x="180" y="492">the current task</text>
+<path class="prd-diagram-line is-stop" d="M120 500 H10 V548" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="55" y="530">Eligibility failed</text>
+<path class="prd-diagram-line" d="M180 500 H125 V548" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="180" y="532">Pending confirmation, high risk</text>
+<path class="prd-diagram-line" d="M240 500 H350 V548" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="305" y="530">Eligible, low risk</text>
+<rect class="prd-diagram-node is-muted" height="72" rx="8" width="100" x="5" y="548"></rect><text class="prd-diagram-title" x="55" y="568">Do not enter</text><text class="prd-diagram-title" x="55" y="584">task</text><text class="prd-diagram-copy" x="55" y="601">Rejected or</text><text class="prd-diagram-copy" x="55" y="615">ineligible</text>
+<rect class="prd-diagram-node" height="72" rx="8" width="130" x="115" y="548"></rect><text class="prd-diagram-title" x="180" y="568">Human confirmation</text><text class="prd-diagram-copy" x="180" y="584">Confirm when needed</text><text class="prd-diagram-copy" x="180" y="600">Assume final</text><text class="prd-diagram-copy" x="180" y="614">accountability</text>
+<rect class="prd-diagram-node is-result" height="72" rx="8" width="100" x="255" y="548"></rect><text class="prd-diagram-title" x="305" y="588">Current task</text>
+<path class="prd-diagram-line is-stop" d="M150 620 V650 H55 V620" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="102" y="642">Reject</text>
+<path class="prd-diagram-line" d="M210 620 V650 H305 V620" marker-end="url(#wiki-arrow-mobile)"></path><text class="prd-diagram-label" x="258" y="642">Confirmed</text>
 </svg>
 </div>
 <figcaption class="prd-diagram-caption" id="wiki-architecture-caption"><strong>Figure B07-01 | Raw / Wiki / Hybrid target integration architecture.</strong> Raw is the existing evidence capability and Wiki is the target integration capability. The diagram shows responsibility allocation, not a completed LLM Wiki migration.</figcaption>
@@ -9671,6 +9672,8 @@
             if (options.scroll) {
               window.requestAnimationFrame(scrollToTabs);
             }
+
+            document.dispatchEvent(new CustomEvent("projectviewchange", { detail: { view } }));
           };
 
           tabs.forEach((tab, index) => {
@@ -9732,6 +9735,23 @@
         const outlineLinks = Array.from(panel.querySelectorAll("[data-prd-section]"));
         const mobileOutline = panel.querySelector(".prd-mobile-outline");
         const returnButton = panel.querySelector("[data-prd-return-overview]");
+        const header = document.querySelector(".case-header");
+        const tabsShell = document.querySelector("#project-tabs-anchor");
+
+        const getStickyOffset = () => {
+          const headerHeight = header?.offsetHeight || 0;
+          const tabsHeight = tabsShell?.offsetHeight || 0;
+          const visualGap = parseFloat(getComputedStyle(panel).getPropertyValue("--prd-anchor-gap")) || 20;
+          return headerHeight + tabsHeight + visualGap;
+        };
+
+        const updateSectionScrollMargins = () => {
+          const stickyOffset = getStickyOffset();
+          sections.forEach((section) => {
+            const sectionPaddingTop = parseFloat(getComputedStyle(section).paddingTop) || 0;
+            section.style.scrollMarginTop = `${Math.max(0, stickyOffset - sectionPaddingTop)}px`;
+          });
+        };
 
         const setActiveSection = (sectionId) => {
           outlineLinks.forEach((link) => {
@@ -9744,21 +9764,37 @@
         };
 
         const updateActiveFromPosition = () => {
-          const headerHeight = document.querySelector(".case-header")?.offsetHeight || 0;
-          const tabsHeight = document.querySelector("#project-tabs-anchor")?.offsetHeight || 0;
-          const activationLine = headerHeight + tabsHeight + 26;
+          if (panel.hidden) return;
+          const activationLine = getStickyOffset();
           const current = sections
-            .filter((section) => section.getBoundingClientRect().top <= activationLine + 2)
+            .filter((section) => {
+              const sectionHeader = section.querySelector(".prd-section-header");
+              const sectionTop = sectionHeader?.getBoundingClientRect().top ?? section.getBoundingClientRect().top;
+              return sectionTop <= activationLine + 2;
+            })
             .at(-1) || sections[0];
           if (current) setActiveSection(current.id);
         };
 
         outlineLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            setActiveSection(link.dataset.prdSection);
+          link.addEventListener("click", (event) => {
+            const targetId = link.dataset.prdSection;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            event.preventDefault();
+            updateSectionScrollMargins();
+            setActiveSection(targetId);
             if (mobileOutline?.open && window.matchMedia("(max-width: 1080px)").matches) {
               mobileOutline.open = false;
             }
+            window.requestAnimationFrame(() => {
+              if (window.location.hash !== link.hash) {
+                window.location.hash = link.hash;
+              } else {
+                target.scrollIntoView({ block: "start", behavior: "auto" });
+              }
+              window.requestAnimationFrame(updateActiveFromPosition);
+            });
           });
         });
 
@@ -9774,7 +9810,19 @@
         }
 
         window.addEventListener("scroll", updateActiveFromPosition, { passive: true });
-        window.addEventListener("resize", updateActiveFromPosition);
+        window.addEventListener("resize", () => {
+          updateSectionScrollMargins();
+          updateActiveFromPosition();
+        });
+        window.addEventListener("popstate", () => window.requestAnimationFrame(updateActiveFromPosition));
+        document.addEventListener("projectviewchange", (event) => {
+          if (event.detail?.view !== "design") return;
+          window.requestAnimationFrame(() => {
+            updateSectionScrollMargins();
+            updateActiveFromPosition();
+          });
+        });
+        updateSectionScrollMargins();
         updateActiveFromPosition();
 
         returnButton?.addEventListener("click", () => {
