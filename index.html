@@ -559,6 +559,46 @@
         }
       }
 
+      html[lang="zh-CN"] .poster-knowledge .poster-responsibility-chain {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        z-index: 4;
+        display: flex;
+        width: min(calc(100% - 48px), 620px);
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transform: translate(-50%, -50%);
+      }
+
+      html[lang="zh-CN"] .poster-knowledge .poster-responsibility-node {
+        display: inline-flex;
+        min-width: 0;
+        min-height: 46px;
+        flex: 1 1 0;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px;
+        color: var(--project-dark);
+        background: color-mix(in srgb, var(--project) 14%, #ffffff);
+        border: 1px solid color-mix(in srgb, var(--project) 24%, rgba(5, 10, 46, 0.14));
+        border-radius: 5px;
+        font-size: clamp(12px, 1vw, 14px);
+        font-weight: 900;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] .poster-knowledge .poster-responsibility-arrow {
+        flex: 0 0 auto;
+        color: var(--project);
+        font-size: 20px;
+        font-weight: 760;
+        line-height: 1;
+      }
+
       @media (max-width: 640px) {
         html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header {
           grid-template-columns: minmax(0, 1fr);
@@ -612,6 +652,28 @@
 
         html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-project-panels .project-punch {
           font-size: 11.2px;
+        }
+
+        html[lang="zh-CN"] .poster-knowledge .poster-responsibility-chain {
+          top: 10px;
+          display: grid;
+          width: min(calc(100% - 36px), 260px);
+          grid-template-columns: minmax(0, 1fr);
+          gap: 1px;
+          transform: translateX(-50%);
+        }
+
+        html[lang="zh-CN"] .poster-knowledge .poster-responsibility-node {
+          width: 100%;
+          min-height: 30px;
+          padding: 5px 10px;
+          font-size: 12px;
+        }
+
+        html[lang="zh-CN"] .poster-knowledge .poster-responsibility-arrow {
+          justify-self: center;
+          font-size: 14px;
+          transform: rotate(90deg);
         }
 
       }
@@ -728,7 +790,7 @@
           <a class="hero-project-card project-one" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n-attr="href:entry1.href">
             <span class="project-meta"><span class="project-number">01</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">知识型 AI 应用</span></span>
             <span class="project-name">企业知识工作台</span>
-            <span class="project-summary" title="企业知识库失败，很多时候不是因为知识找不到。"><span class="project-hook">企业知识库失败，很多时候不是因为知识找不到。</span></span>
+            <span class="project-summary" title="知识能被找到，不等于它能进入当前任务。"><span class="project-hook">知识能被找到，不等于它能进入当前任务。</span></span>
             <span class="project-action"><strong class="project-punch">找到，不等于敢用</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
           <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n-attr="href:entry2.href">
@@ -866,19 +928,18 @@
               </div>
               <a class="showcase-cta" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n="showcase.card1.cta" data-i18n-attr="href:entry1.href">查看项目 →</a>
             </div>
-            <div class="poster-stage poster-knowledge" aria-label="可信上下文项目封面" data-i18n-attr="aria-label:showcase.card1.posterAria">
-              <div class="poster-core">
-                <strong data-i18n="showcase.card1.posterCore">可信上下文</strong>
+            <div class="poster-stage poster-knowledge" aria-label="证据可追溯、调用控制与使用资格的产品责任演进">
+              <div class="poster-responsibility-chain" role="list" aria-label="产品责任演进">
+                <span class="poster-responsibility-node" role="listitem">证据可追溯</span>
+                <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
+                <span class="poster-responsibility-node" role="listitem">调用控制</span>
+                <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
+                <span class="poster-responsibility-node" role="listitem">使用资格</span>
               </div>
-              <span class="poster-keyword keyword-a" data-i18n="showcase.card1.posterK1">知识源</span>
-              <span class="poster-keyword keyword-b" data-i18n="showcase.card1.posterK2">引用</span>
-              <span class="poster-keyword keyword-c">Agent</span>
-              <span class="poster-keyword keyword-d" data-i18n="showcase.card1.posterK4">人审</span>
-              <span class="poster-keyword keyword-e" data-i18n="showcase.card1.posterK5">输出</span>
               <h3 class="showcase-poster-title" data-i18n="showcase.card1.title">企业知识工作台</h3>
             </div>
             <div class="showcase-card-inner">
-              <p class="showcase-hook" data-i18n="showcase.card1.hook">企业知识库失败，很多时候不是因为知识找不到。</p>
+              <p class="showcase-hook" data-i18n="showcase.card1.hook">知识能被找到，不等于它能进入当前任务。</p>
               <p class="showcase-decision" data-i18n="showcase.card1.decision">关键判断：知道制度，不等于知道自己适不适用。</p>
               <p class="showcase-value" data-i18n="showcase.card1.value">这个项目不是做一个更会回答的知识库，而是让员工在具体情境里知道：依据是什么、自己是否适用、下一步该怎么做。</p>
             </div>
@@ -1217,15 +1278,15 @@
           "showcase.card1.tag": "Knowledge-based AI Application",
           "showcase.card1.response": "Responds to: Pseudo Result / Pseudo Demand",
           "showcase.card1.title": "Enterprise Knowledge Workspace",
-          "showcase.card1.hook": "Enterprise knowledge bases often fail for reasons beyond search.",
-          "showcase.card1.decision": "Key judgment: knowing a policy does not mean knowing whether it applies to you.",
-          "showcase.card1.value": "This project is not a knowledge base that answers more. It helps employees understand the basis, applicability, and next action in a specific context.",
+          "showcase.card1.hook": "Knowledge can be found, but that does not mean it should enter the current task.",
+          "showcase.card1.decision": "Key judgment: Knowing the rule is not the same as knowing whether it applies to your case.",
+          "showcase.card1.value": "This project is not about building a knowledge base that answers more questions. It helps users understand what the evidence is, whether it applies to the current situation, and what to do next.",
           "showcase.card1.p1": "RAG as trusted context infrastructure, not a tech demo",
           "showcase.card1.p2": "Agent decomposes tasks; humans retain confirmation and decisions",
           "showcase.card1.p3": "Citations, permissions, badcases, and versioning for controllability",
           "showcase.card1.cta": "View project →",
-          "showcase.card1.posterAria": "Trusted context project cover",
-          "showcase.card1.posterCore": "Trusted Context",
+          "showcase.card1.posterAria": "Product responsibility progression from traceable evidence to invocation control and usage eligibility",
+          "showcase.card1.posterCore": "Traceable Evidence → Invocation Control → Usage Eligibility",
           "showcase.card1.posterK1": "Knowledge Sources",
           "showcase.card1.posterK2": "Citations",
           "showcase.card1.posterK4": "Human Review",

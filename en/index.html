@@ -685,6 +685,64 @@
         width: 100%;
       }
 
+      html[lang="en"] .poster-knowledge .poster-responsibility-chain {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        z-index: 4;
+        display: flex;
+        width: min(calc(100% - 24px), 620px);
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transform: translate(-50%, -50%);
+      }
+
+      html[lang="en"] .poster-knowledge .poster-responsibility-node {
+        display: inline-flex;
+        min-width: 0;
+        min-height: 46px;
+        flex: 1 1 0;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px;
+        color: var(--project-dark);
+        background: color-mix(in srgb, var(--project) 14%, #ffffff);
+        border: 1px solid color-mix(in srgb, var(--project) 24%, rgba(5, 10, 46, 0.14));
+        border-radius: 5px;
+        font-size: clamp(12px, 0.92vw, 13px);
+        font-weight: 900;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      html[lang="en"] .poster-knowledge .poster-responsibility-arrow {
+        flex: 0 0 auto;
+        color: var(--project);
+        font-size: 20px;
+        font-weight: 760;
+        line-height: 1;
+      }
+
+      @media (min-width: 981px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one {
+          grid-template-columns: 48px minmax(0, 1fr) 155px;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one .project-action {
+          gap: 6px;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one .project-punch {
+          font-size: 9.6px;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one .project-cta {
+          font-size: 24px;
+        }
+      }
+
       @media (max-width: 980px) {
         html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
           grid-template-columns: minmax(0, 1fr);
@@ -805,6 +863,17 @@
           margin-top: 0;
         }
 
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one {
+          grid-template-columns: 48px minmax(0, 1fr);
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-project-panels .project-one .project-action {
+          grid-column: 2;
+          grid-row: 4;
+          justify-content: flex-end;
+          margin-top: 4px;
+        }
+
         html[lang="en"] body.home-comic-hero.en-home-v2 .featured-scenario-header {
           grid-template-columns: minmax(0, 1fr);
           gap: 12px;
@@ -813,6 +882,28 @@
         html[lang="en"] body.home-comic-hero.en-home-v2 .featured-scenario-header .featured-scenario-link {
           justify-self: start;
           margin-top: 0;
+        }
+
+        html[lang="en"] .poster-knowledge .poster-responsibility-chain {
+          top: 8px;
+          display: grid;
+          width: min(calc(100% - 36px), 260px);
+          grid-template-columns: minmax(0, 1fr);
+          gap: 1px;
+          transform: translateX(-50%);
+        }
+
+        html[lang="en"] .poster-knowledge .poster-responsibility-node {
+          width: 100%;
+          min-height: 28px;
+          padding: 4px 10px;
+          font-size: 12px;
+        }
+
+        html[lang="en"] .poster-knowledge .poster-responsibility-arrow {
+          justify-self: center;
+          font-size: 12px;
+          transform: rotate(90deg);
         }
 
         html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-build-grid {
@@ -933,8 +1024,8 @@
           <a class="hero-project-card project-one" href="./docs/module1-enterprise-knowledge-workspace/index.html">
             <span class="project-meta"><span class="project-number">01</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">Knowledge-based AI Application</span></span>
             <span class="project-name">Enterprise Knowledge Workspace</span>
-            <span class="project-summary" title="Enterprise knowledge bases often fail not because knowledge cannot be found."><span class="project-hook">Enterprise knowledge bases often fail not because knowledge cannot be found.</span></span>
-            <span class="project-action"><strong class="project-punch">Found does not mean trusted</strong><span class="project-cta" aria-hidden="true">→</span></span>
+            <span class="project-summary" title="Knowledge can be found, but that does not mean it should enter the current task."><span class="project-hook">Knowledge can be found, but that does not mean it should enter the current task.</span></span>
+            <span class="project-action"><strong class="project-punch">Found is not yet safe to use</strong><span class="project-cta" aria-hidden="true">→</span></span>
           </a>
           <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html">
             <span class="project-meta"><span class="project-number">02</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">Workflow-based AI Application</span></span>
@@ -1071,21 +1162,20 @@
               </div>
               <a class="showcase-cta" href="./docs/module1-enterprise-knowledge-workspace/index.html">View project →</a>
             </div>
-            <div class="poster-stage poster-knowledge" aria-label="Trusted context project cover">
-              <div class="poster-core">
-                <strong>Trusted Context</strong>
+            <div class="poster-stage poster-knowledge" aria-label="Product responsibility progression from traceable evidence to invocation control and usage eligibility">
+              <div class="poster-responsibility-chain" role="list" aria-label="Product responsibility progression">
+                <span class="poster-responsibility-node" role="listitem">Traceable Evidence</span>
+                <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
+                <span class="poster-responsibility-node" role="listitem">Invocation Control</span>
+                <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
+                <span class="poster-responsibility-node" role="listitem">Usage Eligibility</span>
               </div>
-              <span class="poster-keyword keyword-a">Sources</span>
-              <span class="poster-keyword keyword-b">Citations</span>
-              <span class="poster-keyword keyword-c">Agent</span>
-              <span class="poster-keyword keyword-d">Review</span>
-              <span class="poster-keyword keyword-e">Output</span>
               <h3 class="showcase-poster-title">Enterprise Knowledge Workspace</h3>
             </div>
             <div class="showcase-card-inner">
-              <p class="showcase-hook">Enterprise knowledge bases often fail not because knowledge is missing.</p>
-              <p class="showcase-decision">Key judgment: Knowing a policy is not the same as knowing whether it applies to you.</p>
-              <p class="showcase-value">This project is not a smarter Q&A knowledge base. It helps employees understand what evidence applies, whether the answer fits their context, and what the next action should be.</p>
+              <p class="showcase-hook">Knowledge can be found, but that does not mean it should enter the current task.</p>
+              <p class="showcase-decision">Key judgment: Knowing the rule is not the same as knowing whether it applies to your case.</p>
+              <p class="showcase-value">This project is not about building a knowledge base that answers more questions. It helps users understand what the evidence is, whether it applies to the current situation, and what to do next.</p>
             </div>
           </article>
 
