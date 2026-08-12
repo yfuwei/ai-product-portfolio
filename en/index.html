@@ -911,6 +911,641 @@
           gap: 6px;
         }
       }
+
+      /* English homepage: synchronized with the Chinese portfolio intro. */
+      html[lang="en"] body.home-comic-hero.en-home-v2 {
+        --section-block-y: clamp(42px, 4.2vw, 60px);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
+        display: grid;
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
+        grid-template-areas:
+          "punch featured"
+          "projects projects";
+        grid-template-rows: auto auto;
+        row-gap: clamp(14px, 1.6vw, 22px);
+        column-gap: clamp(12px, 1vw, 14px);
+        align-items: start;
+        padding-top: clamp(48px, 5vw, 70px);
+        padding-bottom: clamp(10px, 1.2vw, 16px);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack {
+        display: grid;
+        min-width: 0;
+        grid-area: punch;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack > * {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-headline-panel,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-demo-panel,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-judgment-panel {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-headline-panel {
+        margin: 0;
+        padding: 0 0 clamp(7px, 1vw, 11px);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-headline-panel::after {
+        display: none;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-headline-panel h1 {
+        max-width: 100%;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line {
+        font-size: clamp(32px, 2.6vw, 38px);
+        line-height: 1.08;
+      }
+
+      @media (min-width: 981px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line {
+          white-space: nowrap;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line + .hero-punch-title-line {
+          width: auto;
+          margin-top: 3px;
+          margin-left: 0;
+        }
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-demo-panel {
+        padding: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-demo-panel .hero-punch-explainer {
+        max-width: 100%;
+        font-size: clamp(14px, 1.05vw, 16px);
+        line-height: 1.52;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-judgment-panel {
+        margin-top: 0;
+        padding-top: 13px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-speed-warning {
+        margin-bottom: 8px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-actions {
+        margin-top: 12px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .secondary-action {
+        color: rgba(248, 250, 252, 0.9);
+        background: transparent;
+        border-color: rgba(148, 163, 184, 0.46);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-featured-case {
+        display: flex;
+        min-width: 0;
+        grid-area: featured;
+        flex-direction: column;
+        padding: clamp(14px, 1.45vw, 18px);
+        color: #1e293b;
+        background: rgba(255, 255, 255, 0.97);
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        border-top: 3px solid var(--hero-blue);
+        border-radius: 8px;
+        box-shadow: 0 14px 28px rgba(1, 12, 32, 0.18);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-header {
+        display: grid;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0 14px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-copy {
+        min-width: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-eyebrow,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-judgment {
+        margin: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-eyebrow {
+        color: var(--rose);
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0.1em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-eyebrow-star {
+        display: inline-block;
+        margin-left: 2px;
+        font-size: 0.9em;
+        font-weight: 750;
+        opacity: 0.86;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin: 8px 0 0;
+        color: #64748b;
+        font-size: 10.2px;
+        font-weight: 650;
+        line-height: 1.25;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-number {
+        color: #53657d;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-copy h2 {
+        margin: 5px 0 0;
+        color: #1d4ed8;
+        font-size: clamp(24px, 1.9vw, 30px);
+        font-weight: 900;
+        line-height: 1.13;
+        letter-spacing: -0.02em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-judgment {
+        max-width: 540px;
+        margin-top: 7px;
+        color: #1e293b;
+        font-size: clamp(13px, 1vw, 15px);
+        font-weight: 720;
+        line-height: 1.4;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-link,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-link {
+        align-self: start;
+        justify-self: end;
+        padding: 1px 0 2px;
+        color: #1d4ed8;
+        border-bottom: 1px solid rgba(37, 107, 255, 0.48);
+        font-size: 10.5px;
+        font-weight: 720;
+        line-height: 1.25;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-link:hover,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-link:focus-visible,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list a:hover .secondary-project-link,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list a:focus-visible .secondary-project-link {
+        color: #1e40af;
+        border-bottom-color: #1e40af;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-layout {
+        display: grid;
+        min-width: 0;
+        grid-template-columns: minmax(118px, 0.25fr) minmax(0, 0.75fr);
+        gap: 8px;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #d8e2f0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-copy {
+        min-width: 0;
+        padding-right: 8px;
+        border-right: 1px solid rgba(148, 163, 184, 0.32);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-heading,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-description {
+        margin: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-heading {
+        color: #53657d;
+        font-size: 11px;
+        font-weight: 750;
+        line-height: 1.3;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-description {
+        margin-top: 4px;
+        color: #64748b;
+        font-size: 10px;
+        font-weight: 520;
+        line-height: 1.42;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory {
+        display: grid;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory li {
+        display: grid;
+        min-width: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory .toc-item {
+        display: grid;
+        min-height: 24px;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 6px;
+        align-items: center;
+        padding: 4px 0;
+        color: #53657d;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.24);
+        font-size: clamp(9.5px, 0.73vw, 10.6px);
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory li:last-child .toc-item {
+        border-bottom: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory .toc-index {
+        color: #94a3b8;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory .toc-label {
+        min-width: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory li:nth-child(2) .toc-label,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory li:nth-child(5) .toc-label,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory li:nth-child(6) .toc-label {
+        color: #315eb8;
+        font-weight: 760;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-projects {
+        display: grid;
+        width: 100%;
+        min-width: 0;
+        grid-area: projects;
+        gap: 8px;
+        margin: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-eyebrow {
+        margin: 0;
+        color: var(--rose);
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0.1em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list {
+        display: grid;
+        min-width: 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list a {
+        display: grid;
+        min-width: 0;
+        min-height: 184px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto 1px auto auto;
+        row-gap: 7px;
+        align-content: start;
+        padding: 12px 14px 13px;
+        color: #1e293b;
+        background: #ffffff;
+        border: 1px solid #dbe3ed;
+        border-radius: 6px;
+        box-shadow: 0 5px 13px rgba(1, 12, 32, 0.08);
+        text-decoration: none;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-meta {
+        display: inline-flex;
+        min-width: 0;
+        grid-column: 1;
+        grid-row: 1;
+        align-items: center;
+        gap: 6px;
+        color: #64748b;
+        font-size: 9.5px;
+        font-weight: 650;
+        line-height: 1.25;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-number {
+        color: #53657d;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-name {
+        min-width: 0;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        color: #1d4ed8;
+        font-size: clamp(18px, 1.5vw, 22px);
+        font-weight: 900;
+        line-height: 1.13;
+        letter-spacing: -0.02em;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .project-two .secondary-project-name { color: #0f766e; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .project-three .secondary-project-name { color: #6d4cc5; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .project-four .secondary-project-name { color: #b45309; }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        grid-column: 1 / -1;
+        grid-row: 3;
+        background: #d8e2f0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-punch {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        color: #1e293b;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.32;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .secondary-project-explainer {
+        grid-column: 1 / -1;
+        grid-row: 5;
+        color: #64748b;
+        font-size: 10.5px;
+        font-weight: 520;
+        line-height: 1.36;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section {
+        padding: clamp(14px, 1.5vw, 20px) max(var(--home-section-padding-x), calc((100vw - var(--home-container-max)) / 2)) clamp(42px, 4vw, 54px);
+        background: linear-gradient(180deg, #0b111f 0%, #0d192c 46%, #0a1425 100%);
+        border-top: 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-transition {
+        width: min(100%, var(--home-container-max));
+        margin: 0 auto clamp(16px, 1.8vw, 22px);
+        color: #e5e7eb;
+        font-size: clamp(26px, 2vw, 30px);
+        font-weight: 600;
+        line-height: 1.24;
+        letter-spacing: 0.01em;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-transition p { margin: 0; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-transition .transition-capability { color: var(--hero-blue); font-weight: 680; }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .hero-featured-scenario {
+        display: grid;
+        width: min(100%, var(--home-container-max));
+        min-height: 0;
+        grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
+        gap: clamp(18px, 2vw, 24px);
+        margin: 0 auto;
+        padding: clamp(18px, 2vw, 24px);
+        color: #1e293b;
+        background: #f8fbff;
+        border: 1px solid #d8e2f0;
+        border-radius: 10px;
+        box-shadow: 0 16px 34px rgba(1, 12, 32, 0.16);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-copy {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        background: transparent;
+        border: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-header { display: block; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-title-group { margin-top: 7px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-eyebrow { color: #ff6fa3; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-copy h2 { margin: 0; color: #0f172a; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-subtitle { margin-top: 5px; color: #256bff; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-description { margin-top: 9px; color: #64748b; }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-link {
+        min-height: auto;
+        margin: 0;
+        padding: 1px 0 2px;
+        color: #1d4ed8;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(37, 107, 255, 0.58);
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-image {
+        width: 94%;
+        align-self: start;
+        justify-self: end;
+        margin-top: 6px;
+        padding: 0;
+        background: transparent;
+        border: 1px solid #d8e2f0;
+        border-radius: 7px;
+        box-shadow: none;
+        aspect-ratio: 1448 / 1086;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 4px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .scenario-build-title {
+        color: #334155;
+        font-size: 14px;
+        font-weight: 720;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .scenario-build-grid {
+        grid-auto-rows: 94px;
+        gap: 6px;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .scenario-build-item {
+        --scenario-project-accent: var(--hero-blue);
+        box-sizing: border-box;
+        min-height: 0;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 8px 6px 8px;
+        background: #fbfcfe;
+        border-color: #e7edf4;
+        border-left-color: var(--scenario-project-accent);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-build-head { min-height: 14px; align-items: center; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-build-head span { color: var(--scenario-project-accent); }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-build-combined-title {
+        display: block;
+        color: #1e293b;
+        font-size: clamp(9.2px, 0.72vw, 10.8px);
+        font-weight: 750;
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-build-combined-title .scenario-build-role { color: #334155; font-weight: 800; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .scenario-build-item .scenario-build-layer { margin-top: 3px; color: #64748b; font-size: 9.6px; line-height: 1.25; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .scenario-build-detail { color: #475569; font-size: 9.4px; line-height: 1.2; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-actions { border-top-color: #dbe3ed; padding-top: 6px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-tags { opacity: 1; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .featured-scenario-tags span { color: #475569; background: #f8fafc; border-color: #e1e7ee; border-radius: 3px; font-weight: 520; }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section + .ai-diagnosis-section {
+        border-top: 3px solid rgba(148, 163, 184, 0.3);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-section {
+        padding-top: clamp(38px, 3.2vw, 46px);
+        padding-bottom: clamp(36px, 3vw, 42px);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-section,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-section,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-section {
+        padding-top: var(--section-block-y);
+        padding-bottom: var(--section-block-y);
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-section { padding-top: clamp(40px, 4vw, 56px); padding-bottom: clamp(42px, 4vw, 58px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .memo-section { padding-top: clamp(38px, 3.6vw, 50px); padding-bottom: clamp(40px, 3.8vw, 52px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-inner,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-inner,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-inner,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .memo-inner { gap: clamp(18px, 2.2vw, 30px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-inner { gap: clamp(26px, 3vw, 42px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-inner { gap: clamp(24px, 2.8vw, 36px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-inner { gap: clamp(20px, 2.4vw, 30px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .story-thread { gap: clamp(18px, 2.2vw, 28px); padding-top: 20px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .memo-inner { gap: clamp(22px, 3vw, 38px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-heading { margin-bottom: clamp(20px, 2.4vw, 30px); }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board h2 {
+        font-size: clamp(36px, 3.1vw, 42px);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 0;
+      }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-title-hit { font-size: inherit; line-height: inherit; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board { gap: clamp(12px, 1.2vw, 16px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-cut { min-height: 188px; gap: 8px; padding: 14px 16px 15px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-cut::before { top: 14px; bottom: 15px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-meta { gap: 8px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-meta span { font-size: clamp(15px, 1.2vw, 18px); }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-meta strong { font-size: clamp(26px, 2vw, 30px); line-height: 1.1; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-copy { gap: 8px; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-copy h3 { font-size: clamp(24px, 1.85vw, 28px); line-height: 1.14; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-copy p { max-width: 100%; }
+
+      html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-heading h2,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-heading h2,
+      html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-lead h2 { font-size: clamp(38px, 3.4vw, 50px); font-weight: 900; line-height: 1.12; }
+      html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-heading h2 { font-size: clamp(40px, 3.5vw, 50px); }
+
+      @media (max-width: 980px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas: "punch" "featured" "projects";
+          gap: 30px;
+          padding: 36px 20px 42px;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section .hero-featured-scenario { grid-template-columns: minmax(0, 1fr); }
+      }
+
+      @media (max-width: 640px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 { --section-block-y: 36px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero { gap: 26px; padding-top: 36px; padding-bottom: 42px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line { font-size: clamp(29px, 7.8vw, 34px); white-space: normal; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line + .hero-punch-title-line { margin-left: 0; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-featured-case { padding: 20px 16px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-layout { grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 14px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory-copy { padding: 0 0 8px; border-right: 0; border-bottom: 1px solid rgba(148, 163, 184, 0.32); }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .featured-case-directory .toc-item { min-height: 0; padding: 7px 1px; font-size: 11px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list { grid-template-columns: minmax(0, 1fr); }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-secondary-project-list a { min-height: 158px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-section { padding-top: 20px; padding-bottom: 42px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .sample-room-transition { font-size: clamp(21px, 6vw, 26px); line-height: 1.3; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-section { padding-top: 38px; padding-bottom: 36px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-section,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-section,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-section { padding-top: var(--section-block-y); padding-bottom: var(--section-block-y); }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .story-section { padding-top: 34px; padding-bottom: 38px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .memo-section { padding-top: 32px; padding-bottom: 36px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-inner,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-inner,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .story-inner,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .memo-inner { gap: 18px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-inner,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-inner,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .memo-inner { gap: 22px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-heading { margin-bottom: 18px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board h2,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .scenario-mining-heading h2,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .showcase-heading h2,
+        html[lang="en"] body.home-comic-hero.en-home-v2 .positioning-lead h2 { font-size: clamp(28px, 7.2vw, 32px); line-height: 1.14; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-title-line { padding-left: 12px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-board { gap: 12px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-cut { min-height: 0; gap: 7px; padding: 14px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-cut::before { top: 14px; bottom: 14px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-meta strong { font-size: 24px; }
+        html[lang="en"] body.home-comic-hero.en-home-v2 .ai-diagnosis-copy h3 { font-size: clamp(20px, 5.2vw, 22px); line-height: 1.16; }
+      }
     </style>
   </head>
   <body class="home-comic-hero zh-home-v2 en-home-v2">
@@ -930,122 +1565,120 @@
 
     <main>
       <section id="home" class="hero-section productization-hero en-productization-hero">
-        <div class="hero-headline-panel">
-          <h1 class="en-hero-title">
-            <span class="hero-punch-title-line">The most common trap in AI projects</span>
-            <span class="hero-punch-title-line">is “<span class="hero-title-accent">build first, justify later</span>.”</span>
-          </h1>
-        </div>
-
-        <div class="hero-demo-panel">
-          <p class="hero-punch-explainer">
-            <span class="hero-punch-copy-line">Build a demo, then search for a use case;</span>
-            <span class="hero-punch-copy-line">plug in the model, then patch the workflow;</span>
-            <span class="hero-punch-copy-line">prove that “AI can do it,”</span>
-            <span class="hero-punch-copy-line">then ask who will actually use it.</span>
-          </p>
-        </div>
-
-        <div class="hero-judgment-panel">
-          <p class="hero-speed-warning">The faster you build, the deeper the mistake.</p>
-          <p class="hero-punch-closing">
-            <span class="hero-punch-closing-line">Connecting the model is only the beginning;</span>
-            <span class="hero-punch-closing-line"><span class="hero-closing-accent">catching the task</span> is what makes it a product.</span>
-          </p>
-          <div class="hero-actions">
-            <a class="primary-action" href="#entries"><span>View Project Cases</span> <span aria-hidden="true">→</span></a>
-            <a class="secondary-action" href="#philosophy"><span>View My Product Judgment</span> <span aria-hidden="true">→</span></a>
-            <a class="scenario-action" href="docs/hr-comprehensive-scenario-sample-room/index.html">
-              <span class="scenario-action-label">Enter AI Scenario Showroom <span aria-hidden="true">→</span></span>
-            </a>
+        <div class="hero-punch-stack">
+          <div class="hero-headline-panel">
+            <h1 class="en-hero-title">
+              <span class="hero-punch-title-line">The most common trap in AI projects</span>
+              <span class="hero-punch-title-line">is “<span class="hero-title-accent">build first, justify later</span>.”</span>
+            </h1>
+          </div>
+          <div class="hero-demo-panel">
+            <p class="hero-punch-explainer">
+              <span class="hero-punch-copy-line">Build a demo, then search for a use case;</span>
+              <span class="hero-punch-copy-line">plug in the model, then patch the workflow;</span>
+              <span class="hero-punch-copy-line">prove that “AI can do it,”</span>
+              <span class="hero-punch-copy-line">then ask who will actually use it.</span>
+            </p>
+          </div>
+          <div class="hero-judgment-panel">
+            <p class="hero-speed-warning">The faster you build, the deeper the mistake.</p>
+            <p class="hero-punch-closing">
+              <span class="hero-punch-closing-line">Connecting the model is only the beginning;</span>
+              <span class="hero-punch-closing-line"><span class="hero-closing-accent">catching the task</span> is what makes it a product.</span>
+            </p>
+            <div class="hero-actions"><a class="secondary-action" href="#philosophy">View My Product Judgment <span aria-hidden="true">→</span></a></div>
           </div>
         </div>
 
+        <article class="hero-featured-case" aria-labelledby="featured-case-title">
+          <div class="featured-case-header">
+            <div class="featured-case-copy">
+              <p class="featured-case-eyebrow">FEATURED CASE <span class="featured-case-eyebrow-star" aria-hidden="true">★</span></p>
+              <p class="featured-case-meta"><span class="featured-case-number">01</span><span class="featured-case-type">Knowledge AI Application</span></p>
+              <h2 id="featured-case-title">Business AI Assistant</h2>
+              <p class="featured-case-judgment">Finding knowledge is only the beginning. Trustworthy use is the product.</p>
+            </div>
+            <a class="featured-case-link" href="./docs/module1-enterprise-knowledge-workspace/index.html">View full case <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="featured-case-directory-layout">
+            <div class="featured-case-directory-copy">
+              <p class="featured-case-directory-heading">Eight questions:</p>
+              <p class="featured-case-directory-description">How a local retrieval experiment became a clearer split of knowledge, evidence, and product ownership.</p>
+            </div>
+            <ol class="featured-case-directory" aria-label="Business AI Assistant project overview">
+              <li><span class="toc-item"><span class="toc-index">01</span><span class="toc-label">This is not a feature-upgrade roadmap</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">02</span><span class="toc-label">What did four product judgments change?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">03</span><span class="toc-label">As RAG, Agent, and Wiki products mature, why wasn’t the product rebuilt from scratch?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">04</span><span class="toc-label">As a model’s general-purpose capabilities mature, which product responsibilities must remain product-owned?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">05</span><span class="toc-label">Where does product value remain as models, retrieval, and invocation become standard?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">06</span><span class="toc-label">What is the product manager responsible for?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">07</span><span class="toc-label">Why does the project stop here?</span></span></li>
+              <li><span class="toc-item"><span class="toc-index">08</span><span class="toc-label">When should the boundary be reopened?</span></span></li>
+            </ol>
+          </div>
+        </article>
+
+        <nav class="hero-secondary-projects" aria-label="Other project entry points">
+          <p class="hero-secondary-eyebrow">OTHER PROJECTS</p>
+          <div class="hero-secondary-project-list">
+            <a class="project-two" href="./docs/module2-ai-business-requirement-flow/index.html">
+              <span class="secondary-project-meta"><span class="secondary-project-number">02</span><span class="secondary-project-type">Workflow AI Application</span></span>
+              <span class="secondary-project-link">View project <span aria-hidden="true">→</span></span>
+              <span class="secondary-project-name">AI Business Requirement Flow Workspace</span>
+              <span class="secondary-project-divider" aria-hidden="true"></span>
+              <span class="secondary-project-punch">Detected does not mean routed</span>
+              <span class="secondary-project-explainer">The better AI gets at detection, the easier it is to damage the product.</span>
+            </a>
+            <a class="project-three" href="./docs/module3-ai-content-operations-workflow/index.html">
+              <span class="secondary-project-meta"><span class="secondary-project-number">03</span><span class="secondary-project-type">Content AI Application</span></span>
+              <span class="secondary-project-link">View project <span aria-hidden="true">→</span></span>
+              <span class="secondary-project-name">AI Marketing Content Production Workflow</span>
+              <span class="secondary-project-divider" aria-hidden="true"></span>
+              <span class="secondary-project-punch">Generated does not mean capacity</span>
+              <span class="secondary-project-explainer">Content generation is not the endpoint; entering the production chain is.</span>
+            </a>
+            <a class="project-four" href="./docs/module4-ai-evaluation-governance-framework/index.html">
+              <span class="secondary-project-meta"><span class="secondary-project-number">04</span><span class="secondary-project-type">Methodology</span></span>
+              <span class="secondary-project-link">View project <span aria-hidden="true">→</span></span>
+              <span class="secondary-project-name">AI Application Evaluation &amp; Governance Framework</span>
+              <span class="secondary-project-divider" aria-hidden="true"></span>
+              <span class="secondary-project-punch">A working demo is not launch-ready</span>
+              <span class="secondary-project-explainer">What AI should not do is also a product judgment.</span>
+            </a>
+          </div>
+        </nav>
+      </section>
+
+      <section class="sample-room-section" aria-label="AI Scenario Showroom">
+        <div class="sample-room-transition"><p>When <span class="transition-capability">four AI capabilities</span> enter one real business workflow, the product questions truly begin.</p></div>
         <article class="hero-featured-scenario" aria-labelledby="featured-scenario-title">
           <div class="featured-scenario-copy">
             <div class="featured-scenario-intro">
               <div class="featured-scenario-header">
-                <div class="featured-scenario-title-group">
+                <div class="featured-scenario-topline">
                   <p class="featured-scenario-eyebrow"><span aria-hidden="true">★</span> Integrated Scenario Entry</p>
-                  <div class="featured-scenario-title-row">
-                    <h2 id="featured-scenario-title">AI Scenario Showroom</h2>
-                  </div>
+                  <a class="featured-scenario-link" href="docs/hr-comprehensive-scenario-sample-room/index.html">Enter Showroom <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="featured-scenario-title-group">
+                  <div class="featured-scenario-title-row"><h2 id="featured-scenario-title">AI Scenario Showroom</h2></div>
                   <p class="featured-scenario-subtitle">How AI enters an HR recruiting workflow</p>
                 </div>
-                <a class="featured-scenario-link" href="docs/hr-comprehensive-scenario-sample-room/index.html">Enter Showroom <span aria-hidden="true">→</span></a>
               </div>
               <p class="featured-scenario-description">Starting from a vague request like “hire someone who understands AI,” this showroom reassembles the four projects into one HR recruiting workflow.</p>
             </div>
-            <div class="scenario-build" aria-label="Showroom assembly">
-              <p class="scenario-build-title">Showroom assembly:</p>
+            <div class="scenario-build" aria-label="Four projects assembled in one scenario">
+              <p class="scenario-build-title">Four projects assembled in one scenario</p>
               <div class="scenario-build-grid">
-                <article class="scenario-build-item">
-                  <div class="scenario-build-head"><span>01</span><strong>Project 1: Information Load-Bearing Wall</strong></div>
-                  <p class="scenario-build-layer">Trusted context｜Input layer｜Information foundation for recruiting judgment</p>
-                  <p>JD / level / interview review / historical records</p>
-                </article>
-                <article class="scenario-build-item">
-                  <div class="scenario-build-head"><span>02</span><strong>Project 2: Decision Path</strong></div>
-                  <p class="scenario-build-layer">Business signal flow｜Workflow layer｜Decision path inside recruiting</p>
-                  <p>Request → clarification → screening → interview → decision</p>
-                </article>
-                <article class="scenario-build-item">
-                  <div class="scenario-build-head"><span>03</span><strong>Project 3: Decision Assembly Unit</strong></div>
-                  <p class="scenario-build-layer">Structured output｜Output layer｜Structured recruiting decision outputs</p>
-                  <p>JD / interview questions / candidate package</p>
-                </article>
-                <article class="scenario-build-item">
-                  <div class="scenario-build-head"><span>04</span><strong>Project 4: Judgment Gate</strong></div>
-                  <p class="scenario-build-layer">Methodology base｜Control layer｜Rules for AI intervention in recruiting</p>
-                  <p>Scenario / boundary / gate</p>
-                </article>
+                <article class="scenario-build-item"><div class="scenario-build-head"><span>01</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">Load-bearing Context Wall</span>: Business AI Assistant</strong><p class="scenario-build-layer">Trusted context｜Input layer｜Information foundation for recruiting judgment</p><p class="scenario-build-detail">JD / level / interview review / historical records</p></article>
+                <article class="scenario-build-item"><div class="scenario-build-head"><span>02</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">Decision Pathway</span>: AI Business Requirement Flow Workspace</strong><p class="scenario-build-layer">Business signal flow｜Workflow layer｜Decision path inside recruiting</p><p class="scenario-build-detail">Request → clarification → screening → interview → decision</p></article>
+                <article class="scenario-build-item"><div class="scenario-build-head"><span>03</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">Decision Assembly Unit</span>: AI Marketing Content Production Workflow</strong><p class="scenario-build-layer">Structured output｜Output layer｜Structured recruiting decision outputs</p><p class="scenario-build-detail">JD / interview questions / candidate package</p></article>
+                <article class="scenario-build-item"><div class="scenario-build-head"><span>04</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">Judgment Gate</span>: AI Application Evaluation &amp; Governance Framework</strong><p class="scenario-build-layer">Methodology base｜Control layer｜Rules for AI intervention in recruiting</p><p class="scenario-build-detail">Scenario / boundary / gate</p></article>
               </div>
             </div>
-            <div class="featured-scenario-actions">
-              <div class="featured-scenario-tags" aria-label="Scenario entry values">
-                <span>Real workflow stitching</span>
-                <span>Capability module assembly</span>
-                <span>End-to-end demo</span>
-                <span>Reusable governance</span>
-              </div>
-            </div>
+            <div class="featured-scenario-actions"><div class="featured-scenario-tags" aria-label="Scenario entry values"><span>Real workflow stitching</span><span>Capability module assembly</span><span>End-to-end demo</span><span>Reusable governance</span></div></div>
           </div>
-          <figure class="featured-scenario-image">
-            <img src="../assets/images/hr-sample-room/home-hero-hr-sample-room-en-cropped.png" alt="HR recruiting workflow visual" width="1370" height="991" decoding="async">
-          </figure>
+          <figure class="featured-scenario-image"><img src="../assets/images/hr-sample-room/hr-hero-en.png" alt="AI Integrated Scenario Sample Room hero image" width="1448" height="1086" decoding="async"></figure>
         </article>
-
-        <aside class="hero-project-index hero-project-panels" aria-label="Core project entry points">
-          <div class="hero-capability-heading">
-            <p class="hero-capability-title"><span class="hero-capability-mark" aria-hidden="true">◆</span> AI Capability Modules</p>
-            <span class="hero-capability-separator" aria-hidden="true">｜</span>
-            <p class="hero-capability-kicker">Selected Projects</p>
-          </div>
-          <a class="hero-project-card project-one" href="./docs/module1-enterprise-knowledge-workspace/index.html">
-            <span class="project-meta"><span class="project-number">01</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">Knowledge-based AI Application</span></span>
-            <span class="project-name">Business AI Assistant</span>
-            <span class="project-summary" title="Knowledge can be found, but that does not mean it should enter the current task."><span class="project-hook">Knowledge can be found, but that does not mean it should enter the current task.</span></span>
-            <span class="project-action"><strong class="project-punch">Found is not yet safe to use</strong><span class="project-cta" aria-hidden="true">→</span></span>
-          </a>
-          <a class="hero-project-card project-two" href="./docs/module2-ai-business-requirement-flow/index.html">
-            <span class="project-meta"><span class="project-number">02</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">Workflow-based AI Application</span></span>
-            <span class="project-name">AI Business Requirement Flow Workspace</span>
-            <span class="project-summary" title="The better AI gets at detection, the easier it is to damage the product."><span class="project-hook">The better AI gets at detection, the easier it is to damage the product.</span></span>
-            <span class="project-action"><strong class="project-punch">Detected does not mean routed</strong><span class="project-cta" aria-hidden="true">→</span></span>
-          </a>
-          <a class="hero-project-card project-three" href="./docs/module3-ai-content-operations-workflow/index.html">
-            <span class="project-meta"><span class="project-number">03</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">Content-based AI Application</span></span>
-            <span class="project-name">AI Marketing Content Production Workflow</span>
-            <span class="project-summary" title="Content generation is not the endpoint; entering the production chain is."><span class="project-hook">Content generation is not the endpoint; entering the production chain is.</span></span>
-            <span class="project-action"><strong class="project-punch">Generated does not mean capacity</strong><span class="project-cta" aria-hidden="true">→</span></span>
-          </a>
-          <a class="hero-project-card project-four" href="./docs/module4-ai-evaluation-governance-framework/index.html">
-            <span class="project-meta"><span class="project-number">04</span><span class="project-separator" aria-hidden="true">｜</span><span class="project-label">AI App Evaluation & Governance</span></span>
-            <span class="project-name">AI App Evaluation & Governance Framework</span>
-            <span class="project-summary" title="What AI should not do is also a product judgment."><span class="project-hook">What AI should not do is also a product judgment.</span></span>
-            <span class="project-action"><strong class="project-punch">A working demo is not launch-ready</strong><span class="project-cta" aria-hidden="true">→</span></span>
-          </a>
-        </aside>
       </section>
 
       <section id="philosophy" class="section-block philosophy-section ai-diagnosis-section" aria-labelledby="philosophy-title">
