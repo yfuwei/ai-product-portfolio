@@ -967,12 +967,20 @@
       }
 
       html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line {
-        font-size: clamp(32px, 2.6vw, 38px);
+        max-width: 100%;
+        font-size: clamp(30px, 2.42vw, 36px);
         line-height: 1.08;
+        text-wrap: balance;
       }
 
-      @media (min-width: 981px) {
+      @media (min-width: 1171px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
+          grid-template-columns: minmax(0, 0.53fr) minmax(0, 0.47fr);
+          column-gap: clamp(20px, 1.8vw, 28px);
+        }
+
         html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line {
+          display: block;
           white-space: nowrap;
         }
 
@@ -980,6 +988,29 @@
           width: auto;
           margin-top: 3px;
           margin-left: 0;
+        }
+      }
+
+      @media (min-width: 981px) and (max-width: 1170px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .productization-hero {
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas:
+            "punch"
+            "featured"
+            "projects";
+          row-gap: 26px;
+        }
+
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack {
+          max-width: 760px;
+        }
+
+      }
+
+      @media (max-width: 1170px) {
+        html[lang="en"] body.home-comic-hero.en-home-v2 .hero-punch-stack .hero-punch-title-line {
+          display: inline;
+          white-space: normal;
         }
       }
 
@@ -1568,8 +1599,9 @@
         <div class="hero-punch-stack">
           <div class="hero-headline-panel">
             <h1 class="en-hero-title">
-              <span class="hero-punch-title-line">The most common trap in AI projects</span>
-              <span class="hero-punch-title-line">is “<span class="hero-title-accent">build first, justify later</span>.”</span>
+              <span class="hero-punch-title-line">The most common trap</span>
+              <span class="hero-punch-title-line">in AI projects is</span>
+              <span class="hero-punch-title-line">“<span class="hero-title-accent">build first, justify later</span>.”</span>
             </h1>
           </div>
           <div class="hero-demo-panel">
