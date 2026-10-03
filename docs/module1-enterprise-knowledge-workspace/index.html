@@ -10932,6 +10932,1687 @@
       @media (max-width: 760px) {
         #project-panel-design .prd-main .prd-title-clause { display: inline; width: auto; max-width: none; }
       }
+      /* P2.1: restore artifact groups without introducing field-level cards. */
+      #project-panel-design {
+        --prd-space-section: 88px;
+        --prd-space-subsection: 48px;
+        --prd-space-block: 20px;
+        --prd-space-tight: 8px;
+        --prd-panel-pad: 24px;
+        --prd-evidence-shadow: 0 2px 10px rgba(34, 38, 45, .035);
+      }
+      #project-panel-design .prd-main > .prd-section { padding-block: calc(var(--prd-space-section) / 2); }
+      #project-panel-design .prd-main .prd-section-header { margin-bottom: 40px; }
+      #project-panel-design .prd-main .prd-subsection-stack { gap: var(--prd-space-subsection); }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) .prd-subsection > :last-child { margin-bottom: 0; }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) .prd-subsection > h3 {
+        margin: 0 0 14px; font-size: 21px; font-weight: 700; line-height: 1.45;
+      }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) .prd-subsection :where(p,li,dd):not(:where(.prd-heading-label,.pm-record-label,.el-figure-label,.kg-mini-label,.wk-label,.prd-subsection-label,.prd-figure-caption-note)) {
+        font-size: 15px; font-weight: 400; line-height: 1.7;
+      }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) .prd-subsection > p {
+        margin: 0 0 var(--prd-space-block); max-width: 78ch;
+      }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) :is(h4,.prd-heading-label,.pm-record-label,.el-figure-label) {
+        font-size: 15.5px; font-weight: 650; line-height: 1.5;
+      }
+      #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) :is(dt,.prd-field-label,.prd-control-field-label,.wk-source-id,.prd-subsection-label,.kg-mini-label,.wk-label) {
+        font-size: 12px; font-weight: 550; line-height: 1.5;
+      }
+      #project-panel-design .prd-main .prd-prose strong { font-weight: 550; }
+      #project-panel-design .prd-main [data-prd-surface="light"] {
+        padding: var(--prd-panel-pad); border: 1px solid var(--prd-line); border-radius: 8px; background: var(--prd-surface); box-shadow: none;
+      }
+      #project-panel-design .prd-main [data-prd-surface="primary"] {
+        padding: var(--prd-panel-pad); border: 1px solid var(--prd-line); border-radius: 8px; background: #fff; box-shadow: var(--prd-evidence-shadow);
+      }
+      #project-panel-design .prd-main .prd-subsection > :is(div,figure,ol,dl,aside) + p { margin-top: 12px; }
+      #project-panel-design .prd-main .prd-p2-transition { padding-top: 20px; }
+      #project-panel-design .prd-main :is(figcaption,.prd-figure-caption-note) { font-size: 13px; font-weight: 400; line-height: 1.6; }
+      #project-panel-design .prd-main .prd-p2-detail > summary { font-size: 13px; font-weight: 550; }
+
+      #project-panel-design #design-task .prd-task-brief {
+        display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 32px; padding: var(--prd-panel-pad); border: 1px solid var(--prd-line); border-radius: 8px; background: var(--prd-surface);
+      }
+      #project-panel-design #design-task .prd-task-brief .prd-heading-label { margin-bottom: 6px; font-size: 12px; color: var(--prd-muted); font-weight: 550; }
+      #project-panel-design #design-task .prd-task-brief p { margin: 0; }
+      #project-panel-design #design-task .prd-task-chain .prd-task-step { padding: 16px 0; }
+      #project-panel-design #design-task .prd-task-chain .prd-task-step:first-child { padding-top: 0; }
+      #project-panel-design #design-task .prd-task-chain .prd-task-step:last-child { padding-bottom: 0; }
+      #project-panel-design #design-task .prd-task-failure .prd-subsection-label { font-size: 12px; }
+      #project-panel-design #design-task .prd-task-failure p { font-size: 14px; line-height: 1.65; }
+      #project-panel-design #design-task .prd-task-mapping {
+        margin: 0; padding: var(--prd-panel-pad); border: 1px solid var(--prd-line); border-radius: 8px; background: #fff;
+      }
+      #project-panel-design #design-task :is(.prd-task-mapping-head,.prd-task-mapping-row) {
+        display: grid; grid-template-columns: minmax(0,1fr) 28px minmax(0,1.6fr); gap: 20px; align-items: start;
+      }
+      #project-panel-design #design-task .prd-task-mapping-head { padding: 0 0 12px; border-bottom: 1px solid var(--prd-line); }
+      #project-panel-design #design-task .prd-task-mapping-head .prd-subsection-label { color: var(--prd-muted); font-size: 12px; font-weight: 600; }
+      #project-panel-design #design-task .prd-task-mapping-head > :nth-child(2)::after { content: "→"; color: var(--prd-blue); }
+      #project-panel-design #design-task .prd-task-mapping-row {
+        padding: 16px 0; border: 0; border-bottom: 1px solid var(--prd-line); border-radius: 0; background: transparent; box-shadow: none;
+      }
+      #project-panel-design #design-task .prd-task-mapping-row:last-child { padding-bottom: 0; border-bottom: 0; }
+      #project-panel-design #design-task .prd-task-mapping-row :is(p,h4) { margin: 0; }
+      #project-panel-design #design-task .prd-task-mapping-row h4 { margin-bottom: 6px; }
+      #project-panel-design #design-task .prd-task-mapping-row .prd-task-mapping-failure { color: var(--prd-copy); font-weight: 400; }
+      #project-panel-design #design-task .prd-task-mapping-arrow { color: var(--prd-blue); padding-top: 3px; }
+      #project-panel-design #design-task .prd-task-derivation {
+        display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; padding: 0; margin: 0; border: 1px solid var(--prd-line); border-radius: 8px; background: #fff;
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column {
+        margin: 0; padding: var(--prd-panel-pad); border: 0; border-radius: 0; background: transparent; box-shadow: none;
+      }
+      #project-panel-design #design-task .prd-task-derivation > :nth-child(2),
+      #project-panel-design #design-task .prd-task-derivation > :nth-child(4) { border-left: 1px solid var(--prd-line); }
+      #project-panel-design #design-task .prd-task-derivation > :nth-child(3),
+      #project-panel-design #design-task .prd-task-derivation > :nth-child(4) { border-top: 1px solid var(--prd-line); }
+      #project-panel-design #design-task .prd-task-derivation .prd-heading-label { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+      #project-panel-design #design-task .prd-task-derivation .prd-list { display: grid; gap: 4px; margin: 0; padding: 0; }
+      #project-panel-design #design-task .prd-task-derivation .prd-list li { font-size: 15px; line-height: 1.6; }
+      #project-panel-design #design-task .prd-task-derivation > .prd-task-object-strip {
+        position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 24px; padding: 20px var(--prd-panel-pad); border-top: 1px solid var(--prd-line); border-radius: 0 0 8px 8px; background: var(--prd-surface);
+      }
+      #project-panel-design #design-task .prd-task-object-strip::before { content: "↓"; position: absolute; left: 26px; top: -12px; padding: 0 4px; color: var(--prd-blue); background: #fff; line-height: 20px; }
+      #project-panel-design #design-task .prd-task-object-strip .prd-heading-label { margin: 0; }
+      #project-panel-design #design-task .prd-task-object-strip .prd-list { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+      #project-panel-design #design-task .prd-task-responsibilities .prd-list { gap: 4px; }
+
+      /* Four protected future screenshot slots, using the same evidence framing. */
+      #project-panel-design :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot {
+        display: grid; place-items: center; width: 100%; aspect-ratio: 16 / 9; margin: 20px 0 0; padding: 24px; border: 1px dashed var(--prd-line); border-radius: 8px; background: var(--prd-surface); box-shadow: none; text-align: center;
+      }
+      #project-panel-design :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot figcaption { margin: 0; padding: 0; border: 0; background: transparent; color: var(--prd-muted); text-align: center; }
+      #project-panel-design :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot .prd-p21-slot-label { display: block; margin-bottom: 10px; font-size: 12px; font-weight: 550; letter-spacing: .06em; }
+      #project-panel-design :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot strong { display: block; color: var(--prd-ink); font-size: 16px; font-weight: 650; line-height: 1.5; }
+      #project-panel-design .prd-main :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot p { margin: 8px 0 0; font-size: 13px; color: var(--prd-muted); }
+      @media (max-width: 760px) {
+        #project-panel-design { --prd-space-section: 64px; --prd-space-subsection: 36px; --prd-space-block: 16px; --prd-panel-pad: 16px; }
+        #project-panel-design .prd-main .prd-section-header { margin-bottom: 32px; }
+        #project-panel-design .prd-main :is(#design-overview,#design-task,#design-v1,#design-v1-validation,#design-v2,#design-v3,#design-graph,#design-wiki) .prd-subsection > h3 { font-size: 18px; margin-bottom: 12px; }
+        #project-panel-design #design-task .prd-task-brief { grid-template-columns: minmax(0,1fr); gap: 16px; }
+        #project-panel-design #design-task .prd-task-mapping-head { display: none; }
+        #project-panel-design #design-task .prd-task-mapping-row { grid-template-columns: minmax(0,1fr); gap: 8px; padding: 16px 0; }
+        #project-panel-design #design-task .prd-task-mapping-row:first-of-type { padding-top: 0; }
+        #project-panel-design #design-task .prd-task-mapping-row .prd-task-mapping-arrow { width: 18px; padding: 0; transform: rotate(90deg); }
+        #project-panel-design #design-task .prd-task-derivation { grid-template-columns: minmax(0,1fr); }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column { border-left: 0; }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column + .prd-compact-column { border-top: 1px solid var(--prd-line); }
+        #project-panel-design #design-task .prd-task-derivation > .prd-task-object-strip { grid-template-columns: minmax(0,1fr); gap: 10px; }
+        #project-panel-design #design-task .prd-task-object-strip .prd-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 16px; }
+        #project-panel-design :is(#design-v1-validation,#design-v3) .prd-p21-evidence-slot { min-height: 190px; padding: 16px; }
+      }
+
+/* P2.1 / B03-B04: one boundary per complete artifact.
+   Append after the existing P2 styles. Section IDs intentionally outrank
+   the generic data-prd-surface="plain" and "primary" reset rules. */
+
+/* B03: process nodes stay plain inside one neutral flow panel. */
+#project-panel-design #design-v1 .prd-flow.prd-build-flow {
+  gap: 12px;
+  margin-block: 20px 12px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-build-flow > .prd-build-node {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-build-flow > .prd-flow-arrow {
+  flex-basis: 14px;
+}
+
+/* 3.2: all formats belong to one parsing matrix; rows supply dividers. */
+#project-panel-design #design-v1 .prd-build-format-rows {
+  margin-top: 20px;
+  padding: 2px 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+}
+#project-panel-design #design-v1 .prd-build-format-row {
+  padding-block: 14px;
+}
+#project-panel-design #design-v1 .prd-build-format-row:last-child {
+  border-bottom: 0;
+}
+
+/* Complete records and Before/After artifacts receive a single surface. */
+#project-panel-design #design-v1 .prd-build-metadata[data-prd-surface],
+#project-panel-design #design-v1 .prd-build-version-compare[data-prd-surface],
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns {
+  margin-block: 20px 12px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-build-metadata > .prd-build-source-info,
+#project-panel-design #design-v1 .prd-build-version-compare,
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns {
+  gap: 20px;
+}
+#project-panel-design #design-v1 .prd-build-source-info > div,
+#project-panel-design #design-v1 .prd-build-version-compare > div,
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns > div {
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-build-source-info > div + div,
+#project-panel-design #design-v1 .prd-build-version-compare > div + div,
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-build-info-list > div:last-child {
+  border-bottom: 0;
+}
+
+/* 3.6: adjacent input/output bands visually form ONE evidence record.
+   No HTML/text changes are required, and each field remains plain. */
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-columns:not(.prd-build-answer-output) {
+  gap: 20px;
+  margin: 20px 0 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-columns:not(.prd-build-answer-output) > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-answer-output {
+  gap: 20px;
+  margin: 0 0 12px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 0 0 8px 8px;
+}
+#project-panel-design #design-v1 .prd-build-answer-output > div {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-build-answer-output > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+
+/* Supporting result matrices share the same group boundary. */
+#project-panel-design #design-v1 .prd-table-wrap[data-prd-surface="light"],
+#project-panel-design #design-v1-validation .prd-table-wrap.prd-val-diagnosis-table,
+#project-panel-design #design-v1-validation .prd-table-wrap.prd-val-regression-table {
+  margin-block: 20px 12px;
+  padding: 0;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* B04: the ten-question coverage design is one matrix, not four cards. */
+#project-panel-design #design-v1-validation .prd-val-test-groups[data-prd-surface] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-block: 20px 12px;
+  padding: 0;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+#project-panel-design #design-v1-validation .prd-val-test-groups > article[data-prd-surface] {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1-validation .prd-val-test-groups > article:nth-child(even) {
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1-validation .prd-val-test-groups > article:nth-child(n + 3) {
+  border-top: 1px solid var(--prd-line);
+}
+
+/* The Query/expected evidence record has one outer frame, no field cards. */
+#project-panel-design #design-v1-validation .prd-val-variants[data-prd-surface] {
+  margin-block: 20px 12px;
+  padding: 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* First-round results keep primary weight without a blue perimeter. */
+#project-panel-design #design-v1-validation .prd-val-results[data-prd-surface] {
+  gap: 0;
+  margin-block: 20px 12px;
+  padding: 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--prd-ink) 5%, transparent);
+}
+#project-panel-design #design-v1-validation .prd-val-results > div {
+  min-width: 0;
+  padding-inline: 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+#project-panel-design #design-v1-validation .prd-val-results > div + div {
+  padding-left: 16px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1-validation .prd-val-results > div:first-child {
+  padding-left: 0;
+}
+#project-panel-design #design-v1-validation .prd-val-results > div:last-child {
+  padding-right: 0;
+}
+
+/* Each full Bad Case is one artifact. The list itself stays plain. */
+#project-panel-design #design-v1-validation .prd-val-cases[data-prd-surface] {
+  display: grid;
+  gap: 20px;
+  margin-block: 20px 12px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-v1-validation .prd-val-cases > .prd-val-case[data-prd-surface] {
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+#project-panel-design #design-v1-validation .prd-val-case > header {
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1-validation .prd-val-case dl {
+  gap: 0;
+}
+#project-panel-design #design-v1-validation .prd-val-case dl > div {
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 12px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--prd-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-v1-validation .prd-val-case dl > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+#project-panel-design #design-v1-validation .prd-val-case dl > div:first-child dt {
+  color: var(--prd-ink);
+}
+
+/* Regression process and result record are separate complete artifacts.
+   Query summary + result matrix share one continuous neutral boundary. */
+#project-panel-design #design-v1-validation .prd-flow.prd-val-regression {
+  gap: 12px;
+  margin-block: 20px 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+}
+#project-panel-design #design-v1-validation .prd-val-regression-summary[data-prd-surface] {
+  margin: 20px 0 0;
+  padding: 18px 20px;
+  border: 1px solid var(--prd-line);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: #fff;
+}
+#project-panel-design #design-v1-validation .prd-val-regression-summary + .prd-val-regression-table {
+  margin-top: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 980px) {
+  #project-panel-design #design-v1 .prd-flow.prd-build-flow {
+    flex-direction: column;
+    gap: 6px;
+  }
+  #project-panel-design #design-v1 .prd-build-flow > .prd-build-node {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 4px;
+  }
+  #project-panel-design #design-v1 .prd-build-flow > .prd-flow-arrow {
+    flex-basis: auto;
+    margin-left: 10px;
+    min-height: 14px;
+  }
+  #project-panel-design #design-v1 .prd-build-version-compare,
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns,
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-columns,
+  #project-panel-design #design-v1-validation .prd-val-test-groups[data-prd-surface] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #project-panel-design #design-v1 .prd-build-source-info > div + div,
+  #project-panel-design #design-v1 .prd-build-version-compare > div + div,
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns > div + div,
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-columns:not(.prd-build-answer-output) > div + div,
+  #project-panel-design #design-v1 .prd-build-answer-output > div + div {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1-validation .prd-val-test-groups > article[data-prd-surface] {
+    border-left: 0;
+    border-top: 0;
+  }
+  #project-panel-design #design-v1-validation .prd-val-test-groups > article[data-prd-surface] + article {
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1-validation .prd-flow.prd-val-regression {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  #project-panel-design #design-v1 .prd-flow.prd-build-flow,
+  #project-panel-design #design-v1 .prd-build-metadata[data-prd-surface],
+  #project-panel-design #design-v1 .prd-build-version-compare[data-prd-surface],
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-2) > .prd-build-columns,
+  #project-panel-design #design-v1 .prd-subsection:has(> #design-v1-6) > .prd-build-columns,
+  #project-panel-design #design-v1-validation .prd-val-variants[data-prd-surface],
+  #project-panel-design #design-v1-validation .prd-val-cases > .prd-val-case[data-prd-surface],
+  #project-panel-design #design-v1-validation .prd-flow.prd-val-regression,
+  #project-panel-design #design-v1-validation .prd-val-regression-summary[data-prd-surface] {
+    padding: 16px;
+  }
+  #project-panel-design #design-v1 .prd-build-format-rows {
+    padding-inline: 16px;
+  }
+  #project-panel-design #design-v1-validation .prd-val-test-groups > article[data-prd-surface] {
+    padding: 16px;
+  }
+  #project-panel-design #design-v1-validation .prd-val-results[data-prd-surface] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0;
+  }
+  #project-panel-design #design-v1-validation .prd-val-results > div:nth-child(n) {
+    padding: 16px;
+    border-left: 0;
+  }
+  #project-panel-design #design-v1-validation .prd-val-results > div:nth-child(even) {
+    border-left: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1-validation .prd-val-results > div:nth-child(n + 3) {
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1-validation .prd-val-case dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+
+@media (max-width: 440px) {
+  #project-panel-design #design-v1 .prd-build-flow > .prd-build-node {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+
+      /* P2.1 B05/B06: one boundary per complete artifact. */
+      #project-panel-design #design-v2 .prd-subsection > .pm-record,
+      #project-panel-design #design-v2 .prd-subsection > .prd-control-panel:not(.prd-control-system),
+      #project-panel-design #design-v2 .prd-control-requests,
+      #project-panel-design #design-v2 .pm-rounds,
+      #project-panel-design #design-v2 .prd-control-gate,
+      #project-panel-design #design-v2 #design-v2-4 ~ .prd-control-split,
+      #project-panel-design #design-v3 .pm-evidence-enrichment,
+      #project-panel-design #design-v3 .prd-p2-gate-records,
+      #project-panel-design #design-v3 .prd-interface-demo,
+      #project-panel-design #design-v3 #design-v3-6 ~ .el-callout,
+      #project-panel-design #design-v3 .prd-p2-action-map {
+        min-width: 0;
+        margin: 20px 0 0;
+        padding: 20px;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-control-system,
+      #project-panel-design #design-v3 .el-figure[data-prd-artifact="gate"] {
+        margin: 20px 0 0;
+        padding: 24px;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: 0 2px 8px rgba(34, 38, 45, .035);
+      }
+      #project-panel-design #design-v2 .prd-control-trace {
+        padding: 20px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-control-requests > div {
+        padding-block: 12px;
+      }
+      #project-panel-design #design-v2 .prd-control-requests > div:first-child { padding-top: 0; }
+      #project-panel-design #design-v2 .prd-control-requests > div:last-child { padding-bottom: 0; border-bottom: 0; }
+
+      /* Group columns remain plain; fields, rounds and rows do not gain surfaces. */
+      #project-panel-design #design-v2 #design-v2-4 ~ .prd-control-split > .prd-control-panel {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 #design-v2-4 ~ .prd-control-split > .prd-control-panel + .prd-control-panel {
+        padding-left: 20px;
+        border-left: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v2 .pm-rounds { gap: 24px; }
+      #project-panel-design #design-v2 .pm-rounds article { border-top: 0; padding-top: 0; }
+      #project-panel-design #design-v2 .pm-rounds article + article { padding-left: 18px; border-left: 1px solid var(--prd-line); }
+      #project-panel-design #design-v2 .pm-rounds article + article::before { left: -17px; top: 2px; }
+      #project-panel-design #design-v3 .prd-p2-gate-records { gap: 20px; }
+      #project-panel-design #design-v3 .prd-p2-gate-records > div {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v3 .prd-p2-gate-records > div + div {
+        padding-left: 20px;
+        border-left: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v3 .el-branches .el-state {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v3 .el-review-loop {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v3 .el-ui-actions {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v3 .prd-p2-action-map { padding-block: 8px; }
+      #project-panel-design #design-v3 .prd-p2-action-map > div { padding-block: 12px; }
+      #project-panel-design #design-v3 .prd-p2-action-map > div:first-child { border-top: 0; }
+
+      /* The rule and A-E matrices share a single frame and scroll locally. */
+      #project-panel-design #design-v3 #design-v3-3 ~ .prd-table-wrap,
+      #project-panel-design #design-v3 #design-v3-5 ~ .prd-table-wrap {
+        margin: 20px 0 0;
+        padding: 0;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+      }
+      #project-panel-design #design-v3 :is(.el-rule-table, .pm-results-table) { width: 100%; margin: 0; }
+
+      /* Artifact titles sit below H3; labels stay lighter than field values. */
+      #project-panel-design :is(#design-v2, #design-v3) :is(.prd-control-method strong, .pm-record-label, .el-figure-label) {
+        font-size: 15px;
+        font-weight: 650;
+        line-height: 1.5;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) :is(.pm-fields, .prd-control-contract dl, .prd-interface-field) {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) .pm-fields > div {
+        font-size: 15px;
+        padding-block: 6px;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) :is(.pm-fields dt, .prd-control-contract dt, .prd-interface-field > strong) {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.55;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) :is(.prd-control-contract dd, .prd-interface-field > span) {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.65;
+      }
+      #project-panel-design #design-v2 .prd-control-method > span { font-size: 13px; }
+      #project-panel-design #design-v2 .prd-control-system figcaption,
+      #project-panel-design #design-v2 .prd-control-contract figcaption,
+      #project-panel-design #design-v2 .prd-control-trace figcaption,
+      #project-panel-design #design-v3 .el-figure[data-prd-artifact="gate"] figcaption {
+        margin: 12px 0 0;
+        padding-top: 10px;
+        font-size: 13px;
+        line-height: 1.6;
+        border-top: 1px solid var(--prd-line);
+      }
+
+      @media (max-width: 960px) {
+        #project-panel-design #design-v3 .prd-p2-gate-records { grid-template-columns: minmax(0, 1fr); }
+        #project-panel-design #design-v3 .prd-p2-gate-records > div + div {
+          padding-left: 0;
+          padding-top: 20px;
+          border-left: 0;
+          border-top: 1px solid var(--prd-line);
+        }
+      }
+      @media (max-width: 760px) {
+        #project-panel-design #design-v2 .prd-subsection > .pm-record,
+        #project-panel-design #design-v2 .prd-subsection > .prd-control-panel:not(.prd-control-system),
+        #project-panel-design #design-v2 .prd-control-requests,
+        #project-panel-design #design-v2 .pm-rounds,
+        #project-panel-design #design-v2 .prd-control-gate,
+        #project-panel-design #design-v2 #design-v2-4 ~ .prd-control-split,
+        #project-panel-design #design-v3 .pm-evidence-enrichment,
+        #project-panel-design #design-v3 .prd-p2-gate-records,
+        #project-panel-design #design-v3 .prd-interface-demo,
+        #project-panel-design #design-v3 #design-v3-6 ~ .el-callout,
+        #project-panel-design #design-v3 .prd-p2-action-map {
+          padding: 16px;
+          margin-top: 16px;
+        }
+        #project-panel-design #design-v2 .prd-control-system,
+        #project-panel-design #design-v3 .el-figure[data-prd-artifact="gate"] { padding: 18px; margin-top: 16px; }
+        #project-panel-design #design-v2 #design-v2-4 ~ .prd-control-split > .prd-control-panel + .prd-control-panel {
+          padding-left: 0;
+          padding-top: 16px;
+          border-left: 0;
+          border-top: 1px solid var(--prd-line);
+        }
+        #project-panel-design #design-v2 .pm-rounds { gap: 28px; }
+        #project-panel-design #design-v2 .pm-rounds article + article {
+          padding-left: 0;
+          padding-top: 16px;
+          border-left: 0;
+          border-top: 1px solid var(--prd-line);
+        }
+        #project-panel-design #design-v2 .pm-rounds article + article::before { left: 0; top: -21px; }
+        #project-panel-design #design-v3 .prd-p2-action-map { padding-block: 4px; }
+      }
+
+/* P2.1 B07/B08: whole-artifact boundaries; fields and processing nodes stay plain. */
+#project-panel-design #design-graph :is(.kg-scope-figure, .kg-schema-brief, .kg-retrieval-comparison, .kg-system-figure, .kg-task-trace),
+#project-panel-design #design-wiki :is(.wk-p2-boundaries, .wk-inputs, .wk-relation-record, .wk-p2-adapter-trace, .wk-comparison, .wk-p2-setup, .wk-output, .wk-affected, .wk-p2-update-trace, .wk-p2-routing-summary) {
+  min-width: 0;
+  margin-inline: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* Existing primary artefacts retain their role with a quiet white evidence surface. */
+#project-panel-design #design-graph .kg-build-figure,
+#project-panel-design #design-wiki :is(#wk-source-packet, .wk-p2-evidence-mapping) {
+  min-width: 0;
+  margin-inline: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--prd-ink) 4%, transparent);
+}
+
+/* B07: one build flow, with divider rhythm instead of independent step cards. */
+#project-panel-design #design-graph .kg-build-figure > .el-figure-label {
+  margin: 0 0 20px;
+  padding: 0 0 12px;
+  color: var(--prd-ink);
+  border-bottom: 1px solid var(--prd-line);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+#project-panel-design #design-graph .kg-build-flow > li {
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 12px;
+  padding: 0 0 24px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-build-flow > li + li > .kg-build-content {
+  padding-top: 16px;
+  border-top: 1px solid var(--prd-line);
+}
+#project-panel-design #design-graph .kg-build-flow > li + li > .kg-build-index { padding-top: 16px; }
+#project-panel-design #design-graph .kg-build-flow > li:last-child { padding-bottom: 0; }
+#project-panel-design #design-graph .kg-build-flow > li:not(:last-child)::after { bottom: -16px; }
+#project-panel-design #design-graph .kg-build-flow > li:not(:last-child)::before { bottom: -10px; }
+#project-panel-design #design-graph :is(.kg-extraction-inline, .kg-change-record) {
+  gap: 20px;
+}
+#project-panel-design #design-graph :is(.kg-extraction-inline, .kg-change-record) > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-graph .kg-retrieval-comparison {
+  margin-top: 20px;
+}
+#project-panel-design #design-graph .kg-retrieval-comparison > div {
+  min-width: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-build-content :is(.kg-write-record, .kg-output-line) {
+  padding-left: 0;
+  border-left: 0;
+}
+
+/* Each complete Bad Case has one boundary; the case collection is only a grid. */
+#project-panel-design #design-graph .kg-cases,
+#project-panel-design #design-wiki .wk-bad-cases {
+  gap: 20px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-cases > article.el-panel,
+#project-panel-design #design-wiki .wk-bad-cases > div {
+  min-width: 0;
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-case-header { padding-bottom: 12px; }
+#project-panel-design #design-graph .kg-case-change {
+  gap: 16px;
+  padding: 16px 0 12px;
+  border-bottom: 0;
+}
+#project-panel-design #design-graph .kg-case-change > div {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-case-change > div + div { padding-left: 16px; }
+#project-panel-design #design-graph .kg-case-record > div { margin-bottom: 10px; }
+#project-panel-design #design-wiki .wk-bad-cases > div > .wk-label {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  color: var(--prd-ink);
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-bad-cases p + p { margin-top: 12px; }
+
+/* End-to-end traces retain the full sequence in one surface. */
+#project-panel-design #design-graph .kg-task-trace > li {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-task-trace > li:first-child { padding-top: 0; }
+#project-panel-design #design-graph .kg-task-trace > li:last-child { padding-bottom: 0; }
+#project-panel-design #design-graph .kg-task-trace > li + li > div {
+  padding-top: 16px;
+  border-top: 1px solid var(--prd-line);
+}
+#project-panel-design #design-graph .kg-task-trace > li + li > .kg-trace-index { padding-top: 16px; }
+#project-panel-design #design-graph .kg-task-trace > li:not(:last-child)::after { bottom: -16px; }
+#project-panel-design #design-graph .kg-task-trace .kg-trace-evidence {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-task-trace .kg-trace-evidence + .kg-trace-evidence {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--prd-line);
+}
+
+/* B08: input, adapter analysis and ingest outputs have one outer boundary each. */
+#project-panel-design #design-wiki :is(.wk-inputs, .wk-comparison) { gap: 20px; }
+#project-panel-design #design-wiki :is(.wk-inputs, .wk-comparison) > div {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki :is(.wk-inputs, .wk-comparison) > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-p2-adapter-trace { gap: 16px 20px; }
+#project-panel-design #design-wiki .wk-p2-adapter-trace > li {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-adapter-trace > li:nth-child(n + 3) {
+  padding-top: 16px;
+  border-top: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-p2-setup > .wk-config {
+  padding: 16px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-setup > .wk-config:first-child { padding-top: 0; }
+#project-panel-design #design-wiki .wk-p2-setup > .wk-config:last-child { padding-bottom: 0; }
+#project-panel-design #design-wiki .wk-p2-setup > .wk-config + .wk-config { border-top: 1px solid var(--prd-line); }
+#project-panel-design #design-wiki .wk-output { gap: 20px; }
+#project-panel-design #design-wiki .wk-output > .wk-artifact {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-output > .wk-artifact + .wk-artifact {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-output .wk-artifact figcaption {
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-output .wk-code { padding: 12px 0 0; }
+
+/* Packet: caption and content share the same left edge, without an inner card. */
+#project-panel-design #design-wiki #wk-source-packet > figcaption {
+  padding: 0 0 12px;
+  gap: 4px;
+  background: transparent;
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki #wk-source-packet > figcaption > strong {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+#project-panel-design #design-wiki #wk-source-packet > .wk-code { padding: 16px 0 0; }
+
+/* Evidence Mapping: aligned outer edge; columns and rows carry the interior. */
+#project-panel-design #design-wiki .wk-p2-evidence-mapping {
+  margin: 20px 0;
+  gap: 20px;
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping > figcaption {
+  margin: 0;
+  padding: 0 0 12px;
+  color: var(--prd-ink);
+  border-bottom: 1px solid var(--prd-line);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping > .wk-claim {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping > .wk-claim + .wk-claim {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping .wk-flow {
+  margin: 12px 0;
+  gap: 0;
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping .wk-flow > li {
+  padding: 10px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--prd-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-evidence-mapping .wk-flow > li:first-child { border-top: 1px solid var(--prd-line); }
+#project-panel-design #design-wiki .wk-p2-evidence-mapping .wk-flow > li > strong { font-weight: 500; }
+#project-panel-design #design-wiki .wk-p2-evidence-mapping blockquote {
+  margin: 12px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+/* Update trace and affected results are two complete, adjacent artefacts. */
+#project-panel-design #design-wiki .wk-p2-update-trace > li {
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-update-trace > li:first-child { padding-top: 0; }
+#project-panel-design #design-wiki .wk-p2-update-trace > li:last-child { padding-bottom: 0; }
+#project-panel-design #design-wiki .wk-p2-update-trace > li + li > div {
+  padding-top: 12px;
+  border-top: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-p2-update-trace > li + li > .wk-step { padding-top: 12px; }
+#project-panel-design #design-wiki .wk-p2-update-trace > li:not(:last-child)::after { bottom: -12px; }
+#project-panel-design #design-wiki .wk-affected > .prd-heading-label { margin-bottom: 12px; }
+#project-panel-design #design-wiki .wk-affected .prd-table-wrap {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--prd-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p2-routing-summary > article {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-mode {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 760px) {
+  #project-panel-design #design-graph :is(.kg-scope-figure, .kg-schema-brief, .kg-retrieval-comparison, .kg-system-figure, .kg-task-trace),
+  #project-panel-design #design-wiki :is(.wk-p2-boundaries, .wk-inputs, .wk-relation-record, .wk-p2-adapter-trace, .wk-comparison, .wk-p2-setup, .wk-output, .wk-affected, .wk-p2-update-trace, .wk-p2-routing-summary),
+  #project-panel-design #design-graph .kg-cases > article.el-panel,
+  #project-panel-design #design-wiki .wk-bad-cases > div { padding: 16px; }
+  #project-panel-design #design-graph .kg-build-figure,
+  #project-panel-design #design-wiki :is(#wk-source-packet, .wk-p2-evidence-mapping) { padding: 16px; }
+  #project-panel-design #design-graph .kg-case-change { grid-template-columns: minmax(0, 1fr); }
+  #project-panel-design #design-graph :is(.kg-extraction-inline, .kg-change-record, .kg-case-change) > div + div,
+  #project-panel-design #design-wiki :is(.wk-inputs, .wk-comparison) > div + div,
+  #project-panel-design #design-wiki .wk-output > .wk-artifact + .wk-artifact,
+  #project-panel-design #design-wiki .wk-p2-evidence-mapping > .wk-claim + .wk-claim {
+    margin-top: 0;
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-wiki .wk-p2-adapter-trace > li + li {
+    padding-top: 16px;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-wiki .wk-p2-update-trace > li > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+  #project-panel-design #design-wiki .wk-p2-evidence-mapping { gap: 16px; }
+}
+
+      /* Real V1 screenshots are single evidence frames, with attached captions. */
+      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] {
+        width: 100%; margin: 24px 0 0; padding: 0; overflow: hidden;
+        border: 1px solid var(--prd-line); border-radius: 8px;
+        background: #fff; box-shadow: var(--prd-evidence-shadow);
+      }
+      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] .interface-shot-trigger {
+        display: block; width: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: #fff;
+      }
+      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] img {
+        display: block; width: 100%; height: auto; margin: 0; border: 0; border-radius: 0;
+      }
+      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption {
+        margin: 0; padding: 12px 16px; border-top: 1px solid var(--prd-line); background: #fff;
+        color: var(--prd-copy); font-size: 13px; font-weight: 400; line-height: 1.6;
+      }
+      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption strong {
+        margin-bottom: 4px; color: var(--prd-ink); font-size: 15px; font-weight: 650; line-height: 1.5;
+      }
+      @media (max-width: 760px) {
+        #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] { margin-top: 20px; }
+        #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption { padding: 10px 12px; }
+      }
+      /* Parallel responsibility subjects need one frame each, without a second outer card. */
+      #project-panel-design #design-task .prd-task-chain { box-shadow: none; }
+      #project-panel-design #design-task .prd-task-responsibilities {
+        padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none;
+      }
+      #project-panel-design #design-task .prd-task-responsibilities > .prd-compact-column:nth-child(n) {
+        padding: 20px; border: 1px solid var(--prd-line); border-radius: 8px; background: #fff; box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-control-trace-index {
+        align-self: start; width: 26px; height: 24px; padding: 0; border: 0; border-radius: 0; background: #fff; line-height: 24px;
+      }
+      #project-panel-design .prd-main :is(.prd-table,.wk-table) tbody :is(th,td) { font-size: 15px; line-height: 1.65; }
+      #project-panel-design .prd-main :is(.prd-table,.wk-table) thead th { font-size: 12px; }
+      @media (max-width: 760px) {
+        #project-panel-design #design-task .prd-task-responsibilities > .prd-compact-column:nth-child(n) { padding: 16px; }
+      }
+
+      /* P2.2: local grouping only; existing global spacing and palette remain locked. */
+      #project-panel-design #design-overview .prd-p22-problem-brief {
+        padding: 20px; gap: 24px; border: 1px solid var(--prd-line); border-radius: 8px; background: #fff; box-shadow: none;
+      }
+      #project-panel-design #design-overview .prd-p22-problem-brief > .prd-compact-column {
+        padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none;
+      }
+      #project-panel-design #design-overview .prd-p22-problem-brief > .prd-compact-column + .prd-compact-column {
+        padding-left: 24px; border-left: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-overview .prd-p22-problem-brief .prd-heading-label { margin-bottom: 10px; }
+      #project-panel-design #design-overview .prd-p22-problem-brief .prd-list { margin: 0; }
+
+      #project-panel-design #design-task .prd-task-derivation {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(-n+4) {
+        position: relative; padding: 20px; border: 0; border-radius: 0; background: transparent;
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:first-child {
+        grid-column: 1 / -1; display: flex; align-items: baseline; gap: 24px; padding: 16px 20px; border-bottom: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:first-child .prd-heading-label {
+        flex: 0 0 150px; margin: 0;
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:first-child::after {
+        content: "↓"; position: absolute; left: 26px; bottom: -12px; z-index: 1; padding: 0 4px; color: var(--prd-blue); background: #fff; line-height: 20px;
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(3),
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(4) {
+        border-left: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(3)::before,
+      #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(4)::before {
+        content: "→"; position: absolute; left: -10px; top: 20px; z-index: 1; padding: 0 3px; color: var(--prd-blue); background: #fff; line-height: 20px;
+      }
+      #project-panel-design #design-task .prd-task-derivation > .prd-task-object-strip {
+        grid-column: 1 / -1; padding: 18px 20px;
+      }
+      @media (max-width: 760px) {
+        #project-panel-design #design-overview .prd-p22-problem-brief { grid-template-columns: minmax(0,1fr); padding: 16px; gap: 16px; }
+        #project-panel-design #design-overview .prd-p22-problem-brief > .prd-compact-column + .prd-compact-column {
+          padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--prd-line);
+        }
+        #project-panel-design #design-task .prd-task-derivation { grid-template-columns: minmax(0,1fr); }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(-n+4) { padding: 16px; border-left: 0; }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(n+2):nth-child(-n+4) { grid-template-columns: 128px minmax(0,1fr); }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:first-child { gap: 12px; padding-block: 14px; }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:first-child .prd-heading-label { flex-basis: 100px; }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(3),
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(4) { border-top: 1px solid var(--prd-line); }
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(3)::before,
+        #project-panel-design #design-task .prd-task-derivation > .prd-compact-column:nth-child(4)::before {
+          content: "↓"; left: 26px; top: -12px;
+        }
+        #project-panel-design #design-task .prd-task-derivation > .prd-task-object-strip { padding: 16px; }
+      }
+
+/* P2.2 B03 only: local strategy, constraint, API and summary grouping.
+   Append after P2.1. Main pipelines, screenshots and evidence slots are untouched. */
+
+/* 3.3: one secondary strategy panel; all internal areas are plain. */
+#project-panel-design #design-v1 .prd-build-strategy-panel.prd-p22-strategy-panel {
+  margin-block: 20px 16px;
+  padding: 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: var(--prd-surface);
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-panel > .prd-build-method-summary {
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-p22-strategy-panel > .prd-build-chunk-choice {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas: "strategy adjustment" "example example";
+  gap: 20px 24px;
+  margin: 0;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-content {
+  display: contents;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-copy {
+  grid-area: strategy;
+  min-width: 0;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-copy > p + p {
+  margin-top: 8px;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-panel .prd-p22-strategy-adjustment {
+  grid-area: adjustment;
+  min-width: 0;
+  align-self: stretch;
+  margin: 0;
+  padding: 0 0 0 24px;
+  border: 0;
+  border-left: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-strategy-panel .prd-p22-strategy-example {
+  grid-area: example;
+  min-width: 0;
+  margin: 0;
+  padding: 16px 0 0;
+  border: 0;
+  border-top: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* 3.6: existing strategy context is the shared header for three constraints. */
+#project-panel-design #design-v1 .prd-p22-constraint-panel {
+  margin-block: 20px 16px;
+  padding: 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: var(--prd-surface);
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel > .prd-p22-constraint-header {
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel > .prd-build-prompt-strategies {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 14px;
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article {
+  min-width: 0;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article + article {
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article:first-child {
+  padding-left: 0;
+}
+#project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article:last-child {
+  padding-right: 0;
+}
+
+/* 3.7: four API capabilities share one 2x2 group, with plain cells. */
+#project-panel-design #design-v1 .prd-build-api-summary.prd-p22-api-group {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-block: 20px 12px;
+  padding: 0;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-api-group > div {
+  min-width: 0;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-api-group > div:nth-child(even) {
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-v1 .prd-p22-api-group > div:nth-child(n + 3) {
+  border-top: 1px solid var(--prd-line);
+}
+
+/* The transition sentence stays plain; only V1 core strategies form a band. */
+#project-panel-design #design-v1 .prd-p22-summary-band {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: var(--prd-surface);
+  box-shadow: none;
+}
+#project-panel-design #design-v1 .prd-p22-summary-band > .prd-build-small-copy {
+  margin: 0;
+  color: var(--prd-ink);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+#project-panel-design #design-v1 .prd-p22-summary-band > .prd-build-conclusion-tags {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+}
+#project-panel-design #design-v1 .prd-p22-summary-band .prd-build-conclusion-tags > div {
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 980px) {
+  #project-panel-design #design-v1 .prd-p22-strategy-panel > .prd-build-chunk-choice {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "strategy" "adjustment" "example";
+    gap: 16px;
+  }
+  #project-panel-design #design-v1 .prd-p22-strategy-panel .prd-p22-strategy-adjustment {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1 .prd-p22-summary-band {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  #project-panel-design #design-v1 .prd-build-strategy-panel.prd-p22-strategy-panel,
+  #project-panel-design #design-v1 .prd-p22-constraint-panel {
+    padding: 16px;
+  }
+  #project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  #project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article:nth-child(n) {
+    padding: 0;
+    border-left: 0;
+    border-bottom: 0;
+  }
+  #project-panel-design #design-v1 .prd-p22-constraint-panel .prd-build-prompt-cards > article:nth-child(n + 2) {
+    padding-top: 12px;
+    border-top: 1px solid var(--prd-line);
+  }
+}
+
+@media (max-width: 600px) {
+  #project-panel-design #design-v1 .prd-build-api-summary.prd-p22-api-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #project-panel-design #design-v1 .prd-p22-api-group > div:nth-child(n) {
+    padding: 14px 16px;
+    border-left: 0;
+    border-top: 0;
+  }
+  #project-panel-design #design-v1 .prd-p22-api-group > div:nth-child(n + 2) {
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-v1 .prd-p22-summary-band > .prd-build-conclusion-tags {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+      /* P2.2 B05/B06 chapter intros and B05 5.8 only. */
+      #project-panel-design :is(#design-v2, #design-v3) > .prd-section-header {
+        margin-bottom: 20px;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) > .prd-section-header > h2 {
+        margin-block: 8px 10px;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) > .prd-section-header > p:last-child {
+        margin-bottom: 0;
+      }
+      #project-panel-design :is(#design-v2, #design-v3) .prd-p22-stage-intro {
+        display: grid;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      /* B05: two brief rows, then the task immediately below the shared brief. */
+      #project-panel-design #design-v2 .prd-p22-stage-intro > .prd-p22-stage-brief {
+        margin: 0;
+        padding: 12px 16px;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-brief > p {
+        display: grid;
+        grid-template-columns: 176px minmax(0, 1fr);
+        gap: 12px;
+        margin: 0;
+        color: var(--prd-copy);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-brief > p + p {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-brief > p > strong {
+        margin: 0;
+        color: var(--prd-ink);
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 1.65;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-intro > .pm-task-note {
+        margin: 0;
+        color: var(--prd-muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* B06: the increment, task and unchanged five-step flow share one brief. */
+      #project-panel-design #design-v3 .prd-p22-stage-intro {
+        gap: 10px;
+        padding: 14px 16px;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-intro > .prd-p22-stage-brief {
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-brief > .prd-heading-label {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 1.65;
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-brief > p,
+      #project-panel-design #design-v3 .prd-p22-stage-intro > .pm-task-note {
+        margin: 0;
+        color: var(--prd-copy);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-intro > .pm-task-note {
+        padding-top: 10px;
+        border-top: 1px solid var(--prd-line);
+        color: var(--prd-muted);
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-intro > .el-overview {
+        gap: 8px;
+        margin: 0;
+        padding: 12px 0 0;
+        border: 0;
+        border-top: 1px solid var(--prd-line);
+        background: transparent;
+      }
+      #project-panel-design #design-v3 .prd-p22-stage-intro .el-overview > span {
+        color: var(--prd-copy);
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 1.5;
+      }
+
+      /* B05 5.8: one result frame with plain columns and a full-width handoff. */
+      #project-panel-design #design-v2 .prd-p22-stage-result {
+        min-width: 0;
+        margin: 20px 0 0;
+        padding: 24px;
+        border: 1px solid var(--prd-line);
+        border-radius: 8px;
+        background: var(--prd-primary-surface, #fff);
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result > .prd-control-split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .prd-control-split > .prd-control-panel {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .prd-control-panel + .prd-control-panel {
+        padding-left: 24px;
+        border-left: 1px solid var(--prd-line);
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .prd-list { margin: 0; }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields > div {
+        display: block;
+        padding: 8px 0;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields > div:first-child { padding-top: 0; }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields > div:last-child { padding-bottom: 0; }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields > div + div { border-top: 1px solid var(--prd-line); }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields dt {
+        color: var(--prd-ink);
+        font-size: 12px;
+        font-weight: 550;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .pm-fields dd { margin: 3px 0 0; }
+      #project-panel-design #design-v2 .prd-p22-stage-result > .prd-control-note {
+        margin: 12px 0 0;
+        color: var(--prd-muted);
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result > .prd-control-boundary-callout {
+        display: grid;
+        gap: 6px;
+        margin: 16px 0 0;
+        padding: 16px 0 0;
+        border: 0;
+        border-top: 1px solid var(--prd-line);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #project-panel-design #design-v2 .prd-p22-stage-result .prd-control-boundary-callout > :is(p, .prd-heading-label) { margin: 0; }
+      #project-panel-design #design-v2 .prd-p22-stage-result .prd-control-boundary-callout > p:last-child { margin-top: 4px; }
+
+      @media (max-width: 760px) {
+        #project-panel-design :is(#design-v2, #design-v3) > .prd-section-header { margin-bottom: 16px; }
+        #project-panel-design #design-v2 .prd-p22-stage-intro > .prd-p22-stage-brief,
+        #project-panel-design #design-v3 .prd-p22-stage-intro { padding: 12px; }
+        #project-panel-design #design-v2 .prd-p22-stage-brief > p,
+        #project-panel-design #design-v3 .prd-p22-stage-intro > .prd-p22-stage-brief {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 4px;
+        }
+        #project-panel-design #design-v3 .prd-p22-stage-intro > .el-overview { gap: 6px; }
+        #project-panel-design #design-v2 .prd-p22-stage-result { padding: 16px; margin-top: 16px; }
+        #project-panel-design #design-v2 .prd-p22-stage-result > .prd-control-split {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 16px;
+        }
+        #project-panel-design #design-v2 .prd-p22-stage-result .prd-control-panel + .prd-control-panel {
+          padding-left: 0;
+          padding-top: 16px;
+          border-left: 0;
+          border-top: 1px solid var(--prd-line);
+        }
+      }
+
+/* P2.2 B07 7.1 only: three problem rows and one compact relation strip. */
+#project-panel-design #design-graph .kg-p22-problem-group {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: var(--prd-surface);
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-p22-problem-group > .prd-heading-label {
+  margin: 0 0 10px;
+}
+#project-panel-design #design-graph .kg-p22-problem-group ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#project-panel-design #design-graph .kg-p22-problem-group li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-p22-problem-group li:first-child { padding-top: 0; }
+#project-panel-design #design-graph .kg-p22-problem-group li:last-child { padding-bottom: 0; border-bottom: 0; }
+#project-panel-design #design-graph .kg-p22-problem-group li > span { padding-top: 3px; }
+#project-panel-design #design-graph .kg-p22-problem-group p { margin: 0; }
+
+#project-panel-design #design-graph .kg-p22-relation-strip {
+  margin: 20px 0;
+  padding: 16px 0;
+  border: 0;
+  border-top: 1px solid var(--prd-line);
+  border-bottom: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-p22-relation-strip > .prd-heading-label { margin: 0 0 12px; }
+#project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+#project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-graph .kg-p22-relation-strip :is(dt, dd) { min-width: 0; overflow-wrap: anywhere; }
+#project-panel-design #design-graph .kg-p22-relation-strip dt { color: var(--prd-ink); }
+#project-panel-design #design-graph .kg-p22-relation-strip dd { margin: 0; }
+
+/* P2.2 B08 8.1 only: a quiet flow boundary and one three-column comparison. */
+#project-panel-design #design-wiki .wk-p22-flow-boundary {
+  min-width: 0;
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-flow-boundary > .wk-query {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-flow-boundary > .wk-flow {
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-flow-boundary > .wk-flow > li {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-comparison {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  min-width: 0;
+  margin: 20px 0 0;
+  padding: 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-comparison > div {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-comparison > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--prd-line);
+}
+#project-panel-design #design-wiki .wk-p22-comparison a { font-size: 15px; font-weight: 650; line-height: 1.5; }
+#project-panel-design #design-wiki .wk-p22-comparison p { margin: 8px 0 0; }
+
+/* P2.2 B08 8.2 only: C/D/E share a single group; status and role stay plain. */
+#project-panel-design #design-wiki .wk-p22-role-group {
+  min-width: 0;
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--prd-line);
+  border-radius: 8px;
+  background: var(--prd-surface);
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-role-group > div {
+  display: grid;
+  grid-template-columns: minmax(130px, .75fr) minmax(0, 2.25fr);
+  gap: 20px;
+  min-width: 0;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid var(--prd-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#project-panel-design #design-wiki .wk-p22-role-group > div:first-child { padding-top: 0; }
+#project-panel-design #design-wiki .wk-p22-role-group > div:last-child { padding-bottom: 0; border-bottom: 0; }
+#project-panel-design #design-wiki .wk-p22-role-group dt { min-width: 0; padding-top: 2px; color: var(--prd-ink); font-size: 13px; line-height: 1.6; }
+#project-panel-design #design-wiki .wk-p22-role-group dd { display: grid; gap: 8px; min-width: 0; margin: 0; }
+#project-panel-design #design-wiki .wk-p22-role-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) 18px minmax(0, 1fr);
+  gap: 8px;
+  min-width: 0;
+  align-items: baseline;
+}
+#project-panel-design #design-wiki .wk-p22-role-heading > span { min-width: 0; overflow-wrap: anywhere; }
+#project-panel-design #design-wiki .wk-p22-role-status { color: var(--prd-copy); font-size: 14px; line-height: 1.6; }
+#project-panel-design #design-wiki .wk-p22-role-arrow { color: var(--prd-muted); text-align: center; }
+#project-panel-design #design-wiki .wk-p22-role-target { color: var(--prd-ink); font-size: 14px; line-height: 1.6; }
+#project-panel-design #design-wiki .wk-p22-role-target strong { font-weight: 650; }
+#project-panel-design #design-wiki .wk-p22-role-note { color: var(--prd-copy); font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  #project-panel-design #design-graph .kg-p22-problem-group,
+  #project-panel-design #design-wiki :is(.wk-p22-flow-boundary, .wk-p22-comparison, .wk-p22-role-group) { padding: 16px; }
+  #project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  #project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+  }
+  #project-panel-design #design-graph .kg-p22-relation-strip .kg-scope-relations > div + div {
+    padding: 12px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-wiki .wk-p22-flow-boundary > .wk-flow { gap: 20px; }
+  #project-panel-design #design-wiki .wk-p22-comparison { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  #project-panel-design #design-wiki .wk-p22-comparison > div + div {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--prd-line);
+  }
+  #project-panel-design #design-wiki .wk-p22-role-group > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  #project-panel-design #design-wiki .wk-p22-role-group dt { padding-top: 0; }
+  #project-panel-design #design-wiki .wk-p22-role-heading {
+    grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1.35fr);
+    gap: 6px;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -11298,7 +12979,7 @@
                   <section class="prd-subsection">
                     <h3 id="design-overview-1">1.1 问题现场：记得结论，却找不回完整依据</h3>
                     <p class="prd-prose">个人本地资料查找暴露了一个具体问题：记得结论，却找不回完整依据。在企业任务中，这个问题会更加明显。以跨部门评审准备为例，业务人员需要把分散在不同资料中的条件和依据放在一起核对。</p>
-                    <div class="prd-compact-grid prd-grid-two" data-prd-surface="plain">
+                    <div class="prd-compact-grid prd-grid-two prd-p22-problem-brief" data-prd-surface="plain">
                       <article class="prd-compact-column" data-prd-surface="plain">
                         <div class="prd-heading-label">谁遇到问题：准备跨部门评审的业务人员</div>
                         <ul class="prd-list">
@@ -11492,7 +13173,7 @@
                     <div class="prd-task-mapping-head" aria-hidden="true">
                       <span class="prd-subsection-label">失败点</span>
                       <span></span>
-                      <span class="prd-subsection-label">产品要求</span>
+                      <span class="prd-subsection-label">产品需求</span>
                     </div>
                     <article class="prd-compact-column prd-task-mapping-row" data-prd-surface="plain">
                       <p class="prd-task-mapping-failure" data-label="失败点">记不住文件名，只记得业务问题或结论</p>
@@ -11733,13 +13414,14 @@
                       <div class="prd-build-node-body"><p>记录 ID + vector + Chunk text + source Metadata</p></div>
                     </div>
                   </figure>
-                  <div class="prd-build-strategy-panel" data-prd-surface="plain">
+                  <div class="prd-build-strategy-panel prd-p22-strategy-panel" data-prd-surface="plain">
                   <div class="prd-build-text-processing prd-build-method-summary">
                     <span class="prd-subsection-label">Chunk 切片策略</span>
                     <p><strong>段落优先切分 + 定长兜底 + 滑动重叠</strong></p>
                   </div>
                   <div class="prd-build-columns prd-build-chunk-choice">
-                    <div>
+                    <div class="prd-p22-strategy-content">
+                      <div class="prd-p22-strategy-copy">
                       <h4>组合切片策略：段落优先 + 定长兜底 + 滑动重叠</h4>
                       <p><strong>段落优先切分：</strong>先合并短段，优先保留完整语义单元。</p>
                       <p><strong>定长兜底：</strong>超长内容控制在约1200字符。</p>
@@ -11748,12 +13430,13 @@
                         <li><strong>过大：</strong>一个片段混入多个主题，向量相似不代表整段都相关，无关内容会一起进入模型。</li>
                         <li><strong>过小：</strong>规则、条件与例外可能被拆开，回答侧只看到半条规则。</li>
                       </ul>
-                      <div class="prd-build-example">
+                      </div>
+                      <div class="prd-build-example prd-p22-strategy-example">
                         <span class="prd-subsection-label">边界截断示例</span>
                         <p>同一审批文档：Chunk A 写“哪些项目需要集团审批……”，相邻段写“以下情况属于例外……”。原来只召回 Chunk A，回答就可能漏掉例外；调整后让长内容窗口保留邻近段落的重叠上下文。</p>
                       </div>
                     </div>
-                    <aside class="prd-build-decision prd-decision-callout">
+                    <aside class="prd-build-decision prd-decision-callout prd-p22-strategy-adjustment">
                       <div class="prd-heading-label">调整记录｜合并短段，再控制长片段</div>
                       <div class="prd-decision-body">
                         <div class="prd-decision-copy">
@@ -11868,7 +13551,8 @@
                 <section class="prd-subsection">
                   <h3 id="design-v1-6">3.6 证据上下文：生成带 Citation 的可回查回答</h3>
                   <p class="prd-prose">ask.py 把候选原文按编号组织成 Evidence Context，再交给本地 Qwen 生成回答；编号同时连接回答、Chunk 和来源文件。</p>
-                  <div class="prd-build-text-processing prd-build-method-summary">
+                  <div class="prd-p22-constraint-panel">
+                  <div class="prd-build-text-processing prd-build-method-summary prd-p22-constraint-header">
                     <span class="prd-subsection-label">Prompt 策略</span>
                     <p><strong>基于证据生成 + 引用约束 + 证据不足拒答</strong></p>
                   </div>
@@ -11880,6 +13564,7 @@
                       <article><div class="prd-heading-label">引用约束：</div><p>引用编号对应输入片段，并支持原文核对。</p></article>
                       <article><div class="prd-heading-label">证据不足拒答：</div><p>资料不足时返回不足，不补业务结论。</p></article>
                     </div>
+                  </div>
                   </div>
                   <figure class="prd-flow prd-build-flow " aria-label="问题和候选原文带着来源进入有限上下文，由本地Qwen生成回答并附引用" data-prd-surface="plain" data-prd-artifact="supporting-flow">
                     <div class="prd-build-node">
@@ -11945,7 +13630,7 @@
                       <div class="prd-build-node-body"><p>输入问题，查看候选、回答与来源，操作索引并查看运行日志</p></div>
                     </div>
                   </figure>
-                  <dl class="prd-build-api-summary">
+                  <dl class="prd-build-api-summary prd-p22-api-group">
                     <div><dt>search</dt><dd>返回候选片段 + source</dd></div>
                     <div><dt>ask</dt><dd>返回 answer + citation</dd></div>
                     <div><dt>index / refresh</dt><dd>触发资料重新入库；路径刷新由 ingest.py 执行</dd></div>
@@ -11955,6 +13640,7 @@
                 </section>
                 <aside class="prd-build-conclusion prd-p2-transition" aria-label="V1 构建阶段判断" data-prd-surface="plain" data-prd-density="compact">
                   <p>V1 把本地文件接到“检索 → Evidence Context → 带来源回答”；下一步用代表问题和 Bad Case 检查各环节的中间产物。</p>
+                  <div class="prd-p22-summary-band">
                   <h4 class="prd-build-small-copy">V1 核心策略</h4>
                   <dl class="prd-build-conclusion-tags">
                     <div><dt>资料准入</dt><dd>白名单式资料准入</dd></div>
@@ -11965,6 +13651,7 @@
                     <div><dt>索引更新</dt><dd>按文件路径重建索引</dd></div>
                     <div><dt>产品入口</dt><dd>FastAPI + 本地 Web UI</dd></div>
                   </dl>
+                  </div>
                 </aside>
               </div>
             </section>
@@ -12028,7 +13715,7 @@
                     <div><dt>任务可用率</dt><dd>当前答案和证据是否足以支持用户继续完成任务。</dd></div>
                     <div><dt>拒答 / 澄清正确性</dt><dd>条件不足时，系统是否知道“不应该直接回答”。</dd></div>
                   </dl>
-                  <figure class="prd-evidence-figure prd-val-placeholder" data-prd-surface="plain" data-prd-density="compact"><figcaption>[后续插入：验证集 / Evaluation 界面]</figcaption></figure>
+                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>验证集 / Evaluation 界面</strong><p>待补高保真产品截图</p></figcaption></figure>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-2">4.2 首轮结果：检索命中与任务可用出现差距</h3>
@@ -12059,7 +13746,7 @@
 <article class="prd-val-case" data-prd-surface="plain"><header><span>Case 02</span><h4>只召回半条规则</h4><span class="prd-subsection-label">Chunk 切片策略</span></header><dl><div><dt>调整前｜异常</dt><dd>同一审批文档中：<br>Chunk A：“哪些项目需要集团审批……”<br>相邻段：“以下情况属于例外……”<br>原先只召回 Chunk A，例外没有进入 Context。</dd></div><div><dt>定位</dt><dd>审批触发条件与例外落在 Chunk 边界两侧；定位到切片边界与召回覆盖。</dd></div><div><dt>调整</dt><dd><strong>段落优先 + 定长兜底 + 约150字符 overlap。</strong>合并短段，超长内容约1200字符切分，让相邻窗口保留重叠上下文。</dd></div><div><dt>调整后｜检查</dt><dd>重新运行同类审批问题后，触发条件与相邻例外条款同时进入 Context，不再只召回半条规则。回答同时看到主规则与例外条件，避免只依据前半段得出结论。</dd></div></dl></article>
 <article class="prd-val-case" data-prd-surface="plain"><header><span>Case 03</span><h4>条件不足仍倾向回答</h4><span class="prd-subsection-label">Prompt 策略</span></header><dl><div><dt>调整前｜异常</dt><dd>Query：“这个项目是否需要集团审批？”<br>缺少项目类型、地区、金额与当前阶段，V1 仍倾向组合检索材料给出完整答案。</dd></div><div><dt>定位</dt><dd>问题不只是检索不到，而是任务条件本身不完整；Prompt 缺少明确停止约束。</dd></div><div><dt>调整</dt><dd><strong>基于证据生成 + 引用约束 + 证据不足拒答。</strong>要求用检索原文支撑结论，缺关键条件时返回资料不足。</dd></div><div><dt>调整后｜检查</dt><dd>再次以缺少关键条件的问题运行后，系统不再补出完整业务结论，而是返回当前资料不足，并指出仍缺项目类型、地区、金额或当前阶段等必要条件。<br>V1 仍停留在 Prompt 层拒答 / 缺条件提示，B05 再升级为结构化 Clarify。</dd></div></dl></article>
 </div>
-                  <figure class="prd-evidence-figure prd-val-placeholder" data-prd-surface="plain" data-prd-density="compact"><figcaption>[后续插入：代表 Bad Case 前后对比]</figcaption></figure>
+                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>代表 Bad Case 前后对比</strong><p>待补高保真产品截图</p></figcaption></figure>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-5">4.5 回归测试：原题 + 邻近变体</h3>
@@ -12081,7 +13768,7 @@
 <tr><th scope="row">D｜缺少金额</th><td data-label="输入 → 返回结果">结果：停止形成完整审批结论，返回当前条件不足，并指出缺少金额条件。</td></tr>
 <tr><th scope="row">E｜历史案例与当前制度同时进入候选</th><td data-label="输入 → 返回结果">结果：当前有效制度保持主要规则依据；历史案例保留为背景参考，不再替代当前制度。</td></tr>
 </tbody></table></div>
-                  <figure class="prd-evidence-figure prd-val-placeholder" data-prd-surface="plain" data-prd-density="compact"><figcaption>[后续插入：回归测试记录]</figcaption></figure>
+                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>回归测试记录</strong><p>待补高保真产品截图</p></figcaption></figure>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-6">4.6 阶段结果：检索链路成立，下一步补请求控制</h3>
@@ -12103,11 +13790,13 @@
 <p>把 V1 的检索能力封装成可调用工具，再用 Route、澄清、任务状态和确认节点控制请求如何继续。</p>
 </header>
 <div class="prd-section-body">
-<aside aria-label="实现与设计边界" class="prd-control-baseline" data-prd-surface="plain">
+<div class="prd-p22-stage-intro">
+<aside aria-label="实现与设计边界" class="prd-control-baseline prd-p22-stage-brief" data-prd-surface="plain">
 <p><strong>V1 基线 / 现有只读原型</strong>只读任务分类 → 多步检索 → 证据合并 → 带来源回答；已有一次端到端 smoke test 记录。</p>
 <p><strong>V2 改造范围</strong>V2 在 V1 只读检索底座之上增加请求分流、条件校验、Tool Contract、当前任务状态和 Confirmation Gate。</p>
 </aside>
 <p class="prd-control-note pm-task-note">贯穿脱敏代表任务：“这个项目是否需要集团审批？”补齐后为商业项目 / 西南区域 / 方案评审 / 5000万。</p>
+</div>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-1">5.1 Route 分流：Direct / Retrieve / Clarify / Confirmation / Blocked</h3>
 <p class="prd-prose">V1 最终仍默认进入同一条检索链。V2 先读取当前任务条件与动作风险，决定这次请求该走哪条 Route。</p>
@@ -12249,10 +13938,12 @@
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact">
 <h3 id="design-v2-8">5.8 阶段结果：调用已受控，Evidence 适用性仍待判断</h3>
 <p class="prd-prose">刚才 search_docs 返回的四条 Evidence 都能回到资料，但能被找到，不等于能用于当前审批判断。</p>
+<div class="prd-p22-stage-result">
 <div class="prd-control-split" data-prd-surface="plain"><section class="prd-control-panel" data-prd-surface="plain"><div class="prd-heading-label">本次请求已经推进到</div><ul class="prd-list"><li>条件不足：Clarify</li><li>四项补齐：Task Context 更新，再进入 Retrieve</li><li>检索返回：四条候选 Evidence</li><li>请求写入：Confirmation，等待动作确认</li></ul></section>
 <section class="prd-control-panel" data-prd-surface="plain"><div class="prd-heading-label">这四份材料还需要判断</div><dl class="pm-fields"><div><dt>集团投资审批管理办法 v3.2</dt><dd>当前正式制度的适用范围是否匹配？</dd></div><div><dt>西南区域审批补充规则</dt><dd>西南区域与5000万阈值有哪些限制？</dd></div><div><dt>集团投资审批管理办法 v2.0</dt><dd>旧版还能用于当前判断吗？</dd></div><div><dt>2024年类似项目复盘</dt><dd>历史处理能当成当前规则吗？</dd></div></dl></section></div>
 <p class="prd-control-note">两份正式文件如果给出冲突结论，也不能任选一份作为依据。</p>
 <aside class="prd-control-boundary-callout" data-prd-surface="plain"><div class="prd-heading-label">阶段边界｜调用受控，不等于知识已经具备使用资格</div><p>V2 解决请求该不该继续；V3 继续解决找到的 Evidence 当前能不能用。</p><p><a href="#design-v3">进入 B06 · V3 Eligibility →</a></p></aside>
+</div>
 </section>
 </div>
 </section>
@@ -12265,7 +13956,9 @@
 <p>在原始证据之外补充版本、适用范围、冲突与使用风险，把“来源真实”进一步变成“当前任务可用”。</p>
 </header>
 <div class="prd-section-body">
-<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">V3 增量</div><p>在 V1 Raw Evidence 之上增加版本、适用范围、冲突和使用风险判断，把“来源真实”进一步变成“当前任务可用”。</p></aside><p class="el-note pm-task-note">沿用 B05 脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万，负责部门为集团投资决策委员会。A–D 承接检索返回，E 用于冲突复核。</p><div aria-label="本章主链路" class="el-overview" data-prd-surface="plain"><span>原始证据</span><i aria-hidden="true">→</i><span>Eligibility 判断字段</span><i aria-hidden="true">→</i><span>Eligibility 规则</span><i aria-hidden="true">→</i><span>Eligibility Gate</span><i aria-hidden="true">→</i><span>可进入任务的证据</span></div>
+<div class="prd-p22-stage-intro">
+<aside class="el-callout prd-p22-stage-brief" data-prd-surface="plain"><div class="prd-heading-label">V3 增量</div><p>在 V1 Raw Evidence 之上增加版本、适用范围、冲突和使用风险判断，把“来源真实”进一步变成“当前任务可用”。</p></aside><p class="el-note pm-task-note">沿用 B05 脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万，负责部门为集团投资决策委员会。A–D 承接检索返回，E 用于冲突复核。</p><div aria-label="本章主链路" class="el-overview" data-prd-surface="plain"><span>原始证据</span><i aria-hidden="true">→</i><span>Eligibility 判断字段</span><i aria-hidden="true">→</i><span>Eligibility 规则</span><i aria-hidden="true">→</i><span>Eligibility Gate</span><i aria-hidden="true">→</i><span>可进入任务的证据</span></div>
+</div>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-1">6.1 使用风险：旧版本 / 历史案例 / 范围 / 冲突 / 高影响使用</h3>
 <p class="prd-prose">承接 B05 的四条候选 Evidence，再增加一条脱敏冲突来源 E；同一审批任务中，逐条检查哪些材料可能被误用。</p>
 <div class="el-risk-list" data-prd-surface="plain"><article><span class="el-index">01</span><div><h4>旧版本制度</h4><p>Evidence C｜集团投资审批管理办法 v2.0</p></div><p class="el-risk-consequence">已被 v3.2 替代；资料仍可回查，但不能作为当前有效规则。</p></article><article><span class="el-index">02</span><div><h4>历史项目案例</h4><p>Evidence D｜2024年类似项目复盘</p></div><p class="el-risk-consequence">历史处理真实，但属于当时项目，不能自动提升成当前制度。</p></article><article><span class="el-index">03</span><div><h4>适用范围有限</h4><p>Evidence B｜西南区域审批补充规则</p></div><p class="el-risk-consequence">只适用于商业项目 / 西南区域 / 方案评审 / 5000万及以上，不能脱离条件引用。</p></article><article><span class="el-index">04</span><div><h4>多来源冲突</h4><p>Evidence E｜集团审批补充通知 v3.2-A<br/>对照 Evidence A｜集团投资审批管理办法 v3.2</p></div><p class="el-risk-consequence">两份资料结论存在未解决冲突，不能任选一份直接形成审批结论。</p></article><article><span class="el-index">05</span><div><h4>高影响使用场景</h4><p>使用场景｜正式评审材料 / 对外承诺 / 高影响决策</p></div><p class="el-risk-consequence">即使证据基本匹配，进入这些用途仍需人工确认。</p></article></div>
@@ -12302,7 +13995,7 @@
 <figure class="prd-interface-demo" data-prd-surface="light"><p class="el-figure-label">Evidence B｜当前任务使用状态</p><div class="prd-interface-grid"><section class="prd-interface-panel prd-interface-evidence" data-prd-surface="plain"><div class="prd-heading-label">V1｜原始证据</div><div class="prd-interface-fields"><div class="prd-interface-field"><strong>来源</strong><span>西南区域审批补充规则</span></div><div class="prd-interface-field"><strong>路径</strong><span>西南区域审批补充规则_v1.4.md</span></div><div class="prd-interface-field"><strong>原文</strong><span><span id="b06-evidence-b-011">西南区域商业项目在方案评审阶段，审批金额达到5000万元及以上时，按集团审批流程执行。</span></span></div><div class="prd-interface-field"><strong>引用</strong><span><a class="pm-citation" href="#b06-evidence-b-011">[2] 查看原文片段</a></span></div></div></section><section class="prd-interface-panel prd-interface-eligibility" data-prd-surface="plain"><div class="prd-heading-label">V3｜当前任务使用状态</div><div class="prd-interface-fields"><div class="prd-interface-field"><strong>来源类型<code>source_type</code></strong><span>区域补充规则</span></div><div class="prd-interface-field"><strong>版本状态<code>version_status</code></strong><span>当前有效</span></div><div class="prd-interface-field"><strong>适用范围<code>applicable_scope</code></strong><span>商业项目 / 西南区域 / 方案评审 / 5000万及以上</span></div><div class="prd-interface-field"><strong>冲突状态<code>conflict_status</code></strong><span>无未解决冲突</span></div><div class="prd-interface-field"><strong>使用风险<code>usage_risk</code></strong><span>常规</span></div><div class="prd-interface-field"><strong>状态<code>eligibility</code></strong><span><span class="el-badge">条件使用<small class="el-en">Conditional</small></span></span></div><div class="prd-interface-field"><strong>使用约束</strong><span>必须携带西南区域 / 项目类型 / 阶段 / 金额条件</span></div><div class="prd-interface-field"><strong>禁止动作</strong><span>脱离条件单独引用</span></div></div></section></div>
 <div class="el-ui-actions"><strong>产品动作</strong><div class="prd-action-buttons"><span>限制后使用</span><a class="pm-citation" href="#b06-evidence-b-011">查看原文</a><span>携带适用条件加入当前任务</span><span aria-disabled="true" class="is-disabled">脱离条件单独引用</span></div></div></figure>
 <aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">待人工复核｜“加入当前任务”暂停</div><p>可用操作：确认 / 限制后使用 / 拒绝。复核完成后，记录确认人、意见与时间，再重新判断准入状态。</p><p class="pm-note"><code>reviewed_by</code> · <code>review_note</code> · <code>reviewed_at</code></p></aside>
-<p class="pm-record-label prd-p2-map-label">Eligibility · 产品动作 · 使用约束</p><dl aria-label="Eligibility与产品动作、使用约束" class="prd-p2-action-map" data-prd-surface="plain"><div><dt>可使用<small class="el-en">Usable</small></dt><dd><strong>加入当前任务</strong><span>带上原文、来源、路径与 Citation。</span></dd></div><div><dt>条件使用<small class="el-en">Conditional</small></dt><dd><strong>携带限制后加入任务</strong><span>限制条件、适用范围与备注同时进入材料，不能脱离条件单独引用。</span></dd></div><div><dt>仅作参考<small class="el-en">Reference only</small></dt><dd><strong>查看 / 引用为背景</strong><span>不允许作为最终规则依据。</span></dd></div><div><dt>待人工复核<small class="el-en">Pending review</small></dt><dd><strong>等待人工复核</strong><span>暂停加入任务；提供确认、限制后使用、拒绝三种人工复核入口。</span></dd></div><div><dt>禁止使用<small class="el-en">Blocked</small></dt><dd><strong>查看原始证据</strong><span>“加入当前任务”按钮禁用；保留历史回查。</span></dd></div></dl><aside class="el-placeholder" data-prd-surface="plain"><strong>后续插入</strong><p>Eligibility Evidence Card / 人工复核界面</p></aside>
+<p class="pm-record-label prd-p2-map-label">Eligibility · 产品动作 · 使用约束</p><dl aria-label="Eligibility与产品动作、使用约束" class="prd-p2-action-map" data-prd-surface="plain"><div><dt>可使用<small class="el-en">Usable</small></dt><dd><strong>加入当前任务</strong><span>带上原文、来源、路径与 Citation。</span></dd></div><div><dt>条件使用<small class="el-en">Conditional</small></dt><dd><strong>携带限制后加入任务</strong><span>限制条件、适用范围与备注同时进入材料，不能脱离条件单独引用。</span></dd></div><div><dt>仅作参考<small class="el-en">Reference only</small></dt><dd><strong>查看 / 引用为背景</strong><span>不允许作为最终规则依据。</span></dd></div><div><dt>待人工复核<small class="el-en">Pending review</small></dt><dd><strong>等待人工复核</strong><span>暂停加入任务；提供确认、限制后使用、拒绝三种人工复核入口。</span></dd></div><div><dt>禁止使用<small class="el-en">Blocked</small></dt><dd><strong>查看原始证据</strong><span>“加入当前任务”按钮禁用；保留历史回查。</span></dd></div></dl><figure class="el-placeholder prd-p21-evidence-slot" data-prd-surface="plain"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>Eligibility Evidence Card / 人工复核界面</strong><p>待补高保真产品截图</p></figcaption></figure>
 </section>
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact"><h3 id="design-v3-7">6.7 阶段结果：准入规则成立，跨文档关系进入下一层</h3>
 <div class="el-conclusion" data-prd-surface="plain"><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">当前字段规则能够判断</div><ul class="prd-list"><li>版本：区分当前有效、已被替代与待核验</li><li>范围：保留地区、项目类型、阶段和金额条件</li><li>冲突：暂停进入任务，复核结果写回后重新判断</li><li>风险与准入：给出使用状态，并限制产品动作</li></ul></section><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">同一批资料继续暴露</div><ul class="prd-list"><li>“集团投委会”和“集团投资决策委员会”的实体别名</li><li>v3.2 与 v2.0 之间的制度替代关系</li><li>西南区域补充规则与集团主制度之间的继承 / 例外关系</li><li>多个实体参与判断时需要维护的关系路径</li></ul></section></div>
@@ -12321,7 +14014,7 @@
 <div class="prd-section-body">
 <section class="prd-subsection"><h3 id="design-graph-1">7.1 Graph 范围：从版本、区域规则和部门别名倒推关系需求</h3>
 <p class="prd-prose">继续回答<strong>“这个项目是否需要集团审批？”</strong>，同一审批样例在继续判断时暴露了三个问题。</p>
-<div class="kg-problem-scene" data-prd-surface="plain"><div class="prd-heading-label">问题现场</div><ol>
+<div class="kg-problem-scene kg-p22-problem-group" data-prd-surface="plain"><div class="prd-heading-label">问题现场</div><ol>
 <li><span>01</span><p>同一个问题里，同时找到《集团投资审批管理办法》v2.0 和 v3.2。</p></li>
 <li><span>02</span><p>西南区域审批补充规则在另一份文件中，不能只看主制度。</p></li>
 <li><span>03</span><p>“集团投委会”和“集团投资决策委员会”在不同材料里使用不同名称。</p></li>
@@ -12337,7 +14030,7 @@
 <div class="kg-step"><strong>负责部门</strong><span>Department</span></div>
 </div>
 </figure>
-<div class="kg-scope-additions" data-prd-surface="plain">
+<div class="kg-scope-additions kg-p22-relation-strip" data-prd-surface="plain">
 <div class="prd-heading-label">为了完成这个判断，第一版额外补三类关系</div>
 <dl class="kg-scope-relations">
 <div><dt>替代</dt><dd>新版制度 <span aria-hidden="true">→</span> 替代 <span aria-hidden="true">→</span> 旧版制度</dd></div>
@@ -12504,8 +14197,8 @@
 <section class="prd-subsection">
 <h3 id="design-wiki-1">8.1 接入边界：只接 Wiki 编译，不替换 RAG / KG / Eligibility</h3>
 <p>B03–B07 已经搭通 Raw Evidence 的解析、切片与向量召回，增加请求控制、Evidence 准入，并用 Neo4j 表达制度、部门、版本和例外关系。</p>
-<div class="wk-query" data-prd-surface="plain"><span class="wk-label">反复出现的请求</span><strong>“商业项目集团审批整体怎么走？”</strong></div>
-<ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>找到主制度</li><li>找到西南区域规则</li><li>恢复审批层级</li><li>恢复负责部门</li><li>重新组织答案</li></ol>
+<div class="wk-p22-flow-boundary"><div class="wk-query" data-prd-surface="plain"><span class="wk-label">反复出现的请求</span><strong>“商业项目集团审批整体怎么走？”</strong></div>
+<ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>找到主制度</li><li>找到西南区域规则</li><li>恢复审批层级</li><li>恢复负责部门</li><li>重新组织答案</li></ol></div>
 <p>问题不是检索失败，而是同一批稳定制度知识每次都从 Raw Evidence 重新组织，没有形成可持续维护的知识页面。因此，这一层接入 <a href="https://github.com/nashsu/llm_wiki" rel="noopener noreferrer" target="_blank">nashsu/llm_wiki</a> 的持续 Wiki 编译与维护能力。</p>
 <div class="wk-split wk-boundaries wk-p2-boundaries" data-prd-surface="light">
 <div><div class="prd-heading-label">现有系统继续负责</div><dl class="wk-fields">
@@ -12524,7 +14217,7 @@
 </ul></div>
 <aside class="wk-callout" data-prd-surface="plain"><strong>能力裁剪｜只接 Wiki 组织与维护层</strong><p>不接管其内置检索、Graph、Agent Chat 与 Web / Deep Research 能力，避免与现有 Chroma、Neo4j 和调用控制重复。</p></aside></div>
 
-<div aria-label="Wiki 项目选型判断" class="wk-selection" data-prd-surface="plain">
+<div aria-label="Wiki 项目选型判断" class="wk-selection wk-p22-comparison" data-prd-surface="plain">
 <div><a href="https://deepwiki.com/" rel="noopener noreferrer" target="_blank">DeepWiki</a><p>主要围绕代码仓库生成文档，不匹配当前企业制度资料。</p></div>
 <div><a href="https://github.com/chaitin/PandaWiki" rel="noopener noreferrer" target="_blank">PandaWiki</a><p>较完整的 AI 知识库产品，与现有检索、问答和 UI 重叠较多。</p></div>
 <div><a href="https://github.com/nashsu/llm_wiki" rel="noopener noreferrer" target="_blank">选择 nashsu/llm_wiki</a><p>位于 Raw Evidence 与持续 Wiki 之间，复用持续编译、来源追溯和 Source 刷新。</p></div>
@@ -12548,10 +14241,10 @@
 </dl><p>携带西南区域、商业项目、方案评审与5000万及以上的适用条件。</p></div>
 </div>
 <p>任务准入与知识保存不是一回事。Eligibility 判断 Evidence 在当前任务里怎么使用；项目侧将结果映射为 Wiki Role，限制它在持续 Wiki 中的保存位置与知识角色，而不是直接决定删不删。</p>
-<dl aria-label="历史、背景与待复核Evidence的Wiki角色" class="wk-fields">
-<div><dt>Evidence C · 旧制度 v2.0</dt><dd>禁止作为当前有效规则（Blocked）→ <strong>historical_version</strong>。保留历史回查，不进入当前规则、当前适用条件或最终业务判断。</dd></div>
-<div><dt>Evidence D · 2024年类似项目复盘</dt><dd>仅作参考（Reference only）→ <strong>reference_case</strong>。可保存为案例 / 背景知识，不能成为当前制度依据。reference_case 进入 case 类页面或背景区，不混入当前 Policy Page 的规则主体。</dd></div>
-<div><dt>Evidence E · 冲突材料</dt><dd>待人工复核（Pending review）→ <strong>hold</strong>。复核前不进入已发布 Wiki 内容。</dd></div>
+<dl aria-label="历史、背景与待复核Evidence的Wiki角色" class="wk-fields wk-p22-role-group">
+<div><dt>Evidence C · 旧制度 v2.0</dt><dd><span class="wk-p22-role-heading"><span class="wk-p22-role-status">禁止作为当前有效规则（Blocked）</span><span class="wk-p22-role-arrow">→ </span><span class="wk-p22-role-target"><strong>historical_version</strong>。</span></span><span class="wk-p22-role-note">保留历史回查，不进入当前规则、当前适用条件或最终业务判断。</span></dd></div>
+<div><dt>Evidence D · 2024年类似项目复盘</dt><dd><span class="wk-p22-role-heading"><span class="wk-p22-role-status">仅作参考（Reference only）</span><span class="wk-p22-role-arrow">→ </span><span class="wk-p22-role-target"><strong>reference_case</strong>。</span></span><span class="wk-p22-role-note">可保存为案例 / 背景知识，不能成为当前制度依据。reference_case 进入 case 类页面或背景区，不混入当前 Policy Page 的规则主体。</span></dd></div>
+<div><dt>Evidence E · 冲突材料</dt><dd><span class="wk-p22-role-heading"><span class="wk-p22-role-status">待人工复核（Pending review）</span><span class="wk-p22-role-arrow">→ </span><span class="wk-p22-role-target"><strong>hold</strong>。</span></span><span class="wk-p22-role-note">复核前不进入已发布 Wiki 内容。</span></dd></div>
 </dl>
 <div class="wk-relation-record" data-prd-surface="plain"><div class="prd-heading-label">从 B07 带入已确认的 Graph Context</div><div class="wk-relations">
 <p><strong>v3.2</strong><span>SUPERSEDES</span><strong>v2.0</strong></p>
