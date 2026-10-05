@@ -32,9 +32,9 @@
 | 截图 | 用途 |
 |---|---|
 | [Notion 风格 GUI 总览](assets/screenshots/notion-style-gui.png) | 展示整体界面风格和布局 |
-| [检索工作台](assets/screenshots/search-workspace.png) | 展示检索控制、候选结果和片段详情 |
-| [带引用的回答](assets/screenshots/answer-with-citations.png) | 展示基于来源片段生成回答的流程 |
-| [索引任务界面](assets/screenshots/indexing-workspace.png) | 展示小批量索引配置和命令预览 |
+| [检索工作台](assets/screenshots/b03-evidence-retrieval-workbench.png) | 展示检索控制、候选结果和片段详情 |
+| [带引用的回答](assets/screenshots/b03-answer-citation-trace.png) | 展示基于来源片段生成回答的流程 |
+| [索引任务界面](assets/screenshots/b03-source-indexing-workbench.png) | 展示小批量索引配置和命令预览 |
 
 ## 产品设计
 

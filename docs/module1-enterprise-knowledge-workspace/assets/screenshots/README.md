@@ -9,9 +9,9 @@
 | 文件 | 用途 | 脱敏规则 |
 |---|---|---|
 | `notion-style-gui.png` | 展示 Notion 风格 GUI 总览 | 使用假问题和假来源名称 |
-| `search-workspace.png` | 展示检索输入、结果列表和片段详情 | 使用 `sample-vault/...` 示例路径 |
-| `answer-with-citations.png` | 展示带引用的回答模式 | 只使用样例笔记 |
-| `indexing-workspace.png` | 展示小批量索引控制和日志预览 | 使用示例配置路径 |
+| `b03-evidence-retrieval-workbench.png` | 展示检索输入、结果列表和片段详情 | 使用 `sample-vault/...` 示例路径 |
+| `b03-answer-citation-trace.png` | 展示带引用的回答模式 | 只使用样例笔记 |
+| `b03-source-indexing-workbench.png` | 展示小批量索引控制和日志预览 | 使用示例配置路径 |
 
 ## 不应包含
 

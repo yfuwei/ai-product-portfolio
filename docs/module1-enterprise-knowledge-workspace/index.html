@@ -11899,27 +11899,39 @@
 }
 
       /* Real V1 screenshots are single evidence frames, with attached captions. */
-      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] {
+      #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] {
         width: 100%; margin: 24px 0 0; padding: 0; overflow: hidden;
         border: 1px solid var(--prd-line); border-radius: 8px;
         background: #fff; box-shadow: var(--prd-evidence-shadow);
       }
-      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] .interface-shot-trigger {
+      #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] .interface-shot-trigger {
         display: block; width: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: #fff;
       }
-      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] img {
+      #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] img {
         display: block; width: 100%; height: auto; margin: 0; border: 0; border-radius: 0;
       }
-      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption {
+      #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] figcaption {
         margin: 0; padding: 12px 16px; border-top: 1px solid var(--prd-line); background: #fff;
         color: var(--prd-copy); font-size: 13px; font-weight: 400; line-height: 1.6;
       }
-      #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption strong {
+      #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] figcaption strong {
         margin-bottom: 4px; color: var(--prd-ink); font-size: 15px; font-weight: 650; line-height: 1.5;
       }
       @media (max-width: 760px) {
-        #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] { margin-top: 20px; }
-        #project-panel-design #design-v1 figure.prd-evidence-figure[data-prd-surface="primary"] figcaption { padding: 10px 12px; }
+        #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] { margin-top: 20px; }
+        #project-panel-design :is(#design-task, #design-v1) figure.prd-evidence-figure[data-prd-surface="primary"] figcaption { padding: 10px 12px; }
+      }
+      #project-panel-design #design-graph figure.b07-product-figure {
+        margin: 30px 0 32px;
+      }
+      @media (max-width: 760px) {
+        #project-panel-design #design-graph figure.b07-product-figure { margin: 24px 0 28px; }
+      }
+      #project-panel-design .prd-main #design-wiki .prd-subsection > figure.b08-product-figure {
+        margin: 30px 0 32px;
+      }
+      @media (max-width: 760px) {
+        #project-panel-design .prd-main #design-wiki .prd-subsection > figure.b08-product-figure { margin: 24px 0 28px; }
       }
       /* Parallel responsibility subjects need one frame each, without a second outer card. */
       #project-panel-design #design-task .prd-task-chain { box-shadow: none; }
@@ -12613,6 +12625,178 @@
   }
 }
 
+/* Task-to-knowledge handoff: two scoped narrative callouts, no field-level cards. */
+#project-panel-design #design-task .prd-core-relationship {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border: 1px solid var(--prd-line);
+  border-left: 3px solid var(--prd-blue);
+  border-radius: 8px;
+  background: var(--prd-surface);
+}
+#project-panel-design #design-task .prd-core-relationship > .prd-subsection-label {
+  margin: 0 0 8px;
+  color: var(--prd-muted);
+}
+#project-panel-design #design-task .prd-core-relationship .prd-core-relationship-title {
+  margin: 0 0 16px;
+  color: var(--prd-ink);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+#project-panel-design #design-task .prd-core-relationship .prd-core-relationship-copy p {
+  margin: 0 0 10px;
+  color: var(--prd-copy);
+}
+#project-panel-design #design-task .prd-core-relationship .prd-core-relationship-copy p:last-child { margin-bottom: 0; }
+#project-panel-design #design-task .prd-core-relationship .prd-task-knowledge-flow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: 22px;
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--prd-line);
+  list-style: none;
+}
+#project-panel-design #design-task .prd-core-relationship .prd-task-knowledge-flow > li {
+  position: relative;
+  min-width: 0;
+  color: var(--prd-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+#project-panel-design #design-task .prd-task-knowledge-flow > li:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  width: 14px;
+  color: var(--prd-blue);
+  font-weight: 400;
+  transform: translateY(-50%);
+}
+#project-panel-design #design-v1 .prd-knowledge-exit {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--prd-line);
+  border-radius: 0 8px 8px 0;
+  background: var(--prd-surface);
+}
+#project-panel-design #design-v1 .prd-knowledge-exit .prd-knowledge-exit-title {
+  margin-bottom: 6px;
+  color: var(--prd-ink);
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+#project-panel-design #design-v1 .prd-knowledge-exit p { margin: 0; color: var(--prd-copy); }
+@media (max-width: 760px) {
+  #project-panel-design #design-task .prd-core-relationship { padding: 18px; }
+  #project-panel-design #design-task .prd-core-relationship .prd-task-knowledge-flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  #project-panel-design #design-task .prd-core-relationship .prd-task-knowledge-flow > li { text-align: left; }
+  #project-panel-design #design-task .prd-task-knowledge-flow > li:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    bottom: -24px;
+    left: 0;
+    transform: none;
+  }
+}
+
+
+/* B04 validation artifacts: native review records, separate from product screenshots. */
+#project-panel-design #design-v1-validation .b04-record-artifact {
+  min-width: 0; margin: 24px 0 12px; padding: 0; background: #fff;
+  border: 1px solid var(--prd-line); border-radius: 4px; box-shadow: none;
+  color: var(--prd-copy); font-size: 13px; line-height: 1.55;
+}
+#project-panel-design #design-v1-validation .b04-artifact-heading {
+  display: block; margin: 0; padding: 12px 16px; border-bottom: 1px solid var(--prd-line);
+  color: var(--prd-ink); font-size: 15px; font-weight: 650; line-height: 1.5; text-align: left;
+}
+#project-panel-design #design-v1-validation .b04-artifact-meta,
+#project-panel-design #design-v1-validation .b04-artifact-summary {
+  display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0; padding: 10px 16px;
+  border-bottom: 1px solid var(--prd-line); background: #fff;
+}
+#project-panel-design #design-v1-validation .b04-artifact-meta > div,
+#project-panel-design #design-v1-validation .b04-artifact-summary > div {
+  display: flex; align-items: baseline; gap: 7px; min-width: 0;
+}
+#project-panel-design #design-v1-validation .b04-artifact-meta dt,
+#project-panel-design #design-v1-validation .b04-artifact-summary dt {
+  color: var(--prd-muted); font-size: 12px; font-weight: 400;
+}
+#project-panel-design #design-v1-validation .b04-artifact-meta dd,
+#project-panel-design #design-v1-validation .b04-artifact-summary dd {
+  margin: 0; color: var(--prd-copy); font-size: 13px; font-weight: 500;
+}
+#project-panel-design #design-v1-validation .b04-artifact-summary { background: #f6f8fa; }
+#project-panel-design #design-v1-validation .b04-artifact-table-wrap {
+  width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain;
+}
+#project-panel-design #design-v1-validation .b04-artifact-table {
+  width: 100%; margin: 0; border-collapse: collapse; border-spacing: 0;
+  color: var(--prd-copy); font-size: 13px; line-height: 1.55;
+}
+#project-panel-design #design-v1-validation .b04-artifact-table :is(th,td) {
+  padding: 9px 12px; border-bottom: 1px solid var(--prd-line); border-right: 1px solid var(--prd-line);
+  text-align: left; vertical-align: top; white-space: normal; overflow-wrap: break-word;
+}
+#project-panel-design #design-v1-validation .b04-artifact-table th { color: var(--prd-ink); font-weight: 550; }
+#project-panel-design #design-v1-validation .b04-artifact-table tbody :is(th,td) { background: #fff; }
+#project-panel-design #design-v1-validation .b04-artifact-table thead th { background: #f6f8fa; font-size: 12px; }
+#project-panel-design #design-v1-validation .b04-artifact-table tr > :last-child { border-right: 0; }
+#project-panel-design #design-v1-validation .b04-artifact-table tbody tr:last-child > * { border-bottom: 0; }
+#project-panel-design #design-v1-validation .b04-artifact-table tbody tr > :first-child:not(:only-child) {
+  font-variant-numeric: tabular-nums;
+}
+#project-panel-design #design-v1-validation #b04-evaluation-questions tbody tr > :first-child,
+#project-panel-design #design-v1-validation .bad-case-log tbody tr > :first-child,
+#project-panel-design #design-v1-validation #b04-regression-table tbody tr > :first-child {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px;
+}
+#project-panel-design #design-v1-validation #b04-evaluation-questions { min-width: 570px; }
+#project-panel-design #design-v1-validation #b04-evaluation-questions tr > :first-child { width: 54px; }
+#project-panel-design #design-v1-validation #b04-evaluation-questions tr > :nth-child(2) { width: 125px; }
+#project-panel-design #design-v1-validation #b04-q01-record { min-width: 540px; }
+#project-panel-design #design-v1-validation #b04-q01-record tr > :first-child { width: 110px; }
+#project-panel-design #design-v1-validation #b04-q01-record tr > :last-child { width: 115px; }
+#project-panel-design #design-v1-validation .b04-case-record { margin: 0; padding: 16px; border-top: 1px solid var(--prd-line); }
+#project-panel-design #design-v1-validation .b04-record-title { margin: 0 0 6px; color: var(--prd-ink); font-size: 14px; font-weight: 650; }
+#project-panel-design #design-v1-validation .b04-record-query { margin: 0 0 12px; color: var(--prd-copy); font-size: 13px; line-height: 1.55; }
+#project-panel-design #design-v1-validation .b04-record-note { margin: 12px 0 0; color: var(--prd-muted); font-size: 12px; line-height: 1.55; }
+#project-panel-design #design-v1-validation .b04-record-pass { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+#project-panel-design #design-v1-validation .b04-record-pass::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%; background: #2f7d57; align-self: center; }
+#project-panel-design #design-v1-validation .bad-case-log .b04-artifact-table { min-width: 730px; }
+#project-panel-design #design-v1-validation .b04-decision-record { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--prd-line); }
+#project-panel-design #design-v1-validation .b04-decision-record .b04-artifact-meta { gap: 6px 22px; padding: 4px 0 12px; border-bottom: 0; }
+#project-panel-design #design-v1-validation .b04-decision-record .b04-artifact-meta > div { gap: 7px; padding: 0; border: 0; }
+#project-panel-design #design-v1-validation #b04-bc01-decision-record .b04-artifact-meta dt { padding: 0; color: var(--prd-muted); font-weight: 400; }
+#project-panel-design #design-v1-validation .b04-decision-record .b04-artifact-table { min-width: 540px; table-layout: fixed; }
+#project-panel-design #design-v1-validation .b04-decision-record .b04-artifact-table tr > :first-child { width: 25%; }
+#project-panel-design #design-v1-validation .b04-decision-record .b04-artifact-table tr > :last-child { width: 18%; }
+#project-panel-design #design-v1-validation .b04-comparison-table { min-width: 570px; table-layout: fixed; }
+#project-panel-design #design-v1-validation #b04-regression-table { min-width: 760px; }
+#project-panel-design #design-v1-validation #b04-regression-table tr > :first-child { width: 54px; white-space: nowrap; }
+#project-panel-design #design-v1-validation #b04-regression-table tr > :nth-child(2) { width: 64px; white-space: nowrap; }
+#project-panel-design #design-v1-validation #b04-regression-table tr > :nth-child(3) { width: 33%; }
+#project-panel-design #design-v1-validation #b04-regression-table tr > :last-child { width: 130px; }
+@media (max-width: 760px) {
+  #project-panel-design #design-v1-validation .b04-artifact-heading,
+  #project-panel-design #design-v1-validation .b04-artifact-meta,
+  #project-panel-design #design-v1-validation .b04-artifact-summary,
+  #project-panel-design #design-v1-validation .b04-case-record { padding-inline: 12px; }
+  #project-panel-design #design-v1-validation .b04-artifact-meta { gap: 6px 16px; }
+}
     </style>
   </head>
   <body>
@@ -12933,12 +13117,12 @@
 <li><a href="#design-v3-6" data-prd-subsection="design-v3-6" data-prd-owner="design-v3"><span>6.6</span><span>Evidence Card</span></a></li>
 <li><a href="#design-v3-7" data-prd-subsection="design-v3-7" data-prd-owner="design-v3"><span>6.7</span><span>阶段结果</span></a></li>
 </ul></li>
-<li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>Knowledge Graph</span></a><ul class="prd-suboutline" data-prd-subnav="design-graph" hidden>
-<li><a href="#design-graph-1" data-prd-subsection="design-graph-1" data-prd-owner="design-graph"><span>7.1</span><span>Graph 范围</span></a></li>
-<li><a href="#design-graph-2" data-prd-subsection="design-graph-2" data-prd-owner="design-graph"><span>7.2</span><span>Ontology</span></a></li>
-<li><a href="#design-graph-3" data-prd-subsection="design-graph-3" data-prd-owner="design-graph"><span>7.3</span><span>Chunk → Graph</span></a></li>
-<li><a href="#design-graph-4" data-prd-subsection="design-graph-4" data-prd-owner="design-graph"><span>7.4</span><span>Graph → Retrieval</span></a></li>
-<li><a href="#design-graph-5" data-prd-subsection="design-graph-5" data-prd-owner="design-graph"><span>7.5</span><span>关系 Bad Case</span></a></li>
+<li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>知识图谱</span></a><ul class="prd-suboutline" data-prd-subnav="design-graph" hidden>
+<li><a href="#design-graph-1" data-prd-subsection="design-graph-1" data-prd-owner="design-graph"><span>7.1</span><span>图谱范围</span></a></li>
+<li><a href="#design-graph-2" data-prd-subsection="design-graph-2" data-prd-owner="design-graph"><span>7.2</span><span>Ontology（本体）</span></a></li>
+<li><a href="#design-graph-3" data-prd-subsection="design-graph-3" data-prd-owner="design-graph"><span>7.3</span><span>Chunk → 图谱</span></a></li>
+<li><a href="#design-graph-4" data-prd-subsection="design-graph-4" data-prd-owner="design-graph"><span>7.4</span><span>图谱 → Retrieval</span></a></li>
+<li><a href="#design-graph-5" data-prd-subsection="design-graph-5" data-prd-owner="design-graph"><span>7.5</span><span>关系层 Bad Case</span></a></li>
 <li><a href="#design-graph-6" data-prd-subsection="design-graph-6" data-prd-owner="design-graph"><span>7.6</span><span>完整任务链</span></a></li>
 </ul></li>
 <li><a class="prd-outline-link" href="#design-wiki" data-prd-section="design-wiki"><span>B08</span><span>Wiki 持续知识层</span></a><ul class="prd-suboutline" data-prd-subnav="design-wiki" hidden>
@@ -12963,7 +13147,7 @@
 <li><a class="prd-outline-link" href="#design-v1-validation" data-prd-section="design-v1-validation"><span>B04</span><span>验证与迭代</span></a></li>
 <li><a class="prd-outline-link" href="#design-v2" data-prd-section="design-v2"><span>B05</span><span>调用控制</span></a></li>
 <li><a class="prd-outline-link" href="#design-v3" data-prd-section="design-v3"><span>B06</span><span>Evidence 准入</span></a></li>
-<li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>Knowledge Graph</span></a></li>
+<li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>知识图谱</span></a></li>
 <li><a class="prd-outline-link" href="#design-wiki" data-prd-section="design-wiki"><span>B08</span><span>Wiki 持续知识层</span></a></li>
 </ol>
             </details>
@@ -13084,6 +13268,13 @@
                 <p>以一个代表任务为例，把“查资料”拆成具体操作、失败点和产品需求。</p>
               </header>
               <div class="prd-section-body">
+                <figure class="prd-evidence-figure" data-prd-surface="primary">
+                  <button class="interface-shot-trigger" type="button" data-lightbox-title="业务智能助手总览">
+                    <img src="assets/screenshots/b02-task-workbench-overview.png" alt="业务智能助手跨部门项目评审准备工作台，展示任务执行链、Task Context、候选依据、任务判断与待确认项" width="1600" height="1000" loading="lazy" />
+                    <span class="interface-shot-zoom-label">点击查看大图</span>
+                  </button>
+                  <figcaption><strong class="prd-figure-caption-title">业务智能助手总览</strong><span class="prd-figure-caption-note">业务任务形成 Task Context 后调用知识能力，组织 Evidence、待确认条件与阶段性判断，再返回当前任务继续执行。</span></figcaption>
+                </figure>
                 <section class="prd-subsection">
                   <h3 id="design-task-1">2.1 代表任务：准备一次跨部门项目评审</h3>
                   <p class="prd-prose">将个人本地资料查找中暴露的问题，映射到跨部门评审准备这一代表业务场景中进行拆解。</p>
@@ -13256,6 +13447,23 @@
                       </ul>
                     </div>
                   </div>
+                  <aside class="prd-core-relationship" aria-labelledby="task-knowledge-relationship-title">
+                    <p class="prd-subsection-label">核心产品关系</p>
+                    <div class="prd-core-relationship-title" id="task-knowledge-relationship-title">知识能力不是独立知识库，而是任务可调用的“业务大脑”</div>
+                    <div class="prd-core-relationship-copy">
+                      <p>业务任务进入后，系统先把项目类型、区域、阶段、金额等条件形成 Task Context，再按当前问题调用知识能力。</p>
+                      <p>知识层返回的不是一段孤立答案，而是带来源的候选 Evidence、适用条件与缺失项；这些结果重新进入当前任务，用于形成阶段性判断、整理待确认项，并决定下一步是继续推进、补条件还是转人工确认。</p>
+                      <p>因此，这套知识能力的终点不是“让用户来知识库里搜索”，而是成为数字人 / 任务执行层可以持续调用的上下文能力。</p>
+                    </div>
+                    <ol class="prd-task-knowledge-flow" aria-label="业务任务调用知识能力并接收结果的执行链">
+                      <li>业务任务</li>
+                      <li>Task Context</li>
+                      <li>调用知识能力</li>
+                      <li>Evidence + 缺失条件</li>
+                      <li>阶段性判断</li>
+                      <li>返回任务继续执行</li>
+                    </ol>
+                  </aside>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-task-5">2.5 AI / 人工边界：AI 组织证据，人确认适用性与最终材料</h3>
@@ -13268,6 +13476,7 @@
                         <li>对比多个来源</li>
                         <li>标记冲突或缺失条件</li>
                         <li>整理候选检查项</li>
+                        <li>把 Evidence、缺失条件与待确认项带回当前任务</li>
                       </ul>
                     </article>
                     <article class="prd-compact-column" data-prd-surface="plain">
@@ -13287,8 +13496,8 @@
                     <div class="prd-heading-label">为什么产品终点不能只是一段回答？</div>
                     <div class="prd-qa-answer">
                       <div class="prd-qa-copy">
-                        <p>因为用户最终要把这些信息带进真实任务。一段看似完整的回答，如果不能回查来源、不知道适用条件，也不知道还缺什么，就不能直接用于评审准备。</p>
-                        <p>因此，产品真正要交付的是一组可以回查、可以补齐、可以继续推进任务的依据。</p>
+                        <p>因为用户最终要把这些信息带进真实任务。一段看似完整的回答，如果不能回查来源、不知道适用条件，也不能把缺失项和下一步重新交回当前任务，就不能直接用于评审准备。</p>
+                        <p>因此，产品真正要交付的不是“答案”，而是一组可以被当前任务继续消费的可信上下文：可回查的 Evidence、明确的适用条件、待确认项和下一步动作。</p>
                       </div>
                     </div>
                   </article>
@@ -13496,11 +13705,11 @@
                   </figure>
                   <p class="prd-build-inline-note"><strong>整文件替换，不直接 append。</strong>重新解析与切片后，删除同一文件路径的旧 Chunk，再生成向量写回 Chroma，避免同一文件的新旧内容同时进入检索。</p>
                   <figure class="prd-evidence-figure" data-prd-surface="primary">
-                    <button class="interface-shot-trigger" type="button" data-lightbox-title="真实运行｜索引与刷新工作台">
-                      <img src="assets/screenshots/indexing-workspace.png" alt="V1 索引与刷新工作台，展示索引范围、任务参数、命令预览与运行日志" width="1440" height="1000" loading="lazy" />
+                    <button class="interface-shot-trigger" type="button" data-lightbox-title="知识源接入与索引">
+                      <img src="assets/screenshots/b03-source-indexing-workbench.png" alt="知识源接入与索引工作台，展示资料列表、文档信息、Chunk Record、EmbeddingGemma、Chroma 索引与 Path Refresh" width="1600" height="1000" loading="lazy" />
                       <span class="interface-shot-zoom-label">点击查看大图</span>
                     </button>
-                    <figcaption><strong class="prd-figure-caption-title">真实运行｜索引与刷新工作台</strong><br /><span class="prd-figure-caption-note">查看索引范围、任务参数与运行日志；文件变化后按当前索引策略重新处理。</span></figcaption>
+                    <figcaption><strong class="prd-figure-caption-title">知识源接入与索引</strong><br /><span class="prd-figure-caption-note">原始资料经过解析、Chunk、Metadata、Embedding 与 Chroma 索引，并支持按 source_path 刷新。</span></figcaption>
                   </figure>
                 </section>
                 <section class="prd-subsection">
@@ -13541,11 +13750,11 @@
 <p class="prd-build-small-copy"><strong>本次候选记录｜摘录四份来源</strong></p>
 <div class="prd-table-wrap" data-prd-surface="light" data-prd-density="compact"><table class="prd-table prd-build-matrix"><thead><tr><th>候选</th><th>来源文件</th><th>chunk_id</th></tr></thead><tbody><tr><td data-label="候选">01｜集团投资审批管理办法 v3.2</td><td data-label="来源文件">集团投资审批管理办法_v3.2.md</td><td data-label="chunk_id"><code>policy_approval_023</code></td></tr><tr><td data-label="候选">02｜西南区域审批补充规则</td><td data-label="来源文件">西南区域审批补充规则_v1.4.md</td><td data-label="chunk_id"><code>southwest_region_approval_011</code></td></tr><tr><td data-label="候选">03｜集团投资审批管理办法 v2.0</td><td data-label="来源文件">集团投资审批管理办法_v2.0.md</td><td data-label="chunk_id"><code>policy_approval_v2_008</code></td></tr><tr><td data-label="候选">04｜2024年类似项目复盘</td><td data-label="来源文件">2024年类似项目复盘.md</td><td data-label="chunk_id"><code>project_review_2024_006</code></td></tr></tbody></table></div>
                   <figure class="prd-evidence-figure" data-prd-surface="primary">
-                    <button class="interface-shot-trigger" type="button" data-lightbox-title="真实运行｜检索工作台">
-                      <img src="assets/screenshots/search-workspace.png" alt="V1 检索工作台，展示查询、候选 Chunk、来源路径与原文片段" width="1440" height="1000" loading="lazy" />
+                    <button class="interface-shot-trigger" type="button" data-lightbox-title="Top-K 候选 Evidence 检索">
+                      <img src="assets/screenshots/b03-evidence-retrieval-workbench.png" alt="Top-K 候选 Evidence 检索工作台，展示当前 Query、Task Context、Top-5 候选、Rerank 未启用与两条选中 Evidence" width="1600" height="1000" loading="lazy" />
                       <span class="interface-shot-zoom-label">点击查看大图</span>
                     </button>
-                    <figcaption><strong class="prd-figure-caption-title">真实运行｜检索工作台</strong><br /><span class="prd-figure-caption-note">一次查询返回候选 Chunk、来源路径与原文片段，用于核查实际召回结果。</span></figcaption>
+                    <figcaption><strong class="prd-figure-caption-title">Top-K 候选 Evidence 检索</strong><br /><span class="prd-figure-caption-note">当前任务带着 Task Context 进入向量检索，返回 Top-5 候选 Evidence，并选择当前制度与区域规则组成 Evidence Context。</span></figcaption>
                   </figure>
                 </section>
                 <section class="prd-subsection">
@@ -13599,11 +13808,11 @@
                     <div><div class="prd-heading-label">回原文</div><p>[1][2] → 原始 Chunk / source_path。用户从引用核对片段，再按路径打开原始文件。</p></div>
                   </div>
                   <figure class="prd-evidence-figure" data-prd-surface="primary">
-                    <button class="interface-shot-trigger" type="button" data-lightbox-title="真实运行｜回答与来源回查">
-                      <img src="assets/screenshots/answer-with-citations.png" alt="V1 回答与来源回查界面，展示本地模型回答、Citation 与来源片段" width="1440" height="1000" loading="lazy" />
+                    <button class="interface-shot-trigger" type="button" data-lightbox-title="证据回答与引用回查">
+                      <img src="assets/screenshots/b03-answer-citation-trace.png" alt="证据回答与引用回查工作台，展示阶段性回答、Citation、来源章节、source_path、原文片段与打开原文入口" width="1600" height="1000" loading="lazy" />
                       <span class="interface-shot-zoom-label">点击查看大图</span>
                     </button>
-                    <figcaption><strong class="prd-figure-caption-title">真实运行｜回答与来源回查</strong><br /><span class="prd-figure-caption-note">回答与来源并列展示，Citation 可以继续回到原始文件和片段复核。</span></figcaption>
+                    <figcaption><strong class="prd-figure-caption-title">证据回答与引用回查</strong><br /><span class="prd-figure-caption-note">基于当前 Evidence Context 生成阶段性回答，Citation 可定位到具体来源、章节与原文片段。</span></figcaption>
                   </figure>
                   <p class="prd-build-small-copy">证据不足时返回资料不足，不用模型常识补业务结论。</p>
                 </section>
@@ -13636,10 +13845,16 @@
                     <div><dt>index / refresh</dt><dd>触发资料重新入库；路径刷新由 ingest.py 执行</dd></div>
                     <div><dt>status</dt><dd>查看文件 / 索引 / 模型状态</dd></div>
                   </dl>
-                  <p class="prd-build-small-copy">脚本中的检索、问答和索引能力被封装成 FastAPI 接口，再由本地 Web UI 组织为可操作入口；原始文件默认只读，索引更新由用户触发。</p>
+                  <p class="prd-build-small-copy">脚本中的检索、问答和索引能力被封装成 FastAPI 接口，本地 Web UI 是第一类消费入口；同一层接口也把知识能力从“页面功能”变成了可被任务调用的能力，使后续任务流可以基于 Task Context 请求候选 Evidence、来源与缺失条件。</p>
+                  <p class="prd-build-small-copy">原始文件默认只读，索引更新仍由用户主动触发。</p>
+                  <aside class="prd-knowledge-exit" aria-labelledby="knowledge-exit-title">
+                    <div class="prd-knowledge-exit-title" id="knowledge-exit-title">知识能力出口</div>
+                    <p>Web UI 用于当前验证；FastAPI 则可作为后续任务流的统一知识调用入口。任务带着 Task Context 请求知识能力，知识层返回候选 Evidence、来源与缺失条件，再由任务层继续组织判断与下一步动作。</p>
+                  </aside>
                 </section>
                 <aside class="prd-build-conclusion prd-p2-transition" aria-label="V1 构建阶段判断" data-prd-surface="plain" data-prd-density="compact">
-                  <p>V1 把本地文件接到“检索 → Evidence Context → 带来源回答”；下一步用代表问题和 Bad Case 检查各环节的中间产物。</p>
+                  <p>V1 先把本地文件接到“检索 → Evidence Context → 带来源回答”，同时把这条链封装成可被任务消费的知识入口。</p>
+                  <p>下一步先用代表问题和 Bad Case 验证检索、证据与回答是否可靠；再在调用控制中继续解决：任务何时调用知识、缺条件时何时停、什么时候需要确认后才能继续。</p>
                   <div class="prd-p22-summary-band">
                   <h4 class="prd-build-small-copy">V1 核心策略</h4>
                   <dl class="prd-build-conclusion-tags">
@@ -13665,67 +13880,107 @@
               </header>
               <div class="prd-section-body">
                 <section class="prd-subsection">
-                  <h3 id="design-v1-validation-1">4.1 验证集：10 个问题覆盖四类关键失败</h3>
-                  <p class="prd-prose">我从本地资料中选了10个代表问题检查链路，再用同一脱敏审批任务覆盖规则定位、历史案例、多来源组合和条件缺失四类失败。</p>
+                  <h3 id="design-v1-validation-1">4.1 验证集：10 个问题覆盖四类关键场景</h3>
+                  <p class="prd-prose">我从本地资料中选了10个代表问题检查链路，再用同一脱敏审批任务覆盖规则定位、历史案例、多来源组合和条件缺失四类场景。</p>
                   <div class="prd-val-test-groups" data-prd-surface="plain" data-prd-density="compact" aria-label="代表场景的十题覆盖设计">
                     <article data-prd-surface="plain">
                       <header><h4>规则 / 事实定位</h4><span>3题</span></header>
-                      <ul class="prd-list"><li>商业项目在方案评审阶段是否需要集团审批？</li><li>西南区域审批规则的金额条件是什么？</li><li>集团审批由哪个部门负责？</li></ul>
+                      <ul class="prd-list"><li>Q02｜集团投资审批管理办法当前有效版本是什么？</li><li>Q03｜方案评审阶段的集团审批门槛如何规定？</li><li>Q04｜西南区域是否有集团规则之外的补充审批要求？</li></ul>
                       <p class="prd-val-focus">验证：检索命中 + 来源回查</p>
                     </article>
                     <article data-prd-surface="plain">
                       <header><h4>历史案例 / 上下文恢复</h4><span>3题</span></header>
-                      <ul class="prd-list"><li>2024年类似项目采用过什么方案？</li><li>当时为什么最终选择这个方案？</li><li>历史复盘记录了哪些风险？</li></ul>
+                      <ul class="prd-list"><li>Q05｜2024 年是否有类似商业项目的评审复盘？</li><li>Q06｜历史类似项目在审批过程中主要补充过哪些材料？</li><li>Q07｜此前类似项目的会议纪要中有哪些常见关注点？</li></ul>
                       <p class="prd-val-focus">验证：语义召回 + 上下文恢复</p>
                     </article>
                     <article data-prd-surface="plain">
                       <header><h4>多来源组合 / 比较</h4><span>2题</span></header>
-                      <ul class="prd-list"><li>集团主制度与西南区域补充规则如何共同判断？</li><li>当前制度与2024年项目做法是否存在差异？</li></ul>
+                      <ul class="prd-list"><li>Q01｜商业项目在西南区域方案评审阶段，拟投入 5000 万，是否需要集团审批？</li><li>Q08｜集团制度与西南区域补充规则对当前项目分别提供什么依据？</li></ul>
                       <p class="prd-val-focus">验证：多来源组织 + 来源边界</p>
                     </article>
                     <article data-prd-surface="plain">
                       <header><h4>条件缺失 / 证据不足</h4><span>2题</span></header>
-                      <ul class="prd-list"><li>只给项目名称，能否判断是否需要集团审批？</li><li>缺少金额时，是否仍给出完整结论？</li></ul>
+                      <ul class="prd-list"><li>Q09｜这个商业项目需要集团审批吗？</li><li>Q10｜5000 万的项目需要集团审批吗？</li></ul>
                       <p class="prd-val-focus">验证：条件不足时，会不会仍然强答</p>
                     </article>
                   </div>
-                  <details class="prd-val-original-tests">
-                    <summary>查看原始10问与人工命中记录</summary>
-                    <ol>
-                      <li><span>我之前写过的文件管理规则是什么？</span><strong>命中</strong></li>
-                      <li><span>Codex 每次打开应该读取哪些协作规则？</span><strong>命中</strong></li>
-                      <li><span>本地知识助手 GUI 平时怎么用？</span><strong>命中</strong></li>
-                      <li><span>文件改动后怎么办？</span><strong>命中</strong></li>
-                      <li><span>换电脑时需要迁移哪些内容？</span><strong>命中</strong></li>
-                      <li><span>企业知识库 RAG 项目的验证问题有哪些？</span><strong>命中</strong></li>
-                      <li><span>本地知识库项目如何介绍？</span><strong>命中</strong></li>
-                      <li><span>长文档切分和索引要注意什么？</span><strong>基本命中</strong></li>
-                      <li><span>本地知识助手的页面截图在哪里？</span><strong>命中</strong></li>
-                      <li><span>哪些内容不能放到公开作品集？</span><strong>命中</strong></li>
-                    </ol>
-                  </details>
-<div class="prd-val-variants" data-prd-surface="plain" data-prd-density="compact"><div><span class="prd-subsection-label">本次验证记录｜Query</span><p>“这个项目是否需要集团审批？”</p><p>商业项目 / 西南区域 / 方案评审 / 5000万</p></div><div><span class="prd-subsection-label">预期依据与检查项</span><p>集团投资审批管理办法 v3.2 + 西南区域审批补充规则</p><ul class="prd-list"><li>Top-K 是否出现预期来源</li><li>能否回到原文</li><li>回答是否引用证据</li><li>条件不足时是否停止</li></ul></div></div>
                   <div class="prd-val-subtitle prd-heading-label">本次验证记录的检查字段</div>
                   <p class="prd-val-copy">从候选结果到回答，按下面六个字段核对本次任务。</p>
                   <dl class="prd-val-indicators" data-prd-surface="plain" data-prd-density="compact">
-                    <div><dt>检索命中率</dt><dd>Top-K 中是否出现预期来源或足以支持回答的证据。</dd></div>
+                    <div><dt>检索命中</dt><dd>Top-K 中是否出现预期来源或足以支持回答的证据。</dd></div>
                     <div><dt>召回噪声</dt><dd>正确证据是否被大量边缘片段淹没。</dd></div>
                     <div><dt>回答依据一致性</dt><dd>关键结论能否在候选证据里找到依据。</dd></div>
                     <div><dt>来源可追溯性</dt><dd>能否从答案回到来源文件和原文片段。</dd></div>
                     <div><dt>任务可用率</dt><dd>当前答案和证据是否足以支持用户继续完成任务。</dd></div>
                     <div><dt>拒答 / 澄清正确性</dt><dd>条件不足时，系统是否知道“不应该直接回答”。</dd></div>
                   </dl>
-                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>验证集 / Evaluation 界面</strong><p>待补高保真产品截图</p></figcaption></figure>
+                  <figure class="b04-record-artifact evaluation-sheet" id="b04-evaluation-sheet">
+  <figcaption class="b04-artifact-heading">V1 Evaluation Sheet</figcaption>
+  <dl class="b04-artifact-meta">
+    <div><dt>Date</dt><dd>2025-08</dd></div>
+    <div><dt>Owner</dt><dd>Frey</dd></div>
+    <div><dt>Validation Set</dt><dd>10 representative questions</dd></div>
+    <div><dt>Knowledge Base</dt><dd>163 files / 390 chunks</dd></div>
+    <div><dt>Retrieval</dt><dd>Top-K 5</dd></div>
+    <div><dt>Rerank</dt><dd>Off · V1 baseline</dd></div>
+    <div><dt>Generation</dt><dd>Qwen3:0.6B · Local</dd></div>
+    <div><dt>Source Check</dt><dd>人工回查</dd></div>
+  </dl>
+  <dl class="b04-artifact-summary">
+    <div><dt>Retrieval Hit</dt><dd>9 / 10</dd></div>
+    <div><dt>Task Usability</dt><dd>8 / 10</dd></div>
+    <div><dt>Executed</dt><dd>10 / 10</dd></div>
+    <div><dt>Source Check</dt><dd>人工回查</dd></div>
+  </dl>
+  <div class="b04-artifact-table-wrap">
+    <table class="b04-artifact-table" id="b04-evaluation-questions" aria-label="10 个代表问题">
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">类型</th><th scope="col">验证问题</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Q01</th><td>多来源</td><td>商业项目在西南区域方案评审阶段，拟投入 5000 万，是否需要集团审批？</td></tr>
+        <tr><th scope="row">Q02</th><td>规则 / 事实</td><td>集团投资审批管理办法当前有效版本是什么？</td></tr>
+        <tr><th scope="row">Q03</th><td>规则 / 事实</td><td>方案评审阶段的集团审批门槛如何规定？</td></tr>
+        <tr><th scope="row">Q04</th><td>规则 / 事实</td><td>西南区域是否有集团规则之外的补充审批要求？</td></tr>
+        <tr><th scope="row">Q05</th><td>历史 / 上下文</td><td>2024 年是否有类似商业项目的评审复盘？</td></tr>
+        <tr><th scope="row">Q06</th><td>历史 / 上下文</td><td>历史类似项目在审批过程中主要补充过哪些材料？</td></tr>
+        <tr><th scope="row">Q07</th><td>历史 / 上下文</td><td>此前类似项目的会议纪要中有哪些常见关注点？</td></tr>
+        <tr><th scope="row">Q08</th><td>多来源</td><td>集团制度与西南区域补充规则对当前项目分别提供什么依据？</td></tr>
+        <tr><th scope="row">Q09</th><td>缺失条件</td><td>这个商业项目需要集团审批吗？</td></tr>
+        <tr><th scope="row">Q10</th><td>缺失条件</td><td>5000 万的项目需要集团审批吗？</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="b04-case-record">
+    <p class="b04-record-title">Representative Case · Q01</p>
+    <p class="b04-record-query">商业项目在西南区域方案评审阶段，拟投入 5000 万，是否需要集团审批？</p>
+    <div class="b04-artifact-table-wrap">
+      <table class="b04-artifact-table" id="b04-q01-record" aria-label="Q01 Evaluation Record">
+        <thead>
+          <tr><th scope="col">检查层</th><th scope="col">验证记录</th><th scope="col">判定</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Retrieval</th><td>Top-K 命中集团投资审批管理办法 v3.2 与西南区域审批补充规则 v1.4</td><td><span class="b04-record-pass">Hit</span></td></tr>
+          <tr><th scope="row">Generation</th><td>回答基于当前 Evidence Context，Citation 可回查到原始来源</td><td><span class="b04-record-pass">依据可回查</span></td></tr>
+          <tr><th scope="row">Task</th><td>保留集团制度依据、区域补充条件与待确认项，可用于评审准备</td><td><span class="b04-record-pass">Pass</span></td></tr>
+          <tr><th scope="row">Source Check</th><td>人工回到原始来源核对 Citation 与片段</td><td><span class="b04-record-pass">回查通过</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="b04-record-note">Retrieval 检查关键依据是否找回；Generation 检查回答是否基于 Evidence 且可回查；Task 检查结果是否能支持用户继续完成当前任务。</p>
+  </div>
+</figure>
+
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-2">4.2 首轮结果：检索命中与任务可用出现差距</h3>
                   <dl class="prd-val-results" data-prd-surface="primary" data-prd-density="compact" aria-label="已有十问汇总结果及验证条件">
-                    <div><dt>检索命中率</dt><dd><strong>9/10</strong><span>明确命中；1/10 基本命中（部分来源）</span></dd></div>
-                    <div><dt>任务可用率</dt><dd><strong>8/10</strong><span>8个问题的答案与证据足以支持继续完成当前任务。</span></dd></div>
-                    <div><dt>来源核验</dt><dd><strong>人工核对</strong><span>对照预期来源与返回片段</span></dd></div>
+                    <div><dt>检索命中</dt><dd><strong>9/10</strong><span>9 个问题能够找回预期关键 Evidence。</span></dd></div>
+                    <div><dt>任务可用</dt><dd><strong>8/10</strong><span>8个问题的答案与证据足以支持继续完成当前任务。</span></dd></div>
+                    <div><dt>来源核验</dt><dd><strong>人工回查</strong><span>对照预期来源与返回片段</span></dd></div>
                     <div><dt>验证环境</dt><dd><strong>163 个文件 / 390 个 Chunk</strong><span>当轮本地知识库规模 · CPU 运行</span></dd></div>
                   </dl>
-                  <p class="prd-inline-note"><strong>9/10命中说明基础召回链路已经跑通，但真正的问题出现在“命中以后”。</strong></p>
+                  <p class="prd-inline-note"><strong>9/10 命中说明基础召回链路已经跑通，但真正的问题出现在“命中以后”。</strong></p>
                   <ul class="prd-list prd-val-result-gaps"><li>找到了相似历史项目，但它不是当前项目的规则依据。</li><li>找到了审批触发条件，却漏掉后面的例外条款。</li><li>当前条件不足，模型仍倾向生成完整答案。</li></ul>
                 </section>
                 <section class="prd-subsection">
@@ -13733,20 +13988,45 @@
                   <p class="prd-prose">本次三个 Case 分别定位到检索范围、切片边界和任务条件，调整动作也分别落在对应环节。</p>
 <div class="prd-table-wrap prd-val-diagnosis-table" data-prd-surface="plain" data-prd-density="compact">
 <table class="prd-table" aria-label="本次三个Case的定位台账"><thead><tr><th>异常记录</th><th>失败位置</th><th>调整动作</th></tr></thead><tbody>
-<tr><th scope="row">Case 01｜相似项目误召回</th><td data-label="失败位置"><strong>检索范围</strong><br>Retrieval Scope</td><td data-label="调整动作">保留 path / source_type，筛选来源并展示引用。</td></tr>
-<tr><th scope="row">Case 02｜只召回半条规则</th><td data-label="失败位置"><strong>切片边界 + 召回覆盖</strong><br>Chunk Boundary + Retrieval Coverage</td><td data-label="调整动作">合并短段、定长兜底，并加入约150字符重叠。</td></tr>
+<tr><th scope="row">Case 01｜高相关 ≠ 正确候选</th><td data-label="失败位置"><strong>检索范围</strong><br>Retrieval Scope</td><td data-label="调整动作">保留 path / source_type，筛选来源并展示引用。</td></tr>
+<tr><th scope="row">Case 02｜规则被切半</th><td data-label="失败位置"><strong>切片边界 + 召回覆盖</strong><br>Chunk Boundary + Retrieval Coverage</td><td data-label="调整动作">合并短段、定长兜底，并加入约150字符重叠。</td></tr>
 <tr><th scope="row">Case 03｜条件缺失仍给完整答案</th><td data-label="失败位置"><strong>任务条件 + Prompt 停止约束</strong><br>Task Condition + Prompt Stop</td><td data-label="调整动作">基于证据生成、引用约束、证据不足拒答。</td></tr>
 </tbody></table></div>
 <p class="prd-val-copy">三类错误落在不同环节，不能统一靠改 Prompt 解决。</p>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-4">4.4 针对性修复：处理三个代表 Bad Case</h3>
+<figure class="b04-record-artifact bad-case-log" id="b04-bad-case-log">
+  <figcaption class="b04-artifact-heading">Bad Case Log</figcaption>
+  <div class="b04-artifact-table-wrap"><table class="b04-artifact-table" aria-label="三个代表 Bad Case 的问题台账"><thead><tr><th>Case</th><th>现象</th><th>Failure Layer</th><th>Root Cause</th><th>处理方向</th></tr></thead><tbody>
+    <tr><th scope="row">BC01</th><td>高相关 ≠ 正确候选</td><td>Retrieval</td><td>Candidate Set / Retrieval Scope</td><td>Metadata / Retrieval Scope</td></tr>
+    <tr><th scope="row">BC02</th><td>规则被切半</td><td>Chunk / Retrieval</td><td>Chunk Boundary / Retrieval Coverage</td><td>Chunk 调整 + Coverage</td></tr>
+    <tr><th scope="row">BC03</th><td>条件缺失仍给完整答案</td><td>Task / Generation Control</td><td>Task Condition / Prompt Stop</td><td>缺条件停止完整结论</td></tr>
+  </tbody></table></div>
+</figure>
 <div class="prd-val-cases" data-prd-surface="primary">
-<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 01</span><h4>相似项目误召回</h4><span class="prd-subsection-label">元数据过滤</span></header><dl><div><dt>调整前｜异常</dt><dd>Query：“这个项目是否需要集团审批？”<br>Top-K 摘录：2024年类似项目复盘、集团投资审批管理办法 v3.2、西南区域审批补充规则。<br>历史案例语义相似，但不能直接代表当前项目规则。</dd></div><div><dt>定位</dt><dd>优先定位检索范围（Retrieval Scope）：候选混入历史资料，问题发生在生成之前。</dd></div><div><dt>调整</dt><dd>保留<code>source_type / path</code>，加入轻量来源筛选，并明确展示每条候选的来源与引用。</dd></div><div><dt>调整后｜检查</dt><dd>当前制度与区域规则列作主要规则证据；历史案例保留为背景候选，通过来源展示区分其角色。</dd></div></dl></article>
-<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 02</span><h4>只召回半条规则</h4><span class="prd-subsection-label">Chunk 切片策略</span></header><dl><div><dt>调整前｜异常</dt><dd>同一审批文档中：<br>Chunk A：“哪些项目需要集团审批……”<br>相邻段：“以下情况属于例外……”<br>原先只召回 Chunk A，例外没有进入 Context。</dd></div><div><dt>定位</dt><dd>审批触发条件与例外落在 Chunk 边界两侧；定位到切片边界与召回覆盖。</dd></div><div><dt>调整</dt><dd><strong>段落优先 + 定长兜底 + 约150字符 overlap。</strong>合并短段，超长内容约1200字符切分，让相邻窗口保留重叠上下文。</dd></div><div><dt>调整后｜检查</dt><dd>重新运行同类审批问题后，触发条件与相邻例外条款同时进入 Context，不再只召回半条规则。回答同时看到主规则与例外条件，避免只依据前半段得出结论。</dd></div></dl></article>
-<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 03</span><h4>条件不足仍倾向回答</h4><span class="prd-subsection-label">Prompt 策略</span></header><dl><div><dt>调整前｜异常</dt><dd>Query：“这个项目是否需要集团审批？”<br>缺少项目类型、地区、金额与当前阶段，V1 仍倾向组合检索材料给出完整答案。</dd></div><div><dt>定位</dt><dd>问题不只是检索不到，而是任务条件本身不完整；Prompt 缺少明确停止约束。</dd></div><div><dt>调整</dt><dd><strong>基于证据生成 + 引用约束 + 证据不足拒答。</strong>要求用检索原文支撑结论，缺关键条件时返回资料不足。</dd></div><div><dt>调整后｜检查</dt><dd>再次以缺少关键条件的问题运行后，系统不再补出完整业务结论，而是返回当前资料不足，并指出仍缺项目类型、地区、金额或当前阶段等必要条件。<br>V1 仍停留在 Prompt 层拒答 / 缺条件提示，B05 再升级为结构化 Clarify。</dd></div></dl></article>
+<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 01</span><h4>高相关 ≠ 正确候选：为什么没有直接加 Rerank</h4><span class="prd-subsection-label">元数据过滤</span></header><dl><div><dt>现象</dt><dd>Query：“这个项目是否需要集团审批？”<br>查询西南区域商业项目的审批问题（方案评审 / 5000万）时，Top-K 可能同时召回当前制度、区域规则、旧版本与历史案例。某些历史材料因为表述更接近当前 Query，可能在相关性排序中靠前，但并不代表它更适合当前任务。</dd></div><div><dt>判断</dt><dd>Rerank 可以改善候选集合内部的语义排序，但无法单独处理版本有效性、区域范围、来源角色与适用边界。因此，这个问题首先不是“排序算法不够强”，而是召回范围没有充分表达业务边界。</dd></div><div><dt>处理</dt><dd>V1 优先补 Retrieval Scope 与 Metadata 约束，通过已保留的<code>source_type / path</code>做轻量来源筛选，并展示候选来源与引用，先缩小候选集合、减少历史版本或错误范围材料混入。Rerank 当前未在 V1 runtime 中启用，被保留为候选集合内部排序的后续优化位点。</dd></div><div><dt>后续</dt><dd>即使排序正确，Evidence 是否能用于当前任务仍需要单独判断，因此后续继续增加 Eligibility Gate。Rerank 解决 ranking，不解决 applicability。</dd></div></dl>
+<div class="b04-decision-record decision-record" id="b04-bc01-decision-record">
+<p class="b04-record-title">BC01 · Decision Record</p>
+<dl class="b04-artifact-meta"><div><dt>Primary Layer</dt><dd>Retrieval</dd></div><div><dt>Root Cause</dt><dd>Candidate Set / Retrieval Scope</dd></div></dl>
+<div class="b04-artifact-table-wrap"><table class="b04-artifact-table" aria-label="Bad Case 1 的方案判断"><thead><tr><th>方案</th><th>主要解决什么</th><th>当前判断</th></tr></thead><tbody>
+<tr><th scope="row">Rerank</th><td data-label="主要解决什么">改善候选集合内部的语义排序</td><td data-label="当前判断">暂缓</td></tr>
+<tr><th scope="row">Metadata / Retrieval Scope</th><td data-label="主要解决什么">缩小候选范围，减少错区域、错来源角色与历史版本混入</td><td data-label="当前判断">优先</td></tr>
+<tr><th scope="row">Eligibility</th><td data-label="主要解决什么">判断召回 Evidence 当前能否使用</td><td data-label="当前判断">后续 V3</td></tr>
+</tbody></table></div>
+</div></article>
+<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 02</span><h4>规则被切半</h4><span class="prd-subsection-label">Chunk 切片策略</span></header><dl><div><dt>调整前｜异常</dt><dd>同一审批文档中：<br>Chunk A：“哪些项目需要集团审批……”<br>相邻段：“以下情况属于例外……”<br>原先只召回 Chunk A，例外没有进入 Context。</dd></div><div><dt>定位</dt><dd>审批触发条件与例外落在 Chunk 边界两侧；定位到切片边界与召回覆盖。</dd></div><div><dt>调整</dt><dd><strong>段落优先 + 定长兜底 + 约150字符 overlap。</strong>合并短段，超长内容约1200字符切分，让相邻窗口保留重叠上下文。</dd></div><div><dt>调整后｜检查</dt><dd>重新运行同类审批问题后，触发条件与相邻例外条款同时进入 Context，不再只召回半条规则。回答同时看到主规则与例外条件，避免只依据前半段得出结论。</dd></div></dl></article>
+<article class="prd-val-case" data-prd-surface="plain"><header><span>Case 03</span><h4>条件缺失仍给完整答案</h4><span class="prd-subsection-label">Prompt 策略</span></header><dl><div><dt>调整前｜异常</dt><dd>Query：“这个项目是否需要集团审批？”<br>缺少项目类型、地区、金额与当前阶段，V1 仍倾向组合检索材料给出完整答案。</dd></div><div><dt>定位</dt><dd>问题不只是检索不到，而是任务条件本身不完整；Prompt 缺少明确停止约束。</dd></div><div><dt>调整</dt><dd><strong>基于证据生成 + 引用约束 + 证据不足拒答。</strong>要求用检索原文支撑结论，缺关键条件时返回资料不足。</dd></div><div><dt>调整后｜检查</dt><dd>再次以缺少关键条件的问题运行后，系统不再补出完整业务结论，而是返回当前资料不足，并指出仍缺项目类型、地区、金额或当前阶段等必要条件。<br>V1 仍停留在 Prompt 层拒答 / 缺条件提示，B05 再升级为结构化 Clarify。</dd></div></dl></article>
 </div>
-                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>代表 Bad Case 前后对比</strong><p>待补高保真产品截图</p></figcaption></figure>
+                  <figure class="b04-record-artifact" id="b04-before-after-record">
+  <figcaption class="b04-artifact-heading">BC01 · Before / After</figcaption>
+  <div class="b04-artifact-table-wrap"><table class="b04-artifact-table b04-comparison-table" aria-label="BC01 修正前后的行为记录"><thead><tr><th>Before</th><th>After</th></tr></thead><tbody>
+    <tr><td>Top-K 中当前制度、区域规则、历史版本、历史案例可能混在同一候选集合</td><td>使用 Task Context + source_type / path 缩小主要候选范围</td></tr>
+    <tr><td>语义相关性无法表达来源角色与区域边界</td><td>当前制度 + 西南区域规则优先进入主要候选</td></tr>
+    <tr><td>历史资料可能因措辞接近 Query 排位靠前</td><td>历史案例仍可检索，但保留历史参考角色</td></tr>
+    <tr><td>Rerank 未启用</td><td>Rerank 继续作为后续候选内部排序优化位点</td></tr>
+  </tbody></table></div>
+</figure>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-5">4.5 回归测试：原题 + 邻近变体</h3>
@@ -13768,7 +14048,71 @@
 <tr><th scope="row">D｜缺少金额</th><td data-label="输入 → 返回结果">结果：停止形成完整审批结论，返回当前条件不足，并指出缺少金额条件。</td></tr>
 <tr><th scope="row">E｜历史案例与当前制度同时进入候选</th><td data-label="输入 → 返回结果">结果：当前有效制度保持主要规则依据；历史案例保留为背景参考，不再替代当前制度。</td></tr>
 </tbody></table></div>
-                  <figure class="prd-evidence-figure prd-val-placeholder prd-p21-evidence-slot" data-prd-surface="plain" data-prd-density="compact"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>回归测试记录</strong><p>待补高保真产品截图</p></figcaption></figure>
+                  <figure class="b04-record-artifact regression-record" id="b04-regression-record" aria-labelledby="b04-regression-title">
+                            <figcaption class="b04-artifact-heading" id="b04-regression-title">Regression Record</figcaption>
+                            <dl class="b04-artifact-meta">
+                                <div><dt>Batch</dt><dd>V1 iteration</dd></div>
+                                <div><dt>Date</dt><dd>2025-08</dd></div>
+                                <div><dt>Owner</dt><dd>Frey</dd></div>
+                            </dl>
+                            <div class="b04-artifact-table-wrap">
+                                <table class="b04-artifact-table" id="b04-regression-table">
+                                    <colgroup>
+                                        <col class="b04-id-col">
+                                        <col class="b04-case-col">
+                                        <col class="b04-query-col">
+                                        <col class="b04-expect-col">
+                                        <col class="b04-result-col">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Case</th>
+                                            <th scope="col">Query Variant</th>
+                                            <th scope="col">预期行为</th>
+                                            <th scope="col">结果</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">R01</th>
+                                            <td>BC01</td>
+                                            <td>西南区域商业项目在方案评审阶段，5000 万是否需要集团审批？</td>
+                                            <td>当前制度与西南区域规则进入主要候选范围</td>
+                                            <td><span class="b04-record-pass">符合预期 · 通过</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">R02</th>
+                                            <td>BC01</td>
+                                            <td>找一个西南区域类似商业项目作为参考</td>
+                                            <td>允许历史案例进入候选，保留历史参考资料角色</td>
+                                            <td><span class="b04-record-pass">符合预期 · 通过</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">R03</th>
+                                            <td>BC02</td>
+                                            <td>方案评审阶段达到审批门槛后，还需要满足哪些区域条件？</td>
+                                            <td>返回完整审批门槛与区域补充条件，不只返回半条规则</td>
+                                            <td><span class="b04-record-pass">符合预期 · 通过</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">R04</th>
+                                            <td>BC03</td>
+                                            <td>这个商业项目需要集团审批吗？</td>
+                                            <td>缺区域、阶段、金额时，不直接给最终审批结论，提示补充关键条件</td>
+                                            <td><span class="b04-record-pass">符合预期 · 通过</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">R05</th>
+                                            <td>BC03</td>
+                                            <td>5000 万的项目需要集团审批吗？</td>
+                                            <td>缺项目类型、区域、阶段时，停止完整结论并提示补全条件</td>
+                                            <td><span class="b04-record-pass">符合预期 · 通过</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </figure>
                 </section>
                 <section class="prd-subsection">
                   <h3 id="design-v1-validation-6">4.6 阶段结果：检索链路成立，下一步补请求控制</h3>
@@ -13787,19 +14131,19 @@
 <p class="prd-section-kicker"><span>B05</span><span>V2 调用控制</span></p>
 <h2><span class="prd-title-clause">把 V1 检索封装成 search_docs：</span><span class="prd-title-clause">用 Route、<span class="prd-title-term">Task Context 与</span> <span class="prd-title-term">Confirmation 控制调用</span></span></h2>
 <p class="prd-subsection-label">Evidence Level｜产品级原型 / 控制规则</p>
-<p>把 V1 的检索能力封装成可调用工具，再用 Route、澄清、任务状态和确认节点控制请求如何继续。</p>
+<p>V1 解决“能不能找到证据”；V2 开始解决“当前任务什么时候该查、什么时候先补条件、什么时候必须停下来确认”。</p>
 </header>
 <div class="prd-section-body">
 <div class="prd-p22-stage-intro">
 <aside aria-label="实现与设计边界" class="prd-control-baseline prd-p22-stage-brief" data-prd-surface="plain">
 <p><strong>V1 基线 / 现有只读原型</strong>只读任务分类 → 多步检索 → 证据合并 → 带来源回答；已有一次端到端 smoke test 记录。</p>
-<p><strong>V2 改造范围</strong>V2 在 V1 只读检索底座之上增加请求分流、条件校验、Tool Contract、当前任务状态和 Confirmation Gate。</p>
+<p><strong>V2 改造范围</strong>V2 在 V1 只读检索底座之上增加请求分流、条件澄清、search_docs 调用、当前任务状态和外部动作确认。</p>
 </aside>
 <p class="prd-control-note pm-task-note">贯穿脱敏代表任务：“这个项目是否需要集团审批？”补齐后为商业项目 / 西南区域 / 方案评审 / 5000万。</p>
 </div>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-1">5.1 Route 分流：Direct / Retrieve / Clarify / Confirmation / Blocked</h3>
-<p class="prd-prose">V1 最终仍默认进入同一条检索链。V2 先读取当前任务条件与动作风险，决定这次请求该走哪条 Route。</p>
+<p class="prd-prose">V1 最终仍默认进入同一条检索链。V2 先读取当前任务条件与动作风险，决定这次请求该走哪条 Route。这里的 Route 不是意图分类标签，而是当前请求的下一处理方式。</p>
 <div aria-label="本次第一次路由结果" class="pm-record" data-prd-surface="plain"><p class="pm-record-label">本次路由结果</p>
 <dl class="pm-fields is-pairs"><div><dt>用户输入</dt><dd>“这个项目是否需要集团审批？”</dd></div><div><dt>当前已知</dt><dd>项目名称 / 当前问题，尚无完整任务条件</dd></div><div><dt>Route</dt><dd><span class="prd-control-route">Clarify</span></dd></div><div><dt>原因</dt><dd>需要企业私有审批规则，同时当前任务必要条件不足</dd></div><div><dt>缺失条件</dt><dd>项目类型 / 地区 / 阶段 / 金额</dd></div><div><dt>下一步</dt><dd>先补齐条件，不进入 search_docs</dd></div></dl>
 </div>
@@ -13809,7 +14153,7 @@
 <div><span class="prd-control-index">B</span><div><div class="prd-heading-label">“去年这个项目最后为什么这么定？”</div><p>需要本地历史资料，回答必须有来源证据。</p></div><span class="prd-control-route">Retrieve</span></div>
 <div><span class="prd-control-index">C</span><div><div class="prd-heading-label">“这个项目是否需要集团审批？”</div><p>项目类型、地区、阶段和金额还未明确，不能直接给结论。</p></div><span class="prd-control-route">Clarify</span></div>
 <div><span class="prd-control-index">D</span><div><div class="prd-heading-label">“把这个结论写进评审材料。”</div><p>请求开始改变外部状态，需要先确认。</p></div><span class="prd-control-route">Confirmation</span></div>
-<div><span class="prd-control-index">E</span><div><div class="prd-heading-label">执行条件不满足，或请求超出工具能力</div><p>必要确认未通过、权限或能力边界不满足时，不能继续执行。</p></div><span class="prd-control-route">Blocked</span></div>
+<div><span class="prd-control-index">E</span><div><div class="prd-heading-label">执行条件不满足，或请求超出工具能力</div><p>Router 读取当前任务状态时，若请求已明确不满足权限、工具能力或必要执行条件，可直接进入 Blocked。</p></div><span class="prd-control-route">Blocked</span></div>
 </div>
 </section>
 <section class="prd-subsection" data-prd-density="compact">
@@ -13851,10 +14195,10 @@
 <figcaption id="b05-contract-caption">search_docs｜输入当前任务条件，返回带原文与引用的候选 Evidence。</figcaption>
 </figure>
 <div class="pm-record" data-prd-surface="plain"><p class="pm-record-label">本次调用记录｜输入与候选 Evidence</p><div class="pm-record-columns">
-<div><div class="prd-heading-label">输入</div><dl class="pm-fields"><div><dt>问题<code>query</code></dt><dd>这个项目是否需要集团审批？</dd></div><div><dt>资料范围<code>source_scope</code></dt><dd>审批制度 / 区域补充规则 / 历史项目资料</dd></div><div><dt>Top-K</dt><dd>沿用 V1 当前配置</dd></div><div><dt>任务条件<code>task_context</code></dt><dd>商业项目 / 西南区域 / 方案评审 / 5000万</dd></div></dl></div>
-<div><div class="prd-heading-label">输出</div><p class="pm-statusline"><span>返回状态 <code>status</code></span><strong>success</strong></p><ol aria-label="本次四条候选Evidence返回" class="pm-evidence-list"><li><span class="pm-source-index">01</span><div><strong>集团投资审批管理办法 v3.2</strong><p>路径 <code>集团投资审批管理办法_v3.2.md</code></p><p>片段 <code>policy_approval_023</code> · 引用 [1]</p></div></li><li><span class="pm-source-index">02</span><div><strong>西南区域审批补充规则</strong><p>路径 <code>西南区域审批补充规则_v1.4.md</code></p><p>片段 <code>southwest_region_approval_011</code> · 引用 [2]</p></div></li><li><span class="pm-source-index">03</span><div><strong>集团投资审批管理办法 v2.0</strong><p>路径 <code>集团投资审批管理办法_v2.0.md</code></p><p>片段 <code>policy_approval_v2_008</code> · 引用 [3]</p></div></li><li><span class="pm-source-index">04</span><div><strong>2024年类似项目复盘</strong><p>路径 <code>2024年类似项目复盘.md</code></p><p>片段 <code>project_review_2024_006</code> · 引用 [4]</p></div></li></ol></div>
+<div><div class="prd-heading-label">输入</div><dl class="pm-fields"><div><dt>问题<code>query</code></dt><dd>这个项目是否需要集团审批？</dd></div><div><dt>资料范围<code>source_scope</code></dt><dd>主要查找当前审批制度 / 西南区域规则；历史版本与案例保留为参考候选</dd></div><div><dt>Top-K</dt><dd>沿用 V1 当前配置</dd></div><div><dt>任务条件<code>task_context</code></dt><dd>商业项目 / 西南区域 / 方案评审 / 5000万</dd></div></dl></div>
+<div><div class="prd-heading-label">输出</div><p class="pm-statusline"><span>返回状态 <code>status</code></span><strong>success</strong></p><div class="prd-heading-label">主要候选</div><p>当前任务最相关的规则来源；使用资格仍待判断。</p><ol aria-label="本次主要候选Evidence返回" class="pm-evidence-list"><li><span class="pm-source-index">01</span><div><strong>集团投资审批管理办法 v3.2</strong><p>路径 <code>集团投资审批管理办法_v3.2.md</code></p><p>片段 <code>policy_approval_023</code> · 引用 [1]</p></div></li><li><span class="pm-source-index">02</span><div><strong>西南区域审批补充规则 v1.4</strong><p>路径 <code>西南区域审批补充规则_v1.4.md</code></p><p>片段 <code>southwest_region_approval_011</code> · 引用 [2]</p></div></li></ol><div class="prd-heading-label">参考候选</div><p>仍可回查，但来源角色不同，不能直接等价为当前规则依据。</p><ol aria-label="本次参考候选Evidence返回" class="pm-evidence-list" start="3"><li><span class="pm-source-index">03</span><div><strong>集团投资审批管理办法 v2.0</strong><p>路径 <code>集团投资审批管理办法_v2.0.md</code></p><p>片段 <code>policy_approval_v2_008</code> · 引用 [3]</p></div></li><li><span class="pm-source-index">04</span><div><strong>2024年类似项目复盘</strong><p>路径 <code>2024年类似项目复盘.md</code></p><p>片段 <code>project_review_2024_006</code> · 引用 [4]</p></div></li></ol></div>
 </div></div>
-<aside class="prd-control-boundary"><strong>search_docs 只负责找到并结构化返回候选 Evidence。</strong><p>不决定哪份制度当前有效，也不决定历史资料能否用于当前判断；证据准入交给 B06。</p></aside>
+<aside class="prd-control-boundary"><strong>search_docs 只负责找到并结构化返回候选 Evidence。</strong><p>把候选 Evidence 和来源带回任务，不决定哪份制度最终有效、历史资料是否适用，也不自动给出最终审批结论；能否作为当前依据，交给 B06 Eligibility 判断。</p></aside>
 </section>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-4">5.4 Task Context：跨轮保留已确认条件</h3>
@@ -13869,15 +14213,15 @@
 </section>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-5">5.5 Confirmation Gate：外部写入前暂停确认</h3>
-<p class="prd-prose">前面的检索与回答只改变页面信息；从“写入评审材料”开始，请求会改变外部任务状态，因此增加确认闸门，先暂停执行。</p>
+<p class="prd-prose">前面的检索与回答只改变页面信息；从“写入评审材料”开始，请求会改变外部任务状态。Confirmation 只确认用户是否允许执行这个外部动作，Evidence 是否适用由 B06 Eligibility 判断。</p>
 <div class="prd-control-gate" data-prd-surface="light"><p class="prd-control-method"><strong>待确认动作包</strong><span>Pending Action · 等待动作确认</span></p>
 <dl class="pm-fields"><div><dt>用户请求</dt><dd>“把这个结论写进评审材料。”</dd></div><div><dt>拟执行动作</dt><dd>写入本次候选判断</dd></div><div><dt>拟写入内容</dt><dd>候选判断 / 商业项目 / 西南区域 / 方案评审 / 5000万 / Evidence Citation [1]、[2]</dd></div><div><dt>目标位置</dt><dd>当前项目评审材料</dd></div><div><dt>影响</dt><dd>改变任务外部状态</dd></div></dl>
-<p class="pm-statusline"><span>Route：<strong>Confirmation</strong></span><span>Pending Action：<strong>写入评审材料</strong></span><span>Execution：<strong>Paused</strong></span></p>
+<p class="pm-statusline"><span>Route：<strong>Confirmation</strong></span><span>Pending Action：<strong>写入评审材料</strong></span><span>Execution：<strong>Paused</strong></span><span>Evidence 使用资格：<strong>待后续判断</strong></span></p>
 <p class="pm-confirm-message">“将把当前候选判断及引用依据写入本次评审材料，是否继续？”</p>
 </div>
-<div class="pm-outcome-split" data-prd-surface="plain"><div><div class="prd-heading-label">用户确认</div><p>Confirmation = Confirmed</p><p>才允许进入后续 Action。</p></div><div><div class="prd-heading-label">用户拒绝</div><p>Confirmation = Rejected</p><p>Blocked / Stop，不改变外部状态。</p></div></div>
+<div class="pm-outcome-split" data-prd-surface="plain"><div><div class="prd-heading-label">用户确认</div><p>Confirmation = Confirmed</p><p>允许流程继续检查，条件全部通过后才进入后续 Action。</p></div><div><div class="prd-heading-label">用户拒绝</div><p>Confirmation = Rejected</p><p>Blocked / Stop，不改变外部状态。</p></div></div>
 <p class="pm-record-label prd-p2-map-label">场景 · Route / 动作</p><dl aria-label="场景与Route / 动作" class="prd-p2-rule-legend" data-prd-surface="plain"><div><dt>仅信息查询</dt><dd>Direct / Retrieve</dd></div><div><dt>必要条件缺失</dt><dd>Clarify</dd></div><div><dt>即将执行外部写入</dt><dd>Confirmation</dd></div><div><dt>用户未确认</dt><dd>Blocked / Stop</dd></div><div><dt>权限 / 能力边界不满足</dt><dd>Blocked</dd></div><div><dt>未取得可回查的候选证据</dt><dd>提示当前资料不足，Clarify 或 Stop</dd></div></dl>
-<p class="prd-control-note">当前 MVP 不自动执行外部写入。动作包中的候选判断与两份引用仍须经过 B06 准入；确认后还需满足权限、工具能力和执行条件。</p>
+<p class="prd-control-note">当前 MVP 不自动执行外部写入。确认只代表用户允许继续；真正执行前仍需满足 Evidence 使用资格、权限和工具条件。条件未全部通过前，不改变外部状态。</p>
 </section>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-6">5.6 完整控制链：Route / Task State / Confirmation</h3>
@@ -13888,7 +14232,7 @@
 <div aria-label="完整调用控制逻辑" class="prd-control-system-grid">
 <div class="prd-system-main prd-system-node is-terminal" style="--row:1"><strong>Input</strong><span>当前请求</span></div>
 <span aria-hidden="true" class="prd-system-main prd-system-arrow" style="--row:2"></span>
-<div class="prd-system-main prd-system-node is-router" id="b05-system-router" style="--row:3"><strong>Router</strong><span>读取当前任务状态，判断事实需求、条件与动作风险</span></div>
+<div class="prd-system-main prd-system-node is-router" id="b05-system-router" style="--row:3"><strong>Router</strong><span>读取当前任务状态，判断事实需求、条件与动作风险</span><a href="#b05-system-blocked">权限 / 能力 / 执行条件已不满足 → Blocked</a></div>
 <div class="prd-system-bypass"><a href="#b05-system-confirmation">外部动作请求 → Confirmation</a></div>
 <span aria-hidden="true" class="prd-system-main prd-system-arrow" style="--row:4"></span>
 <div class="prd-system-main prd-system-node is-decision" style="--row:5"><strong>是否需要企业私有事实？</strong></div>
@@ -13914,7 +14258,7 @@
 <span class="prd-system-cross is-right" style="--row:15"><small>否</small></span>
 <div class="prd-system-side prd-system-node is-terminal" style="--row:15"><strong>End</strong><span>信息任务结束</span></div>
 <span class="prd-system-main prd-system-arrow" style="--row:16"><small>是</small></span>
-<div class="prd-system-main prd-system-node is-router" id="b05-system-confirmation" style="--row:17"><strong>Confirmation</strong><span>展示拟执行内容与目标，等待明确确认</span></div>
+<div class="prd-system-main prd-system-node is-router" id="b05-system-confirmation" style="--row:17"><strong>Confirmation</strong><span>展示拟执行内容与目标，等待明确确认</span><span class="prd-system-label">Evidence 使用资格由 B06 判断</span></div>
 <span aria-hidden="true" class="prd-system-main prd-system-arrow" style="--row:18"></span>
 <div class="prd-system-main prd-system-node is-decision" style="--row:19"><strong>用户确认？</strong></div>
 <span class="prd-system-cross is-right" style="--row:19"><small>否</small></span>
@@ -13922,24 +14266,31 @@
 <span class="prd-system-main prd-system-arrow" style="--row:20"><small>是</small></span>
 <div class="prd-system-main prd-system-node is-decision" style="--row:21"><strong>权限 / 工具能力 / 执行条件满足？</strong></div>
 <span class="prd-system-cross is-right" style="--row:21"><small>否</small></span>
-<div class="prd-system-side prd-system-node is-stop" style="--row:21"><strong>Blocked</strong><span>条件不满足 · 不执行</span></div>
+<div class="prd-system-side prd-system-node is-stop" id="b05-system-blocked" style="--row:21"><strong>Blocked</strong><span>条件不满足 · 不执行</span></div>
 <span class="prd-system-main prd-system-arrow" style="--row:22"><small>是</small></span>
 <div class="prd-system-main prd-system-node" style="--row:23"><strong>进入后续外部 Action</strong><span>证据准入与执行条件均通过</span></div>
 </div>
-<figcaption id="b05-system-caption">完整控制链｜外部动作请求从 Router 直接进入 Confirmation；Direct 只用于信息解释，不能绕过确认闸门。</figcaption>
+<figcaption id="b05-system-caption">完整控制链｜请求已触碰权限、能力或执行条件边界时，Router 可直接进入 Blocked；其他外部动作请求进入 Confirmation，确认后继续检查执行条件。</figcaption>
 </figure>
 </section>
 <section class="prd-subsection" data-prd-density="compact">
 <h3 id="design-v2-7">5.7 请求执行记录：Clarify → Retrieve → Confirmation</h3>
+<figure class="prd-evidence-figure" data-prd-surface="primary">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="评审任务执行详情">
+    <img src="assets/screenshots/b05-task-execution-detail.png" alt="业务智能助手评审任务执行详情，展示已补齐的任务上下文、四份候选证据、当前状态及等待确认的外部写入动作" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><strong class="prd-figure-caption-title">评审任务执行详情</strong><span class="prd-figure-caption-note">任务条件补齐并完成知识调用后，外部写入停在待确认动作；证据适用性仍待判断，执行保持暂停。</span></figcaption>
+</figure>
 <figure aria-labelledby="b05-trace-caption" class="prd-control-panel prd-control-trace" data-prd-artifact="trace" data-prd-surface="light"><p class="prd-control-method"><strong>请求执行记录</strong><span>本次审批请求 · 状态、输入与产物</span></p>
-<ol aria-label="Clarify到Retrieve再到Confirmation的八步请求记录" class="prd-control-trace-list"><li><span class="prd-control-trace-index">01</span><div><div class="prd-heading-label">输入｜第一次路由</div><p>“这个项目是否需要集团审批？”</p><p><strong>Route = Clarify</strong>；缺项目类型 / 地区 / 阶段 / 金额，不调用 search_docs。</p></div></li><li><span class="prd-control-trace-index">02</span><div><div class="prd-heading-label">Clarify｜明确要补什么</div><p>“请补充项目类型、地区、当前阶段和金额。”</p></div></li><li><span class="prd-control-trace-index">03</span><div><div class="prd-heading-label">用户补充｜写回当前 Task Context</div><p>商业项目 / 西南区域 / 方案评审 / 5000万</p><p>四项条件更新完成，保留在当前任务中。</p></div></li><li><span class="prd-control-trace-index">04</span><div><div class="prd-heading-label">重新 Router｜条件完整后切换 Route</div><p><strong>Route = Retrieve</strong>；下一步调用 search_docs。</p></div></li><li><span class="prd-control-trace-index">05</span><div><div class="prd-heading-label">search_docs｜取得候选 Evidence</div><p>集团投资审批管理办法 v3.2 / 西南区域审批补充规则 / 集团投资审批管理办法 v2.0 / 2024年类似项目复盘</p><p>返回 status = success，四条候选 Evidence 均带来源、路径、片段与 Citation。</p></div></li><li><span class="prd-control-trace-index">06</span><div><div class="prd-heading-label">候选判断 + Sources｜形成待核验判断</div><p>先给出带来源的候选判断，列出需要进一步核验的当前制度、区域规则、旧版本与历史案例；此时尚未决定哪些 Evidence 可作为当前任务依据。</p></div></li><li><span class="prd-control-trace-index">07</span><div><div class="prd-heading-label">用户继续｜请求转为外部写入</div><p>“把这个结论写进评审材料。”</p><p><strong>Route = Confirmation</strong>；暂停执行。</p></div></li><li><span class="prd-control-trace-index">08</span><div><div class="prd-heading-label">Pending Action｜等待明确确认</div><p>动作：写入评审材料；内容：候选判断、商业项目 / 西南区域 / 方案评审 / 5000万、Citation [1] / [2]；目标：当前项目评审材料。</p><p>展示拟执行内容与目标，等待确认；未确认不改变外部状态，确认后仍须通过证据准入与执行条件检查。</p></div></li></ol>
-<figcaption id="b05-trace-caption">同一请求：Clarify → Retrieve → Confirmation；候选 Evidence 的使用资格进入 B06 判断。</figcaption></figure>
+<ol aria-label="Clarify到Retrieve再到Confirmation的八步请求记录" class="prd-control-trace-list"><li><span class="prd-control-trace-index">01</span><div><div class="prd-heading-label">输入｜第一次路由</div><p>“这个项目是否需要集团审批？”</p><p><strong>Route = Clarify</strong>；缺项目类型 / 地区 / 阶段 / 金额，不调用 search_docs。</p></div></li><li><span class="prd-control-trace-index">02</span><div><div class="prd-heading-label">Clarify｜明确要补什么</div><p>“请补充项目类型、地区、当前阶段和金额。”</p></div></li><li><span class="prd-control-trace-index">03</span><div><div class="prd-heading-label">用户补充｜写回当前 Task Context</div><p>商业项目 / 西南区域 / 方案评审 / 5000万</p><p>四项条件更新完成，保留在当前任务中。</p></div></li><li><span class="prd-control-trace-index">04</span><div><div class="prd-heading-label">重新 Router｜条件完整后切换 Route</div><p><strong>Route = Retrieve</strong>；下一步调用 search_docs。</p></div></li><li><span class="prd-control-trace-index">05</span><div><div class="prd-heading-label">search_docs｜取得候选 Evidence</div><p><strong>主要候选：</strong>集团投资审批管理办法 v3.2 / 西南区域审批补充规则 v1.4</p><p><strong>参考候选：</strong>集团投资审批管理办法 v2.0 / 2024年类似项目复盘</p><p>返回 status = success，四条候选 Evidence 均带来源、路径、片段与 Citation。</p></div></li><li><span class="prd-control-trace-index">06</span><div><div class="prd-heading-label">候选判断 + Sources｜形成待核验判断</div><p>当前已找到与任务相关的候选依据，并保留来源与引用；但哪些 Evidence 可以作为当前正式依据，仍待下一阶段判断。</p></div></li><li><span class="prd-control-trace-index">07</span><div><div class="prd-heading-label">用户继续｜请求转为外部写入</div><p>“把这个结论写进评审材料。”</p><p><strong>Route = Confirmation</strong>；暂停执行。</p></div></li><li><span class="prd-control-trace-index">08</span><div><div class="prd-heading-label">Pending Action｜等待明确确认</div><p>动作：写入评审材料；内容：候选判断、商业项目 / 西南区域 / 方案评审 / 5000万、Citation [1] / [2]；目标：当前项目评审材料。</p><p>Execution = Paused；展示拟执行内容与目标，等待必要检查和用户确认。未确认不改变外部状态，确认后仍须通过 Evidence 使用资格与执行条件检查。</p></div></li></ol>
+<figcaption id="b05-trace-caption">同一请求：Clarify → Retrieve → Confirmation。用户确认只允许流程继续，不代表 Evidence 已完成适用性判断；使用资格进入 B06 判断。</figcaption></figure>
 </section>
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact">
 <h3 id="design-v2-8">5.8 阶段结果：调用已受控，Evidence 适用性仍待判断</h3>
 <p class="prd-prose">刚才 search_docs 返回的四条 Evidence 都能回到资料，但能被找到，不等于能用于当前审批判断。</p>
 <div class="prd-p22-stage-result">
-<div class="prd-control-split" data-prd-surface="plain"><section class="prd-control-panel" data-prd-surface="plain"><div class="prd-heading-label">本次请求已经推进到</div><ul class="prd-list"><li>条件不足：Clarify</li><li>四项补齐：Task Context 更新，再进入 Retrieve</li><li>检索返回：四条候选 Evidence</li><li>请求写入：Confirmation，等待动作确认</li></ul></section>
+<div class="prd-control-split" data-prd-surface="plain"><section class="prd-control-panel" data-prd-surface="plain"><div class="prd-heading-label">本次请求已经推进到</div><ul class="prd-list"><li>条件不足：Clarify</li><li>四项补齐：Task Context 更新，再进入 Retrieve</li><li>检索返回：四条候选 Evidence</li><li>请求写入：Confirmation / Pending Action，暂停并等待动作确认</li></ul></section>
 <section class="prd-control-panel" data-prd-surface="plain"><div class="prd-heading-label">这四份材料还需要判断</div><dl class="pm-fields"><div><dt>集团投资审批管理办法 v3.2</dt><dd>当前正式制度的适用范围是否匹配？</dd></div><div><dt>西南区域审批补充规则</dt><dd>西南区域与5000万阈值有哪些限制？</dd></div><div><dt>集团投资审批管理办法 v2.0</dt><dd>旧版还能用于当前判断吗？</dd></div><div><dt>2024年类似项目复盘</dt><dd>历史处理能当成当前规则吗？</dd></div></dl></section></div>
 <p class="prd-control-note">两份正式文件如果给出冲突结论，也不能任选一份作为依据。</p>
 <aside class="prd-control-boundary-callout" data-prd-surface="plain"><div class="prd-heading-label">阶段边界｜调用受控，不等于知识已经具备使用资格</div><p>V2 解决请求该不该继续；V3 继续解决找到的 Evidence 当前能不能用。</p><p><a href="#design-v3">进入 B06 · V3 Eligibility →</a></p></aside>
@@ -13957,12 +14308,12 @@
 </header>
 <div class="prd-section-body">
 <div class="prd-p22-stage-intro">
-<aside class="el-callout prd-p22-stage-brief" data-prd-surface="plain"><div class="prd-heading-label">V3 增量</div><p>在 V1 Raw Evidence 之上增加版本、适用范围、冲突和使用风险判断，把“来源真实”进一步变成“当前任务可用”。</p></aside><p class="el-note pm-task-note">沿用 B05 脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万，负责部门为集团投资决策委员会。A–D 承接检索返回，E 用于冲突复核。</p><div aria-label="本章主链路" class="el-overview" data-prd-surface="plain"><span>原始证据</span><i aria-hidden="true">→</i><span>Eligibility 判断字段</span><i aria-hidden="true">→</i><span>Eligibility 规则</span><i aria-hidden="true">→</i><span>Eligibility Gate</span><i aria-hidden="true">→</i><span>可进入任务的证据</span></div>
+<aside class="el-callout prd-p22-stage-brief" data-prd-surface="plain"><div class="prd-heading-label">V3 增量</div><p>在 B05 返回的 Candidate Evidence 上增加版本、适用范围、冲突与使用风险判断，把“找到的证据”进一步变成“当前任务可用的证据”。</p></aside><p class="el-note pm-task-note">沿用 B05 脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万，负责部门为集团投资决策委员会。A–D 承接检索返回，E 用于冲突复核。</p><div aria-label="本章主链路" class="el-overview" data-prd-surface="plain"><span>Candidate Evidence</span><i aria-hidden="true">→</i><span>Eligibility 判断字段</span><i aria-hidden="true">→</i><span>Eligibility 规则</span><i aria-hidden="true">→</i><span>Eligibility Gate</span><i aria-hidden="true">→</i><span>可进入任务的证据</span></div>
 </div>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-1">6.1 使用风险：旧版本 / 历史案例 / 范围 / 冲突 / 高影响使用</h3>
 <p class="prd-prose">承接 B05 的四条候选 Evidence，再增加一条脱敏冲突来源 E；同一审批任务中，逐条检查哪些材料可能被误用。</p>
-<div class="el-risk-list" data-prd-surface="plain"><article><span class="el-index">01</span><div><h4>旧版本制度</h4><p>Evidence C｜集团投资审批管理办法 v2.0</p></div><p class="el-risk-consequence">已被 v3.2 替代；资料仍可回查，但不能作为当前有效规则。</p></article><article><span class="el-index">02</span><div><h4>历史项目案例</h4><p>Evidence D｜2024年类似项目复盘</p></div><p class="el-risk-consequence">历史处理真实，但属于当时项目，不能自动提升成当前制度。</p></article><article><span class="el-index">03</span><div><h4>适用范围有限</h4><p>Evidence B｜西南区域审批补充规则</p></div><p class="el-risk-consequence">只适用于商业项目 / 西南区域 / 方案评审 / 5000万及以上，不能脱离条件引用。</p></article><article><span class="el-index">04</span><div><h4>多来源冲突</h4><p>Evidence E｜集团审批补充通知 v3.2-A<br/>对照 Evidence A｜集团投资审批管理办法 v3.2</p></div><p class="el-risk-consequence">两份资料结论存在未解决冲突，不能任选一份直接形成审批结论。</p></article><article><span class="el-index">05</span><div><h4>高影响使用场景</h4><p>使用场景｜正式评审材料 / 对外承诺 / 高影响决策</p></div><p class="el-risk-consequence">即使证据基本匹配，进入这些用途仍需人工确认。</p></article></div>
-<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">阶段判断</div><p>V1 证明“它从哪里来”；V3 继续判断“它能不能进入当前任务”。</p></aside>
+<div class="el-risk-list" data-prd-surface="plain"><article><span class="el-index">01</span><div><h4>旧版本制度</h4><p>Evidence C｜集团投资审批管理办法 v2.0</p></div><p class="el-risk-consequence">已被 v3.2 替代；资料仍可回查，但不能作为当前有效规则。</p></article><article><span class="el-index">02</span><div><h4>历史项目案例</h4><p>Evidence D｜2024年类似项目复盘</p></div><p class="el-risk-consequence">历史处理真实，但属于当时项目，不能自动提升成当前制度。</p></article><article><span class="el-index">03</span><div><h4>适用范围有限</h4><p>Evidence B｜西南区域审批补充规则</p></div><p class="el-risk-consequence">只适用于商业项目 / 西南区域 / 方案评审 / 5000万及以上，不能脱离条件引用。</p></article><article><span class="el-index">04</span><div><h4>多来源冲突</h4><p>Evidence E｜集团审批补充通知 v3.2-A<br/>对照 Evidence A｜集团投资审批管理办法 v3.2</p></div><p class="el-risk-consequence">两份资料结论存在未解决冲突，不能任选一份直接形成审批结论。</p></article><article><span class="el-index">05</span><div><h4>高影响使用场景</h4><p>使用场景｜正式评审材料 / 对外承诺 / 高影响决策</p></div><p class="el-risk-consequence">即使证据基本匹配，进入这些用途仍需人工复核。</p></article></div>
+<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">阶段判断</div><p>V1 证明“它从哪里来”；V3 继续判断“它能不能进入当前任务”。这里复核的是 Evidence 使用资格，不替代 B05 对外部动作的用户确认。</p></aside>
 </section>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-2">6.2 Eligibility 判断字段：版本 / 范围 / 冲突 / 风险</h3>
 <p class="prd-prose">先保留 search_docs 返回的原文和引用，再补当前任务的判断字段，最后得到使用状态。下面记录 Evidence A 补字段前后的变化。</p>
@@ -13972,10 +14323,10 @@
 <blockquote class="pm-evidence-quote" id="b06-evidence-a-023">《集团投资审批管理办法 v3.2》规定，商业项目在方案评审阶段，达到规定金额条件时，由集团投资决策委员会负责审批。</blockquote></section>
 <section class="prd-field-group"><p class="prd-field-group-label">处理后｜当前任务判断字段</p><h4>在原文之上补使用条件</h4><dl class="pm-fields"><div><dt>来源类型<code>source_type</code></dt><dd>正式制度</dd></div><div><dt>版本状态<code>version_status</code></dt><dd>当前有效</dd></div><div><dt>适用范围<code>applicable_scope</code></dt><dd>商业项目 / 方案评审 / 达到规定金额条件</dd></div><div><dt>当前任务匹配</dt><dd>基础适用条件匹配；地区与具体金额阈值由 Evidence B 补齐。</dd></div><div><dt>补充条件来源</dt><dd>Evidence B｜西南区域审批补充规则</dd></div><div><dt>冲突状态<code>conflict_status</code></dt><dd>未发现未解决冲突</dd></div><div><dt>使用风险<code>usage_risk</code></dt><dd>常规</dd></div></dl></section>
 <section class="prd-field-group pm-enrichment-result"><div><p class="prd-field-group-label">结果｜规则判断结果</p><span class="el-badge">可使用<small class="el-en">Usable</small></span></div><p>作为当前主制度依据进入任务；本次地区与金额条件需结合 Evidence B。</p></section>
-</div><div class="el-review-record" data-prd-surface="plain"><strong>遇到不确定性时保留复核记录</strong><p>确认人、意见与时间写回当前任务判断字段；不改原始证据。具体记录见6.4的冲突分支。</p></div>
+</div><div class="el-review-record" data-prd-surface="plain"><strong>遇到不确定性时保留复核记录</strong><p>复核人、意见与时间写回当前任务判断字段；不改原始证据。具体记录见6.4的冲突分支。</p></div>
 </section>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-3">6.3 Eligibility 规则：Usable / Conditional / Reference / Pending / Blocked</h3>
-<div class="prd-table-wrap" data-prd-surface="light"><table class="prd-table el-rule-table"><thead><tr><th>进入条件</th><th>Eligibility 状态</th></tr></thead><tbody><tr><td data-label="进入条件">当前正式制度 + 版本有效 + 基础适用条件匹配 + 无冲突 + 常规使用风险</td><td data-label="Eligibility 状态"><strong>可使用<small class="el-en">Usable</small></strong></td></tr><tr><td data-label="进入条件">规则真实，且限制条件已明确、无未解决冲突</td><td data-label="Eligibility 状态"><strong>条件使用<small class="el-en">Conditional</small></strong></td></tr><tr><td data-label="进入条件">历史项目经验，不能代表当前规则；仅用于背景理解</td><td data-label="Eligibility 状态"><strong>仅作参考<small class="el-en">Reference only</small></strong></td></tr><tr><td data-label="进入条件">版本未知 / 范围不明确 / 存在冲突 / 高使用风险</td><td data-label="Eligibility 状态"><strong>待人工复核<small class="el-en">Pending review</small></strong></td></tr><tr><td data-label="进入条件">明确过期 / 明确不适用</td><td data-label="Eligibility 状态"><strong>禁止使用<small class="el-en">Blocked</small></strong></td></tr></tbody></table></div><p class="el-note">先拦截明确失效或不适用的证据，再检查未解决冲突与使用风险。通过准入表示有资格进入任务，完成具体判断仍需组合相关依据。</p>
+<div class="prd-table-wrap" data-prd-surface="light"><table class="prd-table el-rule-table"><thead><tr><th>进入条件</th><th>Eligibility 状态</th></tr></thead><tbody><tr><td data-label="进入条件">当前正式制度 + 版本有效 + 基础适用条件匹配 + 无冲突 + 常规使用风险</td><td data-label="Eligibility 状态"><strong>可使用<small class="el-en">Usable</small></strong></td></tr><tr><td data-label="进入条件">规则真实，且限制条件已明确、无未解决冲突</td><td data-label="Eligibility 状态"><strong>条件使用<small class="el-en">Conditional</small></strong></td></tr><tr><td data-label="进入条件">历史项目经验，不能代表当前规则；仅用于背景理解</td><td data-label="Eligibility 状态"><strong>仅作参考<small class="el-en">Reference only</small></strong></td></tr><tr><td data-label="进入条件">版本未知 / 范围不明确 / 存在冲突 / 高使用风险</td><td data-label="Eligibility 状态"><strong>待人工复核<small class="el-en">Pending review</small></strong></td></tr><tr><td data-label="进入条件">明确过期 / 明确不适用</td><td data-label="Eligibility 状态"><strong>禁止使用<small class="el-en">Blocked</small></strong></td></tr></tbody></table></div><p class="el-note">先拦截明确失效或不适用的证据，再检查未解决冲突与使用风险。</p>
 <aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">规则取舍｜来源类型不是静态等级</div><p>来源类型只提供判断字段，不自动替代版本、适用范围与冲突检查。正式制度已经过期，仍应禁止使用；历史案例用于理解背景，可以仅作参考。</p></aside>
 </section>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-4">6.4 Eligibility Gate：Evidence → 判断字段 → 状态 → 产品动作</h3>
@@ -13983,19 +14334,26 @@
 
 
 
-<p class="el-note">证据的使用风险与 B05 外部动作风险分别检查；人工复核也不会默认把证据转成“可使用”。</p>
+<p class="el-note">B05 控制外部动作是否继续；B06 判断 Evidence 当前能否作为任务依据。</p>
 
 </section>
-<section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-5">6.5 批量准入结果：A–E 五类 Evidence 分流</h3>
+<section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-5">6.5 首轮准入结果：A–E 五类 Evidence 分流</h3>
 <p class="prd-prose">本批 Evidence 处理结果｜A–D 承接 B05 的候选 Evidence，E 进入冲突复核分支。当前任务：商业项目 / 西南区域 / 方案评审 / 5000万。</p><div class="prd-table-wrap" data-prd-surface="primary"><table class="prd-table el-action-table pm-results-table"><thead><tr><th>来源</th><th>判断字段关键差异</th><th>Eligibility</th><th>进入任务方式</th></tr></thead><tbody><tr><td data-label="来源">A｜集团投资审批管理办法 v3.2</td><td data-label="判断字段关键差异">当前有效 / 基础适用条件匹配 / 无未解决冲突</td><td data-label="Eligibility">可使用<small class="el-en">Usable</small></td><td data-label="进入任务方式">作为主制度依据加入，保留原文与引用；与 B 组合完成本次地区和金额判断</td></tr><tr><td data-label="来源">B｜西南区域审批补充规则</td><td data-label="判断字段关键差异">商业项目 / 西南区域 / 方案评审 / 5000万及以上</td><td data-label="Eligibility">条件使用<small class="el-en">Conditional</small></td><td data-label="进入任务方式">携带西南区域 / 项目类型 / 阶段 / 金额条件加入；不能脱离条件单独引用</td></tr><tr><td data-label="来源">C｜集团投资审批管理办法 v2.0</td><td data-label="判断字段关键差异">已被 v3.2 替代</td><td data-label="Eligibility">禁止使用<small class="el-en">Blocked</small></td><td data-label="进入任务方式">只保留历史回查</td></tr><tr><td data-label="来源">D｜2024年类似项目复盘</td><td data-label="判断字段关键差异">历史案例，不代表当前制度</td><td data-label="Eligibility">仅作参考<small class="el-en">Reference only</small></td><td data-label="进入任务方式">只进入背景上下文，不作最终规则依据</td></tr><tr><td data-label="来源">E｜集团审批补充通知 v3.2-A</td><td data-label="判断字段关键差异">初判：与主制度冲突，尚未复核</td><td data-label="Eligibility">待人工复核<small class="el-en">Pending review</small></td><td data-label="进入任务方式">暂停加入，HITL 复核后重新执行 Eligibility 判断</td></tr></tbody></table></div>
-<p class="el-note">E 行保留复核前的待人工复核状态；本例复核后因当前任务不适用转为禁止使用。冲突未核清前，相关 A、B 判断暂停；正式提交等高影响用途仍需人工确认。</p>
+<p class="el-note">E 行保留复核前状态；本例人工复核后，因当前任务不适用转为禁止使用。</p>
 </section>
 <section class="prd-subsection" data-prd-density="compact"><h3 id="design-v3-6">6.6 Evidence Card：把准入状态带回界面与任务动作</h3>
 <p class="prd-prose">Evidence B 的“条件使用”状态对应“携带适用条件加入当前任务”；其余状态分别决定直接加入、仅查看参考、等待人工复核或禁止加入。</p>
 <figure class="prd-interface-demo" data-prd-surface="light"><p class="el-figure-label">Evidence B｜当前任务使用状态</p><div class="prd-interface-grid"><section class="prd-interface-panel prd-interface-evidence" data-prd-surface="plain"><div class="prd-heading-label">V1｜原始证据</div><div class="prd-interface-fields"><div class="prd-interface-field"><strong>来源</strong><span>西南区域审批补充规则</span></div><div class="prd-interface-field"><strong>路径</strong><span>西南区域审批补充规则_v1.4.md</span></div><div class="prd-interface-field"><strong>原文</strong><span><span id="b06-evidence-b-011">西南区域商业项目在方案评审阶段，审批金额达到5000万元及以上时，按集团审批流程执行。</span></span></div><div class="prd-interface-field"><strong>引用</strong><span><a class="pm-citation" href="#b06-evidence-b-011">[2] 查看原文片段</a></span></div></div></section><section class="prd-interface-panel prd-interface-eligibility" data-prd-surface="plain"><div class="prd-heading-label">V3｜当前任务使用状态</div><div class="prd-interface-fields"><div class="prd-interface-field"><strong>来源类型<code>source_type</code></strong><span>区域补充规则</span></div><div class="prd-interface-field"><strong>版本状态<code>version_status</code></strong><span>当前有效</span></div><div class="prd-interface-field"><strong>适用范围<code>applicable_scope</code></strong><span>商业项目 / 西南区域 / 方案评审 / 5000万及以上</span></div><div class="prd-interface-field"><strong>冲突状态<code>conflict_status</code></strong><span>无未解决冲突</span></div><div class="prd-interface-field"><strong>使用风险<code>usage_risk</code></strong><span>常规</span></div><div class="prd-interface-field"><strong>状态<code>eligibility</code></strong><span><span class="el-badge">条件使用<small class="el-en">Conditional</small></span></span></div><div class="prd-interface-field"><strong>使用约束</strong><span>必须携带西南区域 / 项目类型 / 阶段 / 金额条件</span></div><div class="prd-interface-field"><strong>禁止动作</strong><span>脱离条件单独引用</span></div></div></section></div>
 <div class="el-ui-actions"><strong>产品动作</strong><div class="prd-action-buttons"><span>限制后使用</span><a class="pm-citation" href="#b06-evidence-b-011">查看原文</a><span>携带适用条件加入当前任务</span><span aria-disabled="true" class="is-disabled">脱离条件单独引用</span></div></div></figure>
-<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">待人工复核｜“加入当前任务”暂停</div><p>可用操作：确认 / 限制后使用 / 拒绝。复核完成后，记录确认人、意见与时间，再重新判断准入状态。</p><p class="pm-note"><code>reviewed_by</code> · <code>review_note</code> · <code>reviewed_at</code></p></aside>
-<p class="pm-record-label prd-p2-map-label">Eligibility · 产品动作 · 使用约束</p><dl aria-label="Eligibility与产品动作、使用约束" class="prd-p2-action-map" data-prd-surface="plain"><div><dt>可使用<small class="el-en">Usable</small></dt><dd><strong>加入当前任务</strong><span>带上原文、来源、路径与 Citation。</span></dd></div><div><dt>条件使用<small class="el-en">Conditional</small></dt><dd><strong>携带限制后加入任务</strong><span>限制条件、适用范围与备注同时进入材料，不能脱离条件单独引用。</span></dd></div><div><dt>仅作参考<small class="el-en">Reference only</small></dt><dd><strong>查看 / 引用为背景</strong><span>不允许作为最终规则依据。</span></dd></div><div><dt>待人工复核<small class="el-en">Pending review</small></dt><dd><strong>等待人工复核</strong><span>暂停加入任务；提供确认、限制后使用、拒绝三种人工复核入口。</span></dd></div><div><dt>禁止使用<small class="el-en">Blocked</small></dt><dd><strong>查看原始证据</strong><span>“加入当前任务”按钮禁用；保留历史回查。</span></dd></div></dl><figure class="el-placeholder prd-p21-evidence-slot" data-prd-surface="plain"><figcaption><span class="prd-p21-slot-label">Evidence Slot</span><strong>Eligibility Evidence Card / 人工复核界面</strong><p>待补高保真产品截图</p></figcaption></figure>
+<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">待人工复核｜“加入当前任务”暂停</div><p>可用操作：允许使用 / 限制后使用 / 当前任务拒绝。复核完成后，记录复核人、意见与时间，再重新判断准入状态。</p><p class="pm-note"><code>reviewed_by</code> · <code>review_note</code> · <code>reviewed_at</code></p></aside>
+<p class="pm-record-label prd-p2-map-label">Eligibility · 产品动作 · 使用约束</p><dl aria-label="Eligibility与产品动作、使用约束" class="prd-p2-action-map" data-prd-surface="plain"><div><dt>可使用<small class="el-en">Usable</small></dt><dd><strong>加入当前任务</strong><span>带上原文、来源、路径与 Citation。</span></dd></div><div><dt>条件使用<small class="el-en">Conditional</small></dt><dd><strong>携带限制后加入任务</strong><span>限制条件、适用范围与备注同时进入材料，不能脱离条件单独引用。</span></dd></div><div><dt>仅作参考<small class="el-en">Reference only</small></dt><dd><strong>查看 / 引用为背景</strong><span>不允许作为最终规则依据。</span></dd></div><div><dt>待人工复核<small class="el-en">Pending review</small></dt><dd><strong>等待人工复核</strong><span>暂停加入任务；提供允许使用、限制后使用、当前任务拒绝三种人工复核入口。</span></dd></div><div><dt>禁止使用<small class="el-en">Blocked</small></dt><dd><strong>查看原始证据</strong><span>“加入当前任务”按钮禁用；保留历史回查。</span></dd></div></dl>
+<figure class="prd-evidence-figure" data-prd-surface="primary">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="证据适用性复核">
+    <img src="assets/screenshots/b06-evidence-eligibility-review.png" alt="证据适用性复核工作台，3:2 分栏展示 A–E 候选证据与 Evidence E 的当前判断、冲突说明、来源回查和人工复核；E 处于待人工复核且尚未复核状态" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><strong class="prd-figure-caption-title">证据适用性复核</strong><span class="prd-figure-caption-note">Evidence E 待人工复核，保留冲突说明、来源回查与三种复核入口。</span></figcaption>
+</figure>
 </section>
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact"><h3 id="design-v3-7">6.7 阶段结果：准入规则成立，跨文档关系进入下一层</h3>
 <div class="el-conclusion" data-prd-surface="plain"><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">当前字段规则能够判断</div><ul class="prd-list"><li>版本：区分当前有效、已被替代与待核验</li><li>范围：保留地区、项目类型、阶段和金额条件</li><li>冲突：暂停进入任务，复核结果写回后重新判断</li><li>风险与准入：给出使用状态，并限制产品动作</li></ul></section><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">同一批资料继续暴露</div><ul class="prd-list"><li>“集团投委会”和“集团投资决策委员会”的实体别名</li><li>v3.2 与 v2.0 之间的制度替代关系</li><li>西南区域补充规则与集团主制度之间的继承 / 例外关系</li><li>多个实体参与判断时需要维护的关系路径</li></ul></section></div>
@@ -14006,13 +14364,13 @@
 
             <section class="prd-section" id="design-graph">
 <header class="prd-section-header">
-<p class="prd-section-kicker"><span>B07</span><span>Knowledge Graph</span></p>
-<h2><span class="prd-title-clause">为版本、别名与区域规则<span class="prd-title-term">增加最小</span> <span class="prd-title-term">Knowledge Graph</span>：</span><span class="prd-title-clause"><span class="prd-title-term">Graph 只管关系</span>，<span class="prd-title-term">Raw RAG</span> <span class="prd-title-term">继续回原文</span></span></h2>
+<p class="prd-section-kicker"><span>B07</span><span>知识图谱</span></p>
+<h2><span class="prd-title-clause">为版本、别名与区域规则<span class="prd-title-term">增加最小</span><span class="prd-title-term">知识图谱</span>：</span><span class="prd-title-clause"><span class="prd-title-term">图谱只管关系</span>，<span class="prd-title-term">Raw RAG</span> <span class="prd-title-term">继续回原文</span></span></h2>
 <p class="prd-subsection-label">Evidence Level｜关系层实现设计</p>
-<p>当版本、别名、继承和例外开始影响任务判断后，用最小 Ontology 统一实体与关系，再用 Graph Context 连接 Raw RAG 回查原文。</p>
+<p>当版本、别名、继承和例外开始影响任务判断后，用最小 Ontology（本体） 统一实体与关系，再用 Graph Context 连接 Raw RAG 回查原文。</p>
 </header>
 <div class="prd-section-body">
-<section class="prd-subsection"><h3 id="design-graph-1">7.1 Graph 范围：从版本、区域规则和部门别名倒推关系需求</h3>
+<section class="prd-subsection"><h3 id="design-graph-1">7.1 图谱范围：从版本、区域规则和部门别名倒推关系需求</h3>
 <p class="prd-prose">继续回答<strong>“这个项目是否需要集团审批？”</strong>，同一审批样例在继续判断时暴露了三个问题。</p>
 <div class="kg-problem-scene kg-p22-problem-group" data-prd-surface="plain"><div class="prd-heading-label">问题现场</div><ol>
 <li><span>01</span><p>同一个问题里，同时找到《集团投资审批管理办法》v2.0 和 v3.2。</p></li>
@@ -14022,10 +14380,10 @@
 <p class="prd-prose">这些问题已经不只是字段缺失，而是对象之间的版本、例外和身份关系没有被显式表达。现有 Metadata 能描述项目类型、地区、阶段和金额；我从当前任务倒推范围，只补审批判断真正需要的连接。</p>
 <figure class="el-figure kg-scope-figure" data-prd-surface="plain">
 <p class="el-figure-label">当前审批任务需要的主判断链</p>
-<div aria-label="从当前项目条件定位当前适用制度、审批层级和负责部门" class="kg-strip">
+<div aria-label="从当前项目条件定位相关制度与版本关系、审批层级和负责部门" class="kg-strip">
 <div class="kg-step"><strong>项目</strong><span>Project</span></div>
 <div class="kg-step"><strong>地区 / 阶段 / 项目类型</strong><span>当前适用条件</span></div>
-<div class="kg-step"><strong>当前适用制度</strong><span>Policy</span></div>
+<div class="kg-step"><strong>相关制度与版本关系</strong><span>Policy</span></div>
 <div class="kg-step"><strong>审批层级</strong><span>Approval Level</span></div>
 <div class="kg-step"><strong>负责部门</strong><span>Department</span></div>
 </div>
@@ -14040,11 +14398,11 @@
 </div>
 <aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>范围取舍</strong>第一版不是做完整企业知识图谱，而是只建审批判断真正需要的关系。</p></aside>
 </section>
-<section class="prd-subsection"><h3 id="design-graph-2">7.2 Ontology：限定实体、关系与 Schema</h3>
-<p class="prd-prose">关系范围确定后，我先把第一版允许进入 Graph 的对象和连接方式固定下来，避免模型抽到什么关系就直接写进去。</p>
+<section class="prd-subsection"><h3 id="design-graph-2">7.2 Ontology（本体）：限定实体、关系与 Schema</h3>
+<p class="prd-prose">关系范围确定后，我先把第一版允许进入图谱的对象和连接方式固定下来，避免模型抽到什么关系就直接写进去。</p>
 <div class="kg-schema-brief" data-prd-surface="light">
 <section class="kg-schema-column"><div class="prd-heading-label">保留的实体</div>
-<ul class="kg-entity-vocabulary"><li><strong>项目</strong><code>Project</code></li><li><strong>制度</strong><code>Policy</code></li><li><strong>部门</strong><code>Department</code></li><li><strong>地区</strong><code>Region</code></li><li><strong>阶段</strong><code>Stage</code></li><li><strong>审批层级</strong><code>Approval Level</code></li></ul>
+<ul class="kg-entity-vocabulary"><li><strong>项目</strong><code>Project</code></li><li><strong>项目类型</strong><code>Project Type</code><small>轻量实体</small></li><li><strong>制度</strong><code>Policy</code></li><li><strong>部门</strong><code>Department</code></li><li><strong>地区</strong><code>Region</code></li><li><strong>阶段</strong><code>Stage</code></li><li><strong>审批层级</strong><code>Approval Level</code></li></ul>
 <p class="el-note">项目类型作为轻量 Entity 承接适用关系，项目本身保留类型属性，不扩大实体范围。</p>
 <p class="kg-policy-properties"><strong>Policy 保留：</strong>版本 / 状态 / 生效时间 / 来源文件。</p>
 </section>
@@ -14055,10 +14413,11 @@
 <aside class="kg-schema-example" data-prd-surface="plain"><div class="prd-heading-label">写入前检查连接是否成立</div>
 <div class="kg-schema-check"><span class="kg-mini-label">允许</span><ul><li><code>Policy → APPLIES_TO → Region / Stage</code></li><li><code>Policy → REQUIRES → Approval Level</code></li><li><code>Policy → OWNED_BY → Department</code></li><li><code>Policy → SUPERSEDES → Policy</code></li></ul></div>
 <div class="kg-schema-check"><span class="kg-mini-label">不允许</span><p><code>Department → SUPERSEDES → Region</code></p></div>
-<p class="kg-schema-rule">模型负责提出候选关系；能不能写入 Graph，由当前 Schema 决定。</p>
+<p class="kg-schema-rule">模型负责提出候选关系；能不能写入图谱，由当前 Schema 决定。</p>
+<p class="kg-schema-rule">区域补充规则只有在原文明示构成例外时才写入 EXCEPTION_TO；普通补充关系不强行标记为例外。</p>
 </aside>
 </section>
-<section class="prd-subsection"><h3 id="design-graph-3">7.3 Chunk → Graph：抽取、Alias、Schema 检查与 Neo4j 目标结构</h3>
+<section class="prd-subsection"><h3 id="design-graph-3">7.3 Chunk → 图谱：抽取、Alias、Schema 检查与 Neo4j 目标结构</h3>
 <p class="prd-prose">沿用 B03 已生成的 Chunk，设计对象与关系抽取、别名归一和 Schema 检查，再形成 Neo4j 目标写入结构。下面围绕同一段脱敏审批样例，展示各步的输入与映射。</p>
 <!-- 用户提供的稳定脱敏样例；以下展示关系映射与目标写入结构。 -->
 <figure class="kg-build-figure" data-prd-density="compact" data-prd-surface="primary">
@@ -14070,7 +14429,7 @@
 <blockquote id="kg-raw-evidence-023">《集团投资审批管理办法 v3.2》规定，商业项目在方案评审阶段，达到规定金额条件时，由集团投资决策委员会负责审批。</blockquote>
 </div></li>
 <li><span class="kg-build-index">02</span><div class="kg-build-content"><div class="prd-heading-label">抽出 Entity / Relation</div>
-<p>沿用现有本地 LLM 链路设计抽取，按预定义 Schema 从 Chunk 中生成候选 Entity 与 Relation；模型只负责提出候选，Alias 归一与 Schema 检查决定哪些结果可进入 Graph 目标结构。</p>
+<p>沿用现有本地 LLM 链路设计抽取，按预定义 Schema 从 Chunk 中生成候选 Entity 与 Relation；模型只负责提出候选，Alias 归一与 Schema 检查决定哪些结果可进入图谱目标结构。</p>
 <div class="kg-extraction-inline">
 <div><p class="kg-mini-label">本次样例映射的对象</p><dl class="kg-objects">
 <div><dt><code>Policy</code></dt><dd>集团投资审批管理办法 v3.2</dd></div><div><dt><code>Project Type</code></dt><dd>商业项目</dd></div><div><dt><code>Stage</code></dt><dd>方案评审</dd></div><div><dt><code>Approval Level</code></dt><dd>集团审批</dd></div><div><dt><code>Department</code></dt><dd>集团投资决策委员会</dd></div>
@@ -14109,45 +14468,45 @@
 </div>
 <p class="kg-output-line kg-artifact-summary"><span>本次样例映射</span><strong>5个对象</strong><strong>4条关系</strong><strong>1组来源映射</strong></p>
 <p class="el-note">关系：APPLIES_TO × 2 / REQUIRES × 1 / OWNED_BY × 1；来源：source_path / chunk_id / evidence_text。</p>
-<p class="el-note">Neo4j 承担标准实体与关系查询；原始 Chunk 仍保留在 Chroma，不因为建立 Graph 而迁走。</p>
+<p class="el-note">Neo4j 承担标准实体与关系查询；原始 Chunk 仍保留在 Chroma，不因为建立图谱而迁走。</p>
 </div></li>
 <li><span class="kg-build-index">06</span><div class="kg-build-content"><div class="prd-heading-label">关系仍然回原文</div>
 <p class="kg-return-relation"><code>Policy</code><span aria-hidden="true" class="kg-inline-arrow">→</span><code>OWNED_BY</code><span aria-hidden="true" class="kg-inline-arrow">→</span><strong>集团投资决策委员会</strong></p>
 <dl class="kg-source-record kg-provenance-record"><div><dt><code>source_path</code></dt><dd>集团投资审批管理办法_v3.2.md</dd></div><div><dt><code>chunk_id</code></dt><dd><code>policy_approval_023</code></dd></div><div><dt><code>evidence_text</code></dt><dd>“……由集团投资决策委员会负责审批。”</dd></div></dl>
-<p>Graph 关系不是脱离文档重新生成的一套知识，每条关系仍然可以回到支持它的 Raw Evidence。</p>
+<p>图谱关系不是脱离文档重新生成的一套知识，每条关系仍然可以回到支持它的 Raw Evidence。</p>
 </div></li>
 </ol>
 </figure>
 </section>
 <section class="prd-subsection"><h3 id="design-graph-4">7.4 Graph Context → Retrieval Scope：先缩小范围，再回 Chroma</h3>
-<p class="prd-prose">沿用同一个脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万。Graph Query 预期返回结构包含当前适用制度、审批层级、负责部门与版本关系，再映射为具体检索范围，接回 search_docs。</p>
+<p class="prd-prose">沿用同一个脱敏代表任务：商业项目 / 西南区域 / 方案评审 / 5000万。Graph Query 预期返回与当前任务相关的制度、版本关系、审批层级、负责部门与区域规则，再映射为具体 Retrieval Scope，接回 search_docs。</p>
 <div aria-label="关系层接入前后的原文检索范围设计对比" class="kg-change-record kg-retrieval-comparison" data-prd-surface="light">
 <div><span class="kg-mini-label">接入前｜只有 Raw RAG</span><p>在整个允许知识库范围中做向量召回。</p></div>
-<div><span class="kg-mini-label">接入后｜关系层接入设计</span><p>先确定集团投资审批管理办法 v3.2、西南区域审批补充规则和集团投资决策委员会相关材料，再让 search_docs 只在这些来源中召回原文。</p></div>
+<div><span class="kg-mini-label">接入后｜关系层接入设计</span><p>先根据实体与关系优先定位相关制度、区域规则、负责部门与版本关系，再让 search_docs 在这些来源中回原文。</p></div>
 </div><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看 Graph Context 与检索资料的完整映射</summary><figure class="el-figure kg-system-figure" data-prd-surface="plain">
 <p class="el-figure-label">脱敏代表任务｜Graph Context 与三组检索资料的映射</p>
 <ol aria-label="从任务条件到Graph Context，再映射检索材料" class="kg-system-scope">
 <li><span class="kg-system-index">01</span><div><div class="prd-heading-label">任务输入</div><p>商业项目 / 西南区域 / 方案评审 / 5000万</p></div></li>
 <li><span class="kg-system-index">02</span><div><div class="prd-heading-label">Graph Context</div><dl class="kg-graph-result">
-<div><dt>当前制度</dt><dd>集团投资审批管理办法 v3.2</dd></div><div><dt>审批层级</dt><dd>集团审批</dd></div><div><dt>负责部门</dt><dd>集团投资决策委员会</dd></div><div><dt>版本关系</dt><dd>v3.2 替代 v2.0</dd></div><div><dt>补充关系</dt><dd>存在西南区域审批补充规则</dd></div>
+<div><dt>相关制度</dt><dd>集团投资审批管理办法 v3.2</dd></div><div><dt>审批层级</dt><dd>集团审批</dd></div><div><dt>负责部门</dt><dd>集团投资决策委员会</dd></div><div><dt>版本关系</dt><dd>v3.2 替代 v2.0</dd></div><div><dt>补充关系</dt><dd>存在西南区域审批补充规则</dd></div>
 </dl></div></li>
 <li class="is-scope"><span class="kg-system-index">03</span><div><div class="prd-heading-label">转换成 Retrieval Scope</div><p class="kg-mini-label">样例检索范围</p><ul class="kg-scope-sources"><li>集团投资审批管理办法 v3.2</li><li>西南区域审批补充规则</li><li>集团投资决策委员会相关材料</li></ul><p class="el-note">排除已被替代的 v2.0 作为当前有效规则来源，旧版仅保留历史回溯。</p></div></li>
 </ol>
 <ol aria-label="在限定范围中检索原文，检查资格后输出带引用的回答" class="kg-system-chain" start="4">
 <li class="kg-system-node"><span class="kg-system-index">04</span><strong>search_docs / Chroma</strong><p>在上述范围内召回原文</p></li>
 <li class="kg-system-node"><span class="kg-system-index">05</span><strong>Raw Evidence</strong><p>原文片段 / 来源 / Citation</p></li>
-<li class="kg-system-node is-eligibility"><span class="kg-system-index">06</span><strong>Eligibility</strong><p>检查当前是否可使用</p><aside class="kg-context-note"><span>来自 Graph 的版本 / 例外 / 冲突上下文</span><span class="kg-context-target">→ Eligibility</span></aside></li>
+<li class="kg-system-node is-eligibility"><span class="kg-system-index">06</span><strong>Eligibility</strong><p>检查当前是否可使用</p><aside class="kg-context-note"><span>来自图谱的版本 / 例外 / 冲突上下文</span><span class="kg-context-target">→ Eligibility</span></aside></li>
 <li class="kg-system-node"><span class="kg-system-index">07</span><strong>Answer + Citation</strong><p>结论、适用条件与原文引用</p></li>
 </ol>
 </figure></details>
 
-<p class="el-note">Graph 不替代 RAG，而是先把“去哪找”缩小到与当前任务真正相关的范围。</p>
-<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>三层分工</strong>Graph 提供稳定实体与关系；Raw Evidence 负责原始事实和回查；Eligibility 负责判断当前能不能用。</p></aside>
+<p class="el-note">图谱不替代 RAG，而是先把“去哪找”缩小到与当前任务真正相关的范围。</p>
+<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>三层分工</strong>图谱提供稳定实体与关系；Raw Evidence 负责原始事实和回查；Eligibility 负责判断当前能不能用。</p></aside>
 </section>
-<section class="prd-subsection"><h3 id="design-graph-5">7.5 关系 Bad Case：部门别名拆分 / 新旧版本并存</h3>
+<section class="prd-subsection"><h3 id="design-graph-5">7.5 关系层 Bad Case：部门别名拆分 / 新旧版本并存</h3>
 <div class="kg-cases" data-prd-surface="light"><article class="el-panel"><header class="kg-case-header"><span class="el-path-label">Case 01</span><h4>同一部门被拆成多个 Entity</h4></header><div class="kg-case-change"><div><span class="kg-mini-label">Before</span><p>集团投委会 → Department A<br/>集团投资决策委员会 → Department B</p><small>Policy 关系被拆散</small></div><div><span class="kg-mini-label">After</span><p>Alias Mapping → 集团投资决策委员会<br/>→ Canonical Department</p><small>两份 Policy 关系合并</small></div></div><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看现象、定位与调整记录</summary><dl class="kg-case-record"><div><dt>现象</dt><dd>集团投委会 / 集团投资决策委员会变成多个 Department。</dd></div><div><dt>影响</dt><dd>同一部门的 Policy 关系被拆散。</dd></div><div><dt>定位</dt><dd>实体身份不一致。</dd></div><div><dt>调整</dt><dd>Alias Mapping + Canonical Entity。</dd></div><div><dt>预期结果</dt><dd>跨文档关系映射到同一 Department。</dd></div></dl></details></article><article class="el-panel"><header class="kg-case-header"><span class="el-path-label">Case 02</span><h4>新旧制度同时进入适用范围</h4></header><div class="kg-case-change"><div><span class="kg-mini-label">Before</span><p>Policy v2.0 / Policy v3.2</p><small>两份同时进入当前适用候选</small></div><div><span class="kg-mini-label">After</span><p>v3.2 → SUPERSEDES → v2.0</p><small>v3.2：当前判断<br/>v2.0：仅历史回溯</small></div></div><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看现象、定位与调整记录</summary><dl class="kg-case-record"><div><dt>现象</dt><dd>v2.0 和 v3.2 都和当前任务产生关系。</dd></div><div><dt>影响</dt><dd>无法判断哪一版仍然有效。</dd></div><div><dt>定位</dt><dd>缺少版本替代关系。</dd></div><div><dt>调整</dt><dd>增加 v3.2 SUPERSEDES v2.0，同时把版本关系交给 Eligibility。</dd></div><div><dt>预期结果</dt><dd>v2.0 仍可历史回溯，但不再作为当前有效依据。</dd></div></dl></details></article></div>
 </section>
-<section class="prd-subsection"><h3 id="design-graph-6">7.6 完整任务链：KG + RAG + Eligibility</h3>
+<section class="prd-subsection"><h3 id="design-graph-6">7.6 完整任务链：知识图谱 + RAG + Eligibility</h3>
 <p class="kg-trace-question">“这个项目是否需要集团审批？”</p>
 <p class="kg-log-label">任务链演示｜沿用同一脱敏代表任务，逐步展示输入与预期结构</p>
 <p class="el-note kg-trace-boundary">本节按输入 → Graph Context → Retrieval Scope → Raw Evidence → Eligibility → Output 展示关系层接入后的任务链。</p>
@@ -14178,9 +14537,16 @@
 <li><span class="kg-trace-index">05</span><div><div class="prd-heading-label">Eligibility 判断｜检查样例证据是否可用</div><dl class="kg-log-output is-conditions"><div><dt>金额条件</dt><dd>5000万达到当前规则阈值</dd></div><div><dt>Eligibility</dt><dd><strong>可使用</strong></dd></div></dl><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看版本、范围、冲突与风险字段</summary><dl class="kg-log-output is-conditions"><div><dt>版本</dt><dd>当前有效</dd></div><div><dt>适用范围</dt><dd>匹配商业项目 / 西南区域 / 方案评审</dd></div><div><dt>冲突</dt><dd>未发现未解决冲突</dd></div><div><dt>使用风险</dt><dd>常规</dd></div></dl></details><p class="kg-log-note">主制度与区域补充规则共同支持样例判断；如果两份当前有效规则存在未解决冲突，则进入待人工复核，而不是直接生成结论。</p></div></li>
 <li><span class="kg-trace-index">06</span><div><div class="prd-heading-label">输出｜样例判断与回查依据</div><dl class="kg-log-output"><div><dt>结论</dt><dd><strong>根据当前项目类型、地区、阶段与金额条件，该项目进入集团审批范围。</strong></dd></div><div><dt>适用条件</dt><dd>商业项目 / 西南区域 / 方案评审 / 金额5000万</dd></div><div><dt>依据 [1]</dt><dd><a class="kg-citation-link" href="#kg-raw-evidence-023">集团投资审批管理办法 v3.2</a><span class="kg-log-note">提供商业项目、阶段、集团审批层级与负责部门规则。</span></dd></div><div><dt>依据 [2]</dt><dd><a class="kg-citation-link" href="#kg-raw-evidence-southwest-011">西南区域审批补充规则</a><span class="kg-log-note">提供西南区域当前金额阈值与补充适用条件。</span></dd></div><div><dt>来源</dt><dd>Raw Evidence + Citation：<a class="kg-citation-link" href="#kg-raw-evidence-023">[1] policy_approval_023</a> / <a class="kg-citation-link" href="#kg-raw-evidence-southwest-011">[2] southwest_region_approval_011</a>。</dd></div></dl></div></li>
 </ol>
-<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>样例任务的判断依据</strong>Graph 提供稳定实体与关系，Raw Evidence 负责原始事实和回查，Eligibility 负责当前能不能用。</p></aside>
+<figure class="prd-evidence-figure b07-product-figure" data-prd-surface="primary">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="当前任务关系上下文">
+    <img src="assets/screenshots/b07-relationship-context-workbench.png" alt="业务智能助手当前任务关系上下文，图谱视图展示八个节点、八条直线关系与共享节点；R04 OWNED_BY 默认选中，右侧保留关系详情、别名归一与原文来源回查" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><strong class="prd-figure-caption-title">当前任务关系上下文</strong><span class="prd-figure-caption-note">图谱视图与关系详情并列展示共享实体、版本替代、别名归一与 Raw Evidence 回查。</span></figcaption>
+</figure>
+<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>样例任务的判断依据</strong>图谱提供稳定实体与关系，Raw Evidence 负责原始事实和回查，Eligibility 负责当前能不能用。</p></aside>
 </section>
-<aside aria-label="关系层接入设计选型" class="kg-implementation-strip" data-prd-surface="plain"><div class="prd-heading-label">关系层接入设计选型</div><dl><div><dt>关系结构</dt><dd>最小 Ontology</dd></div><div><dt>目标 Graph Store</dt><dd>Neo4j</dd></div><div><dt>原文检索</dt><dd>Chroma</dd></div><div><dt>调用</dt><dd>search_docs</dd></div><div><dt>准入</dt><dd>Eligibility Gate</dd></div><div><dt>生成</dt><dd>现有本地 LLM 链路</dd></div></dl></aside><p class="el-next prd-p2-transition"><a href="#design-wiki">进入 B08 ｜ Raw / Wiki / Hybrid →</a></p>
+<aside aria-label="关系层接入设计选型" class="kg-implementation-strip" data-prd-surface="plain"><div class="prd-heading-label">关系层接入设计选型</div><dl><div><dt>关系结构</dt><dd>最小 Ontology（本体）</dd></div><div><dt>目标图谱存储</dt><dd>Neo4j</dd></div><div><dt>原文检索</dt><dd>Chroma</dd></div><div><dt>调用</dt><dd>search_docs</dd></div><div><dt>准入</dt><dd>Eligibility Gate</dd></div><div><dt>生成</dt><dd>现有本地 LLM 链路</dd></div></dl></aside><p class="el-next prd-p2-transition"><a href="#design-wiki">进入 B08 ｜ Raw / Wiki / Hybrid →</a></p>
 </div>
 </section>
 
@@ -14258,6 +14624,7 @@
 <div><span class="wk-label">接入前 · 直接交原始文件</span><p>主制度 v3.2、旧制度 v2.0、历史项目、区域规则与冲突资料整批进入 Wiki。</p><p><strong>Wiki 重新决定哪些当前有效</strong>，绕过已有 Eligibility 和 Neo4j 关系判断。</p></div>
 <div><span class="wk-label">接入后 · 交受控 Source Packet</span><p>Eligibility 决定知识角色；KG 提供版本、适用、审批层级与负责部门关系；Adapter 将二者组装成受控 Source Packet；<strong>LLM Wiki 只负责页面组织。</strong></p></div>
 </div>
+<p>Source Packet 只负责组织 Wiki 编译输入，事实依据仍来自 Raw Evidence。</p>
 <figure class="wk-artifact" data-prd-density="compact" data-prd-surface="primary" id="wk-source-packet">
 <figcaption><span class="wk-label">中间产物｜Wiki Source Packet · 接口样例</span><strong>raw/sources/approved/commercial_project_group_approval.md</strong></figcaption>
 <pre class="wk-code"><code>topic: 商业项目集团审批
@@ -14312,10 +14679,10 @@ graph_context:
 </div></details>
 </section>
 <section class="prd-subsection">
-<h3 id="design-wiki-4">8.4 Evidence Mapping：Wiki Claim → evidence_ref → Raw Evidence</h3>
+<h3 id="design-wiki-4">8.4 Evidence Mapping：Wiki Claim → evidence_refs → Raw Evidence</h3>
 
-<div class="wk-mapping" data-prd-surface="plain"><div><span class="wk-label">LLM Wiki 原生映射</span><p>sources[] 指向 <a href="#wk-source-packet">Source Packet</a>。</p></div><div><span class="wk-label">本项目补充的原文映射</span><p>evidence_refs 保留原始 chunk_id 与 source_path。</p></div></div>
-<figure class="wk-p2-evidence-mapping" data-prd-density="compact" data-prd-surface="primary"><figcaption>Evidence Mapping｜Wiki Claim → evidence_ref → source_path → Raw Evidence</figcaption><div class="wk-claim"><h4>映射 A｜当前区域规则</h4><p>Wiki Claim：“西南区域商业项目在方案评审阶段，达到5000万及以上时，按集团审批流程执行。”</p><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li><span>evidence_ref</span><strong>southwest_region_approval_011</strong></li><li><span>source_path</span><strong>西南区域审批补充规则_v1.4.md</strong></li><li><a href="#wk-raw-b-011">Raw Evidence · 原文摘录 [2]</a></li></ol><blockquote id="wk-raw-b-011">西南区域商业项目在方案评审阶段，审批金额达到5000万元及以上时，按集团审批流程执行。</blockquote></div><div class="wk-claim"><h4>映射 B｜历史版本</h4><p>Wiki Claim：“v2.0 仅作为历史版本保留。”</p><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li><span>evidence_ref · historical_version</span><strong>policy_approval_v2_008</strong></li><li><span>source_path</span><strong>集团投资审批管理办法_v2.0.md</strong></li><li><a href="#wk-raw-c-008">Raw Evidence · 历史版本回查 [3]</a></li></ol><p id="wk-raw-c-008" style="scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + 140px)">旧版原文仍可回查，但不恢复为当前制度依据。</p><p>历史版本页面同时继承 Raw Evidence 的原文回查与 B07 的 SUPERSEDES 关系（v3.2 SUPERSEDES v2.0）；旧版原文负责证明内容，Graph Context 负责版本关系。</p></div></figure><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看 Wiki 页面字段与正文摘录</summary><figure class="wk-artifact wk-page" data-prd-surface="plain" id="wk-policy-page">
+<p>LLM Wiki 保留页面来源；本项目通过 Wiki Adapter 进一步保留 evidence_refs，使 Wiki Claim 可以继续回到原始 chunk 与 source_path。</p>
+<figure class="wk-p2-evidence-mapping" data-prd-density="compact" data-prd-surface="primary"><figcaption>Evidence Mapping｜Wiki Claim → evidence_refs → source_path → Raw Evidence</figcaption><div class="wk-claim"><h4>映射 A｜当前区域规则</h4><p>Wiki Claim：“西南区域商业项目在方案评审阶段，达到5000万及以上时，按集团审批流程执行。”</p><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li><span>evidence_refs</span><strong>southwest_region_approval_011</strong></li><li><span>source_path</span><strong>西南区域审批补充规则_v1.4.md</strong></li><li><a href="#wk-raw-b-011">Raw Evidence · 原文摘录 [2]</a></li></ol><blockquote id="wk-raw-b-011">西南区域商业项目在方案评审阶段，审批金额达到5000万元及以上时，按集团审批流程执行。</blockquote></div><div class="wk-claim"><h4>映射 B｜历史版本</h4><p>Wiki Claim：“v2.0 仅作为历史版本保留。”</p><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li><span>evidence_refs · historical_version</span><strong>policy_approval_v2_008</strong></li><li><span>source_path</span><strong>集团投资审批管理办法_v2.0.md</strong></li><li><a href="#wk-raw-c-008">Raw Evidence · 历史版本回查 [3]</a></li></ol><p id="wk-raw-c-008" style="scroll-margin-top: calc(var(--case-header-height) + var(--project-tabs-height) + 140px)">旧版原文仍可回查，但不恢复为当前制度依据。</p><p>历史版本页面同时继承 Raw Evidence 的原文回查与 B07 的 SUPERSEDES 关系（v3.2 SUPERSEDES v2.0）；旧版原文负责证明内容，Graph Context 负责版本关系。</p></div></figure><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看 Wiki 页面字段与正文摘录</summary><figure class="wk-artifact wk-page" data-prd-surface="plain" id="wk-policy-page">
 <figcaption><span class="wk-label">Wiki Page · 关键页面摘录</span><strong>wiki/policies/商业项目集团审批.md</strong></figcaption>
 <div class="wk-split wk-page-content"><div><pre class="wk-code"><code>---
 title: 商业项目集团审批
@@ -14344,7 +14711,7 @@ evidence_refs:
 <aside class="wk-callout" data-prd-surface="plain"><strong>Wiki Adapter 输出校验｜项目侧控制</strong><p>生成完成后，Adapter 再检查 <code>current_version</code>、<code>applicable_scope</code>、<code>sources</code>、<code>evidence_refs</code> 和 Evidence Mapping；缺失回源链的页面标记为 Adapter Page Status = <strong>Needs Review</strong>，不进入可信知识页。</p></aside>
 <div class="wk-split wk-bad-cases" data-prd-surface="plain">
 <div><span class="wk-label">Bad Case 01 · 旧制度混入 Wiki</span><p><strong>调整前：</strong>v2.0 与 v3.2 未标注知识角色就进入 Packet，页面可能把旧版内容混入当前规则。</p><p><strong>定位：</strong>Wiki 不应重新决定版本有效性。</p><p><strong>调整：</strong>结合 Eligibility 与 KG 的 SUPERSEDES 关系，将 v3.2 标为 current_rule、v2.0 标为 historical_version，再组装 Packet。</p><p><strong>调整后：</strong>当前规则只使用 v3.2；v2.0 以 historical_version 保留原文映射，只进入历史版本。</p></div>
-<div><span class="wk-label">Bad Case 02 · 区域条件被抹平</span><p><strong>调整前：</strong>Wiki Draft 把西南区域5000万条件写成所有商业项目的统一条件。</p><p><strong>定位：</strong>生成时丢失了适用范围。</p><p><strong>调整：</strong>schema.md 要求区域规则保留地区、项目类型、阶段、金额门槛与 evidence_ref。</p><p><strong>调整后：</strong>拆成集团主规则与西南区域补充条件，区域规则不提升为集团统一规则。</p></div>
+<div><span class="wk-label">Bad Case 02 · 区域条件被抹平</span><p><strong>调整前：</strong>Wiki Draft 把西南区域5000万条件写成所有商业项目的统一条件。</p><p><strong>定位：</strong>生成时丢失了适用范围。</p><p><strong>调整：</strong>schema.md 要求区域规则保留地区、项目类型、阶段、金额门槛与 evidence_refs。</p><p><strong>调整后：</strong>拆成集团主规则与西南区域补充条件，区域规则不提升为集团统一规则。</p></div>
 </div>
 </section>
 <section class="prd-subsection">
@@ -14360,9 +14727,16 @@ evidence_refs:
 <div class="wk-request-traces wk-p2-routing-summary" data-prd-surface="light">
 <article><div class="wk-request-head"><span class="wk-mode">Raw</span><div class="prd-heading-label">“《集团投资审批管理办法 v3.2》关于集团审批的原文怎么写？”</div></div><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>search_docs</li><li>Chroma</li><li>原始 Chunk</li><li>Citation</li></ol><p class="wk-result">交付：原始制度片段与 Citation，直接核对原文。</p></article>
 <article><div class="wk-request-head"><span class="wk-mode">Wiki</span><div class="prd-heading-label">“商业项目集团审批整体有哪些规则？”</div></div><ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>读取商业项目集团审批.md</li><li>当前规则 / 适用范围</li><li>审批层级 / 负责部门</li><li>区域条件 / 历史版本</li></ol><p class="wk-result">交付：稳定规则概览与页面导航；关键规则可继续沿 evidence_refs 回查原文。</p></article>
-<article><div class="wk-request-head"><span class="wk-mode">Hybrid</span><div class="prd-heading-label">“这个西南区域商业项目现在需要集团审批吗？”</div></div><p>Task Context：商业项目 / 西南区域 / 方案评审 / 5000万</p><p class="wk-p2-hybrid-chain">Wiki → Neo4j → Raw RAG → Eligibility → 候选判断</p><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看当前任务的五步复核说明</summary><ol class="wk-trace" data-prd-density="compact" data-prd-surface="plain"><li><span class="wk-step">01</span><div><strong>Wiki · 读取主题结构</strong><p>提供主题结构、稳定规则导航与候选知识范围；不作为最终判断证据。</p></div></li><li><span class="wk-step">02</span><div><strong>Neo4j · 恢复当前关系</strong><p>核对 Policy / Region / Stage / ApprovalLevel / Department / Version。</p></div></li><li><span class="wk-step">03</span><div><strong>Raw RAG · 回查关键依据</strong><p>召回主制度 A 与西南区域规则 B，保留原文片段及来源。</p></div></li><li><span class="wk-step">04</span><div><strong>Eligibility · 对当前任务复核准入</strong><p>A 作为主制度依据；B 必须携带西南区域、项目类型、阶段与金额条件。</p></div></li><li><span class="wk-step">05</span><div><strong>形成带依据的候选判断</strong><p>按当前条件组合 A + B，返回适用范围、Raw Evidence 与 Citation。</p></div></li></ol></details><p class="wk-result">交付：当前条件下的候选判断 + 适用范围 + Raw Evidence + Citation。主制度与区域规则组合使用，不由 Wiki 概览单独给出最终结论。</p></article>
+<article><div class="wk-request-head"><span class="wk-mode">Hybrid</span><div class="prd-heading-label">“这个西南区域商业项目现在需要集团审批吗？”</div></div><p>Task Context：商业项目 / 西南区域 / 方案评审 / 5000万</p><p class="wk-p2-hybrid-chain">Wiki / Graph Context → Raw RAG → Eligibility → 候选判断</p><details class="prd-p2-detail" data-prd-surface="plain"><summary>查看当前任务的五步复核说明</summary><ol class="wk-trace" data-prd-density="compact" data-prd-surface="plain"><li><span class="wk-step">01</span><div><strong>Wiki · 读取主题结构</strong><p>提供主题结构、稳定规则导航与候选知识范围；不作为最终判断证据。</p></div></li><li><span class="wk-step">02</span><div><strong>Neo4j · 恢复当前关系</strong><p>核对 Policy / Region / Stage / ApprovalLevel / Department / Version。</p></div></li><li><span class="wk-step">03</span><div><strong>Raw RAG · 回查关键依据</strong><p>召回主制度 A 与西南区域规则 B，保留原文片段及来源。</p></div></li><li><span class="wk-step">04</span><div><strong>Eligibility · 对当前任务复核准入</strong><p>A 作为主制度依据；B 必须携带西南区域、项目类型、阶段与金额条件。</p></div></li><li><span class="wk-step">05</span><div><strong>形成带依据的候选判断</strong><p>按当前条件组合 A + B，返回适用范围、Raw Evidence 与 Citation。</p></div></li></ol></details><p class="wk-result">交付：当前条件下的候选判断 + 适用范围 + Raw Evidence + Citation。主制度与区域规则组合使用，不由 Wiki 概览单独给出最终结论。</p></article>
 </div>
 <div aria-label="四层知识职责" class="wk-responsibility" data-prd-surface="plain"><div><strong>Wiki</strong><p>帮助理解稳定知识</p></div><div><strong>Graph</strong><p>提供实体关系</p></div><div><strong>Raw Evidence</strong><p>提供原文证明</p></div><div><strong>Eligibility</strong><p>判断当前任务能否使用</p></div></div>
+<figure class="prd-evidence-figure b08-product-figure" data-prd-surface="primary">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="审批知识库｜商业项目集团审批">
+    <img src="assets/screenshots/b08-wiki-knowledge-page.png" alt="业务智能助手审批知识库，紧凑页面树定位商业项目集团审批；Wiki 正文保留当前规则、区域条件、历史版本与参考案例，Citation [2] 默认选中并展示西南区域规则的来源与原文依据" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><strong class="prd-figure-caption-title">审批知识库｜商业项目集团审批</strong><span class="prd-figure-caption-note">Wiki 页面与来源抽屉并列展示当前规则、区域补充条件、历史版本与参考案例；Citation 可继续回查原始 Evidence。</span></figcaption>
+</figure>
 </section>
 </div>
 </section>
