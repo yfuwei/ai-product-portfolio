@@ -14356,8 +14356,8 @@
 </figure>
 </section>
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact"><h3 id="design-v3-7">6.7 阶段结果：准入规则成立，跨文档关系进入下一层</h3>
-<div class="el-conclusion" data-prd-surface="plain"><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">当前字段规则能够判断</div><ul class="prd-list"><li>版本：区分当前有效、已被替代与待核验</li><li>范围：保留地区、项目类型、阶段和金额条件</li><li>冲突：暂停进入任务，复核结果写回后重新判断</li><li>风险与准入：给出使用状态，并限制产品动作</li></ul></section><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">同一批资料继续暴露</div><ul class="prd-list"><li>“集团投委会”和“集团投资决策委员会”的实体别名</li><li>v3.2 与 v2.0 之间的制度替代关系</li><li>西南区域补充规则与集团主制度之间的继承 / 例外关系</li><li>多个实体参与判断时需要维护的关系路径</li></ul></section></div>
-<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">下一层｜稳定表达实体与关系</div><p>下一层需要解决的已经不是继续增加字段，而是稳定表达实体与关系。</p></aside><p class="el-next"><a href="#design-graph">进入 B07 ｜ Knowledge Graph →</a></p>
+<div class="el-conclusion" data-prd-surface="plain"><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">当前字段规则能够判断</div><ul class="prd-list"><li>版本：区分当前有效、已被替代与待核验</li><li>范围：保留地区、项目类型、阶段和金额条件</li><li>冲突：暂停进入任务，复核结果写回后重新判断</li><li>风险与准入：给出使用状态，并限制产品动作</li></ul></section><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">同一批资料继续暴露</div><ul class="prd-list"><li>“集团投委会”和“集团投资决策委员会”的实体别名</li><li>v3.2 与 v2.0 之间的制度替代关系</li><li>西南区域补充规则与集团主制度之间的补充 / 适用关系</li><li>多个实体参与判断时需要维护的关系路径</li></ul></section></div>
+<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">下一层｜稳定表达实体与关系</div><p>下一层需要解决的已经不是继续增加字段，而是稳定表达实体与关系。</p></aside><p class="el-next"><a href="#design-graph">进入 B07 ｜ 知识图谱 →</a></p>
 </section>
 </div>
 </section>
@@ -14561,7 +14561,7 @@
 <div class="prd-section-body">
 <p class="wk-entry">本节沿用同一脱敏审批任务，展示 Wiki 层接入后的知识处理链。</p>
 <section class="prd-subsection">
-<h3 id="design-wiki-1">8.1 接入边界：只接 Wiki 编译，不替换 RAG / KG / Eligibility</h3>
+<h3 id="design-wiki-1">8.1 接入边界：只接 Wiki 编译，不替换 RAG / 知识图谱 / Eligibility</h3>
 <p>B03–B07 已经搭通 Raw Evidence 的解析、切片与向量召回，增加请求控制、Evidence 准入，并用 Neo4j 表达制度、部门、版本和例外关系。</p>
 <div class="wk-p22-flow-boundary"><div class="wk-query" data-prd-surface="plain"><span class="wk-label">反复出现的请求</span><strong>“商业项目集团审批整体怎么走？”</strong></div>
 <ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>找到主制度</li><li>找到西南区域规则</li><li>恢复审批层级</li><li>恢复负责部门</li><li>重新组织答案</li></ol></div>
@@ -14619,10 +14619,10 @@
 <p><strong>Policy</strong><span>OWNED_BY</span><strong>集团投资决策委员会</strong></p>
 </div><p>西南区域补充规则补充 / 限制集团规则，区域条件不会被合并成集团统一条件。</p></div>
 <div class="prd-heading-label">Wiki Adapter 的四个处理动作</div>
-<ol class="wk-trace wk-p2-adapter-trace" data-prd-density="compact" data-prd-surface="plain"><li><span class="wk-step">01</span><div><strong>读取 Evidence 的 Eligibility 与 Wiki Role</strong><p>保留当前规则、条件规则和允许作为历史 / 背景保存的 Evidence；Pending review 的内容暂不进入已发布 Wiki。</p></div></li><li><span class="wk-step">02</span><div><strong>带入已确认的 Graph Context</strong><p>读取 KG 的版本替代、适用范围、审批层级和负责部门。</p></div></li><li><span class="wk-step">03</span><div><strong>组装 Markdown Source Packet</strong><p>统一写入 raw/sources/approved/，供 LLM Wiki ingest。</p></div></li><li><span class="wk-step">04</span><div><strong>保留 evidence_refs</strong><p>继续指向原始 chunk_id。</p></div></li></ol>
+<ol class="wk-trace wk-p2-adapter-trace" data-prd-density="compact" data-prd-surface="plain"><li><span class="wk-step">01</span><div><strong>读取 Evidence 的 Eligibility 与 Wiki Role</strong><p>保留当前规则、条件规则和允许作为历史 / 背景保存的 Evidence；Pending review 的内容暂不进入已发布 Wiki。</p></div></li><li><span class="wk-step">02</span><div><strong>带入已确认的 Graph Context</strong><p>读取知识图谱中的版本替代、适用范围、审批层级和负责部门。</p></div></li><li><span class="wk-step">03</span><div><strong>组装 Markdown Source Packet</strong><p>统一写入 raw/sources/approved/，供 LLM Wiki ingest。</p></div></li><li><span class="wk-step">04</span><div><strong>保留 evidence_refs</strong><p>继续指向原始 chunk_id。</p></div></li></ol>
 <div class="wk-split wk-comparison" data-prd-surface="plain">
 <div><span class="wk-label">接入前 · 直接交原始文件</span><p>主制度 v3.2、旧制度 v2.0、历史项目、区域规则与冲突资料整批进入 Wiki。</p><p><strong>Wiki 重新决定哪些当前有效</strong>，绕过已有 Eligibility 和 Neo4j 关系判断。</p></div>
-<div><span class="wk-label">接入后 · 交受控 Source Packet</span><p>Eligibility 决定知识角色；KG 提供版本、适用、审批层级与负责部门关系；Adapter 将二者组装成受控 Source Packet；<strong>LLM Wiki 只负责页面组织。</strong></p></div>
+<div><span class="wk-label">接入后 · 交受控 Source Packet</span><p>Eligibility 决定知识角色；知识图谱提供版本、适用、审批层级与负责部门关系；Adapter 将二者组装成受控 Source Packet；<strong>LLM Wiki 只负责页面组织。</strong></p></div>
 </div>
 <p>Source Packet 只负责组织 Wiki 编译输入，事实依据仍来自 Raw Evidence。</p>
 <figure class="wk-artifact" data-prd-density="compact" data-prd-surface="primary" id="wk-source-packet">
@@ -14710,7 +14710,7 @@ evidence_refs:
 
 <aside class="wk-callout" data-prd-surface="plain"><strong>Wiki Adapter 输出校验｜项目侧控制</strong><p>生成完成后，Adapter 再检查 <code>current_version</code>、<code>applicable_scope</code>、<code>sources</code>、<code>evidence_refs</code> 和 Evidence Mapping；缺失回源链的页面标记为 Adapter Page Status = <strong>Needs Review</strong>，不进入可信知识页。</p></aside>
 <div class="wk-split wk-bad-cases" data-prd-surface="plain">
-<div><span class="wk-label">Bad Case 01 · 旧制度混入 Wiki</span><p><strong>调整前：</strong>v2.0 与 v3.2 未标注知识角色就进入 Packet，页面可能把旧版内容混入当前规则。</p><p><strong>定位：</strong>Wiki 不应重新决定版本有效性。</p><p><strong>调整：</strong>结合 Eligibility 与 KG 的 SUPERSEDES 关系，将 v3.2 标为 current_rule、v2.0 标为 historical_version，再组装 Packet。</p><p><strong>调整后：</strong>当前规则只使用 v3.2；v2.0 以 historical_version 保留原文映射，只进入历史版本。</p></div>
+<div><span class="wk-label">Bad Case 01 · 旧制度混入 Wiki</span><p><strong>调整前：</strong>v2.0 与 v3.2 未标注知识角色就进入 Packet，页面可能把旧版内容混入当前规则。</p><p><strong>定位：</strong>Wiki 不应重新决定版本有效性。</p><p><strong>调整：</strong>结合 Eligibility 与知识图谱中的 SUPERSEDES 关系，将 v3.2 标为 current_rule、v2.0 标为 historical_version，再组装 Packet。</p><p><strong>调整后：</strong>当前规则只使用 v3.2；v2.0 以 historical_version 保留原文映射，只进入历史版本。</p></div>
 <div><span class="wk-label">Bad Case 02 · 区域条件被抹平</span><p><strong>调整前：</strong>Wiki Draft 把西南区域5000万条件写成所有商业项目的统一条件。</p><p><strong>定位：</strong>生成时丢失了适用范围。</p><p><strong>调整：</strong>schema.md 要求区域规则保留地区、项目类型、阶段、金额门槛与 evidence_refs。</p><p><strong>调整后：</strong>拆成集团主规则与西南区域补充条件，区域规则不提升为集团统一规则。</p></div>
 </div>
 </section>
