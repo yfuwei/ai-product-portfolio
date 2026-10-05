@@ -12797,11 +12797,294 @@
   #project-panel-design #design-v1-validation .b04-case-record { padding-inline: 12px; }
   #project-panel-design #design-v1-validation .b04-artifact-meta { gap: 6px 16px; }
 }
+      /* Overview case study: content-driven flow, isolated from the locked design panel. */
+      #project-panel-overview { --overview-neutral: #f8fafc; --overview-rule: #e2e8f0; --overview-intro-surface: #f1f5f9; }
+      #project-panel-overview .case-container { width: min(100%, 1120px); margin: 0 auto; }
+      #project-panel-overview .overview-intro { padding: 32px clamp(20px, 5vw, 64px) 28px; background: var(--overview-intro-surface); }
+      #project-panel-overview .overview-toc { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; padding: 20px; background: #fff; border: 1px solid var(--overview-rule); border-radius: var(--radius-md); }
+      #project-panel-overview .overview-toc-copy { justify-content: start; padding: 12px 24px 12px 12px; border-color: var(--overview-rule); }
+      #project-panel-overview .project-toc-heading { color: var(--ink); font-size: 22px; line-height: 1.35; }
+      #project-panel-overview .overview-toc-description { margin-top: 10px; font-size: 13px; line-height: 1.6; }
+      #project-panel-overview .overview-toc-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; grid-auto-rows: 1fr; }
+      #project-panel-overview .overview-toc-list > li:nth-child(even) { border-left: 1px solid var(--overview-rule); }
+      #project-panel-overview .toc-item { min-height: 64px; height: 100%; grid-template-columns: 24px minmax(0, 1fr) 14px; gap: 8px; align-items: start; padding: 12px 14px; background: var(--overview-neutral); border-color: var(--overview-rule); font-size: 14px; }
+      #project-panel-overview .toc-index,
+      #project-panel-overview .toc-arrow { line-height: 21px; }
+      #project-panel-overview .toc-label { color: var(--ink); text-wrap: pretty; }
+      #project-panel-overview .toc-label small { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
+      #project-panel-overview .toc-item:hover .toc-label { color: var(--accent-strong); }
+      #project-panel-overview .overview-snapshot { margin-top: 28px; padding: 16px 18px; background: #fff; border: 1px solid var(--overview-rule); border-radius: var(--radius-md); }
+      #project-panel-overview .overview-subheading { margin: 0 0 14px; color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1.5; }
+      #project-panel-overview .overview-subheading > span { margin-left: 8px; color: var(--muted); font-size: 12px; font-weight: 400; }
+      #project-panel-overview .overview-snapshot-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+      #project-panel-overview .overview-snapshot-grid > article { min-width: 0; }
+      #project-panel-overview .overview-snapshot-grid > article + article { padding-left: 18px; border-left: 1px solid var(--overview-rule); }
+      #project-panel-overview .overview-snapshot-grid h3 { margin: 0 0 6px; color: var(--ink); font-size: 14px; line-height: 1.5; }
+      #project-panel-overview .overview-snapshot-grid p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+      #project-panel-overview .overview-snapshot-grid .overview-snapshot-capabilities { color: var(--ink); font-size: 13px; line-height: 1.65; }
+      #project-panel-overview .overview-card-label { color: var(--muted); font-size: 11px; font-weight: 750; }
+      #project-panel-overview .overview-section { height: auto; min-height: 0; padding: 24px clamp(20px, 5vw, 64px); background: #fff; border-top: 1px solid var(--overview-rule); }
+      #project-panel-overview .overview-section + .overview-section { padding-top: 24px; }
+      #project-panel-overview .overview-intro + .overview-section { padding-top: 48px; }
+      #project-panel-overview .overview-section .section-header { max-width: none; margin: 0 0 24px; }
+      #project-panel-overview .section-kicker { margin: 0 0 8px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+      #project-panel-overview .section-title { margin: 0; font-size: clamp(26px, 2.1vw, 32px); line-height: 1.3; text-wrap: pretty; }
+      #project-panel-overview .section-description,
+      #project-panel-overview .section-takeaway { max-width: 1000px; margin: 10px 0 0; color: var(--muted); font-size: 15px; font-weight: 400; line-height: 1.65; text-wrap: pretty; }
+      #project-panel-overview .overview-section > .case-container { padding-top: 0; }
+      #project-panel-overview #overview-product-gallery,
+      #project-panel-overview #overview-boundary { background: var(--overview-neutral); }
+      #project-panel-overview #overview-recalculations .decision-evolution { background: #fff; border-color: var(--overview-rule); border-radius: var(--radius-md); }
+      #project-panel-overview #overview-recalculations .decision-table-head,
+      #project-panel-overview #overview-recalculations .decision-row { grid-template-columns: 132px minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .75fr); gap: 20px; }
+      #project-panel-overview #overview-recalculations .decision-table-head { padding: 10px 16px; font-size: 12px; letter-spacing: 0; }
+      #project-panel-overview #overview-recalculations .decision-row { padding: 10px 16px; }
+      #project-panel-overview #overview-recalculations .decision-stage strong { color: var(--ink); font-size: 13px; line-height: 1.5; letter-spacing: 0; }
+      #project-panel-overview #overview-recalculations .decision-cell > p { font-size: 13px; font-weight: 400; line-height: 1.6; }
+      #project-panel-overview #overview-recalculations .decision-problem > p { color: var(--muted); }
+      #project-panel-overview #overview-recalculations .decision-row.is-current { background: var(--overview-neutral); box-shadow: none; }
+      #project-panel-overview .a01-proof-strip { margin-top: 14px; }
+      #project-panel-overview .overview-facts li { padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--muted); font-size: 12px; font-weight: 400; }
+      #project-panel-overview .overview-gallery-figure { min-width: 0; margin: 0; padding: 0; background: transparent; border: 0; box-shadow: none; }
+      #project-panel-overview .overview-gallery-figure .interface-shot-trigger { display: block; width: 100%; padding: 0; overflow: hidden; border: 1px solid var(--overview-rule); border-radius: 6px; background: #fff; box-shadow: none; }
+      #project-panel-overview .overview-gallery-figure img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
+      #project-panel-overview .overview-gallery-figure figcaption { margin-top: 10px; padding: 0; text-align: left; }
+      #project-panel-overview .overview-gallery-figure h3 { margin: 0; color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1.4; }
+      #project-panel-overview .overview-gallery-secondary { display: inline-block; margin-left: 6px; color: var(--muted); font-size: 11px; font-weight: 400; line-height: 1.4; }
+      #project-panel-overview .overview-gallery-figure p { margin: 3px 0 0; color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
+      #project-panel-overview .overview-gallery-figure .overview-gallery-subtitle { color: var(--ink); font-size: 13px; }
+      #project-panel-overview .overview-gallery-master figcaption { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; }
+      #project-panel-overview .overview-gallery-master h3 { grid-row: 1 / 3; align-self: start; }
+      #project-panel-overview .overview-gallery-master p { margin-top: 0; }
+      #project-panel-overview .overview-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 20px; margin-top: 32px; }
+      #project-panel-overview #overview-build-use .overview-choice-grid,
+      #project-panel-overview #overview-pm-role .overview-role-grid,
+      #project-panel-overview #overview-reopen .overview-reopen-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; align-items: stretch; }
+      #project-panel-overview #overview-build-use .overview-choice-grid,
+      #project-panel-overview #overview-pm-role .overview-role-grid,
+      #project-panel-overview #overview-boundary .overview-boundary-grid,
+      #project-panel-overview #overview-reopen .overview-reopen-grid { background: #fff; border: 1px solid var(--overview-rule); border-radius: var(--radius-md); overflow: hidden; }
+      #project-panel-overview #overview-build-use .overview-card,
+      #project-panel-overview #overview-pm-role .overview-card,
+      #project-panel-overview #overview-boundary .overview-card { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+      #project-panel-overview #overview-build-use .overview-choice-grid > .overview-card + .overview-card,
+      #project-panel-overview #overview-pm-role .overview-role-grid > .overview-card + .overview-card,
+      #project-panel-overview #overview-boundary .overview-boundary-grid > .overview-card + .overview-card,
+      #project-panel-overview #overview-reopen .overview-reopen-grid > .overview-card + .overview-card { border-left: 1px solid var(--overview-rule); }
+      #project-panel-overview .overview-card { min-height: 0; padding: 16px; background: #fff; border-color: var(--overview-rule); box-shadow: none; }
+      #project-panel-overview #overview-build-use .overview-choice-grid { grid-template-columns: .85fr .95fr 1fr 1.3fr; }
+      #project-panel-overview #overview-build-use .overview-card { padding: 14px; }
+      #project-panel-overview .overview-card h3 { margin-bottom: 7px; color: var(--ink); font-size: 15px; line-height: 1.5; }
+      #project-panel-overview #overview-build-use .overview-card h3 { min-height: 24px; font-size: 15px; }
+      #project-panel-overview .overview-card p,
+      #project-panel-overview .overview-card li { color: var(--muted); font-size: 13px; line-height: 1.6; }
+      #project-panel-overview #overview-build-use .overview-card li { font-size: 13px; }
+      #project-panel-overview .overview-layer-summary { margin: 16px 0 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+      #project-panel-overview #overview-build-use,
+      #project-panel-overview #overview-value { padding: 0; background: transparent; }
+      #project-panel-overview #overview-value,
+      #project-panel-overview #overview-pm-role,
+      #project-panel-overview #overview-reopen { margin-top: 28px; }
+      #project-panel-overview #overview-value .value-shift { grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 0; padding: 12px; background: var(--overview-neutral); border: 1px solid var(--overview-rule); border-radius: var(--radius-md); }
+      #project-panel-overview #overview-value .value-shift-group { padding: 0; background: transparent; border: 0; border-radius: 0; }
+      #project-panel-overview #overview-value .value-shift-group--judgment { background: transparent; border: 0; }
+      #project-panel-overview #overview-value .value-shift-group-label { color: var(--muted); font-size: 11px; }
+      #project-panel-overview #overview-value .value-shift-step { padding: 4px 10px; }
+      #project-panel-overview #overview-value .value-shift-step h3 { font-size: 14px; }
+      #project-panel-overview #overview-value .value-shift-step p { font-size: 12px; font-weight: 400; color: var(--muted); }
+      #project-panel-overview #overview-value .value-shift-index { margin-bottom: 3px; font-size: 10px; }
+      #project-panel-overview #overview-value .value-shift-transition { color: var(--muted); }
+      #project-panel-overview #overview-value .value-shift-step.is-final { background: transparent; }
+      #project-panel-overview #overview-value .value-shift-step.is-final h3 { font-weight: 700; }
+      #project-panel-overview #overview-pm-role .overview-card { padding: 14px; }
+      #project-panel-overview #overview-pm-role .overview-card h3 { font-size: 14px; }
+      #project-panel-overview #overview-pm-role .overview-card p { font-size: 13px; line-height: 1.6; }
+      #project-panel-overview #overview-boundary .overview-boundary-grid { gap: 0; }
+      #project-panel-overview #overview-boundary .overview-card { padding: 16px 18px; }
+      #project-panel-overview #overview-boundary .overview-card h3 { font-size: 16px; }
+      #project-panel-overview #overview-boundary .overview-card { padding: 14px 16px; }
+      #project-panel-overview #overview-boundary .section-takeaway { margin-top: 10px; font-size: 15px; font-weight: 400; line-height: 1.65; }
+      #project-panel-overview #overview-boundary .overview-boundary-grid ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 6px; margin-top: 6px; }
+      #project-panel-overview #overview-boundary .overview-boundary-grid li + li { margin-top: 0; }
+
+      #project-panel-overview #overview-reopen .overview-card { padding: 12px 14px; }
+      #project-panel-overview #overview-reopen .overview-card h3 { margin: 0; font-size: 14px; }
+      #project-panel-overview .overview-final-note { margin-top: 24px; padding: 10px 0 0; border: 0; border-top: 1px solid var(--overview-rule); border-radius: 0; background: transparent; color: var(--muted); font-size: 13px; font-weight: 400; line-height: 1.6; text-align: left; }
+      @media (max-width: 1100px) {
+        #project-panel-overview .overview-toc { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; }
+        #project-panel-overview .overview-snapshot-grid,
+        #project-panel-overview #overview-build-use .overview-choice-grid,
+        #project-panel-overview #overview-pm-role .overview-role-grid,
+        #project-panel-overview #overview-reopen .overview-reopen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        #project-panel-overview #overview-build-use .overview-choice-grid > .overview-card:nth-child(odd),
+        #project-panel-overview #overview-pm-role .overview-role-grid > .overview-card:nth-child(odd),
+        #project-panel-overview #overview-reopen .overview-reopen-grid > .overview-card:nth-child(odd) { border-left: 0; }
+        #project-panel-overview #overview-build-use .overview-choice-grid > .overview-card:nth-child(n + 3),
+        #project-panel-overview #overview-pm-role .overview-role-grid > .overview-card:nth-child(n + 3),
+        #project-panel-overview #overview-reopen .overview-reopen-grid > .overview-card:nth-child(n + 3) { border-top: 1px solid var(--overview-rule); }
+        #project-panel-overview .overview-snapshot-grid > article:nth-child(3) { padding-left: 0; border-left: 0; }
+        #project-panel-overview .overview-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        #project-panel-overview #overview-recalculations .decision-table-head,
+        #project-panel-overview #overview-recalculations .decision-row { grid-template-columns: 100px minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, .7fr); gap: 14px; }
+        #project-panel-overview #overview-value .value-shift { grid-template-columns: minmax(0, 1fr); gap: 0; }
+        #project-panel-overview #overview-value .value-shift-transition { width: 24px; height: 24px; margin: 8px 0; justify-self: center; font-size: 16px; transform: rotate(90deg); }
+      }
+      @media (max-width: 600px) {
+        #project-panel-overview .overview-intro { padding: 24px 20px; }
+        #project-panel-overview .overview-toc { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; }
+        #project-panel-overview .overview-toc-copy { padding: 0 0 16px; border: 0; border-bottom: 1px solid var(--overview-rule); }
+        #project-panel-overview .overview-toc-list > li:nth-child(even) { border-left: 0; }
+        #project-panel-overview .overview-toc-list,
+        #project-panel-overview .overview-snapshot-grid,
+        #project-panel-overview .overview-gallery-grid,
+        #project-panel-overview #overview-build-use .overview-choice-grid,
+        #project-panel-overview #overview-pm-role .overview-role-grid,
+        #project-panel-overview #overview-reopen .overview-reopen-grid,
+        #project-panel-overview #overview-boundary .overview-boundary-grid { grid-template-columns: minmax(0, 1fr); }
+        #project-panel-overview .toc-item { min-height: 0; padding: 12px 10px; }
+        #project-panel-overview #overview-build-use .overview-choice-grid > .overview-card + .overview-card,
+        #project-panel-overview #overview-pm-role .overview-role-grid > .overview-card + .overview-card,
+        #project-panel-overview #overview-boundary .overview-boundary-grid > .overview-card + .overview-card,
+        #project-panel-overview #overview-reopen .overview-reopen-grid > .overview-card + .overview-card { border-left: 0; border-top: 1px solid var(--overview-rule); }
+        #project-panel-overview .overview-snapshot { padding: 16px; }
+        #project-panel-overview .overview-snapshot-grid { gap: 14px; }
+        #project-panel-overview .overview-snapshot-grid > article + article { padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--overview-rule); }
+        #project-panel-overview .overview-section { padding: 36px 20px; }
+        #project-panel-overview .overview-section + .overview-section { padding-top: 16px; }
+        #project-panel-overview .overview-intro + .overview-section { padding-top: 36px; }
+        #project-panel-overview .overview-section .section-title { font-size: 26px; line-height: 1.35; }
+        #project-panel-overview .overview-section .section-description,
+        #project-panel-overview .overview-section .section-takeaway { font-size: 14px; }
+        #project-panel-overview #overview-boundary .overview-boundary-grid ul { grid-template-columns: minmax(0, 1fr); }
+        #project-panel-overview #overview-recalculations .decision-table-head { display: none; }
+        #project-panel-overview #overview-recalculations .decision-row { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 16px; }
+        #project-panel-overview #overview-recalculations .decision-cell-label { display: block; font-size: 11px; }
+        #project-panel-overview #overview-recalculations .decision-cell > p { margin: 0; font-size: 13px; }
+        #project-panel-overview #overview-recalculations .decision-cell-label::after { content: none; }
+        #project-panel-overview .overview-gallery-master figcaption { display: block; }
+        #project-panel-overview .overview-gallery-master p { margin-top: 4px; }
+        #project-panel-overview .overview-gallery-grid { gap: 24px; margin-top: 28px; }
+        #project-panel-overview #overview-value .value-shift-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        #project-panel-overview #overview-value .value-shift-step { padding: 6px 8px; }
+        #project-panel-overview #overview-value .value-shift-step + .value-shift-step { border-top: 0; border-left: 1px solid var(--overview-rule); }
+        #project-panel-overview #overview-value .value-shift-step:not(:last-child)::after { top: 50%; right: -6px; bottom: auto; width: 12px; content: "→"; transform: translateY(-50%); }
+        #project-panel-overview #overview-value .value-shift-step h3 { font-size: 12px; }
+        #project-panel-overview #overview-value .value-shift-step p { font-size: 11px; }
+        #project-panel-overview #overview-value .value-shift-step.is-final { margin: 0; border-radius: 0; }
+      }
+      /* End Overview case study. */
+
+      /* Project 1 product hero: product evidence for task eligibility. */
+      #project-hero { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 44px; align-items: center; padding-top: 44px; padding-bottom: 40px; background: var(--bg); }
+      #project-hero h1 { margin: 16px 0 0; max-width: none; font-size: clamp(32px, 3.4vw, 54px); line-height: 1.24; letter-spacing: -.025em; }
+      #project-hero .hero-title-line { display: block; white-space: nowrap; }
+      #project-hero .case-subtitle { max-width: 680px; margin: 24px 0 0; color: var(--text); font-size: 18px; font-weight: 400; line-height: 1.8; white-space: normal; word-break: normal; text-wrap: pretty; }
+      #project-hero .hero-core-judgment { max-width: none; margin: 28px 0 0; padding: 4px 0 4px 16px; background: transparent; border-left-width: 3px; font-size: 20px; font-weight: 650; line-height: 1.6; word-break: normal; }
+      #project-hero .hero-core-judgment-line { display: block; white-space: normal; }
+      #project-hero .hero-core-judgment-line + .hero-core-judgment-line::before { content: none; }
+      #project-hero .hero-eligibility-visual { min-width: 0; margin: 0; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+      #project-hero .hero-eligibility-heading { margin: 0 0 14px; }
+      #project-hero .hero-eligibility-heading h2 { margin: 0; color: var(--ink); font-size: 22px; font-weight: 750; line-height: 1.4; }
+      #project-hero .hero-eligibility-heading p { max-width: 610px; margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
+      #project-hero .hero-eligibility-composition { position: relative; width: calc(100% + 16px); margin-right: -16px; }
+      #project-hero .hero-eligibility-crop { position: relative; aspect-ratio: 1160 / 486; overflow: hidden; background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 10px 24px rgba(15, 23, 42, .10); transform: rotate(-.6deg); }
+      #project-hero .hero-eligibility-crop img { position: absolute; top: -88.8889%; left: -17.9310%; display: block; width: 137.9310%; max-width: none; height: auto; filter: contrast(1.10) brightness(.99); }
+      #project-hero .hero-review-focus { position: absolute; right: -20px; bottom: -68px; width: 282px; padding: 10px 10px 9px; background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 6px 18px rgba(15, 23, 42, .11); }
+      #project-hero .hero-review-focus > span { display: block; margin-bottom: 6px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+      #project-hero .hero-review-action-crop { position: relative; aspect-ratio: 278 / 73; overflow: hidden; }
+      #project-hero .hero-review-action-crop img { position: absolute; top: -1145.2055%; left: -375.5396%; display: block; width: 575.5396%; max-width: none; height: auto; filter: contrast(1.06); }
+      #project-hero .hero-eligibility-heading .hero-eligibility-annotation { margin: 5px 0 0; color: var(--accent-strong); font-size: 11.5px; font-weight: 650; line-height: 1.5; }
+      #project-hero .hero-eligibility-legend { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 68px 0 0; padding: 0; }
+      #project-hero .hero-eligibility-legend > div { position: relative; min-width: 0; padding: 14px 0 0; }
+      #project-hero .hero-eligibility-legend > div::before { content: ""; position: absolute; z-index: 1; top: 2px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: #94a3b8; }
+      #project-hero .hero-eligibility-legend > div::after { content: ""; position: absolute; top: 4.5px; left: 3px; width: calc(100% + 16px); height: 1px; background: var(--line); }
+      #project-hero .hero-eligibility-legend > div:last-child::after { content: none; }
+      #project-hero .hero-eligibility-legend dt { color: var(--ink); font-size: 10.5px; font-weight: 600; line-height: 1.5; white-space: nowrap; }
+      #project-hero .hero-eligibility-legend dd { margin: 3px 0 0; color: var(--muted); font-size: 10.5px; line-height: 1.5; }
+      @media (max-width: 1200px) {
+        #project-hero { gap: 30px; }
+        #project-hero .hero-eligibility-composition { width: 100%; margin-right: 0; }
+        #project-hero .hero-review-focus { right: -6px; width: 185px; }
+        #project-hero .hero-eligibility-legend { gap: 8px; }
+        #project-hero .hero-eligibility-legend > div::after { width: calc(100% + 8px); }
+        #project-hero .hero-eligibility-legend dt { font-size: 10px; }
+      }
+      @media (max-width: 980px) {
+        #project-hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 40px; padding-bottom: 36px; }
+        #project-hero h1 { font-size: clamp(32px, 5vw, 48px); }
+        #project-hero .case-subtitle { max-width: 760px; }
+        #project-hero .hero-eligibility-visual { width: min(100%, 720px); }
+        #project-hero .hero-review-focus { right: 0; width: 272px; }
+      }
+      @media (max-width: 600px) {
+        #project-hero { padding: 32px 20px; gap: 26px; }
+        #project-hero h1 { font-size: clamp(23px, 7vw, 28px); line-height: 1.35; letter-spacing: -.02em; }
+        #project-hero .case-subtitle { margin-top: 18px; font-size: 15px; line-height: 1.8; }
+        #project-hero .hero-core-judgment { margin-top: 22px; padding-left: 12px; font-size: 16px; line-height: 1.65; }
+        #project-hero .hero-eligibility-heading h2 { font-size: 21px; }
+        #project-hero .hero-eligibility-heading p { font-size: 12px; }
+        #project-hero .hero-eligibility-crop { aspect-ratio: 545 / 713; transform: none; box-shadow: 0 4px 12px rgba(15, 23, 42, .04); }
+        #project-hero .hero-eligibility-crop img { top: -28.7518%; left: -188.9908%; width: 293.5780%; }
+        #project-hero .hero-review-focus { display: none; }
+        #project-hero .hero-eligibility-heading .hero-eligibility-annotation { font-size: 11.5px; }
+        #project-hero .hero-eligibility-legend { grid-template-columns: repeat(5, 110px); gap: 16px; margin-top: 20px; overflow-x: auto; padding-bottom: 4px; }
+        #project-hero .hero-eligibility-legend > div { padding-top: 14px; }
+        #project-hero .hero-eligibility-legend > div::after { width: calc(100% + 16px); }
+        #project-hero .hero-eligibility-legend dt { font-size: 11px; }
+      }
+      /* End Project 1 product hero. */
+
+      /* Cross-capability decision record; existing sections and hero stay unchanged. */
+      #project-panel-design .prd-outline-link.prd-boundary-link { grid-template-columns: 59px minmax(0, 1fr); margin-block: 3px; border-block: 1px solid var(--prd-line); }
+      #project-panel-design .prd-outline-link.prd-boundary-link > span:first-child { font-size: 9px; letter-spacing: .02em; }
+      #project-panel-design #design-capability-boundary .prd-section-kicker span + span { margin-left: .5em; padding-left: .5em; border-left: 1px solid currentColor; }
+      #project-panel-design #design-capability-boundary > .prd-section-header { margin-bottom: 24px; }
+      #project-panel-design #design-capability-boundary > .prd-section-body { gap: 20px; }
+      #project-panel-design #design-capability-boundary .capability-reference { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 32px; padding: 12px 16px; background: var(--prd-surface); border-block: 1px solid var(--prd-line); }
+      #project-panel-design #design-capability-boundary .capability-reference > div { display: grid; gap: 3px; }
+      #project-panel-design #design-capability-boundary .capability-reference span { color: var(--prd-muted); font-size: 11px; }
+      #project-panel-design #design-capability-boundary .capability-reference :is(strong,a) { font-size: 13px; font-weight: 650; }
+      #project-panel-design #design-capability-boundary .capability-reference a { color: var(--prd-blue); text-decoration: none; }
+      #project-panel-design #design-capability-boundary .capability-reference-link { margin-left: auto; }
+      #project-panel-design #design-capability-boundary .capability-matrix-wrap { border: 1px solid var(--prd-line); border-radius: 8px; background: #fff; }
+      #project-panel-design #design-capability-boundary .capability-matrix { min-width: 0; }
+      #project-panel-design #design-capability-boundary .capability-matrix :is(th,td) { padding: 14px; font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+      #project-panel-design #design-capability-boundary .capability-matrix th { font-size: 11.5px; }
+      #project-panel-design #design-capability-boundary .capability-matrix td:first-child { font-size: 13px; }
+      #project-panel-design #design-capability-boundary .capability-verdict { display: inline-block; padding: 2px 6px; border: 1px solid var(--prd-line); border-radius: 4px; color: var(--prd-blue); font-size: 11px; font-weight: 750; white-space: nowrap; }
+      #project-panel-design #design-capability-boundary .capability-verdict.is-stop { color: var(--prd-muted); background: var(--prd-surface); }
+      #project-panel-design #design-capability-boundary .capability-matrix small { display: block; margin-top: 6px; color: var(--prd-muted); font-size: 11px; line-height: 1.5; }
+      #project-panel-design #design-capability-boundary .capability-conclusion { margin: 0; color: var(--prd-copy); font-size: 14px; line-height: 1.75; }
+      #project-panel-design #design-capability-boundary .capability-summary { display: flex; flex-wrap: wrap; gap: 0; margin: 0; padding: 12px 0; border-block: 1px solid var(--prd-line); background: var(--prd-surface); }
+      #project-panel-design #design-capability-boundary .capability-summary > div { flex: 1 1 150px; padding: 4px 14px; border-right: 1px solid var(--prd-line); }
+      #project-panel-design #design-capability-boundary .capability-summary > div:last-child { border-right: 0; }
+      #project-panel-design #design-capability-boundary .capability-summary dt { color: var(--prd-muted); font-size: 11px; }
+      #project-panel-design #design-capability-boundary .capability-summary dd { margin: 5px 0 0; color: var(--prd-ink); font-size: 11px; line-height: 1.55; }
+      #project-panel-design #design-capability-boundary .capability-summary dd span { display: block; font-size: 10.5px; }
+      #project-panel-design #design-capability-boundary .el-next { margin: 0; }
+      @media (max-width: 700px) {
+        #project-panel-design #design-capability-boundary .capability-reference { gap: 12px 20px; padding: 12px; }
+        #project-panel-design #design-capability-boundary .capability-reference-link { margin-left: 0; }
+        #project-panel-design #design-capability-boundary .capability-matrix :is(colgroup,thead) { display: none; }
+        #project-panel-design #design-capability-boundary .capability-matrix,
+        #project-panel-design #design-capability-boundary .capability-matrix tbody { display: block; width: 100%; min-width: 0; }
+        #project-panel-design #design-capability-boundary .capability-matrix tr { display: block; padding: 14px; border: 0; border-bottom: 1px solid var(--prd-line); background: #fff; }
+        #project-panel-design #design-capability-boundary .capability-matrix tr:last-child { border-bottom: 0; }
+        #project-panel-design #design-capability-boundary .capability-matrix td { display: grid; grid-template-columns: 72px minmax(0,1fr); gap: 8px; width: auto; padding: 7px 0; border: 0; font-size: 13px; }
+        #project-panel-design #design-capability-boundary .capability-matrix td::before { display: block; content: attr(data-label); color: var(--prd-muted); font-size: 11px; font-weight: 600; }
+        #project-panel-design #design-capability-boundary .capability-matrix td small { grid-column: 2; margin-top: 0; }
+        #project-panel-design #design-capability-boundary .capability-verdict { justify-self: start; }
+        #project-panel-design #design-capability-boundary .capability-summary { display: grid; grid-template-columns: minmax(0,1fr); padding: 4px 12px; }
+        #project-panel-design #design-capability-boundary .capability-summary > div { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; padding: 9px 0; border-right: 0; border-bottom: 1px solid var(--prd-line); }
+        #project-panel-design #design-capability-boundary .capability-summary > div:last-child { border-bottom: 0; }
+        #project-panel-design #design-capability-boundary .capability-summary dd { margin: 0; }
+      }
+      /* End cross-capability decision record. */
     </style>
   </head>
   <body>
     <header class="case-header">
-      <a class="brand" href="/ai-product-portfolio/index.html">
+      <a class="brand" href="../../index.html">
         <span class="brand-mark">M1</span>
         <span>业务智能助手</span>
       </a>
@@ -12821,19 +13104,35 @@
       <section class="case-hero" id="project-hero">
         <div class="case-hero-copy">
           <p class="section-kicker">项目 01｜业务智能助手</p>
-          <h1><span class="hero-title-line">知识被找到只是开始，</span><span class="hero-title-line">被可信使用才是产品。</span></h1>
-          <p class="case-subtitle"><span class="case-subtitle-line">从真实运行的本地知识助手出发，</span><span class="case-subtitle-line">重新设计知识如何被检索、核验、判断适用，并进入企业任务。</span></p>
-          <p class="case-lead">
-            随着 RAG、Agent、Graph 与 Wiki 能力逐渐成熟，项目持续重新划分：哪些能力直接复用，哪些能力需要集成，哪些责任必须继续留在产品流程中。
-          </p>
-          <p class="hero-core-judgment"><span class="hero-core-judgment-line">通用能力可以交给成熟产品，</span><span class="hero-core-judgment-line">但原始证据、使用资格与最终责任必须留在产品流程里。</span></p>
+          <h1><span class="hero-title-line">让知识不是“被找到”，</span><span class="hero-title-line">而是“进入任务判断”。</span></h1>
+          <p class="case-subtitle">业务智能助手把任务上下文、候选依据、使用资格与人工确认串进同一条任务链，让制度、区域规则、历史版本与案例材料不只被检索，还会被核验、判断适用，并返回当前任务继续执行。</p>
+          <p class="hero-core-judgment"><span class="hero-core-judgment-line">知识服务的终点不是一段答案，</span><span class="hero-core-judgment-line">而是当前任务可以继续使用的依据。</span></p>
         </div>
 
-        <figure class="hero-evolution-figure">
-          <img
-            src="assets/diagrams/hero-four-product-judgments-cn.svg"
-            alt="四次产品判断：从证据与来源、Router 与 Tool、资格与确认，到组织、证据与责任重新分层"
-          />
+        <figure class="hero-eligibility-visual" aria-labelledby="hero-eligibility-title">
+          <figcaption class="hero-eligibility-heading">
+            <h2 id="hero-eligibility-title">找到，不等于能用</h2>
+            <p class="hero-eligibility-annotation">相关性 ≠ 使用资格</p>
+            <p>同一组候选依据，在当前任务中可能是可用、条件使用、仅供参考或禁止使用。</p>
+          </figcaption>
+          <div class="hero-eligibility-composition">
+            <div class="hero-eligibility-crop">
+              <img src="assets/screenshots/b06-evidence-eligibility-review.png" alt="候选证据与适用性判断：五份依据分别获得可使用、条件使用、禁止使用、仅作参考和待人工复核状态，选中证据保留判断详情与人工复核动作" width="1600" height="1000" fetchpriority="high" />
+            </div>
+            <div class="hero-review-focus">
+              <span>人工复核</span>
+              <div class="hero-review-action-crop">
+                <img src="assets/screenshots/b06-evidence-eligibility-review.png" alt="人工复核动作局部：Frey 可选择允许使用、限制后使用或当前任务拒绝" width="1600" height="1000" />
+              </div>
+            </div>
+          </div>
+          <dl class="hero-eligibility-legend" aria-label="候选依据的五种使用资格">
+            <div><dt>Usable</dt><dd>可用</dd></div>
+            <div><dt>Conditional</dt><dd>条件使用</dd></div>
+            <div><dt>Reference only</dt><dd>仅供参考</dd></div>
+            <div><dt>Pending review</dt><dd>待复核</dd></div>
+            <div><dt>Blocked</dt><dd>禁止使用</dd></div>
+          </dl>
         </figure>
       </section>
 
@@ -12852,7 +13151,7 @@
             <span class="project-tab-index" aria-hidden="true">01</span>
             <span class="project-tab-label">项目总览</span>
             <span class="project-tab-divider" aria-hidden="true">｜</span>
-            <span class="project-tab-meta">判断、演进与边界</span>
+            <span class="project-tab-meta">产品、演进与判断</span>
           </button>
           <button
             class="project-tab"
@@ -12867,52 +13166,48 @@
             <span class="project-tab-index" aria-hidden="true">02</span>
             <span class="project-tab-label">产品设计详解</span>
             <span class="project-tab-divider" aria-hidden="true">｜</span>
-            <span class="project-tab-meta">流程、架构与验证</span>
+            <span class="project-tab-meta">流程、规则与验证</span>
           </button>
         </div>
       </div>
 
-      <section
-        class="project-tab-panel overview-panel"
-        id="project-panel-overview"
-        role="tabpanel"
-        aria-labelledby="project-tab-overview"
-      >
-        <aside class="overview-toc" aria-labelledby="overview-toc-title">
-          <div class="overview-toc-layout">
-            <div class="overview-toc-copy">
-              <span class="toc-eyebrow">CONTENTS</span>
-              <h2 class="project-toc-heading" id="overview-toc-title">本页目录</h2>
-              <p class="overview-toc-description">八个问题，讲清这个项目如何从一次本地检索实验，走到知识、证据与责任的重新分层。</p>
-              <p class="overview-toc-note">先看八个问题，而不是一串功能。</p>
-            </div>
-            <nav aria-label="项目总览本页目录">
-            <ol class="overview-toc-list">
-              <li><a class="toc-item" href="#overview-route"><span class="toc-index">01</span><span class="toc-label">这不是一条功能升级路线，<br>那它到底在解决什么？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-route"><span class="toc-index">02</span><span class="toc-label">每暴露一个新缺口，<br>产品责任发生了什么变化？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-ledger"><span class="toc-index">03</span><span class="toc-label">当 RAG、Agent、Graph 与 Wiki 越来越成熟，<br>为什么没有推翻重做？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-ledger"><span class="toc-index">04</span><span class="toc-label">哪些能力可以交给成熟工具，<br>哪些责任必须自己保留？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-value"><span class="toc-index">05</span><span class="toc-label">当模型、检索和调用逐渐标准化，<br>产品价值到底往哪里上移？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-value"><span class="toc-index">06</span><span class="toc-label">在这条演进里，<br>产品经理真正负责什么？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-boundary"><span class="toc-index">07</span><span class="toc-label">为什么做到这里，<br>反而应该停下来？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-              <li><a class="toc-item" href="#overview-boundary"><span class="toc-index">08</span><span class="toc-label">什么新条件出现，<br>才值得重新打开边界？</span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
-            </ol>
-            </nav>
+      <section class="project-tab-panel overview-panel" id="project-panel-overview" role="tabpanel" aria-labelledby="project-tab-overview">
+        <div class="overview-intro">
+          <div class="case-container">
+            <aside class="overview-toc" aria-labelledby="overview-toc-title">
+              <div class="overview-toc-copy">
+                <span class="toc-eyebrow">CONTENTS</span>
+                <h2 class="project-toc-heading" id="overview-toc-title">本页目录</h2>
+                <p class="overview-toc-description">先看产品怎么演进、最终长什么样，再看关键判断与当前边界。</p>
+              </div>
+              <nav aria-label="项目总览本页目录">
+                <ol class="overview-toc-list">
+                  <li><a class="toc-item" href="#overview-route"><span class="toc-index">01</span><span class="toc-label">产品怎么演进<small>从原始证据，到调用控制、证据准入、知识图谱与 Wiki</small></span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
+                  <li><a class="toc-item" href="#overview-product-gallery"><span class="toc-index">02</span><span class="toc-label">最终产品形态<small>任务工作台、证据准入、知识图谱与 Wiki</small></span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
+                  <li><a class="toc-item" href="#overview-judgment"><span class="toc-index">03</span><span class="toc-label">我做了哪些产品判断<small>Use / Integrate / Retain / Stop</small></span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
+                  <li><a class="toc-item" href="#overview-boundary"><span class="toc-index">04</span><span class="toc-label">当前边界<small>做到哪里、为什么停、何时重新打开</small></span><span class="toc-arrow" aria-hidden="true">→</span></a></li>
+                </ol>
+              </nav>
+            </aside>
+            <section class="overview-snapshot" aria-labelledby="overview-snapshot-title">
+              <h2 class="overview-subheading" id="overview-snapshot-title">项目快照 <span>30 秒项目摘要</span></h2>
+              <div class="overview-snapshot-grid">
+                <article><span class="overview-card-label">01｜代表任务</span><h3>跨部门项目评审准备</h3><p>从查制度、找案例、补背景，到形成可核对、可继续执行的任务依据。</p></article>
+                <article><span class="overview-card-label">02｜信息底座</span><h3>可调用的知识与证据层</h3><p>RAG · Evidence · Citation<br>163 files · 390 chunks<br>10 representative questions</p></article>
+                <article><span class="overview-card-label">03｜核心能力</span><p class="overview-snapshot-capabilities">Task Context · Route · Evidence / Citation · Eligibility · 知识图谱 · Wiki</p></article>
+                <article><span class="overview-card-label">04｜责任边界</span><p><strong>AI：</strong>组织 Evidence 与候选判断<br><strong>Human：</strong>确认适用性、高影响使用与最终责任</p></article>
+              </div>
+            </section>
           </div>
-        </aside>
-
+        </div>
         <section class="case-section overview-section" id="overview-route">
           <div class="case-container">
-            <div class="section-header">
+            <header class="section-header">
               <p class="section-kicker">A01｜产品演进</p>
-              <h2 class="section-title">从真实检索底座，到知识、调用与使用责任的重新分层</h2>
-              <div class="overview-question-chain" aria-label="本组承接 Q01 与 Q02">
-                <p class="section-description"><span class="section-kicker">Q01</span> 这不是一条功能升级路线，那它到底在解决什么？</p>
-                <p class="section-description"><span class="section-kicker">Q02</span> 每暴露一个新缺口，产品责任发生了什么变化？</p>
-              </div>
-              <p class="section-description">这不是 V1 RAG → V2 Agent → V3 Wiki 的功能升级路线。每一阶段真正改变的是：上一阶段暴露了什么缺口，因此产品新增、保留或停止承担什么责任。</p>
-            </div>
-            <div id="overview-recalculations">
+              <h2 class="section-title">每次不是“加一个功能”，而是补上一层新的产品责任</h2>
+              <p class="section-description">从原始证据、调用控制、证据准入，到知识图谱与 Wiki，每一阶段都由上一阶段暴露出的真实缺口触发。</p>
+            </header>
+<div id="overview-recalculations">
               <div class="decision-evolution" aria-label="四个阶段的缺口、责任变化与证据级别">
                 <div class="decision-table-head" aria-hidden="true"><span>阶段</span><span>发现的缺口</span><span>责任变化</span><span>证据级别</span></div>
                 <article class="decision-row">
@@ -12934,69 +13229,93 @@
                   <div class="decision-cell decision-result"><span class="decision-cell-label">证据级别</span><p>产品级规则与交互设计</p></div>
                 </article>
                 <article class="decision-row is-current">
-                  <div class="decision-stage"><strong>04｜关系与<br>持续知识层</strong></div>
-                  <div class="decision-cell decision-problem"><span class="decision-cell-label">发现的缺口</span><p>版本、别名、区域规则和持续知识组织开始跨文档存在。</p></div>
-                  <div class="decision-cell decision-action"><span class="decision-cell-label">责任变化</span><p>用最小 Graph 表达稳定关系；接成熟 Wiki 能力做持续知识组织；Raw Evidence 继续负责最终回查。</p></div>
-                  <div class="decision-cell decision-result"><span class="decision-cell-label">证据级别</span><p>关系层 / 成熟能力集成设计</p></div>
+                  <div class="decision-stage"><strong>04｜知识图谱<br>+ Wiki</strong></div>
+                  <div class="decision-cell decision-problem"><span class="decision-cell-label">发现的缺口</span><p>版本、别名与区域规则开始形成跨文档关系，同时出现持续整理稳定知识的需求。</p></div>
+                  <div class="decision-cell decision-action"><span class="decision-cell-label">责任变化</span><p>重新评估成熟能力边界：保留最小知识图谱关系层，停止建设完整 Ontology，接入成熟 Wiki 能力；Raw Evidence 继续负责原文回查。</p></div>
+                  <div class="decision-cell decision-result"><span class="decision-cell-label">证据级别</span><p>知识图谱设计 / Wiki 集成设计</p></div>
                 </article>
               </div>
             </div>
-            <div class="a01-proof-strip"><ul class="overview-facts" aria-label="V1 证据口径"><li>V1 已完成本地真实运行与小样本验证。</li></ul></div>
           </div>
         </section>
-
-        <section class="case-section overview-section" id="overview-ledger">
+        <section class="case-section overview-section" id="overview-product-gallery">
           <div class="case-container">
-            <div class="section-header">
-              <p class="section-kicker">A02｜能力边界</p>
-              <h2 class="section-title">哪些能力直接使用，哪些必须自己控制？</h2>
-              <div class="overview-question-chain" aria-label="本组承接 Q03 与 Q04">
-                <p class="section-description"><span class="section-kicker">Q03</span> 当 RAG、Agent、Graph 与 Wiki 越来越成熟，为什么没有推翻重做？</p>
-                <p class="section-description"><span class="section-kicker">Q04</span> 哪些能力可以交给成熟工具，哪些责任必须自己保留？</p>
-              </div>
-              <p class="section-takeaway">成熟能力直接用，关键链路要打通，任务边界必须自己定义。</p>
+            <header class="section-header">
+              <p class="section-kicker">A02｜最终产品形态</p>
+              <h2 class="section-title">这些判断，最终形成了什么产品？</h2>
+              <p class="section-description">同一套业务智能助手从任务工作台出发，逐步补齐证据检索与回查、调用控制、证据准入、知识图谱和 Wiki 持续知识组织。</p>
+            </header>
+<figure class="overview-gallery-figure overview-gallery-master">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="任务工作台">
+    <img src="assets/screenshots/b02-task-workbench-overview.png" alt="任务工作台：知识作为任务可调用的业务能力" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>任务工作台</h3><p class="overview-gallery-subtitle">知识作为任务可调用的业务能力</p><p class="overview-gallery-note">Task Context 调用知识能力后，Evidence、缺失条件与阶段性判断重新返回当前任务。</p></figcaption>
+</figure>
+            <div class="overview-gallery-grid">
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="证据检索">
+    <img src="assets/screenshots/b03-evidence-retrieval-workbench.png" alt="证据检索：从 Task Context 找到候选依据" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>证据检索<span class="overview-gallery-secondary">Evidence Retrieval</span></h3><p class="overview-gallery-subtitle">从 Task Context 找到候选依据</p><p class="overview-gallery-note">Top-K 返回当前制度、区域规则、历史版本与参考案例。</p></figcaption>
+</figure>
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="引用回查">
+    <img src="assets/screenshots/b03-answer-citation-trace.png" alt="引用回查：回答可以继续回到原始证据" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>引用回查<span class="overview-gallery-secondary">Citation Trace</span></h3><p class="overview-gallery-subtitle">回答可以继续回到原始证据</p><p class="overview-gallery-note">候选原文进入 Evidence Context，回答与 Citation 保留 source_path 回查。</p></figcaption>
+</figure>
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="调用控制">
+    <img src="assets/screenshots/b05-task-execution-detail.png" alt="调用控制：什么时候查、什么时候停、什么时候确认" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>调用控制</h3><p class="overview-gallery-subtitle">什么时候查、什么时候停、什么时候确认</p><p class="overview-gallery-note">Route / Clarify / Retrieve / Confirmation 把知识调用放回任务执行链。</p></figcaption>
+</figure>
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="证据准入">
+    <img src="assets/screenshots/b06-evidence-eligibility-review.png" alt="证据准入：找到以后，当前任务能不能用" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>证据准入<span class="overview-gallery-secondary">Eligibility</span></h3><p class="overview-gallery-subtitle">找到以后，当前任务能不能用</p><p class="overview-gallery-note">版本、范围、冲突与风险共同决定 Evidence 的当前使用资格。</p></figcaption>
+</figure>
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="知识图谱">
+    <img src="assets/screenshots/b07-relationship-context-workbench.png" alt="知识图谱：版本、别名与跨文档关系" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>知识图谱</h3><p class="overview-gallery-subtitle">版本、别名与跨文档关系</p><p class="overview-gallery-note">Graph Context 表达稳定关系，Raw Evidence 继续负责原文回查。</p></figcaption>
+</figure>
+<figure class="overview-gallery-figure">
+  <button class="interface-shot-trigger" type="button" data-lightbox-title="Wiki 持续知识层">
+    <img src="assets/screenshots/b08-wiki-knowledge-page.png" alt="Wiki 持续知识层：稳定知识如何持续组织与回查" width="1600" height="1000" loading="lazy" />
+    <span class="interface-shot-zoom-label">点击查看大图</span>
+  </button>
+  <figcaption><h3>Wiki 持续知识层</h3><p class="overview-gallery-subtitle">稳定知识如何持续组织与回查</p><p class="overview-gallery-note">Wiki 负责组织与导航，Citation 继续回到原始 Evidence。</p></figcaption>
+</figure>
             </div>
-            <div id="overview-build-use">
+          </div>
+        </section>
+        <section class="case-section overview-section" id="overview-judgment">
+          <div class="case-container">
+            <header class="section-header">
+              <p class="section-kicker">A03｜产品判断</p>
+              <h2 class="section-title">哪些能力可以直接复用，哪些责任必须留在产品内？</h2>
+              <p class="section-takeaway">成熟能力可以复用，但任务边界、证据使用资格与最终责任必须由产品定义。</p>
+            </header>
+<div id="overview-build-use">
               <div class="overview-choice-grid">
                 <article class="overview-card"><span class="overview-card-label">USE</span><h3>直接使用成熟能力</h3><ul><li>本地文件 / Obsidian</li><li>Ollama / 本地模型</li><li>Embedding</li><li>Chroma</li><li>FastAPI</li><li>成熟 Wiki 能力</li></ul></article>
                 <article class="overview-card"><span class="overview-card-label">INTEGRATE</span><h3>产品负责打通</h3><ul><li>Raw Evidence → search_docs</li><li>Route / Task Context</li><li>Eligibility</li><li>Graph Context</li><li>Wiki Adapter</li><li>Raw / Wiki / Hybrid</li></ul></article>
                 <article class="overview-card"><span class="overview-card-label">BUILD / RETAIN</span><h3>必须留在产品责任内</h3><ul><li>资料准入</li><li>来源 / 版本 / 适用范围</li><li>Evidence Mapping</li><li>冲突 / 风险</li><li>人工确认</li><li>当前任务使用资格</li><li>最终业务使用责任</li></ul></article>
-                <article class="overview-card"><span class="overview-card-label">STOP</span><h3>不继续重复建设</h3><ul><li>不自训练模型</li><li>不自建通用知识库平台</li><li>不自建完整 Wiki 产品</li><li>不为了展示复杂度增加 Planner / Multi-Agent</li><li>不自动写回 / 删除 / 发布</li><li>不建设没有真实任务支撑的通用企业平台能力</li><li>不建设通用企业级知识图谱平台，只保留当前任务需要的最小关系层</li></ul></article>
+                <article class="overview-card"><span class="overview-card-label">STOP</span><h3>不继续重复建设</h3><ul><li>不自训练模型</li><li>不自建通用知识库平台</li><li>不自建完整 Wiki 产品</li><li>不为了展示复杂度增加 Planner / Multi-Agent</li><li>不自动写回 / 删除 / 发布</li><li>不建设没有真实任务支撑的通用企业平台能力</li><li>不建设完整领域 Ontology</li><li>不建设通用企业级知识图谱平台，只保留当前任务需要的最小关系层</li></ul></article>
               </div>
             </div>
-            <p class="section-description">Raw Evidence 负责原始事实和回查；Graph 负责稳定实体与关系；Wiki 负责持续知识组织与导航。Route 决定当前任务调用什么，Eligibility 决定当前 Evidence 能不能用；人确认高影响使用与最终责任。</p>
-          </div>
-        </section>
-
-        <section class="overview-product-preview" aria-labelledby="overview-product-preview-title">
-          <div class="case-container">
-            <header class="overview-product-preview-header">
-              <p class="overview-product-preview-kicker">产品落点预览</p>
-              <h2 id="overview-product-preview-title">这些判断最终落成了什么产品？</h2>
-              <p>知识工作台产品原型将知识源、检索、原始证据与任务材料组织在同一界面中，并保留回到来源复核的入口。</p>
-            </header>
-            <figure class="overview-product-preview-figure">
-              <button class="interface-shot-trigger" type="button" data-lightbox-title="产品交互原型｜企业知识工作台首页">
-                <img src="../../assets/images/module1-enterprise-knowledge/fig03_workspace_home.png" alt="企业知识工作台首页产品交互原型，展示知识源、检索入口、任务材料和复核入口" loading="lazy" />
-                <span class="interface-shot-zoom-label">点击查看大图</span>
-              </button>
-              <figcaption>产品交互原型｜企业知识工作台首页，展示知识源、检索入口、任务材料与来源复核如何组织在同一界面。</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="case-section overview-section" id="overview-value">
-          <div class="case-container">
-            <div class="section-header">
-              <p class="section-kicker">A03｜产品价值与 PM 责任</p>
-              <h2 class="section-title">成熟能力越来越多以后，产品经理还在解决什么？</h2>
-              <div class="overview-question-chain" aria-label="本组承接 Q05 与 Q06">
-                <p class="section-description"><span class="section-kicker">Q05</span> 当模型、检索和调用逐渐标准化，产品价值到底往哪里上移？</p>
-                <p class="section-description"><span class="section-kicker">Q06</span> 在这条演进里，产品经理真正负责什么？</p>
-              </div>
-              <p class="section-description">越靠近真实任务，越需要产品判断、人工确认和责任承担。</p>
-            </div>
-            <div class="value-shift" aria-label="从底层能力到任务判断与最终责任的价值迁移">
+            <p class="overview-layer-summary">原始证据负责事实与回查，知识图谱负责稳定实体与关系，Wiki 负责持续知识组织与导航；Route 决定当前任务调用什么，Eligibility 决定当前证据能不能用，人确认高影响使用与最终责任。</p>
+            <div id="overview-value">
+<div class="value-shift" aria-label="从底层能力到任务判断与最终责任的价值迁移">
               <section class="value-shift-group value-shift-group--standardized" aria-label="逐渐标准化">
                 <p class="value-shift-group-label">逐渐标准化</p>
                 <div class="value-shift-steps">
@@ -13009,49 +13328,44 @@
               <section class="value-shift-group value-shift-group--judgment" aria-label="仍需产品判断">
                 <p class="value-shift-group-label">仍需产品判断</p>
                 <div class="value-shift-steps">
-                  <article class="value-shift-step"><span class="value-shift-index">04</span><h3>知识适用性</h3><p>当前能不能用</p></article>
-                  <article class="value-shift-step"><span class="value-shift-index">05</span><h3>任务准入</h3><p>能不能进入流程</p></article>
+                  <article class="value-shift-step"><span class="value-shift-index">04</span><h3>证据适用性</h3><p>当前能不能用</p></article>
+                  <article class="value-shift-step"><span class="value-shift-index">05</span><h3>动作确认</h3><p>是否允许继续执行</p></article>
                   <article class="value-shift-step is-final"><span class="value-shift-index">06</span><h3>最终责任</h3><p>谁确认、谁承担</p></article>
                 </div>
               </section>
             </div>
+            </div>
             <div id="overview-pm-role">
-              <p class="section-takeaway">我在这个项目中承担的四项产品责任</p>
-              <div class="overview-role-grid">
+              <h3 class="overview-subheading">我在这个项目中承担的四项产品责任</h3>
+<div class="overview-role-grid">
                 <article class="overview-card"><span class="overview-card-label">01</span><h3>从真实任务定义问题</h3><p>从“记得结论，却找不回完整依据”出发，拆出资料找回、上下文恢复与材料核对任务。</p></article>
-                <article class="overview-card"><span class="overview-card-label">02</span><h3>判断哪些能力 Build / Use / Integrate</h3><p>区分成熟能力、需要打通的链路与必须保留的产品责任。</p></article>
+                <article class="overview-card"><span class="overview-card-label">02</span><h3>判断哪些能力复用、集成或保留</h3><p>区分成熟能力、需要打通的链路，以及必须保留在产品流程中的责任。</p></article>
                 <article class="overview-card"><span class="overview-card-label">03</span><h3>把失败转成产品规则</h3><p>将来源筛选、路径刷新、条件缺失、版本冲突与原文回查落成明确规则。</p></article>
                 <article class="overview-card"><span class="overview-card-label">04</span><h3>定义 AI 与人的责任边界</h3><p>AI 提供证据与候选判断；人确认适用范围、高影响使用与最终责任。</p></article>
               </div>
             </div>
           </div>
         </section>
-
         <section class="case-section overview-section" id="overview-boundary">
           <div class="case-container">
-            <div class="section-header">
+            <header class="section-header">
               <p class="section-kicker">A04｜当前边界</p>
-              <h2 class="section-title">项目为什么停在这里，什么情况下才继续扩展？</h2>
-              <div class="overview-question-chain" aria-label="本组承接 Q07 与 Q08">
-                <p class="section-description"><span class="section-kicker">Q07</span> 为什么做到这里，反而应该停下来？</p>
-                <p class="section-description"><span class="section-kicker">Q08</span> 什么新条件出现，才值得重新打开边界？</p>
-              </div>
-              <p class="section-takeaway">保留本地真实运行底座与企业任务设计，只有新的真实任务超出当前边界时才继续扩展。</p>
-            </div>
-            <div class="overview-boundary-grid">
+              <h2 class="section-title">做到哪里、为什么停，以及什么情况下继续扩展？</h2>
+              <p class="section-takeaway">只有新的真实任务明确超出当前边界，才重新打开对应能力。</p>
+            </header>
+<div class="overview-boundary-grid">
               <article class="overview-card"><span class="overview-card-label">当前适用范围</span><h3>以本地资料为依据的知识任务</h3><ul><li>本地知识资料</li><li>资料找回与上下文恢复</li><li>多资料比较</li><li>有来源的项目材料整理</li><li>持续知识组织</li></ul></article>
-              <article class="overview-card"><span class="overview-card-label">当前不扩展为</span><h3>超出当前任务边界的产品能力</h3><ul><li>企业正式多人协作产品</li><li>完整权限与知识治理平台</li><li>自动执行型 Agent</li><li>商业化 SaaS</li><li>大规模用户验证后的成熟产品</li></ul></article>
+              <article class="overview-card"><span class="overview-card-label">当前不扩展为</span><h3>超出当前任务边界的产品能力</h3><ul><li>企业正式多人协作产品</li><li>完整权限与知识治理平台</li><li>自动执行型 Agent</li><li>商业化 SaaS</li><li>大规模部署与运营体系</li></ul></article>
             </div>
             <div id="overview-reopen">
-              <p class="section-takeaway">重新打开边界的四类条件</p>
-              <div class="overview-reopen-grid">
+              <h3 class="overview-subheading">重新打开边界的四类条件</h3>
+<div class="overview-reopen-grid">
                 <article class="overview-card"><span class="overview-card-label">条件 01</span><h3>多人协作成为持续真实需求</h3></article>
-                <article class="overview-card"><span class="overview-card-label">条件 02</span><h3>使用资格形成稳定规则</h3></article>
+                <article class="overview-card"><span class="overview-card-label">条件 02</span><h3>使用资格规则在更多真实任务中稳定复现</h3></article>
                 <article class="overview-card"><span class="overview-card-label">条件 03</span><h3>出现可授权的重复业务动作</h3></article>
                 <article class="overview-card"><span class="overview-card-label">条件 04</span><h3>当前模型 / 检索 / 本地能力成为真实瓶颈</h3></article>
               </div>
             </div>
-            <div class="overview-final-note">只有新的真实任务明确超出当前边界，才重新打开对应能力。</div>
           </div>
         </section>
       </section>
@@ -13117,16 +13431,17 @@
 <li><a href="#design-v3-6" data-prd-subsection="design-v3-6" data-prd-owner="design-v3"><span>6.6</span><span>Evidence Card</span></a></li>
 <li><a href="#design-v3-7" data-prd-subsection="design-v3-7" data-prd-owner="design-v3"><span>6.7</span><span>阶段结果</span></a></li>
 </ul></li>
+<li><a class="prd-outline-link prd-boundary-link" href="#design-capability-boundary" data-prd-section="design-capability-boundary"><span>DECISION</span><span>能力边界重估</span></a></li>
 <li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>知识图谱</span></a><ul class="prd-suboutline" data-prd-subnav="design-graph" hidden>
 <li><a href="#design-graph-1" data-prd-subsection="design-graph-1" data-prd-owner="design-graph"><span>7.1</span><span>图谱范围</span></a></li>
-<li><a href="#design-graph-2" data-prd-subsection="design-graph-2" data-prd-owner="design-graph"><span>7.2</span><span>Ontology（本体）</span></a></li>
+<li><a href="#design-graph-2" data-prd-subsection="design-graph-2" data-prd-owner="design-graph"><span>7.2</span><span>关系 Schema</span></a></li>
 <li><a href="#design-graph-3" data-prd-subsection="design-graph-3" data-prd-owner="design-graph"><span>7.3</span><span>Chunk → 图谱</span></a></li>
 <li><a href="#design-graph-4" data-prd-subsection="design-graph-4" data-prd-owner="design-graph"><span>7.4</span><span>图谱 → Retrieval</span></a></li>
 <li><a href="#design-graph-5" data-prd-subsection="design-graph-5" data-prd-owner="design-graph"><span>7.5</span><span>关系层 Bad Case</span></a></li>
 <li><a href="#design-graph-6" data-prd-subsection="design-graph-6" data-prd-owner="design-graph"><span>7.6</span><span>完整任务链</span></a></li>
 </ul></li>
 <li><a class="prd-outline-link" href="#design-wiki" data-prd-section="design-wiki"><span>B08</span><span>Wiki 持续知识层</span></a><ul class="prd-suboutline" data-prd-subnav="design-wiki" hidden>
-<li><a href="#design-wiki-1" data-prd-subsection="design-wiki-1" data-prd-owner="design-wiki"><span>8.1</span><span>接入边界</span></a></li>
+<li><a href="#design-wiki-1" data-prd-subsection="design-wiki-1" data-prd-owner="design-wiki"><span>8.1</span><span>接入范围</span></a></li>
 <li><a href="#design-wiki-2" data-prd-subsection="design-wiki-2" data-prd-owner="design-wiki"><span>8.2</span><span>Wiki Adapter</span></a></li>
 <li><a href="#design-wiki-3" data-prd-subsection="design-wiki-3" data-prd-owner="design-wiki"><span>8.3</span><span>Schema / Ingest</span></a></li>
 <li><a href="#design-wiki-4" data-prd-subsection="design-wiki-4" data-prd-owner="design-wiki"><span>8.4</span><span>Evidence Mapping</span></a></li>
@@ -13147,6 +13462,7 @@
 <li><a class="prd-outline-link" href="#design-v1-validation" data-prd-section="design-v1-validation"><span>B04</span><span>验证与迭代</span></a></li>
 <li><a class="prd-outline-link" href="#design-v2" data-prd-section="design-v2"><span>B05</span><span>调用控制</span></a></li>
 <li><a class="prd-outline-link" href="#design-v3" data-prd-section="design-v3"><span>B06</span><span>Evidence 准入</span></a></li>
+<li><a class="prd-outline-link prd-boundary-link" href="#design-capability-boundary" data-prd-section="design-capability-boundary"><span>DECISION</span><span>能力边界重估</span></a></li>
 <li><a class="prd-outline-link" href="#design-graph" data-prd-section="design-graph"><span>B07</span><span>知识图谱</span></a></li>
 <li><a class="prd-outline-link" href="#design-wiki" data-prd-section="design-wiki"><span>B08</span><span>Wiki 持续知识层</span></a></li>
 </ol>
@@ -14357,8 +14673,46 @@
 </section>
 <section class="prd-subsection prd-p2-transition" data-prd-density="compact"><h3 id="design-v3-7">6.7 阶段结果：准入规则成立，跨文档关系进入下一层</h3>
 <div class="el-conclusion" data-prd-surface="plain"><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">当前字段规则能够判断</div><ul class="prd-list"><li>版本：区分当前有效、已被替代与待核验</li><li>范围：保留地区、项目类型、阶段和金额条件</li><li>冲突：暂停进入任务，复核结果写回后重新判断</li><li>风险与准入：给出使用状态，并限制产品动作</li></ul></section><section class="el-panel" data-prd-surface="plain"><div class="prd-heading-label">同一批资料继续暴露</div><ul class="prd-list"><li>“集团投委会”和“集团投资决策委员会”的实体别名</li><li>v3.2 与 v2.0 之间的制度替代关系</li><li>西南区域补充规则与集团主制度之间的补充 / 适用关系</li><li>多个实体参与判断时需要维护的关系路径</li></ul></section></div>
-<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">下一层｜稳定表达实体与关系</div><p>下一层需要解决的已经不是继续增加字段，而是稳定表达实体与关系。</p></aside><p class="el-next"><a href="#design-graph">进入 B07 ｜ 知识图谱 →</a></p>
+<aside class="el-callout" data-prd-surface="plain"><div class="prd-heading-label">下一步｜先重估能力边界</div><p>Evidence 当前能不能用已有准入规则；外部成熟能力出现后，先重新判断后续哪些知识能力值得继续建设。</p></aside><p class="el-next"><a href="#design-capability-boundary">进入 DECISION ｜ 能力边界重估 →</a></p>
 </section>
+</div>
+</section>
+
+            <section class="prd-section" id="design-capability-boundary">
+<header class="prd-section-header">
+<p class="prd-section-kicker"><span>DECISION</span><span>能力边界重估</span></p>
+<h2>成熟能力出现后，哪些继续自建，哪些直接融合？</h2>
+<p>随着 RAG、知识图谱与 Wiki 能力逐渐成熟，继续按原方案自建所有知识层已经不再合理。这里以 LLM Wiki 为参照，对现有方案重新做一轮 Build / Integrate / Retain / Stop 判断。LLM Wiki 被作为成熟能力参照；是否采用，仍按 Retrieval、Graph、Wiki 等能力逐层判断，而不是整套替换。</p>
+</header>
+<div class="prd-section-body">
+<aside class="capability-reference" aria-label="LLM Wiki 开源项目参考">
+<div><span>参考开源项目</span><strong>LLM Wiki</strong></div>
+<div><span>Repository</span><a href="https://github.com/nashsu/llm_wiki" target="_blank" rel="noopener noreferrer">nashsu/llm_wiki</a></div>
+<div><span>Creator / Maintainer</span><strong>nash_su</strong><span>基于 Andrej Karpathy 提出的 LLM Wiki pattern</span></div>
+<a class="capability-reference-link" href="https://github.com/nashsu/llm_wiki" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</aside>
+<div class="prd-table-wrap capability-matrix-wrap">
+<table class="prd-table capability-matrix" aria-label="Capability Trade-off：五项能力的边界判断">
+<colgroup><col style="width:15%" /><col style="width:27%" /><col style="width:18%" /><col style="width:40%" /></colgroup>
+<thead><tr><th scope="col">能力</th><th scope="col">成熟能力与当前条件</th><th scope="col">本项目判断</th><th scope="col">保留的产品责任</th></tr></thead>
+<tbody>
+<tr><td data-label="能力">RAG / Retrieval</td><td data-label="成熟能力">检索、搜索与向量召回已有可复用实现；LLM Wiki 也提供原始来源查询与可选向量语义检索。</td><td data-label="本项目判断"><span class="capability-verdict">RETAIN</span></td><td data-label="产品责任">继续保留现有 Raw Evidence → Citation 链路，不替换已与 source_path、Evidence Mapping 和 Eligibility 绑定的检索底座。替换收益不足，也会改变现有证据契约。</td></tr>
+<tr><td data-label="能力">Knowledge Graph</td><td data-label="成熟能力">成熟知识产品已有知识关联与图关系能力；LLM Wiki 已提供基于页面链接和共同来源的知识图谱。</td><td data-label="本项目判断"><span class="capability-verdict">BUILD / RETAIN</span><small>只保留最小业务关系层</small></td><td data-label="产品责任">当前审批任务仍需显式表达版本替代、部门别名、适用范围、审批层级、负责部门与区域规则。只建设具备业务语义、来源约束和任务边界的稳定关系，不建设通用企业知识图谱平台。</td></tr>
+<tr><td data-label="能力">Ontology</td><td data-label="成熟能力">完整领域 Ontology 需要持续维护实体层级、关系语义与领域约束；当前审批任务无需完整企业领域本体即可成立。</td><td data-label="本项目判断"><span class="capability-verdict is-stop">STOP</span><small>不继续建设完整 Ontology</small></td><td data-label="产品责任">只保留最小 Entity / Relation Schema，约束哪些实体允许进入图谱、哪些关系允许连接，以及哪些候选关系可以写入。</td></tr>
+<tr><td data-label="能力">Wiki</td><td data-label="成熟能力">持续知识编译、页面组织、导航、互链、来源追溯与增量更新已有可复用实现。</td><td data-label="本项目判断"><span class="capability-verdict">INTEGRATE</span></td><td data-label="产品责任">融合 LLM Wiki 的持续知识组织能力，只负责 Eligibility、Graph Context、Wiki Adapter、Evidence Mapping 与 Raw Evidence 回查之间的连接和边界，不重新建设完整 Wiki 产品。</td></tr>
+<tr><td data-label="能力">Raw Evidence / Eligibility</td><td data-label="成熟能力">通用知识产品提供检索、关系与知识组织；当前业务任务的 Evidence 使用资格仍需由本项目定义。</td><td data-label="本项目判断"><span class="capability-verdict">RETAIN</span></td><td data-label="产品责任">原始依据、Citation、当前任务使用资格、冲突 / 风险判断、人工复核、高影响使用确认与最终责任，继续留在产品流程中。</td></tr>
+</tbody>
+</table>
+</div>
+<p class="capability-conclusion">成熟能力不是“有了就全部替换”，而是重新判断哪一层已经可以交给成熟产品，哪一层仍然承载当前业务独有的责任。</p>
+<dl class="capability-summary" aria-label="最终能力边界决策摘要">
+<div><dt>RAG / Raw Evidence</dt><dd>→ <strong>RETAIN</strong></dd></div>
+<div><dt>Knowledge Graph</dt><dd>→ <strong>BUILD / RETAIN</strong><span>最小业务关系层</span></dd></div>
+<div><dt>Ontology</dt><dd>→ <strong>STOP</strong></dd></div>
+<div><dt>Wiki</dt><dd>→ <strong>INTEGRATE</strong></dd></div>
+<div><dt>Eligibility / Human</dt><dd>→ <strong>RETAIN</strong></dd></div>
+</dl>
+<p class="el-next"><a href="#design-graph">进入 B07 ｜ 知识图谱 →</a></p>
 </div>
 </section>
 
@@ -14367,7 +14721,7 @@
 <p class="prd-section-kicker"><span>B07</span><span>知识图谱</span></p>
 <h2><span class="prd-title-clause">为版本、别名与区域规则<span class="prd-title-term">增加最小</span><span class="prd-title-term">知识图谱</span>：</span><span class="prd-title-clause"><span class="prd-title-term">图谱只管关系</span>，<span class="prd-title-term">Raw RAG</span> <span class="prd-title-term">继续回原文</span></span></h2>
 <p class="prd-subsection-label">Evidence Level｜关系层实现设计</p>
-<p>当版本、别名、继承和例外开始影响任务判断后，用最小 Ontology（本体） 统一实体与关系，再用 Graph Context 连接 Raw RAG 回查原文。</p>
+<p>在能力边界重估后，完整领域 Ontology 不再继续建设；但版本替代、部门别名、适用范围与审批关系仍需要被稳定表达。因此 B07 只保留当前任务需要的最小关系层，并让 Graph Context 继续连接 Raw RAG 回查原文。</p>
 </header>
 <div class="prd-section-body">
 <section class="prd-subsection"><h3 id="design-graph-1">7.1 图谱范围：从版本、区域规则和部门别名倒推关系需求</h3>
@@ -14396,10 +14750,10 @@
 <div><dt>冲突</dt><dd>规则 A <span aria-hidden="true">→</span> 与……冲突 <span aria-hidden="true">→</span> 规则 B</dd></div>
 </dl>
 </div>
-<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>范围取舍</strong>第一版不是做完整企业知识图谱，而是只建审批判断真正需要的关系。</p></aside>
+<aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>范围取舍</strong>不建设完整领域 Ontology，也不建设通用企业知识图谱；只保留审批判断真正需要的稳定关系。</p></aside>
 </section>
-<section class="prd-subsection"><h3 id="design-graph-2">7.2 Ontology（本体）：限定实体、关系与 Schema</h3>
-<p class="prd-prose">关系范围确定后，我先把第一版允许进入图谱的对象和连接方式固定下来，避免模型抽到什么关系就直接写进去。</p>
+<section class="prd-subsection"><h3 id="design-graph-2">7.2 关系 Schema：不做完整 Ontology，只保留任务需要的关系约束</h3>
+<p class="prd-prose">能力边界重估后，不再建设完整领域 Ontology。当前知识图谱只需要稳定表达审批任务中的版本、适用范围、审批层级、负责部门等关系，因此这里保留的是最小 Entity / Relation Schema，用来约束哪些对象和关系允许写入图谱。</p>
 <div class="kg-schema-brief" data-prd-surface="light">
 <section class="kg-schema-column"><div class="prd-heading-label">保留的实体</div>
 <ul class="kg-entity-vocabulary"><li><strong>项目</strong><code>Project</code></li><li><strong>项目类型</strong><code>Project Type</code><small>轻量实体</small></li><li><strong>制度</strong><code>Policy</code></li><li><strong>部门</strong><code>Department</code></li><li><strong>地区</strong><code>Region</code></li><li><strong>阶段</strong><code>Stage</code></li><li><strong>审批层级</strong><code>Approval Level</code></li></ul>
@@ -14546,7 +14900,7 @@
 </figure>
 <aside class="el-callout kg-conclusion-line" data-prd-surface="plain"><p><strong>样例任务的判断依据</strong>图谱提供稳定实体与关系，Raw Evidence 负责原始事实和回查，Eligibility 负责当前能不能用。</p></aside>
 </section>
-<aside aria-label="关系层接入设计选型" class="kg-implementation-strip" data-prd-surface="plain"><div class="prd-heading-label">关系层接入设计选型</div><dl><div><dt>关系结构</dt><dd>最小 Ontology（本体）</dd></div><div><dt>目标图谱存储</dt><dd>Neo4j</dd></div><div><dt>原文检索</dt><dd>Chroma</dd></div><div><dt>调用</dt><dd>search_docs</dd></div><div><dt>准入</dt><dd>Eligibility Gate</dd></div><div><dt>生成</dt><dd>现有本地 LLM 链路</dd></div></dl></aside><p class="el-next prd-p2-transition"><a href="#design-wiki">进入 B08 ｜ Raw / Wiki / Hybrid →</a></p>
+<aside aria-label="关系层接入设计选型" class="kg-implementation-strip" data-prd-surface="plain"><div class="prd-heading-label">关系层接入设计选型</div><dl><div><dt>关系结构</dt><dd>最小关系 Schema</dd></div><div><dt>目标图谱存储</dt><dd>Neo4j</dd></div><div><dt>原文检索</dt><dd>Chroma</dd></div><div><dt>调用</dt><dd>search_docs</dd></div><div><dt>准入</dt><dd>Eligibility Gate</dd></div><div><dt>生成</dt><dd>现有本地 LLM 链路</dd></div></dl></aside><p class="el-next prd-p2-transition"><a href="#design-wiki">进入 B08 ｜ Raw / Wiki / Hybrid →</a></p>
 </div>
 </section>
 
@@ -14561,11 +14915,11 @@
 <div class="prd-section-body">
 <p class="wk-entry">本节沿用同一脱敏审批任务，展示 Wiki 层接入后的知识处理链。</p>
 <section class="prd-subsection">
-<h3 id="design-wiki-1">8.1 接入边界：只接 Wiki 编译，不替换 RAG / 知识图谱 / Eligibility</h3>
-<p>B03–B07 已经搭通 Raw Evidence 的解析、切片与向量召回，增加请求控制、Evidence 准入，并用 Neo4j 表达制度、部门、版本和例外关系。</p>
+<h3 id="design-wiki-1">8.1 接入范围：沿用能力边界判断，只接 Wiki 编译与持续维护</h3>
+<p>前一阶段已经确定 Wiki 采用 INTEGRATE：持续知识组织交给成熟能力，Raw Evidence、Eligibility 与最小知识图谱继续保留在现有产品链路中。</p>
 <div class="wk-p22-flow-boundary"><div class="wk-query" data-prd-surface="plain"><span class="wk-label">反复出现的请求</span><strong>“商业项目集团审批整体怎么走？”</strong></div>
-<ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>找到主制度</li><li>找到西南区域规则</li><li>恢复审批层级</li><li>恢复负责部门</li><li>重新组织答案</li></ol></div>
-<p>问题不是检索失败，而是同一批稳定制度知识每次都从 Raw Evidence 重新组织，没有形成可持续维护的知识页面。因此，这一层接入 <a href="https://github.com/nashsu/llm_wiki" rel="noopener noreferrer" target="_blank">nashsu/llm_wiki</a> 的持续 Wiki 编译与维护能力。</p>
+<ol class="wk-flow" data-prd-density="compact" data-prd-surface="plain"><li>找到主制度</li><li>找到西南区域规则</li><li>关联审批层级</li><li>关联负责部门</li><li>重新组织答案</li></ol></div>
+<p>本节沿用该集成范围，把持续编译、来源维护与增量更新接入现有任务链；Wiki 能力集成参照为 <a href="https://github.com/nashsu/llm_wiki" rel="noopener noreferrer" target="_blank">nashsu/llm_wiki ↗</a>。</p>
 <div class="wk-split wk-boundaries wk-p2-boundaries" data-prd-surface="light">
 <div><div class="prd-heading-label">现有系统继续负责</div><dl class="wk-fields">
 <div><dt>Raw 文档处理</dt><dd>B03 处理链</dd></div>
@@ -14583,11 +14937,6 @@
 </ul></div>
 <aside class="wk-callout" data-prd-surface="plain"><strong>能力裁剪｜只接 Wiki 组织与维护层</strong><p>不接管其内置检索、Graph、Agent Chat 与 Web / Deep Research 能力，避免与现有 Chroma、Neo4j 和调用控制重复。</p></aside></div>
 
-<div aria-label="Wiki 项目选型判断" class="wk-selection wk-p22-comparison" data-prd-surface="plain">
-<div><a href="https://deepwiki.com/" rel="noopener noreferrer" target="_blank">DeepWiki</a><p>主要围绕代码仓库生成文档，不匹配当前企业制度资料。</p></div>
-<div><a href="https://github.com/chaitin/PandaWiki" rel="noopener noreferrer" target="_blank">PandaWiki</a><p>较完整的 AI 知识库产品，与现有检索、问答和 UI 重叠较多。</p></div>
-<div><a href="https://github.com/nashsu/llm_wiki" rel="noopener noreferrer" target="_blank">选择 nashsu/llm_wiki</a><p>位于 Raw Evidence 与持续 Wiki 之间，复用持续编译、来源追溯和 Source 刷新。</p></div>
-</div>
 </section>
 <section class="prd-subsection">
 <h3 id="design-wiki-2">8.2 Wiki Adapter：Evidence + Graph Context → Source Packet</h3>
@@ -14606,7 +14955,7 @@
 <div><dt>Wiki Role</dt><dd>scoped_rule · 带适用范围的区域规则</dd></div>
 </dl><p>携带西南区域、商业项目、方案评审与5000万及以上的适用条件。</p></div>
 </div>
-<p>任务准入与知识保存不是一回事。Eligibility 判断 Evidence 在当前任务里怎么使用；项目侧将结果映射为 Wiki Role，限制它在持续 Wiki 中的保存位置与知识角色，而不是直接决定删不删。</p>
+<p>证据使用资格与知识保存不是一回事。Eligibility 判断 Evidence 在当前任务里怎么使用；项目侧将结果映射为 Wiki Role，限制它在持续 Wiki 中的保存位置与知识角色，而不是直接决定删不删。</p>
 <dl aria-label="历史、背景与待复核Evidence的Wiki角色" class="wk-fields wk-p22-role-group">
 <div><dt>Evidence C · 旧制度 v2.0</dt><dd><span class="wk-p22-role-heading"><span class="wk-p22-role-status">禁止作为当前有效规则（Blocked）</span><span class="wk-p22-role-arrow">→ </span><span class="wk-p22-role-target"><strong>historical_version</strong>。</span></span><span class="wk-p22-role-note">保留历史回查，不进入当前规则、当前适用条件或最终业务判断。</span></dd></div>
 <div><dt>Evidence D · 2024年类似项目复盘</dt><dd><span class="wk-p22-role-heading"><span class="wk-p22-role-status">仅作参考（Reference only）</span><span class="wk-p22-role-arrow">→ </span><span class="wk-p22-role-target"><strong>reference_case</strong>。</span></span><span class="wk-p22-role-note">可保存为案例 / 背景知识，不能成为当前制度依据。reference_case 进入 case 类页面或背景区，不混入当前 Policy Page 的规则主体。</span></dd></div>
@@ -14645,6 +14994,7 @@ graph_context:
 </section>
 <section class="prd-subsection">
 <h3 id="design-wiki-3">8.3 Schema 与 Ingest：purpose.md / schema.md → Source Rescan</h3>
+<p>这里的 <code>schema.md</code> 是 LLM Wiki 的页面结构规则，与 B07 用于约束业务图谱写入的 Relation Schema 不是同一层能力。</p>
 <div class="wk-p2-setup" data-prd-surface="plain"><div class="wk-config" data-prd-surface="plain"><div class="wk-p2-step-head"><span class="wk-label">步骤 01 · purpose.md</span><h4>当前审批 Wiki 的业务目标</h4></div><div class="wk-p2-step-body"><p>以当前有效审批制度和区域规则为主，同时保留可回查的历史版本、参考案例与相关组织关系，整理成可持续阅读、更新和回到原始 Evidence 的业务 Wiki。</p><ul class="wk-purpose">
 <li>当前有效规则是什么？</li><li>适用于哪些项目和阶段？</li><li>西南区域有哪些补充条件？</li><li>谁负责审批？</li><li>哪些制度已经失效？</li><li>页面结论来自哪些 Evidence？</li>
 </ul></div></div><div class="wk-config" data-prd-surface="plain"><div class="wk-p2-step-head"><span class="wk-label">步骤 02 · schema.md</span><h4>按审批任务定制页面类型与必填结构</h4></div><div class="wk-p2-step-body"><p>没有将默认 entity / concept / source 原样作为唯一页面类型，而是把审批制度、流程、组织、区域和案例分开维护。</p>
@@ -15929,7 +16279,7 @@ evidence_refs:
 
     <footer class="case-footer">
       <span>业务智能助手 · 面向知识复用与决策准备的 Agent 工作流演进</span>
-      <a href="/ai-product-portfolio/index.html">返回作品集首页</a>
+      <a href="../../index.html">返回作品集首页</a>
     </footer>
     <div class="interface-lightbox" id="interfaceLightbox" role="dialog" aria-modal="true" aria-hidden="true">
       <div class="interface-lightbox-panel" role="document">
