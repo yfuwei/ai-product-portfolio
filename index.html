@@ -848,6 +848,37 @@
         line-height: 1.45;
       }
 
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights > span {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 6px;
+        color: #475569;
+        font-size: 12px;
+        font-weight: 650;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights > span + span {
+        padding-left: 20px;
+        border-left: 1px solid #d8e2f0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights strong {
+        color: #1d4ed8;
+        font-size: 24px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+
       html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-directory-layout {
         display: grid;
         grid-template-columns: minmax(126px, 0.24fr) minmax(0, 0.76fr);
@@ -1722,6 +1753,395 @@
           padding-bottom: 42px;
         }
       }
+
+      /* Chinese homepage: shared editorial groups, scoped to this page only. */
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        margin-top: 12px;
+        padding-top: 10px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .featured-case-directory-copy {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 10px;
+        align-items: baseline;
+        padding: 0;
+        border: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .featured-case-directory-description {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .toc-item {
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 8px;
+        padding: 9px 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview li:last-child .toc-item {
+        border-bottom: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .toc-label {
+        display: grid;
+        grid-template-columns: 160px minmax(0, 1fr);
+        gap: 10px;
+        color: #64748b;
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 1.5;
+        text-wrap: initial;
+        word-break: normal;
+        letter-spacing: 0;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .toc-label strong {
+        color: #334155;
+        font-size: 12.5px;
+        font-weight: 750;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-section,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-closing-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        color: var(--hero-ink);
+        background: #f8fafc;
+        border-top: 1px solid rgba(29, 47, 111, 0.12);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-inner,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-closing-inner {
+        width: min(100%, var(--home-container-max));
+        margin: 0 auto;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-heading h2 {
+        margin: 12px 0 24px;
+        color: var(--hero-ink);
+        font-size: clamp(30px, 2.6vw, 40px);
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-heading h2 span,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning h2 span {
+        color: var(--hero-blue);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-diagnostic > h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.4;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip article {
+        min-width: 0;
+        padding: 14px 16px;
+        background: #ffffff;
+        border: 1px solid rgba(29, 47, 111, 0.14);
+        border-radius: 6px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-meta {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        margin: 0 0 8px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-meta span,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-index {
+        color: #64748b;
+        font-size: 13px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-meta strong {
+        color: var(--hero-blue);
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip h4 {
+        margin: 0 0 6px;
+        font-size: 17px;
+        font-weight: 750;
+        line-height: 1.5;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip article > p:last-child {
+        margin: 0;
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgments {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        scroll-margin-top: 88px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-row {
+        display: grid;
+        grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+        gap: 32px;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(29, 47, 111, 0.14);
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-heading {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 8px;
+        align-items: baseline;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-heading h3 {
+        margin: 0 0 7px;
+        font-size: 20px;
+        font-weight: 850;
+        line-height: 1.3;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-hook {
+        margin: 0;
+        color: #475569;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy p {
+        margin: 0;
+        color: #475569;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy p + p { margin-top: 7px; }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy .method-question {
+        color: var(--hero-ink);
+        font-size: 16px;
+        font-weight: 750;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy .method-pullquote {
+        color: var(--hero-blue);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy .method-boundary-example {
+        padding-left: 12px;
+        color: #64748b;
+        border-left: 2px solid #cbd5e1;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-boundary-example span {
+        display: block;
+        color: #475569;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .showcase-section { padding-top: 40px; padding-bottom: 40px; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-section { padding-top: 36px; padding-bottom: 30px; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-inner { gap: 20px; }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header {
+        display: grid;
+        max-width: none;
+        grid-template-columns: minmax(0, 0.55fr) minmax(0, 0.45fr);
+        gap: 12px 36px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header .eyebrow { grid-column: 1 / -1; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header h2 {
+        grid-column: 1;
+        margin: 0;
+        font-size: 32px;
+        line-height: 1.25;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header .story-lead-copy {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.75;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-editorial-note {
+        grid-column: 2;
+        padding: 14px 16px;
+        background: #ffffff;
+        border: 1px solid rgba(29, 47, 111, 0.14);
+        border-left: 2px solid #b5c8e4;
+        border-radius: 6px;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-note-label {
+        margin: 0 0 7px;
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 750;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-step::before { top: -16px; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-inner > .story-summary {
+        width: 100%;
+        padding: 8px 0 8px 14px;
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(37, 107, 255, 0.3);
+        border-radius: 0;
+        white-space: normal;
+        font-size: 15px;
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-closing-section { padding-top: 28px; padding-bottom: 30px; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning h2 {
+        margin: 10px 0 14px;
+        max-width: 900px;
+        font-size: 28px;
+        font-weight: 850;
+        line-height: 1.4;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning p:not(.eyebrow) {
+        max-width: 960px;
+        margin: 0;
+        color: #475569;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning p + p { margin-top: 8px; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning .home-positioning-principle {
+        color: var(--hero-ink);
+        font-weight: 750;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-judgment-notes {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(29, 47, 111, 0.14);
+        scroll-margin-top: 88px;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-judgment-notes > h3 {
+        margin: 0 0 14px;
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 0.07em;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr);
+        gap: 8px;
+        padding: 0 22px;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li:first-child { padding-left: 0; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li:last-child { padding-right: 0; }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li + li { border-left: 1px solid rgba(29, 47, 111, 0.14); }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li > span {
+        color: #94a3b8;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.7;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list h4 {
+        margin: 0 0 6px;
+        color: var(--hero-ink);
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.55;
+      }
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list p {
+        margin: 0;
+        color: #64748b;
+        font-size: 13.5px;
+        line-height: 1.65;
+      }
+
+      @media (max-width: 980px) {
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-editorial-note { grid-column: 1; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-thread { padding-top: 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-step { padding: 0 0 18px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-step::before { top: 1px; }
+      }
+
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .evolution-boundary-term,
+      html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning h2 span { white-space: nowrap; }
+
+      @media (max-width: 640px) {
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-case .featured-case-header { position: relative; grid-template-columns: minmax(0, 1fr); }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-case .featured-case-link { position: absolute; top: 0; right: 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights { gap: 12px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights > span { gap: 5px; font-size: 11px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights > span + span { padding-left: 12px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-case-highlights strong { font-size: 22px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .toc-label {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 2px;
+          font-size: 12px;
+        }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .toc-item { padding: 9px 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-evolution-preview .featured-case-directory-copy { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-section,
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .showcase-section { padding-top: 30px; padding-bottom: 30px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-method-heading h2 { margin-bottom: 20px; font-size: 28px; line-height: 1.3; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-diagnostic > h3 { font-size: 18px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip article { padding: 14px 16px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-meta { margin-bottom: 4px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-meta strong { font-size: 18px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-failure-strip h4 { font-size: 16px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgments { margin-top: 4px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 18px 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-heading h3 { font-size: 19px; margin-bottom: 4px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy { padding-left: 38px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy .method-question { font-size: 15px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .method-judgment-copy p { font-size: 14px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-section { padding-top: 30px; padding-bottom: 24px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-header h2 { font-size: 27px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .story-inner { gap: 18px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-closing-section { padding-top: 24px; padding-bottom: 28px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning h2 { font-size: 24px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning h2 br { display: none; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .home-positioning p:not(.eyebrow) { font-size: 14px; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list { grid-template-columns: minmax(0, 1fr); }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li { padding: 12px 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li:first-child { padding-top: 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li:last-child { padding-bottom: 0; }
+        html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li + li { border-left: 0; border-top: 1px solid rgba(29, 47, 111, 0.14); }
+      }
     </style>
   </head>
   <body class="home-comic-hero zh-home-v2">
@@ -1733,8 +2153,8 @@
       <nav class="top-nav" aria-label="主导航" data-i18n-attr="aria-label:nav.primaryAria">
         <a href="#home" data-i18n="nav.home">首页</a>
         <a href="#entries" data-i18n="nav.entries">项目</a>
-        <a href="#judgment-memo" data-i18n="nav.methodology">方法论</a>
-        <a href="#positioning" data-i18n="nav.about">关于我</a>
+        <a href="#philosophy" data-i18n="nav.methodology">方法论</a>
+        <a href="#story" data-i18n="nav.about">关于我</a>
         <a class="nav-link--lang" href="./en/index.html" data-lang-link>EN</a>
       </nav>
     </header>
@@ -1774,24 +2194,24 @@
               <p class="featured-case-eyebrow">FEATURED CASE <span class="featured-case-eyebrow-star" aria-hidden="true">★</span></p>
               <p class="featured-case-meta"><span class="featured-case-number">01</span><span class="featured-case-type">知识型 AI 应用</span></p>
               <h2 id="featured-case-title">业务智能助手</h2>
-              <p class="featured-case-judgment">知识被找到只是开始，被可信使用才是产品。</p>
+              <p class="featured-case-judgment">找到不等于能用：让知识进入任务判断。</p>
             </div>
             <a class="featured-case-link" href="docs/module1-enterprise-knowledge-workspace/index.html">查看完整项目 <span aria-hidden="true">→</span></a>
           </div>
-          <div class="featured-case-directory-layout">
+          <div class="featured-case-highlights" aria-label="项目深度">
+            <span><strong>4</strong> 次产品演进</span>
+            <span><strong>5</strong> 项能力边界判断</span>
+          </div>
+          <div class="featured-case-directory-layout featured-evolution-preview">
             <div class="featured-case-directory-copy">
-              <p class="featured-case-directory-heading">八个问题：</p>
-              <p class="featured-case-directory-description">讲清这个项目如何从一次本地检索实验，走到知识、证据与责任的重新分层。</p>
+              <p class="featured-case-directory-heading">四阶段演进</p>
+              <p class="featured-case-directory-description">从本地 RAG 到证据适用性，再到成熟能力出现后的产品边界重估。</p>
             </div>
-            <ol class="featured-case-directory" aria-label="业务智能助手项目目录预览">
-              <li><span class="toc-item"><span class="toc-index">01</span><span class="toc-label">这不是一条功能升级路线</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">02</span><span class="toc-label">四次产品判断，分别改变了什么？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">03</span><span class="toc-label">当 RAG、Agent 与 Wiki 工具不断成熟，这个产品为什么没有推翻重做？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">04</span><span class="toc-label">当模型的通用能力越来越成熟，哪些产品责任仍然必须自己保留？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">05</span><span class="toc-label">当模型、检索和调用逐渐标准化，产品价值还剩在哪里？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">06</span><span class="toc-label">产品经理在其中负责什么？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">07</span><span class="toc-label">为什么项目在这里停下来？</span></span></li>
-              <li><span class="toc-item"><span class="toc-index">08</span><span class="toc-label">什么情况下才重新打开边界？</span></span></li>
+            <ol class="featured-case-directory" aria-label="业务智能助手四阶段演进预览">
+              <li><span class="toc-item"><span class="toc-index">01</span><span class="toc-label"><strong>Raw Evidence</strong><span>找到依据，并能回查原文</span></span></span></li>
+              <li><span class="toc-item"><span class="toc-index">02</span><span class="toc-label"><strong>Call Control</strong><span>按当前任务决定什么时候调用知识</span></span></span></li>
+              <li><span class="toc-item"><span class="toc-index">03</span><span class="toc-label"><strong>Evidence Eligibility</strong><span>找到以后，判断当前任务到底能不能用</span></span></span></li>
+              <li><span class="toc-item"><span class="toc-index">04</span><span class="toc-label"><strong>Capability Boundary</strong><span><span class="evolution-boundary-term">保留：最小知识图谱关系层</span> · <span class="evolution-boundary-term">停止：完整 Ontology（本体）建设</span> · <span class="evolution-boundary-term">接入：成熟 Wiki 能力</span></span></span></span></li>
             </ol>
           </div>
         </article>
@@ -1863,106 +2283,94 @@
         </article>
       </section>
 
-      <section id="philosophy" class="section-block philosophy-section ai-diagnosis-section" aria-labelledby="philosophy-title">
-        <div class="ai-diagnosis-board">
-          <p class="eyebrow section-eyebrow" data-i18n="philosophy.eyebrow">失败诊断</p>
-          <h2 id="philosophy-title" data-i18n-html="philosophy.title">做出来也进不了业务，<br><span class="ai-diagnosis-title-line">往往死在这<span class="ai-diagnosis-title-hit">三件事</span>。</span></h2>
+      <section id="philosophy" class="section-block home-method-section" aria-labelledby="philosophy-title">
+        <div class="home-method-inner">
+          <header class="home-method-heading">
+            <p class="eyebrow section-eyebrow">METHOD｜AI 产品判断</p>
+            <h2 id="philosophy-title">从 AI 机会到业务可用，中间要经过五道<span>产品判断</span>。</h2>
+          </header>
 
-          <div class="ai-diagnosis-cuts" role="list" aria-label="AI 项目失败诊断项" data-i18n-attr="aria-label:philosophy.diagnosisAria">
-            <article class="ai-diagnosis-cut" role="listitem">
-              <div class="ai-diagnosis-meta">
-                <span aria-hidden="true">01</span>
-                <strong data-i18n="philosophy.diagnosis1.name">伪需求</strong>
-              </div>
-              <div class="ai-diagnosis-copy">
-                <h3 data-i18n-html="philosophy.diagnosis1.title">把模型能力，<br>当成了业务需求。</h3>
-                <p data-i18n="philosophy.diagnosis1.text">先判断这是业务里的真问题，还是一次模型能力展示。</p>
-              </div>
-            </article>
-            <article class="ai-diagnosis-cut" role="listitem">
-              <div class="ai-diagnosis-meta">
-                <span aria-hidden="true">02</span>
-                <strong data-i18n="philosophy.diagnosis2.name">伪结果</strong>
-              </div>
-              <div class="ai-diagnosis-copy">
-                <h3 data-i18n-html="philosophy.diagnosis2.title">把 AI 输出，<br>当成了业务结果。</h3>
-                <p data-i18n="philosophy.diagnosis2.text">输出不能被确认、分流、追踪和复盘，就还不是业务能力。</p>
-              </div>
-            </article>
-            <article class="ai-diagnosis-cut" role="listitem">
-              <div class="ai-diagnosis-meta">
-                <span aria-hidden="true">03</span>
-                <strong data-i18n="philosophy.diagnosis3.name">伪效率</strong>
-              </div>
-              <div class="ai-diagnosis-copy">
-                <h3 data-i18n-html="philosophy.diagnosis3.title">把责任不清的自动化，<br>当成了效率提升。</h3>
-                <p data-i18n="philosophy.diagnosis3.text">谁确认、谁兜底、错了怎么回滚，必须在产品里先设计清楚。</p>
-              </div>
-            </article>
+          <div class="method-failure-diagnostic" aria-labelledby="method-failure-title">
+            <h3 id="method-failure-title">做出来也进不了业务，往往死在这三件事。</h3>
+            <div class="method-failure-strip" role="list" aria-label="三类 AI 项目失败点">
+              <article role="listitem">
+                <p class="method-failure-meta"><span aria-hidden="true">01</span><strong>伪需求</strong></p>
+                <h4>把模型能力，当成业务需求。</h4>
+                <p>先判断是真实业务问题，还是模型能力展示。</p>
+              </article>
+              <article role="listitem">
+                <p class="method-failure-meta"><span aria-hidden="true">02</span><strong>伪结果</strong></p>
+                <h4>把 AI 输出，当成业务结果。</h4>
+                <p>输出不能被确认、分流、追踪和复盘，就还不是业务能力。</p>
+              </article>
+              <article role="listitem">
+                <p class="method-failure-meta"><span aria-hidden="true">03</span><strong>伪效率</strong></p>
+                <h4>把责任不清的自动化，当成效率提升。</h4>
+                <p>谁确认、谁兜底、错了怎么回滚，要先被产品定义。</p>
+              </article>
+            </div>
           </div>
+
+          <ol id="scenario-mining" class="method-judgments" aria-label="从机会到业务可用的五次产品判断">
+            <li class="method-judgment-row">
+              <div class="method-judgment-heading">
+                <span class="method-index" aria-hidden="true">01</span>
+                <div><h3>场景判断</h3><p class="method-hook">有需求，不等于值得做 AI。</p></div>
+              </div>
+              <div class="method-judgment-copy">
+                <p class="method-question">这个问题，真的值得 AI 介入吗？</p>
+                <p>看真实问题、高频程度、可验证性，以及 AI 是否能改变业务结果。</p>
+                <p class="method-pullquote">不是每个业务问题，都值得被 AI 接住。</p>
+              </div>
+            </li>
+            <li class="method-judgment-row">
+              <div class="method-judgment-heading">
+                <span class="method-index" aria-hidden="true">02</span>
+                <div><h3>任务判断</h3><p class="method-hook">能生成，不等于有场景。</p></div>
+              </div>
+              <div class="method-judgment-copy">
+                <p class="method-question">AI 到底接住哪一步任务？</p>
+                <p>看明确使用者、所需上下文、下一步动作，以及输出会进入哪个业务流程、如何验证结果。</p>
+              </div>
+            </li>
+            <li class="method-judgment-row">
+              <div class="method-judgment-heading">
+                <span class="method-index" aria-hidden="true">03</span>
+                <div><h3>责任判断</h3><p class="method-hook">能自动化，不等于该自动化。</p></div>
+              </div>
+              <div class="method-judgment-copy">
+                <p class="method-question">哪里交给 AI，哪里必须停在人这里？</p>
+                <p>提前定义人工确认、责任边界、风险兜底、回滚和最终责任。</p>
+              </div>
+            </li>
+            <li class="method-judgment-row">
+              <div class="method-judgment-heading">
+                <span class="method-index" aria-hidden="true">04</span>
+                <div><h3>能力边界</h3><p class="method-hook">成熟能力越来越多，<br>不代表产品应该什么都自己做。</p></div>
+              </div>
+              <div class="method-judgment-copy">
+                <p class="method-question">什么继续自建，什么集成成熟能力，什么必须保留，什么应该停止重复建设？</p>
+                <p>根据当前任务责任和外部成熟能力，持续做 Build / Integrate / Retain / Stop 判断。</p>
+                <p class="method-boundary-example">Project 1：保留 Raw Evidence 与最小知识图谱关系层，停止完整 Ontology 建设，接入成熟 Wiki 能力。</p>
+              </div>
+            </li>
+            <li class="method-judgment-row">
+              <div class="method-judgment-heading">
+                <span class="method-index" aria-hidden="true">05</span>
+                <div><h3>验证闭环</h3><p class="method-hook">Demo 能跑，不等于方向成立。</p></div>
+              </div>
+              <div class="method-judgment-copy">
+                <p class="method-question">怎么知道应该继续、暂停还是重做？</p>
+                <p>通过验证指标、Bad Case、版本记录和回归测试，把错误样本转化为下一版产品规则。</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <section id="scenario-mining" class="section-block scenario-mining-section" aria-labelledby="scenario-mining-title">
-        <div class="scenario-mining-inner">
-          <div class="scenario-mining-heading">
-            <p class="eyebrow section-eyebrow" data-i18n="scenario.eyebrow">场景挖掘</p>
-            <h2 id="scenario-mining-title" data-i18n-html="scenario.title"><span>不是每个业务问题，</span><br><span class="scenario-title-hit">都值得被 AI 接住。</span></h2>
-            <p data-i18n="scenario.lead">我不会先问“这个能不能接 AI”，而是先看：业务里有没有反复发生、反复耗人、结果又能被验证的问题。</p>
-            <p class="scenario-mining-close" data-i18n="scenario.close">好场景不是把 AI 放进去就结束，而是 AI 介入后，事情真的变快、变准、变可追踪。</p>
-          </div>
-
-          <div class="scenario-question-list" role="list" aria-label="AI 场景挖掘的三类判断问题" data-i18n-attr="aria-label:scenario.boardAria">
-            <article class="scenario-question-item" role="listitem">
-              <div class="scenario-question-meta">
-                <span aria-hidden="true">01</span>
-                <h3 data-i18n="scenario.item1.title">有需求，不等于值得做 AI</h3>
-              </div>
-              <p class="scenario-question-statement" data-i18n="scenario.item1.statement">这个需求，真的值得用 AI 解决吗？</p>
-              <p class="scenario-question-copy" data-i18n="scenario.item1.text">不是谁提了需求就成立，而是看它是否高频、重要、可验证，且 AI 介入后能改变业务结果。</p>
-              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
-                <span data-i18n="scenario.item1.keyword1">真实问题</span>
-                <span data-i18n="scenario.item1.keyword2">高频重要</span>
-                <span data-i18n="scenario.item1.keyword3">可验证</span>
-                <span data-i18n="scenario.item1.keyword4">改变结果</span>
-              </div>
-            </article>
-
-            <article class="scenario-question-item" role="listitem">
-              <div class="scenario-question-meta">
-                <span aria-hidden="true">02</span>
-                <h3 data-i18n="scenario.item2.title">能生成，不等于有场景</h3>
-              </div>
-              <p class="scenario-question-statement" data-i18n="scenario.item2.statement">这个输出，真的会被业务使用吗？</p>
-              <p class="scenario-question-copy" data-i18n="scenario.item2.text">不是模型能写、能总结、能分类就有场景，而是看有没有明确使用者、下一步动作、进入流程和结果验证。</p>
-              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
-                <span data-i18n="scenario.item2.keyword1">使用者</span>
-                <span data-i18n="scenario.item2.keyword2">下一步动作</span>
-                <span data-i18n="scenario.item2.keyword3">进入流程</span>
-                <span data-i18n="scenario.item2.keyword4">结果验证</span>
-              </div>
-            </article>
-
-            <article class="scenario-question-item" role="listitem">
-              <div class="scenario-question-meta">
-                <span aria-hidden="true">03</span>
-                <h3 data-i18n="scenario.item3.title">能自动化，不等于该自动化</h3>
-              </div>
-              <p class="scenario-question-statement" data-i18n="scenario.item3.statement">这个流程，真的应该被自动化吗？</p>
-              <p class="scenario-question-copy" data-i18n="scenario.item3.text">不是能自动化就该自动化，而是看 AI 该接住哪一步，哪里必须保留人工确认和责任边界。</p>
-              <div class="scenario-keywords" aria-label="关键词" data-i18n-attr="aria-label:scenario.keywordsAria">
-                <span data-i18n="scenario.item3.keyword1">适合接住</span>
-                <span data-i18n="scenario.item3.keyword2">人工确认</span>
-                <span data-i18n="scenario.item3.keyword3">责任边界</span>
-                <span data-i18n="scenario.item3.keyword4">介入步骤</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
       <section id="entries" class="section-block showcase-section showcase-evidence-compact" aria-labelledby="showcase-title">
         <div class="showcase-heading">
-          <p class="eyebrow section-eyebrow" data-i18n="showcase.eyebrow">项目证据链</p>
+          <p class="eyebrow section-eyebrow" data-i18n="showcase.eyebrow">PROJECT EVIDENCE｜项目证据</p>
           <p class="showcase-proof-note" data-i18n="showcase.proofNote">前面是判断，下面是四个样本。</p>
           <h2 id="showcase-title" data-i18n-html="showcase.title">四个项目，回答同一个问题：<br><span class="showcase-title-line">AI 如何从<span class="showcase-title-hit">“能做”</span>走向<span class="showcase-title-hit">“业务可用”</span>。</span></h2>
           <p data-i18n="showcase.text">这四个项目不是功能陈列，而是四类 AI 场景判断的样本：知识如何变成下一步动作，反馈如何变成可确认需求，内容如何进入审核与复盘，AI 项目如何在立项前就被评估和拦截。</p>
@@ -1973,24 +2381,24 @@
               <div class="showcase-meta-line">
                 <span class="showcase-tag" data-i18n="showcase.card1.tag">知识型 AI 应用</span>
                 <span class="showcase-meta-separator" aria-hidden="true">｜</span>
-                <span class="showcase-response" data-i18n="showcase.card1.response">回应：伪结果 / 伪需求</span>
+                <span class="showcase-response" data-i18n="showcase.card1.response">回应：伪结果 / 伪效率</span>
               </div>
               <a class="showcase-cta" href="./docs/module1-enterprise-knowledge-workspace/index.html" data-i18n="showcase.card1.cta" data-i18n-attr="href:entry1.href">查看项目 →</a>
             </div>
-            <div class="poster-stage poster-knowledge" aria-label="证据可追溯、调用控制与使用资格的产品责任演进">
+            <div class="poster-stage poster-knowledge" aria-label="证据可追溯、调用控制与证据适用性的产品责任演进">
               <div class="poster-responsibility-chain" role="list" aria-label="产品责任演进">
                 <span class="poster-responsibility-node" role="listitem">证据可追溯</span>
                 <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
                 <span class="poster-responsibility-node" role="listitem">调用控制</span>
                 <span class="poster-responsibility-arrow" aria-hidden="true">→</span>
-                <span class="poster-responsibility-node" role="listitem">使用资格</span>
+                <span class="poster-responsibility-node" role="listitem">证据适用性</span>
               </div>
               <h3 class="showcase-poster-title" data-i18n="showcase.card1.title">业务智能助手</h3>
             </div>
             <div class="showcase-card-inner">
-              <p class="showcase-hook" data-i18n="showcase.card1.hook">知识能被找到，不等于它能进入当前任务。</p>
-              <p class="showcase-decision" data-i18n="showcase.card1.decision">关键判断：知道制度，不等于知道自己适不适用。</p>
-              <p class="showcase-value" data-i18n="showcase.card1.value">这个项目不是做一个更会回答的知识库，而是让员工在具体情境里知道：依据是什么、自己是否适用、下一步该怎么做。</p>
+              <p class="showcase-hook" data-i18n="showcase.card1.hook">找到，不等于能用。</p>
+              <p class="showcase-decision" data-i18n="showcase.card1.decision">关键判断：检索相关 ≠ 当前任务可用。</p>
+              <p class="showcase-value" data-i18n="showcase.card1.value">不是让知识库回答更多问题，而是判断哪些依据当前能用，并持续重估哪些能力自建、集成、保留或停止重复建设。</p>
             </div>
           </article>
           <article class="showcase-card card-workflow">
@@ -2078,44 +2486,15 @@
         </div>
       </section>
 
-      <section id="positioning" class="section-block positioning-section" aria-labelledby="positioning-title">
-        <div class="positioning-inner">
-          <div class="positioning-lead">
-            <p class="eyebrow section-eyebrow" data-i18n="positioning.eyebrow">差异化定位</p>
-            <h2 id="positioning-title" data-i18n-html="positioning.title">我的差异化，不是会把 AI 放进页面，而是判断 AI 应该<span class="positioning-title-hit">放进哪里、停在哪里</span>。</h2>
-            <p class="positioning-principle" style="padding: 10px 13px; color: rgba(5, 10, 46, 0.84); background: color-mix(in srgb, var(--hero-blue) 7%, #ffffff); border-left: 3px solid rgba(37, 107, 255, 0.32); border-radius: 4px; font-weight: 850; line-height: 1.58;">AI 产品经理不只是推动项目立项，也包括阻止错误项目立项。</p>
-            <p data-i18n="positioning.lead">我更适合进入这样的阶段：业务已经意识到 AI 有机会，但还没判断清楚该做什么、怎么做、做到哪里为止。</p>
-            <p class="positioning-close" data-i18n-html="positioning.close">我想做的不是“把 AI 做出来”这一段，而是帮助它从 Demo 进入业务、从能力变成<span class="text-nowrap">责任清楚的产品。</span></p>
-          </div>
-          <div class="positioning-stages" role="list" aria-label="适合处理的企业 AI 落地阶段" data-i18n-attr="aria-label:positioning.stagesAria">
-            <article class="positioning-stage" role="listitem">
-              <span aria-hidden="true">01</span>
-              <h3 data-i18n="positioning.stage1.title">场景还没想清楚</h3>
-              <p class="positioning-stage-claim" data-i18n="positioning.stage1.claim">不是把所有业务问题都翻译成 AI，而是先判断哪些问题值得做 AI。</p>
-              <p data-i18n="positioning.stage1.text">我会从真实问题、高频程度、可验证性、使用者和业务结果出发，判断 AI 介入是否成立，避免为了 AI 找需求。</p>
-            </article>
-            <article class="positioning-stage" role="listitem">
-              <span aria-hidden="true">02</span>
-              <h3 data-i18n="positioning.stage2.title">流程还接不住</h3>
-              <p class="positioning-stage-claim" data-i18n="positioning.stage2.claim">不是让 AI 产出更多内容，而是让输出能被确认、分流、追踪和复盘。</p>
-              <p data-i18n="positioning.stage2.text">我关注 AI 输出之后发生什么：谁使用、谁确认、进入哪个流程、如何验证结果，避免把模型输出误认为业务结果。</p>
-            </article>
-            <article class="positioning-stage" role="listitem">
-              <span aria-hidden="true">03</span>
-              <h3 data-i18n="positioning.stage3.title">边界还不清楚</h3>
-              <p class="positioning-stage-claim" data-i18n="positioning.stage3.claim">不是能自动化就自动化，而是判断 AI 应该接哪一步，哪里必须由人负责。</p>
-              <p data-i18n="positioning.stage3.text">我会提前拆出人工确认、责任边界、风险兜底和回滚机制，避免把责任不清包装成效率提升。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="story" class="section-block story-section" aria-labelledby="story-title">
         <div class="story-inner">
           <div class="story-header">
-            <p class="eyebrow section-eyebrow" data-i18n="story.eyebrow">背景解释</p>
+            <p class="eyebrow section-eyebrow" data-i18n="story.eyebrow">BACKGROUND｜判断的来处</p>
             <h2 id="story-title" data-i18n-html="story.title">我一直关注的不是某个行业，<br><span class="story-title-hit">而是复杂决策如何被产品增强。</span></h2>
-            <p class="story-lead-copy" data-i18n="story.lead">建筑、地产产品管理和 AI 应用，看起来是不同阶段，但我真正延续下来的问题意识是同一个：人在复杂情境里如何做判断，组织如何把判断沉淀成流程，产品如何让判断更稳定、更可复用。</p>
+            <aside class="story-editorial-note" aria-labelledby="story-note-label">
+              <p id="story-note-label" class="story-note-label">同一条判断主线</p>
+              <p class="story-lead-copy" data-i18n="story.lead">建筑、地产产品管理和 AI 应用，看起来是不同阶段，但我真正延续下来的问题意识是同一个：人在复杂情境里如何做判断，组织如何把判断沉淀成流程，产品如何让判断更稳定、更可复用。</p>
+            </aside>
           </div>
           <div class="story-thread" role="list" aria-label="复杂决策主线下的三段经历" data-i18n-attr="aria-label:story.threadAria">
             <article class="story-step" role="listitem">
@@ -2153,47 +2532,29 @@
         </div>
       </section>
 
-      <section id="judgment-memo" class="section-block memo-section" aria-labelledby="memo-title">
-        <div class="memo-inner">
-          <div class="memo-heading">
-            <p class="eyebrow section-eyebrow" data-i18n="memo.eyebrow">判断备忘录</p>
-            <h2 id="memo-title" data-i18n="memo.title">我做 AI 产品时，会一直提醒自己的几件事。</h2>
-            <p data-i18n="memo.lead">这些不是口号，而是我在做 AI 场景判断、产品设计和落地验证时，会反复拿来校准方向的底层提醒。</p>
+      <section id="positioning" class="section-block home-closing-section" aria-labelledby="positioning-title">
+        <div class="home-closing-inner">
+          <div class="home-positioning">
+            <p class="eyebrow section-eyebrow">POSITIONING｜我能接住的阶段</p>
+            <h2 id="positioning-title">我的差异化，不是会把 AI 放进页面，<br>而是判断 AI 应该<span>放进哪里、停在哪里</span>。</h2>
+            <p class="home-positioning-principle">AI 产品经理不只是推动项目立项，也包括阻止错误项目立项。</p>
+            <p>我更适合进入这样的阶段：业务已经意识到 AI 有机会，但还没判断清楚该做什么、怎么做、做到哪里为止。</p>
           </div>
-          <div class="memo-grid" role="list" aria-label="AI 产品判断备忘录" data-i18n-attr="aria-label:memo.aria">
-            <article class="memo-card" role="listitem">
-              <span aria-hidden="true">01</span>
-              <h3 data-i18n="memo.item1.title">不是所有 AI 都长成聊天框。</h3>
-              <p data-i18n="memo.item1.text">很多场景真正需要的不是对话入口，而是嵌入流程里的判断、分流、提醒和确认。</p>
-            </article>
-            <article class="memo-card" role="listitem">
-              <span aria-hidden="true">02</span>
-              <h3 data-i18n="memo.item2.title">AI Coding 让正确更快，也让错误更快。</h3>
-              <p data-i18n="memo.item2.text">AI 可以显著提高实现速度，但如果场景、边界和验证没想清楚，也会更快放大错误方向。</p>
-            </article>
-            <article class="memo-card" role="listitem">
-              <span aria-hidden="true">03</span>
-              <h3 data-i18n="memo.item3.title">先上车后补票，是很多 AI 项目失败的开始。</h3>
-              <p data-i18n="memo.item3.text">AI 项目可以小步试点，但不能跳过场景判断、责任边界和结果验证。</p>
-            </article>
-            <article class="memo-card" role="listitem">
-              <span aria-hidden="true">04</span>
-              <h3 data-i18n="memo.item4.title">AI 可以替代任务，但不能轻易替代责任。</h3>
-              <p data-i18n="memo.item4.text">越是高价值场景，越要先设计清楚谁确认、谁兜底、错了怎么回滚。</p>
-            </article>
-            <article class="memo-card" role="listitem">
-              <span aria-hidden="true">05</span>
-              <h3 data-i18n="memo.item5.title">AI 产品经理不只是推动项目立项，也包括阻止错误项目立项。</h3>
-              <p data-i18n="memo.item5.text">有些 AI 项目不该做，有些应该晚点做，有些只能先做辅助判断而不是全自动化。</p>
-            </article>
-          </div>
+          <aside id="judgment-memo" class="home-judgment-notes" aria-labelledby="memo-title">
+            <h3 id="memo-title">JUDGMENT NOTES｜判断备忘录</h3>
+            <ol class="judgment-note-list">
+              <li><span aria-hidden="true">01</span><div><h4>不是所有 AI 都长成聊天框。</h4><p>很多场景真正需要的不是对话入口，而是嵌入流程里的判断、分流、提醒和确认。</p></div></li>
+              <li><span aria-hidden="true">02</span><div><h4>AI Coding 让正确更快，也让错误更快。</h4><p>AI 可以加快验证，但不能替代场景、边界和结果判断。</p></div></li>
+              <li><span aria-hidden="true">03</span><div><h4>AI 可以替代任务，但不能轻易替代责任。</h4><p>越是高价值场景，越要先设计清楚谁确认、谁兜底、错了怎么回滚。</p></div></li>
+            </ol>
+          </aside>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <span data-i18n="footer.name">苑夫唯 · AI产品经理作品集</span>
-      <span data-i18n="footer.scope">内容生成 · 知识检索 · 流程协同</span>
+      <span data-i18n="footer.scope">B 端 AI 应用 · Agent 工作流 · 评估与治理</span>
     </footer>
 
     <script>
