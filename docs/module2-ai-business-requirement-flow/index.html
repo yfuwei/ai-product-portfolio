@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI 智能客服与多 Agent 服务工作流：以电商退货退款重复催办为模拟场景，设计跨会话任务恢复、多 Agent 协作、异步续办、动态重规划与独立的跨 Case 问题关联。产品方案与高保真原型，真实 Workflow 执行验证尚未开始。">
     <title>AI 智能客服与多 Agent 服务工作流｜AI 产品作品集</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="../../src/styles/main.css">
     <style>
       :root { --ink:#17263e; --muted:#607089; --rose:#be4768; --rose-soft:#fff1f4; --blue:#2755a0; --line:#dce4ed; --soft:#f5f8fc; --case-header-height:72px; --project-tabs-height:64px; --gutter:clamp(20px,4vw,48px); }
@@ -210,6 +211,7 @@
       .project-toc-heading { margin:5px 0 8px; font-size:20px; }
       .overview-toc-copy p { color:var(--muted); font-size:13px; }
       .overview-toc-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; list-style:none; padding:0; margin:0; }
+      .overview-gallery-shortcut { display:inline-flex; align-items:center; gap:6px; margin-top:12px; color:var(--blue); font-size:13px; font-weight:700; }
       .toc-item { display:flex; align-items:center; gap:12px; padding:12px 0; color:var(--ink); border-bottom:1px solid var(--line); }
       .overview-toc-list li:nth-last-child(-n+2) .toc-item { border:0; }
       .toc-index { color:var(--rose); font-weight:800; font-size:11px; }
@@ -284,6 +286,41 @@
       .judgment-row dt { color:var(--muted); font-size:11px; font-weight:700; margin-bottom:10px; }
       .judgment-row dd { font-size:14px; }
       .judgment-row dl>div:last-child { border-left:2px solid #eed9df; padding-left:16px; }
+      /* Product gallery: reuses the existing cross-panel hash navigation. */
+      .p2-gallery { margin:36px 0; padding-top:30px; border-top:1px solid var(--line); }
+      .p2-gallery-heading { margin-bottom:24px; }
+      .p2-gallery-eyebrow { margin-bottom:10px; color:var(--muted); font-size:11px; font-weight:750; letter-spacing:.06em; }
+      .p2-gallery-heading h3 { font-size:clamp(23px,2.3vw,30px); letter-spacing:-.02em; }
+      .p2-gallery-heading>p:last-child { max-width:840px; margin-top:12px; color:var(--muted); font-size:14px; }
+      .p2-gallery-grid { display:grid; grid-template-columns:minmax(0,62fr) minmax(0,38fr); gap:28px; align-items:stretch; }
+      .p2-gallery-secondary { display:grid; gap:24px; min-width:0; }
+      .p2-gallery-item { display:flex; flex-direction:column; min-width:0; color:var(--ink); }
+      .p2-gallery-item:hover { text-decoration:none; }
+      .p2-gallery-item:focus-visible { outline:3px solid #93b4ed; outline-offset:6px; }
+      .p2-gallery-item figure { display:flex; flex-direction:column; height:100%; min-width:0; }
+      .p2-gallery-image { display:block; border:1px solid var(--line); border-radius:4px; background:#fff; overflow:hidden; }
+      .p2-gallery-image img { display:block; width:100%; height:auto; }
+      .p2-gallery-item:hover .p2-gallery-image { border-color:#9cb4d7; }
+      .p2-gallery-item figcaption { padding-top:12px; }
+      .p2-gallery-item h4 { font-size:17px; font-weight:750; }
+      .p2-gallery-item figcaption>p { margin-top:6px; color:var(--muted); font-size:13px; line-height:1.7; }
+      .p2-gallery-meta { display:block; margin-top:8px; color:var(--muted); font-size:10px; letter-spacing:.02em; }
+      .p2-gallery-link { display:block; margin-top:10px; color:var(--blue); font-size:12px; font-weight:700; }
+      .p2-gallery-item:hover .p2-gallery-link { text-decoration:underline; text-underline-offset:4px; }
+      .p2-gallery-primary h4 { font-size:23px; }
+      .p2-gallery-primary figcaption { padding-top:18px; }
+      .p2-gallery-primary figcaption>p { max-width:560px; font-size:15px; }
+      @media (max-width:1100px) {
+        .p2-gallery-grid { grid-template-columns:minmax(0,1fr); gap:28px; }
+        .p2-gallery-secondary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      }
+      @media (max-width:600px) {
+        .p2-gallery { margin:28px 0; padding-top:24px; }
+        .p2-gallery-heading { margin-bottom:20px; }
+        .p2-gallery-grid,.p2-gallery-secondary { grid-template-columns:minmax(0,1fr); gap:28px; }
+        .p2-gallery-primary h4 { font-size:20px; }
+        .p2-gallery-primary figcaption>p { font-size:14px; }
+      }
       .view-bridge { display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:1px solid var(--line); padding-top:24px; color:var(--muted); }
       .prd-action { display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:10px 16px; border:1px solid #a9bddb; border-radius:7px; background:#f2f6fc; color:var(--blue); font-size:13px; font-weight:700; cursor:pointer; }
       .prd-action:hover { background:#eaf0fa; text-decoration:none; }
@@ -297,6 +334,7 @@
       .prd-outline-link>span:first-child { color:var(--rose); flex:0 0 28px; font-size:11px; font-weight:750; }
       .prd-outline-link[aria-current],.prd-suboutline a[aria-current] { color:var(--blue); font-weight:750; }
       .prd-suboutline { padding:4px 0 8px 12px; margin-left:3px; border-left:1px solid var(--line); }
+      .prd-suboutline[hidden] { display:none; }
       .prd-suboutline a { display:block; padding:5px 0; color:var(--muted); font-size:11px; }
       .outline-note { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
       .prd-main { min-width:0; }
@@ -1086,6 +1124,471 @@
         #design-voc .refund-signal-summary dd { display:inline; }
       }
     </style>
+
+    <style id="p2-round2-story-hierarchy">
+      /* Semantic color is local to Hero and the three editorial figures. */
+      :is(#project-hero,#story-context-map,#story-agent-execution,#story-outcome-snapshot) { --round2-structure:#f7f8fa; --round2-verified:#287453; --round2-pending:#956416; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) { --diagram-canvas:var(--round2-structure); --diagram-line:var(--line); --diagram-card-line:var(--line); --diagram-result:#edf3fc; background:var(--diagram-canvas); }
+      #project-hero .round2-product-type { display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; }
+      #project-hero .round2-product-type>span { color:var(--muted); font-size:11px; letter-spacing:.06em; }
+      #project-hero .round2-product-type>strong { padding-left:12px; border-left:1px solid var(--line); color:var(--blue); font-size:14px; letter-spacing:0; font-weight:750; }
+      #project-hero .story-hero-preview { background:#fff; }
+      #project-hero .story-hero-progress li:nth-child(2) .story-step-mark { color:var(--round2-verified); }
+      #project-hero .story-hero-end { color:var(--muted); }
+      #overview-problem .round2-promise { display:block; margin-top:7px; font-weight:650; }
+      #overview-problem .round2-task-gap { display:block; margin:6px 0 8px; padding-left:10px; border-left:2px solid var(--rose); color:var(--ink); font-weight:650; }
+      #overview-problem .story-conversations>li:nth-child(2) .story-conversation-body { border-left-color:var(--rose); }
+      #story-context-map { padding:24px; }
+      #story-context-map .round2-context-trigger { display:flex; align-items:center; flex-wrap:wrap; gap:8px 18px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+      #story-context-map .round2-context-trigger strong { color:var(--ink); font-size:15px; font-weight:650; }
+      #story-context-map .round2-object-ref { margin-left:auto; color:var(--muted); font-size:11px; }
+      #story-context-map .round2-context-inputs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:22px; }
+      #story-context-map .round2-context-input { display:flex; flex-direction:column; min-width:0; padding:18px; border:1px solid var(--line); background:#fff; }
+      #story-context-map .round2-context-input .p2-diagram__label { color:var(--muted); font-weight:650; }
+      #story-context-map .round2-context-input h3 { margin-top:6px; font-size:16px; font-weight:700; }
+      #story-context-map .round2-context-input ul { margin:13px 0; padding-left:16px; font-size:12px; line-height:1.9; }
+      #story-context-map .round2-context-input li+li { margin-top:5px; }
+      #story-context-map .round2-context-input dl { margin:13px 0; font-size:12px; }
+      #story-context-map .round2-context-input dl>div { display:grid; grid-template-columns:84px minmax(0,1fr); gap:8px; padding:3px 0; }
+      #story-context-map .round2-context-input dt { color:var(--muted); }
+      #story-context-map .round2-input-source { margin-top:auto; padding-top:10px; border-top:1px solid var(--line); color:var(--muted); font-size:10px; line-height:1.8; }
+      #story-context-map .round2-context-merge { display:flex; flex-direction:column; align-items:center; padding:12px 0 8px; color:var(--muted); font-size:10px; }
+      #story-context-map .round2-context-merge>span:last-child { color:#91abcd; font-size:22px; line-height:1.2; }
+      #story-context-map .round2-context-merge::before { content:''; width:66.6667%; height:12px; margin-bottom:8px; border:1px solid var(--line); border-top:0; }
+      #story-context-map .round2-recovered-goal { border-left-width:3px; padding:22px 24px; }
+      #story-context-map .round2-recovered-goal h3 { font-size:26px; }
+      #story-context-map .round2-context-boundary { margin-top:16px; color:var(--muted); font-size:11px; line-height:1.8; }
+      #story-outcome-snapshot .round2-outcome-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+      #story-outcome-snapshot .round2-service-status header { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 12px; }
+      #story-outcome-snapshot .round2-service-status dl { margin-top:14px; }
+      #story-outcome-snapshot .round2-service-status dl>div { display:grid; grid-template-columns:90px minmax(0,1fr); gap:12px; padding:12px 0; border-top:1px solid var(--line); font-size:12px; }
+      #story-outcome-snapshot .round2-service-status dt { color:var(--muted); }
+      #story-outcome-snapshot .round2-service-status>p { margin-top:12px; color:var(--muted); font-size:11px; }
+      #story-outcome-snapshot .round2-verified { color:var(--round2-verified); }
+      #story-outcome-snapshot .round2-pending { color:var(--round2-pending); }
+      #story-outcome-snapshot .round2-started { color:var(--blue); font-weight:650; }
+      #story-outcome-snapshot .story-customer-update { padding:22px; background:#fff; }
+      #story-outcome-snapshot .story-customer-update::before { display:none; }
+      #story-outcome-snapshot .story-customer-update header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px 12px; }
+      #story-outcome-snapshot .story-customer-update .story-label { font-size:12px; }
+      #story-outcome-snapshot .round2-draft-state { padding:2px 7px; border:1px solid #d9c7a2; color:var(--round2-pending); font-size:10px; white-space:nowrap; }
+      #story-outcome-snapshot .story-customer-update blockquote { font-size:16px; line-height:1.9; }
+      @media(max-width:800px) {
+        #story-context-map .round2-context-inputs { grid-template-columns:1fr; gap:12px; }
+        #story-context-map .round2-context-merge::before { width:1px; height:12px; border:0; border-left:1px solid var(--line); margin-bottom:3px; }
+        #story-outcome-snapshot .round2-outcome-grid { grid-template-columns:1fr; gap:22px; }
+      }
+      @media(max-width:600px) {
+        #project-hero .round2-product-type>strong { font-size:13px; }
+        #story-context-map { padding:20px 14px; }
+        #story-context-map .round2-context-trigger { align-items:flex-start; gap:6px; }
+        #story-context-map .round2-context-trigger>.p2-diagram__label { width:100%; }
+        #story-context-map .round2-object-ref { margin-left:0; }
+        #story-context-map .round2-context-input { padding:16px; }
+        #story-context-map .round2-recovered-goal,#story-agent-execution .p2-execution__replanning { padding:18px 16px; }
+        #story-context-map .round2-recovered-goal h3 { font-size:22px; }
+        #story-outcome-snapshot .round2-service-status dl>div { grid-template-columns:72px minmax(0,1fr); gap:10px; }
+        #story-outcome-snapshot .story-customer-update { padding:18px 16px; }
+      }
+    </style>
+
+    <style id="p2-round3-diagram-system">
+      /* Four node roles, four type levels and one arrow grammar; scoped to A02–A04. */
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) { --r3-flow:#496e9f; --r3-association:#a7b9cf; --r3-verified:#287453; --r3-waiting:#956416; --r3-event:var(--rose); --r3-result:#edf3fc; padding:24px; font-size:13px; line-height:1.75; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) :is(.r3-meta,.r3-caption) { color:var(--muted); font-size:11px; line-height:1.75; letter-spacing:0; font-weight:500; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-caption { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; margin-bottom:20px; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-node { min-width:0; padding:16px; border:1px solid var(--line); border-radius:3px; background:#fff; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-node h3 { margin:0 0 10px; font-size:15px; font-weight:700; line-height:1.6; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-result { padding:18px 20px; border:1px solid #cad8eb; border-radius:3px; background:var(--r3-result); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-result h3 { margin:7px 0 10px; font-size:20px; font-weight:700; line-height:1.5; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) :is(.r3-arrow,.r3-down) { display:block; flex:none; fill:none; stroke:var(--r3-flow); stroke-width:2px; stroke-linecap:round; stroke-linejoin:round; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) :is(.r3-arrow,.r3-down) path { vector-effect:non-scaling-stroke; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-arrow { width:36px; height:18px; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-down { width:18px; height:30px; margin:8px auto; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-status-icon { display:block; flex:none; width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.7px; stroke-linecap:round; stroke-linejoin:round; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-state { display:flex; align-items:flex-start; gap:8px; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-state>.r3-status-icon { margin-top:4px; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-state strong { display:block; font-size:15px; line-height:1.6; font-weight:650; }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-state p { margin-top:6px; color:var(--muted); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-waiting { color:var(--r3-waiting); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-verified { color:var(--r3-verified); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-event { color:var(--r3-event); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-started { color:var(--blue); }
+      :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) .r3-boundary { margin-top:18px; color:var(--muted); font-size:11px; line-height:1.8; }
+      /* A02 uses the established A03 node and result-panel grammar. */
+      #story-context-map { --diagram-canvas:#fff; --r3-result:#f7f9fc; --r3-result-line:#d2deec; padding:24px 28px; background:var(--diagram-canvas); font-size:14px; line-height:1.75; }
+      #story-context-map .r3-caption { margin-bottom:26px; font-size:12px; font-weight:400; }
+      #story-context-map .r3-meta { color:var(--muted); font-size:12px; font-weight:400; line-height:1.75; }
+      #story-context-map .r3-trigger { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 14px; margin-bottom:18px; }
+      #story-context-map .r3-trigger strong { font-size:14px; font-weight:650; }
+      #story-context-map .r3-inputs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+      #story-context-map .r3-inputs .r3-node { display:flex; flex-direction:column; padding:16px 18px; }
+      #story-context-map .r3-node h3 { margin:0; color:var(--ink); font-size:15px; font-weight:650; line-height:1.65; }
+      #story-context-map .r3-node>p { margin-top:8px; font-size:13px; line-height:1.75; }
+      #story-context-map .r3-node>p.r3-meta { margin-top:10px; padding:0; font-size:12px; }
+      #story-context-map .r6-knowledge-heading { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+      #story-context-map .r6-knowledge-source { flex:none; color:var(--blue); font-size:11.5px; font-weight:650; line-height:1.5; white-space:nowrap; }
+      #story-context-map .r6-knowledge-node>p { margin-top:4px; line-height:1.65; }
+      #story-context-map .r6-knowledge-node>.r6-knowledge-boundary { color:var(--muted); font-size:11px; line-height:1.5; }
+      #story-context-map .r3-inputs dl { margin:8px 0 0; font-size:13px; line-height:1.75; }
+      #story-context-map .r3-inputs dl>div { display:grid; grid-template-columns:64px minmax(0,1fr); gap:8px; }
+      #story-context-map .r3-inputs dt { color:var(--muted); }
+      #story-context-map .r3-inputs dd { margin:0; }
+      #story-context-map .r3-associations { display:block; width:100%; height:32px; fill:none; stroke:var(--r3-association); stroke-width:1.3px; }
+      #story-context-map .r3-task-judgment { text-align:center; font-size:14px; font-weight:650; }
+      #story-context-map .r3-result { max-width:none; margin:0; padding:12px 20px; border-color:var(--r3-result-line); text-align:left; }
+      #story-context-map .r3-result h3 { margin:6px 0 10px; color:var(--ink); font-size:18px; font-weight:700; line-height:1.6; }
+      #story-context-map .r6-goal-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:0; font-size:13px; line-height:1.75; }
+      #story-context-map .r6-goal-fields>div { display:grid; grid-template-columns:56px minmax(0,1fr); gap:8px; align-items:baseline; }
+      #story-context-map .r6-goal-fields dt { color:var(--muted); font-size:12px; }
+      #story-context-map .r6-goal-fields dd { margin:0; }
+      #overview-architecture .r6-context-boundary { margin-top:12px; color:var(--muted); font-size:11px; line-height:1.8; }
+      #story-outcome-snapshot .round2-service-status dl>div { grid-template-columns:80px minmax(0,1fr); font-size:13px; padding:14px 0; }
+      #story-outcome-snapshot .round2-service-status dt { display:flex; align-items:flex-start; gap:6px; font-weight:650; }
+      #story-outcome-snapshot .round2-service-status dt.r3-verified { color:var(--r3-verified); }
+      #story-outcome-snapshot .round2-service-status dt.r3-started { color:var(--blue); }
+      #story-outcome-snapshot .round2-service-status dt.r3-waiting { color:var(--r3-waiting); }
+      #story-outcome-snapshot .round2-service-status dt .r3-status-icon { width:16px; height:16px; margin-top:3px; }
+      #story-outcome-snapshot .round2-service-status dd span { display:block; margin-top:3px; }
+      #story-outcome-snapshot .story-customer-update .story-label { color:var(--ink); font-size:15px; letter-spacing:0; }
+      #story-outcome-snapshot .story-customer-update blockquote { font-size:16px; }
+      #story-outcome-snapshot .story-customer-update>p { font-size:11px; }
+      @media(max-width:700px) {
+        :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) { padding:20px 14px; }
+        #story-context-map { padding:20px 14px; }
+        #story-context-map .r3-caption { margin-bottom:22px; font-size:11px; }
+        #story-context-map .r3-inputs { grid-template-columns:1fr; gap:12px; }
+        #story-context-map .r3-inputs .r3-node { padding:14px; }
+        #story-context-map .r3-associations { height:24px; }
+        #story-context-map .r3-associations .r3-desktop-merge { display:none; }
+        #story-context-map .r3-task-judgment { text-align:left; }
+        #story-context-map .r3-result { padding:14px; }
+        #story-context-map .r6-goal-fields { grid-template-columns:1fr; gap:8px; }
+      }
+    </style>
+    <style id="p2-round4-execution-trace">
+      /* A03: one ordered execution axis; only parallel queries branch locally. */
+      #story-agent-execution { --trace-flow:#496e9f; --trace-association:#a7b9cf; --trace-verified:#287453; --trace-waiting:#956416; padding:24px 28px; background:#fff; font-size:14px; line-height:1.75; }
+      #story-agent-execution .r4-caption { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; margin-bottom:26px; color:var(--muted); font-size:12px; }
+      #story-agent-execution .r4-trace { max-width:1040px; margin:auto; padding:0; list-style:none; }
+      #story-agent-execution .r4-step { display:grid; grid-template-columns:64px minmax(0,1fr); padding-bottom:30px; }
+      #story-agent-execution .r4-step:last-child { padding-bottom:0; }
+      #story-agent-execution .r4-rail { position:relative; }
+      #story-agent-execution .r4-number { position:relative; z-index:1; display:grid; place-items:center; width:28px; height:28px; border:1px solid #cad8eb; border-radius:50%; background:#fff; color:var(--trace-flow); font-size:12px; font-weight:650; }
+      #story-agent-execution .r4-step:not(:last-child) .r4-rail::before { content:''; position:absolute; left:13px; top:32px; bottom:-28px; border-left:2px solid var(--trace-flow); }
+      #story-agent-execution .r4-axis-tip { position:absolute; left:5px; bottom:-19px; display:block; width:18px; height:12px; fill:none; stroke:var(--trace-flow); stroke-width:2px; stroke-linecap:round; stroke-linejoin:round; }
+      #story-agent-execution .r4-body { min-width:0; }
+      #story-agent-execution .r4-body>h3 { margin:0 0 10px; color:var(--ink); font-size:16px; font-weight:700; line-height:1.75; }
+      #story-agent-execution .r4-role-line { display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 14px; }
+      #story-agent-execution h4 { margin:0; font-size:15px; font-weight:650; line-height:1.65; }
+      #story-agent-execution .r4-meta { color:var(--muted); font-size:12px; line-height:1.75; }
+      #story-agent-execution .r4-note { margin-top:6px; color:var(--muted); font-size:13px; }
+      #story-agent-execution .r4-goal { margin-top:6px; font-size:14px; }
+      #story-agent-execution .r4-parallel-label { margin-left:12px; color:var(--muted); font-size:12px; font-weight:500; }
+      #story-agent-execution .r4-branch-line { display:block; width:100%; height:30px; fill:none; stroke:var(--trace-association); stroke-width:1.3px; }
+      #story-agent-execution .r4-branch-symbols { position:absolute; width:0; height:0; overflow:hidden; }
+      #story-agent-execution .r4-branch-symbols path { fill:none; stroke:var(--trace-association); stroke-width:1.3px; stroke-linecap:round; stroke-linejoin:round; }
+      #story-agent-execution .r4-agents { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+      #story-agent-execution .r4-agent { min-width:0; display:flex; flex-direction:column; padding:16px 18px; border:1px solid var(--line); border-radius:3px; background:#fff; }
+      #story-agent-execution .r4-agent>p { margin-top:8px; font-size:13px; }
+      #story-agent-execution .r4-agent .r4-query-result { color:var(--muted); }
+      #story-agent-execution .r4-agent .r4-agent-action { margin-top:auto; padding-top:10px; font-size:14px; font-weight:650; }
+      #story-agent-execution .r4-agent .r4-agent-limit { margin-top:auto; padding-top:10px; color:var(--muted); font-size:12px; }
+      #story-agent-execution .r4-merge-note { text-align:center; color:var(--ink); font-size:13px; font-weight:650; }
+      #story-agent-execution .r4-state { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:650; }
+      #story-agent-execution .r4-icon { display:block; width:18px; height:18px; flex:none; fill:none; stroke:currentColor; stroke-width:1.7px; stroke-linecap:round; stroke-linejoin:round; }
+      #story-agent-execution .r4-waiting { color:var(--trace-waiting); }
+      #story-agent-execution .r4-event { color:var(--rose); }
+      #story-agent-execution .r4-verified { color:var(--trace-verified); }
+      #story-agent-execution .r4-started { color:var(--blue); }
+      #story-agent-execution .r4-state+p { margin-top:7px; }
+      #story-agent-execution .r4-event-flow { display:grid; grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr); gap:18px; align-items:center; }
+      #story-agent-execution .r4-event-flow p { margin-top:7px; }
+      #story-agent-execution .r4-event-flow .r5-result-return { align-items:flex-start; font-size:13px; font-weight:600; }
+      #story-agent-execution .r5-result-return>.r4-icon { margin-top:2px; }
+      #story-agent-execution .r4-arrow { display:block; width:36px; height:18px; fill:none; stroke:var(--trace-flow); stroke-width:2px; stroke-linecap:round; stroke-linejoin:round; }
+      #story-agent-execution :is(.r4-arrow,.r4-axis-tip) path { vector-effect:non-scaling-stroke; }
+      #story-agent-execution .r4-plan { padding:12px 20px; border:1px solid #d2deec; border-radius:3px; background:#f7f9fc; }
+      #story-agent-execution .r4-plan>h4 { margin-bottom:10px; font-size:18px; font-weight:700; line-height:1.6; }
+      #story-agent-execution .r4-plan-diff { display:grid; grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr); gap:18px; align-items:center; }
+      #story-agent-execution .r4-plan-diff h5 { margin:0 0 5px; color:var(--ink); font-size:15px; font-weight:700; }
+      #story-agent-execution .r4-plan-diff>div:last-child h5 { color:var(--blue); }
+      #story-agent-execution .r4-plan-diff strong { font-size:14px; font-weight:650; }
+      #story-agent-execution .r4-plan-diff p { margin-top:5px; font-size:13px; }
+      #story-agent-execution .r4-plan-result { margin-top:10px; padding-top:9px; border-top:1px solid var(--line); }
+      #story-agent-execution .r4-plan-result>p { margin-top:5px; font-size:13px; }
+      #story-agent-execution .r4-plan-result>.r4-state { font-size:15px; font-weight:700; }
+      #story-agent-execution .r4-plan-result>p:nth-child(3) { color:var(--muted); }
+      #story-agent-execution .r4-plan-result>.r4-meta { margin-top:7px; font-size:12px; }
+      #story-agent-execution .r4-footnote { max-width:1040px; margin:24px auto 0; color:var(--muted); font-size:11px; line-height:1.8; }
+      @media(max-width:700px) {
+        #story-agent-execution { padding:20px 14px; }
+        #story-agent-execution .r4-caption { font-size:11px; margin-bottom:22px; }
+        #story-agent-execution .r4-step { grid-template-columns:38px minmax(0,1fr); padding-bottom:28px; }
+        #story-agent-execution .r4-step:not(:last-child) .r4-rail::before { bottom:-26px; }
+        #story-agent-execution .r4-axis-tip { bottom:-17px; }
+        #story-agent-execution .r4-parallel-label { display:block; margin:2px 0 0; }
+        #story-agent-execution .r4-agents { grid-template-columns:1fr; gap:12px; }
+        #story-agent-execution .r4-agent { padding:14px; }
+        #story-agent-execution .r4-branch-line { display:none; }
+        #story-agent-execution .r4-agents { margin-top:12px; }
+        #story-agent-execution .r4-merge-note { margin-top:10px; }
+        #story-agent-execution :is(.r4-event-flow,.r4-plan-diff) { grid-template-columns:1fr; gap:12px; }
+        #story-agent-execution :is(.r4-event-flow,.r4-plan-diff)>.r4-arrow { justify-self:center; width:24px; transform:rotate(90deg); }
+        #story-agent-execution .r4-plan { padding:14px; }
+        #story-agent-execution .r4-plan>h4 { font-size:18px; }
+      }
+    </style>
+    <style id="p2-round8-product-design">
+      /* B01/B02 only: story surfaces, comparison dividers, role identity, and plan phases. */
+      :is(#design-overview,#design-resolution) { --r7-flow:#496e9f; --r7-association:#a7b9cf; --r7-panel:#f7f9fc; --r9-surface:#f7f8fa; --r7-result-line:#d2deec; --r7-verified:#287453; --r7-waiting:#956416; }
+      :is(#design-overview,#design-resolution) .prd-section-body { font-size:14px; line-height:1.8; }
+      :is(#design-overview,#design-resolution) .prd-subsection { margin-top:38px; }
+      :is(#design-overview,#design-resolution) .prd-subsection>h3 { font-size:20px; line-height:1.65; margin-bottom:16px; }
+      :is(#design-overview,#design-resolution) .prd-subsection p { color:var(--ink); }
+      :is(#design-overview,#design-resolution) h4 { margin:0 0 8px; color:var(--ink); font-size:15px; font-weight:650; line-height:1.65; }
+      :is(#design-overview,#design-resolution) :is(.r7-meta,.r7-note) { color:var(--muted); font-size:12px; line-height:1.75; }
+      :is(#design-overview,#design-resolution) .r7-note { margin-top:12px; }
+      :is(#design-overview,#design-resolution) .r7-lead { font-weight:650; }
+      :is(#design-overview,#design-resolution) ul { margin:10px 0 0; padding-left:18px; }
+      :is(#design-overview,#design-resolution) li+li { margin-top:5px; }
+      :is(#design-overview,#design-resolution) .r7-two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+      :is(#design-overview,#design-resolution) .r7-two-col>article { min-width:0; }
+      :is(#design-overview,#design-resolution) .r7-rows { margin:18px 0 0; }
+      :is(#design-overview,#design-resolution) .r7-rows>div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:20px; padding:14px 0; border-top:1px solid var(--line); }
+      :is(#design-overview,#design-resolution) .r7-rows dt { color:var(--ink); font-size:14px; font-weight:650; }
+      :is(#design-overview,#design-resolution) .r7-rows dt small { display:block; margin-top:4px; color:var(--muted); font-size:12px; font-weight:400; }
+      :is(#design-overview,#design-resolution) .r7-rows dd { margin:0; color:var(--ink); font-size:14px; overflow-wrap:anywhere; }
+      :is(#design-overview,#design-resolution) .workflow-details summary { color:var(--ink); }
+      :is(#design-overview,#design-resolution) .workflow-details p { font-size:13px; }
+      :is(#design-overview,#design-resolution) .workflow-details .r7-rows dd { font-size:13px; }
+      #design-overview .r7-scenario { padding:22px 24px; border-radius:3px; background:var(--r9-surface); }
+      #design-overview .r7-question { margin:7px 0 14px; font-size:18px; font-weight:650; line-height:1.65; }
+      #design-overview .r7-facts { font-size:14px; }
+      #design-overview .r7-current { margin-top:14px; color:var(--muted); font-size:13px; }
+      #design-overview .r7-scenario .r7-conclusion { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-weight:650; }
+      #design-overview .r7-foundation { font-size:14px; }
+      #design-overview .r7-foundation>span { color:var(--blue); font-weight:650; }
+      #design-overview .r7-capabilities>div { grid-template-columns:245px minmax(0,1fr); }
+      #design-overview .r7-scope { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+      #design-overview .r7-scope article { padding-top:14px; border-top:1px solid var(--line); }
+      #design-overview .r7-scope p,#design-overview .r7-scope ul { font-size:13px; line-height:1.75; }
+      #design-resolution .r7-evidence { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; list-style:none; padding:16px 0; margin:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+      #design-resolution .r7-evidence>li { position:relative; margin:0; padding:10px 12px; min-width:0; border:1px solid var(--line); border-radius:3px; background:white; }
+      #design-resolution .r7-evidence span,#design-resolution .r7-evidence strong { display:block; }
+      #design-resolution .r7-evidence strong { margin-top:4px; font-size:14px; font-weight:650; }
+      #design-resolution .r7-chain-arrow { display:block; width:18px; height:12px; fill:none; stroke:var(--r7-flow); stroke-width:2px; stroke-linecap:round; stroke-linejoin:round; }
+      #design-resolution .r7-chain-arrow path { vector-effect:non-scaling-stroke; }
+      #design-resolution .r7-evidence .r7-chain-arrow { position:absolute; right:-18px; top:32px; width:16px; }
+      #design-resolution .r7-criteria { gap:0; margin-top:20px; }
+      #design-resolution .r7-criteria article { padding:0 24px; }
+      #design-resolution .r7-criteria article:first-child { padding-left:0; }
+      #design-resolution .r7-criteria article:last-child { padding-right:0; border-left:1px solid var(--line); }
+      #design-resolution .r7-criteria ul { font-size:13px; line-height:1.75; }
+      #design-resolution .r7-result { margin-top:18px; padding:16px 20px; border:1px solid var(--r7-result-line); border-radius:3px; background:var(--r7-panel); }
+      #design-resolution .r7-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; margin:12px 0 0; }
+      #design-resolution .r7-fields>div { display:grid; grid-template-columns:84px minmax(0,1fr); gap:10px; align-items:baseline; min-width:0; }
+      #design-resolution .r7-fields dt { color:var(--muted); font-size:12px; }
+      #design-resolution .r7-fields dd { margin:0; color:var(--ink); font-size:13px; line-height:1.75; overflow-wrap:anywhere; }
+      #design-resolution .r7-dispatch { margin:18px 0; }
+      #design-resolution .r7-dispatch figcaption { color:var(--muted); font-size:12px; }
+      #design-resolution .r7-plan-purpose { margin-top:6px; font-size:14px; font-weight:650; }
+      #design-resolution .r7-fork { display:block; width:100%; height:30px; fill:none; stroke:var(--r7-association); stroke-width:1.3px; }
+      #design-resolution .r7-node { padding:16px 18px; border:1px solid var(--line); border-radius:3px; background:white; }
+      #design-resolution .r7-node p { margin-top:8px; font-size:13px; line-height:1.75; }
+      #design-resolution .r7-contracts { margin-top:18px; }
+      #design-resolution .r7-contract { margin:0; }
+      #design-resolution .r7-contract>div { margin-top:12px; }
+      #design-resolution .r7-contract dt { color:var(--muted); font-size:12px; }
+      #design-resolution .r7-contract dd { margin:3px 0 0; color:var(--ink); font-size:13px; line-height:1.75; }
+      #design-resolution .r7-state-flow { margin:18px 0; padding:20px; border:1px solid var(--line); border-radius:4px; background:white; }
+      #design-resolution .r7-state-flow figcaption { margin-bottom:18px; color:var(--muted); font-size:12px; }
+      #design-resolution .r7-states { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; margin:0; padding:0; list-style:none; }
+      #design-resolution .r7-states>li { position:relative; margin:0; min-width:0; }
+      #design-resolution .r7-states h4 { margin:6px 0; font-size:14px; }
+      #design-resolution .r7-states p { font-size:13px; line-height:1.75; }
+      #design-resolution .r7-states .r7-chain-arrow { position:absolute; right:-18px; top:5px; }
+      #design-resolution .r7-status { font-size:12px; font-weight:650; }
+      #design-resolution .r7-running { color:var(--blue); }
+      #design-resolution .r7-waiting { color:var(--r7-waiting); }
+      #design-resolution .r7-resumed { color:var(--rose); }
+      #design-resolution .r7-verified { color:var(--r7-verified); }
+      #design-resolution .r7-record { padding:16px 20px; border:1px solid var(--line); border-radius:3px; background:var(--r9-surface); }
+      #design-resolution .r7-table,#design-resolution #workflow-tool-contracts .prd-table { width:100%; margin:18px 0; border-collapse:collapse; table-layout:fixed; font-size:13px; line-height:1.75; }
+      #design-resolution .r7-table caption,#design-resolution #workflow-tool-contracts .prd-table caption { margin:0 0 10px; text-align:left; color:var(--muted); font-size:12px; }
+      #design-resolution .r7-table th,#design-resolution .r7-table td,#design-resolution #workflow-tool-contracts .prd-table th,#design-resolution #workflow-tool-contracts .prd-table td { padding:13px 12px; border:0; border-bottom:1px solid var(--line); color:var(--ink); font-size:13px; font-weight:400; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+      #design-resolution .r7-table thead th,#design-resolution #workflow-tool-contracts .prd-table thead th { color:var(--muted); background:#f7f8fa; font-size:12px; }
+      #design-resolution .r7-table tbody th { font-weight:650; }
+      #design-resolution #workflow-tool-contracts .prd-table th:first-child { width:20%; }
+      #design-resolution .r7-main-result { margin-top:16px; font-size:14px; font-weight:650; }
+      #design-resolution .r7-variant { margin:20px 0; padding-top:16px; border-top:1px solid var(--line); }
+      #design-resolution .r7-checks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding:0; margin:12px 0; list-style:none; }
+      #design-resolution .r7-checks li { margin:0; padding:8px 0; border-top:1px solid var(--line); font-size:13px; }
+      #design-resolution .r7-choice { font-size:15px; }
+      @media(max-width:800px) {
+        #design-resolution .r7-states { grid-template-columns:1fr; gap:24px; }
+        #design-resolution .r7-states>li:not(:last-child) { padding-bottom:10px; }
+        #design-resolution .r7-states .r7-chain-arrow { top:auto; bottom:-15px; right:auto; left:0; transform:rotate(90deg); }
+      }
+      @media(max-width:600px) {
+        :is(#design-overview,#design-resolution) .prd-subsection { margin-top:30px; }
+        :is(#design-overview,#design-resolution) .prd-subsection>h3 { font-size:19px; }
+        :is(#design-overview,#design-resolution) .r7-two-col,#design-overview .r7-scope { grid-template-columns:1fr; gap:18px; }
+        :is(#design-overview,#design-resolution) .r7-rows>div,#design-overview .r7-capabilities>div { grid-template-columns:1fr; gap:6px; }
+        :is(#design-overview,#design-resolution) .r7-rows { margin-top:16px; }
+        #design-resolution .r7-evidence { grid-template-columns:1fr; gap:22px; }
+        #design-resolution .r7-evidence>li:not(:last-child) { padding-bottom:8px; }
+        #design-resolution .r7-evidence .r7-chain-arrow { top:auto; bottom:-12px; left:0; right:auto; transform:rotate(90deg); }
+        #design-resolution .r7-fields { grid-template-columns:1fr; gap:10px; }
+        #design-resolution .r7-fields>div { grid-template-columns:78px minmax(0,1fr); gap:8px; }
+        #design-resolution .r7-node { padding:14px; }
+        #design-resolution .r7-result,#design-resolution .r7-record,#design-resolution .r7-state-flow { padding:16px 14px; }
+        #design-resolution .r7-fork { display:none; }
+        #design-resolution .r7-dispatch .r7-two-col { margin-top:14px; }
+        #design-resolution .r7-checks { grid-template-columns:1fr; gap:0; }
+        #design-resolution .r7-table,#design-resolution .r7-table tbody,#design-resolution .r7-table tr,#design-resolution .r7-table th,#design-resolution .r7-table td,#design-resolution #workflow-tool-contracts .prd-table,#design-resolution #workflow-tool-contracts .prd-table tbody,#design-resolution #workflow-tool-contracts .prd-table tr,#design-resolution #workflow-tool-contracts .prd-table th,#design-resolution #workflow-tool-contracts .prd-table td { display:block; width:100%; }
+        #design-resolution .r7-table thead,#design-resolution #workflow-tool-contracts .prd-table thead { display:none; }
+        #design-resolution .r7-table colgroup { display:none; }
+        #design-resolution .r7-table caption,#design-resolution #workflow-tool-contracts .prd-table caption { display:block; width:100%; }
+        #design-resolution .r7-table tr,#design-resolution #workflow-tool-contracts .prd-table tr { padding:14px 0; border-top:1px solid var(--line); }
+        #design-resolution .r7-table th,#design-resolution .r7-table td,#design-resolution #workflow-tool-contracts .prd-table th,#design-resolution #workflow-tool-contracts .prd-table td { padding:5px 0; border:0; }
+        #design-resolution .r7-table th::before,#design-resolution .r7-table td::before,#design-resolution #workflow-tool-contracts .prd-table th::before,#design-resolution #workflow-tool-contracts .prd-table td::before { content:attr(data-label); display:block; margin-bottom:3px; color:var(--muted); font-size:12px; font-weight:400; }
+        #design-resolution #workflow-tool-contracts .prd-table th:first-child { width:100%; }
+      }
+
+      :is(#design-overview,#design-resolution) { --r8-main:#2856a2; --r8-specialist:#237e87; }
+      :is(#design-overview,#design-resolution) .prd-subsection { margin-top:44px; }
+      :is(#design-overview,#design-resolution) .r7-conclusion { font-size:14px; font-weight:650; margin-top:18px; }
+      :is(#design-overview,#design-resolution) .r8-kicker { display:block; color:var(--muted); font-size:12px; line-height:1.75; }
+      :is(#design-overview,#design-resolution) .r8-role { display:inline-flex; align-items:center; gap:7px; vertical-align:baseline; flex-wrap:wrap; }
+      :is(#design-overview,#design-resolution) .r8-role--main { color:var(--r8-main); font-weight:700; }
+      :is(#design-overview,#design-resolution) .r8-role--specialist { color:var(--r8-specialist); font-weight:650; }
+      :is(#design-overview,#design-resolution) .r8-role-icon { width:18px; height:18px; flex:none; fill:none; stroke:currentColor; stroke-width:1.5px; stroke-linecap:round; stroke-linejoin:round; }
+      :is(#design-overview,#design-resolution) .r8-role small { font-size:12px; font-weight:500; line-height:1.65; }
+      :is(#design-overview,#design-resolution) p .r8-role,:is(#design-overview,#design-resolution) dd .r8-role { gap:4px; }
+      :is(#design-overview,#design-resolution) p .r8-role-icon,:is(#design-overview,#design-resolution) dd .r8-role-icon { width:14px; height:14px; }
+      #design-overview .r7-current>span { display:inline-block; margin:0 10px 0 0; }
+      #design-overview .r7-waiting { color:#956416; }
+      #design-overview .r8-knowledge-source { padding:12px 0; border-top:1px solid var(--line); background:white; }
+      #design-overview .r8-knowledge-source .r8-source-title { color:var(--blue); font-weight:650; font-size:14px; }
+      #design-overview .r8-knowledge-source>p+p { margin-top:6px; font-size:13px; line-height:1.8; }
+      #design-overview .r8-knowledge-source>p.r7-note { font-size:12px; color:var(--muted); }
+      #design-overview .r8-foundation-path { margin-top:14px; font-size:13px; }
+      #design-overview .r8-capabilities { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; margin-top:24px; }
+      #design-overview .r8-capabilities article { padding:0 20px; min-width:0; }
+      #design-overview .r8-capabilities article:first-child { padding-left:0; }
+      #design-overview .r8-capabilities article:last-child { padding-right:0; }
+      #design-overview .r8-capabilities article+article { border-left:1px solid var(--line); }
+      #design-overview .r8-capabilities .r8-kicker { font-size:11px; }
+      #design-overview .r8-capabilities h4 { margin:8px 0; font-size:16px; }
+      #design-overview .r8-capabilities p { font-size:13px; line-height:1.8; }
+      #design-overview .r8-sources { margin-top:16px; }
+      #design-overview .r8-sources article { display:grid; grid-template-columns:180px minmax(0,1fr) 175px; align-items:start; gap:20px; padding:16px 0; }
+      #design-overview .r8-sources article+article { border-top:1px solid var(--line); }
+      #design-overview .r8-sources h4 { margin:0 0 4px; font-size:14px; }
+      #design-overview .r8-sources p { font-size:13px; line-height:1.8; }
+      #design-overview .r8-sources .r8-source-action { color:var(--blue); font-weight:550; }
+      #design-overview .r8-slices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+      #design-overview .r8-slices article { padding:18px 20px; border:1px solid var(--line); border-radius:3px; background:white; }
+      #design-overview .r8-slices h4 { font-size:16px; line-height:1.65; }
+      #design-overview .r8-slices h4>span { display:block; color:var(--muted); font-size:12px; font-weight:500; margin-top:4px; }
+      #design-overview .r8-slices p,#design-overview .r8-slices li { font-size:13px; line-height:1.8; }
+      #design-overview .r8-flow-relation { margin-top:18px; padding:14px 0; }
+      #design-overview .r8-flow-relation>p { font-size:14px; }
+      #design-overview .r8-flow-relation>p+p { color:var(--muted); font-size:13px; margin-top:6px; }
+      #design-overview .r8-scope-boundary { margin-top:10px; }
+      #design-resolution .r8-association-note { margin-top:14px; font-size:13px; color:var(--muted); line-height:1.8; }
+      #design-resolution .r8-dispatch { margin:20px 0; }
+      #design-resolution .r8-dispatch figcaption { font-size:12px; color:var(--muted); margin-bottom:16px; }
+      #design-resolution .r8-orchestrator { width:min(100%,620px); margin:0 auto; }
+      #design-resolution .r8-plan-label { color:var(--muted); font-size:12px; }
+      #design-resolution .r8-fork { width:100%; height:32px; display:block; fill:none; stroke:var(--r7-association); stroke-width:1.3px; }
+      #design-resolution .r8-fork-mobile { display:none; }
+      #design-resolution .r8-fork marker path { stroke:var(--r7-association); stroke-width:1.3px; }
+      #design-resolution .r8-dispatch-result { margin-top:14px; font-size:13px; }
+      #design-resolution .r8-professional-pair .r8-role { display:flex; }
+      #design-resolution .r8-professional-pair .r8-role small { margin-left:auto; }
+      #design-resolution .r8-plans { margin-top:20px; }
+      #design-resolution .r8-phase { padding:18px 0 0; border-top:1px solid var(--line); }
+      #design-resolution .r8-phase>header { margin-bottom:14px; }
+      #design-resolution .r8-phase>header h4 { font-size:16px; }
+      #design-resolution .r8-phase>header p { color:var(--muted); font-size:12px; }
+      #design-resolution .r8-business-shift { margin:18px 0; padding:12px 0; font-size:13px; }
+      #design-resolution .r8-business-shift small { display:block; margin-top:5px; color:var(--muted); font-size:12px; }
+      #design-resolution .r8-v2-contract { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+      #design-resolution .r8-v2-contract>div { margin-top:6px; }
+      #design-resolution .r8-refund-v2>p.r7-note { color:var(--muted); font-size:12px; }
+      #design-resolution .r8-refund-v2 a { color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
+      #design-resolution .r8-tool-contracts { margin-top:24px; padding:18px; border-radius:3px; background:var(--r9-surface); }
+      #design-resolution .r8-tool-contracts h4 { font-size:15px; }
+      #design-resolution #workflow-tool-contracts .prd-table { margin:10px 0 0; }
+      #design-resolution #workflow-tool-contracts .prd-table tbody { background:white; }
+      #design-resolution #workflow-tool-contracts .prd-table :is(th,td) { padding:16px 12px; }
+      #design-resolution #workflow-tool-contracts .prd-table thead th { background:var(--r9-surface); }
+      #design-resolution #workflow-tool-contracts .prd-table tbody th { background:white; font-weight:650; }
+      #design-resolution .r9-execution-boundaries { margin-top:18px; }
+      #design-resolution .r9-execution-boundaries p { font-size:13px; line-height:1.8; }
+      #design-resolution .r9-execution-boundaries p+p { margin-top:6px; }
+      #design-resolution .r8-event-binding { margin:20px 0 16px; }
+      #design-resolution .r8-event-binding figcaption { font-size:12px; color:var(--muted); margin-bottom:12px; }
+      #design-resolution .r8-event-path { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; }
+      #design-resolution .r8-event-path>div { position:relative; min-width:0; }
+      #design-resolution .r8-event-path strong { font-size:13px; line-height:1.8; }
+      #design-resolution .r8-event-path p { font-size:12px; color:var(--muted); margin-top:4px; }
+      #design-resolution .r8-event-path .r7-chain-arrow { position:absolute; top:7px; right:-22px; width:18px; stroke:var(--r7-association); stroke-width:1.3px; }
+      #design-resolution .r8-event-checks { border-top:1px solid var(--line); padding-top:14px; gap:24px; }
+      #design-resolution .r8-event-checks h4 { font-size:14px; }
+      #design-resolution .r8-event-checks p { font-size:13px; line-height:1.8; }
+      #design-resolution .r8-decision-key { color:var(--r8-main); font-weight:650; }
+      #design-resolution .r8-tech-choice { display:grid; grid-template-columns:1.25fr 1fr; gap:0; margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
+      #design-resolution .r8-tech-choice>article { padding-right:24px; }
+      #design-resolution .r8-tech-choice>article+article { padding:0 0 0 24px; border-left:1px solid var(--line); }
+      #design-resolution .r8-tech-choice h4 { font-size:16px; }
+      #design-resolution .r8-tech-choice p { font-size:13px; line-height:1.8; margin-top:12px; }
+      #design-resolution .r8-tech-needs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; margin:16px 0 0; }
+      #design-resolution .r8-tech-needs>div { margin-top:0; }
+      #design-resolution .r8-tech-needs dt { color:var(--ink); font-size:14px; font-weight:650; }
+      #design-resolution .r8-tech-needs dd { margin:3px 0 0; font-size:13px; line-height:1.8; }
+      #design-resolution .r8-tech-tradeoff { margin-top:18px; font-size:13px; line-height:1.8; }
+      #design-resolution .r8-references { margin-top:14px; font-size:12px; color:var(--muted); line-height:1.8; }
+      #design-resolution .r8-references a { color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
+      @media(max-width:600px) {
+        :is(#design-overview,#design-resolution) .prd-subsection { margin-top:34px; }
+        #design-overview .r8-capabilities,#design-overview .r8-slices,#design-resolution .r8-v2-contract,#design-resolution .r8-tech-choice { grid-template-columns:1fr; gap:18px; }
+        #design-overview .r8-slices article { padding:14px; }
+        #design-overview .r7-scenario { padding:18px 16px; }
+        #design-overview .r7-question { font-size:17px; }
+        #design-overview .r8-capabilities { gap:16px; }
+        #design-overview .r8-capabilities article { padding:0; }
+        #design-overview .r8-capabilities article+article { padding-top:16px; border-left:0; border-top:1px solid var(--line); }
+        #design-resolution .r7-criteria article { padding:0; }
+        #design-resolution .r7-criteria article:last-child { padding:16px 0 0; border-left:0; border-top:1px solid var(--line); }
+        #design-resolution .r8-tool-contracts { padding:14px; }
+        #design-resolution #workflow-tool-contracts .prd-table :is(th,td) { padding:6px 12px; }
+        #design-resolution #workflow-tool-contracts .prd-table colgroup { display:none; }
+        #design-overview .r8-sources article { grid-template-columns:1fr; gap:7px; padding:14px 0; }
+        #design-overview .r8-sources .r8-kicker { font-size:11px; }
+        #design-overview .r8-slices h4 { font-size:16px; }
+        #design-resolution .r8-orchestrator { width:100%; }
+        #design-resolution .r8-fork { height:24px; }
+        #design-resolution .r8-fork line:not(:first-of-type):not(.r8-fork-mobile) { display:none; }
+        #design-resolution .r8-fork .r8-fork-mobile { display:block; }
+        #design-resolution .r8-professional-pair { margin-left:12px; padding-left:14px; border-left:1px solid var(--r7-association); gap:14px; }
+        #design-resolution .r8-professional-pair>article { position:relative; }
+        #design-resolution .r8-professional-pair>article::before { content:""; position:absolute; left:-15px; top:28px; width:14px; border-top:1px solid var(--r7-association); }
+        #design-resolution .r8-professional-pair .r8-role { gap:5px; }
+        #design-resolution .r8-professional-pair .r8-role small { display:block; width:100%; margin-left:23px; font-size:11px; }
+        #design-resolution .r8-phase { padding-top:14px; }
+        #design-resolution .r8-v2-contract { gap:12px; }
+        #design-resolution .r8-event-path { grid-template-columns:1fr; gap:24px; }
+        #design-resolution .r8-event-path .r7-chain-arrow { top:auto; bottom:-18px; left:0; right:auto; transform:rotate(90deg); }
+        #design-resolution .r8-event-checks { gap:16px; }
+        #design-resolution .r8-tech-choice { gap:18px; }
+        #design-resolution .r8-tech-choice>article { padding:0; }
+        #design-resolution .r8-tech-choice>article+article { padding:16px 0 0; border-left:0; border-top:1px solid var(--line); }
+        #design-resolution .r8-tech-needs { grid-template-columns:1fr; gap:16px; }
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#project-tabs-anchor">跳到项目内容</a>
@@ -1104,13 +1607,13 @@
     </header>
     <main>
       <section aria-labelledby="project-title" class="case-hero p2-flow" id="project-hero">
-<div class="case-hero-copy"><p class="section-kicker">项目 02｜AI 智能客服与多 Agent 服务工作流</p><h1 id="project-title"><span>第三次催退款，</span><span class="text-accent">接着办上次没办完的事。</span></h1><p class="case-subtitle">客户第三次追问同一笔退款。AI 关联此前的客服承诺、物流与仓库记录，恢复未完成的核查任务，再由仓库与退款 Agent 接续处理并更新进展。</p><ul aria-label="核心产品能力" class="story-capabilities"><li>Context Linking</li><li>Multi-Agent Workflow</li><li>Dynamic Replanning</li></ul></div>
+<div class="case-hero-copy"><p class="section-kicker round2-product-type"><span>项目 02</span><strong>售后智能客服 · Agent 服务编排</strong></p><h1 id="project-title"><span>第三次催退款，</span><span class="text-accent">接着办上次没办完的事。</span></h1><p class="case-subtitle">客户第三次追问同一笔退款。AI 结合历史会话、可用知识依据与当前业务状态，恢复未完成的服务目标；再由 Service Orchestrator 协调仓库与退款 Agent，依据核实后的业务结果调整计划、接续处理。</p><ul aria-label="核心产品能力" class="story-capabilities"><li>Context Linking</li><li>Multi-Agent Workflow</li><li>Dynamic Replanning</li></ul></div>
 <figure aria-labelledby="story-hero-title" class="story-hero-preview">
 <figcaption><span class="story-label">SCENARIO SIMULATION / 产品设计模拟</span><span class="story-id">续办后 · 阶段快照</span></figcaption>
 <div class="story-hero-question"><span>周五 · 第三次咨询</span><h2 id="story-hero-title">“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</h2></div>
 <div class="story-hero-context"><strong>三次咨询，关联同一笔退款</strong><small>CONV-001 · CONV-002 · CONV-003 / RET-001</small></div>
-<ol aria-label="续办后的模拟阶段进展，非第三次追问时的初始状态" class="story-hero-progress"><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><strong>三次会话已关联</strong><small>恢复未完成任务</small></li><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><strong>仓库核查完成</strong><small>Warehouse Agent · WH-201</small></li><li class="is-active"><span aria-hidden="true" class="story-step-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><strong>退款异常处理已启动</strong><small>Refund Agent · RF-301</small></li></ol>
-<p class="story-hero-end">续办后的阶段进展<span>退款到账仍待确认</span></p>
+<ol aria-label="续办后的模拟阶段进展，非第三次追问时的初始状态" class="story-hero-progress"><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><strong>服务目标已恢复</strong><small>关联三次会话 · RET-001</small></li><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><strong>仓库核查完成</strong><small>Warehouse Agent · WH-201</small></li><li class="is-active"><span aria-hidden="true" class="story-step-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><strong>退款异常处理已启动</strong><small>Refund Agent · RF-301 已启动</small></li></ol>
+<p class="story-hero-end">续办后 · 模拟快照<span>实际退款尚未发起 · 消息未真实发送</span></p>
 </figure>
 </section>
       <div class="project-tabs-shell" id="project-tabs-anchor">
@@ -1128,7 +1631,7 @@
               <li><a class="toc-item" href="#overview-architecture"><span class="toc-index">A02</span><span class="toc-label">关联业务，恢复任务<small>恢复未完成任务</small></span><span aria-hidden="true">→</span></a></li>
               <li><a class="toc-item" href="#overview-workflows"><span class="toc-index">A03</span><span class="toc-label">Agent 协作与重规划<small>并行执行，按结果改变计划</small></span><span aria-hidden="true">→</span></a></li>
               <li><a class="toc-item" href="#overview-decisions"><span class="toc-index">A04</span><span class="toc-label">从执行到服务进展<small>服务已推进，到账待确认</small></span><span aria-hidden="true">→</span></a></li>
-            </ol></nav>
+            </ol><a class="overview-gallery-shortcut" href="#product-gallery">查看三个核心产品界面 <span aria-hidden="true">→</span></a></nav>
           </aside>
         </div></div>
         <section aria-labelledby="story-problem-title" class="case-section overview-section" id="overview-problem">
@@ -1138,94 +1641,150 @@
 <figcaption class="story-figure-caption" id="story-timeline-caption"><span class="story-label">三次咨询，同一笔退货 / CONVERSATION TIMELINE</span><span>RET-001 · 模拟会话</span></figcaption>
 <p class="story-timeline-hint">周一 → 周三 → 周五（当前） · 可横向查看</p><div aria-label="同一笔退货的三次咨询，横向时间轴" class="story-timeline-viewport" tabindex="0"><ol aria-label="同一笔退货在周一、周三、周五的连续咨询" class="story-conversations">
 <li><div class="story-conversation-time" data-step="01"><strong>周一</strong><span class="story-id">CONV-001</span><span aria-hidden="true" class="story-conversation-node"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span></div><span aria-hidden="true" class="story-time-interval">再次追问 →</span><div class="story-conversation-body"><blockquote>“退货寄回去之后一般多久退款？”</blockquote><p class="story-conversation-result">客服解释正常退款周期。</p></div></li>
-<li><div class="story-conversation-time" data-step="02"><strong>周三</strong><span class="story-id">CONV-002</span><span aria-hidden="true" class="story-conversation-node"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span></div><span aria-hidden="true" class="story-time-interval">继续催办 →</span><div class="story-conversation-body"><blockquote>“物流显示签收了，怎么还没退款？”</blockquote><p class="story-conversation-result">物流已投递，仓库未确认收货。客服承诺安排仓库核查，<strong>但未找到已关联的有效核查任务。</strong></p></div></li>
-<li class="is-current"><div class="story-conversation-time" data-step="03"><strong>周五 <em>当前 · 第三次催问</em></strong><span class="story-id">CONV-003</span><span aria-hidden="true" class="story-conversation-node"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg><span class="story-resume-event"></span></span></div><div class="story-conversation-body"><blockquote>“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</blockquote><p class="story-conversation-result"><span class="story-id">CASE-001 · 同一笔退货</span><span class="story-resume-action"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>恢复续办：继续上次未完成的仓库核查。</span></p></div></li>
+<li><div class="story-conversation-time" data-step="02"><strong>周三</strong><span class="story-id">CONV-002</span><span aria-hidden="true" class="story-conversation-node"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span></div><span aria-hidden="true" class="story-time-interval">继续催办 →</span><div class="story-conversation-body"><blockquote>“物流显示签收了，怎么还没退款？”</blockquote><p class="story-conversation-result">物流已投递，仓库未确认收货。<strong class="round2-promise">客服承诺：“帮您安排仓库核查”。</strong></p></div></li>
+<li class="is-current"><div class="story-conversation-time" data-step="03"><strong>周五 <em>当前 · 第三次催问</em></strong><span class="story-id">CONV-003</span><span aria-hidden="true" class="story-conversation-node"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg><span class="story-resume-event"></span></span></div><div class="story-conversation-body"><blockquote>“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</blockquote><p class="story-conversation-result"><span class="story-id">CASE-001 · 同一笔退货</span><strong class="round2-task-gap">周五复核：未找到有效可追踪的关联核查任务记录。</strong><span class="story-resume-action"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>恢复续办：继续上次未完成的仓库核查。</span></p></div></li>
 </ol></div>
 </figure>
-<p class="story-judgment"><span>产品判断</span>重复咨询是同一任务的恢复信号，而不是新的问答起点。</p>
+<p class="story-judgment"><span>产品判断</span>周三的核查承诺缺少可追踪的任务接续；周五复核未找到有效关联记录，不代表此前从未核查。</p>
 </div>
 </section>
         <section aria-labelledby="story-context-title" class="case-section overview-section" id="overview-architecture">
 <div class="case-container">
-<header class="section-header"><p class="section-kicker">A02｜Service Context Linking</p><h2 id="story-context-title">三次咨询，AI 找回上次没做完的事。</h2></header>
-<figure aria-labelledby="story-context-caption" class="p2-diagram p2-diagram--reconstruction" id="story-context-map">
-<svg aria-hidden="true" class="p2-diagram__symbols" focusable="false"><defs><marker id="p2-reconstruction-arrow" markerheight="8" markerunits="userSpaceOnUse" markerwidth="8" orient="auto" refx="4" refy="4" viewbox="0 0 8 8"><path d="M1 1 4 4 1 7"></path></marker></defs></svg>
-<figcaption class="p2-diagram__caption" id="story-context-caption"><span class="p2-diagram__label">从分散记录恢复服务任务 / SERVICE TASK RECONSTRUCTION</span><span class="p2-diagram__meta">产品设计模拟 / 初始快照</span></figcaption>
-<div class="p2-diagram__body"><div class="p2-diagram__stage"><header class="p2-diagram__phase"><span>01</span><strong><svg aria-hidden="true" class="p2-diagram__icon" data-icon="message" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg>历史触点</strong><small>三次咨询，一个目标</small></header><div class="p2-diagram__stage-body"><ol aria-label="三次历史咨询" class="p2-diagram__touchpoints"><li><span class="p2-diagram__touchpoint-mark"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span><strong>周一 · 询问退款多久到</strong><span class="p2-diagram__meta">CONV-001</span></li><li><span class="p2-diagram__touchpoint-mark"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span><strong>周三 · 签收了怎么还没退</strong><span class="p2-diagram__meta">CONV-002</span></li><li><span class="p2-diagram__touchpoint-mark"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg></span><strong>周五 · 上次说我查呢</strong><span class="p2-diagram__meta">CONV-003</span></li></ol><svg aria-hidden="true" class="p2-diagram__connector p2-diagram__gather" focusable="false" height="24"><line x1="16.6667%" x2="16.6667%" y1="0" y2="10"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="50%" x2="50%" y1="0" y2="20"></line><line x1="83.3333%" x2="83.3333%" y1="0" y2="10"></line><line x1="16.6667%" x2="83.3333%" y1="10" y2="10"></line></svg></div></div><div class="p2-diagram__stage"><header class="p2-diagram__phase"><span>02</span><strong><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>业务关联</strong><small>识别同一笔退货</small></header><div class="p2-diagram__stage-body"><div class="p2-diagram__object"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg><div><h3>同一笔退货退款</h3><p class="p2-diagram__meta">RET-001 · 模拟业务对象</p></div></div><p class="p2-diagram__reference">周五的“上次”关联周三的仓库核查承诺</p><svg aria-hidden="true" class="p2-diagram__connector p2-diagram__fork p2-diagram__connector--wide" focusable="false" height="24"><line x1="50%" x2="50%" y1="0" y2="10"></line><line x1="16.6667%" x2="83.3333%" y1="10" y2="10"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="16.6667%" x2="16.6667%" y1="10" y2="20"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="50%" x2="50%" y1="10" y2="20"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="83.3333%" x2="83.3333%" y1="10" y2="20"></line></svg><svg aria-hidden="true" class="p2-diagram__connector p2-diagram__fork p2-diagram__connector--narrow" focusable="false" height="24"><line x1="50%" x2="50%" y1="0" y2="10"></line><line x1="50%" x2="4" y1="10" y2="10"></line><line x1="4" x2="4" y1="10" y2="24"></line></svg></div></div><div class="p2-diagram__stage"><header class="p2-diagram__phase"><span>03</span><strong><svg aria-hidden="true" class="p2-diagram__icon" data-icon="list-todo" focusable="false" viewbox="0 0 24 24"><path d="m3 5 1 1 2-2M10 5h11M10 12h11M10 19h11"></path><rect height="3" rx=".5" width="3" x="3" y="10"></rect><rect height="3" rx=".5" width="3" x="3" y="17"></rect></svg>关键输入</strong><small>提炼记录与续接缺口</small></header><div class="p2-diagram__stage-body"><div aria-label="三类并列关键输入" class="p2-diagram__evidence">
-<article class="p2-diagram__input"><header><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path></svg><h4>上次处理承诺</h4></header><p class="p2-diagram__fact">“帮您安排仓库核查”</p><p class="p2-diagram__support">来自周三咨询 / 上次客服的处理承诺</p></article>
-<article class="p2-diagram__input"><header><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path></svg><h4>当前业务状态</h4></header><dl class="p2-diagram__states"><div><dt>物流</dt><dd>已投递</dd></div><div><dt>仓库</dt><dd class="is-pending">未确认收货</dd></div><div><dt>退款</dt><dd class="is-pending">尚未发起</dd></div></dl></article>
-<article class="p2-diagram__input"><header><span aria-hidden="true" class="p2-diagram__gap-mark"></span><h4>任务续接缺口</h4></header><p class="p2-diagram__fact">未找到可关联的有效核查任务</p><p class="p2-diagram__support">上次承诺缺少可追踪进展</p></article>
-</div><svg aria-hidden="true" class="p2-diagram__connector p2-diagram__merge p2-diagram__connector--wide" focusable="false" height="24"><line x1="16.6667%" x2="16.6667%" y1="0" y2="10"></line><line x1="50%" x2="50%" y1="0" y2="10"></line><line x1="83.3333%" x2="83.3333%" y1="0" y2="10"></line><line x1="16.6667%" x2="83.3333%" y1="10" y2="10"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="50%" x2="50%" y1="10" y2="20"></line></svg></div></div><div class="p2-diagram__stage"><header class="p2-diagram__phase"><span>04</span><strong><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>恢复任务</strong><small>交给下一章继续执行</small></header><div class="p2-diagram__stage-body"><svg aria-hidden="true" class="p2-diagram__connector p2-diagram__merge p2-diagram__connector--narrow" focusable="false" height="24"><line x1="4" x2="4" y1="0" y2="10"></line><line x1="4" x2="50%" y1="10" y2="10"></line><line marker-end="url(#p2-reconstruction-arrow)" x1="50%" x2="50%" y1="10" y2="20"></line></svg><div aria-labelledby="p2-recovered-title" class="p2-diagram__output"><header class="p2-diagram__output-heading"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg><span class="p2-diagram__label">恢复出的服务任务 / RECOVERED TASK</span></header><h3 id="p2-recovered-title">AI 接续上次承诺的仓库核查</h3><div class="p2-diagram__task-details"><p><span class="p2-diagram__label">当前任务</span><span>继续核实退货的仓库收货情况</span></p><p><span class="p2-diagram__label">后续动作</span><span>根据核查结果，推进退款处理</span></p></div><p class="p2-diagram__handoff"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg><span>交给 Service Orchestrator 继续编排执行</span></p></div></div></div></div>
-<p class="p2-diagram__foundation">基于企业已有 Ontology / Metadata 和跨系统业务关系。</p>
+<header class="section-header"><p class="section-kicker">A02｜Service Context Linking</p><h2 id="story-context-title">找回历史承诺，还要知道下一步怎么做。</h2></header>
+<figure aria-labelledby="story-context-caption" class="p2-diagram" id="story-context-map">
+<figcaption class="r3-caption" id="story-context-caption"><span>服务目标的上下文组装</span><span>RET-001 · 产品设计模拟 / 初始快照</span></figcaption>
+<div class="r3-trigger"><span class="r3-meta">周五 · 当前追问</span><strong>“上次不是说帮我去仓库查吗？”</strong></div>
+<div class="r3-inputs" aria-label="三类独立来源共同参与任务判断">
+<article class="r3-node"><h3>历史服务上下文</h3><p>周三曾承诺安排仓库核查；周五未找到有效、可追踪的关联核查任务。</p><p>识别需要接续的服务目标。</p><p class="r3-meta">RET-001 · CONV-002</p></article>
+<article class="r3-node r6-knowledge-node"><div class="r6-knowledge-heading"><h3>知识与规则依据</h3><span class="r6-knowledge-source">P1 可信知识能力 · 拟复用</span></div><p>模拟规则示例：物流签收不能直接等同于仓库实际收货确认，应核查有效入库记录。</p><p>提供可追溯、适用于当前任务的处理依据，确定后续核查前提。</p><p class="r6-knowledge-boundary">产品能力复用设计，尚未完成 Runtime 集成。</p></article>
+<article class="r3-node"><h3>实时业务状态</h3><dl><div><dt>物流</dt><dd>已投递</dd></div><div><dt>仓库</dt><dd>尚未确认收货</dd></div><div><dt>退款</dt><dd>尚未发起</dd></div><div><dt>核查任务</dt><dd>未找到有效关联记录</dd></div></dl></article>
+</div>
+<svg aria-hidden="true" class="r3-associations" focusable="false"><line class="r3-desktop-merge" x1="16.67%" y1="0" x2="16.67%" y2="12"/><line class="r3-desktop-merge" x1="83.33%" y1="0" x2="83.33%" y2="12"/><line class="r3-desktop-merge" x1="16.67%" y1="12" x2="83.33%" y2="12"/><line x1="50%" y1="0" x2="50%" y2="29"/></svg>
+<p class="r3-task-judgment">当前不是重新解释退款周期，而是继续核实此前承诺的仓库收货事项。</p>
+<svg aria-hidden="true" class="r3-down" focusable="false" viewBox="0 0 18 30"><path d="M9 1v26m-6-7 6 7 6-7"/></svg>
+<div class="r3-result" aria-labelledby="p2-recovered-title"><span class="r3-meta">RECOVERED SERVICE GOAL · RET-001</span><h3 id="p2-recovered-title">继续核实 RET-001 的实际入库情况。</h3><dl class="r6-goal-fields"><div><dt>下一步</dt><dd>依据核查结果接续退款处理。</dd></div><div><dt>交接对象</dt><dd>Service Orchestrator。</dd></div></dl></div>
 </figure>
-<p class="story-judgment"><span>产品判断</span>AI 不是只关联信息，而是把历史处理记录恢复成可以继续执行的任务。</p>
+<p class="r6-context-boundary">实时业务状态来自拟议系统查询；Ontology / Metadata 为已有业务关系前提，非本项目实际建设成果。</p>
+<p class="story-judgment"><span>产品判断</span>AI 不只找回历史信息，还要结合知识依据与当前业务事实，恢复可继续执行的服务目标。</p>
 </div>
 </section>
         <section aria-labelledby="story-execution-title" class="case-section overview-section" id="overview-workflows">
 <div class="case-container">
 <header class="section-header"><p class="section-kicker">A03｜Multi-Agent Execution &amp; Replanning</p><h2 id="story-execution-title">找回任务之后，AI 开始组织工作。</h2></header>
-<figure aria-labelledby="story-execution-caption" class="p2-diagram p2-diagram--execution" id="story-agent-execution"><svg aria-hidden="true" class="p2-diagram__symbols" focusable="false"><defs><marker id="p2-execution-arrow" markerheight="8" markerunits="userSpaceOnUse" markerwidth="8" orient="auto" refx="4" refy="4" viewbox="0 0 8 8"><path d="M1 1 4 4 1 7"></path></marker></defs></svg><figcaption class="p2-diagram__caption" id="story-execution-caption"><span class="p2-diagram__label">AGENT EXECUTION / 任务执行与动态重规划</span><span class="p2-diagram__meta">CASE-001 / RET-001 · 产品设计模拟</span></figcaption><div class="p2-diagram__body"><section aria-labelledby="story-phase-plan" class="p2-diagram__stage p2-execution__stage-plan"><header class="p2-diagram__phase"><span>01</span><strong id="story-phase-plan"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>恢复与计划</strong><small>恢复目标，生成计划</small></header><div class="p2-diagram__stage-body"><p class="p2-execution__input p2-diagram__meta">来自 A02 · 接续上次承诺的仓库核查</p><div class="p2-execution__control"><header><span aria-hidden="true" class="p2-diagram__agent-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg></span><div><span class="p2-diagram__label">Service Orchestrator · Plan v1</span><h3>恢复目标，制定核查计划</h3></div><span class="p2-execution__role">主 Agent</span></header><p>恢复当前服务目标，并行分派仓库与退款状态核查。</p></div></div></section><section aria-labelledby="story-phase-dispatch" class="p2-diagram__stage p2-execution__stage-dispatch"><header class="p2-diagram__phase"><span>02</span><strong id="story-phase-dispatch"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg>并行与等待</strong><small>并行查询，异步等待</small></header><div class="p2-diagram__stage-body"><p class="p2-execution__parallel p2-diagram__meta">为同一服务目标并行分派专业 Agent</p><svg aria-hidden="true" class="p2-diagram__connector p2-execution__fork p2-execution__connector--wide" focusable="false" height="28"><line x1="50%" x2="50%" y1="0" y2="10"></line><line x1="25%" x2="75%" y1="10" y2="10"></line><line marker-end="url(#p2-execution-arrow)" x1="25%" x2="25%" y1="10" y2="24"></line><line marker-end="url(#p2-execution-arrow)" x1="75%" x2="75%" y1="10" y2="24"></line></svg><svg aria-hidden="true" class="p2-diagram__connector p2-execution__fork p2-execution__connector--narrow" focusable="false" height="28"><line x1="50%" x2="50%" y1="0" y2="10"></line><line x1="50%" x2="4" y1="10" y2="10"></line><line x1="4" x2="4" y1="10" y2="28"></line></svg><div class="p2-execution__agents">
-<article class="p2-diagram__input p2-execution__agent"><header><span aria-hidden="true" class="p2-diagram__agent-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><div><h4>核查仓库收货</h4><p class="p2-execution__assignee">Warehouse Agent</p></div></header><p class="p2-execution__goal">当前：物流已投递，仓库收货未确认。</p><p class="p2-execution__action"><span>工具查询</span>查询既有仓库核查任务</p><div class="p2-execution__agent-result"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><div><span class="p2-diagram__label">模拟执行结果</span><strong>未找到有效任务 → 创建 WH-201</strong></div></div></article>
-<article class="p2-diagram__input p2-execution__agent"><header><span aria-hidden="true" class="p2-diagram__agent-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><div><h4>核对退款进展</h4><p class="p2-execution__assignee">Refund Agent</p></div></header><p class="p2-execution__goal">当前：退款尚未发起，先核对已有处理记录。</p><p class="p2-execution__action"><span>工具查询</span>查询退款与已有处理任务</p><div class="p2-execution__agent-result"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg><div><span class="p2-diagram__label">模拟执行结果</span><strong>退款尚未发起</strong><p>等待收货核查结果</p></div></div></article>
-</div><svg aria-hidden="true" class="p2-diagram__connector p2-execution__merge p2-execution__connector--wide" focusable="false" height="28"><line x1="25%" x2="25%" y1="0" y2="10"></line><line x1="75%" x2="75%" y1="0" y2="10"></line><line x1="25%" x2="75%" y1="10" y2="10"></line><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="10" y2="24"></line></svg><svg aria-hidden="true" class="p2-diagram__connector p2-execution__merge p2-execution__connector--narrow" focusable="false" height="28"><line x1="4" x2="4" y1="0" y2="10"></line><line x1="4" x2="50%" y1="10" y2="10"></line><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="10" y2="24"></line></svg><div class="p2-execution__waiting"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg><div><strong>等待仓库核查反馈</strong><p>WH-201 · Waiting，保留上下文等待异步反馈</p></div></div><svg aria-hidden="true" class="p2-diagram__connector p2-execution__wait-to-event p2-execution__connector--wide" focusable="false" height="24"><line x1="50%" x2="50%" y1="0" y2="8"></line><line x1="50%" x2="25%" y1="8" y2="8"></line><line marker-end="url(#p2-execution-arrow)" x1="25%" x2="25%" y1="8" y2="20"></line></svg><svg aria-hidden="true" class="p2-diagram__connector p2-execution__wait-to-event p2-execution__connector--narrow" focusable="false" height="24"><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="0" y2="20"></line></svg></div></section><section aria-labelledby="story-phase-replan" class="p2-diagram__stage p2-execution__stage-replan"><header class="p2-diagram__phase"><span>03</span><strong id="story-phase-replan"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="refresh-cw" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg>核实与重规划</strong><small>新结果，改变下一步</small></header><div class="p2-diagram__stage-body"><div class="p2-execution__event-sequence"><div class="p2-execution__business-event"><header><span aria-hidden="true" class="p2-execution__event-mark"></span><span class="p2-diagram__label">新业务事件 · 仓库反馈</span></header><strong>仓库反馈商品已验收入库</strong><p>此前收货状态同步存在延迟</p></div><svg aria-hidden="true" class="p2-execution__event-arrow p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg><div class="p2-execution__verified"><span class="p2-diagram__label">Warehouse Agent · 核对收货记录</span><strong>取得有效入库记录</strong><p><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>WH-201 核查完成</span></p></div></div><svg aria-hidden="true" class="p2-diagram__connector p2-execution__result-to-plan p2-execution__connector--wide" focusable="false" height="28"><line x1="75%" x2="75%" y1="0" y2="10"></line><line x1="75%" x2="50%" y1="10" y2="10"></line><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="10" y2="24"></line></svg><svg aria-hidden="true" class="p2-diagram__connector p2-execution__result-to-plan p2-execution__connector--narrow" focusable="false" height="28"><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="0" y2="24"></line></svg><div aria-labelledby="p2-replanning-title" class="p2-diagram__output p2-execution__replanning" id="story-plan-diff"><header class="p2-diagram__output-heading"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg><span class="p2-diagram__label" id="story-plan-caption">Service Orchestrator · 更新计划</span></header><h3 id="p2-replanning-title">仓库已确认收货，下一步转向退款处理</h3><div aria-label="执行计划由 Plan v1 变为 Plan v2" class="p2-execution__plan-diff"><div><span class="p2-diagram__label">PLAN V1</span><strong>核实仓库收货</strong><p>Waiting · WH-201</p></div><span class="p2-execution__plan-arrow"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></span><div><span class="p2-diagram__label">PLAN V2</span><strong>推进退款异常处理</strong><p>Refund Agent · 下一步：核查并创建或关联退款异常任务</p></div></div><p class="p2-execution__new-fact">新业务事实：取得有效入库记录，退款仍未发起。</p><p class="p2-execution__alternative">另一分支：若仓库仍未确认收货 → 继续 WH-201，不启动退款处理任务。</p></div><svg aria-hidden="true" class="p2-diagram__connector p2-execution__plan-to-continue" focusable="false" height="24"><line marker-end="url(#p2-execution-arrow)" x1="50%" x2="50%" y1="0" y2="20"></line></svg><div class="p2-execution__continue"><svg aria-hidden="true" class="p2-diagram__icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8m-4-4 4 4-4 4"></path></svg><div><span class="p2-diagram__label">后续执行 / CONTINUE EXECUTION</span><h4>推进退款异常处理</h4><p>Refund Agent · 核对退款记录，创建或关联退款异常任务</p><div class="p2-execution__continue-result"><strong>退款异常处理已启动</strong><span class="p2-diagram__meta">RF-301 · 已启动</span></div></div></div></div></section></div><p class="p2-execution__stack p2-diagram__foundation"><span>Proposed Orchestration: <strong>LangGraph</strong></span><span>产品设计模拟 · 未实现真实 Agent Runtime</span></p></figure>
-<p class="story-judgment"><span>产品判断</span>规划要能消费异步结果，才能接续跨部门的业务任务。</p>
+<figure aria-labelledby="story-execution-caption" class="p2-diagram" id="story-agent-execution">
+<figcaption class="r4-caption" id="story-execution-caption"><span>任务执行与动态重规划</span><span>CASE-001 / RET-001 · Mock</span></figcaption>
+<svg aria-hidden="true" class="r4-branch-symbols" focusable="false"><defs><marker id="r4-branch-arrow" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto" refX="6" refY="4" viewBox="0 0 8 8"><path d="m2 1 4 3-4 3"/></marker></defs></svg>
+<ol class="r4-trace" aria-label="顺序执行轨迹，第二步中的两个 Agent 为并行查询"><li class="r4-step"><div class="r4-rail" aria-hidden="true"><span class="r4-number">01</span><svg aria-hidden="true" class="r4-axis-tip" focusable="false" viewBox="0 0 18 12"><path d="m3 3 6 6 6-6"/></svg></div><section class="r4-body" aria-labelledby="r4-step-1"><h3 id="r4-step-1">接收恢复目标</h3><div class="r4-role-line"><h4>Service Orchestrator</h4><span class="r4-meta">Plan v1</span></div>
+<p class="r4-note">接收 A02 恢复的服务目标，制定初始核查计划。</p>
+<p class="r4-goal">继续核实 RET-001 的实际入库情况，并依据结果接续退款处理。</p></section></li><li class="r4-step"><div class="r4-rail" aria-hidden="true"><span class="r4-number">02</span><svg aria-hidden="true" class="r4-axis-tip" focusable="false" viewBox="0 0 18 12"><path d="m3 3 6 6 6-6"/></svg></div><section class="r4-body" aria-labelledby="r4-step-2"><h3 id="r4-step-2">并行核查<span class="r4-parallel-label">并行查询</span></h3><p class="r4-note">Orchestrator 分派两个业务域任务，同时检查仓库与退款现状。</p>
+<svg aria-hidden="true" class="r4-branch-line" focusable="false"><line x1="50%" y1="0" x2="50%" y2="10"/><line x1="25%" y1="10" x2="75%" y2="10"/><line x1="25%" y1="10" x2="25%" y2="27" marker-end="url(#r4-branch-arrow)"/><line x1="75%" y1="10" x2="75%" y2="27" marker-end="url(#r4-branch-arrow)"/></svg>
+<div class="r4-agents" aria-label="两个专业 Agent 逻辑并行查询，初始结果汇入同一工作流">
+<article class="r4-agent"><h4>Warehouse Agent</h4><p>查询仓库入库记录与已有核查任务。</p><p class="r4-query-result">尚未确认有效入库，未发现有效关联核查任务。</p><p class="r4-agent-action">创建 WH-201。</p></article>
+<article class="r4-agent"><h4>Refund Agent</h4><p>查询退款状态与已有处理任务。</p><p class="r4-query-result">退款尚未发起，后续执行需等待仓库核查结果。</p><p class="r4-agent-limit">初始查询，不提前发起退款异常续办。</p></article>
+</div>
+<svg aria-hidden="true" class="r4-branch-line" focusable="false"><line x1="25%" y1="0" x2="25%" y2="10"/><line x1="75%" y1="0" x2="75%" y2="10"/><line x1="25%" y1="10" x2="75%" y2="10"/><line x1="50%" y1="10" x2="50%" y2="27" marker-end="url(#r4-branch-arrow)"/></svg>
+<p class="r4-merge-note">并行核查结论：仓库尚未确认有效入库；退款尚未发起。</p></section></li><li class="r4-step"><div class="r4-rail" aria-hidden="true"><span class="r4-number">03</span><svg aria-hidden="true" class="r4-axis-tip" focusable="false" viewBox="0 0 18 12"><path d="m3 3 6 6 6-6"/></svg></div><section class="r4-body" aria-labelledby="r4-step-3"><h3 id="r4-step-3">异步等待</h3><div class="r4-state r4-waiting"><svg aria-hidden="true" class="r4-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v8m6-8v8"/></svg><strong>WH-201 · Waiting</strong></div>
+<p>仓库尚未确认收货，暂停依赖仓库结果的后续动作。</p>
+<p class="r4-meta">保留服务目标、已知结果与等待条件。</p></section></li><li class="r4-step"><div class="r4-rail" aria-hidden="true"><span class="r4-number">04</span><svg aria-hidden="true" class="r4-axis-tip" focusable="false" viewBox="0 0 18 12"><path d="m3 3 6 6 6-6"/></svg></div><section class="r4-body" aria-labelledby="r4-step-4"><h3 id="r4-step-4">事件恢复与核实</h3><div class="r4-event-flow"><div><div class="r4-state r4-event"><svg aria-hidden="true" class="r4-icon" focusable="false" viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-12h-6l1-8Z"/></svg><strong>业务事件到达</strong></div><p>仓库反馈商品已验收入库。</p><p class="r4-meta">外部事件只触发恢复，不直接表示核查成功。</p></div><svg aria-hidden="true" class="r4-arrow" focusable="false" viewBox="0 0 36 18"><path d="M1 9h32m-7-6 7 6-7 6"/></svg><div><h4>Warehouse Agent 核实有效记录</h4><p>恢复查询，取得有效入库记录。</p><p class="r4-state r4-verified r5-result-return"><svg aria-hidden="true" class="r4-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><strong>WH-201 核查完成，结果返回 Orchestrator。</strong></p></div></div></section></li><li class="r4-step"><div class="r4-rail" aria-hidden="true"><span class="r4-number">05</span></div><section class="r4-body" aria-labelledby="r4-step-5"><h3 id="r4-step-5">更新计划并接续执行</h3><div class="r4-plan" id="story-plan-diff" aria-labelledby="p2-replanning-title"><h4 id="p2-replanning-title">仓库阻断解除，后续目标切换为退款异常处理。</h4>
+<div class="r4-plan-diff" aria-label="Orchestrator 依据核实结果更新剩余计划"><div><h5>Plan v1</h5><strong>核查仓库实际收货。</strong><p>WH-201：<span class="r4-waiting">Waiting</span> → <span class="r4-verified">已完成</span>。</p></div><svg aria-hidden="true" class="r4-arrow" focusable="false" viewBox="0 0 36 18"><path d="M1 9h32m-7-6 7 6-7 6"/></svg><div><h5>Plan v2</h5><strong>推进退款异常处理。</strong><p>Refund Agent 先复查有效既有任务。</p></div></div>
+<div class="r4-plan-result"><div class="r4-state r4-started"><svg aria-hidden="true" class="r4-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7 12h10m-4-4 4 4-4 4"/></svg><strong>RF-301 · Started</strong></div><p>Refund Agent 复查未发现有效既有退款任务，创建 RF-301。</p><p>实际退款尚未发起，到账尚未确认。</p><p class="r4-meta">另一独立模拟分支：若已有有效退款任务，则接续原任务，不重复创建；不属于本次主场景历史。</p></div>
+</div></section></li></ol>
+<p class="r4-footnote">拟议 LangGraph 状态编排与 Mock 执行轨迹；未接入真实 Agent Runtime 或企业系统。</p>
+</figure>
+<p class="story-judgment"><span>产品判断</span>多 Agent 的价值不只是并行查询，而是让任务在等待和业务变化后继续正确执行。</p>
 </div>
 </section>
         <section aria-labelledby="story-outcome-title" class="case-section overview-section" id="overview-decisions">
 <div class="case-container">
-<header class="section-header"><p class="section-kicker">A04｜从 Agent 执行到服务进展</p><h2 id="story-outcome-title">从重复回答，变成持续推进同一个服务任务。</h2></header>
+<header class="section-header"><p class="section-kicker">A04｜从 Agent 执行到服务进展</p><h2 id="story-outcome-title">执行进展，回到客服可跟踪的下一步。</h2></header>
 <figure aria-labelledby="story-outcome-caption" class="story-outcome p2-diagram" id="story-outcome-snapshot">
-<figcaption class="story-figure-caption" id="story-outcome-caption"><span class="story-label">SERVICE OUTCOME SNAPSHOT</span><span>产品设计模拟 · 阶段性进展</span></figcaption>
-<div class="story-outcome-grid">
-<div class="story-service-progress"><header><span class="story-label">SERVICE PROGRESS</span><span class="story-id">RET-001 / CASE-001</span></header><ol><li class="is-done"><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><div><strong>三次咨询已关联</strong><p>同一笔退货</p></div></li><li class="is-done"><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><div><strong>仓库核查完成</strong><p>Warehouse Agent · <span class="story-task-id">WH-201</span></p></div></li><li class="is-active"><span aria-hidden="true" class="story-step-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><div><strong>退款异常处理已启动</strong><p>Refund Agent · <span class="story-task-id">RF-301</span></p></div></li></ol><p class="story-payment-pending"><span aria-hidden="true"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="pause-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg></span>退款到账<strong>仍待后续确认</strong></p></div>
-<span aria-hidden="true" class="story-update-connector"><svg aria-hidden="true" class="p2-diagram__icon" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></span>
-<div class="story-customer-update"><span class="story-label">客户已收到阶段进展 / CUSTOMER UPDATE</span><blockquote>您的退货已验收入库，收货记录同步存在延迟。退款异常处理已启动，我们会继续跟踪；到账结果尚未确认。</blockquote><p><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>客户获得具体进展，服务仍在续办。</p></div>
-</div>
+<figcaption class="r3-caption" id="story-outcome-caption"><span>执行进展回到客服</span><span>产品设计模拟 · 后续阶段快照</span></figcaption>
+<div class="round2-outcome-grid">
+<div class="round2-service-status"><header><span class="story-label">当前可追踪的任务进展</span><span class="story-id">RET-001 / CASE-001</span></header><dl>
+<div><dt class="r3-verified"><svg aria-hidden="true" class="r3-status-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>已核实</dt><dd>仓库已取得有效入库记录。<span class="r3-meta">WH-201 · 核查完成</span></dd></div>
+<div><dt class="r3-started"><svg aria-hidden="true" class="r3-status-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7 12h10m-4-4 4 4-4 4"/></svg>正在处理</dt><dd>RF-301 退款异常处理任务已启动。<span class="r3-meta">Started · 继续跟踪处理进展</span></dd></div>
+<div><dt class="r3-waiting"><svg aria-hidden="true" class="r3-status-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v8m6-8v8"/></svg>仍待跟进</dt><dd>实际退款尚未发起。<span>退款到账尚未确认。</span></dd></div>
+</dl><p>客服可查看关联任务、当前阶段与后续待办。</p></div>
+<div class="story-customer-update"><header><span class="story-label">客服待发送的阶段进展</span><span class="round2-draft-state">待发送 / Mock</span></header><blockquote>您的退货已核实入库，退款异常处理任务已经启动。我们会继续跟进处理进展，目前退款尚未实际发起，后续有更新会及时同步。</blockquote><p>供客服核对后发送的回复草稿；非真实发送记录。</p></div>
+</div></figure>
+<p class="story-judgment"><span>产品判断</span>客服终于能回答：查到了什么、正在办什么、下一步等什么。</p>
+<section class="p2-gallery" id="product-gallery" aria-labelledby="product-gallery-title">
+<header class="p2-gallery-heading">
+<p class="p2-gallery-eyebrow">PRODUCT GALLERY｜核心产品界面</p>
+<h3 id="product-gallery-title">从服务续办到 Agent 执行，产品如何被使用？</h3>
+<p>同一套售后服务工作台，分别面向一线客服、任务跟进人员和客服运营。以下为基于模拟业务设计的高保真界面。</p>
+</header>
+<div class="p2-gallery-grid">
+<a class="p2-gallery-item p2-gallery-primary" href="#design-interfaces-3" aria-label="查看 Agent 任务执行台的产品设计详解">
+<figure>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-agent-execution.png" alt="Agent 任务执行台后续模拟快照：WH-201 核查完成，Plan v2 已采用，RF-301 已启动，退款到账待确认" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<figcaption><h4>Agent 任务执行台</h4><p>仓库核查、异步等待与业务事件推动计划更新，退款异常处理任务接续启动。</p><span class="p2-gallery-meta">Multi-Agent Workflow / Dynamic Replanning</span><span class="p2-gallery-link">查看执行台设计 <span aria-hidden="true">→</span></span></figcaption>
 </figure>
-<p class="story-judgment"><span>产品判断</span>服务进展按已完成的动作与仍待完成的业务分开呈现。</p>
+</a>
+<div class="p2-gallery-secondary">
+<a class="p2-gallery-item" href="#design-interfaces-2" aria-label="查看跨会话服务工作台的产品设计详解">
+<figure>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-service-conversation.png" alt="跨会话服务工作台初始模拟快照：恢复前次承诺与待续办事项，仓库实际收货尚未确认" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<figcaption><h4>跨会话服务工作台</h4><p>从第三次催问中，找回前次承诺并恢复待续办事项。</p><span class="p2-gallery-meta">初始模拟快照</span><span class="p2-gallery-link">查看服务工作台设计 <span aria-hidden="true">→</span></span></figcaption>
+</figure>
+</a>
+<a class="p2-gallery-item" href="#design-interfaces-4" aria-label="查看跨 Case 问题发现台的产品设计详解">
+<figure>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-case-insights.png" alt="独立 Flow B 模拟分析：CI-001 为待补证候选问题，TASK-001 尚未创建" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<figcaption><h4>跨 Case 问题发现台</h4><p>关联相似业务卡点，组织证据核查与运营调查。</p><span class="p2-gallery-meta">独立 Flow B / Need Evidence</span><span class="p2-gallery-link">查看问题发现台设计 <span aria-hidden="true">→</span></span></figcaption>
+</figure>
+</a>
+</div>
+</div>
+</section>
 <aside class="story-voc-extension"><span class="story-label">异步延伸 / FLOW B</span><p>同类退款 Case 若反复卡在相似仓库节点，可关联服务事件，形成运营调查的候选问题。</p></aside>
-<div class="view-bridge"><p>查看退款续办的详细设计、核心界面与待执行验证方案。</p><button class="prd-action" data-view-target="design" type="button">查看现有产品设计详解 <span aria-hidden="true">→</span></button></div>
+<div class="view-bridge"><p>查看退款续办的详细设计、核心界面与待执行验证方案。</p><button class="prd-action" data-view-target="design" type="button">查看完整产品设计与验证方案 <span aria-hidden="true">→</span></button></div>
 </div>
 </section>
       </section>
       <section class="project-tab-panel design-panel" id="project-panel-design" role="tabpanel" aria-labelledby="project-tab-design" tabindex="0" hidden>
         <div class="prd-layout">
           <aside class="prd-sidebar" aria-label="产品设计详解文档目录"><div class="prd-sidebar-inner"><p class="toc-eyebrow">PRODUCT DESIGN</p><h2 class="prd-outline-title">文档目录</h2><nav aria-label="桌面产品设计目录" data-outline-desktop><ol class="prd-outline-list">
-      <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview"><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 企业 Ontology 前提</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution"><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 Dynamic Replanning</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc"><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces"><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation"><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview" hidden><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 知识与业务关系基础</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution" hidden><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 条件决策与计划更新</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
     </ol></nav><p class="outline-note">B05 围绕退款续办定义验证场景与口径；Workflow 测试尚未执行。</p></div></aside>
           <div class="prd-main">
             <details class="prd-mobile-outline"><summary>文档目录 <span>B01—B05</span></summary><nav aria-label="移动端产品设计目录" data-outline-mobile><ol class="prd-outline-list">
-      <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview"><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 企业 Ontology 前提</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution"><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 Dynamic Replanning</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc"><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces"><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation"><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview" hidden><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 知识与业务关系基础</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution" hidden><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 条件决策与计划更新</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
     </ol></nav></details>
             <section class="prd-section workflow-prd p2-flow" data-prd-label="B01｜业务场景与产品定义" id="design-overview">
 <header class="prd-section-header"><p class="prd-section-kicker">B01｜业务场景与产品定义</p><h2>让 AI 接续一笔反复被催办的退款，而不是重新回答一次。</h2><p>以电商退货退款的重复催办为切片，把历史承诺恢复为可执行任务，跨仓库与退款业务域持续推进。</p><p class="scenario-label">SIMULATION · 模拟业务场景｜产品方案设计与前端演示，不代表真实企业调研、生产运行或已验证业务结果。</p></header>
 <div class="prd-section-body">
 <section class="prd-subsection"><h3 data-outline-label="1.1 业务故事" id="design-overview-1">1.1 业务故事</h3>
-<ol class="workflow-story"><li><span>周一<small><span class="workflow-id">CONV-001</span></small></span><div><strong>询问退款周期</strong><p>客户咨询退货寄回后多久退款，客服解释正常周期。</p></div></li><li><span>周三<small><span class="workflow-id">CONV-002</span></small></span><div><strong>签收了，为什么还没退？</strong><p>物流已投递，退款尚未发起。客服承诺：“帮您安排仓库核查”。</p></div></li><li><span>周五<small><span class="workflow-id">CONV-003</span></small></span><div><strong>追问上次承诺的进展</strong><p>“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</p></div></li></ol>
-<div aria-label="模拟初始快照" class="workflow-facts"><span class="workflow-eyebrow"><span class="workflow-id">RET-001</span> · 同一笔退货退款 / 初始快照</span><p>物流 <strong>已投递</strong> · 仓库 <strong>未确认收货</strong> · 退款 <strong>尚未发起</strong></p><p class="workflow-gap">任务断点：没有找到可关联的有效仓库核查任务。</p></div>
-<p>第三次来访的目标是让此前的核查继续推进。断开的不是回答，而是承诺之后的执行与追踪。</p>
+<div class="r7-scenario"><p class="r7-meta">周五 · 第三次催问 · CONV-003</p><p class="r7-question">“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</p><ul class="r7-facts"><li>周三 CONV-002 曾承诺安排仓库核查。</li><li>同一笔 RET-001 物流已投递，仓库尚未确认有效入库。</li><li>周五未找到有效、可追踪的关联核查任务。</li></ul>
+<p class="r7-conclusion">客服已经答应处理，但缺少可追踪的任务接续。</p>
+<p class="r7-current">当前业务状态：<span>物流已投递</span><span class="r7-waiting">仓库未确认</span><span>退款尚未发起</span></p></div>
 </section>
 <section class="prd-subsection"><h3 data-outline-label="1.2 用户与任务" id="design-overview-2">1.2 用户与任务</h3>
-<dl class="workflow-definition"><div><dt>主要用户 / 企业侧</dt><dd>企业客服人员 / 智能客服运营团队：在客服工作台查看关联记录、Agent 执行情况与当前待续办事项，跟踪处理结果。</dd></div><div><dt>服务对象 / 客户侧</dt><dd>反复催办退款的客户：从在线智能客服发起咨询，并在这里收到任务进展。</dd></div><div><dt>执行角色</dt><dd>Service Orchestrator 组织计划；Warehouse Agent 核查仓库；Refund Agent 推进退款后续处理。</dd></div></dl>
-<p class="workflow-takeaway">客户再次进入在线智能客服追问退款 → AI 关联历史咨询与售后记录 → 恢复未完成核查 → Agent Workflow 续办 → 客服工作台跟踪，客户收到新进展。</p>
-<p class="workflow-meta">这是同一产品中相互衔接的两个接触面，聚焦退款重复催办的任务恢复与跨部门续办；未实现完整客户聊天系统或真实后台。<span class="workflow-id">CASE-001</span> 关联 <span class="workflow-id">RET-001</span>，阶段回复不等于退款到账或 Case 已解决。</p>
+<dl class="r7-rows"><div><dt>一线客服</dt><dd>找回历史服务事项，查看可追踪执行进展，审核待发送的客户阶段性回复。</dd></div><div><dt>Agent 任务跟进人员</dt><dd>查看任务进展、Waiting、异常和当前执行事项，定位需要人工跟进的业务问题。</dd></div><div><dt>客服运营</dt><dd>比较跨 Case 的相似业务卡点，核查候选问题及证据缺口。</dd></div></dl>
+<p class="r7-note">客户是服务对象：提出退款咨询，预期获得后续处理进展；当前没有独立实现客户侧前台。回复仅为待发送 Mock，未实际送达。</p>
+<p class="r7-note">Service Orchestrator、Warehouse Agent、Refund Agent 属于系统执行角色，不是企业使用者。</p>
 </section>
 <section class="prd-subsection"><h3 data-outline-label="1.3 产品的 AI 能力" id="design-overview-3">1.3 产品的 AI 能力</h3>
-<dl class="workflow-capabilities"><div><dt><strong class="workflow-capability-title"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg>找回同一笔退货的未完成任务</strong><span>Service Context Linking</span></dt><dd>从三次咨询、RET-001 退货记录、物流与仓库状态中，关联周三承诺，恢复当前待续办的仓库核查。</dd></div><div><dt><strong class="workflow-capability-title"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg>分派仓库核查与退款核对</strong><span>Multi-Agent Task Orchestration</span></dt><dd>Service Orchestrator 将仓库核查与退款核对拆成可执行任务，分派两个专业 Agent 并汇总结果。</dd></div><div><dt><strong class="workflow-capability-title"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="refresh-cw" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg>等到新结果后接续退款处理</strong><span>Task Continuation &amp; Replanning</span></dt><dd>等待 WH-201 反馈时保留任务上下文；核实入库后更新计划，再交给 Refund Agent 推进退款处理。</dd></div></dl><p class="workflow-meta">三项能力共同服务于同一条退款续办工作流。</p>
+<div class="r8-knowledge-source"><p class="r8-source-title">项目 01「AI 业务智能助手」的可信知识服务能力（拟复用）</p><p>模拟规则：物流投递不等于仓库实际收货。提供可追溯的任务依据，要求先核查有效入库记录，再判断退款续办条件。</p><p class="r7-note">能力复用设计；尚未实际接入项目 01 的 Runtime，非已部署的企业售后知识库。</p></div>
+<p class="r8-foundation-path">历史服务上下文 + 可信知识依据 + 实时业务状态 → <strong>恢复服务目标</strong> → 多 Agent 执行。</p>
+<div class="r8-capabilities"><article><span class="r8-kicker">Service Context Linking</span><h4>找回待接续的服务目标</h4><p>核对 RET-001 与周三承诺，恢复仍需核实入库的目标，不止总结会话。</p></article><article><span class="r8-kicker">Multi-Agent Task Orchestration</span><h4>组织仓库与退款查询</h4><p>主编排制定当前计划，两位专业 Agent 返回业务事实与待满足条件。</p></article><article><span class="r8-kicker">Task Continuation &amp; Replanning</span><h4>等待后接续并更新计划</h4><p>保存 WH-201 上下文；核实新记录后更新计划，复查退款任务再续办。</p></article></div>
 </section>
-<section class="prd-subsection"><h3 data-outline-label="1.4 企业 Ontology 前提" id="design-overview-4">1.4 企业 Ontology 前提</h3>
-<p>前提：企业已有客户、会话、退货、物流、仓库、退款与服务任务的基础关联关系（Ontology / Metadata）。P2 利用这些关系查询记录与续办任务，不建设底层关系能力。</p><p class="workflow-meta">这是独立于 P1 的假设，不代表 P1 已提供这套业务关系，也未完成真实集成。</p>
+<section class="prd-subsection"><h3 data-outline-label="1.4 知识与业务关系基础" id="design-overview-4">1.4 知识与业务关系基础</h3>
+<div class="r8-sources"><article><div><h4>可信知识服务</h4><span class="r8-kicker">可追溯规则 · 拟复用</span></div><p>提供可追溯、可判断适用性的规则与处理依据；规则不替代实际入库事实。</p><p class="r8-source-action">用于判断收货核查前提</p></article><article><div><h4>企业业务关系</h4><span class="r8-kicker">Ontology / Metadata 前提</span></div><p>假设已有客户、会话、退货与任务关系，关联 CONV-002 / RET-001 / CASE-001。</p><p class="r8-source-action">用于定位同一服务事项</p></article><article><div><h4>业务系统查询</h4><span class="r8-kicker">拟议业务工具</span></div><p>返回有效入库、退款状态及已有任务记录；实时事实不能由静态知识库替代。</p><p class="r8-source-action">用于决定等待或继续执行</p></article></div>
+<p class="r7-note">可信知识服务尚未接入当前智能客服工作流；企业业务关系为已有关系的设计前提，非本项目实际建设成果；业务系统尚未真实接入。</p>
 </section>
 <section class="prd-subsection"><h3 data-outline-label="1.5 MVP 边界" id="design-overview-5">1.5 MVP 边界</h3>
-<p>聚焦同一客户、同一笔退货退款、多次咨询，以及客服、仓库与退款业务域之间的任务续办。</p><div class="prd-two-column workflow-scope"><div><h4>本次退款续办</h4><ul class="prd-list"><li>关联历史目标，读取业务状态并检查已有任务。</li><li>创建或接续仓库核查，异步等待并恢复执行。</li><li>按新结果分派退款后续任务，生成客户可理解的进展。</li></ul></div><div><h4>暂不包含</h4><ul class="prd-list"><li>其他客服意图与全量售后流程；退款支付与结算执行。</li><li>真实业务系统集成、Ontology 基础设施建设。</li><li>真实 LangGraph Runtime 或生产 Agent 执行。</li></ul></div></div>
+<div class="r8-slices"><article><h4>Flow A｜单 Case 服务任务续办<span>（核心 MVP）</span></h4><p>围绕 CASE-001，恢复并持续推进同一笔 RET-001 的退款服务目标。</p><ul><li>跨会话恢复目标，主编排组织专业查询。</li><li>WH-201 Waiting；事件恢复后核实有效记录。</li><li>更新计划，续办退款异常任务，回传客服待发送草稿。</li></ul></article><article><h4>Flow B｜跨 Case VOC（客户之声）问题发现<span>（独立辅助能力）</span></h4><p>比较多条独立模拟 Case 的服务记录，识别重复业务卡点并排除不同处理阶段。</p><ul><li>形成候选问题，不把关联当成共同根因。</li><li>CI-001 · Need Evidence，仍需补证。</li><li>TASK-001 尚未创建，仅为条件性改进任务预览。</li></ul></article></div>
+<div class="r8-flow-relation"><p><strong>单笔服务记录可沉淀为跨 Case 的分析输入；两套工作流独立运行。</strong></p><p>Flow A 产生的记录可成为 Flow B 的数据来源之一；Flow B 使用多个独立 Case，不是 Flow A 的自动下一步，也不阻塞单笔退款处理。</p></div>
+<dl class="r7-rows r8-scope-boundary"><div><dt>本次不包含</dt><dd>真实退款支付或结算、企业 API 集成、真实 LangGraph Runtime、全量企业 Ontology 建设与生产环境 Agent 自动执行。</dd></div><div><dt>当前完成度</dt><dd>产品方案与高保真界面设计已完成；真实运行与业务效果尚未验证。</dd></div></dl>
 </section>
 </div>
 </section>
@@ -1233,54 +1792,54 @@
 <header class="prd-section-header"><p class="prd-section-kicker">B02｜Multi-Agent Workflow 设计</p><h2>从历史任务恢复，到跨 Agent 执行与动态重规划。</h2><p>把周五的追问转为可继续执行的服务任务，说明谁来做、工具返回什么，以及新结果如何改变下一步。</p><p class="scenario-label">方案设计 + 模拟业务数据｜下文 Trace 为预期执行过程，业务工具与 Agent Runtime 均未真实接入。</p></header>
 <div class="prd-section-body">
 <section class="prd-subsection"><h3 data-outline-label="2.1 跨会话关联与任务恢复" id="design-resolution-1">2.1 跨会话业务关联与任务恢复</h3>
-<blockquote class="workflow-request"><span class="workflow-eyebrow">周五 · <span class="workflow-id">CONV-003</span></span>“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</blockquote>
-<p>AI 先识别这是一项历史承诺的追问，再定位相关业务对象与待办。只有语言关联与业务记录相互支持，才恢复执行目标；关联不唯一时先请客户确认。</p>
-<ol class="workflow-recovery"><li><span class="workflow-recovery-marker"><span>01</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><strong>理解追问既有事项</strong></li><li><span class="workflow-recovery-marker"><span>02</span></span><strong>按客户身份与业务关系定位退货</strong></li><li><span class="workflow-recovery-marker"><span>03</span></span><strong>关联周三仓库核查承诺</strong></li><li><span class="workflow-recovery-marker"><span>04</span></span><strong>读取同一退货的业务状态</strong></li><li><span class="workflow-recovery-marker"><span>05</span></span><strong>检查已有仓库核查任务</strong></li><li><span class="workflow-recovery-marker"><span>06</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><strong>恢复未完成服务目标</strong></li></ol>
-<div class="workflow-task-definition" id="workflow-recovered-task"><p class="workflow-eyebrow">恢复出的服务任务 / RECOVERED TASK · CASE-001</p><dl class="workflow-definition"><div><dt>业务目标</dt><dd>继续核实仓库收货情况，并根据结果推进退款处理。</dd></div><div><dt>关联业务对象</dt><dd><span class="workflow-id">RET-001</span> · 同一客户的同一笔退货退款；<span class="workflow-id">CONV-001</span> / 002 / 003。</dd></div><div><dt>历史处理承诺</dt><dd>周三 <span class="workflow-id">CONV-002</span>：“帮您安排仓库核查”。</dd></div><div><dt>当前已知事实</dt><dd>物流已投递 / 仓库未确认收货 / 退款尚未发起；未找到有效关联核查任务。</dd></div><div><dt>尚待执行</dt><dd>核查收货与已有任务，补上可追踪的仓库核查，再按结果推进退款。</dd></div></dl></div>
-<details class="workflow-details"><summary>关联依据如何分工 <span>语言理解 / 实体关系 / 业务事实</span></summary><dl class="workflow-definition"><div><dt>AI</dt><dd>解析指代、提取历史处理事项、提出候选关联与待办目标。</dd></div><div><dt>Ontology / Metadata</dt><dd>提供客户、会话、退货与记录之间可查询的对象关系。</dd></div><div><dt>业务工具</dt><dd>返回授权范围内的物流、仓库、退款及任务记录；LLM 不自行补全业务事实。</dd></div></dl></details>
+<p class="r7-lead">周五的追问，凭什么关联到周三对 RET-001 的核查承诺？</p>
+<ol class="r7-evidence" aria-label="同一服务事项的关联证据，不是四个执行步骤"><li><span class="r7-meta">CONV-003</span><strong>当前追问</strong><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-meta">CONV-002</span><strong>历史核查承诺</strong><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-meta">RET-001</span><strong>同一笔退货</strong><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-meta">CASE-001</span><strong>恢复服务目标</strong></li></ol>
+<div class="r7-two-col r7-criteria"><article><h4>为什么关联到 RET-001？</h4><ul><li>属于同一客户范围，指向同一笔 RET-001。</li><li>CONV-002 存在明确的仓库核查承诺。</li><li>当前未确认入库、缺少核查记录，与这项待续办事项相符。</li></ul></article><article><h4>什么情况需要停止自动关联？</h4><ul><li>相似催问属于另一笔退货。</li><li>无法证明历史承诺属于 RET-001。</li><li>业务对象关系冲突。</li><li>关联依据不足 → 保留待确认，不执行另一笔退货的任务。</li></ul></article></div>
+<p class="r8-association-note">AI 理解“上次帮我查”的指代，提出候选；业务关系定位记录，可信知识依据解释为何仍需核查入库。工具在客户访问范围内核对承诺与事实；相似文本不证明关联，LLM 不补全缺失事实。</p>
+<div class="r7-result" id="workflow-recovered-task"><p class="r7-meta">恢复出的服务目标 · 结构化交接</p><dl class="r7-fields"><div><dt>Case</dt><dd>CASE-001</dd></div><div><dt>业务对象</dt><dd>RET-001</dd></div><div><dt>服务目标</dt><dd>继续核实实际入库情况。</dd></div><div><dt>历史承诺</dt><dd>CONV-002 · 仓库核查。</dd></div><div><dt>当前任务缺口</dt><dd>未找到有效关联核查记录。</dd></div><div><dt>交接对象</dt><dd><span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span> · 主编排。</dd></div></dl><p class="r7-note">此处恢复的是服务目标，WH-201 尚未创建。CONV-001（周一咨询退款周期）仍与 CONV-002 / 003 关联到同一笔退货。</p></div>
 </section>
 <section class="prd-subsection"><h3 data-outline-label="2.2 规划与任务分派" id="design-resolution-2">2.2 Service Orchestrator：规划与任务分派</h3>
-<p>Orchestrator 接收 <span class="workflow-id">CASE-001</span> 的目标：继续核实这笔退货的仓库收货情况，并根据结果推进退款处理。初始记录为物流已投递、仓库尚未确认收货、退款未发起，且尚未找到可关联的有效仓库核查任务。</p>
-<div class="workflow-plan"><header class="workflow-dispatch-heading"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg><span class="workflow-eyebrow">Service Orchestrator · Plan v1 / 同批并行查询</span></header><div class="prd-two-column"><div><h4>查清仓库收货差异</h4><p class="workflow-task-assignee">Warehouse Agent</p><p>查明物流签收却未确认入库的原因，检查已有仓库核查任务，并推进有效核查。</p></div><div><h4>核对退款与续办条件</h4><p class="workflow-task-assignee">Refund Agent</p><p>核对退款是否启动、有无已有处理任务，以及当前是否具备继续处理的业务条件。</p></div></div></div>
-<p>两项任务先并行查询。Warehouse Agent 返回核查任务与收货待核实事项；Refund Agent 返回退款现状与待满足条件。仓库入库尚未确认时，退款后续处理先等待核查结果。</p>
-<p class="workflow-meta">Plan v1 定义当前需核实的事项与预期结果，不假定仓库已收货，也不预设必须新建退款任务；具体动作取决于各 Agent 查到的业务记录。</p>
+<p>接收 CASE-001 恢复的服务目标，由主编排维护目标与计划；仓库和退款查询交给同层的两位专业 Agent。</p>
+<figure class="r8-dispatch"><figcaption>CASE-001 / RET-001 · 服务目标交接与并行分派</figcaption><article class="r7-node r8-orchestrator"><h4 class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span><small>主编排</small></h4><p>继续核实实际入库情况，并依据结果接续退款处理。</p><p class="r8-plan-label">Plan v1｜先查清仓库收货差异与退款现状</p></article><svg aria-hidden="true" class="r8-fork" focusable="false"><defs><marker id="r8-dispatch-tip" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto" refX="6" refY="4" viewBox="0 0 8 8"><path d="m2 1 4 3-4 3"/></marker></defs><line x1="50%" y1="0" x2="50%" y2="12"/><line x1="25%" y1="12" x2="75%" y2="12"/><line x1="25%" y1="12" x2="25%" y2="29" marker-end="url(#r8-dispatch-tip)"/><line x1="75%" y1="12" x2="75%" y2="29" marker-end="url(#r8-dispatch-tip)"/><line class="r8-fork-mobile" x1="50%" y1="12" x2="12" y2="12"/><line class="r8-fork-mobile" x1="12" y1="12" x2="12" y2="24"/></svg><div class="r7-two-col r8-professional-pair"><article class="r7-node"><h4 class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span><small>专业 Agent</small></h4><p>仓库业务域核查：返回收货事实、关联核查任务与等待条件。</p></article><article class="r7-node"><h4 class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Refund Agent</span><small>专业 Agent</small></h4><p>退款业务域查询：返回退款现状、已有处理任务与待满足前提。</p></article></div><p class="r8-dispatch-result">主编排汇总并行查询结果，识别仓库阻断；核实有效业务事实后，更新剩余计划。</p></figure>
+<p class="r7-conclusion">Plan v1 规定查什么、等什么，不预设仓库已收货，也不预设必须新建退款任务。</p>
 </section>
-<section class="prd-subsection"><h3 data-outline-label="2.3 专业 Agent 与工具执行" id="design-resolution-3">2.3 专业 Agent 与业务工具执行</h3>
-<p><span class="workflow-id">CASE-001</span> 的初始并行查询中，Warehouse Agent 补上缺失的核查，Refund Agent 先返回退款现状；收货核实后，同一 Refund Agent 再次接到续办任务。</p>
-<div class="prd-two-column workflow-agent-roles">
-<article><span class="workflow-eyebrow">WAREHOUSE AGENT · 模拟执行设计</span><h4>查明签收与入库差异，推进收货核查</h4><ol class="prd-list"><li>查询物流投递记录：已投递。</li><li>查询仓库入库记录：尚未确认收货。</li><li>检查 <span class="workflow-id">RET-001</span> 的已有仓库核查任务：未找到有效任务。</li><li>调用 仓库核查任务工具，创建 <span class="workflow-id">WH-201</span>。</li><li class="workflow-agent-return">返回 Orchestrator：<span class="workflow-id">WH-201</span> 已创建，等待仓库反馈；收货仍待核实。</li></ol><p class="workflow-agent-result"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="pause-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg><strong>异步反馈后：</strong>按 <span class="workflow-id">WH-201</span> 定位仓库记录 → 重新查询入库 → 取得有效入库记录 → 返回核查完成的 任务结果。</p></article>
-<article><span class="workflow-eyebrow">REFUND AGENT · 模拟执行设计</span><h4>核对退款进展，确定已有任务是否需接续</h4><ol class="prd-list"><li>查询退款记录：尚未发起。</li><li>查询关联退款处理任务：主场景未找到有效既有任务。</li><li>核对当前条件：仓库尚未确认收货，暂不进入退款异常续办。</li><li class="workflow-agent-return">向 Orchestrator 返回退款事实、任务查询结果与待满足的收货确认条件。</li></ol><div class="workflow-refund-reassignment" aria-label="Refund Agent 的 Plan v2 再次分派"><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="refresh-cw" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg><strong>Plan v2 再次分派</strong></header><ol class="prd-list"><li>核对已经确认的仓库收货记录，并重新查询退款状态。</li><li>检查是否存在可以接续的退款异常处理任务。</li><li>未找到有效既有任务，调用退款异常任务工具创建 <span class="workflow-id">RF-301</span>。</li></ol><p><strong>退款异常处理已启动。</strong></p></div></article>
-</div>
-<details class="workflow-details" id="workflow-tool-contracts"><summary>四项 Mock 工具能力 <span>业务标识 → 动作 → 返回 → 后续影响</span></summary><div class="prd-table-wrap"><table class="prd-table"><caption>产品层 Mock 契约；不是已接入的 WMS / 退款 API。</caption><thead><tr><th scope="col">工具 / 输入</th><th scope="col">具体动作</th><th scope="col">业务返回</th><th scope="col">后续影响</th></tr></thead><tbody>
-<tr><th data-label="工具 / 输入" scope="row">Warehouse Query<br/><small>客户访问范围 + <span class="workflow-id">RET-001</span></small></th><td data-label="具体动作">查询物流、仓库与核查记录。</td><td data-label="业务返回">物流已投递；初始未确认收货。后续可返回有效入库记录及来源时间。</td><td data-label="后续影响">决定继续核查，或确认 <span class="workflow-id">WH-201</span> 完成。</td></tr>
-<tr><th data-label="工具 / 输入" scope="row">Warehouse Investigation Task<br/><small><span class="workflow-id">RET-001</span> / <span class="workflow-id">CASE-001</span>；续办时含 <span class="workflow-id">WH-201</span></small></th><td data-label="具体动作">先查可复用任务，再接续或有条件创建。</td><td data-label="业务返回">任务 ID、处理状态、待办与回执。</td><td data-label="后续影响">保存 <span class="workflow-id">WH-201</span>，进入 Waiting 并关联后续事件。</td></tr>
-<tr><th data-label="工具 / 输入" scope="row">Refund Status Query<br/><small>客户访问范围 + <span class="workflow-id">RET-001</span></small></th><td data-label="具体动作">查询退款、售后与已有退款处理任务。</td><td data-label="业务返回">Not Initiated、现有任务及记录来源。</td><td data-label="后续影响">返回退款侧卡点；不把查询结果当成退款完成。</td></tr>
-<tr><th data-label="工具 / 输入" scope="row">Refund Follow-up Task<br/><small><span class="workflow-id">RET-001</span> / <span class="workflow-id">CASE-001</span> + 经核实的入库依据</small></th><td data-label="具体动作">复查记录与已有任务，创建或关联退款异常处理任务。</td><td data-label="业务返回">任务 ID 与当前进展；主场景模拟 <span class="workflow-id">RF-301</span> · 已启动。</td><td data-label="后续影响">继续跟进与通知客户；不表示退款到账。</td></tr>
-</tbody></table></div><p>查询先核验客户身份与记录访问范围；创建 / 更新任务另检查动作授权和必要确认。先查已有任务，重复请求沿用业务关联与执行引用，避免重复建单。工具结果失败或未知时保留待核实事项，不生成成功回执。</p></details>
+<section class="prd-subsection"><h3 data-outline-label="2.3 专业 Agent 与工具执行" id="design-resolution-3">2.3 专业 Agent 与工具执行</h3>
+<p class="r7-lead">计划版本表示执行阶段；专业 Agent 表示执行角色。Plan v1 / v2 均由主编排维护。</p>
+<div class="r8-plans"><section class="r8-phase r8-phase-v1"><header><h4>PLAN V1｜初始并行核查</h4><p><span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span> · 主编排分派</p></header><div class="r7-two-col r8-professional-pair"><article class="r7-node"><h4 class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span><small>专业 Agent</small></h4><dl class="r7-contract"><div><dt>查询对象</dt><dd>RET-001 的物流投递、仓库入库与已有核查任务。</dd></div><div><dt>模拟返回</dt><dd>物流已投递；仓库未确认有效入库；无有效关联核查任务。</dd></div><div><dt>允许动作</dt><dd>查重与创建前提满足后，模拟创建 WH-201，进入 <span class="r7-waiting">Waiting</span>。</dd></div><div><dt>结果回传</dt><dd>任务 ID、状态、收货事实与等待条件，返回主编排。</dd></div></dl></article><article class="r7-node"><h4 class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Refund Agent</span><small>专业 Agent</small></h4><dl class="r7-contract"><div><dt>查询对象</dt><dd>RET-001 的退款状态与已有退款异常处理任务。</dd></div><div><dt>模拟返回</dt><dd>退款尚未发起；初查无有效可接续任务；仓库前置条件未满足。</dd></div><div><dt>允许动作</dt><dd>当前只查询，不提前执行退款异常续办。</dd></div><div><dt>结果回传</dt><dd>退款事实、关联任务查询结果与待满足前提，返回主编排。</dd></div></dl></article></div></section>
+<p class="r8-business-shift"><span class="r7-waiting">WH-201 Waiting</span> → <span class="r7-resumed">仓库事件返回</span> → <span class="r7-verified">有效入库记录核实</span><small>核实结果回到主编排，才更新剩余计划。</small></p>
+<section class="r8-phase r8-phase-v2"><header><h4>PLAN V2｜退款任务续办</h4><p><span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span> · 主编排更新剩余计划</p></header><article class="r7-node r8-refund-v2"><h4 class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Refund Agent</span><small>专业 Agent</small></h4><dl class="r7-contract r8-v2-contract"><div><dt>重新查询</dt><dd>依据新的有效入库记录，复查 RET-001 的退款状态与已有处理任务。</dd></div><div><dt>主场景模拟返回</dt><dd>退款仍未发起，未发现有效可接续任务；不能沿用 Waiting 前的初查结论。</dd></div><div><dt>允许动作与结果</dt><dd>执行前提满足后模拟创建 RF-301，返回 <span class="r7-running">Started</span>；实际退款尚未发起。</dd></div></dl><p class="r7-note">Waiting 期间状态可能变化；复查找到有效既有任务时，接续原任务，不重复创建。关联与有效性条件见 <a href="#design-resolution-5">2.5</a>。</p></article></section></div>
+<div class="r8-tool-contracts" id="workflow-tool-contracts"><h4>四项 Mock 工具契约</h4><div class="prd-table-wrap"><table class="prd-table r8-tool-table"><caption>产品层模拟输入、返回与执行限制；非已接入的 WMS / 退款 API。</caption><colgroup><col style="width:20%"><col style="width:22%"><col style="width:26%"><col style="width:32%"></colgroup><thead><tr><th scope="col">工具</th><th scope="col">模拟输入</th><th scope="col">返回事实</th><th scope="col">允许动作 / 执行约束</th></tr></thead><tbody>
+<tr><th data-label="工具" scope="row">Warehouse Query</th><td data-label="模拟输入">客户访问范围 + <span class="workflow-id">RET-001</span>；查询物流、仓库与核查记录。</td><td data-label="返回事实">物流已投递；初始未确认有效入库，无有效关联核查任务。后续复查可返回有效入库记录及来源时间。</td><td data-label="允许动作 / 执行约束">未取得有效记录时继续核查；<strong>取得有效入库记录才确认 WH-201 完成</strong>，不能仅凭物流投递或事件放行。</td></tr>
+<tr><th data-label="工具" scope="row">Warehouse Investigation Task</th><td data-label="模拟输入"><span class="workflow-id">RET-001</span> / <span class="workflow-id">CASE-001</span>；续办时含 <span class="workflow-id">WH-201</span>。</td><td data-label="返回事实">查重返回无有效关联核查任务时，模拟创建回执为 WH-201 · Waiting；包含任务 ID、处理状态、待办与回执。</td><td data-label="允许动作 / 执行约束">先查可复用任务；<strong class="r8-decision-key">无有效任务且创建前提满足，才创建 WH-201</strong>。已有有效任务则接续；保存等待条件，关联后续事件。</td></tr>
+<tr><th data-label="工具" scope="row">Refund Status Query</th><td data-label="模拟输入">客户访问范围 + <span class="workflow-id">RET-001</span>；查询退款、售后与已有退款处理任务。</td><td data-label="返回事实">Not Initiated（退款未发起）、既有任务查询结果及记录来源；主场景复查仍无有效可接续任务。</td><td data-label="允许动作 / 执行约束">返回退款侧卡点。Plan v2 必须重新查询，不能沿用 Waiting 前的结果；仓库前提未满足时不提前续办。</td></tr>
+<tr><th data-label="工具" scope="row">Refund Follow-up Task</th><td data-label="模拟输入"><span class="workflow-id">RET-001</span> / <span class="workflow-id">CASE-001</span> + 已核实的有效入库记录。</td><td data-label="返回事实">Plan v2 重新查重：主场景无有效可接续任务；模拟创建回执为 RF-301 · Started，返回任务 ID 与当前进展。</td><td data-label="允许动作 / 执行约束">复核入库依据与已有任务；<strong class="r8-decision-key">查重无有效任务且执行前提满足，才创建 RF-301</strong>；否则核实关联后接续原任务。返回客服工作台供跟进、审核待发送草稿，不表示实际退款发起或到账。</td></tr>
+</tbody></table></div></div>
+<div class="r9-execution-boundaries"><p><strong>Agent：</strong>理解任务、组织查询、消费结果与选择下一步。</p><p><strong>确定性校验：</strong>核实同笔退货关联、有效记录与执行前提；先查重，再接续或创建。重复请求沿用业务关联与执行引用，避免重复建单。</p></div>
+<p class="r7-note">查询先核验客户身份与记录访问范围；创建 / 更新另检查动作授权和必要确认。工具失败或未知时保留待核实事项，LLM 不推测完成或生成成功回执；所有工具行为为模拟设计，客服回复为待发送草稿。</p>
 </section>
-<section class="prd-subsection"><h3 data-outline-label="2.4 异步等待与恢复执行" id="design-resolution-4">2.4 异步等待、事件恢复与继续执行</h3>
-<p><span class="workflow-id">WH-201</span> 创建后，仓库核查并不会立即完成。Workflow 进入 Waiting，保存目标、任务与当前计划；后续仓库事件唤回这条工作流，Warehouse Agent 再核实入库记录。</p>
-<p class="workflow-takeaway">暂停的是工作流执行，保留的是任务上下文；等待期间 LLM 不持续运行，也不不断生成回答。</p>
-<figure aria-labelledby="workflow-trace-caption" class="workflow-execution-trace p2-diagram" id="workflow-execution-trace"><figcaption id="workflow-trace-caption"><span class="workflow-eyebrow">SIMULATION · 模拟预期执行轨迹</span><span><span class="workflow-id">CASE-001</span> / <span class="workflow-id">RET-001</span> · 非真实 API 日志</span></figcaption>
-<div class="workflow-trace-group"><header class="workflow-trace-group-heading"><strong>恢复任务</strong><span>01–03 · 关联与分派</span></header><ol class="workflow-trace" start="1"><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">01</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><div><h4>找回未完成的仓库核查</h4><p class="workflow-step-role">跨会话关联 · 任务恢复</p><p>关联三次会话、周三承诺与 <span class="workflow-id">RET-001</span>；工具返回 物流已投递 / 仓库未确认收货 / 退款尚未发起，且无有效核查任务。</p><small>输出：<span class="workflow-id">CASE-001</span> 的续办目标与待办。</small></div></li><li><span class="workflow-trace-marker"><span class="workflow-node-index">02</span></span><div><h4>分派仓库与退款核查</h4><p class="workflow-step-role">Service Orchestrator · Plan v1</p><p>拆分仓库收货核查与退款状态核查，分派同一批并行查询。</p></div></li><li class="workflow-parallel"><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">03</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg><span class="workflow-node-hint">并行</span></span><div><div class="workflow-parallel-branch"><h4>03a · 推进仓库核查</h4><p class="workflow-step-role">Warehouse Agent</p><p>查询仓库与已有任务：无可复用任务 → 模拟创建 <span class="workflow-id">WH-201</span>。</p></div><div class="workflow-parallel-branch"><h4>03b · 核对退款进展</h4><p class="workflow-step-role">Refund Agent</p><p>查询退款：尚未发起，未找到有效既有任务；仓库未确认 → 返回事实与待满足条件，暂不续办。</p></div><small>同一并行批次，两条分支之间没有先后依赖。</small></div></li></ol></div><div class="workflow-trace-group"><header class="workflow-trace-group-heading"><strong>等待与事件返回</strong><span>04–06 · 保留上下文，核实新结果</span></header><ol class="workflow-trace" start="4"><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">04</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="pause-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg></span><div><h4>暂停执行，等待仓库反馈</h4><p class="workflow-step-role">WH-201 · Waiting</p><p>保存查询结果、当前计划和待完成核查，暂停执行，等待业务反馈。</p></div></li><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">05</span><span aria-hidden="true" class="workflow-event-dot"></span></span><div><h4>仓库新反馈到达</h4><p class="workflow-step-role">仓库业务事件 · 尚待核实</p><p>模拟反馈：商品已验收入库，此前状态同步延迟。应用层关联 <span class="workflow-id">WH-201</span>；事件本身尚不作为核查完成依据。</p></div></li><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">06</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><div><h4>核实有效入库记录</h4><p class="workflow-step-role">Warehouse Agent</p><p>查询仓库取得有效入库记录 → <span class="workflow-id">WH-201</span> 核查完成；恢复同一 Workflow 的后续执行。</p></div></li></ol></div><div class="workflow-trace-group"><header class="workflow-trace-group-heading"><strong>后续续办</strong><span>07–09 · 更新计划，继续执行</span></header><ol class="workflow-trace" start="7"><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">07</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="refresh-cw" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg></span><div><h4>更新计划，转向退款处理</h4><p class="workflow-step-role">Service Orchestrator · Plan v2</p><p>消费核实结果：收货已确认、退款仍未发起 → 计划分派 Refund Agent 核查并创建或关联退款异常任务。</p></div></li><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">08</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><div><h4>创建退款异常处理任务</h4><p class="workflow-step-role">Refund Agent</p><p>复查退款与已有任务，无有效既有任务且前置条件满足后创建 <span class="workflow-id">RF-301</span>；模拟返回“已启动”。</p></div></li><li><span class="workflow-trace-marker has-icon"><span class="workflow-node-index">09</span><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><div><h4>向客户回传阶段进展</h4><p class="workflow-step-role">退款异常处理已启动</p><p>仓库核查完成，退款异常处理已启动；退款到账仍待确认，<span class="workflow-id">CASE-001</span> 继续跟进。</p></div></li></ol></div></figure>
-<details class="workflow-details"><summary>Waiting 保存与事件恢复契约 <span>Task State / 关联键 / 恢复条件</span></summary><dl class="workflow-definition"><div><dt>保存内容</dt><dd>服务目标、待完成子任务、<span class="workflow-id">WH-201</span>、已完成查询及来源、预期仓库事件、Plan v1 与各分支结果。</dd></div><div><dt>事件关联</dt><dd>应用层以客户范围 + <span class="workflow-id">RET-001</span> + <span class="workflow-id">WH-201</span> 定位 <span class="workflow-id">CASE-001</span> 的持久化执行线程；保存事件 ID / 时间，去重后请求恢复。</dd></div><div><dt>恢复条件</dt><dd>关联唯一且记录可核对；Warehouse Agent 获取有效入库依据后产出 Task Result。无法关联或记录仍不明确时保持待核实，不直接推进退款。</dd></div><div><dt>实现分工</dt><dd>拟用 LangGraph 保存执行状态及恢复；应用层负责事件接入、业务 ID 映射与任务状态。外部任务不会因图执行暂停而自动完成。</dd></div></dl></details>
+<section class="prd-subsection"><h3 data-outline-label="2.4 异步等待与事件恢复" id="design-resolution-4">2.4 异步等待、事件恢复与继续执行</h3>
+<p>WH-201 等待仓库核实结果；挂起期间保留任务，不持续调用 LLM。业务事件用于唤起复核，不直接把核查变成完成。</p>
+<figure class="r7-state-flow" id="workflow-execution-trace" aria-labelledby="workflow-trace-caption"><figcaption id="workflow-trace-caption">WH-201 · 四个模拟执行阶段</figcaption><ol class="r7-states"><li><span class="r7-status r7-running">RUNNING</span><h4>初始查询后建任务</h4><p><span class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span></span> 初查未确认入库、无有效关联任务，模拟创建 WH-201。</p><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-status r7-waiting">WAITING</span><h4>保存任务与等待条件</h4><p>仓库未确认收货，保存服务目标、查询结果、Plan v1 与待核查事项。</p><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-status r7-resumed">RESUMED</span><h4>匹配任务后恢复核查</h4><p>收到 RET-001 仓库事件，定位等待中的 WH-201；<span class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span></span> 复查有效记录。</p><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></li><li><span class="r7-status r7-verified">VERIFIED</span><h4>有效记录核实后完成</h4><p>有效入库记录确认，WH-201 核查完成，结果回传 <span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span>。</p></li></ol><p class="r7-note">阶段名称用于说明设计，不是已实现的生产 Runtime 枚举或执行日志。</p></figure>
+<div class="r7-record"><h4>WH-201｜Waiting 任务记录</h4><dl class="r7-fields"><div><dt>关联对象</dt><dd>CASE-001 / RET-001。</dd></div><div><dt>当前任务</dt><dd>WH-201 · 仓库核查。</dd></div><div><dt>服务目标</dt><dd>继续核实实际入库情况。</dd></div><div><dt>当前计划</dt><dd>Plan v1；仓库核查尚未完成。</dd></div><div><dt>已完成查询</dt><dd>已投递 / 入库未确认 / 退款未发起；保留物流、仓库与退款工具的结果来源。</dd></div><div><dt>等待条件</dt><dd>仓库反馈后恢复查询，取得有效入库依据。</dd></div></dl></div>
+<figure class="r8-event-binding"><figcaption>模拟事件关联｜从业务对象找到仍在等待的任务</figcaption><div class="r8-event-path"><div><strong class="r7-resumed">RET-001 仓库事件</strong><p>提示商品已验收入库。</p><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></div><div><strong class="r7-waiting">WH-201 · Waiting Task</strong><p>按退货关联查找等待任务，再核验匹配。</p><svg aria-hidden="true" class="r7-chain-arrow" focusable="false" viewBox="0 0 18 12"><path d="M1 6h15m-5-4 5 4-5 4"/></svg></div><div><strong class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span></strong><p>重新查询有效入库记录。</p></div></div></figure>
+<div class="r7-two-col r8-event-checks"><article><h4>匹配与去重</h4><p>事件不必携带 WH-201 ID。用 RET-001 等业务对象定位等待任务，核验同一退货与当前任务；去重后再恢复。找不到唯一关联时不自动推进。</p></article><article><h4>核实与回传</h4><p>有效入库记录确认后，完成 WH-201 并向主编排返回结果；记录仍未有效确认时继续 Waiting 或待核实，不解除仓库阻断。</p></article></div>
+<p class="r7-note">拟将业务关联键映射到持久化执行线程；应用层负责事件接入、任务定位与去重，框架暂停 / 恢复不能替代业务核验。事件 ID 等为拟议字段，非真实系统日志；映射与恢复正确性仍待验证。</p>
 </section>
-<section class="prd-subsection"><h3 data-outline-label="2.5 Dynamic Replanning" id="design-resolution-5">2.5 Dynamic Replanning</h3>
-<figure aria-labelledby="workflow-replanning-caption" class="p2-diagram workflow-replanning" id="workflow-replanning"><figcaption class="p2-diagram__caption" id="workflow-replanning-caption"><span class="p2-diagram__label">SIMULATION · 产品设计模拟 / 主场景</span><span class="p2-diagram__meta">CASE-001 / RET-001 · 非生产执行记录</span></figcaption><ol aria-label="由仓库核查转向退款处理的五步主时序" class="workflow-icon-timeline">
-<li><span class="workflow-timeline-marker"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="list-todo" focusable="false" viewbox="0 0 24 24"><path d="m3 5 1 1 2-2M10 5h11M10 12h11M10 19h11"></path><rect height="3" rx=".5" width="3" x="3" y="10"></rect><rect height="3" rx=".5" width="3" x="3" y="17"></rect></svg><span class="workflow-node-index">01</span></span><div><h4>Plan v1 · 核实仓库收货</h4><p class="workflow-step-role">Warehouse Agent · Plan v1</p><p>推进 <span class="workflow-id">WH-201</span> 仓库核查。</p></div></li>
-<li><span class="workflow-timeline-marker"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span class="workflow-node-index">02</span></span><div><h4>仓库核查结果已确认</h4><p class="workflow-step-role">Warehouse Agent</p><p>取得有效入库记录，确认仓库已收货。</p></div></li>
-<li class="is-replanning"><span class="workflow-timeline-marker"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="refresh-cw" focusable="false" viewbox="0 0 24 24"><path d="M20 8a8 8 0 0 0-13-3L4 8m0-5v5h5M4 16a8 8 0 0 0 13 3l3-3m-5 0h5v5"></path></svg><span class="workflow-node-index">03</span></span><div><h4>Plan v2 · 转向退款异常处理</h4><p class="workflow-step-role">Service Orchestrator · Plan v2</p><p>消费已核实的仓库结果，更新计划，将剩余退款任务再次分派。</p></div></li>
-<li><span class="workflow-timeline-marker"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="search" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="m16 16 5 5"></path></svg><span class="workflow-node-index">04</span></span><div><h4>核对退款与已有处理任务</h4><p class="workflow-step-role">Refund Agent</p><p>退款尚未发起，未找到可接续的有效退款处理任务。</p></div></li>
-<li><span class="workflow-timeline-marker"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span class="workflow-node-index">05</span></span><div><h4>退款异常处理已启动</h4><p class="workflow-step-role">Refund Agent</p><p>创建 <span class="workflow-id">RF-301</span>，退款到账仍待确认。</p></div></li>
-</ol></figure>
-<aside class="workflow-warehouse-note"><strong>仓库未确认</strong><p>若仍未确认实际收货 → 继续 <span class="workflow-id">WH-201</span>，不启动 Refund Follow-up。</p></aside>
-<div aria-labelledby="workflow-refund-branch-title" class="workflow-refund-branch p2-diagram" id="workflow-existing-refund-variant"><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg><h4 id="workflow-refund-branch-title">另一种执行结果｜发现已有退款任务</h4></header><p class="workflow-meta">独立模拟分支，不属于上方主场景的执行历史。发生于 Plan v2 分派之后、Refund Agent 执行退款任务的过程中。</p><ol class="workflow-branch-steps">
-<li><h5>新发现</h5><p>Refund Agent 在另一条售后记录中找到疑似关联的退款异常任务，尚未直接关联到 <span class="workflow-id">CASE-001</span>。</p></li>
-<li><h5>核对关联</h5><p>查询业务记录，确认是否属于同一笔退货 <span class="workflow-id">RET-001</span>、同一未完成退款事项，以及已有任务是否有效、有何处理进展。</p></li>
-<li><h5>改变行动</h5><p>确认有效后，将已有任务与进展返回 Orchestrator，后续计划改为接续该任务并跟踪结果，不重复创建 <span class="workflow-id">RF-301</span>。</p><p class="workflow-unconfirmed">若不能证实关联，不直接将疑似任务作为同一事项处理。</p></li>
-</ol></div>
+<section class="prd-subsection"><h3 data-outline-label="2.5 条件决策与计划更新" id="design-resolution-5">2.5 Dynamic Replanning：条件决策与计划更新</h3>
+<p><span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span> · 主编排消费新的有效业务结果，改变下一步行动；事件到达不等于阻断解除。</p>
+<div id="workflow-replanning"><table class="r7-table r7-decision"><caption id="workflow-replanning-caption">同一笔 RET-001 的条件决策 · 产品设计模拟</caption><colgroup><col style="width:40%"><col style="width:27%"><col style="width:33%"></colgroup><thead><tr><th scope="col">当前核实结果</th><th scope="col">计划判断</th><th scope="col">后续任务</th></tr></thead><tbody><tr><th scope="row" data-label="当前核实结果">仓库仍未确认有效入库</th><td data-label="计划判断">退款处理前置条件未满足</td><td data-label="后续任务">继续 WH-201 Waiting。</td></tr><tr><th scope="row" data-label="当前核实结果">仓库事件到达，但没有有效入库记录</th><td data-label="计划判断">事件不足以解除阻断</td><td data-label="后续任务">恢复核查或保持待确认。</td></tr><tr><th scope="row" data-label="当前核实结果"><strong>有效入库记录已核实</strong>，退款未发起</th><td data-label="计划判断">仓库阻断解除</td><td data-label="后续任务"><strong class="r8-decision-key">更新 Plan v2</strong>，分派 <span class="r8-role--specialist">Refund Agent</span>。</td></tr><tr><th scope="row" data-label="当前核实结果"><span class="r8-role--specialist">Refund Agent</span> 找到有效既有退款任务</th><td data-label="计划判断">可接续已有事项</td><td data-label="后续任务">关联原任务并跟踪，不重复创建。</td></tr><tr><th scope="row" data-label="当前核实结果"><strong>复查无有效既有退款任务</strong>，且续办前提满足</th><td data-label="计划判断">需要新的处理事项</td><td data-label="后续任务">主场景模拟<strong class="r8-decision-key">创建 RF-301</strong>。</td></tr></tbody></table></div>
+<p class="r7-main-result"><strong>主场景：</strong>有效入库记录已核实 → Plan v2 → 复查无有效既有退款任务 → <span class="r7-running">RF-301 Started</span>。</p><p class="r7-note">实际退款尚未发起，到账尚未确认；返回的是客服待发送 Mock 草稿，不是消息送达记录。</p>
+<div id="workflow-existing-refund-variant" class="r7-variant" aria-labelledby="workflow-refund-branch-title"><h4 id="workflow-refund-branch-title">独立模拟分支 · 发现疑似既有退款任务</h4><p><span class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Refund Agent</span></span> 在另一售后记录中找到疑似任务时，先核对三项业务依据，不与上方 RF-301 新建主场景混成同一次历史：</p><ul class="r7-checks"><li>是否属于同一 RET-001。</li><li>是否属于同一未完成退款事项。</li><li>任务是否仍有效，有何处理进展。</li></ul><p>确认有效后返回 <span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span>，接续原任务并跟踪，不重复创建 RF-301；未确认关联不能直接复用。</p></div>
+<p>计划更新使用新的有效业务事实，不把条件分支描述为完全自主的 LLM 规划。</p>
 </section>
-<section class="prd-subsection"><h3 data-outline-label="2.6 LangGraph / Dify 选型" id="design-resolution-6">2.6 LangGraph / Dify 技术选型</h3><p class="workflow-meta">这笔退款续办需要保留任务状态、等待仓库事件并按新结果更新计划，因此拟采用 LangGraph 式状态编排；Dify 保留为可视化原型备选。当前未集成真实 Runtime 或企业业务系统。</p><details class="workflow-details workflow-tech-supplement"><summary>选型依据与实现边界</summary><dl class="workflow-definition workflow-tech-choice" id="workflow-tech-choice"><div><dt>业务要求</dt><dd>多步骤任务、专业 Agent 协作、长周期等待、事件恢复与动态重规划。</dd></div><div><dt>拟采用方案</dt><dd><strong>LangGraph</strong>：用持久化执行状态与暂停 / 恢复机制承接任务上下文；业务事件接入和动态分派逻辑由应用实现。</dd></div><div><dt>选择原因</dt><dd>本项目优先自定义状态、事件与计划更新的关系。该选择是针对本场景的设计取舍，仍需通过实现验证。</dd></div><div><dt>备选方案</dt><dd><strong>Dify</strong>：可视化 Workflow 与 Agent / 工具节点适合快速验证标准问答、工具查询与有限节点编排。Dify 也能编排工具与 Agent；本方案选择 LangGraph 源于任务续办的控制需求，而非断言 Dify 无法实现。</dd></div><div><dt>实现状态</dt><dd>完成产品方案与技术选型；未集成真实 LangGraph Runtime，未连接 WMS / 退款系统，未验证端到端自动执行。</dd></div></dl><details class="workflow-details"><summary>技术依据与待验证事项 <span>官方资料 / 拟议实现</span></summary><p>官方机制参考：<a href="https://docs.langchain.com/oss/javascript/langgraph/persistence" rel="noopener" target="_blank">LangGraph 持久化状态</a>、<a href="https://docs.langchain.com/oss/javascript/langgraph/interrupts" rel="noopener" target="_blank">暂停与恢复</a>；<a href="https://docs.dify.ai/en/cloud/use-dify/nodes/agent" rel="noopener" target="_blank">Dify Agent 节点</a>与<a href="https://www.dify.ai/workflows" rel="noopener" target="_blank">可视化 Workflow</a>。</p><p>待验证：持久化存储与线程恢复、外部事件关联 / 去重、并行结果汇总、重复建单控制，以及不同业务结果下的计划分支。当前前端只呈现设计与模拟轨迹。</p></details></details></section>
+<section class="prd-subsection"><h3 data-outline-label="2.6 LangGraph / Dify 选型" id="design-resolution-6">2.6 LangGraph / Dify 技术选型</h3>
+<p class="r7-choice"><strong>拟采用 LangGraph 状态编排。</strong></p>
+<dl class="r8-tech-needs"><div><dt>持续等待</dt><dd>WH-201 等待外部反馈时，保留服务目标、已知结果与 Plan v1。</dd></div><div><dt>事件恢复</dt><dd>仓库事件关联原任务后，由 <span class="r8-role r8-role--specialist"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M8 21h8"/></svg><span>Warehouse Agent</span></span> 继续复查，不丢失历史上下文。</dd></div><div><dt>计划更新</dt><dd><span class="r8-role r8-role--main"><svg class="r8-role-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v5H4v5m8-5h8v5"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/></svg><span>Service Orchestrator</span></span> 消费核实结果，再调整分派和后续分支。</dd></div></dl>
+<div class="r8-tech-choice" id="workflow-tech-choice"><article><h4>LangGraph｜拟采用</h4><p>让应用掌握等待任务的状态、恢复入口与剩余计划分支，承接本场景的具体控制需求。</p></article><article><h4>Dify｜可视化备选</h4><p>快速验证标准 Agent、工具查询与较固定工作流；不同分支和等待机制需结合实现评估，不断言其无法完成对应能力。</p></article></div>
+<p class="r8-tech-tradeoff"><strong>主要取舍：</strong>需要对执行状态、暂停 / 恢复、结果消费与分支保留较细的应用级控制。LangGraph 提供持久化与暂停 / 恢复机制；业务事件映射、去重、并行结果汇总与重复建单控制仍由应用逻辑设计，并需验证恢复正确性。</p>
+<p class="r7-note">尚未接入真实 LangGraph Runtime 或企业 API，尚未完成事件恢复测试；持久化配置、业务映射、去重与各分支待最小 Mock 执行验证。当前仅为产品方案与模拟状态，没有 Workflow 执行测试结果。</p>
+<p class="r8-references">官方机制参考：<a href="https://docs.langchain.com/oss/javascript/langgraph/persistence" rel="noopener" target="_blank">LangGraph 持久化状态</a>、<a href="https://docs.langchain.com/oss/javascript/langgraph/interrupts" rel="noopener" target="_blank">暂停与恢复</a>；<a href="https://docs.dify.ai/en/cloud/use-dify/nodes/agent" rel="noopener" target="_blank">Dify Agent 节点</a>与<a href="https://www.dify.ai/workflows" rel="noopener" target="_blank">可视化 Workflow</a>。</p>
+</section>
 </div>
 </section>
 
@@ -1443,11 +2002,16 @@
         if (target === shell) window.scrollTo({ top:document.getElementById('project-hero').getBoundingClientRect().bottom + window.scrollY - header.getBoundingClientRect().height - 8, behavior:'instant' });
         else target.scrollIntoView({ behavior:'instant', block:'start' });
       };
-      const settleNavigation = (target, y) => {
+      const settleNavigation = (target, y, focusTarget = false) => {
         restoring = true;
         requestAnimationFrame(() => {
           if (typeof y === 'number') window.scrollTo({ top:y, behavior:'instant' });
           else if (target) scrollTarget(target);
+          if (focusTarget && target) {
+            target.setAttribute('tabindex','-1');
+            target.focus({ preventScroll:true });
+            target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once:true });
+          }
           requestAnimationFrame(() => { restoring = false; savePosition(); updateOutline(); });
         });
       };
@@ -1467,7 +2031,7 @@
         if (changed) settleNavigation(shell);
       }
       function updateOutline() {
-        if (view !== 'design') return;
+        if (view !== 'design' || (mobileOutline.open && mobileOutline.offsetWidth)) return;
         const offset = header.getBoundingClientRect().height + shell.getBoundingClientRect().height + 40;
         const sections = [...panels.design.querySelectorAll('.prd-section')];
         let active = sections[0];
@@ -1478,7 +2042,11 @@
           const current = link.dataset.prdSection === active.id || (activeSub && link.hash === `#${activeSub.id}`);
           if (current) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current');
         });
+        panels.design.querySelectorAll('[data-prd-subnav]').forEach(nav => {
+          nav.hidden = nav.dataset.prdSubnav !== active.id;
+        });
       }
+      mobileOutline.addEventListener('toggle', () => { if (!mobileOutline.open) updateOutline(); });
       tabs.forEach((tab,index) => {
         tab.addEventListener('click', () => switchView(tab.dataset.view));
         tab.addEventListener('keydown', event => {
@@ -1508,7 +2076,7 @@
         url.searchParams.set('view',next);
         url.hash = target.id;
         if (url.href !== location.href) history.pushState({ projectView:next }, '', url);
-        settleNavigation(target);
+        settleNavigation(target,undefined,anchor.classList.contains('p2-gallery-item'));
       });
       const restoreLocation = (savedPosition = false) => {
         clearTimeout(scrollTimer);

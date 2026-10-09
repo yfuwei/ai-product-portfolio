@@ -5587,10 +5587,11 @@
       .design-panel .prd-sidebar-inner {
         position: sticky;
         top: calc(var(--case-header-height) + var(--project-tabs-height) + 18px);
-        padding: 14px 12px;
-        background: var(--prd-surface);
-        border: 1px solid var(--prd-line);
-        border-radius: 12px;
+        padding: 0 20px 0 0;
+        background: transparent;
+        border: 0;
+        border-right: 1px solid #dce4ed;
+        border-radius: 0;
       }
 
       .design-panel .prd-sidebar {
@@ -5608,12 +5609,21 @@
         line-height: 1.4;
       }
 
+      .design-panel .prd-outline-eyebrow {
+        margin: 0;
+        color: #2755a0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .1em;
+        line-height: 1.4;
+      }
+
       .design-panel .prd-outline-title {
-        margin: 0 7px 10px;
+        margin: 8px 0 16px;
         color: var(--prd-ink);
-        font-size: 15px;
-        font-weight: 720;
-        line-height: 1.3;
+        font-size: 19px;
+        font-weight: 750;
+        line-height: 1.4;
       }
 
       .design-panel .prd-outline-list {
@@ -5623,36 +5633,43 @@
         list-style: none;
       }
 
+      .design-panel .prd-outline-list > li + li { margin-top: 8px; }
+
       .design-panel .prd-outline-link {
         display: grid;
-        grid-template-columns: 25px minmax(0, 1fr);
-        gap: 6px;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 10px;
         align-items: baseline;
-        padding: 7px 7px;
-        color: var(--prd-muted);
-        border-left: 2px solid transparent;
-        font-size: 13px;
+        padding: 8px 0;
+        color: #607089;
+        border: 0;
+        font-size: 12px;
         font-weight: 650;
-        line-height: 1.35;
+        line-height: 1.6;
+        white-space: normal;
+        overflow-wrap: break-word;
         text-decoration: none;
-        transition: color 150ms ease, background 150ms ease, border-color 150ms ease;
+        transition: color 150ms ease;
       }
 
-      .design-panel .prd-outline-link span:first-child {
-        color: #94a3b8;
-        font-size: 10px;
-        font-weight: 850;
+      .design-panel .prd-outline-link > span:first-child {
+        color: #be4768;
+        font-size: 11px;
+        font-weight: 750;
+        white-space: nowrap;
       }
 
       .design-panel .prd-outline-link:hover {
-        color: var(--prd-blue);
-        background: #ffffff;
+        color: #2755a0;
+        background: transparent;
+        text-decoration: underline;
+        text-underline-offset: 4px;
       }
 
       .design-panel .prd-outline-link[aria-current="location"] {
-        color: var(--prd-blue);
-        background: #ffffff;
-        border-left-color: var(--prd-blue);
+        color: #2755a0;
+        background: transparent;
+        font-weight: 750;
       }
 
       .design-panel .prd-outline-link:focus-visible,
@@ -7711,13 +7728,14 @@
         .design-panel .prd-mobile-outline {
           display: block;
           margin-bottom: 18px;
-          background: var(--prd-surface);
-          border: 1px solid var(--prd-line);
-          border-radius: 9px;
+          background: #ffffff;
+          border: 0;
+          border-block: 1px solid #dce4ed;
+          border-radius: 0;
         }
 
         .design-panel .prd-mobile-outline > summary {
-          padding: 11px 13px;
+          padding: 12px 0;
           color: var(--prd-ink);
           cursor: pointer;
           font-size: 14px;
@@ -9677,17 +9695,18 @@
       .design-panel .prd-sidebar-inner { max-height: calc(100dvh - var(--case-header-height) - var(--project-tabs-height) - 36px); overflow-y: auto; }
       .design-panel .prd-outline-link { grid-template-columns: 28px minmax(0, 1fr); }
       .design-panel .prd-layout { overflow-anchor: none; }
-      .design-panel .prd-suboutline { margin: 3px 0 7px 26px; padding: 0; list-style: none; }
+      .design-panel .prd-suboutline { margin: 4px 0 8px 3px; padding: 4px 0 8px 12px; border-left: 1px solid #dce4ed; list-style: none; }
       .design-panel .prd-suboutline[hidden] { display: none; }
-      .design-panel .prd-suboutline a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; padding: 4px 5px; border-left: 2px solid transparent; color: var(--prd-muted); font-size: 11px; line-height: 1.4; text-decoration: none; }
-      .design-panel .prd-suboutline a[aria-current="location"] { color: var(--prd-blue); border-left-color: var(--prd-blue); background: #fff; font-weight: 650; }
-      .design-panel .prd-suboutline a:hover { color: var(--prd-blue); }
+      .design-panel .prd-suboutline a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 6px; padding: 5px 0; border: 0; color: #607089; font-size: 11px; line-height: 1.6; white-space: normal; overflow-wrap: break-word; text-decoration: none; }
+      .design-panel .prd-suboutline a[aria-current="location"] { color: #2755a0; background: transparent; font-weight: 750; }
+      .design-panel .prd-suboutline a:hover { color: #2755a0; text-decoration: underline; text-underline-offset: 4px; }
+      .design-panel :is(.prd-outline-link, .prd-suboutline a):focus-visible { outline: 2px solid #93b4ed; outline-offset: 4px; }
       .design-panel :is(#design-v3, #design-graph) .el-en { display: block; margin-top: 2px; color: var(--prd-muted); font-size: 10px; font-weight: 500; line-height: 1.3; }
       .design-panel #design-graph .prd-field-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
       .design-panel #design-graph .prd-field-list li { padding: 4px 7px; border: 1px solid var(--prd-line); border-radius: 5px; background: #fff; font-size: 11px; }
       @media (max-width: 1080px) {
         .design-panel .prd-mobile-outline { position: sticky; top: calc(var(--case-header-height) + var(--project-tabs-height) + 8px); z-index: 12; overflow: visible; }
-        .design-panel .prd-mobile-outline[open] .prd-outline-list { position: absolute; top: 100%; left: -1px; right: -1px; max-height: calc(100dvh - var(--case-header-height) - var(--project-tabs-height) - 90px); overflow-y: auto; background: var(--prd-surface); border: 1px solid var(--prd-line); border-radius: 0 0 9px 9px; }
+        .design-panel .prd-mobile-outline[open] .prd-outline-list { position: absolute; top: 100%; left: -1px; right: -1px; max-height: calc(100dvh - var(--case-header-height) - var(--project-tabs-height) - 90px); overflow-y: auto; background: #ffffff; border: 1px solid #dce4ed; border-radius: 0; }
         .design-panel .prd-mobile-outline .is-current-section { grid-column: 1 / -1; }
       }
 
@@ -13401,7 +13420,8 @@
         <div class="prd-layout">
           <aside class="prd-sidebar" aria-label="Product Design Detail navigation">
             <div class="prd-sidebar-inner">
-              <h2 class="prd-outline-title">On This Page</h2>
+              <p class="prd-outline-eyebrow">PRODUCT DESIGN</p>
+              <h2 class="prd-outline-title">Document Outline</h2>
               <ol class="prd-outline-list">
 <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>Problem &amp; V1 Goals</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview" hidden>
 <li><a href="#design-overview-1" data-prd-subsection="design-overview-1" data-prd-owner="design-overview"><span>1.1</span><span>Observed Gaps</span></a></li>
@@ -13475,7 +13495,7 @@
 
           <div class="prd-main">
             <details class="prd-mobile-outline">
-              <summary>On This Page</summary>
+              <summary>Document Outline</summary>
               <ol class="prd-outline-list">
 <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>Problem &amp; V1 Goals</span></a></li>
 <li><a class="prd-outline-link" href="#design-task" data-prd-section="design-task"><span>B02</span><span>Review Task Breakdown</span></a></li>
