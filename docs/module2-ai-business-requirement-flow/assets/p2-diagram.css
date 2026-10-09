@@ -1,0 +1,255 @@
+/* Shared A02 / A03 diagram system: canvas, phases, cards, connectors and output. */
+:is(.p2-diagram,.p2-flow) {
+  --diagram-ink:var(--ink,#192943);
+  --diagram-blue:var(--blue,#2b5ba8);
+  --diagram-muted:var(--muted,#687992);
+  --diagram-line:var(--line,#d7e0eb);
+  --diagram-connector:#91abcd;
+  --diagram-card-line:#cad8eb;
+  --diagram-pending:#a35973;
+  --diagram-canvas:#f5f8fc;
+  --diagram-card:#fff;
+  --diagram-result:#edf3fc;
+  --diagram-node-line:#a9bfdd;
+}
+.p2-diagram {
+  padding:24px;
+  border:1px solid var(--diagram-line);
+  border-radius:4px;
+  color:var(--diagram-ink);
+  background:var(--diagram-canvas);
+}
+.p2-diagram .p2-diagram__body { max-width:1030px; margin:auto; }
+.p2-diagram .p2-diagram__caption { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px 18px; margin-bottom:20px; }
+.p2-diagram .p2-diagram__label { display:block; color:var(--diagram-blue); font-size:10px; font-weight:750; line-height:1.6; letter-spacing:.055em; }
+.p2-diagram .p2-diagram__meta { color:var(--diagram-muted); font-size:11px; line-height:1.7; }
+:is(.p2-diagram,.p2-flow) .p2-diagram__icon { display:block; width:18px; height:18px; flex:none; fill:none; stroke:currentColor; stroke-width:1.6px; stroke-linecap:round; stroke-linejoin:round; }
+.p2-diagram .p2-diagram__symbols { position:absolute; width:0; height:0; overflow:hidden; pointer-events:none; }
+.p2-diagram .p2-diagram__symbols marker path { fill:none; stroke:var(--diagram-blue); stroke-width:1.25px; stroke-linecap:round; stroke-linejoin:round; }
+.p2-diagram .p2-diagram__stage { display:grid; grid-template-columns:142px minmax(0,1fr); gap:20px; }
+.p2-diagram .p2-diagram__phase { position:relative; display:grid; grid-template-columns:24px minmax(0,1fr); align-content:start; align-items:center; gap:3px 9px; padding-top:14px; }
+.p2-diagram .p2-diagram__phase>span { display:grid; place-items:center; grid-row:1/3; align-self:start; width:24px; height:24px; border:1px solid #b5c7df; border-radius:50%; background:var(--diagram-card); color:var(--diagram-blue); font-size:10px; font-weight:700; line-height:1; }
+.p2-diagram .p2-diagram__phase strong { color:var(--diagram-blue); font-size:11px; line-height:1.5; }
+.p2-diagram .p2-diagram__phase small { grid-column:2; color:var(--diagram-muted); font-size:10px; line-height:1.7; }
+.p2-diagram .p2-diagram__stage:where(:not(:last-child)) .p2-diagram__phase::before { content:''; position:absolute; left:11px; top:42px; bottom:-10px; border-left:1px solid #d2ddea; }
+.p2-diagram .p2-diagram__stage-body { min-width:0; }
+.p2-diagram .p2-diagram__touchpoints { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:0; padding:0; list-style:none; }
+.p2-diagram .p2-diagram__touchpoints::before { content:''; position:absolute; left:16.6667%; right:16.6667%; top:13px; border-top:1px solid var(--diagram-connector); }
+.p2-diagram .p2-diagram__touchpoints li { position:relative; display:flex; flex-direction:column; align-items:center; min-width:0; padding:0 6px; text-align:center; }
+.p2-diagram .p2-diagram__touchpoint-mark { position:relative; display:grid; place-items:center; width:28px; height:28px; margin-bottom:9px; border:1px solid #b5c7df; border-radius:50%; background:var(--diagram-card); color:var(--diagram-blue); }
+.p2-diagram .p2-diagram__touchpoint-mark .p2-diagram__icon { width:14px; height:14px; }
+.p2-diagram .p2-diagram__touchpoints strong { color:var(--diagram-ink); font-size:12px; font-weight:600; line-height:1.7; }
+.p2-diagram .p2-diagram__touchpoints .p2-diagram__meta { margin-top:3px; }
+.p2-diagram .p2-diagram__connector { display:block; width:100%; overflow:visible; }
+.p2-diagram .p2-diagram__connector line { stroke:var(--diagram-connector); stroke-width:1.4px; vector-effect:non-scaling-stroke; }
+.p2-diagram .p2-diagram__connector--narrow { display:none; }
+.p2-diagram .p2-diagram__object { display:flex; align-items:center; justify-content:center; gap:14px; width:380px; max-width:100%; margin:auto; padding:15px 20px; border:1px solid var(--diagram-node-line); border-top:2px solid var(--diagram-blue); border-radius:3px; background:var(--diagram-card); }
+.p2-diagram .p2-diagram__object>.p2-diagram__icon { color:var(--diagram-blue); }
+.p2-diagram .p2-diagram__object h3 { color:var(--diagram-ink); font-size:22px; line-height:1.4; }
+.p2-diagram .p2-diagram__object .p2-diagram__meta { margin-top:4px; }
+.p2-diagram .p2-diagram__reference { margin-top:7px; text-align:center; color:var(--diagram-muted); font-size:11px; line-height:1.7; }
+.p2-diagram .p2-diagram__evidence { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; }
+.p2-diagram .p2-diagram__input { min-width:0; margin:0 9px; padding:14px 16px; border:1px solid var(--diagram-card-line); border-top:2px solid #91add5; border-radius:2px; background:var(--diagram-card); }
+.p2-diagram .p2-diagram__input header { display:flex; align-items:center; gap:8px; padding-bottom:10px; border-bottom:1px solid #e0e7f0; }
+.p2-diagram .p2-diagram__input header>.p2-diagram__icon { color:var(--diagram-blue); width:16px; height:16px; }
+.p2-diagram .p2-diagram__input h4 { color:var(--diagram-blue); font-size:14px; font-weight:650; line-height:1.5; }
+.p2-diagram .p2-diagram__fact { margin-top:10px; font-size:14px; font-weight:600; line-height:1.7; }
+.p2-diagram .p2-diagram__support { margin-top:7px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
+.p2-diagram .p2-diagram__states { margin:10px 0 0; }
+.p2-diagram .p2-diagram__states>div { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.p2-diagram .p2-diagram__states>div+div { margin-top:3px; }
+.p2-diagram .p2-diagram__states dt { color:var(--diagram-muted); font-size:12px; line-height:1.7; }
+.p2-diagram .p2-diagram__states dd { font-size:13px; line-height:1.7; }
+.p2-diagram .p2-diagram__states .is-pending { color:var(--diagram-pending); }
+.p2-diagram .p2-diagram__gap-mark { display:grid; place-items:center; width:16px; height:16px; flex:none; }
+.p2-diagram .p2-diagram__gap-mark::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--rose,#c44366); }
+.p2-diagram .p2-diagram__output { padding:18px 22px 15px; border:1px solid var(--diagram-node-line); border-top:2px solid var(--diagram-ink); border-radius:3px; background:var(--diagram-result); }
+.p2-diagram .p2-diagram__output-heading { display:flex; align-items:center; gap:9px; color:var(--diagram-blue); }
+.p2-diagram .p2-diagram__output h3 { margin-top:9px; color:var(--diagram-ink); font-size:22px; line-height:1.4; }
+.p2-diagram .p2-diagram__task-details { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:16px 0; }
+.p2-diagram .p2-diagram__task-details .p2-diagram__label { margin-bottom:4px; color:var(--diagram-muted); font-weight:600; letter-spacing:0; }
+.p2-diagram .p2-diagram__task-details p>span:last-child { font-size:13px; line-height:1.8; }
+.p2-diagram .p2-diagram__handoff { display:flex; align-items:center; gap:8px; padding-top:11px; border-top:1px solid #cbd9eb; color:var(--diagram-blue); font-size:12px; line-height:1.8; }
+.p2-diagram .p2-diagram__handoff .p2-diagram__icon { width:16px; height:16px; }
+.p2-diagram .p2-diagram__foundation { max-width:1030px; margin:16px auto 0; color:var(--diagram-muted); font-size:10px; line-height:1.7; }
+@media(max-width:1100px) {
+  .p2-diagram .p2-diagram__stage { grid-template-columns:132px minmax(0,1fr); gap:16px; }
+  .p2-diagram .p2-diagram__evidence { gap:0; }
+  .p2-diagram .p2-diagram__input { margin:0 7px; padding:13px 12px; }
+}
+@media(max-width:800px) {
+  .p2-diagram .p2-diagram__stage { grid-template-columns:1fr; gap:12px; }
+  .p2-diagram .p2-diagram__phase { grid-template-columns:24px auto 1fr; gap:8px; padding:0; }
+  .p2-diagram .p2-diagram__phase>span { grid-row:1; }
+  .p2-diagram .p2-diagram__phase small { grid-column:3; }
+  .p2-diagram .p2-diagram__stage:where(:not(:last-child)) .p2-diagram__phase::before { display:none; }
+  .p2-diagram .p2-diagram__stage+.p2-diagram__stage { margin-top:16px; }
+}
+@media(max-width:600px) {
+  .p2-diagram { padding:20px 14px; }
+  .p2-diagram .p2-diagram__caption { margin-bottom:18px; }
+  .p2-diagram .p2-diagram__caption>.p2-diagram__label { font-size:9px; }
+  .p2-diagram .p2-diagram__caption>.p2-diagram__meta { font-size:10px; }
+  .p2-diagram .p2-diagram__touchpoints li { padding:0 4px; }
+  .p2-diagram .p2-diagram__touchpoints strong { min-height:40px; font-size:12px; text-wrap:balance; }
+  .p2-diagram .p2-diagram__touchpoints .p2-diagram__meta { font-size:10px; }
+  .p2-diagram .p2-diagram__object { gap:10px; padding:13px 14px; }
+  .p2-diagram .p2-diagram__object h3 { font-size:20px; }
+  .p2-diagram .p2-diagram__reference { font-size:10px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(n+3) .p2-diagram__phase { padding-left:16px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(n+3) .p2-diagram__phase::after { content:''; position:absolute; left:4px; top:-16px; bottom:-12px; border-left:1px solid var(--diagram-connector); }
+  .p2-diagram .p2-diagram__evidence { position:relative; grid-template-columns:1fr; gap:12px; padding-left:16px; }
+  .p2-diagram .p2-diagram__evidence::before { content:''; position:absolute; left:4px; top:0; bottom:0; border-left:1px solid var(--diagram-connector); }
+  .p2-diagram .p2-diagram__input { position:relative; margin:0; padding:13px 14px; }
+  .p2-diagram .p2-diagram__input::before { content:''; position:absolute; left:-13px; top:23px; width:12px; border-top:1px solid var(--diagram-connector); }
+  .p2-diagram .p2-diagram__connector--wide { display:none; }
+  .p2-diagram .p2-diagram__connector--narrow { display:block; }
+  .p2-diagram .p2-diagram__output { padding:16px 14px 13px; }
+  .p2-diagram .p2-diagram__output-heading { align-items:flex-start; }
+  .p2-diagram .p2-diagram__output-heading .p2-diagram__icon { width:16px; height:16px; }
+  .p2-diagram .p2-diagram__output h3 { font-size:20px; }
+  .p2-diagram .p2-diagram__task-details { grid-template-columns:1fr; gap:12px; margin:14px 0; }
+  .p2-diagram .p2-diagram__handoff { align-items:flex-start; }
+  .p2-diagram .p2-diagram__handoff .p2-diagram__icon { margin-top:3px; }
+}
+
+/* A02 lock pass: unchanged four-layer structure and type sizes. */
+.p2-diagram--reconstruction { padding-top:18px; padding-bottom:18px; }
+.p2-diagram--reconstruction .p2-diagram__caption { margin-bottom:16px; }
+.p2-diagram--reconstruction .p2-diagram__touchpoint-mark { margin-bottom:7px; }
+.p2-diagram--reconstruction .p2-diagram__object { padding-top:11px; padding-bottom:11px; }
+.p2-diagram--reconstruction .p2-diagram__reference { margin-top:5px; }
+.p2-diagram--reconstruction .p2-diagram__input { padding-top:12px; padding-bottom:12px; }
+.p2-diagram--reconstruction .p2-diagram__input header { padding-bottom:8px; }
+.p2-diagram--reconstruction .p2-diagram__fact { margin-top:8px; }
+.p2-diagram--reconstruction .p2-diagram__support { margin-top:5px; }
+.p2-diagram--reconstruction .p2-diagram__output { padding-top:16px; padding-bottom:13px; }
+.p2-diagram--reconstruction .p2-diagram__task-details { margin-top:12px; margin-bottom:12px; }
+.p2-diagram--reconstruction .p2-diagram__handoff { padding-top:9px; }
+.p2-diagram--reconstruction .p2-diagram__foundation { margin-top:12px; }
+@media(min-width:801px) {
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(1) .p2-diagram__phase { padding-top:2px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(2) .p2-diagram__phase { padding-top:10px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(3) .p2-diagram__phase { padding-top:10px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(4) .p2-diagram__phase { padding-top:14px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:nth-child(1) .p2-diagram__phase::before { top:30px; }
+  .p2-diagram--reconstruction .p2-diagram__stage:is(:nth-child(2),:nth-child(3)) .p2-diagram__phase::before { top:38px; }
+}
+
+/* A03 retains its planning / parallel dispatch / replanning structure. */
+.p2-diagram .p2-diagram__agent-mark { display:grid; place-items:center; width:26px; height:26px; flex:none; border:1px solid #b5c7df; border-radius:50%; color:var(--diagram-blue); background:var(--diagram-card); font-size:11px; font-weight:650; line-height:1; }
+.p2-diagram .p2-execution__input { margin-bottom:8px; }
+.p2-diagram .p2-execution__control { padding:16px 20px; border:1px solid var(--diagram-node-line); border-top:2px solid var(--diagram-blue); border-radius:3px; background:var(--diagram-card); }
+.p2-diagram .p2-execution__control header { display:flex; align-items:center; gap:12px; }
+.p2-diagram .p2-execution__control h3 { margin-top:3px; color:var(--diagram-ink); font-size:22px; line-height:1.4; }
+.p2-diagram .p2-execution__control>p { margin-top:7px; padding-left:38px; font-size:12px; line-height:1.8; }
+.p2-diagram .p2-execution__role { align-self:flex-start; margin-left:auto; padding:2px 7px; border:1px solid var(--diagram-card-line); border-radius:3px; color:var(--diagram-muted); font-size:10px; white-space:nowrap; }
+.p2-diagram .p2-execution__stage-dispatch .p2-diagram__stage-body { position:relative; }
+.p2-diagram .p2-execution__parallel { position:absolute; top:0; left:0; font-size:10px; }
+.p2-diagram .p2-execution__agents { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.p2-diagram .p2-execution__agent { display:flex; flex-direction:column; }
+.p2-diagram .p2-execution__agent header { gap:10px; }
+.p2-diagram .p2-execution__agent h4 { font-size:17px; line-height:1.5; }
+.p2-diagram .p2-execution__goal { margin-top:9px; font-size:12px; line-height:1.8; }
+.p2-diagram .p2-execution__action { display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 8px; margin:6px 0 11px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
+.p2-diagram .p2-execution__action>span { font-size:10px; }
+.p2-diagram .p2-execution__agent-result { min-height:72px; display:flex; align-items:flex-start; gap:8px; margin-top:auto; padding-top:10px; border-top:1px solid #e0e7f0; color:var(--diagram-blue); }
+.p2-diagram .p2-execution__agent-result>.p2-diagram__icon { width:16px; height:16px; margin-top:2px; }
+.p2-diagram .p2-execution__agent-result .p2-diagram__label { color:var(--diagram-muted); font-size:9px; font-weight:500; letter-spacing:0; }
+.p2-diagram .p2-execution__agent-result strong { display:block; margin-top:3px; font-size:12px; font-weight:650; line-height:1.8; }
+.p2-diagram .p2-execution__agent-result p { color:var(--diagram-muted); font-size:11px; line-height:1.8; }
+.p2-diagram .p2-execution__waiting { display:flex; align-items:center; justify-content:center; gap:11px; width:max-content; max-width:100%; margin:auto; padding:9px 15px; border:1px solid var(--diagram-card-line); border-radius:4px; background:var(--diagram-card); color:var(--diagram-blue); }
+.p2-diagram .p2-execution__waiting strong { font-size:14px; line-height:1.6; }
+.p2-diagram .p2-execution__waiting p { margin-top:2px; color:var(--diagram-muted); font-size:11px; line-height:1.7; }
+.p2-diagram .p2-execution__event-sequence { display:grid; grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr); align-items:center; }
+.p2-diagram .p2-execution__business-event { padding:9px 12px; }
+.p2-diagram .p2-execution__business-event header { display:flex; align-items:center; gap:7px; }
+.p2-diagram .p2-execution__event-mark { width:7px; height:7px; flex:none; border-radius:50%; background:var(--rose,#c44366); }
+.p2-diagram .p2-execution__business-event .p2-diagram__label { color:var(--diagram-pending); font-size:9px; letter-spacing:0; }
+.p2-diagram .p2-execution__business-event>strong,.p2-diagram .p2-execution__verified>strong { display:block; margin-top:5px; color:var(--diagram-ink); font-size:15px; font-weight:650; line-height:1.7; }
+.p2-diagram .p2-execution__business-event>p,.p2-diagram .p2-execution__verified>p { margin-top:4px; color:var(--diagram-muted); font-size:11px; line-height:1.7; }
+.p2-diagram .p2-execution__event-arrow { color:var(--diagram-blue); justify-self:center; }
+.p2-diagram .p2-execution__verified { padding:9px 12px; border-left:1px solid var(--diagram-card-line); }
+.p2-diagram .p2-execution__verified>.p2-diagram__label { font-size:10px; letter-spacing:0; }
+.p2-diagram .p2-execution__verified>p { display:flex; align-items:center; gap:6px; color:var(--diagram-blue); }
+.p2-diagram .p2-execution__verified .p2-diagram__icon { width:16px; height:16px; }
+.p2-diagram .p2-execution__plan-diff { display:grid; grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr); align-items:center; gap:16px; margin:16px 0 12px; }
+.p2-diagram .p2-execution__plan-diff .p2-diagram__label { color:var(--diagram-muted); font-weight:600; }
+.p2-diagram .p2-execution__plan-diff strong { display:block; margin-top:4px; font-size:15px; line-height:1.7; }
+.p2-diagram .p2-execution__plan-diff p { margin-top:3px; color:var(--diagram-muted); font-size:12px; line-height:1.8; }
+.p2-diagram .p2-execution__plan-arrow { display:flex; align-items:center; justify-content:center; color:var(--diagram-blue); }
+.p2-diagram .p2-execution__new-fact { padding-top:10px; border-top:1px solid #cbd9eb; font-size:12px; line-height:1.8; }
+.p2-diagram .p2-execution__alternative { margin-top:5px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
+.p2-diagram .p2-execution__continue { display:flex; align-items:flex-start; gap:10px; padding:3px 16px 12px; border-bottom:1px solid var(--diagram-card-line); color:var(--diagram-blue); }
+.p2-diagram .p2-execution__continue>.p2-diagram__icon { margin-top:2px; }
+.p2-diagram .p2-execution__continue h4 { margin-top:3px; font-size:15px; line-height:1.6; }
+.p2-diagram .p2-execution__continue p { margin-top:4px; color:var(--diagram-muted); font-size:12px; line-height:1.8; }
+.p2-diagram .p2-execution__continue-result { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin-top:7px; }
+.p2-diagram .p2-execution__continue-result strong { font-size:13px; line-height:1.7; }
+.p2-diagram .p2-execution__stack { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 16px; }
+.p2-diagram .p2-execution__connector--narrow { display:none; }
+@media(min-width:801px) {
+  .p2-diagram--execution .p2-execution__stage-plan .p2-diagram__phase { padding-top:38px; }
+  .p2-diagram--execution .p2-execution__stage-plan .p2-diagram__phase::before { top:66px; bottom:-38px; }
+  .p2-diagram--execution .p2-execution__stage-dispatch .p2-diagram__phase { padding-top:42px; }
+  .p2-diagram--execution .p2-execution__stage-dispatch .p2-diagram__phase::before { top:70px; }
+}
+@media(max-width:600px) {
+  .p2-diagram .p2-execution__control { position:relative; padding:14px; }
+  .p2-diagram .p2-execution__control header { gap:9px; align-items:flex-start; }
+  .p2-diagram .p2-execution__control header>div { flex:1; min-width:0; }
+  .p2-diagram .p2-execution__control h3 { font-size:20px; }
+  .p2-diagram .p2-execution__control>p { padding-left:0; }
+  .p2-diagram .p2-execution__role { position:absolute; top:14px; right:14px; }
+  .p2-diagram .p2-execution__control header .p2-diagram__label { max-width:calc(100% - 60px); font-size:9px; }
+  .p2-diagram .p2-execution__control .p2-diagram__agent-mark { margin-top:21px; }
+  .p2-diagram .p2-execution__parallel { position:static; margin-bottom:4px; }
+  .p2-diagram .p2-execution__agents { position:relative; grid-template-columns:1fr; gap:12px; padding-left:16px; }
+  .p2-diagram .p2-execution__agents::before { content:''; position:absolute; left:4px; top:0; bottom:0; border-left:1px solid var(--diagram-connector); }
+  .p2-diagram .p2-execution__agent { position:relative; margin:0; }
+  .p2-diagram .p2-execution__agent::before { content:''; position:absolute; left:-13px; top:26px; width:12px; border-top:1px solid var(--diagram-connector); }
+  .p2-diagram .p2-execution__connector--wide { display:none; }
+  .p2-diagram .p2-execution__connector--narrow { display:block; }
+  .p2-diagram .p2-execution__waiting { padding:9px 12px; }
+  .p2-diagram .p2-execution__event-sequence { grid-template-columns:1fr; gap:8px; }
+  .p2-diagram .p2-execution__business-event { padding:5px 0; }
+  .p2-diagram .p2-execution__event-arrow { transform:rotate(90deg); }
+  .p2-diagram .p2-execution__verified { padding:7px 12px; }
+  .p2-diagram .p2-execution__plan-diff { grid-template-columns:1fr; gap:10px; margin:14px 0; }
+  .p2-diagram .p2-execution__plan-arrow { justify-content:flex-start; padding-left:4px; }
+  .p2-diagram .p2-execution__plan-arrow .p2-diagram__icon { transform:rotate(90deg); }
+  .p2-diagram .p2-execution__continue { padding:3px 0 12px; }
+}
+
+@media(min-width:601px) {
+  .p2-diagram .p2-execution__continue>div { flex:1; min-width:0; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:0 18px; }
+  .p2-diagram .p2-execution__continue>div>:is(.p2-diagram__label,h4,p) { grid-column:1; }
+  .p2-diagram .p2-execution__continue-result { grid-column:2; grid-row:1/4; align-self:center; flex-direction:column; align-items:flex-start; margin-top:0; }
+}
+
+/* Shared task semantics: action first, assignee second, result third. */
+.p2-diagram .p2-diagram__phase strong { display:flex; align-items:center; gap:6px; }
+.p2-diagram .p2-diagram__phase strong .p2-diagram__icon { width:16px; height:16px; }
+.p2-diagram--reconstruction .p2-diagram__object { border:0; border-top:1px solid var(--diagram-node-line); border-bottom:1px solid var(--diagram-node-line); border-radius:0; background:transparent; }
+.p2-diagram--reconstruction .p2-diagram__input { border:0; border-top:1px solid var(--diagram-node-line); border-radius:0; background:transparent; }
+.p2-diagram--reconstruction .p2-diagram__input header { border-bottom:0; padding-bottom:3px; }
+.p2-diagram--reconstruction .p2-diagram__states .is-pending { color:var(--diagram-ink); }
+.p2-diagram--reconstruction .p2-diagram__output { border:0; border-left:2px solid var(--diagram-blue); border-radius:2px; background:var(--diagram-result); }
+.p2-diagram--execution .p2-execution__control { border:0; border-top:1px solid var(--diagram-node-line); border-bottom:1px solid var(--diagram-line); border-radius:0; background:transparent; }
+.p2-diagram--execution .p2-diagram__agent-mark { border:0; background:transparent; }
+.p2-diagram--execution .p2-execution__agent { border:0; border-top:1px solid var(--diagram-node-line); border-radius:0; background:transparent; }
+.p2-diagram--execution .p2-execution__agent header { padding-bottom:8px; border-bottom:0; }
+.p2-diagram--execution .p2-execution__agent h4 { color:var(--diagram-ink); }
+.p2-diagram--execution .p2-execution__assignee { margin-top:3px; color:var(--diagram-blue); font-size:11px; line-height:1.6; }
+.p2-diagram--execution .p2-execution__waiting { border:0; border-radius:0; background:transparent; }
+.p2-diagram--execution .p2-execution__replanning { border:0; border-left:2px solid var(--diagram-blue); border-radius:2px; background:var(--diagram-result); }
+.p2-diagram--execution .p2-execution__replanning h3 { font-size:18px; color:var(--diagram-blue); }
+.p2-diagram--execution .p2-execution__plan-diff { margin-top:12px; gap:12px; }
+.p2-diagram--execution .p2-execution__control .p2-diagram__label { color:var(--diagram-muted); font-weight:550; }
+@media(max-width:600px) {
+  .p2-diagram .p2-diagram__phase { grid-template-columns:24px minmax(0,1fr); gap:4px 8px; }
+  .p2-diagram .p2-diagram__phase small { grid-column:2; }
+  .p2-diagram--execution .p2-execution__control .p2-diagram__agent-mark { margin-top:0; }
+  .p2-diagram--execution .p2-execution__control header .p2-diagram__label { max-width:100%; }
+  .p2-diagram--execution .p2-execution__role { display:none; }
+}

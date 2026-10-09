@@ -1,0 +1,353 @@
+{
+  "kind": "static-product-design",
+  "viewport": {
+    "width": 1600,
+    "height": 1000
+  },
+  "source": "assets/prototype/round2",
+  "sourceHashes": {
+    "index.html": "001c1bea0ab45c6d05c94a4bfb6360423b6833494753eca81a2fd4c29d1587e6",
+    "styles.css": "74b587a449795c649db0e15d7550fb38c0fe1e1827ad3777bf6a656cb6d8f8ec",
+    "app.js": "0ca6faf122f235a67f3acfddce366a0fd0fc0f3f7fdd1dc7368a6e63652d4076",
+    "mock-data.js": "433b1672060314024a5c329e5f9c2b9363d7195a9047cb4df3032d4b8c00433c",
+    "capture.cjs": "9d8bd5ad2de3b14308742fd159153a1a6c8c1d5c34ae524dc0fb4ab07cea94cc"
+  },
+  "browserVersion": "154.0.8037.98",
+  "records": [
+    {
+      "view": "conversation",
+      "file": "b04-service-conversation.png",
+      "url": "http://127.0.0.1:4232/ai-product-portfolio/docs/module2-ai-business-requirement-flow/assets/prototype/round2/index.html?view=conversation",
+      "screenshotSHA256": "69b6fb0a65ff0767b8ddbf587bcb52d426967428bea9f930f28392bde2a115f3",
+      "audit": {
+        "width": 1600,
+        "height": 1000,
+        "mainText": "快照 01 · 周五第三次咨询后\n\n退款重复催办 · 恢复待续办任务\n\nCASE-001 · RET-001 · 周五第三次咨询\n\n待续办 / 任务已恢复\n会话记录\n3 条\n退款周期咨询\n周一\n\n退货寄回后多久能退款？\n\n历史咨询\nCONV-001\n签收后未退款\n周三\n\n物流显示签收，为什么还没退款？\n\n已关联核查承诺\nCONV-002\n追问核查进展\n周五\n\n上次说帮我查仓库，现在怎么还没消息？\n\n当前选中\nCONV-003\n关联业务\n\n同一笔退货退款\nRET-001\n退款进展催问\n处理中\n\n周五 · 当前咨询\n查看历史记录\n\n客户 · 当前咨询\n\n上次不是说帮我去仓库查吗？现在怎么还是没消息？\n\n客\n已关联周三客服核查承诺。\n\n“帮您安排仓库核查。”\n\n周三 · CONV-002\n仓库核查 · 待续办\n待安排\n\n此前承诺已关联，尚无可追踪的有效核查任务。\n\nAI 回复建议\n尚未发送\n客服确认后发送。\n发送\nAI 续办助手\n当前事项\n接续上次未完成的仓库核查\n待移交 Agent\n01 · 找回历史承诺\n已关联\n\n“帮您安排仓库核查。”\n\n来源：周三 · CONV-002\n关联：同一笔退货 RET-001\n02 · 发现续办缺口\n未找到可继续追踪的仓库核查任务\n\n此前已有核查承诺，但没有找到有效的关联任务记录。\n\n03 · 恢复服务任务\n继续核实这笔退货的实际入库情况\n\n根据仓库核查结果，再推进退款处理。\n\n04 · 接续执行\n\n交给 Service Orchestrator，安排仓库核查并查询退款状态。\n\n交给 Agent 任务\n查看关联记录\n拟议操作 · 静态原型\n当前业务事实\n初始快照\n物流\n已投递\nDelivered\n仓库\n尚未确认收货\nNot Confirmed\n退款\n尚未发起\nNot Initiated",
+        "DOM": {
+          "elements": 172,
+          "images": 0,
+          "canvas": 0,
+          "textNodes": 67
+        },
+        "badges": [
+          {
+            "text": "待续办 / 任务已恢复",
+            "state": "active",
+            "color": "rgb(39, 85, 160)"
+          },
+          {
+            "text": "处理中",
+            "state": "active",
+            "color": "rgb(39, 85, 160)"
+          },
+          {
+            "text": "待安排",
+            "state": "waiting",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "text": "尚未发送",
+            "state": "inactive",
+            "color": "rgb(104, 119, 140)"
+          },
+          {
+            "text": "待移交 Agent",
+            "state": "active",
+            "color": "rgb(39, 85, 160)"
+          }
+        ],
+        "stateStrip": [
+          {
+            "state": "success",
+            "text": "物流\n已投递\nDelivered",
+            "iconColor": "rgb(35, 132, 92)"
+          },
+          {
+            "state": "waiting",
+            "text": "仓库\n尚未确认收货\nNot Confirmed",
+            "iconColor": "rgb(153, 101, 26)"
+          },
+          {
+            "state": "inactive",
+            "text": "退款\n尚未发起\nNot Initiated",
+            "iconColor": "rgb(104, 119, 140)"
+          }
+        ],
+        "timeline": [],
+        "caseStates": [],
+        "matrix": [],
+        "recovery": [
+          {
+            "state": "success",
+            "text": "01 · 找回历史承诺已关联“帮您安排仓库核查。”来源：周三 · CONV-002关联：同一笔退货 RET-001"
+          },
+          {
+            "state": "risk",
+            "text": "02 · 发现续办缺口未找到可继续追踪的仓库核查任务此前已有核查承诺，但没有找到有效的关联任务记录。"
+          },
+          {
+            "state": "active",
+            "text": "03 · 恢复服务任务继续核实这笔退货的实际入库情况根据仓库核查结果，再推进退款处理。"
+          },
+          {
+            "state": "active",
+            "text": "04 · 接续执行交给 Service Orchestrator，安排仓库核查并查询退款状态。交给 Agent 任务 查看关联记录 拟议操作 · 静态原型"
+          }
+        ],
+        "evidenceColors": [],
+        "mainHeading": "25px",
+        "activeNavigation": "服务会话",
+        "fontSizes": [
+          "11px",
+          "15px",
+          "14px",
+          "13px",
+          "16px",
+          "12px",
+          "18px",
+          "17px",
+          "22px"
+        ],
+        "overflowingText": []
+      },
+      "errors": []
+    },
+    {
+      "view": "execution",
+      "file": "b04-agent-execution.png",
+      "url": "http://127.0.0.1:4232/ai-product-portfolio/docs/module2-ai-business-requirement-flow/assets/prototype/round2/index.html?view=execution",
+      "screenshotSHA256": "98a39db7f0ab5fc4780d11cc0046d535dd08903e222a99fa34f528388561fee5",
+      "audit": {
+        "width": 1600,
+        "height": 1000,
+        "mainText": "快照 02 · 后续模拟执行结果\n\n退款续办任务 · Agent 执行进展\n\nCASE-001 · RET-001\n\n退款异常处理已启动\n退款结果待跟踪\n任务执行轨道\n执行历史\n主场景 · Mock\n业务事件\nPlan v1 · 并行查询记录\nService Orchestrator · 历史阶段\nW\n核实仓库收货\nWarehouse Agent\n已核查完成\n\n物流 / 仓库 / 已有任务查询\n\n未找到有效任务 → 创建 WH-201 → 等待\n\n后续取得入库记录 · WH-201 已完成\nR\n查询退款处理情况\nRefund Agent\n查询已完成\n\n退款记录 / 已有退款任务查询\n\n当时：退款未发起 · 仓库尚未确认收货\n\nPlan v2 已接续 → RF-301 Started\nWaiting · WH-201\n当时等待仓库反馈，保留任务上下文。\n此前等待 · 已结束\n仓库反馈：商品已验收入库\n已到达事件 · 关联 WH-201\n待 Agent 核实 → 下一节点\n取得有效入库记录，完成仓库核查\nWarehouse Agent · 已核实收货\nWH-201 · 核查完成\nService Orchestrator · Plan v1 → Plan v2\n已采用 · 收货结果已核实\n仓库已确认收货，下一步转向退款处理\nPlan v1 · 历史阶段\n核实仓库收货\nWH-201 · Waiting\nPlan v2 · 已采用\n推进退款异常处理\nRefund Agent · Follow-up\n当前任务 · Refund Agent\n退款异常续办已启动\n\n复查完成：退款未发起，无有效既有任务 → 创建 RF-301\n\n下一步：持续跟踪处理结果\nRF-301 · 已启动\nStarted\n当前任务详情\n已选中\nRF-301 · 退款异常处理\n退款异常处理\nStarted · 异常处理已启动\n所属 Case\nCASE-001\n业务对象\nRET-001\n计划来源\nService Orchestrator · Plan v2\n触发依据\nWH-201 核查完成，\n已取得有效入库记录。\n实际退款\n尚未发起\nNot Initiated\n退款到账\n待确认\nPending Confirmation\n客户进展 · 待发送预览\n\n您的退货已确认入库，退款异常处理已启动。我们将继续跟进，到账结果尚待确认。\n\nMock 消息预览 · 非真实发送记录\n查看关联证据\n查看任务记录\n拟议入口 · 静态原型",
+        "DOM": {
+          "elements": 174,
+          "images": 0,
+          "canvas": 0,
+          "textNodes": 75
+        },
+        "badges": [
+          {
+            "text": "退款异常处理已启动",
+            "state": "active",
+            "color": "rgb(39, 85, 160)"
+          },
+          {
+            "text": "已核查完成",
+            "state": "success",
+            "color": "rgb(35, 132, 92)"
+          },
+          {
+            "text": "查询已完成",
+            "state": "success",
+            "color": "rgb(35, 132, 92)"
+          },
+          {
+            "text": "Started · 异常处理已启动",
+            "state": "active",
+            "color": "rgb(39, 85, 160)"
+          }
+        ],
+        "stateStrip": [],
+        "timeline": [
+          {
+            "state": "success",
+            "text": "Plan v1 · 并行查询记录\nService Orchestrator · 历史阶段\nW\n核实仓库收货\nWarehouse Agent\n已核查完成\n\n物流 / 仓库 / 已有任务查询\n\n未找到有效任务 → 创建 WH-201 → 等待\n\n后续取得入库记录 · WH-201 已完成\nR\n查询退款处理情况\nRefund Agent\n查询已完成\n\n退款记录 / 已有退款任务查询\n\n当时：退款未发起 · 仓库尚未确认收货\n\nPlan v2 已接续 → RF-301 Started",
+            "iconColor": "rgb(35, 132, 92)"
+          },
+          {
+            "state": "waiting",
+            "text": "Waiting · WH-201\n当时等待仓库反馈，保留任务上下文。\n此前等待 · 已结束",
+            "iconColor": "rgb(153, 101, 26)"
+          },
+          {
+            "state": "risk",
+            "text": "仓库反馈：商品已验收入库\n已到达事件 · 关联 WH-201\n待 Agent 核实 → 下一节点",
+            "iconColor": "rgb(39, 85, 160)"
+          },
+          {
+            "state": "success",
+            "text": "取得有效入库记录，完成仓库核查\nWarehouse Agent · 已核实收货\nWH-201 · 核查完成",
+            "iconColor": "rgb(35, 132, 92)"
+          },
+          {
+            "state": "active",
+            "text": "Service Orchestrator · Plan v1 → Plan v2\n已采用 · 收货结果已核实\n仓库已确认收货，下一步转向退款处理\nPlan v1 · 历史阶段\n核实仓库收货\nWH-201 · Waiting\nPlan v2 · 已采用\n推进退款异常处理\nRefund Agent · Follow-up",
+            "iconColor": "rgb(39, 85, 160)"
+          },
+          {
+            "state": "active",
+            "text": "当前任务 · Refund Agent\n退款异常续办已启动\n\n复查完成：退款未发起，无有效既有任务 → 创建 RF-301\n\n下一步：持续跟踪处理结果\nRF-301 · 已启动\nStarted",
+            "iconColor": "rgb(39, 85, 160)"
+          }
+        ],
+        "caseStates": [],
+        "matrix": [],
+        "recovery": [],
+        "evidenceColors": [],
+        "mainHeading": "25px",
+        "activeNavigation": "Agent 任务",
+        "fontSizes": [
+          "11px",
+          "17px",
+          "16px",
+          "12px",
+          "13px",
+          "14px",
+          "20px",
+          "23px"
+        ],
+        "overflowingText": []
+      },
+      "errors": []
+    },
+    {
+      "view": "insights",
+      "file": "b04-case-insights.png",
+      "url": "http://127.0.0.1:4232/ai-product-portfolio/docs/module2-ai-business-requirement-flow/assets/prototype/round2/index.html?view=insights",
+      "screenshotSHA256": "1cf87d0a223056e1f76bd928b59f67ec02d97e22729492fc5884f5fa1633f3e6",
+      "audit": {
+        "width": 1600,
+        "height": 1000,
+        "mainText": "快照 03 · Flow B 独立分析\n\n退款催办中的重复服务卡点\n\nCASE-001 · RET-001 · 多笔独立 Mock Case\n\nCI-001 · Need Evidence\n跨 Case 问题排查\n4 条服务记录 · Mock 集合\n全部记录 4\n候选关联 3\n已排除 1\n当前选中：CASE-001\n四条模拟服务记录的收货相关证据对照\nCase\t客户主要问题\t收货相关记录\t业务卡点\t关联判断\nCASE-001\t三次催问，追查上次承诺的仓库核查。\t咨询时仓库未确认收货；后续核查取得有效入库记录。\t仓库确认信息可能不及时\t\n候选关联\n\nCASE-002\t已有入库记录，客服咨询时仍未确认。\t已有入库记录，客服当时未见确认；时间差待核实。\t具体时间差待核实\t\n候选关联\n\nCASE-003\t重复催办，关键更新时间记录不足。\t仓库状态更新与客服查询时间仍需核实。\t关键时间记录待补齐\t\n候选关联\n待核实\n\nCASE-004\t仓库已确认收货，但退款未到账。\t已确认收货，卡点位于退款后续处理。\t退款后续环节\t\n排除\n仓库收货确认信息可能存在滞后\nCI-001 · Need Evidence\n\n三条 Case 存在可比较的业务卡点，尚不能证明由同一原因导致。\n\n跨 Case 业务证据对照\n3 条候选 Case · 待补证\n\n对照实际入库、系统确认与客服可见的记录，检查信息是否在业务环节之间出现滞后。\n\n01 实际入库\n02 系统确认\n03 客服可见\n三个候选 Case 的已知业务记录与待补时间证据；不包含已排除 CASE-004\nCase\t实际入库记录\t系统确认记录\t客服可见状态\nCASE-001\t\n事后取得有效入库记录\n入库时间待核实\n\t\n确认时间待核实\n系统确认记录待核对\n\t\n当时未确认\n更新时间待核实\n\nCASE-002\t\n已有入库记录\n入库时间待核实\n\t\n确认时间待核实\n系统确认记录待核对\n\t\n查询时未确认\n可见状态时间待核实\n\nCASE-003\t\n入库时间记录待补\n缺少完整时间证据\n\t\n状态更新时间待核实\n系统确认记录待核对\n\t\n查询时间及状态待补\n客服查询证据待补\nAI 提出的调查方向\n\n实际入库、系统确认和客服可见之间，是否存在状态更新或信息同步滞后？\n\nCI-001 · Need Evidence\n候选问题详情\n当前选中\nCI-001 · 当前候选问题\n仓库收货确认可能滞后\nNeed Evidence\n关联与排除\n关联记录\nCASE-001 / 002 / 003\n排除记录\nCASE-004\n排除原因\n问题发生在退款后续环节。\n待补证\n待核实实际入库、系统确认及客服可见记录的时间信息。\n查看待核实证据\nTASK-001 · 条件预览\n尚未创建\n排查退货收货确认延迟，让客服及时获取可追踪的核查进展。\n创建前提\n\nCI-001 补齐证据，并经业务负责人确认。\n\n待补证确认 · 尚未触发",
+        "DOM": {
+          "elements": 254,
+          "images": 0,
+          "canvas": 0,
+          "textNodes": 105
+        },
+        "badges": [
+          {
+            "text": "CI-001 · Need Evidence",
+            "state": "waiting",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "text": "CI-001 · Need Evidence",
+            "state": "waiting",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "text": "CI-001 · Need Evidence",
+            "state": "waiting",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "text": "Need Evidence",
+            "state": "waiting",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "text": "尚未创建",
+            "state": "inactive",
+            "color": "rgb(104, 119, 140)"
+          }
+        ],
+        "stateStrip": [],
+        "timeline": [],
+        "caseStates": [
+          {
+            "id": "CASE-001",
+            "color": "rgb(39, 85, 160)"
+          },
+          {
+            "id": "CASE-002",
+            "color": "rgb(39, 85, 160)"
+          },
+          {
+            "id": "CASE-003",
+            "color": "rgb(153, 101, 26)"
+          },
+          {
+            "id": "CASE-004",
+            "color": "rgb(130, 144, 161)"
+          }
+        ],
+        "matrix": [
+          {
+            "id": "CASE-001",
+            "cells": [
+              {
+                "state": "success",
+                "iconColor": "rgb(35, 132, 92)",
+                "text": "事后取得有效入库记录"
+              },
+              {
+                "state": "waiting",
+                "iconColor": "rgb(153, 101, 26)",
+                "text": "确认时间待核实"
+              },
+              {
+                "state": "partial",
+                "iconColor": "rgb(66, 82, 107)",
+                "text": "当时未确认"
+              }
+            ]
+          },
+          {
+            "id": "CASE-002",
+            "cells": [
+              {
+                "state": "success",
+                "iconColor": "rgb(35, 132, 92)",
+                "text": "已有入库记录"
+              },
+              {
+                "state": "waiting",
+                "iconColor": "rgb(153, 101, 26)",
+                "text": "确认时间待核实"
+              },
+              {
+                "state": "partial",
+                "iconColor": "rgb(66, 82, 107)",
+                "text": "查询时未确认"
+              }
+            ]
+          },
+          {
+            "id": "CASE-003",
+            "cells": [
+              {
+                "state": "waiting",
+                "iconColor": "rgb(153, 101, 26)",
+                "text": "入库时间记录待补"
+              },
+              {
+                "state": "waiting",
+                "iconColor": "rgb(153, 101, 26)",
+                "text": "状态更新时间待核实"
+              },
+              {
+                "state": "waiting",
+                "iconColor": "rgb(153, 101, 26)",
+                "text": "查询时间及状态待补"
+              }
+            ]
+          }
+        ],
+        "recovery": [],
+        "evidenceColors": [
+          "rgb(153, 101, 26)",
+          "rgb(153, 101, 26)",
+          "rgb(153, 101, 26)",
+          "rgb(153, 101, 26)",
+          "rgb(153, 101, 26)",
+          "rgb(153, 101, 26)"
+        ],
+        "mainHeading": "25px",
+        "activeNavigation": "问题洞察",
+        "fontSizes": [
+          "11px",
+          "16px",
+          "17px",
+          "12px",
+          "14px",
+          "23px"
+        ],
+        "overflowingText": []
+      },
+      "errors": []
+    }
+  ]
+}

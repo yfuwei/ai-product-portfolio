@@ -1,0 +1,198 @@
+/* B01 / B02 only. The existing outline and continuous document layout are unchanged. */
+:is(#design-overview,#design-resolution).workflow-prd { --workflow-line:#d7e1ee; --workflow-soft:#f5f8fc; }
+:is(#design-overview,#design-resolution) .prd-section-body { font-size:14px; line-height:1.9; }
+:is(#design-overview,#design-resolution) .prd-section-header h2 { max-width:850px; }
+:is(#design-overview,#design-resolution) .prd-subsection { margin-top:38px; }
+:is(#design-overview,#design-resolution) .prd-subsection>p+* { margin-top:18px; }
+:is(#design-overview,#design-resolution) .prd-subsection>p+p { margin-top:12px; }
+:is(#design-overview,#design-resolution) .workflow-eyebrow { display:block; color:var(--blue); font-size:10px; font-weight:750; line-height:1.7; letter-spacing:.045em; }
+:is(#design-overview,#design-resolution) .workflow-meta { font-size:12px; }
+:is(#design-overview,#design-resolution) .workflow-takeaway { margin-top:18px; padding:12px 0 12px 16px; border-left:2px solid #9db6d8; color:var(--ink); font-size:14px; font-weight:550; }
+:is(#design-overview,#design-resolution) .workflow-definition { margin:0; }
+:is(#design-overview,#design-resolution) .workflow-definition>div { display:grid; grid-template-columns:116px minmax(0,1fr); gap:16px; padding:12px 0; border-bottom:1px solid var(--workflow-line); }
+:is(#design-overview,#design-resolution) .workflow-definition dt { color:var(--ink); font-size:12px; font-weight:650; }
+:is(#design-overview,#design-resolution) .workflow-definition dd { margin:0; color:var(--muted); font-size:13px; line-height:1.85; overflow-wrap:anywhere; }
+:is(#design-overview,#design-resolution) .workflow-definition>div:last-child { border-bottom:0; }
+:is(#design-overview,#design-resolution) .workflow-details { margin-top:20px; border-top:1px solid var(--workflow-line); border-bottom:1px solid var(--workflow-line); }
+:is(#design-overview,#design-resolution) .workflow-details summary { padding:13px 0; cursor:pointer; color:var(--blue); font-size:13px; font-weight:650; }
+:is(#design-overview,#design-resolution) .workflow-details summary span { margin-left:12px; color:var(--muted); font-size:11px; font-weight:400; }
+:is(#design-overview,#design-resolution) .workflow-details[open] { padding-bottom:16px; }
+:is(#design-overview,#design-resolution) .workflow-details p { margin-top:12px; font-size:12px; }
+:is(#design-overview,#design-resolution) .workflow-details a { color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
+#design-overview .workflow-story { margin:0 0 20px; padding:0; list-style:none; }
+#design-overview .workflow-story li { position:relative; display:grid; grid-template-columns:90px minmax(0,1fr); gap:22px; padding:16px 0; border-top:1px solid var(--workflow-line); }
+#design-overview .workflow-story li>span { color:var(--blue); font-size:13px; font-weight:650; }
+#design-overview .workflow-story small { display:block; margin-top:3px; color:var(--muted); font-size:10px; font-weight:400; }
+#design-overview .workflow-story strong { font-size:15px; }
+#design-overview .workflow-story p { margin-top:5px; font-size:13px; }
+#design-overview .workflow-facts { padding:15px 18px; margin-bottom:16px; background:var(--workflow-soft); border-top:1px solid #afc4df; }
+#design-overview .workflow-facts p { margin-top:7px; font-size:12px; }
+#design-overview .workflow-facts strong { color:var(--ink); font-weight:550; }
+#design-overview .workflow-facts .workflow-gap { color:#a35973; }
+#design-overview .workflow-capabilities { margin:0; }
+#design-overview .workflow-capabilities>div { display:grid; grid-template-columns:245px minmax(0,1fr); gap:24px; padding:20px 0; border-top:1px solid var(--workflow-line); }
+#design-overview .workflow-capabilities dt { color:var(--ink); font-size:14px; font-weight:650; line-height:1.7; }
+#design-overview .workflow-capabilities dt span { display:block; color:var(--blue); font-size:10px; letter-spacing:.045em; margin-bottom:6px; }
+#design-overview .workflow-capabilities dd { margin:0; color:var(--muted); font-size:13px; }
+#design-overview .workflow-scope { margin-top:18px; padding-top:18px; border-top:1px solid var(--workflow-line); }
+#design-resolution .workflow-request { margin:0 0 18px; padding:16px 20px; border-left:2px solid #9db6d8; background:var(--workflow-soft); color:var(--ink); font-size:17px; font-weight:550; line-height:1.9; }
+#design-resolution .workflow-request .workflow-eyebrow { margin-bottom:5px; }
+#design-resolution .workflow-recovery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; list-style:none; counter-reset:recovery; padding:0; }
+#design-resolution .workflow-recovery li { display:flex; gap:12px; padding:11px 0; border-top:1px solid var(--workflow-line); color:var(--muted); font-size:13px; counter-increment:recovery; }
+#design-resolution .workflow-recovery li::before { content:counter(recovery,decimal-leading-zero); color:var(--blue); font-size:11px; flex:none; }
+#design-resolution .workflow-task-definition { margin-top:18px; padding:18px 20px; border:1px solid var(--workflow-line); border-radius:3px; }
+#design-resolution .workflow-task-definition>.workflow-eyebrow { margin-bottom:8px; }
+#design-resolution .workflow-plan { padding:18px 20px; border-top:2px solid #90abd0; background:var(--workflow-soft); }
+#design-resolution .workflow-plan>.workflow-eyebrow { margin-bottom:14px; }
+#design-resolution .workflow-plan h4 { color:var(--ink); }
+#design-resolution .workflow-plan p { font-size:13px; }
+#design-resolution .workflow-agent-roles { margin-top:18px; }
+#design-resolution .workflow-agent-roles article { padding:17px 0; border-top:2px solid #adc1dd; }
+#design-resolution .workflow-agent-roles h4 { margin:6px 0 10px; font-size:16px; }
+#design-resolution .workflow-agent-roles p { font-size:13px; }
+#design-resolution .workflow-agent-roles .workflow-agent-result { margin-top:14px; padding-top:10px; border-top:1px solid var(--workflow-line); color:var(--blue); font-size:12px; }
+#design-resolution .workflow-execution-trace { margin:22px 0; padding:20px 24px; border:1px solid var(--workflow-line); border-radius:3px; background:var(--workflow-soft); }
+#design-resolution .workflow-execution-trace figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 18px; padding-bottom:18px; }
+#design-resolution .workflow-execution-trace figcaption>span:last-child { color:var(--muted); font-size:10px; }
+#design-resolution .workflow-trace { list-style:none; padding:0; margin:0; }
+#design-resolution .workflow-trace>li { position:relative; display:grid; grid-template-columns:34px minmax(0,1fr); gap:16px; }
+#design-resolution .workflow-trace>li:not(:last-child)::before { content:''; position:absolute; top:27px; bottom:0; left:13px; border-left:1px solid #afc4df; }
+#design-resolution .workflow-trace>li>span { position:relative; display:block; z-index:1; width:28px; align-self:start; padding:4px 0; border:1px solid #b8cbe3; border-radius:3px; text-align:center; background:#fff; color:var(--blue); font-size:10px; line-height:1.6; }
+#design-resolution .workflow-trace>li>div { min-width:0; padding:3px 0 17px; }
+#design-resolution .workflow-trace>li+li>div { padding-top:13px; border-top:1px solid #dbe5f1; }
+#design-resolution .workflow-trace>li+li>span { margin-top:10px; }
+#design-resolution .workflow-trace h4 { font-size:14px; line-height:1.7; }
+#design-resolution .workflow-trace p { margin-top:4px; font-size:12px; line-height:1.85; }
+#design-resolution .workflow-trace small { display:block; margin-top:5px; color:var(--blue); font-size:10px; line-height:1.7; }
+#design-resolution .workflow-parallel>div { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 20px; }
+#design-resolution .workflow-parallel small { grid-column:1/-1; margin-top:0; }
+#design-resolution .workflow-parallel-branch+div { padding-left:20px; border-left:1px solid #c9d7e9; }
+#design-resolution .workflow-plan-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:20px 0; }
+#design-resolution .workflow-plan-comparison article { padding:18px 0; border-top:2px solid #b3c6df; }
+#design-resolution .workflow-plan-comparison article:last-child { border-top-color:var(--blue); }
+#design-resolution .workflow-plan-comparison h4 { font-size:17px; margin:7px 0 12px; }
+#design-resolution .workflow-plan-comparison .workflow-definition>div { grid-template-columns:65px minmax(0,1fr); gap:12px; padding:9px 0; }
+#design-resolution .workflow-alternative { display:flex; gap:18px; margin-top:18px; padding:13px 0; border-top:1px dashed #c5d3e5; border-bottom:1px dashed #c5d3e5; }
+#design-resolution .workflow-alternative strong { flex:none; color:var(--blue); font-size:12px; }
+#design-resolution .workflow-alternative p { font-size:13px; }
+#design-resolution .workflow-tech-choice { margin-top:20px; border-top:2px solid #9bb4d6; }
+@media(max-width:600px) {
+  :is(#design-overview,#design-resolution) .prd-subsection { margin-top:30px; }
+  :is(#design-overview,#design-resolution) .prd-subsection>h3 { font-size:18px; line-height:1.65; }
+  :is(#design-overview,#design-resolution) .workflow-definition>div { grid-template-columns:1fr; gap:4px; }
+  :is(#design-overview,#design-resolution) .prd-two-column { grid-template-columns:1fr; gap:18px; }
+  :is(#design-overview,#design-resolution) .workflow-details summary span { display:block; margin:4px 0 0; }
+  #design-overview .workflow-story li { grid-template-columns:68px minmax(0,1fr); gap:16px; }
+  #design-overview .workflow-capabilities>div { grid-template-columns:1fr; gap:10px; }
+  #design-resolution .workflow-request { padding:14px 16px; font-size:16px; }
+  #design-resolution .workflow-recovery { grid-template-columns:1fr; }
+  #design-resolution .workflow-task-definition { padding:16px; }
+  #design-resolution .workflow-execution-trace { padding:16px 12px; }
+  #design-resolution .workflow-trace>li { grid-template-columns:28px minmax(0,1fr); gap:10px; }
+  #design-resolution .workflow-parallel>div { grid-template-columns:1fr; gap:12px; }
+  #design-resolution .workflow-parallel-branch+div { padding:10px 0 0; border-left:0; border-top:1px solid #c9d7e9; }
+  #design-resolution .workflow-plan-comparison { grid-template-columns:1fr; gap:8px; }
+  #design-resolution .workflow-plan-comparison .workflow-definition>div { grid-template-columns:65px minmax(0,1fr); }
+  #design-resolution .workflow-alternative { gap:12px; }
+}
+:is(#design-overview,#design-resolution) .workflow-id { white-space:nowrap; }
+@media(max-width:600px) {
+  #design-resolution .workflow-details .prd-table caption { display:block; width:100%; }
+}
+
+/* B02 2.4 / 2.5 only: semantic sequence marks, using shared P2 diagram tokens. */
+#design-resolution .workflow-execution-trace.p2-diagram { border-color:var(--diagram-line); border-radius:4px; background:var(--diagram-canvas); }
+#design-resolution .workflow-trace>li>span.workflow-trace-marker { display:flex; flex-direction:column; align-items:center; gap:5px; padding:2px 0; border:0; border-radius:0; background:var(--diagram-canvas); }
+#design-resolution .workflow-node-index { color:var(--diagram-muted); font-size:10px; font-weight:500; line-height:1.6; }
+#design-resolution .workflow-trace .workflow-trace-marker .p2-diagram__icon { width:18px; height:18px; color:var(--diagram-blue); }
+#design-resolution .workflow-trace .workflow-node-hint { font-size:9px; line-height:1.4; }
+#design-resolution .workflow-trace>li:not(:last-child)::before { border-color:var(--diagram-connector); }
+#design-resolution .workflow-trace>li:has(>.has-icon):not(:last-child)::before { top:46px; }
+#design-resolution .workflow-trace>li.workflow-parallel::before { top:61px; }
+#design-resolution .workflow-event-dot { display:block; width:6px; height:6px; margin:6px; border-radius:50%; background:var(--rose); }
+#design-resolution :is(.workflow-replanning,.workflow-refund-branch).p2-diagram { padding:0; border:0; border-radius:0; background:transparent; }
+#design-resolution .workflow-replanning { margin:20px 0 0; }
+#design-resolution .workflow-replanning .p2-diagram__caption { margin-bottom:22px; }
+#design-resolution .workflow-icon-timeline { margin:0; padding:0; list-style:none; }
+#design-resolution .workflow-icon-timeline>li { position:relative; display:grid; grid-template-columns:30px minmax(0,1fr); gap:16px; }
+#design-resolution .workflow-icon-timeline>li:not(:last-child)::before { content:''; position:absolute; left:14px; top:43px; bottom:0; border-left:1px solid var(--diagram-connector); }
+#design-resolution .workflow-timeline-marker { display:flex; flex-direction:column; align-items:center; gap:5px; padding-top:3px; color:var(--diagram-blue); }
+#design-resolution .workflow-icon-timeline>li>div { min-width:0; padding-bottom:24px; }
+#design-resolution .workflow-icon-timeline h4 { font-size:16px; font-weight:650; line-height:1.6; color:var(--diagram-ink); }
+#design-resolution .workflow-icon-timeline p { margin-top:5px; font-size:13px; line-height:1.85; color:var(--diagram-muted); }
+#design-resolution .workflow-icon-timeline>.is-replanning>div { margin-bottom:24px; padding:12px 16px; border-left:2px solid var(--diagram-blue); border-radius:2px; background:var(--diagram-result); }
+#design-resolution .workflow-icon-timeline>.is-replanning h4 { color:var(--diagram-blue); font-size:18px; }
+#design-resolution .workflow-icon-timeline>.is-replanning .workflow-timeline-marker { padding-top:15px; }
+#design-resolution .workflow-icon-timeline>.is-replanning::before { top:55px; }
+#design-resolution .workflow-warehouse-note { display:flex; align-items:baseline; gap:14px; padding:0 0 18px 46px; }
+#design-resolution .workflow-warehouse-note strong { color:var(--muted); font-size:11px; font-weight:600; flex:none; }
+#design-resolution .workflow-warehouse-note p { color:var(--muted); font-size:12px; line-height:1.8; }
+#design-resolution .workflow-refund-branch.p2-diagram { margin-top:2px; padding-top:20px; border-top:1px solid var(--diagram-line); }
+#design-resolution .workflow-refund-branch header { display:flex; align-items:center; gap:10px; }
+#design-resolution .workflow-refund-branch header>.p2-diagram__icon { color:var(--diagram-blue); }
+#design-resolution .workflow-refund-branch h4 { color:var(--diagram-ink); font-size:15px; font-weight:650; line-height:1.7; }
+#design-resolution .workflow-refund-branch>.workflow-meta { margin-top:7px; color:var(--diagram-muted); font-size:12px; }
+#design-resolution .workflow-branch-steps { position:relative; margin:17px 0 0 8px; padding:0 0 0 25px; border-left:1px solid var(--diagram-connector); list-style:none; }
+#design-resolution .workflow-branch-steps>li { position:relative; padding:0 0 15px; }
+#design-resolution .workflow-branch-steps>li:last-child { padding-bottom:0; }
+#design-resolution .workflow-branch-steps>li::before { content:''; position:absolute; left:-29px; top:7px; width:7px; height:7px; border:1px solid var(--diagram-connector); border-radius:50%; background:white; }
+#design-resolution .workflow-branch-steps h5 { margin:0; color:var(--diagram-ink); font-size:12px; font-weight:650; line-height:1.7; }
+#design-resolution .workflow-branch-steps p { color:var(--diagram-muted); margin-top:4px; font-size:13px; line-height:1.85; }
+#design-resolution .workflow-branch-steps .workflow-unconfirmed { font-size:12px; }
+@media(max-width:600px) {
+  #design-resolution .workflow-icon-timeline>li { grid-template-columns:26px minmax(0,1fr); gap:12px; }
+  #design-resolution .workflow-icon-timeline>li:not(:last-child)::before { left:12px; }
+  #design-resolution .workflow-icon-timeline h4 { font-size:15px; }
+  #design-resolution .workflow-icon-timeline>.is-replanning h4 { font-size:17px; }
+  #design-resolution .workflow-icon-timeline>.is-replanning>div { padding:11px 12px; }
+  #design-resolution .workflow-warehouse-note { display:block; padding-left:38px; }
+  #design-resolution .workflow-warehouse-note p { margin-top:4px; }
+  #design-resolution .workflow-refund-branch h4 { font-size:14px; }
+}
+
+/* B01 / B02 share P2 task typography, connectors and status semantics. */
+#design-overview .workflow-capabilities dt span { margin:5px 0 0; color:var(--muted); font-weight:450; letter-spacing:0; }
+#design-overview .workflow-facts { background:transparent; padding:15px 0; border-top:1px solid var(--diagram-connector); }
+#design-resolution .workflow-recovery { display:block; margin:18px 0 0; }
+#design-resolution .workflow-recovery>li { position:relative; display:grid; grid-template-columns:32px minmax(0,1fr); gap:15px; padding:0 0 20px; border:0; }
+#design-resolution .workflow-recovery>li::before { content:''; position:absolute; left:12px; top:24px; bottom:0; border-left:1px solid var(--diagram-connector); }
+#design-resolution .workflow-recovery>li:last-child::before { display:none; }
+#design-resolution .workflow-recovery-marker { position:relative; display:flex; flex-direction:column; align-items:center; gap:5px; width:26px; padding-bottom:4px; background:#fff; color:var(--diagram-blue); }
+#design-resolution .workflow-recovery-marker>span { font-size:10px; font-weight:500; color:var(--diagram-muted); }
+#design-resolution .workflow-recovery>li>strong { padding-top:1px; font-size:13px; font-weight:550; color:var(--diagram-ink); }
+#design-resolution .workflow-task-definition { border:0; border-left:2px solid var(--diagram-blue); border-radius:0; padding:10px 0 10px 18px; }
+#design-resolution .workflow-plan { position:relative; background:transparent; border-top:0; padding:0; }
+#design-resolution .workflow-dispatch-heading { display:flex; align-items:center; justify-content:center; gap:8px; padding:10px 0; color:var(--diagram-blue); }
+#design-resolution .workflow-plan>.prd-two-column { position:relative; margin-top:24px; gap:24px; }
+#design-resolution .workflow-plan>.prd-two-column::before { content:''; position:absolute; top:-24px; left:50%; height:12px; border-left:1px solid var(--diagram-connector); }
+#design-resolution .workflow-plan>.prd-two-column::after { content:''; position:absolute; left:25%; right:25%; top:-12px; border-top:1px solid var(--diagram-connector); }
+#design-resolution .workflow-plan>.prd-two-column>div { position:relative; padding:14px 0 0; border-top:1px solid var(--diagram-node-line); }
+#design-resolution .workflow-plan>.prd-two-column>div::before { content:''; position:absolute; top:-12px; left:50%; height:12px; border-left:1px solid var(--diagram-connector); }
+#design-resolution .workflow-plan h4 { font-size:16px; }
+#design-resolution .workflow-plan .workflow-task-assignee { margin:3px 0 8px; color:var(--diagram-blue); font-size:11px; }
+#design-resolution .workflow-agent-roles article { border-top:1px solid var(--diagram-node-line); }
+#design-resolution .workflow-agent-return { color:var(--diagram-blue); font-weight:550; }
+#design-resolution .workflow-agent-result { display:flex; align-items:flex-start; gap:8px; }
+#design-resolution .workflow-agent-result>.p2-diagram__icon { width:16px; height:16px; margin-top:3px; }
+#design-resolution .workflow-trace-group+.workflow-trace-group { margin-top:16px; padding-top:18px; border-top:1px solid var(--diagram-line); }
+#design-resolution .workflow-trace-group-heading { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:4px 14px; margin-bottom:17px; }
+#design-resolution .workflow-trace-group-heading>strong { font-size:15px; font-weight:650; color:var(--diagram-blue); }
+#design-resolution .workflow-trace-group-heading>span { font-size:10px; color:var(--diagram-muted); }
+#design-resolution .workflow-trace>li+li>div { border-top:0; padding-top:10px; }
+#design-resolution .workflow-trace .workflow-step-role,
+#design-resolution .workflow-icon-timeline .workflow-step-role { font-size:11px; color:var(--diagram-blue); font-weight:450; margin-top:3px; }
+#design-resolution .workflow-trace p:not(.workflow-step-role),
+#design-resolution .workflow-icon-timeline p:not(.workflow-step-role) { margin-top:4px; }
+#design-resolution .workflow-tech-supplement { font-size:12px; }
+#design-resolution .workflow-tech-supplement .workflow-tech-choice { border-top:0; margin-top:4px; }
+@media(max-width:600px) {
+  #design-resolution .workflow-plan>.prd-two-column { padding-left:18px; gap:18px; }
+  #design-resolution .workflow-plan>.prd-two-column::before { top:0; bottom:0; height:auto; left:4px; }
+  #design-resolution .workflow-plan>.prd-two-column::after { display:none; }
+  #design-resolution .workflow-plan>.prd-two-column>div::before { left:-14px; top:25px; width:14px; height:0; border-left:0; border-top:1px solid var(--diagram-connector); }
+  #design-resolution .workflow-dispatch-heading { justify-content:flex-start; }
+}
+#design-overview .workflow-capabilities .workflow-capability-title { display:flex; align-items:flex-start; gap:8px; font-size:14px; font-weight:650; }
+#design-overview .workflow-capability-title>.p2-diagram__icon { width:16px; height:16px; margin-top:4px; color:var(--diagram-blue); }
+#design-overview .workflow-capabilities dt>span { margin-left:24px; }
+#design-resolution .workflow-plan { margin-bottom:20px; }

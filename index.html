@@ -2142,6 +2142,26 @@
         html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li:last-child { padding-bottom: 0; }
         html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .judgment-note-list li + li { border-left: 0; border-top: 1px solid rgba(29, 47, 111, 0.14); }
       }
+
+      /* P2 Chinese release: reuse the existing execution screenshot in the home cover. */
+      .p2-current-cover, .p2-cover-capabilities { display: none; }
+      html[lang="zh-CN"] .p2-cover-capabilities {
+        display: flex; flex-wrap: wrap; gap: 5px 14px; margin-top: 12px;
+        color: var(--project-dark); font-size: 11.5px; font-weight: 650;
+      }
+      html[lang="zh-CN"] .poster-workflow .p2-current-cover {
+        display: block; width: 100%; height: 100%; object-fit: cover;
+        object-position: center 38%; border-radius: inherit;
+      }
+      html[lang="zh-CN"] .poster-workflow > :not(.p2-current-cover):not(.showcase-poster-title),
+      html[lang="zh-CN"] .poster-workflow::before,
+      html[lang="zh-CN"] .poster-workflow::after { display: none; }
+      html[lang="zh-CN"] .poster-workflow .showcase-poster-title {
+        top: auto; bottom: 0; left: 0; right: 0; transform: none;
+        margin: 0; width: 100%; padding: 18px 16px 10px;
+        background: linear-gradient(transparent, rgba(255,255,255,.98) 35%);
+        font-size: 18px; line-height: 1.35; text-wrap: balance;
+      }
     </style>
   </head>
   <body class="home-comic-hero zh-home-v2">
@@ -2220,12 +2240,12 @@
           <p class="hero-secondary-eyebrow">OTHER PROJECTS</p>
           <div class="hero-secondary-project-list">
             <a class="project-two" href="docs/module2-ai-business-requirement-flow/index.html">
-              <span class="secondary-project-meta"><span class="secondary-project-number">02</span><span class="secondary-project-type">流程型 AI 应用</span></span>
+              <span class="secondary-project-meta"><span class="secondary-project-number">02</span><span class="secondary-project-type">产品方案 · 高保真原型</span></span>
               <span class="secondary-project-link">查看项目 <span aria-hidden="true">→</span></span>
-              <span class="secondary-project-name">AI 业务需求流转工作台</span>
+              <span class="secondary-project-name">AI 智能客服与多 Agent 服务工作流</span>
               <span class="secondary-project-divider" aria-hidden="true"></span>
-              <span class="secondary-project-punch">会识别，不等于能流转</span>
-              <span class="secondary-project-explainer">AI 识别能力越强，反而越容易把产品做坏。</span>
+              <span class="secondary-project-punch">第三次催问，不该第三次从头处理。</span>
+              <span class="secondary-project-explainer">退货退款反复催办，接续上次未完成的服务任务。</span>
             </a>
             <a class="project-three" href="docs/module3-ai-content-operations-workflow/index.html">
               <span class="secondary-project-meta"><span class="secondary-project-number">03</span><span class="secondary-project-type">内容型 AI 应用</span></span>
@@ -2272,7 +2292,7 @@
               <p class="scenario-build-title">四个项目的场景装配</p>
               <div class="scenario-build-grid">
                 <article class="scenario-build-item"><div class="scenario-build-head"><span>01</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">信息承重墙</span>：业务智能助手</strong><p class="scenario-build-layer">可信上下文｜输入层｜招聘判断的信息基础</p><p class="scenario-build-detail">JD / 职级 / 面评 / 历史记录</p></article>
-                <article class="scenario-build-item"><div class="scenario-build-head"><span>02</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">决策动线</span>：AI 业务需求流转工作台</strong><p class="scenario-build-layer">业务信号流转｜流程层｜招聘流程中的决策流转路径</p><p class="scenario-build-detail">需求 → 澄清 → 筛选 → 面试 → 决策</p></article>
+                <article class="scenario-build-item"><div class="scenario-build-head"><span>02</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">决策动线</span>：AI 智能客服与多 Agent 服务工作流</strong><p class="scenario-build-layer">机制参考｜流程层｜任务接续与进展追踪</p><p class="scenario-build-detail">恢复任务 → 分派 → 等待 → 续办</p></article>
                 <article class="scenario-build-item"><div class="scenario-build-head"><span>03</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">决策装配单元</span>：AI 营销内容生产工作流</strong><p class="scenario-build-layer">结构化输出｜输出层｜结构化招聘决策结果</p><p class="scenario-build-detail">JD / 面试题 / 候选包</p></article>
                 <article class="scenario-build-item"><div class="scenario-build-head"><span>04</span></div><strong class="scenario-build-combined-title"><span class="scenario-build-role">判断闸门</span>：AI 应用评估与治理框架</strong><p class="scenario-build-layer">方法论底座｜控制层｜AI 在招聘流程中的介入控制规则</p><p class="scenario-build-detail">场景 / 边界 / 闸门</p></article>
               </div>
@@ -2373,7 +2393,7 @@
           <p class="eyebrow section-eyebrow" data-i18n="showcase.eyebrow">PROJECT EVIDENCE｜项目证据</p>
           <p class="showcase-proof-note" data-i18n="showcase.proofNote">前面是判断，下面是四个样本。</p>
           <h2 id="showcase-title" data-i18n-html="showcase.title">四个项目，回答同一个问题：<br><span class="showcase-title-line">AI 如何从<span class="showcase-title-hit">“能做”</span>走向<span class="showcase-title-hit">“业务可用”</span>。</span></h2>
-          <p data-i18n="showcase.text">这四个项目不是功能陈列，而是四类 AI 场景判断的样本：知识如何变成下一步动作，反馈如何变成可确认需求，内容如何进入审核与复盘，AI 项目如何在立项前就被评估和拦截。</p>
+          <p data-i18n="showcase.text">这四个项目不是功能陈列，而是四类 AI 场景判断的样本：知识如何变成下一步动作，未完成的服务任务如何跨会话接续，内容如何进入审核与复盘，AI 项目如何在立项前就被评估和拦截。</p>
         </div>
         <div class="showcase-grid">
           <article class="showcase-card card-knowledge">
@@ -2406,27 +2426,29 @@
               <div class="showcase-meta-line">
                 <span class="showcase-tag" data-i18n="showcase.card2.tag">流程型 AI 应用</span>
                 <span class="showcase-meta-separator" aria-hidden="true">｜</span>
-                <span class="showcase-response" data-i18n="showcase.card2.response">回应：伪需求 / 伪结果</span>
+                <span class="showcase-response" data-i18n="showcase.card2.response">产品方案 · 高保真原型</span>
               </div>
               <a class="showcase-cta" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n="showcase.card2.cta" data-i18n-attr="href:entry2.href">查看项目 →</a>
             </div>
-            <div class="poster-stage poster-workflow" aria-label="需求流转项目封面" data-i18n-attr="aria-label:showcase.card2.posterAria">
+            <div class="poster-stage poster-workflow" aria-label="退货退款续办：Agent 任务执行台产品设计模拟" data-i18n-attr="aria-label:showcase.card2.posterAria">
+              <img class="p2-current-cover" src="./docs/module2-ai-business-requirement-flow/assets/screenshots/round2/b04-agent-execution.png" alt="Agent 任务执行台：仓库核查、计划更新与退款异常处理，产品设计模拟" width="1600" height="1000" loading="lazy" decoding="async">
               <div class="poster-route">
-                <span data-i18n="showcase.card2.posterRoute1">多源输入</span>
-                <strong data-i18n="showcase.card2.posterRoute2">AI 分流</strong>
-                <span data-i18n="showcase.card2.posterRoute3">闭环工作台</span>
+                <span data-i18n="showcase.card2.posterRoute1">恢复任务</span>
+                <strong data-i18n="showcase.card2.posterRoute2">Agent 编排</strong>
+                <span data-i18n="showcase.card2.posterRoute3">动态重规划</span>
               </div>
-              <div class="poster-split-node" data-i18n="showcase.card2.posterCore">需求流转</div>
-              <span class="poster-keyword keyword-a" data-i18n="showcase.card2.posterK1">会议</span>
-              <span class="poster-keyword keyword-b" data-i18n="showcase.card2.posterK2">反馈</span>
-              <span class="poster-keyword keyword-c" data-i18n="showcase.card2.posterK3">售后</span>
-              <span class="poster-keyword keyword-d" data-i18n="showcase.card2.posterK4">状态同步</span>
-              <h3 class="showcase-poster-title" data-i18n="showcase.card2.title">AI 业务需求流转工作台</h3>
+              <div class="poster-split-node" data-i18n="showcase.card2.posterCore">异步续办</div>
+              <span class="poster-keyword keyword-a" data-i18n="showcase.card2.posterK1">跨会话任务恢复</span>
+              <span class="poster-keyword keyword-b" data-i18n="showcase.card2.posterK2">多 Agent 编排</span>
+              <span class="poster-keyword keyword-c" data-i18n="showcase.card2.posterK3">动态重规划</span>
+              <span class="poster-keyword keyword-d" data-i18n="showcase.card2.posterK4">跨 Case 关联</span>
+              <h3 class="showcase-poster-title" data-i18n="showcase.card2.title">AI 智能客服与多 Agent 服务工作流</h3>
             </div>
             <div class="showcase-card-inner">
-              <p class="showcase-hook" data-i18n="showcase.card2.hook">AI 识别能力越强，反而越容易把产品做坏。</p>
-              <p class="showcase-decision" data-i18n="showcase.card2.decision">关键判断：信息 ≠ 需求。</p>
-              <p class="showcase-value" data-i18n="showcase.card2.value">这个项目不是把所有反馈自动变成需求，而是先识别信号、保留证据、交给人确认，再进入分流、跟进和复盘流程。</p>
+              <p class="showcase-hook" data-i18n="showcase.card2.hook">第三次催问，不该第三次从头处理。</p>
+              <p class="showcase-decision" data-i18n="showcase.card2.decision">关键判断：处理任务接续，不等于退款已经到账。</p>
+              <p class="showcase-value" data-i18n="showcase.card2.value">围绕退货退款重复催办，设计跨会话任务恢复、多 Agent 协作与动态重规划，并通过跨 Case 关联发现重复业务卡点。</p>
+              <div class="p2-cover-capabilities" aria-label="P2 核心能力"><span>跨会话任务恢复</span><span>多 Agent 编排</span><span>动态重规划</span><span>跨 Case 关联</span></div>
             </div>
           </article>
           <article class="showcase-card card-content">
