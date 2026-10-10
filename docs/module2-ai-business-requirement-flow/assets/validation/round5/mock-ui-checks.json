@@ -1,0 +1,141 @@
+{
+  "method": "Real Chromium UI clicks, form entry and DOM assertions; no injected business states",
+  "mockOnly": true,
+  "checks": [
+    {
+      "name": "AI 查询建议完成不等于 Case 解决",
+      "steps": [
+        "打开正常分支",
+        "检查六步与进度标题",
+        "核对结果验证及关闭按钮"
+      ],
+      "pass": true
+    },
+    {
+      "name": "查询依据与回复交付保持分离",
+      "steps": [
+        "查看业务记录与知识依据并关闭弹窗",
+        "清空建议尝试发送",
+        "填写并模拟发送",
+        "打开客户确认后取消"
+      ],
+      "pass": true
+    },
+    {
+      "name": "客户结果确认需条件与依据，并保留责任记录",
+      "steps": [
+        "尝试未勾选提交",
+        "勾选条件但清空依据再次提交",
+        "填写确认说明并提交",
+        "检查 Resolved 与保存记录"
+      ],
+      "pass": true
+    },
+    {
+      "name": "Closed 另有关闭检查，Application 始终 Returned",
+      "steps": [
+        "打开关闭检查",
+        "不勾选提交被阻止",
+        "勾选但空依据仍被阻止",
+        "填写关闭依据并提交"
+      ],
+      "pass": true
+    },
+    {
+      "name": "人工接收需权限，且正常与异常分支独立",
+      "steps": [
+        "切到异常分支",
+        "核对 Pending Handoff 与原队列责任",
+        "勾选并撤销权限",
+        "再次确认后接收"
+      ],
+      "pass": true
+    },
+    {
+      "name": "人工继续处理与升级保留接收责任",
+      "steps": [
+        "开始人工核查",
+        "空记录保存被阻止",
+        "填写核查记录并保存",
+        "取消一次升级，再确认模拟升级",
+        "切回正常分支核对独立关闭状态"
+      ],
+      "pass": true
+    },
+    {
+      "name": "无人接收超时不丢责任，仍可有效接收",
+      "steps": [
+        "重新打开异常分支",
+        "演示接收超时",
+        "核对 Pending Assignment / Pending Handoff 及队列责任",
+        "确认权限并继续接收"
+      ],
+      "pass": true
+    },
+    {
+      "name": "Need Evidence 明确缺项、责任、补证及复核路径",
+      "steps": [
+        "打开 VOC 初始视图",
+        "检查四项缺证与补证 / 审核责任",
+        "检查附回 CI-001 路径",
+        "检查 Confirm / Merge / 任务预览禁用"
+      ],
+      "pass": true
+    },
+    {
+      "name": "保存 Need Evidence 不自动创建 TASK-001",
+      "steps": [
+        "打开补证决定后取消",
+        "再次打开并清空备注提交被阻止",
+        "填写补证责任说明并保存",
+        "检查状态、固定复核路径与反馈"
+      ],
+      "pass": true
+    },
+    {
+      "name": "补证完成仍需单独人工 Confirm",
+      "steps": [
+        "打开假设补证分支",
+        "未勾选及缺少无重复条件均被阻止",
+        "完整五项后应用假设条件",
+        "检查仍为 Need Evidence，任务预览仍禁用"
+      ],
+      "pass": true
+    },
+    {
+      "name": "人工审核后仅开放 Pending Acceptance 条件预览",
+      "steps": [
+        "未完成审核确认不能提交",
+        "填写两项审核条件及准入依据",
+        "打开任务预览核对责任、措施和效果层",
+        "核对没有执行 / 完成操作"
+      ],
+      "pass": true
+    },
+    {
+      "name": "回到补证 / Observe / Reject 均移除任务访问",
+      "steps": [
+        "Confirm 后保存 Need Evidence",
+        "检查复核路径恢复、Confirm 与预览禁用",
+        "保存 Observe，再保存 Reject",
+        "重置演示并核对各分支初始状态"
+      ],
+      "pass": true
+    },
+    {
+      "name": "业务标识与正常 / 异常事实一致",
+      "steps": [
+        "读取共用 Mock 数据",
+        "核对关联 / 排除事件",
+        "三个视图检查标识及 Mock 标签"
+      ],
+      "pass": true
+    },
+    {
+      "name": "未发生页面脚本错误或业务网络调用",
+      "pass": true,
+      "errors": [],
+      "requests": []
+    }
+  ]
+}

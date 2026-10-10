@@ -1,0 +1,421 @@
+{
+  "source": "Chromium browser UI operations and observed DOM snapshots",
+  "mockOnly": true,
+  "records": [
+    {
+      "id": "record-case",
+      "testCases": [
+        "TC03"
+      ],
+      "scope": "仅本地结果确认与关闭；业务查询 / 路由不在执行范围",
+      "steps": [
+        {
+          "operation": "模拟发送建议回复",
+          "observed": {
+            "caseOrIssueStatus": "Waiting for Customer\nApplication · Returned",
+            "branch": "正常处理分支 · 业务事实与适用规则一致\nAI 先查实际申请，再按需核对规则；不代客户重新提交",
+            "aiProgress": "本轮 AI 查询 / 建议已完成（Mock）\nCase 等待客户结果验证；尚未解决",
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "仅模拟发送；Case 等待客户结果确认，申请仍为 Returned。",
+            "buttons": {
+              "verifyDisabled": false,
+              "closeDisabled": true,
+              "acceptDisabled": null,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          }
+        },
+        {
+          "operation": "确认客户结果条件并记录依据",
+          "observed": {
+            "caseOrIssueStatus": "Resolved\nApplication · Returned",
+            "branch": "正常处理分支 · 业务事实与适用规则一致\nAI 先查实际申请，再按需核对规则；不代客户重新提交",
+            "aiProgress": "本轮 AI 查询 / 建议已完成（Mock）\nCase 已验证解决；仍待关闭检查",
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [
+              "结果确认 · 客服 A（模拟）\nMock 客户明确确认理解退回原因与补件方式；本次验证仅为咨询结果。"
+            ],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "本地 Case 已模拟验证解决；Application 仍 Returned。",
+            "buttons": {
+              "verifyDisabled": true,
+              "closeDisabled": false,
+              "acceptDisabled": null,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          },
+          "screenshot": "tc03-resolved.png"
+        },
+        {
+          "operation": "完成独立关闭检查并记录原因",
+          "observed": {
+            "caseOrIssueStatus": "Closed\nApplication · Returned",
+            "branch": "正常处理分支 · 业务事实与适用规则一致\nAI 先查实际申请，再按需核对规则；不代客户重新提交",
+            "aiProgress": "本轮 AI 查询 / 建议已完成（Mock）\nCase 已经结果验证与独立关闭检查",
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [
+              "结果确认 · 客服 A（模拟）\nMock 客户明确确认理解退回原因与补件方式；本次验证仅为咨询结果。",
+              "关闭依据 · 客服 A（模拟）\nMock 责任人核对当前咨询无待办，保留客户确认；申请仍需客户补件。"
+            ],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "本地 Case 已模拟关闭；申请状态保持 Returned。",
+            "buttons": {
+              "verifyDisabled": true,
+              "closeDisabled": true,
+              "acceptDisabled": null,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          },
+          "screenshot": "tc03-closed.png"
+        }
+      ],
+      "before": {
+        "caseOrIssueStatus": "AI Processing\nApplication · Returned",
+        "branch": "正常处理分支 · 业务事实与适用规则一致\nAI 先查实际申请，再按需核对规则；不代客户重新提交",
+        "aiProgress": "本轮 AI 查询 / 建议已完成（Mock）\nCase 尚未解决：待回复与客户结果验证",
+        "handoffOwner": null,
+        "handoffReceipt": null,
+        "handoffStage": null,
+        "resultRecords": [],
+        "evidenceFollowup": null,
+        "task": null,
+        "dialog": null,
+        "feedback": null,
+        "buttons": {
+          "verifyDisabled": true,
+          "closeDisabled": true,
+          "acceptDisabled": null,
+          "confirmDisabled": null,
+          "previewDisabled": null
+        }
+      },
+      "verdict": "本地状态与前置条件符合规则；不是申请开通结果"
+    },
+    {
+      "id": "record-handoff",
+      "testCases": [
+        "TC07"
+      ],
+      "scope": "仅 Mock 权限确认、接收回执与责任接续；无后台通知",
+      "steps": [
+        {
+          "operation": "确认模拟权限并接收 Case",
+          "observed": {
+            "caseOrIssueStatus": "Human Processing\nApplication · Returned",
+            "branch": "异常模拟分支 · 与正常 Case 视图不是同一条执行历史\n退回记录不变；检索清单的适用地区 / 版本仍待核实",
+            "aiProgress": null,
+            "handoffOwner": "客服 A（模拟）",
+            "handoffReceipt": "接收回执：客服 A · HP-001\n原队列 → 客服 A · 10:26（模拟）\nCase 为 Human Processing，未解决。",
+            "handoffStage": "Accepted\n接收回执，不是解决结果",
+            "resultRecords": [],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "Mock 接收回执已记录；Case 为 Human Processing，尚未解决。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          },
+          "screenshot": "tc07-accepted.png"
+        },
+        {
+          "operation": "开始人工核查",
+          "observed": {
+            "caseOrIssueStatus": "Human Processing\nApplication · Returned",
+            "branch": "异常模拟分支 · 与正常 Case 视图不是同一条执行历史\n退回记录不变；检索清单的适用地区 / 版本仍待核实",
+            "aiProgress": null,
+            "handoffOwner": "客服 A（模拟）",
+            "handoffReceipt": "接收回执：客服 A · HP-001\n原队列 → 客服 A · 10:26（模拟）\nCase 为 Human Processing，未解决。",
+            "handoffStage": "Human Processing\n开始核查并记录处理",
+            "resultRecords": [],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "开始本地人工核查；接收责任已保留。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          }
+        }
+      ],
+      "before": {
+        "caseOrIssueStatus": "Pending Handoff\nApplication · Returned",
+        "branch": "异常模拟分支 · 与正常 Case 视图不是同一条执行历史\n退回记录不变；检索清单的适用地区 / 版本仍待核实",
+        "aiProgress": null,
+        "handoffOwner": "服务队列责任人（模拟）",
+        "handoffReceipt": null,
+        "handoffStage": "Pending Assignment\n等待明确接收，队列仍负责",
+        "resultRecords": [],
+        "evidenceFollowup": null,
+        "task": null,
+        "dialog": null,
+        "feedback": null,
+        "buttons": {
+          "verifyDisabled": null,
+          "closeDisabled": null,
+          "acceptDisabled": true,
+          "confirmDisabled": null,
+          "previewDisabled": null
+        }
+      },
+      "verdict": "接收回执与责任完整；Case 继续 Human Processing，不自动解决"
+    },
+    {
+      "id": "record-timeout",
+      "testCases": [
+        "TC08"
+      ],
+      "scope": "用户主动触发模拟超时；没有真实 SLA 定时器或重新分派后台",
+      "steps": [
+        {
+          "operation": "点击演示接收超时",
+          "observed": {
+            "caseOrIssueStatus": "Pending Handoff\nApplication · Returned",
+            "branch": "异常模拟分支 · 与正常 Case 视图不是同一条执行历史\n退回记录不变；检索清单的适用地区 / 版本仍待核实",
+            "aiProgress": null,
+            "handoffOwner": "服务队列责任人（模拟）",
+            "handoffReceipt": null,
+            "handoffStage": "Pending Assignment\n等待明确接收，队列仍负责",
+            "resultRecords": [],
+            "evidenceFollowup": null,
+            "task": null,
+            "dialog": null,
+            "feedback": "演示接收超时：仍 Pending Handoff，服务队列继续负责并升级。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": true,
+              "confirmDisabled": null,
+              "previewDisabled": null
+            }
+          },
+          "screenshot": "tc08-timeout.png"
+        }
+      ],
+      "before": {
+        "caseOrIssueStatus": "Pending Handoff\nApplication · Returned",
+        "branch": "异常模拟分支 · 与正常 Case 视图不是同一条执行历史\n退回记录不变；检索清单的适用地区 / 版本仍待核实",
+        "aiProgress": null,
+        "handoffOwner": "服务队列责任人（模拟）",
+        "handoffReceipt": null,
+        "handoffStage": "Pending Assignment\n等待明确接收，队列仍负责",
+        "resultRecords": [],
+        "evidenceFollowup": null,
+        "task": null,
+        "dialog": null,
+        "feedback": null,
+        "buttons": {
+          "verifyDisabled": null,
+          "closeDisabled": null,
+          "acceptDisabled": true,
+          "confirmDisabled": null,
+          "previewDisabled": null
+        }
+      },
+      "verdict": "Pending Assignment / Pending Handoff 与队列责任保留，升级请求仅本地记录"
+    },
+    {
+      "id": "record-need-evidence",
+      "testCases": [
+        "TC11"
+      ],
+      "scope": "仅本地补证决定与准入门槛，不创建任务",
+      "steps": [
+        {
+          "operation": "保存 Need Evidence 及补证责任说明",
+          "observed": {
+            "caseOrIssueStatus": "Need Evidence · 待补证据",
+            "branch": "当前 CI-001 = Need Evidence · 尚未创建正式改进任务\n缺少清单来源、版本、使用时间及适用条件",
+            "aiProgress": null,
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [],
+            "evidenceFollowup": "下一步补证 → 回到 CI-001 复核\n\n渠道负责人回查四项资料并附回 CI-001，由运营复核后再人工审核；未 Confirm 不生成 TASK-001。\n\n本地审核备注：Mock 渠道内容负责人补充四项证据并附回 CI-001，由运营负责人复核。",
+            "task": "当前不生成 Improvement Task\n\n假设补证完成 → 人工 Confirm → 无重复事项，才进入目标态任务设计。\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+            "dialog": null,
+            "feedback": "CI-001 保持 Need Evidence；渠道负责人补证后回到原问题复核，未生成 TASK-001。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": true,
+              "previewDisabled": true
+            }
+          },
+          "screenshot": "tc11-need-evidence.png"
+        }
+      ],
+      "before": {
+        "caseOrIssueStatus": "Need Evidence · 待补证据",
+        "branch": "当前 CI-001 = Need Evidence · 尚未创建正式改进任务\n缺少清单来源、版本、使用时间及适用条件",
+        "aiProgress": null,
+        "handoffOwner": null,
+        "handoffReceipt": null,
+        "handoffStage": null,
+        "resultRecords": [],
+        "evidenceFollowup": "下一步补证 → 回到 CI-001 复核\n\n渠道负责人回查四项资料并附回 CI-001，由运营复核后再人工审核；未 Confirm 不生成 TASK-001。",
+        "task": "当前不生成 Improvement Task\n\n假设补证完成 → 人工 Confirm → 无重复事项，才进入目标态任务设计。\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+        "dialog": null,
+        "feedback": null,
+        "buttons": {
+          "verifyDisabled": null,
+          "closeDisabled": null,
+          "acceptDisabled": null,
+          "confirmDisabled": true,
+          "previewDisabled": true
+        }
+      },
+      "verdict": "补证路径与责任显示；未生成 TASK-001"
+    },
+    {
+      "id": "record-task-preview",
+      "testCases": [
+        "TC12"
+      ],
+      "scope": "仅假设补证 + 人工 Confirm + 只读 Pending Acceptance 目标态，非真实创建 / 执行",
+      "steps": [
+        {
+          "operation": "主动模拟四项补证及无重复条件",
+          "observed": {
+            "caseOrIssueStatus": "Need Evidence · 待补证据",
+            "branch": "当前 CI-001 = Need Evidence · 尚未创建正式改进任务\n缺少清单来源、版本、使用时间及适用条件",
+            "aiProgress": null,
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [],
+            "evidenceFollowup": "当前审核依据\n\n仅在此演示分支假设四项补证已核对，并排除重复任务；仍等待人工 Confirm。",
+            "task": "当前不生成 Improvement Task\n\n假设补证完成 → 人工 Confirm → 无重复事项，才进入目标态任务设计。\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+            "dialog": null,
+            "feedback": "模拟补证条件已应用；尚未 Confirm，仍不生成任务。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": false,
+              "previewDisabled": true
+            }
+          },
+          "screenshot": "tc12-awaiting-confirm.png"
+        },
+        {
+          "operation": "另行人工 Confirm",
+          "observed": {
+            "caseOrIssueStatus": "Confirm · 模拟审核通过",
+            "branch": "补证假设 + 人工 Confirm · 用户主动进入的模拟分支\nTASK-001 仅作目标态预览，未实际创建、分派或执行",
+            "aiProgress": null,
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [],
+            "evidenceFollowup": "当前审核依据\n\nMock 运营审核问题范围、证据与拟接收责任；无重复任务，最终根因仍待核查。",
+            "task": "核查并统一服务开通材料清单\nPending Acceptance\n\n拟接收：服务运营负责人\n协作：渠道内容 / 客服知识负责人\n验收：服务规范负责人\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+            "dialog": null,
+            "feedback": "模拟审核通过；TASK-001 仅可预览，尚未创建或执行。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": true,
+              "previewDisabled": false
+            }
+          }
+        },
+        {
+          "operation": "打开只读任务目标态预览",
+          "observed": {
+            "caseOrIssueStatus": "Confirm · 模拟审核通过",
+            "branch": "补证假设 + 人工 Confirm · 用户主动进入的模拟分支\nTASK-001 仅作目标态预览，未实际创建、分派或执行",
+            "aiProgress": null,
+            "handoffOwner": null,
+            "handoffReceipt": null,
+            "handoffStage": null,
+            "resultRecords": [],
+            "evidenceFollowup": "当前审核依据\n\nMock 运营审核问题范围、证据与拟接收责任；无重复任务，最终根因仍待核查。",
+            "task": "核查并统一服务开通材料清单\nPending Acceptance\n\n拟接收：服务运营负责人\n协作：渠道内容 / 客服知识负责人\n验收：服务规范负责人\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+            "dialog": "TASK-001 · 条件分支中的模拟任务\n×\n\n目标态设计，未实际创建、分派或执行。当前演示已由用户主动完成假设补证与人工 Confirm。\n\n核查并统一服务开通材料清单\nPending Acceptance\n拟接收方\n服务运营负责人（模拟）\n协作角色\n渠道内容 / 客服知识负责人\n独立验收\n服务规范负责人，不兼任修改执行人\n核对相关渠道清单、版本与发布记录\n与有效服务规范比对\n复核实际原因与影响范围\n经授权修订已确认的差异\n检查范围内渠道更新与旧入口\n提交措施证据及后续观察计划\n措施验收\n\n清单核对、授权修改与渠道发布证据满足验收。\n\n效果观察\n\n后续退回、旧清单引用与重复咨询仍待采集验证。\n\n指派不等于接收。此处不提供“执行任务”或“完成任务”的虚假成功操作。\n\n关闭",
+            "feedback": "模拟审核通过；TASK-001 仅可预览，尚未创建或执行。",
+            "buttons": {
+              "verifyDisabled": null,
+              "closeDisabled": null,
+              "acceptDisabled": null,
+              "confirmDisabled": true,
+              "previewDisabled": false
+            }
+          },
+          "screenshot": "tc12-task-preview.png"
+        }
+      ],
+      "before": {
+        "caseOrIssueStatus": "Need Evidence · 待补证据",
+        "branch": "当前 CI-001 = Need Evidence · 尚未创建正式改进任务\n缺少清单来源、版本、使用时间及适用条件",
+        "aiProgress": null,
+        "handoffOwner": null,
+        "handoffReceipt": null,
+        "handoffStage": null,
+        "resultRecords": [],
+        "evidenceFollowup": "下一步补证 → 回到 CI-001 复核\n\n渠道负责人回查四项资料并附回 CI-001，由运营复核后再人工审核；未 Confirm 不生成 TASK-001。",
+        "task": "当前不生成 Improvement Task\n\n假设补证完成 → 人工 Confirm → 无重复事项，才进入目标态任务设计。\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+        "dialog": null,
+        "feedback": null,
+        "buttons": {
+          "verifyDisabled": null,
+          "closeDisabled": null,
+          "acceptDisabled": null,
+          "confirmDisabled": true,
+          "previewDisabled": true
+        }
+      },
+      "verdict": "补证不会自动 Confirm；只读预览无执行动作"
+    }
+  ],
+  "staticEvidenceInspection": {
+    "scope": "TC09 / TC10 仅核对预置样例呈现，未执行聚类或排除算法",
+    "observed": {
+      "caseOrIssueStatus": "Confirm · 模拟审核通过",
+      "branch": "补证假设 + 人工 Confirm · 用户主动进入的模拟分支\nTASK-001 仅作目标态预览，未实际创建、分派或执行",
+      "aiProgress": null,
+      "handoffOwner": null,
+      "handoffReceipt": null,
+      "handoffStage": null,
+      "resultRecords": [],
+      "evidenceFollowup": "当前审核依据\n\nMock 运营审核问题范围、证据与拟接收责任；无重复任务，最终根因仍待核查。",
+      "task": "核查并统一服务开通材料清单\nPending Acceptance\n\n拟接收：服务运营负责人\n协作：渠道内容 / 客服知识负责人\n验收：服务规范负责人\n\n查看模拟任务目标态\n\n指派不等于接收；预览不执行组织任务。",
+      "dialog": "候选关联的原始事件 · Mock\n×\n\n关联必须同时核对业务条件与来源，不能仅凭相似文本合并。\n\nCASE-002\n服务 A / 地区甲；缺少签署日期。渠道清单未注明日期项；发布渠道、版本待核查。\nCASE-003\n服务 A / 地区甲；缺少签署日期。客户依据某渠道清单；是否同源、同版待核查。\nCASE-004\n服务 B / 地区乙；缺少资质附件。另一类服务清单；适用条件不同，排除聚合。\nCASE-001\n服务 A / 地区甲；缺少签署日期。现行规范明确要求日期；正常缺件，不证明指引有误。\n关闭",
+      "feedback": null,
+      "buttons": {
+        "verifyDisabled": null,
+        "closeDisabled": null,
+        "acceptDisabled": null,
+        "confirmDisabled": true,
+        "previewDisabled": false
+      }
+    }
+  }
+}

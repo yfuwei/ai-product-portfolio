@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>企业服务工作台 · Mock 产品原型</title><link rel="stylesheet" href="styles.css"><script src="mock-data.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<div class="app-shell">
+  <header class="topbar"><a class="brand" href="?view=case"><span class="app-mark" aria-hidden="true">▦</span>企业服务工作台</a><span class="environment">MOCK · 产品设计原型</span><div class="topbar-end"><button class="text-button" id="reset-demo" type="button">重置演示</button><span class="avatar" aria-hidden="true">A</span><span id="current-user">客服 A（模拟）</span></div></header>
+  <aside class="sidebar"><p class="nav-caption">服务工作空间</p><nav aria-label="工作视图"><a href="?view=case" data-view="case"><span aria-hidden="true">▤</span>Customer Case<small>客户服务处理</small></a><a href="?view=handoff" data-view="handoff"><span aria-hidden="true">⇄</span>Human Handoff<small>人工接续与核查</small></a><a href="?view=voc" data-view="voc"><span aria-hidden="true">▥</span>VOC Improvement<small>问题审核与改进</small></a></nav><div class="sidebar-note"><span class="status-dot"></span>模拟工作空间<p>服务 A · 地区甲<br>无真实客户或业务写入</p></div></aside>
+  <main id="workspace" tabindex="-1"></main>
+  <footer class="app-footer"><span>MOCK · 场景与数据均为设计示例</span><span id="footer-boundary">Case 与业务申请分别管理</span><span>本地演示 · 未连接企业系统</span></footer>
+</div>
+<dialog class="modal" id="action-dialog" aria-labelledby="dialog-title"><form id="dialog-form"><header class="modal-heading"><h2 id="dialog-title"></h2><button class="icon-button" type="button" id="dialog-close" aria-label="关闭对话框">×</button></header><p class="modal-description" id="dialog-description"></p><div id="dialog-fields"></div><div class="modal-actions"><button class="button secondary" id="dialog-cancel" type="button">取消</button><button class="button primary" id="dialog-submit" type="submit">确认模拟操作</button></div></form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body></html>

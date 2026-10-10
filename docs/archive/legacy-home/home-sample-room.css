@@ -1,0 +1,375 @@
+/* Preserved Chinese homepage sample-room rules. Extracted without changing declarations.
+   Loaded only by index.html;
+  shared/project styles are untouched. */
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-scenario {
+  align-items: stretch;
+  grid-template-columns: minmax(0px, 1.04fr) minmax(360px, 0.96fr);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-copy {
+  display: flex;
+  min-height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 16px;
+  grid-area: 1 / 1;
+  justify-content: flex-start;
+  padding-left: clamp(14px, 1.1vw, 18px);
+  padding-top: 8px;
+  padding-bottom: 8px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1338 / 906;
+  grid-area: 1 / 2;
+  border-radius: 7px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-subtitle {
+  margin-top: 11px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-description {
+  margin-top: 12px;
+  line-height: 1.5;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0px, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-title-group {
+  min-width: 0px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header .featured-scenario-link {
+  place-self: start end;
+  margin-top: 17px;
+  min-height: 30px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 760;
+  line-height: 1;
+  white-space: nowrap;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build {
+  margin-top: 0px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-title {
+  margin-bottom: 8px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-grid {
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-item {
+  min-height: 0px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .scenario-build-item .scenario-build-layer {
+  line-height: 1.24;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
+  grid-template-columns: minmax(0px, 1fr);
+  gap: 0px;
+  margin-top: 0px;
+  padding-top: 8px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions .featured-scenario-tags {
+  gap: 5px;
+  opacity: 0.82;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions .featured-scenario-tags span {
+  padding: 4px 7px;
+  color: rgba(226, 232, 240, 0.58);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 119, 169, 0.18);
+  font-size: 10.5px;
+  font-weight: 430;
+  line-height: 1.15;
+ 
+}
+@media (max-width: 980px) {
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .hero-featured-scenario {
+  grid-template-columns: minmax(0px, 1fr);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-copy {
+  display: flex;
+  grid-area: 1 / 1;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-image {
+  grid-area: 2 / 1;
+ 
+}
+}
+@media (max-width: 640px) {
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header {
+  grid-template-columns: minmax(0px, 1fr);
+  gap: 12px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .featured-scenario-header .featured-scenario-link {
+  justify-self: start;
+ 
+}
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section {
+  padding: clamp(14px, 1.5vw, 20px) max(var(--home-section-padding-x), calc((100vw - var(--home-container-max)) / 2)) clamp(42px, 4vw, 54px);
+  background: linear-gradient(rgb(11, 17, 31) 0%, rgb(13, 25, 44) 46%, rgb(10, 20, 37) 100%);
+  border-top: 0px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-transition {
+  width: min(100%, var(--home-container-max));
+  margin: 0px auto clamp(16px, 1.8vw, 22px);
+  color: rgb(229, 231, 235);
+  font-size: clamp(26px, 2vw, 30px);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: 0.01em;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-transition p {
+  margin: 0px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-transition .transition-capability {
+  color: var(--hero-blue);
+  font-weight: 680;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-transition .transition-flow {
+  color: inherit;
+  font-weight: inherit;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .hero-featured-scenario {
+  width: min(100%, var(--home-container-max));
+  margin: 0px auto;
+  grid-template-columns: minmax(0px, 0.5fr) minmax(0px, 0.5fr);
+  gap: clamp(18px, 2vw, 24px);
+  padding: clamp(18px, 2vw, 24px) clamp(20px, 2vw, 24px);
+  color: rgb(30, 41, 59);
+  background: rgb(248, 251, 255);
+  border: 1px solid rgb(216, 226, 240);
+  border-radius: 10px;
+  box-shadow: rgba(1, 12, 32, 0.16) 0px 16px 34px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-copy {
+  padding: 0px;
+  gap: 12px;
+  background: transparent;
+  border: 0px;
+  border-radius: 0px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-header {
+  display: block;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-topline {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-header .featured-scenario-link {
+  place-self: auto;
+  margin: 0px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-title-group {
+  margin-top: 7px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-image {
+  width: 94%;
+  place-self: start end;
+  margin-top: 6px;
+  padding: 0px;
+  background: transparent;
+  border: 1px solid rgb(216, 226, 240);
+  border-radius: 7px;
+  box-shadow: none;
+  aspect-ratio: 1447 / 1087;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-image img {
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 4px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-eyebrow {
+  color: rgb(255, 111, 163);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-copy h2 {
+  margin: 0px;
+  color: rgb(15, 23, 42);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-subtitle {
+  margin-top: 5px;
+  color: rgb(37, 107, 255);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-description {
+  margin-top: 9px;
+  color: rgb(100, 116, 139);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-link {
+  min-height: auto;
+  margin-top: 3px;
+  padding: 1px 0px 2px;
+  color: rgb(29, 78, 216);
+  background: transparent;
+  border-width: 0px 0px 1px;
+  border-style: none none solid;
+  border-color: currentcolor currentcolor rgba(37, 107, 255, 0.58);
+  border-image: none;
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: 760;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-link:hover,
+ html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-link:focus-visible {
+  color: rgb(30, 64, 175);
+  background: transparent;
+  border-bottom-color: rgb(30, 64, 175);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-title {
+  color: rgb(51, 65, 85);
+  font-size: 14px;
+  font-weight: 720;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-item {
+  --scenario-project-accent: var(--hero-blue);
+  box-sizing: border-box;
+  min-height: 0px;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 10px 6px 9px;
+  background: rgb(251, 252, 254);
+  border-top-color: rgb(231, 237, 244);
+  border-right-color: rgb(231, 237, 244);
+  border-bottom-color: rgb(231, 237, 244);
+  border-left-color: var(--scenario-project-accent);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-grid {
+  grid-auto-rows: 94px;
+  gap: 6px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-head {
+  min-height: 16px;
+  align-items: center;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-head span {
+  color: var(--scenario-project-accent);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-combined-title {
+  display: block;
+  color: rgb(30, 41, 59);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.22;
+  white-space: nowrap;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-combined-title .scenario-build-role {
+  color: rgb(51, 65, 85);
+  font-weight: 800;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-item .scenario-build-layer {
+  margin-top: 4px;
+  color: rgb(100, 116, 139);
+  font-size: 10.2px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-detail {
+  font-size: 9.8px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .scenario-build-item p {
+  color: rgb(71, 85, 105);
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-actions {
+  border-top-color: rgb(219, 227, 237);
+  padding-top: 6px;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-actions .featured-scenario-tags {
+  opacity: 1;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .featured-scenario-tags span {
+  color: rgb(71, 85, 105);
+  background: rgb(248, 250, 252);
+  border-color: rgb(225, 231, 238);
+  border-radius: 3px;
+  font-weight: 520;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section + .ai-diagnosis-section {
+  border-top: 3px solid rgba(148, 163, 184, 0.3);
+ 
+}
+@media (max-width: 980px) {
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section .hero-featured-scenario {
+  grid-template-columns: minmax(0px, 1fr);
+ 
+}
+}
+@media (max-width: 640px) {
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-transition {
+  font-size: clamp(21px, 6vw, 26px);
+  line-height: 1.3;
+ 
+}
+html[lang="zh-CN"] body.home-comic-hero.zh-home-v2 .sample-room-section {
+  padding-top: 20px;
+  padding-bottom: 42px;
+ 
+}
+}

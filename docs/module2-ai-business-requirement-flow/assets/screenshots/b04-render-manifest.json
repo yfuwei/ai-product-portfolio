@@ -1,0 +1,27 @@
+{
+  "source": "DOM HTML/CSS/JavaScript rendered in Chromium",
+  "mock": true,
+  "screenshots": [
+    {
+      "view": "case",
+      "file": "b04-customer-case-workbench.png",
+      "viewport": "1600 × 1000",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "view": "handoff",
+      "file": "b04-human-handoff-workbench.png",
+      "viewport": "1600 × 1000",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "view": "voc",
+      "file": "b04-voc-improvement-workbench.png",
+      "viewport": "1600 × 1000",
+      "width": 1600,
+      "height": 1000
+    }
+  ]
+}
