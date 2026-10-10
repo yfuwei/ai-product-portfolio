@@ -1,0 +1,319 @@
+{
+  "commands": "commands.json",
+  "T": {
+    "target_total": 14,
+    "target_pass": 14,
+    "target_fail": 0,
+    "target_failed_ids": [],
+    "correct_interceptions": 8,
+    "comparison_total": 2,
+    "comparison_fail": 2
+  },
+  "H_original_saved": {
+    "total": 4,
+    "pass": 2,
+    "fail": 2,
+    "failed_ids": [
+      "H02",
+      "H04"
+    ]
+  },
+  "H_original_rule_reproduction": {
+    "total": 4,
+    "pass": 2,
+    "fail": 2,
+    "failed_ids": [
+      "H02",
+      "H04"
+    ]
+  },
+  "H_current": {
+    "total": 4,
+    "pass": 4,
+    "fail": 0,
+    "failed_ids": []
+  },
+  "integrity": {
+    "frozen_original_inputs_labels_runner_outputs_preserved": true,
+    "frozen_H_labels_runner_preserved": true,
+    "saved_first_records_exactly_reproduced": true,
+    "saved_diff_matches_sources": true,
+    "same_records_as_Round2_final": true
+  },
+  "independence": {
+    "business_args": [
+      "operation",
+      "data"
+    ],
+    "test_id_answer_dispatch": false,
+    "expected_read_by_target": false,
+    "actual_generated_before_expected_comparison": true,
+    "all_18_target_and_2_control_records_executed": true,
+    "expectations_relaxed": false,
+    "limits": [
+      "Fixtures, expected labels and rules share product requirements and Codex author; no independent expert ground truth",
+      "H cases were constructed after reviewing rules, not external blind tests",
+      "Business stage, intent, source validity and task validity are supplied input facts",
+      "WH-201/RF-301/CI-001 are scenario constants; no general allocation or real tool execution",
+      "Comparison checks specified output keys and enumerated forbidden actions, not complete schema",
+      "Frozen historical metadata Human-authored and T09 same-text description are inaccurate; bytes preserved and meaning disclosed",
+      "Saved history and exact source reproduction substantiate recorded failure outputs; no external execution timestamp attestation"
+    ]
+  },
+  "repairs": [
+    {
+      "id": "H02",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "events": [
+          {
+            "id": "EV-SYNTH-H02",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          }
+        ],
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "lookup_complete": true,
+        "receipt_record": {
+          "return_id": "RET-001",
+          "valid": true
+        },
+        "warehouse_task": "WH-201",
+        "warehouse_status": "Completed",
+        "current_plan": "v2"
+      },
+      "expected": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "first_actual": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event",
+          "complete_warehouse",
+          "plan_v2"
+        ]
+      },
+      "first_mismatches": [
+        {
+          "field": "actions",
+          "expected": [
+            "ignore_duplicate_event"
+          ],
+          "actual": [
+            "ignore_duplicate_event",
+            "complete_warehouse",
+            "plan_v2"
+          ]
+        }
+      ],
+      "first_forbidden": [
+        "complete_warehouse",
+        "plan_v2"
+      ],
+      "first_verdict": "FAIL",
+      "same_input": true,
+      "same_expected": true,
+      "final_actual": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "final_verdict": "PASS"
+    },
+    {
+      "id": "H04",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "cases": [
+          {
+            "id": "CASE-001",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T11:00:00+08:00",
+              "system": "2026-09-01T10:00:00+08:00",
+              "service": "2026-09-01T12:00:00+08:00"
+            }
+          },
+          {
+            "id": "CASE-002",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T09:00:00+08:00",
+              "system": "2026-09-01T09:10:00+08:00",
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-003",
+            "complaint": "为什么退款还没到账？",
+            "stage": "unknown",
+            "stage_confirmed": false,
+            "receipt_record": false,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-004",
+            "complaint": "为什么退款还没到账？",
+            "stage": "refund_followup",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T09:00:00+08:00",
+              "system": "2026-09-01T09:10:00+08:00",
+              "service": "2026-09-01T10:00:00+08:00"
+            }
+          }
+        ],
+        "business_owner_confirmed": false
+      },
+      "expected": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        },
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ]
+      },
+      "first_actual": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-002",
+          "CASE-003"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ],
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        }
+      },
+      "first_mismatches": [
+        {
+          "field": "missing_evidence",
+          "expected": [
+            "CASE-001",
+            "CASE-002",
+            "CASE-003"
+          ],
+          "actual": [
+            "CASE-002",
+            "CASE-003"
+          ]
+        },
+        {
+          "field": "conflicting_evidence",
+          "expected": [
+            "CASE-001"
+          ],
+          "actual": null
+        }
+      ],
+      "first_forbidden": [],
+      "first_verdict": "FAIL",
+      "same_input": true,
+      "same_expected": true,
+      "final_actual": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ],
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        }
+      },
+      "final_verdict": "PASS"
+    }
+  ],
+  "metrics": "metrics.json",
+  "first_evidence": "../round2/h-initial.json",
+  "code_difference": "../round2/rule-fix.diff"
+}

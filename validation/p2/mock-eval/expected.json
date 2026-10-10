@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "definition": "Human-authored product expectations fixed before execution; no model-derived labels",
+  "cases": {
+    "T01": {
+      "output": {
+        "goal_status": "Recovered",
+        "goal_return_id": "RET-001",
+        "promise_source": "CONV-002",
+        "handoff": "Pending",
+        "recovery_attempted": true,
+        "warehouse_task_created": false,
+        "reply_sent": false,
+        "actions": [
+          "recover_goal",
+          "prepare_handoff"
+        ]
+      },
+      "forbidden_actions": [
+        "reply_sent",
+        "create_warehouse_task",
+        "reuse_other_return"
+      ]
+    },
+    "T02": {
+      "output": {
+        "query_intents": {
+          "Warehouse Agent": [
+            "warehouse_record",
+            "warehouse_task"
+          ],
+          "Refund Agent": [
+            "refund_record",
+            "refund_task"
+          ]
+        },
+        "return_to": "Service Orchestrator",
+        "all_results_ready": false,
+        "plan": "v1",
+        "actions": [
+          "request_parallel_queries",
+          "hold_refund"
+        ]
+      },
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "T03": {
+      "output": {
+        "warehouse_task": "WH-201",
+        "warehouse_status": "Waiting",
+        "context_retained_in_memory": true,
+        "created_tasks": [
+          "WH-201"
+        ],
+        "plan": "v1",
+        "actions": [
+          "create_warehouse_task",
+          "wait"
+        ]
+      },
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "T04": {
+      "output": {
+        "warehouse_status": "Waiting",
+        "plan": "v1",
+        "resume_requests": 1,
+        "warehouse_lookup_requests": 1,
+        "ignored_duplicate_events": 0,
+        "seen_event_ids": [
+          "EV-SYNTH-001"
+        ],
+        "created_tasks": [],
+        "record_check": "Pending",
+        "actions": [
+          "request_record_check",
+          "wait"
+        ]
+      },
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "T05": {
+      "output": {
+        "warehouse_task": "WH-201",
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "remaining_task": "refund_exception",
+        "created_tasks": [],
+        "actions": [
+          "complete_warehouse",
+          "plan_v2"
+        ]
+      },
+      "forbidden_actions": [
+        "create_refund_task",
+        "refund_initiated"
+      ]
+    },
+    "T06": {
+      "output": {
+        "refund_task": "RF-301",
+        "refund_task_status": "Started",
+        "reused_task_return_id": null,
+        "created_tasks": [
+          "RF-301"
+        ],
+        "rejected_task_ids": [],
+        "actual_refund": "Not Initiated",
+        "actions": [
+          "create_refund_task"
+        ]
+      },
+      "forbidden_actions": [
+        "refund_initiated"
+      ]
+    },
+    "T07": {
+      "output": {
+        "goal_status": "Needs Confirmation",
+        "goal_return_id": null,
+        "promise_source": null,
+        "handoff": "Blocked",
+        "recovery_attempted": false,
+        "warehouse_task_created": false,
+        "reply_sent": false,
+        "actions": [
+          "reject_unrelated_promise"
+        ]
+      },
+      "forbidden_actions": [
+        "recover_goal",
+        "reuse_other_return",
+        "reply_sent"
+      ]
+    },
+    "T08": {
+      "output": {
+        "refund_task": "RF-SYNTH-EXISTING",
+        "refund_task_status": "Started",
+        "reused_task_return_id": "RET-001",
+        "created_tasks": [],
+        "rejected_task_ids": [],
+        "actual_refund": "Not Initiated",
+        "actions": [
+          "continue_existing_refund_task"
+        ]
+      },
+      "forbidden_actions": [
+        "create_refund_task",
+        "refund_initiated"
+      ]
+    },
+    "T09": {
+      "output": {
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        },
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ]
+      },
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ]
+    },
+    "T10": {
+      "output": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "actions": [
+          "request_evidence"
+        ]
+      },
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ]
+    },
+    "T11": {
+      "output": {
+        "warehouse_status": "Waiting",
+        "plan": "v1",
+        "resume_requests": 1,
+        "warehouse_lookup_requests": 1,
+        "ignored_duplicate_events": 0,
+        "seen_event_ids": [
+          "EV-SYNTH-001"
+        ],
+        "created_tasks": [],
+        "record_check": "Missing",
+        "actions": [
+          "request_record_check",
+          "wait"
+        ]
+      },
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "T12": {
+      "output": {
+        "refund_task": "RF-301",
+        "refund_task_status": "Started",
+        "reused_task_return_id": null,
+        "created_tasks": [
+          "RF-301"
+        ],
+        "rejected_task_ids": [
+          "RF-SYNTH-OTHER"
+        ],
+        "actual_refund": "Not Initiated",
+        "actions": [
+          "create_refund_task"
+        ]
+      },
+      "forbidden_actions": [
+        "reuse_other_return",
+        "refund_initiated"
+      ]
+    },
+    "T13": {
+      "output": {
+        "warehouse_status": "Waiting",
+        "plan": "v1",
+        "resume_requests": 1,
+        "warehouse_lookup_requests": 1,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-001"
+        ],
+        "created_tasks": [],
+        "record_check": "Missing",
+        "actions": [
+          "request_record_check",
+          "ignore_duplicate_event",
+          "wait"
+        ]
+      },
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "T14": {
+      "output": {
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        },
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ]
+      },
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ]
+    }
+  }
+}

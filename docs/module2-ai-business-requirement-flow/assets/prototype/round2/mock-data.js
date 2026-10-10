@@ -4,9 +4,9 @@ window.P2SupportMock = {
   caseId: 'CASE-001', returnId: 'RET-001',
   warehouseTask: 'WH-201', refundTask: 'RF-301', issueId: 'CI-001', improvementTask: 'TASK-001',
   views: {
-    conversation: { nav: '服务会话', title: '退款重复催办 · 恢复待续办任务', role: '一线客服', snapshot: '快照 01 · 周五第三次咨询后', icon: 'message' },
-    execution: { nav: 'Agent 任务', title: '退款续办任务 · Agent 执行进展', role: '服务跟踪', snapshot: '快照 02 · 后续模拟执行结果', icon: 'git-branch' },
-    insights: { nav: '问题洞察', title: '退款催办中的重复服务卡点', role: '客服运营', snapshot: '快照 03 · Flow B 独立分析', icon: 'search' }
+    conversation: { nav: '服务会话', title: '退款重复催办 · 恢复待续办任务', role: '一线客服', snapshot: '当前会话 · CONV-003', icon: 'message' },
+    execution: { nav: 'Agent 任务', title: '退款续办任务 · Agent 执行进展', role: '服务跟踪', snapshot: '任务跟进 · CASE-001 / RET-001', icon: 'git-branch' },
+    insights: { nav: '问题洞察', title: '退款催办中的重复服务卡点', role: '客服运营', snapshot: 'VOC 问题排查 · 当前候选 CI-001', icon: 'search' }
   },
   conversation: {
     sessions: [
@@ -15,6 +15,7 @@ window.P2SupportMock = {
       { day: '周五', id: 'CONV-003', title: '追问核查进展', summary: '上次说帮我查仓库，现在怎么还没消息？' }
     ],
     question: '上次不是说帮我去仓库查吗？现在怎么还是没消息？',
+    serviceClue: '重复催问 · 仓库确认待核 · 核查任务无有效记录',
     history: [
       { day: '周一', id: 'CONV-001', title: '询问退货退款周期', text: '退货寄回去后一般多久退款？' },
       { day: '周三', id: 'CONV-002', title: '签收后仍未退款', text: '物流显示签收了，怎么还没退款？', promise: '帮您安排仓库核查' },
@@ -48,7 +49,7 @@ window.P2SupportMock = {
     wait: '等待仓库核查结果，任务上下文已保留。',
     event: '仓库反馈已到达', eventNote: '关联 WH-201，作为恢复线索',
     verified: 'Warehouse Agent 已核实有效入库记录', verifiedNote: '仓库收货确认 · WH-201 核查完成',
-    planTitle: '仓库已确认收货，下一步转向退款处理',
+    planTitle: '有效入库已核实，更新至 Plan v2',
     plans: [ { id: 'Plan v1', title: '核实仓库收货', detail: 'WH-201 · Waiting（此前）' }, { id: 'Plan v2', title: '推进退款异常处理', detail: 'Refund Agent · 检查既有任务并续办' } ],
     facts: [
       { name: '仓库收货', value: '已取得有效入库记录', code: '已核实', icon: 'check-circle' },
@@ -59,6 +60,7 @@ window.P2SupportMock = {
     customerUpdate: '您的退货已确认入库，退款异常处理已启动。我们将继续跟进，到账结果尚待确认。'
   },
   insights: {
+    selectedSource: 'CONV-002 历史承诺 · WH-201 核查结果 · RF-301 任务进展',
     evidenceMatrix: [
       {
         "id": "CASE-001",
@@ -139,13 +141,13 @@ window.P2SupportMock = {
         ]
       }
     ],
-    candidate: '仓库收货确认可能滞后',
+    candidate: '仓库确认与客服可见信息可能存在时序差异',
     commonPoint: '可能集中在退货收货确认环节',
     status: 'Need Evidence',
     cases: [
       { id: 'CASE-001', title: '三次催退款', text: '咨询时仓库未确认收货', question: '三次催问，追查上次承诺的仓库核查。', receipt: '咨询时仓库未确认收货；后续核查取得有效入库记录。', blockage: '仓库确认信息可能不及时', decision: '候选关联' },
       { id: 'CASE-002', title: '已有入库记录', text: '客服查询时仍未确认', question: '已有入库记录，客服咨询时仍未确认。', receipt: '已有入库记录，客服当时未见确认；时间差待核实。', blockage: '具体时间差待核实', decision: '候选关联' },
-      { id: 'CASE-003', title: '重复催办', text: '关键时间记录不足', question: '重复催办，关键更新时间记录不足。', receipt: '仓库状态更新与客服查询时间仍需核实。', blockage: '关键时间记录待补齐', decision: '候选关联 · 待核实' },
+      { id: 'CASE-003', title: '重复催办', text: '关键时间记录不足', question: '重复催办，关键更新时间记录不足。', receipt: '状态更新与查询时间记录不足；同一业务环节待核验。', blockage: '关键时间记录待补齐', decision: '待核验候选' },
       { id: 'CASE-004', title: '仓库已确认', text: '卡点位于退款后续环节', question: '仓库已确认收货，但退款未到账。', receipt: '已确认收货，卡点位于退款后续处理。', blockage: '退款后续环节', decision: '排除', excluded: true }
     ],
     evidence: [
@@ -153,7 +155,7 @@ window.P2SupportMock = {
       { title: '仓库系统确认时间', source: '仓库确认状态与更新时间' },
       { title: '客服可见确认状态的时间', source: '客服查询或状态同步记录' }
     ],
-    taskTitle: '排查退货收货确认延迟，让客服及时获取可追踪的核查进展。',
+    taskTitle: '待核查仓库收货确认延迟，追踪核查进展。',
     taskCondition: 'CI-001 补证并经业务负责人确认。'
   }
 };

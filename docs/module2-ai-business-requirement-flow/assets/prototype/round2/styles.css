@@ -772,3 +772,107 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--blue); outline-of
   .view-insights .ai-investigation-direction > header { flex-wrap:wrap; }
   .view-insights .ai-investigation-direction .badge { margin:0; justify-self:start; }
 }
+
+/* Round 12 UI01: a proposed rule beside the recovered service goal only. */
+.view-conversation .recovery-rule { display:flex; align-items:flex-start; gap:7px; margin-top:4px; padding:3px 8px; border-radius:3px; background:#f7f8fa; color:var(--muted); }
+.view-conversation .recovery-rule>.icon { flex:none; width:14px; height:14px; margin-top:3px; color:var(--muted); }
+.view-conversation .recovery-rule p { margin:0; font-size:12px; line-height:1.65; }
+.view-conversation .recovery-rule strong { font-weight:600; color:var(--body); }
+.view-conversation .recovery-rule small { margin-left:6px; font-size:10px; color:var(--muted); white-space:nowrap; }
+
+/* Round 12 UI03: retain room for the full, unconfirmed CI-001 name. */
+.view-insights .issue-current-object h3 { margin-bottom:8px; }
+
+/* Round 13: working states and traceable objects within the existing workspaces. */
+.view-conversation .session-history li[aria-current] .session-day,
+.view-conversation .session-history li[aria-current] .session-tag { color:var(--blue); }
+.view-conversation .session-history li[aria-current] .session-tag { font-weight:600; }
+.view-conversation .live-customer p { font-size:20px; font-weight:600; background:#eef3fb; border-left:2px solid var(--blue); }
+.view-conversation .live-customer>small { color:var(--blue); }
+.view-conversation .live-conversation { padding-top:20px; }
+.view-conversation .reply-composer textarea { height:112px; }
+.view-conversation .service-problem-clue { margin:12px 14px 0; }
+.view-conversation .service-problem-clue dt { color:var(--muted); font-size:11px; }
+.view-conversation .service-problem-clue dd { margin-top:3px; font-size:12px; color:var(--body); }
+.view-conversation .recovered-service-goal { padding:7px 11px; }
+.view-conversation .service-goal-label { display:block; font-size:11px; color:var(--muted); margin-bottom:3px; }
+.view-conversation .recovered-service-goal h5 { font-size:16px; }
+.view-conversation .recovered-service-goal p { font-size:11px; margin-top:4px; }
+.view-conversation .recovery-rule { background:none; padding:0; margin-top:6px; }
+.view-conversation .recovery-rule p { font-size:11px; }
+.view-conversation .recovery-rule>.icon { width:13px; height:13px; }
+.view-conversation .recovery-gap { padding:5px 11px; }
+.view-conversation .recovery-record-actions small { color:var(--ui-waiting); }
+
+.view-execution .agent-lane { background:#fcfcfd; }
+.view-execution .parallel-connector { border-color:#d9e0e9; }
+.view-execution .step-heading>span { color:var(--muted); }
+.view-execution .continuation-step>.track-content { border-top:0; border-left:2px solid var(--blue); background:#f6f9fe; padding:5px 14px; }
+.view-execution .followup-row h3 { font-size:18px; }
+.view-execution .selected-task { padding:9px 12px; font-size:14px; background:white; }
+.view-execution .task-inspector { padding:18px 23px; }
+.view-execution .inspector-heading { padding-bottom:12px; }
+.view-execution .task-inspector .object-label { margin-top:12px; }
+.view-execution .task-inspector>h3 { margin:4px 0 6px; }
+.view-execution .inspector-fields { margin:12px 0; }
+.view-execution .inspector-fields>div:not(.object-fields) { display:grid; grid-template-columns:64px minmax(0,1fr); gap:8px; align-items:baseline; padding:5px 0; }
+.view-execution .inspector-fields>div:not(.object-fields) dd { margin-top:0; font-size:13px; }
+.view-execution .refund-state { padding:10px 0; }
+.view-execution .service-record-reuse { margin-top:8px; }
+.view-execution .service-record-reuse h4 { font-size:12px; font-weight:600; }
+.view-execution .service-record-reuse p { font-size:12px; color:var(--body); line-height:1.7; margin-top:3px; }
+.view-execution .service-record-reuse p>span { display:inline-block; margin-right:10px; }
+.view-execution .service-record-reuse small { display:block; margin-top:3px; font-size:11px; color:var(--muted); }
+.view-execution .progress-message { margin-top:8px; padding-top:12px; border-top:1px solid var(--line); }
+.view-execution .progress-message h4 { font-size:14px; }
+.view-execution .progress-message p { margin:6px 0; font-size:13px; line-height:1.8; }
+.view-execution .inspector-actions { margin-top:12px; padding-top:10px; }
+
+.view-insights .case-comparison tbody tr { height:60px; }
+.view-insights .case-comparison tbody th,.view-insights .case-comparison tbody td { padding:8px 10px; }
+.view-insights .case-record-origin { display:block; font-size:10px; font-weight:400; color:var(--muted); margin-top:3px; }
+.view-insights tr.selected .case-record-origin { color:var(--blue); }
+.view-insights .selected-case-source { padding:5px 0 5px 12px; margin-top:8px; border-left:2px solid #b6c9e3; }
+.view-insights .selected-case-source p { display:flex; align-items:baseline; gap:14px; font-size:12px; color:var(--body); }
+.view-insights .selected-case-source strong { flex:none; color:var(--blue); font-weight:600; }
+.view-insights .selected-case-source small { display:block; font-size:11px; color:var(--muted); margin-top:2px; }
+.view-insights .matrix-review-key { display:flex; align-items:center; gap:15px; margin-top:3px; font-size:11px; }
+.view-insights .matrix-review-key>span { display:inline-flex; align-items:center; gap:5px; }
+.view-insights .matrix-review-key>span::before { content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+.view-insights .matrix-review-key>[data-state="success"] { color:var(--green); }
+.view-insights .matrix-review-key>[data-state="waiting"] { color:var(--ui-waiting); }
+.view-insights .matrix-review-key small { font-size:11px; color:var(--muted); }
+.view-insights .candidate-review-state { font-size:12px; color:var(--ui-waiting); margin-top:7px; }
+.view-insights .issue-record-scope { margin-top:14px; padding-top:12px; }
+.view-insights .issue-record-scope>h4 { margin-bottom:12px; }
+.view-insights .issue-detail-fields>div { display:grid; grid-template-columns:60px minmax(0,1fr); gap:10px; align-items:baseline; margin-bottom:10px; }
+.view-insights .issue-detail-fields dt { font-size:11px; margin-bottom:0; }
+.view-insights .issue-detail-fields dd { font-size:12px; }
+.view-insights .conditional-task-preview>div>span { color:var(--ui-waiting); font-weight:600; }
+
+@media(max-width:650px) {
+  .view-conversation .live-customer p { font-size:18px; }
+  .view-conversation .service-problem-clue { margin-left:0; margin-right:0; }
+  .view-execution .task-inspector { padding:18px 14px; }
+  .view-execution .inspector-fields>div:not(.object-fields) { grid-template-columns:64px minmax(0,1fr); }
+  .view-insights .case-comparison tbody tr { height:auto; }
+  .view-insights .case-comparison tbody th,.view-insights .case-comparison tbody td { padding:3px 0; }
+  .view-insights .selected-case-source p { flex-direction:column; gap:3px; }
+  .view-insights .matrix-review-key { flex-wrap:wrap; gap:4px 12px; }
+}
+
+/* Round 14: business context, reclaimed footer space, and CI review hierarchy. */
+.support-app { grid-template-rows:56px 1fr; }
+@media(min-width:1351px) {
+  .view-conversation .service-session-workspace,
+  .view-execution .agent-execution-workspace,
+  .view-insights .case-investigation-workspace { min-height:calc(100vh - 204px); }
+}
+.view-execution .service-record-reuse>header { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+.view-execution .service-record-reuse>header>span { font-size:11px; color:var(--muted); }
+.view-insights .candidate-review-status { display:flex; align-items:center; gap:10px; margin-top:12px; }
+.view-insights .candidate-review-status>span:not(.badge) { font-size:11px; color:var(--muted); }
+.view-insights .candidate-review-status>.badge { font-size:12px; font-weight:650; }
+.view-insights .candidate-review-state { color:var(--body); line-height:1.7; margin-top:8px; }
+.view-insights .conditional-task-preview h4 { font-size:14px; font-weight:500; line-height:1.7; }
+@media(max-width:650px) { .support-app { grid-template-rows:auto auto 1fr; } }

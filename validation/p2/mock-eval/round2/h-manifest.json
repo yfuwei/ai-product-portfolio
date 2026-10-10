@@ -1,0 +1,14 @@
+{
+  "sequence": [
+    "saved_initial_rules",
+    "constructed_inputs",
+    "defined_expected_and_forbidden_actions",
+    "froze_h_set",
+    "first_run_without_rule_changes"
+  ],
+  "source": "Human task requirements plus synthetic compositional choices; not external blind test",
+  "fixture_sha256": "5fd2403a1c4e836a3981b9b02fe5c24c722be8cc326e8512e50ae3bfd7cc6cee",
+  "expected_sha256": "b7343fe30d1dd695750aa5b1a9c2833a1497b1f968e08d614753442a20501c97",
+  "initial_rule_sha256": "2199e9bd04e3bcc16928ec52c7cbbe8601726845a2a48ed03e513def01a07baa",
+  "metric_membership": "Frozen before first H execution"
+}

@@ -1,0 +1,8 @@
+{
+  "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/../round3/h-current.json",
+  "total": 4,
+  "pass": 4,
+  "fail": 0,
+  "failed_ids": [],
+  "initial_rule_unmodified": false
+}

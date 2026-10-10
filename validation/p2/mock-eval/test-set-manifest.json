@@ -1,0 +1,7 @@
+{
+  "definition_order": "fixtures and expected written before evaluator / first execution",
+  "input_sha256": "fbb4705579971ac6f7b0563a3c868c4c787240aa1ddcab96989479c42e42e813",
+  "expected_sha256": "d33fe24922e1cf787168038f780d608d523090b2e41e35299e26c98abd5be0bb",
+  "metric_membership": "predefined fixture.metric_groups; no post-run selection",
+  "synthetic_identifiers": "CUS-SYNTH / RF-SYNTH / EV-SYNTH are adversarial input labels, not production data"
+}

@@ -37,7 +37,7 @@ const views = [
           badges:[...main.querySelectorAll('.badge')].map(e=>({text:e.textContent,state:e.dataset.state,color:getComputedStyle(e).color})),
           stateStrip:[...main.querySelectorAll('.business-status-strip>div')].map(e=>({state:e.dataset.state,text:e.innerText,iconColor:getComputedStyle(e.querySelector('.icon')).color})),
           timeline:[...main.querySelectorAll('.track-step')].map(e=>({state:e.dataset.state,text:e.innerText,iconColor:getComputedStyle(e.querySelector('.track-marker')).color})),
-          caseStates:[...main.querySelectorAll('.case-comparison tbody tr')].map(e=>({id:e.querySelector('th').textContent,color:getComputedStyle(e.querySelector('.case-decision')).color})),
+          caseStates:[...main.querySelectorAll('.case-comparison tbody tr')].map(e=>({id:e.querySelector('th').firstChild.textContent,color:getComputedStyle(e.querySelector('.case-decision')).color})),
           matrix:[...main.querySelectorAll('.business-evidence-matrix tbody tr')].map(e=>({id:e.querySelector('th').textContent,cells:[...e.querySelectorAll('.evidence-cell-main')].map(c=>({state:c.dataset.state,iconColor:getComputedStyle(c.querySelector('.icon')).color,text:c.textContent}))})),
           recovery:[...main.querySelectorAll('.ai-recovery-entry')].map(e=>({state:e.dataset.state,text:e.textContent})),
           evidenceColors:[...main.querySelectorAll('.evidence-cell-detail[data-state="waiting"]')].map(e=>getComputedStyle(e).color),
@@ -56,22 +56,32 @@ const views = [
       assert.deepEqual(errors, []);
       assert.equal(audit.DOM.images,0,'UI must not be a raster background');
       assert.equal(audit.DOM.canvas,0,'UI must use editable DOM');
+      assert.equal(await page.locator('main button:not([disabled])').count(),0,'Business actions remain design-only');
       assert.ok(audit.DOM.textNodes>50,'Expected editable text objects');
+      assert.equal(await page.locator('.mock-label').innerText(),'Mock · 产品设计原型');
+      assert.equal(await page.locator('.mock-label').count(),1);
+      assert.equal(await page.locator('.product-footer').count(),0);
+      for (const term of ['Flow A','Flow B','快照','作品集','P1','P2','Runtime','（模拟）','后续 VOC 分析']) assert.ok(!audit.mainText.includes(term), `${view}: presentation copy ${term}`);
+      assert.equal(await page.locator('.snapshot-label').innerText(),{conversation:'当前会话 · CONV-003',execution:'任务跟进 · CASE-001 / RET-001',insights:'VOC 问题排查 · 当前候选 CI-001'}[view]);
       if (view === 'conversation') {
         assert.ok(audit.mainText.includes('未找到可继续追踪的仓库核查任务'));
         assert.ok(!audit.mainText.includes('WH-201') && !audit.mainText.includes('RF-301'));
         assert.ok(audit.mainText.includes('尚未发送'));
         assert.deepEqual(audit.recovery.map(e=>e.state),['success','risk','active','active']);
-        assert.ok(audit.recovery[2].text.includes('继续核实这笔退货的实际入库情况'));
-        assert.ok(audit.recovery[3].text.includes('交给 Service Orchestrator'));
+        assert.ok(audit.recovery[2].text.includes('RET-001 · 核实实际入库情况'));
+        for (const term of ['待续办服务目标','待移交主编排','服务线索','重复催问 · 仓库确认待核 · 核查任务无有效记录','有效核查任务尚未创建']) assert.ok(audit.mainText.includes(term),term);
+        assert.ok(!audit.mainText.includes('CI-001') && !audit.mainText.includes('TASK-001'));
+        assert.ok(audit.recovery[3].text.includes('准备交给 Orchestrator') && audit.recovery[3].text.includes('尚未移交'));
         assert.deepEqual(audit.stateStrip.map(e=>e.state),['success','waiting','inactive']);
         assert.deepEqual(audit.stateStrip.map(e=>e.iconColor),['rgb(35, 132, 92)','rgb(153, 101, 26)','rgb(104, 119, 140)']);
       } else if (view === 'execution') {
-        for (const term of ['此前等待 · 已结束','Plan v2 · 已采用','Pending Confirmation','WH-201 · 核查完成','RF-301 · 已启动','Plan v1 → Plan v2','待 Agent 核实 → 下一节点','退款结果待跟踪','非真实发送记录','尚未发起','Not Initiated']) assert.ok(audit.mainText.includes(term), term);
+        for (const term of ['此前等待 · 已结束','Plan v2 · 已采用','Pending Confirmation','WH-201 · 核查完成','RF-301 · 已启动','Plan v1 → Plan v2','待 Agent 核实 → 下一节点','退款结果待跟踪','待客服确认 · 尚未发送','尚未发起','Not Initiated']) assert.ok(audit.mainText.includes(term), term);
               assert.deepEqual(audit.timeline.map(e=>e.state),['success','waiting','risk','success','active','active']);
         assert.equal(audit.timeline[1].iconColor,'rgb(153, 101, 26)');
         assert.equal(audit.timeline[3].iconColor,'rgb(35, 132, 92)');
         assert.ok(audit.badges.some(e=>e.text==='查询已完成'&&e.state==='success'));
+        for (const term of ['关联服务记录','仓库核查：WH-201 已完成','退款续办：RF-301 已启动','实际退款：尚未发起','跟进 RF-301 异常处理结果。']) assert.ok(audit.mainText.includes(term),term);
+        assert.ok(!audit.mainText.includes('CI-001') && !audit.mainText.includes('VOC Agent'));
       } else {
         for (const term of ['咨询时仓库未确认收货；后续核查取得有效入库记录。','已有入库记录，客服当时未见确认；时间差待核实。','具体时间差待核实']) assert.ok(audit.mainText.includes(term), term);
         assert.ok(!audit.mainText.includes('仓库确认曾滞后') && !audit.mainText.includes('入库与客服可见状态有时间差'));
@@ -84,7 +94,10 @@ const views = [
         assert.deepEqual(audit.matrix.map(e=>e.id),['CASE-001','CASE-002','CASE-003']);
         assert.deepEqual(audit.matrix.map(e=>e.cells.map(c=>c.state)),[['success','waiting','partial'],['success','waiting','partial'],['waiting','waiting','waiting']]);
         assert.ok(audit.matrix.flatMap(e=>e.cells).filter(e=>e.state==='success').every(e=>e.iconColor==='rgb(35, 132, 92)'));
-        assert.ok(audit.mainText.includes('是否存在状态更新或信息同步滞后？'));
+        assert.ok(audit.mainText.includes('实际入库、系统确认与客服可见，是否存在时序差异？'));
+        assert.equal(audit.mainText.split('仓库确认与客服可见信息可能存在时序差异').length-1,2);
+        for (const term of ['CONV-002 历史承诺 · WH-201 核查结果 · RF-301 任务进展','根因证据','待核验候选','共同根因未确认','关键时间记录尚未补齐','TASK-001 · 条件性预览','创建条件未满足','业务负责人尚未确认']) assert.ok(audit.mainText.includes(term),term);
+        assert.deepEqual(audit.caseStates.map(e=>e.id),['CASE-001','CASE-002','CASE-003','CASE-004']);
       }
       await page.screenshot({ path: path.join(output, file), fullPage: false });
       manifest.records.push({ view, file, url:url.href, screenshotSHA256:sha256(path.join(output,file)), audit, errors });

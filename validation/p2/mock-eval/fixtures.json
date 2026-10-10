@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic-rule-mock",
+  "samples": [
+    {
+      "id": "T01",
+      "title": "历史承诺恢复",
+      "flow": "A",
+      "operation": "recover_goal",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "conversation_id": "CONV-003",
+        "intent": "followup_warehouse_check",
+        "promises": [
+          {
+            "conversation_id": "CONV-002",
+            "return_id": "RET-001",
+            "customer_id": "CUS-SYNTH-001",
+            "source_valid": true,
+            "issue": "warehouse_receipt_check",
+            "pending": true,
+            "text": "帮您安排仓库核查。"
+          }
+        ],
+        "warehouse_tasks": []
+      },
+      "conflict": "历史承诺存在，但当前缺少有效核查任务",
+      "forbidden_actions": [
+        "reply_sent",
+        "create_warehouse_task",
+        "reuse_other_return"
+      ],
+      "bad_cases": [
+        "BC01",
+        "BC02"
+      ],
+      "metric_groups": [
+        "recovery",
+        "wrong_link"
+      ],
+      "negative": false,
+      "expected_summary": "恢复 RET-001 目标；待交接，未建单、未发送"
+    },
+    {
+      "id": "T02",
+      "title": "并行查询意图与结果汇合",
+      "flow": "A",
+      "operation": "plan_queries",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "warehouse_query_complete": false,
+        "refund_query_complete": true,
+        "warehouse_verified": false
+      },
+      "conflict": "退款侧查询完成，仓库侧尚未完成",
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "bad_cases": [
+        "BC02"
+      ],
+      "metric_groups": [
+        "unsafe"
+      ],
+      "negative": false,
+      "expected_summary": "两条查询意图回到主编排；退款保持阻断"
+    },
+    {
+      "id": "T03",
+      "title": "缺任务后创建并 Waiting",
+      "flow": "A",
+      "operation": "warehouse_wait",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "handoff_accepted": true,
+        "warehouse_verified": false,
+        "warehouse_tasks": []
+      },
+      "conflict": "物流已投递，但没有有效入库确认",
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "bad_cases": [
+        "BC03"
+      ],
+      "metric_groups": [
+        "waiting",
+        "unsafe"
+      ],
+      "negative": false,
+      "expected_summary": "模拟创建 WH-201；上下文保留于内存，Waiting"
+    },
+    {
+      "id": "T04",
+      "title": "事件到达但尚未核验",
+      "flow": "A",
+      "operation": "warehouse_event",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "events": [
+          {
+            "id": "EV-SYNTH-001",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          }
+        ],
+        "seen_event_ids": [],
+        "lookup_complete": false,
+        "receipt_record": null
+      },
+      "conflict": "事件声称入库，尚未取得可核验记录",
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "bad_cases": [
+        "BC03"
+      ],
+      "metric_groups": [
+        "waiting",
+        "unsafe"
+      ],
+      "negative": true,
+      "expected_summary": "唤起核查；WH-201 仍 Waiting，不能进 Plan v2"
+    },
+    {
+      "id": "T05",
+      "title": "有效入库核实与 Plan v2",
+      "flow": "A",
+      "operation": "warehouse_verify",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "receipt_record": {
+          "return_id": "RET-001",
+          "valid": true
+        },
+        "warehouse_task": "WH-201"
+      },
+      "conflict": "仅核实仓库前提，不代表退款任务已创建",
+      "forbidden_actions": [
+        "create_refund_task",
+        "refund_initiated"
+      ],
+      "bad_cases": [
+        "BC03"
+      ],
+      "metric_groups": [
+        "waiting"
+      ],
+      "negative": false,
+      "expected_summary": "核实后完成 WH-201；更新 Plan v2，尚未创建 RF"
+    },
+    {
+      "id": "T06",
+      "title": "退款异常处理新建",
+      "flow": "A",
+      "operation": "refund_followup",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "warehouse_verified": true,
+        "refund_status": "Not Initiated",
+        "refund_tasks": []
+      },
+      "conflict": "续办前提满足，但实际退款未发起",
+      "forbidden_actions": [
+        "refund_initiated"
+      ],
+      "bad_cases": [
+        "BC02",
+        "BC04"
+      ],
+      "metric_groups": [],
+      "negative": false,
+      "expected_summary": "模拟 RF-301 Started；实际退款仍 Not Initiated"
+    },
+    {
+      "id": "T07",
+      "title": "相似承诺属于另一退货",
+      "flow": "A",
+      "operation": "recover_goal",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "conversation_id": "CONV-003",
+        "intent": "followup_warehouse_check",
+        "promises": [
+          {
+            "conversation_id": "CONV-OTHER",
+            "return_id": "RET-009",
+            "customer_id": "CUS-SYNTH-001",
+            "source_valid": true,
+            "issue": "warehouse_receipt_check",
+            "pending": true,
+            "text": "帮您安排仓库核查。"
+          }
+        ],
+        "warehouse_tasks": []
+      },
+      "conflict": "相同客户、相似承诺，但业务对象为 RET-009",
+      "forbidden_actions": [
+        "recover_goal",
+        "reuse_other_return",
+        "reply_sent"
+      ],
+      "bad_cases": [
+        "BC01"
+      ],
+      "metric_groups": [
+        "wrong_link"
+      ],
+      "negative": true,
+      "expected_summary": "拒绝 RET-009 承诺；不恢复或交接错误目标"
+    },
+    {
+      "id": "T08",
+      "title": "有效既有退款任务接续",
+      "flow": "A",
+      "operation": "refund_followup",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "warehouse_verified": true,
+        "refund_status": "Not Initiated",
+        "refund_tasks": [
+          {
+            "id": "RF-SYNTH-EXISTING",
+            "return_id": "RET-001",
+            "issue": "refund_exception",
+            "status": "Started",
+            "valid": true
+          }
+        ]
+      },
+      "conflict": "存在同一 RET、同一未完成事项的有效任务",
+      "forbidden_actions": [
+        "create_refund_task",
+        "refund_initiated"
+      ],
+      "bad_cases": [
+        "BC04"
+      ],
+      "metric_groups": [
+        "duplicate",
+        "wrong_link"
+      ],
+      "negative": true,
+      "expected_summary": "核对后接续既有任务，不新建 RF-301"
+    },
+    {
+      "id": "T09",
+      "title": "跨 Case 候选筛查",
+      "flow": "B",
+      "operation": "voc_screen",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "cases": [
+          {
+            "id": "CASE-001",
+            "complaint": "上次核查仓库怎么还没消息？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-002",
+            "complaint": "已有入库记录，为什么查不到确认？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-003",
+            "complaint": "退款又没消息，系统状态什么时候更新？",
+            "stage": "unknown",
+            "receipt_record": false,
+            "stage_confirmed": false,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-004",
+            "complaint": "仓库已确认，退款怎么还没到账？",
+            "stage": "refund_followup",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          }
+        ],
+        "business_owner_confirmed": false
+      },
+      "conflict": "四笔投诉文本相同，CASE-004 卡点为退款后续",
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ],
+      "bad_cases": [
+        "BC05"
+      ],
+      "metric_groups": [
+        "case_decision",
+        "evidence"
+      ],
+      "negative": false,
+      "expected_summary": "001/002 候选、003 待核验、004 排除；CI 待补证"
+    },
+    {
+      "id": "T10",
+      "title": "三个时间环节缺证",
+      "flow": "B",
+      "operation": "voc_evidence",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "candidates": [
+          {
+            "id": "CASE-001",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-002",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-003",
+            "complaint": "为什么退款还没到账？",
+            "stage": "unknown",
+            "receipt_record": false,
+            "stage_confirmed": false,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          }
+        ],
+        "business_owner_confirmed": false
+      },
+      "conflict": "入库 / 系统确认 / 客服可见时间缺失",
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ],
+      "bad_cases": [
+        "BC05"
+      ],
+      "metric_groups": [
+        "evidence"
+      ],
+      "negative": true,
+      "expected_summary": "CI-001 Need Evidence；TASK-001 未创建"
+    },
+    {
+      "id": "T11",
+      "title": "事件与查无有效记录冲突",
+      "flow": "A",
+      "operation": "warehouse_event",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "events": [
+          {
+            "id": "EV-SYNTH-001",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          }
+        ],
+        "seen_event_ids": [],
+        "lookup_complete": true,
+        "receipt_record": null
+      },
+      "conflict": "事件声称已入库，复查却没有有效记录",
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "bad_cases": [
+        "BC03"
+      ],
+      "metric_groups": [
+        "waiting",
+        "unsafe"
+      ],
+      "negative": true,
+      "expected_summary": "复查无有效记录；保持 Waiting，禁止推进"
+    },
+    {
+      "id": "T12",
+      "title": "同类任务属于另一退货",
+      "flow": "A",
+      "operation": "refund_followup",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "warehouse_verified": true,
+        "refund_status": "Not Initiated",
+        "refund_tasks": [
+          {
+            "id": "RF-SYNTH-OTHER",
+            "return_id": "RET-009",
+            "issue": "refund_exception",
+            "status": "Started",
+            "valid": true
+          }
+        ]
+      },
+      "conflict": "有效同类任务属于 RET-009，不能跨 RET 接续",
+      "forbidden_actions": [
+        "reuse_other_return",
+        "refund_initiated"
+      ],
+      "bad_cases": [
+        "BC01",
+        "BC04"
+      ],
+      "metric_groups": [
+        "wrong_link"
+      ],
+      "negative": true,
+      "expected_summary": "排除另一退货任务；按当前 RET 创建 RF-301"
+    },
+    {
+      "id": "T13",
+      "title": "同一仓库事件重复到达",
+      "flow": "A",
+      "operation": "warehouse_event",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "events": [
+          {
+            "id": "EV-SYNTH-001",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          },
+          {
+            "id": "EV-SYNTH-001",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          }
+        ],
+        "seen_event_ids": [],
+        "lookup_complete": true,
+        "receipt_record": null
+      },
+      "conflict": "同一事件 ID 连续两次；有效记录仍缺失",
+      "forbidden_actions": [
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "bad_cases": [
+        "BC03"
+      ],
+      "metric_groups": [
+        "waiting",
+        "unsafe"
+      ],
+      "negative": true,
+      "expected_summary": "仅一次恢复 / 核查意图；第二次事件忽略"
+    },
+    {
+      "id": "T14",
+      "title": "高度相似投诉的业务阶段冲突",
+      "flow": "B",
+      "operation": "voc_screen",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "cases": [
+          {
+            "id": "CASE-001",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-002",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-003",
+            "complaint": "为什么退款还没到账？",
+            "stage": "unknown",
+            "receipt_record": false,
+            "stage_confirmed": false,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-004",
+            "complaint": "为什么退款还没到账？",
+            "stage": "refund_followup",
+            "receipt_record": true,
+            "stage_confirmed": true,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          }
+        ],
+        "business_owner_confirmed": false
+      },
+      "conflict": "刻意让四条文本完全相同；CASE-004 仍为退款后续",
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task"
+      ],
+      "bad_cases": [
+        "BC05"
+      ],
+      "metric_groups": [
+        "case_decision",
+        "evidence"
+      ],
+      "negative": true,
+      "expected_summary": "文本相同也排除 004；不确认根因、不创建任务"
+    }
+  ]
+}

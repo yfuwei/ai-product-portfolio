@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "definition": "Product expectations encoded by Codex from the human Round 2 requirements before H execution; pending human label audit. No values copied from actual output.",
+  "timestamp_assumption": "Synthetic inbound/system/service refer to the same receipt fact and use the same timezone; reverse ordering requires investigation, not a root conclusion.",
+  "cases": {
+    "H01": {
+      "output": {
+        "goal_status": "Needs Confirmation",
+        "goal_return_id": null,
+        "promise_source": null,
+        "handoff": "Blocked",
+        "recovery_attempted": false,
+        "warehouse_task_created": false,
+        "reply_sent": false,
+        "actions": [
+          "reject_unrelated_promise"
+        ]
+      },
+      "forbidden_actions": [
+        "recover_goal",
+        "create_warehouse_task",
+        "prepare_handoff",
+        "reuse_other_return"
+      ]
+    },
+    "H02": {
+      "output": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "forbidden_actions": [
+        "request_record_check",
+        "create_warehouse_task",
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ]
+    },
+    "H03": {
+      "output": {
+        "refund_task": "RF-301",
+        "refund_task_status": "Started",
+        "reused_task_return_id": null,
+        "created_tasks": [
+          "RF-301"
+        ],
+        "rejected_task_ids": [
+          "RF-SYNTH-CANCELLED",
+          "RF-SYNTH-CLOSED",
+          "RF-SYNTH-INVALID",
+          "RF-SYNTH-OTHERRET",
+          "RF-SYNTH-OTHERISSUE"
+        ],
+        "actual_refund": "NotInitiated",
+        "actions": [
+          "create_refund_task"
+        ]
+      },
+      "forbidden_actions": [
+        "continue_existing_refund_task",
+        "refund_initiated",
+        "reuse_other_return"
+      ]
+    },
+    "H04": {
+      "output": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        },
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ]
+      },
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task",
+        "fill_missing_time"
+      ]
+    }
+  }
+}

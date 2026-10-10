@@ -1,0 +1,161 @@
+{
+  "first_H": {
+    "total": 4,
+    "pass": 2,
+    "fail": 2,
+    "failed_ids": [
+      "H02",
+      "H04"
+    ]
+  },
+  "final_H": {
+    "total": 4,
+    "pass": 4,
+    "fail": 0,
+    "failed_ids": []
+  },
+  "original_T_audit": {
+    "target_total": 14,
+    "target_pass": 14,
+    "target_fail": 0,
+    "target_failed_ids": [],
+    "correct_interceptions": 8,
+    "comparison_total": 2,
+    "comparison_fail": 2
+  },
+  "T_regression": {
+    "target_total": 14,
+    "target_pass": 14,
+    "target_fail": 0,
+    "target_failed_ids": [],
+    "correct_interceptions": 8,
+    "comparison_total": 2,
+    "comparison_fail": 2
+  },
+  "original_rule_sha256": "2199e9bd04e3bcc16928ec52c7cbbe8601726845a2a48ed03e513def01a07baa",
+  "fixed_rule_sha256": "67eca0723d11250beb00db0e20c0469f1b28c36d3f826d936e2eb27fdaa8170f",
+  "same_fixtures_expected_runner_between_H_runs": true,
+  "Round_1_inputs_expected_and_outputs_preserved": true,
+  "repairs": [
+    {
+      "id": "H02",
+      "initial_actual": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event",
+          "complete_warehouse",
+          "plan_v2"
+        ]
+      },
+      "first_mismatches": [
+        {
+          "field": "actions",
+          "expected": [
+            "ignore_duplicate_event"
+          ],
+          "actual": [
+            "ignore_duplicate_event",
+            "complete_warehouse",
+            "plan_v2"
+          ]
+        }
+      ],
+      "final_actual": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "fix": "Gate side-effect intents with current warehouse status/current plan"
+    },
+    {
+      "id": "H04",
+      "initial_actual": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-002",
+          "CASE-003"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ],
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        }
+      },
+      "first_mismatches": [
+        {
+          "field": "missing_evidence",
+          "expected": [
+            "CASE-001",
+            "CASE-002",
+            "CASE-003"
+          ],
+          "actual": [
+            "CASE-002",
+            "CASE-003"
+          ]
+        },
+        {
+          "field": "conflicting_evidence",
+          "expected": [
+            "CASE-001"
+          ],
+          "actual": null
+        }
+      ],
+      "final_actual": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ],
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        }
+      },
+      "fix": "Flag reverse or unparsable synthetic timestamp chains and include the Case in unresolved evidence"
+    }
+  ]
+}

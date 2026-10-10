@@ -4194,6 +4194,46 @@ html[lang="en"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
         }
       }
     </style>
+  <style id="p2-entry-fit">
+/* Keep P2 entry text and the existing cover nodes readable without changing shared styles. */
+html[lang="en"] .project-two .p2-entry-term,
+html[lang="en"] .card-workflow .p2-entry-term { white-space:nowrap; }
+html[lang="en"] body.home-comic-hero.zh-home-v2 .hero-secondary-project-list .project-two {
+  grid-template-rows:minmax(13px,max-content) minmax(25px,max-content) 1px minmax(16px,max-content) minmax(25px,auto);
+}
+html[lang="en"] .project-two .secondary-project-name { text-wrap:balance; }
+html[lang="en"] .card-workflow .poster-stage {
+  height:auto; min-height:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  padding:18px 14px 14px; gap:10px 8px;
+}
+html[lang="en"] .card-workflow .poster-keyword {
+  position:static; min-width:0; width:fit-content; max-width:100%;
+}
+html[lang="en"] .card-workflow .keyword-b,
+html[lang="en"] .card-workflow .keyword-d { justify-self:end; }
+html[lang="en"] .card-workflow .keyword-a { grid-column:1; grid-row:1; }
+html[lang="en"] .card-workflow .keyword-b { grid-column:2; grid-row:1; }
+html[lang="en"] .card-workflow .keyword-c { grid-column:1; grid-row:4; }
+html[lang="en"] .card-workflow .keyword-d { grid-column:2; grid-row:4; }
+html[lang="en"] .card-workflow .poster-route {
+  position:static; min-width:0; grid-column:1 / -1; grid-row:2;
+  grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px;
+}
+html[lang="en"] .card-workflow .poster-route > * { min-width:0; padding:8px; }
+html[lang="en"] .card-workflow .poster-split-node {
+  position:static; grid-column:1 / -1; grid-row:3; justify-self:center; transform:none;
+}
+html[lang="en"] .card-workflow .showcase-poster-title {
+  position:static; grid-column:1 / -1; grid-row:5; min-width:0; text-wrap:balance;
+}
+html[lang="en"] .card-workflow .showcase-meta-separator { display:none; }
+html[lang="en"] .card-workflow .showcase-decision {
+  display:flex; flex-wrap:wrap; gap:6px 16px;
+}
+html[lang="en"] .card-workflow .showcase-decision > span {
+  display:inline-flex; white-space:nowrap;
+}
+  </style>
   </head>
   <body class="home-comic-hero zh-home-v2">
     <header class="site-header">
@@ -4271,12 +4311,12 @@ html[lang="en"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
           <p class="hero-secondary-eyebrow">OTHER PROJECTS</p>
           <div class="hero-secondary-project-list">
             <a class="project-two" href="docs/module2-ai-business-requirement-flow/index.html">
-              <span class="secondary-project-meta"><span class="secondary-project-number">02</span><span class="secondary-project-type">Workflow AI Application</span></span>
+              <span class="secondary-project-meta"><span class="secondary-project-number">02</span><span class="secondary-project-type">Product Design · High-Fidelity Prototype</span></span>
               <span class="secondary-project-link">View Project <span aria-hidden="true">→</span></span>
-              <span class="secondary-project-name">AI Business Requirement Flow Workspace</span>
+              <span class="secondary-project-name">AI Customer Service &amp; <bdi class="p2-entry-term">Multi-Agent</bdi> <bdi class="p2-entry-term">Service Workflow</bdi></span>
               <span class="secondary-project-divider" aria-hidden="true"></span>
-              <span class="secondary-project-punch">Recognized does not mean routable.</span>
-              <span class="secondary-project-explainer">Stronger AI recognition can make the product worse if the workflow cannot absorb it.</span>
+              <span class="secondary-project-punch">Third follow-up. Same refund. Don't start over.</span>
+              <span class="secondary-project-explainer">Resume one refund case with specialist Agents and verified replanning; analyze cross-case VOC independently.</span>
             </a>
             <a class="project-three" href="docs/module3-ai-content-operations-workflow/index.html">
               <span class="secondary-project-meta"><span class="secondary-project-number">03</span><span class="secondary-project-type">Content AI Application</span></span>
@@ -4424,7 +4464,7 @@ html[lang="en"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
           <p class="eyebrow section-eyebrow" data-i18n="showcase.eyebrow">PROJECT EVIDENCE</p>
           <p class="showcase-proof-note" data-i18n="showcase.proofNote">The judgments come first. These four projects are the evidence.</p>
           <h2 id="showcase-title" data-i18n-html="showcase.title">Four projects, one question:<br><span class="showcase-title-line">how does AI move from <span class="showcase-title-hit">“can do”</span> to <span class="showcase-title-hit">“usable by the business”</span>?</span></h2>
-          <p data-i18n="showcase.text">These projects are not a feature showcase. They test four kinds of AI product judgment: turning knowledge into next actions, feedback into confirmed requirements, content into reviewable workflows, and AI proposals into decisions before work begins.</p>
+          <p data-i18n="showcase.text">These projects are not a feature showcase. They test four kinds of AI product judgment: turning knowledge into next actions, unfinished service tasks into coordinated execution, content into reviewable workflows, and AI proposals into decisions before work begins.</p>
         </div>
         <div class="showcase-grid">
           <article class="showcase-card card-knowledge">
@@ -4455,29 +4495,29 @@ html[lang="en"] body.home-comic-hero.zh-home-v2 .featured-scenario-actions {
           <article class="showcase-card card-workflow">
             <div class="showcase-card-top">
               <div class="showcase-meta-line">
-                <span class="showcase-tag" data-i18n="showcase.card2.tag">Workflow AI Application</span>
+                <span class="showcase-tag" data-i18n="showcase.card2.tag">AI Customer Service Workflow</span>
                 <span class="showcase-meta-separator" aria-hidden="true">｜</span>
-                <span class="showcase-response" data-i18n="showcase.card2.response">Addresses: False&nbsp;Demand / False&nbsp;Outcome</span>
+                <span class="showcase-response" data-i18n="showcase.card2.response">Product Design · High-Fidelity Prototype</span>
               </div>
               <a class="showcase-cta" href="./docs/module2-ai-business-requirement-flow/index.html" data-i18n="showcase.card2.cta" data-i18n-attr="href:entry2.href">View Project →</a>
             </div>
-            <div class="poster-stage poster-workflow" aria-label="Requirement flow project cover" data-i18n-attr="aria-label:showcase.card2.posterAria">
+            <div class="poster-stage poster-workflow" aria-label="Single-case service recovery, Agent orchestration and independent cross-case VOC" data-i18n-attr="aria-label:showcase.card2.posterAria">
               <div class="poster-route">
-                <span data-i18n="showcase.card2.posterRoute1">Multi-source input</span>
-                <strong data-i18n="showcase.card2.posterRoute2">AI routing</strong>
-                <span data-i18n="showcase.card2.posterRoute3">Closed-loop workspace</span>
+                <span data-i18n="showcase.card2.posterRoute1">Recover task</span>
+                <strong data-i18n="showcase.card2.posterRoute2">Agents</strong>
+                <span data-i18n="showcase.card2.posterRoute3">Verified results</span>
               </div>
-              <div class="poster-split-node" data-i18n="showcase.card2.posterCore">Requirement flow</div>
-              <span class="poster-keyword keyword-a" data-i18n="showcase.card2.posterK1">Meetings</span>
-              <span class="poster-keyword keyword-b" data-i18n="showcase.card2.posterK2">Feedback</span>
-              <span class="poster-keyword keyword-c" data-i18n="showcase.card2.posterK3">Support</span>
-              <span class="poster-keyword keyword-d" data-i18n="showcase.card2.posterK4">Status sync</span>
-              <h3 class="showcase-poster-title" data-i18n="showcase.card2.title">AI Business Requirement Flow Workspace</h3>
+              <div class="poster-split-node" data-i18n="showcase.card2.posterCore">Single-case service</div>
+              <span class="poster-keyword keyword-a" data-i18n="showcase.card2.posterK1">Task recovery</span>
+              <span class="poster-keyword keyword-b" data-i18n="showcase.card2.posterK2">Agents</span>
+              <span class="poster-keyword keyword-c" data-i18n="showcase.card2.posterK3">Replanning</span>
+              <span class="poster-keyword keyword-d" data-i18n="showcase.card2.posterK4">Independent VOC</span>
+              <h3 class="showcase-poster-title" data-i18n-html="showcase.card2.title">AI Customer Service &amp; <bdi class="p2-entry-term">Multi-Agent</bdi> <bdi class="p2-entry-term">Service Workflow</bdi></h3>
             </div>
             <div class="showcase-card-inner">
-              <p class="showcase-hook" data-i18n="showcase.card2.hook">Stronger AI recognition can make the product worse if the workflow cannot absorb it.</p>
-              <p class="showcase-decision" data-i18n="showcase.card2.decision">Key judgment: information ≠ requirements.</p>
-              <p class="showcase-value" data-i18n="showcase.card2.value">The product does not turn every piece of feedback into a requirement. It identifies signals, preserves evidence, and asks for human confirmation before routing, follow-up, and review.</p>
+              <p class="showcase-hook" data-i18n="showcase.card2.hook">Third follow-up. Same refund. Don't start over.</p>
+              <p class="showcase-decision" data-i18n-html="showcase.card2.decision"><span>Cross-Conversation Task Recovery</span><span>Multi-Agent Orchestration</span><span>Dynamic Replanning</span><span>Cross-Case VOC</span></p>
+              <p class="showcase-value" data-i18n="showcase.card2.value">Recover unfinished refund work across conversations, coordinate specialist agents, and replan using verified business results. Separately examine cross-case VOC signals for potential recurring service bottlenecks.</p>
             </div>
           </article>
           <article class="showcase-card card-content">

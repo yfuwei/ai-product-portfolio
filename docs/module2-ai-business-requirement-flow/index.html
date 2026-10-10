@@ -927,201 +927,142 @@
     </style>
 
 
+    <style id="p2-round12-interface-styles">
+      /* B04 indexes only; preserve screenshot geometry and the portfolio shell. */
+      #design-interfaces .r12-flow-index { margin-top:18px; }
+      #design-interfaces .r12-flow-index>section { padding:15px 0; border-top:1px solid var(--line); }
+      #design-interfaces .r12-flow-index h4 { margin:0 0 10px; font-size:14px; font-weight:650; line-height:1.8; color:var(--blue); }
+      #design-interfaces .r12-flow-index dl { margin:0; }
+      #design-interfaces .r12-flow-index dl>div { display:grid; grid-template-columns:190px minmax(0,1fr); gap:24px; padding:8px 0; font-size:13px; line-height:1.85; }
+      #design-interfaces .r12-flow-index dt { color:var(--ink); font-weight:600; }
+      #design-interfaces .r12-flow-index dd { margin:0; color:var(--muted); }
+      #design-interfaces .r12-flow-index dd>span { display:inline-block; margin-right:12px; color:var(--ink); font-size:12px; font-weight:550; }
+      #design-interfaces .r12-flow-index section>p { margin:8px 0 0; color:var(--muted); font-size:12px; line-height:1.85; }
+      @media(max-width:600px) {
+        #design-interfaces .r12-flow-index dl>div { grid-template-columns:1fr; gap:4px; }
+        #design-interfaces .r12-flow-index dd>span { display:block; margin:0 0 3px; }
+      }
+    </style>
+
     <style id="p2-b03-refund-styles">
-      /* B03 only. Reuse P2 tokens and linear status icons; preserve the document shell. */
-      #design-voc.refund-improvement .prd-subsection { margin-top:34px; }
+      /* Round 11: one concrete VOC investigation, scoped to B03. */
+      #design-voc { --v10-surface:#f7f8fa; --v10-result:#f7f9fc; --v10-pending:#956416; }
+      #design-voc.refund-improvement .prd-subsection { margin-top:44px; }
+      #design-voc.refund-improvement .prd-subsection>h3 { font-size:20px; line-height:1.65; }
       #design-voc.refund-improvement .prd-subsection>p { font-size:14px; line-height:1.9; }
-      #design-voc.refund-improvement .prd-subsection>p+p { margin-top:12px; }
-      #design-voc .refund-eyebrow { display:block; color:var(--diagram-blue); font-size:10px; font-weight:750; line-height:1.7; letter-spacing:.035em; }
-      #design-voc .refund-meta { display:block; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc .refund-flow-boundary { padding:12px 0 12px 16px; border-left:2px solid var(--diagram-connector); }
-      #design-voc .refund-flow-boundary p { margin-top:4px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-event-records { list-style:none; margin:18px 0; padding:0; }
-      #design-voc .refund-event-records>li { display:grid; grid-template-columns:18px minmax(0,1fr); gap:12px; padding:15px 0; border-top:1px solid var(--diagram-line); }
-      #design-voc .refund-event-records h4 { margin-top:3px; color:var(--diagram-ink); font-size:15px; line-height:1.65; }
-      #design-voc .refund-event-records p { margin-top:5px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-event-mark { width:6px; height:6px; border-radius:50%; background:var(--rose); margin:8px 6px 0; }
-      #design-voc .refund-event-records>.is-excluded { border-bottom:1px solid var(--diagram-line); }
-      #design-voc .refund-event-records>.is-excluded>.p2-diagram__icon { margin-top:3px; color:var(--diagram-muted); }
-      #design-voc .refund-signal-note { display:flex; gap:10px; align-items:flex-start; }
-      #design-voc .refund-signal-note>.p2-diagram__icon { color:var(--diagram-blue); margin-top:5px; }
-      #design-voc .refund-association { margin:20px 0 12px; padding:20px 22px; }
-      #design-voc .refund-link-map { display:grid; grid-template-columns:206px 32px minmax(0,1fr); gap:0; align-items:center; }
-      #design-voc .refund-link-sources { position:relative; list-style:none; margin:0; padding:0; }
-      #design-voc .refund-link-sources::before { content:''; display:none; position:absolute; border-left:1px solid var(--diagram-connector); }
-      #design-voc .refund-link-sources>li { position:relative; padding:8px 20px 8px 0; }
-      #design-voc .refund-link-sources>li::after { content:''; position:absolute; right:0; top:50%; width:16px; border-top:1px solid var(--diagram-connector); }
-      #design-voc .refund-link-sources strong { display:block; margin-top:2px; font-size:13px; font-weight:650; line-height:1.7; }
-      #design-voc .refund-link-sources small { display:block; margin-top:3px; color:var(--diagram-muted); font-size:10px; line-height:1.8; }
-      #design-voc .refund-link-connector { display:flex; justify-content:center; align-items:center; gap:4px; color:var(--diagram-blue); }
-      #design-voc .refund-link-connector .p2-diagram__icon { width:16px; height:16px; }
-      #design-voc .refund-link-result { min-width:0; }
-      #design-voc .refund-common-point { display:flex; align-items:flex-start; gap:9px; padding:0 0 0 8px; }
-      #design-voc .refund-common-point>.p2-diagram__icon { color:var(--diagram-blue); margin-top:4px; }
-      #design-voc .refund-common-point h4 { color:var(--diagram-ink); font-size:15px; line-height:1.7; }
-      #design-voc .refund-common-point p { margin-top:3px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc .refund-result-connector { display:flex; justify-content:center; align-items:center; height:24px; color:var(--diagram-connector); }
-      #design-voc .refund-result-connector .p2-diagram__icon { width:16px; height:16px; transform:rotate(90deg); }
-      #design-voc .refund-candidate { padding:14px 16px; border-left:2px solid var(--diagram-blue); border-radius:2px; background:var(--diagram-result); }
-      #design-voc .refund-candidate header { display:flex; align-items:center; flex-wrap:wrap; gap:6px; color:var(--diagram-blue); font-size:11px; font-weight:650; }
-      #design-voc .refund-candidate header small { margin-left:auto; color:var(--diagram-muted); font-size:10px; font-weight:450; }
-      #design-voc .refund-candidate h4 { margin:10px 0 8px; color:var(--diagram-ink); font-size:18px; line-height:1.6; }
-      #design-voc .refund-candidate>p:last-child { margin-top:5px; color:var(--diagram-muted); font-size:12px; line-height:1.85; }
-      #design-voc .refund-exclusion { display:flex; align-items:flex-start; gap:10px; margin-top:20px; padding-top:14px; border-top:1px solid var(--diagram-line); }
-      #design-voc .refund-exclusion>.p2-diagram__icon { margin-top:3px; color:var(--diagram-muted); }
-      #design-voc .refund-exclusion strong { font-size:12px; font-weight:600; line-height:1.8; }
-      #design-voc .refund-exclusion p { margin-top:4px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc.refund-improvement .refund-foundation { font-size:11px; }
-      #design-voc .refund-section-action { display:flex; align-items:center; gap:9px; margin:0 0 10px; color:var(--diagram-blue); }
-      #design-voc .refund-section-action h4 { font-size:16px; font-weight:650; }
-      #design-voc .refund-evidence-checks { margin:16px 0; padding-left:24px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-evidence-checks li+li { margin-top:7px; }
-      #design-voc .refund-evidence-checks li::marker { color:var(--diagram-blue); font-size:11px; }
-      #design-voc.refund-improvement .refund-time-boundary { padding:10px 0; border-top:1px solid var(--diagram-line); color:var(--diagram-ink); font-size:12px; font-weight:600; }
-      #design-voc .refund-review-decision { display:flex; align-items:flex-start; gap:9px; margin-top:14px; padding-top:12px; border-top:1px solid var(--diagram-line); }
-      #design-voc .refund-review-decision>.p2-diagram__icon { margin-top:4px; color:var(--diagram-blue); }
-      #design-voc .refund-review-decision p { color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-review-decision strong { color:var(--diagram-ink); }
-      #design-voc .refund-task-preview { margin:18px 0; padding:4px 0 4px 18px; border-left:2px solid var(--diagram-connector); }
-      #design-voc .refund-task-preview>header { display:flex; align-items:center; gap:9px; color:var(--diagram-blue); }
-      #design-voc .refund-task-preview h4 { margin:9px 0; font-size:18px; line-height:1.65; }
-      #design-voc .refund-task-condition { color:var(--diagram-blue); font-size:12px; font-weight:650; }
-      #design-voc .refund-task-owners { margin-top:12px; padding-top:10px; border-top:1px solid var(--diagram-line); color:var(--diagram-muted); font-size:12px; line-height:1.85; }
-      #design-voc .refund-task-owners strong { color:var(--diagram-ink); font-weight:550; }
-      #design-voc .refund-improvement-actions { margin:12px 0 0; padding-left:20px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-improvement-actions li+li { margin-top:6px; }
-      #design-voc.refund-improvement .refund-ai-support { color:var(--diagram-muted); font-size:13px; }
-      #design-voc .refund-outcome-stages { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:18px; }
-      #design-voc .refund-outcome-stages>article { padding-top:14px; border-top:1px solid var(--diagram-node-line); }
-      #design-voc .refund-outcome-stages header { display:flex; align-items:flex-start; gap:9px; color:var(--diagram-blue); }
-      #design-voc .refund-outcome-stages header>.p2-diagram__icon { margin-top:3px; }
-      #design-voc .refund-outcome-stages h4 { margin-top:3px; color:var(--diagram-ink); font-size:16px; line-height:1.7; }
-      #design-voc .refund-outcome-stages ul { margin:12px 0; padding-left:19px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-outcome-stages li+li { margin-top:6px; }
-      #design-voc .refund-outcome-stages article>p { color:var(--diagram-muted); font-size:12px; line-height:1.85; }
-      #design-voc.refund-improvement .refund-final-judgment { margin-top:20px; padding-left:14px; border-left:2px solid var(--diagram-blue); color:var(--diagram-ink); font-size:14px; font-weight:600; }
-      #design-voc.refund-improvement .refund-final-judgment+.refund-meta { font-size:11px; }
-      @media(max-width:800px) { #design-voc .refund-link-map { grid-template-columns:180px 36px minmax(0,1fr); } }
+      #design-voc .v10-boundary { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+      #design-voc .v10-boundary p { margin:0; font-size:13px; line-height:1.85; color:var(--muted); }
+      #design-voc .v10-boundary p+p { margin-top:7px; font-size:12px; }
+      #design-voc .v10-label { display:block; color:var(--blue); font-size:12px; font-weight:650; line-height:1.8; }
+      #design-voc .v10-meta { color:var(--muted); font-size:12px; line-height:1.85; }
+      #design-voc .v10-pending { color:var(--v10-pending); font-size:12px; font-weight:600; line-height:1.8; }
+      #design-voc .v10-transform { display:grid; grid-template-columns:minmax(0,.9fr) 40px minmax(0,1.1fr); align-items:stretch; margin-top:20px; }
+      #design-voc .v10-input { background:var(--v10-surface); padding:18px 20px; border-radius:5px; }
+      #design-voc .v10-input dl { margin:10px 0 0; }
+      #design-voc .v10-input dl>div+div { margin-top:12px; padding-top:10px; border-top:1px solid var(--line); }
+      #design-voc .v10-input dt { font-size:13px; font-weight:650; line-height:1.8; color:var(--ink); }
+      #design-voc .v10-input dd { margin:3px 0 0; color:var(--muted); font-size:13px; line-height:1.85; }
+      #design-voc .v10-arrow { display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:23px; }
+      #design-voc .v10-signal { padding:18px 20px; border:1px solid var(--line); border-radius:5px; background:white; }
+      #design-voc .v10-signal h4 { margin:7px 0 14px; color:var(--ink); font-size:16px; font-weight:650; line-height:1.7; }
+      #design-voc .v10-signal dl { margin:0; }
+      #design-voc .v10-signal dl>div { display:grid; grid-template-columns:74px minmax(0,1fr); gap:8px; margin-top:4px; font-size:13px; line-height:1.85; }
+      #design-voc .v10-signal dt { color:var(--muted); }
+      #design-voc .v10-signal dd { margin:0; color:var(--ink); }
+      #design-voc .v10-filter { margin:20px 0 12px; }
+      #design-voc .v10-filter figcaption { color:var(--muted); font-size:12px; line-height:1.85; margin-bottom:12px; }
+      #design-voc .v10-cases { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+      #design-voc .v10-cases article { min-width:0; padding:16px; border:1px solid var(--line); border-radius:5px; background:white; }
+      #design-voc .v10-cases header { display:flex; flex-wrap:wrap; gap:3px 8px; align-items:baseline; }
+      #design-voc .v10-cases h4 { margin:0; font-size:14px; font-weight:650; line-height:1.8; color:var(--ink); }
+      #design-voc .v10-cases header span { color:var(--blue); font-size:12px; font-weight:600; line-height:1.8; }
+      #design-voc .v10-cases p { margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.85; }
+      #design-voc .v10-cases .v10-weak { border-style:dashed; }
+      #design-voc .v10-cases .v10-weak header span { color:var(--v10-pending); }
+      #design-voc .v10-merge { width:100%; margin:14px 0 0; }
+      #design-voc .v10-merge-labels { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); text-align:center; color:var(--blue); font-size:12px; font-weight:600; }
+      #design-voc .v10-merge-labels span:last-child { color:var(--v10-pending); }
+      #design-voc .v10-merge svg { display:block; width:100%; height:36px; color:var(--blue); overflow:visible; }
+      #design-voc .v10-candidate { padding:20px 22px; background:var(--v10-result); border:1px solid var(--line); border-radius:5px; }
+      #design-voc .v10-candidate header { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
+      #design-voc .v10-candidate h4 { margin:9px 0 10px; color:var(--ink); font-size:18px; font-weight:650; line-height:1.7; }
+      #design-voc .v10-candidate p { margin:5px 0 0; color:var(--muted); font-size:13px; line-height:1.85; }
+      #design-voc .v10-candidate .v10-members { color:var(--ink); }
+      #design-voc.refund-improvement .v10-association-note { margin-top:12px; font-size:13px; color:var(--muted); }
+      #design-voc .v10-evidence { width:100%; table-layout:fixed; border-collapse:collapse; margin:20px 0 12px; text-align:left; }
+      #design-voc .v10-evidence caption { padding:0 0 14px; text-align:left; color:var(--ink); font-size:16px; font-weight:650; line-height:1.7; }
+      #design-voc .v10-evidence th,#design-voc .v10-evidence td { padding:15px 16px; border-bottom:1px solid var(--line); vertical-align:top; font-size:13px; line-height:1.85; font-weight:400; color:var(--ink); }
+      #design-voc .v10-evidence thead th { background:var(--v10-surface); font-size:13px; font-weight:650; }
+      #design-voc .v10-evidence tbody th { font-weight:650; white-space:nowrap; }
+      #design-voc .v10-evidence td>span { display:block; margin-top:5px; }
+      #design-voc .v10-evidence .v10-missing { color:var(--muted); }
+      #design-voc .v10-evidence-source { margin:0; font-size:12px; line-height:1.85; color:var(--muted); }
+      #design-voc .v10-evidence-decision { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+      #design-voc .v10-evidence-decision p { margin:6px 0 0; color:var(--ink); font-size:14px; line-height:1.9; }
+      #design-voc .v10-evidence-decision .v10-gate { color:var(--muted); font-size:13px; }
+      #design-voc .v10-task { margin-top:20px; padding:20px 22px; border:1px dashed var(--line); border-radius:5px; background:white; }
+      #design-voc .v10-task header { display:flex; flex-wrap:wrap; gap:6px 18px; align-items:baseline; }
+      #design-voc .v10-task h4 { margin:9px 0 8px; color:var(--ink); font-size:17px; font-weight:650; line-height:1.7; }
+      #design-voc .v10-task>p { margin:0; font-size:12px; line-height:1.85; color:var(--muted); }
+      #design-voc .v10-task-fields { margin:16px 0 0; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+      #design-voc .v10-task-fields>div { display:grid; grid-template-columns:84px minmax(0,1fr); gap:14px; font-size:13px; line-height:1.85; }
+      #design-voc .v10-task-fields>div+div { margin-top:9px; }
+      #design-voc .v10-task-fields dt { color:var(--muted); }
+      #design-voc .v10-task-fields dd { margin:0; color:var(--ink); }
+      #design-voc .v11-signal-choice { margin:14px 0 0; padding-top:12px; border-top:1px solid var(--line); color:var(--ink); font-size:13px; line-height:1.85; }
+      #design-voc .v11-exclusion { display:flex; align-items:baseline; gap:14px; padding:14px 0 0; color:var(--muted); font-size:13px; line-height:1.85; }
+      #design-voc .v11-exclusion strong { flex-shrink:0; font-weight:600; }
+      #design-voc .v11-exclusion p { margin:0; }
+      #design-voc .v11-case-limits { display:block; margin-top:5px; color:var(--muted); font-size:12px; font-weight:400; line-height:1.85; white-space:normal; }
+      #design-voc .v10-evidence-decision header { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
+      #design-voc .v11-review-label { font-size:14px; font-weight:650; color:var(--ink); }
+      #design-voc .v11-evidence-requests { list-style:none; margin:12px 0; padding:0; font-size:13px; line-height:1.85; }
+      #design-voc .v11-evidence-requests li { display:flex; gap:14px; margin-top:5px; }
+      #design-voc .v11-evidence-requests strong { flex-shrink:0; color:var(--ink); font-weight:600; }
+      #design-voc .v11-evidence-requests span { color:var(--muted); }
+      #design-voc .v11-create-gate { margin-top:16px; padding:14px 16px; background:var(--v10-surface); border-radius:4px; }
+      #design-voc .v11-create-gate strong { display:block; color:var(--ink); font-size:13px; font-weight:650; line-height:1.85; }
+      #design-voc .v11-create-gate>div+div { margin-top:10px; }
+      #design-voc .v11-create-gate p { margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.85; }
+      #design-voc .v11-create-gate .v11-rule-note { margin-top:10px; font-size:12px; }
+      #design-voc .v10-task .v11-task-handoff { margin-top:12px; font-size:13px; color:var(--ink); }
+      #design-voc .v11-results { margin-top:20px; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+      #design-voc .v11-case-result { margin:6px 0 10px; color:var(--ink); font-size:14px; line-height:1.9; }
+      #design-voc .v11-results dl { margin:0 0 10px; font-size:13px; line-height:1.85; }
+      #design-voc .v11-results dl>div { display:grid; grid-template-columns:84px minmax(0,1fr); gap:12px; margin-top:5px; }
+      #design-voc .v11-results dt { color:var(--ink); font-weight:600; }
+      #design-voc .v11-results dd { margin:0; color:var(--muted); }
+      #design-voc .v11-results>p:last-child { margin:0; }
+      #design-voc.refund-improvement .v11-follow-up { margin-top:12px; color:var(--muted); font-size:13px; }
       @media(max-width:600px) {
-        #design-voc.refund-improvement .prd-subsection { margin-top:28px; }
-        #design-voc .refund-association { padding:18px 14px; }
-        #design-voc .refund-link-map { grid-template-columns:1fr; }
-        #design-voc .refund-link-sources::before { display:block; left:7px; right:auto; top:10px; bottom:0; }
-        #design-voc .refund-link-sources>li { padding:9px 0 9px 28px; }
-        #design-voc .refund-link-sources>li::after { left:7px; right:auto; width:14px; top:32px; }
-        #design-voc .refund-link-connector { padding:8px 0 14px; }
-        #design-voc .refund-link-connector .p2-diagram__icon:last-child { transform:rotate(90deg); }
-        #design-voc .refund-common-point { padding-left:0; }
-        #design-voc .refund-candidate { padding:13px 12px; }
-        #design-voc .refund-candidate h4 { font-size:17px; }
-        #design-voc .refund-outcome-stages { grid-template-columns:1fr; gap:20px; }
-      }
-
-      #design-voc .refund-link-map>.refund-result-connector,
-      #design-voc .refund-link-map>.refund-candidate { grid-column:1/-1; }
-      #design-voc .refund-signal-note>span { font-weight:400; }
-      @media(max-width:600px) {
-        #design-voc .refund-link-connector { justify-content:flex-start; padding:8px 0 14px; }
-        #design-voc .refund-result-connector { justify-content:flex-start; }
-      }
-
-      /* B03 reading rhythm: comparison, evidence, task brief. */
-      #design-voc .refund-reading-table { width:100%; margin:18px 0 12px; border-collapse:collapse; table-layout:fixed; text-align:left; background:transparent; }
-      #design-voc .refund-reading-table caption { padding:0 0 10px; text-align:left; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc .refund-signal-dot { display:inline-block; width:5px; height:5px; margin:0 7px 2px 0; border-radius:50%; background:var(--rose); }
-      #design-voc .refund-reading-table th,
-      #design-voc .refund-reading-table td { padding:13px 12px; border:0; border-bottom:1px solid var(--diagram-line); vertical-align:top; font-size:13px; font-weight:400; line-height:1.85; color:var(--diagram-muted); overflow-wrap:anywhere; }
-      #design-voc .refund-reading-table th:first-child,
-      #design-voc .refund-reading-table td:first-child { padding-left:0; }
-      #design-voc .refund-reading-table th:last-child,
-      #design-voc .refund-reading-table td:last-child { padding-right:0; }
-      #design-voc .refund-reading-table thead th { padding-top:8px; padding-bottom:8px; font-size:11px; font-weight:550; border-top:1px solid var(--diagram-line); }
-      #design-voc .refund-case-table .case-id-col { width:12%; }
-      #design-voc .refund-case-table .case-phenomenon-col { width:29%; }
-      #design-voc .refund-case-table .case-evidence-col { width:39%; }
-      #design-voc .refund-case-table .case-decision-col { width:20%; }
-      #design-voc .refund-case-table th small { display:block; font-size:10px; font-weight:400; }
-      #design-voc .refund-case-table td strong { color:var(--diagram-ink); font-size:15px; font-weight:600; line-height:1.65; }
-      #design-voc .refund-case-decision { display:inline-flex; align-items:flex-start; gap:7px; color:var(--diagram-blue); font-size:12px; line-height:1.85; }
-      #design-voc .is-excluded .refund-case-decision { color:var(--diagram-muted); }
-      #design-voc .refund-case-decision .p2-diagram__icon { margin-top:2px; width:16px; height:16px; }
-      #design-voc.refund-improvement .refund-reading-judgment { margin-top:14px; color:var(--diagram-ink); font-size:14px; font-weight:550; }
-      #design-voc.refund-improvement .refund-reading-note { display:block; margin-top:9px; color:var(--diagram-muted); font-size:12px; font-weight:400; line-height:1.85; }
-      #design-voc .refund-evidence-table .evidence-time-col { width:22%; }
-      #design-voc .refund-evidence-table .evidence-fact-col { width:43%; }
-      #design-voc .refund-evidence-table .evidence-source-col { width:35%; }
-      #design-voc .refund-evidence-table tbody th { color:var(--diagram-ink); font-size:14px; font-weight:600; }
-      #design-voc .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-      #design-voc .refund-diagnostic-path { margin:22px 0 15px; }
-      #design-voc .refund-diagnostic-path figcaption { color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc .refund-time-chain { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; margin:12px 0 0; padding:0; }
-      #design-voc .refund-time-chain li { position:relative; padding:15px 14px 0 0; }
-      #design-voc .refund-time-chain li::before { content:''; position:absolute; left:0; top:0; width:5px; height:5px; border:1px solid var(--diagram-blue); border-radius:50%; background:white; }
-      #design-voc .refund-time-chain li:not(:last-child)::after { content:'›'; position:absolute; top:2px; left:12px; right:12px; height:0; border-top:1px solid var(--diagram-connector); color:var(--diagram-connector); text-align:right; font-size:18px; line-height:0; }
-      #design-voc .refund-time-chain strong { display:block; color:var(--diagram-ink); font-size:14px; font-weight:600; }
-      #design-voc .refund-time-chain small { display:block; margin-top:4px; color:var(--diagram-muted); font-size:11px; line-height:1.8; }
-      #design-voc .refund-review-decision strong { font-size:13px; font-weight:650; line-height:1.85; }
-      #design-voc .refund-task-condition { margin-top:9px; }
-      #design-voc .refund-task-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:24px; row-gap:7px; margin:14px 0; padding:12px 0; border-top:1px solid var(--diagram-line); border-bottom:1px solid var(--diagram-line); }
-      #design-voc .refund-task-meta>div { display:grid; grid-template-columns:56px minmax(0,1fr); gap:8px; font-size:12px; line-height:1.85; }
-      #design-voc .refund-task-meta dt { color:var(--diagram-muted); }
-      #design-voc .refund-task-meta dd { margin:0; color:var(--diagram-ink); }
-      #design-voc .refund-task-trigger { grid-column:1/-1; }
-      #design-voc .refund-brief-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 28px; margin:18px 0; padding:0; list-style:none; }
-      #design-voc .refund-brief-actions li { display:grid; grid-template-columns:22px minmax(0,1fr); gap:9px; align-items:baseline; }
-      #design-voc .refund-brief-actions li>span { color:var(--diagram-blue); font-size:11px; font-weight:600; }
-      #design-voc .refund-brief-actions h5 { margin:0; color:var(--diagram-ink); font-size:14px; font-weight:600; line-height:1.8; }
-      #design-voc .refund-brief-actions p { margin-top:4px; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-brief-ai { padding-top:10px; border-top:1px solid var(--diagram-line); color:var(--diagram-muted); font-size:12px; line-height:1.85; }
-      #design-voc .refund-brief-ai strong { color:var(--diagram-ink); font-weight:550; }
-      #design-voc.refund-improvement .refund-implementation-note { margin-top:12px; }
-      @media(max-width:600px) {
-        #design-voc .refund-reading-table,
-        #design-voc .refund-reading-table tbody,
-        #design-voc .refund-reading-table tr,
-        #design-voc .refund-reading-table th,
-        #design-voc .refund-reading-table td { display:block; width:auto; }
-        #design-voc .refund-reading-table colgroup { display:none; }
-        #design-voc .refund-reading-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
-        #design-voc .refund-reading-table caption { display:block; }
-        #design-voc .refund-reading-table tbody tr { padding:14px 0; border-top:1px solid var(--diagram-line); }
-        #design-voc .refund-reading-table tbody tr:last-child { border-bottom:1px solid var(--diagram-line); }
-        #design-voc .refund-reading-table tbody th,
-        #design-voc .refund-reading-table tbody td { padding:0; border:0; }
-        #design-voc .refund-case-table th .refund-meta,
-        #design-voc .refund-case-table th small { display:inline; }
-        #design-voc .refund-case-table th small { margin-left:8px; }
-        #design-voc .refund-case-table td { margin-top:6px; }
-        #design-voc .refund-case-table td[data-label="已知业务线索"]::before { content:'业务线索 · '; color:var(--diagram-muted); font-size:11px; }
-        #design-voc .refund-case-table td[data-label="本轮关联判断"]::before { content:'关联判断 · '; color:var(--diagram-muted); font-size:11px; }
-        #design-voc .refund-evidence-table td { margin-top:5px; }
-        #design-voc .refund-evidence-table td[data-label="记录来源"]::before { content:'记录来源 · '; font-size:11px; }
-        #design-voc .refund-time-chain li { padding-right:8px; }
-        #design-voc .refund-time-chain strong { font-size:14px; }
-        #design-voc .refund-task-meta { grid-template-columns:1fr; row-gap:8px; }
-        #design-voc .refund-brief-actions { grid-template-columns:1fr; gap:14px; }
-        #design-voc .refund-task-preview { padding-left:14px; }
-      }
-
-      /* Final B03 polish: explicit signal handoff and tighter existing connectors. */
-      #design-voc .refund-signal-summary { display:flex; align-items:flex-start; gap:10px; margin:18px 0 0; padding:3px 0 3px 14px; border-left:1px solid var(--diagram-connector); }
-      #design-voc .refund-signal-summary>.p2-diagram__icon { margin-top:4px; color:var(--diagram-blue); }
-      #design-voc .refund-signal-summary>div { min-width:0; }
-      #design-voc .refund-signal-summary h4 { margin:0 0 8px; color:var(--diagram-ink); font-size:14px; font-weight:600; line-height:1.8; }
-      #design-voc .refund-signal-summary dl { margin:0; color:var(--diagram-muted); font-size:13px; line-height:1.85; }
-      #design-voc .refund-signal-summary dl>div { display:grid; grid-template-columns:65px minmax(0,1fr); gap:0; }
-      #design-voc .refund-signal-summary dl>div+div { margin-top:5px; }
-      #design-voc .refund-signal-summary dt { color:var(--diagram-ink); font-weight:550; }
-      #design-voc .refund-signal-summary dd { margin:0; }
-      #design-voc .refund-link-sources>li::before { content:''; position:absolute; right:0; top:0; bottom:0; border-left:1px solid var(--diagram-connector); }
-      #design-voc .refund-link-sources>li:first-child::before { top:50%; }
-      #design-voc .refund-link-sources>li:last-child::before { bottom:50%; }
-      @media(max-width:600px) {
-        #design-voc .refund-link-sources>li::before { display:none; }
-        #design-voc .refund-signal-summary { padding-left:12px; gap:8px; }
-        #design-voc .refund-signal-summary dl>div { display:block; }
-        #design-voc .refund-signal-summary dt,
-        #design-voc .refund-signal-summary dd { display:inline; }
+        #design-voc.refund-improvement .prd-subsection { margin-top:34px; }
+        #design-voc .v10-transform { grid-template-columns:1fr; }
+        #design-voc .v10-input,#design-voc .v10-signal { padding:16px; }
+        #design-voc .v10-arrow { height:34px; transform:rotate(90deg); }
+        #design-voc .v10-signal dl>div { grid-template-columns:70px minmax(0,1fr); gap:6px; }
+        #design-voc .v10-cases { grid-template-columns:1fr; gap:12px; }
+        #design-voc .v10-cases article { padding:14px 16px; }
+        #design-voc .v10-merge { width:100%; margin-top:18px; }
+        #design-voc .v10-candidate { padding:16px; }
+        #design-voc .v10-candidate h4 { font-size:17px; }
+        #design-voc .v10-evidence,#design-voc .v10-evidence tbody,#design-voc .v10-evidence tr,#design-voc .v10-evidence th,#design-voc .v10-evidence td { display:block; width:auto; }
+        #design-voc .v10-evidence colgroup { display:none; }
+        #design-voc .v10-evidence thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+        #design-voc .v10-evidence caption { display:block; }
+        #design-voc .v10-evidence tbody tr { padding:14px 0 8px; border-top:1px solid var(--line); }
+        #design-voc .v10-evidence tbody tr:last-child { border-bottom:1px solid var(--line); }
+        #design-voc .v10-evidence tbody th { padding:0 0 9px; border:0; font-size:14px; }
+        #design-voc .v10-evidence tbody td { padding:8px 0; border:0; }
+        #design-voc .v10-evidence td::before { content:attr(data-label); display:block; margin-bottom:3px; color:var(--muted); font-size:12px; font-weight:600; }
+        #design-voc .v10-evidence td>span { margin-top:2px; }
+        #design-voc .v10-task { padding:16px; }
+        #design-voc .v11-exclusion { display:block; }
+        #design-voc .v11-exclusion p { margin-top:4px; }
+        #design-voc .v11-create-gate { padding:12px; }
+        #design-voc .v11-evidence-requests li { gap:10px; }
+        #design-voc .v11-results dl>div { grid-template-columns:74px minmax(0,1fr); gap:8px; }
+        #design-voc .v10-task-fields>div { grid-template-columns:1fr; gap:3px; }
+        #design-voc .v10-task-fields>div+div { margin-top:12px; }
       }
     </style>
 
@@ -1589,6 +1530,113 @@
         #design-resolution .r8-tech-needs { grid-template-columns:1fr; gap:16px; }
       }
     </style>
+    <style id="b05-rule-eval-style">
+/* B05 Round 2 only: evidence, controls, measures, and decisions. */
+#design-validation .eval-pass { color:#23845c; font-weight:550; }
+#design-validation .eval-fail { color:#b53e56; font-weight:600; }
+#design-validation .eval-note,#design-validation .eval-boundary { font-size:12px; color:var(--muted); line-height:1.85; }
+#design-validation .eval-boundary { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+#design-validation .eval-summary { margin-bottom:18px; }
+#design-validation .eval-questions { display:grid; grid-template-columns:3fr 2fr; gap:32px; }
+#design-validation .eval-questions h4 { font-size:16px; margin-bottom:10px; }
+#design-validation .eval-questions h4>span { display:block; font-size:11px; color:var(--blue); margin-bottom:4px; }
+#design-validation .eval-questions dl>div { display:grid; grid-template-columns:54px minmax(0,1fr); gap:12px; margin-top:10px; }
+#design-validation .eval-questions dt { color:var(--blue); font-size:12px; font-weight:600; }
+#design-validation .eval-questions dd { margin:0; font-size:13px; }
+#design-validation .eval-index,#design-validation .eval-metrics { width:100%; table-layout:fixed; border-collapse:collapse; font-size:13px; line-height:1.8; }
+#design-validation :is(.eval-index,.eval-metrics) caption { text-align:left; font-size:11px; color:var(--muted); padding:0 0 12px; }
+#design-validation :is(.eval-index,.eval-metrics) th,#design-validation :is(.eval-index,.eval-metrics) td { padding:9px 10px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); overflow-wrap:anywhere; }
+#design-validation :is(.eval-index,.eval-metrics) thead { background:#f5f7fa; }
+#design-validation :is(.eval-index,.eval-metrics) th { font-weight:550; color:var(--ink); }
+#design-validation .eval-index tbody th { color:var(--blue); }
+#design-validation .eval-index small { display:block; font-size:9px; font-weight:400; color:var(--muted); line-height:1.7; margin-top:2px; }
+#design-validation .eval-records { margin:20px 0 26px; display:grid; gap:14px; }
+#design-validation .eval-run { padding:16px 20px; background:#f6f8fa; border-left:2px solid #b4c5da; }
+#design-validation .eval-run>header { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:12px; }
+#design-validation .eval-run h4 { font-size:14px; line-height:1.7; }
+#design-validation .eval-run>header>span { font-size:11px; flex:none; }
+#design-validation .eval-run dl>div { display:grid; grid-template-columns:64px minmax(0,1fr); gap:12px; margin-top:7px; }
+#design-validation .eval-run dt { color:var(--muted); font-size:11px; }
+#design-validation .eval-run dd { margin:0; font-size:13px; overflow-wrap:anywhere; }
+#design-validation code { font:11px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
+#design-validation .eval-evidence-links { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:12px; margin:20px 0 14px; }
+#design-validation .eval-command { padding:10px 14px; background:#f6f8fa; margin-bottom:12px; }
+#design-validation .eval-command>span { display:block; font-size:10px; color:var(--muted); margin-bottom:4px; }
+#design-validation .eval-control { border-top:1px solid var(--line); padding:22px 0; margin-top:20px; }
+#design-validation .eval-control>header>span,#design-validation .eval-bad-row>header>span { font-size:11px; color:var(--blue); }
+#design-validation .eval-control h4,#design-validation .eval-bad-row h4 { font-size:16px; margin-top:6px; line-height:1.7; }
+#design-validation .eval-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; margin-top:16px; }
+#design-validation .eval-comparison>section { min-width:0; padding-left:13px; border-left:2px solid #dbe3eb; }
+#design-validation .eval-comparison h5 { font-size:13px; margin:0 0 9px; font-weight:550; line-height:1.75; }
+#design-validation .eval-comparison h5>span { display:block; font-size:11px; margin-bottom:5px; }
+#design-validation .eval-comparison p { font-size:13px; }
+#design-validation .eval-comparison p+p { margin-top:9px; font-size:12px; }
+#design-validation .eval-bad-row { display:grid; grid-template-columns:195px minmax(0,1fr); gap:24px; border-top:1px solid var(--line); padding:20px 0; }
+#design-validation .eval-bad-row>div { min-width:0; }
+#design-validation .eval-bad-row p { font-size:13px; }
+#design-validation .eval-bad-row p+p { margin-top:8px; }
+#design-validation .eval-bad-row.is-key>div { padding-left:13px; border-left:2px solid #b7c9df; }
+#design-validation .eval-metrics td:nth-child(2) { color:var(--ink); font-weight:600; white-space:nowrap; }
+#design-validation .eval-acceptance { border-left:2px solid #a7bdd6; padding-left:14px; margin-top:18px; font-size:13px; }
+#design-validation .eval-decisions>article { display:grid; grid-template-columns:195px minmax(0,1fr); gap:24px; padding:22px 0; border-top:1px solid var(--line); }
+#design-validation .eval-decisions header>span { color:var(--blue); font-size:11px; }
+#design-validation .eval-decisions h4 { font-size:16px; margin-top:6px; line-height:1.7; }
+#design-validation .eval-decisions dl { margin:0; min-width:0; }
+#design-validation .eval-decisions dl>div { display:grid; grid-template-columns:80px minmax(0,1fr); gap:12px; margin-bottom:8px; }
+#design-validation .eval-decisions dt { font-size:11px; color:var(--blue); }
+#design-validation .eval-decisions dd { margin:0; font-size:13px; }
+#design-validation .eval-levels { margin-top:16px; border-top:1px solid var(--line); }
+#design-validation .eval-levels>div { display:grid; grid-template-columns:165px minmax(0,1fr); gap:20px; padding:12px 0; border-bottom:1px solid var(--line); }
+#design-validation .eval-levels span { font-size:11px; color:var(--blue); font-weight:550; }
+#design-validation .eval-levels p { font-size:12px; }
+#design-validation .eval-pending { color:#99651a; font-weight:550; }
+#design-validation .eval-provenance { padding-left:14px; border-left:2px solid #b7c9df; }
+#design-validation .eval-takeaway { font-size:12px; color:var(--blue); margin-top:12px; padding-top:9px; border-top:1px solid #e1e7ee; }
+#design-validation .eval-repair { padding:18px 0; border-top:1px solid var(--line); }
+#design-validation .eval-repair header>span { color:var(--blue); font-size:11px; }
+#design-validation .eval-repair h4 { font-size:16px; line-height:1.7; margin:5px 0 12px; }
+#design-validation .eval-repair dl { margin:0; }
+#design-validation .eval-repair dl>div { display:grid; grid-template-columns:100px minmax(0,1fr); gap:18px; margin-top:8px; }
+#design-validation .eval-repair dt { color:var(--muted); font-size:11px; }
+#design-validation .eval-repair dd { margin:0; font-size:13px; }
+#design-validation .eval-conclusions { display:grid; grid-template-columns:1fr 1fr; gap:28px; padding:20px 0 16px; }
+#design-validation .eval-conclusions h4 { color:var(--blue); font-size:13px; margin-bottom:8px; }
+#design-validation .eval-conclusions p { font-size:13px; }
+@media(max-width:700px) {
+ #design-validation .eval-questions,#design-validation .eval-comparison { grid-template-columns:1fr; gap:20px; }
+ #design-validation :is(.eval-index,.eval-metrics) caption { display:block; width:100%; }
+ #design-validation .eval-index,#design-validation .eval-index tbody { display:block; }
+ #design-validation .eval-index colgroup,#design-validation .eval-index thead { display:none; }
+ #design-validation .eval-index tr { display:grid; grid-template-columns:42px minmax(0,1fr); padding:10px 0; border-bottom:1px solid var(--line); }
+ #design-validation .eval-index tbody th { grid-column:1; grid-row:1/4; padding:0 10px 0 0; border:0; }
+ #design-validation .eval-index td { display:block; grid-column:2; padding:0 0 8px; border:0; font-size:13px; }
+ #design-validation .eval-index td:last-child { padding-bottom:0; }
+ #design-validation .eval-index td::before { content:attr(data-label); display:block; color:var(--muted); font-size:10px; margin-bottom:3px; }
+ #design-validation .eval-run { padding:14px; }
+ #design-validation .eval-run>header { flex-direction:column; gap:4px; }
+ #design-validation .eval-run dl>div { grid-template-columns:1fr; gap:3px; margin-top:10px; }
+ #design-validation .eval-bad-row,#design-validation .eval-decisions>article,#design-validation .eval-levels>div { grid-template-columns:1fr; gap:10px; }
+ #design-validation .eval-metrics,#design-validation .eval-metrics tbody { display:block; }
+ #design-validation .eval-metrics colgroup,#design-validation .eval-metrics thead { display:none; }
+ #design-validation .eval-metrics tr { display:grid; grid-template-columns:minmax(0,1fr) 75px; gap:7px 14px; padding:14px 0; border-bottom:1px solid var(--line); }
+ #design-validation .eval-metrics th,#design-validation .eval-metrics td { padding:0; border:0; }
+ #design-validation .eval-metrics td:nth-child(n+3) { grid-column:1/-1; font-size:13px; }
+ #design-validation .eval-metrics td:nth-child(n+3)::before { content:attr(data-label); display:block; font-size:10px; color:var(--muted); }
+ #design-validation .eval-repair dl>div { grid-template-columns:1fr; gap:4px; margin-top:12px; }
+ #design-validation .eval-conclusions { grid-template-columns:1fr; gap:18px; }
+ #design-validation .eval-index tr { grid-template-columns:62px minmax(0,1fr); padding:8px 0; }
+ #design-validation .eval-index tbody th { grid-row:1; }
+ #design-validation .eval-index td { padding-bottom:4px; }
+ #design-validation .eval-index td:nth-child(2) { grid-row:1; }
+ #design-validation .eval-index td:nth-child(3) { grid-row:2; }
+ #design-validation .eval-index td:last-child { grid-column:1; grid-row:2; align-self:start; font-size:11px; line-height:1.8; }
+ #design-validation .eval-index td:last-child::before { display:none; }
+ #design-validation .eval-metrics tr { gap:5px 14px; padding:10px 0; }
+ #design-validation .eval-metrics td:last-child::before { display:inline; content:'不能推出：'; font-size:11px; }
+
+ #design-validation .eval-metrics td:nth-child(2) { text-align:right; }
+}
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#project-tabs-anchor">跳到项目内容</a>
@@ -1717,21 +1765,21 @@
 <div class="p2-gallery-grid">
 <a class="p2-gallery-item p2-gallery-primary" href="#design-interfaces-3" aria-label="查看 Agent 任务执行台的产品设计详解">
 <figure>
-<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-agent-execution.png" alt="Agent 任务执行台后续模拟快照：WH-201 核查完成，Plan v2 已采用，RF-301 已启动，退款到账待确认" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-agent-execution.png?v=90e25749ffaf" alt="Agent 任务执行台：WH-201 Waiting 后恢复并核实入库，Plan v2 已采用，RF-301 Started；退款异常处理任务已启动，实际退款尚未发起" width="1600" height="1000" loading="lazy" decoding="async"></span>
 <figcaption><h4>Agent 任务执行台</h4><p>仓库核查、异步等待与业务事件推动计划更新，退款异常处理任务接续启动。</p><span class="p2-gallery-meta">Multi-Agent Workflow / Dynamic Replanning</span><span class="p2-gallery-link">查看执行台设计 <span aria-hidden="true">→</span></span></figcaption>
 </figure>
 </a>
 <div class="p2-gallery-secondary">
 <a class="p2-gallery-item" href="#design-interfaces-2" aria-label="查看跨会话服务工作台的产品设计详解">
 <figure>
-<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-service-conversation.png" alt="跨会话服务工作台初始模拟快照：恢复前次承诺与待续办事项，仓库实际收货尚未确认" width="1600" height="1000" loading="lazy" decoding="async"></span>
-<figcaption><h4>跨会话服务工作台</h4><p>从第三次催问中，找回前次承诺并恢复待续办事项。</p><span class="p2-gallery-meta">初始模拟快照</span><span class="p2-gallery-link">查看服务工作台设计 <span aria-hidden="true">→</span></span></figcaption>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-service-conversation.png?v=5cfa79cf9c3e" alt="跨会话服务工作台：关联历史承诺、恢复服务目标与待交接事项；WH-201 尚未创建，仓库收货未确认，客服草稿尚未发送" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<figcaption><h4>跨会话服务工作台</h4><p>从第三次催问中，找回历史承诺、恢复服务目标，保留待交接事项。</p><span class="p2-gallery-meta">初始模拟快照</span><span class="p2-gallery-link">查看服务工作台设计 <span aria-hidden="true">→</span></span></figcaption>
 </figure>
 </a>
-<a class="p2-gallery-item" href="#design-interfaces-4" aria-label="查看跨 Case 问题发现台的产品设计详解">
+<a class="p2-gallery-item" href="#design-interfaces-4" aria-label="查看 VOC 跨 Case 客户反馈洞察台的产品设计详解">
 <figure>
-<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-case-insights.png" alt="独立 Flow B 模拟分析：CI-001 为待补证候选问题，TASK-001 尚未创建" width="1600" height="1000" loading="lazy" decoding="async"></span>
-<figcaption><h4>跨 Case 问题发现台</h4><p>关联相似业务卡点，组织证据核查与运营调查。</p><span class="p2-gallery-meta">独立 Flow B / Need Evidence</span><span class="p2-gallery-link">查看问题发现台设计 <span aria-hidden="true">→</span></span></figcaption>
+<span class="p2-gallery-image"><img src="assets/screenshots/round2/b04-case-insights.png?v=ca3f27fdb78c" alt="独立 Flow B 模拟分析：CI-001 为待补证候选问题，TASK-001 尚未创建" width="1600" height="1000" loading="lazy" decoding="async"></span>
+<figcaption><h4>VOC 跨 Case 客户反馈洞察台</h4><p>关联候选业务问题与证据缺口，CI-001 仍需补证。</p><span class="p2-gallery-meta">独立 Flow B / Need Evidence</span><span class="p2-gallery-link">查看 VOC 洞察台设计 <span aria-hidden="true">→</span></span></figcaption>
 </figure>
 </a>
 </div>
@@ -1747,17 +1795,17 @@
           <aside class="prd-sidebar" aria-label="产品设计详解文档目录"><div class="prd-sidebar-inner"><p class="toc-eyebrow">PRODUCT DESIGN</p><h2 class="prd-outline-title">文档目录</h2><nav aria-label="桌面产品设计目录" data-outline-desktop><ol class="prd-outline-list">
       <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview" hidden><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 知识与业务关系基础</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
       <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution" hidden><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 条件决策与计划更新</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
-    </ol></nav><p class="outline-note">B05 围绕退款续办定义验证场景与口径；Workflow 测试尚未执行。</p></div></aside>
+      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>VOC 客户反馈洞察</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 VOC 线索</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 VOC 关联</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 VOC 证据</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 VOC 任务</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 VOC 结果</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 VOC 问题洞察台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 原型实现与边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 五个验证问题</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 测试集与执行记录</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与规则对照</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 指标与判定</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 下一轮产品决策</a></li></ul></li>
+    </ol></nav><p class="outline-note">B05 已完成合成样本的规则级 Mock 验证；真实 Workflow Runtime 尚未验证。</p></div></aside>
           <div class="prd-main">
             <details class="prd-mobile-outline"><summary>文档目录 <span>B01—B05</span></summary><nav aria-label="移动端产品设计目录" data-outline-mobile><ol class="prd-outline-list">
       <li><a class="prd-outline-link" href="#design-overview" data-prd-section="design-overview"><span>B01</span><span>业务场景与产品定义</span></a><ul class="prd-suboutline" data-prd-subnav="design-overview" hidden><li><a href="#design-overview-1" data-prd-owner="design-overview">1.1 业务故事</a></li><li><a href="#design-overview-2" data-prd-owner="design-overview">1.2 用户与任务</a></li><li><a href="#design-overview-3" data-prd-owner="design-overview">1.3 产品的 AI 能力</a></li><li><a href="#design-overview-4" data-prd-owner="design-overview">1.4 知识与业务关系基础</a></li><li><a href="#design-overview-5" data-prd-owner="design-overview">1.5 MVP 边界</a></li></ul></li>
       <li><a class="prd-outline-link" href="#design-resolution" data-prd-section="design-resolution"><span>B02</span><span>Multi-Agent Workflow 设计</span></a><ul class="prd-suboutline" data-prd-subnav="design-resolution" hidden><li><a href="#design-resolution-1" data-prd-owner="design-resolution">2.1 跨会话关联与任务恢复</a></li><li><a href="#design-resolution-2" data-prd-owner="design-resolution">2.2 规划与任务分派</a></li><li><a href="#design-resolution-3" data-prd-owner="design-resolution">2.3 专业 Agent 与工具执行</a></li><li><a href="#design-resolution-4" data-prd-owner="design-resolution">2.4 异步等待与恢复执行</a></li><li><a href="#design-resolution-5" data-prd-owner="design-resolution">2.5 条件决策与计划更新</a></li><li><a href="#design-resolution-6" data-prd-owner="design-resolution">2.6 LangGraph / Dify 选型</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>服务问题与运营改进</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 服务事件与问题信号</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 跨 Case 关联与候选问题</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 业务证据核查</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 改进任务与组织执行</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 结果验收与持续观察</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 跨 Case 问题发现台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 关键交互与业务结果</a></li></ul></li>
-      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 验证目标与完成标准</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 代表性测试场景</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与修正方向</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 产品指标与评估口径</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 迭代优先级与当前验证边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-voc" data-prd-section="design-voc"><span>B03</span><span>VOC 客户反馈洞察</span></a><ul class="prd-suboutline" data-prd-subnav="design-voc" hidden><li><a href="#design-voc-1" data-prd-owner="design-voc">3.1 VOC 线索</a></li><li><a href="#design-voc-2" data-prd-owner="design-voc">3.2 VOC 关联</a></li><li><a href="#design-voc-3" data-prd-owner="design-voc">3.3 VOC 证据</a></li><li><a href="#design-voc-4" data-prd-owner="design-voc">3.4 VOC 任务</a></li><li><a href="#design-voc-5" data-prd-owner="design-voc">3.5 VOC 结果</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-interfaces" data-prd-section="design-interfaces"><span>B04</span><span>核心界面与交互</span></a><ul class="prd-suboutline" data-prd-subnav="design-interfaces" hidden><li><a href="#design-interfaces-1" data-prd-owner="design-interfaces">4.1 三个核心界面</a></li><li><a href="#design-interfaces-2" data-prd-owner="design-interfaces">4.2 跨会话服务工作台</a></li><li><a href="#design-interfaces-3" data-prd-owner="design-interfaces">4.3 Agent 任务执行台</a></li><li><a href="#design-interfaces-4" data-prd-owner="design-interfaces">4.4 VOC 问题洞察台</a></li><li><a href="#design-interfaces-5" data-prd-owner="design-interfaces">4.5 原型实现与边界</a></li></ul></li>
+      <li><a class="prd-outline-link" href="#design-validation" data-prd-section="design-validation"><span>B05</span><span>验证与产品迭代</span></a><ul class="prd-suboutline" data-prd-subnav="design-validation" hidden><li><a href="#design-validation-1" data-prd-owner="design-validation">5.1 五个验证问题</a></li><li><a href="#design-validation-2" data-prd-owner="design-validation">5.2 测试集与执行记录</a></li><li><a href="#design-validation-3" data-prd-owner="design-validation">5.3 Bad Case 与规则对照</a></li><li><a href="#design-validation-4" data-prd-owner="design-validation">5.4 指标与判定</a></li><li><a href="#design-validation-5" data-prd-owner="design-validation">5.5 下一轮产品决策</a></li></ul></li>
     </ol></nav></details>
             <section class="prd-section workflow-prd p2-flow" data-prd-label="B01｜业务场景与产品定义" id="design-overview">
 <header class="prd-section-header"><p class="prd-section-kicker">B01｜业务场景与产品定义</p><h2>让 AI 接续一笔反复被催办的退款，而不是重新回答一次。</h2><p>以电商退货退款的重复催办为切片，把历史承诺恢复为可执行任务，跨仓库与退款业务域持续推进。</p><p class="scenario-label">SIMULATION · 模拟业务场景｜产品方案设计与前端演示，不代表真实企业调研、生产运行或已验证业务结果。</p></header>
@@ -1843,116 +1891,219 @@
 </div>
 </section>
 
-            <section class="prd-section voc-detail refund-improvement p2-flow" data-prd-label="B03｜服务问题与运营改进" id="design-voc">
-<header class="prd-section-header"><p class="prd-section-kicker">B03｜服务问题与运营改进</p><h2>一笔退款接着办，反复出现的卡点还要找到原因。</h2><p>从多笔退款的服务记录中，AI 关联相似业务卡点，形成待核查的候选问题，再由相关团队推动具体改进。</p><p class="scenario-label">产品设计模拟：CASE-001–004 为独立 Mock 记录；未接入企业业务系统，未验证真实运营效果。Flow B 按事件异步运行，不以 Case 完成为起点，也不阻塞当前退款续办。</p></header>
-<div class="prd-section-body">
+            <section class="prd-section voc-detail refund-improvement p2-flow" data-prd-label="B03｜VOC 跨 Case 客户反馈洞察" id="design-voc">
+              <header class="prd-section-header">
+                <p class="prd-section-kicker">B03｜VOC 跨 Case 客户反馈洞察</p>
+                <h2>从重复催问中，发现值得调查的业务卡点。</h2>
+                <p>VOC（Voice of the Customer，客户之声）：从多笔客服记录中识别重复业务卡点，结合业务事实形成待核查的问题线索。</p>
+                <div class="v10-boundary">
+                  <p><strong>Flow A</strong> 负责单笔退款服务任务续办；<strong>Flow B</strong> 独立分析多笔 Case 的 VOC 问题线索。Flow A 记录可作为输入之一，Flow B 不依赖其完成，也不阻塞退款续办。</p>
+                  <p>以下为四笔独立 Mock 记录的模拟对照，未接入真实 VOC Runtime 或企业事件管道。</p>
+                </div>
+              </header>
+              <div class="prd-section-body">
+                <section class="prd-subsection" id="voc-events">
+                  <h3 id="design-voc-1" data-outline-label="3.1 VOC 线索">3.1 VOC 线索｜从 CASE-001 提取业务问题</h3>
+                  <div class="v10-transform">
+                    <div class="v10-input">
+                      <span class="v10-label">CASE-001 · 服务记录</span>
+                      <dl>
+                        <div><dt>客户表达</dt><dd>第三次询问同一笔退款，追问此前承诺的仓库核查。</dd></div>
+                        <div><dt>关联业务事实</dt><dd>RET-001 物流已投递；周五客服初始查询时，仓库尚未确认有效入库。</dd></div>
+                        <div><dt>服务任务问题 · Flow A</dt><dd>周三仓库核查承诺未形成有效、可追踪的任务接续；周五未找到有效关联任务。</dd></div>
+                      </dl>
+                    </div>
+                    <span class="v10-arrow" aria-hidden="true">→</span>
+                    <article class="v10-signal" aria-labelledby="refund-signal-title">
+                      <span class="v10-label">VOC Signal / 候选问题线索</span>
+                      <h4 id="refund-signal-title">物流已投递后，仓库确认和核查进展未能在客服查询时得到明确呈现。</h4>
+                      <dl>
+                        <div><dt>来源 Case</dt><dd>CASE-001</dd></div>
+                        <div><dt>业务对象</dt><dd>RET-001</dd></div>
+                        <div><dt>服务线索</dt><dd>重复催问与仓库确认查询</dd></div>
+                        <div><dt>疑似卡点</dt><dd>仓库确认与客服可见信息</dd></div>
+                        <div><dt>后续用途</dt><dd>参与跨 Case 业务条件关联</dd></div>
+                      </dl>
+                      <p class="v11-signal-choice">本轮 VOC 优先关联仓库确认与客服可见性问题；核查任务接续缺口仍作为 CASE-001 的独立服务问题。</p>
+                    </article>
+                  </div>
+                </section>
+                <section class="prd-subsection" id="voc-candidate">
+                  <h3 id="design-voc-2" data-outline-label="3.2 VOC 关联">3.2 VOC 关联｜三笔候选，一笔排除</h3>
+                  <figure class="v10-filter" aria-labelledby="refund-link-caption">
+                    <figcaption id="refund-link-caption">比较退货对象、物流 / 仓库阶段、历史服务记录、客服可见状态及证据完整性。</figcaption>
+                    <div class="v10-cases">
+                      <article><header><h4>CASE-001</h4><span>候选关联</span></header><p>后续 WH-201 核查取得有效入库记录，但仓库确认与客服可见的具体时间关系尚未厘清。</p></article>
+                      <article><header><h4>CASE-002</h4><span>候选关联</span></header><p>已有入库记录，但客服查询时未看到确认状态；具体时序仍待核查。</p></article>
+                      <article class="v10-weak"><header><h4>CASE-003</h4><span>待核验候选</span></header><p>查询与状态更新时间记录不足，需要先确认是否属于相同业务处理环节。</p></article>
+                    </div>
+                    <div class="v10-merge" role="img" aria-label="CASE-001、CASE-002、CASE-003 汇合为候选问题；CASE-004 不参与关联">
+                      <div class="v10-merge-labels" aria-hidden="true"><span>CASE-001</span><span>CASE-002</span><span>CASE-003 · 待核</span></div>
+                      <svg viewBox="0 0 900 36" preserveAspectRatio="none" aria-hidden="true"><path d="M150 0V12H450M750 0V12H450M450 0V32M444 26L450 32L456 26" fill="none" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+                    </div>
+                    <article class="v10-candidate" id="voc-refund-candidate" aria-labelledby="refund-candidate-title">
+                      <header><span class="v10-label">CI-001 · 候选问题</span><span class="v10-pending">Need Evidence · 待补证</span></header>
+                      <h4 id="refund-candidate-title">仓库确认与客服可见信息可能存在时序差异</h4>
+                      <p class="v10-members">候选关联：CASE-001 / CASE-002 / CASE-003。</p>
+                      <p>业务条件存在相似性，但共同根因尚未得到确认。</p>
+                    </article>
+                    <div class="v11-exclusion"><strong>CASE-004 · 排除</strong><p>仓库已确认，卡点在退款后续环节，不属于当前仓库确认候选问题。</p></div>
+                  </figure>
+                </section>
+                <section class="prd-subsection" id="voc-review">
+                  <h3 id="design-voc-3" data-outline-label="3.3 VOC 证据">3.3 VOC 证据｜CI-001 究竟缺哪些记录？</h3>
+                  <table class="v10-evidence">
+                    <caption id="refund-diagnostic-caption">CI-001 · 三笔候选 Case 的证据记录</caption>
+                    <colgroup><col style="width:14%"/><col style="width:27%"/><col style="width:27%"/><col style="width:32%"/></colgroup>
+                    <thead><tr><th scope="col">候选 Case</th><th scope="col">实际入库</th><th scope="col">仓库系统确认</th><th scope="col">客服可见确认</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">CASE-001</th><td data-label="实际入库">后续已取得有效入库记录。<span class="v10-pending">实际入库时间待补齐</span></td><td data-label="仓库系统确认"><span class="v10-pending">确认更新时间待查</span></td><td data-label="客服可见确认">周五初始查询未明确确认收货。<span class="v10-pending">后续客服可见时点待查</span></td></tr>
+                      <tr><th scope="row">CASE-002</th><td data-label="实际入库">已有入库记录。<span class="v10-pending">具体入库时间待核</span></td><td data-label="仓库系统确认"><span class="v10-pending">系统确认更新时间待核</span></td><td data-label="客服可见确认">查询时未看到确认状态。<span class="v10-pending">查询及同步时点待核</span></td></tr>
+                      <tr><th scope="row">CASE-003<small class="v11-case-limits">重复催办<br/>业务环节待核</small></th><td data-label="实际入库"><span class="v10-missing">实际入库记录与时间不足。</span><span class="v10-pending">待补齐</span></td><td data-label="仓库系统确认"><span class="v10-missing">仓库状态更新记录不足。</span><span class="v10-pending">待核查</span></td><td data-label="客服可见确认"><span class="v10-pending">查询时间及可见状态待核</span></td></tr>
+                    </tbody>
+                  </table>
+                  <p class="v10-evidence-source">补证来源：仓储 / 履约记录、仓库状态更新记录、客服查询或同步记录。物流投递不等于仓库实际入库确认。</p>
+                  <div class="v10-evidence-decision">
+                    <header><strong class="v11-review-label">当前审阅结果</strong><span class="v10-pending">CI-001 · Need Evidence</span></header>
+                    <p>当前无法回答：三笔退货的异常现象是否发生在可比较的仓库确认链路，以及信息差异究竟位于哪个业务环节。</p>
+                    <ul class="v11-evidence-requests">
+                      <li><strong>CASE-001</strong><span>补齐实际入库、系统确认与客服可见时间。</span></li>
+                      <li><strong>CASE-002</strong><span>核对入库记录、确认更新与客服查询时点。</span></li>
+                      <li><strong>CASE-003</strong><span>先确认业务路径和关键记录是否足以参与比较。</span></li>
+                    </ul>
+                    <p class="v10-gate">以上为拟议补证要求，尚未发出真实业务任务；共同根因未确认，也不能依据缺失数据推算延迟时长。</p>
+                  </div>
+                </section>
+                <section class="prd-subsection" id="voc-task">
+                  <h3 id="design-voc-4" data-outline-label="3.4 VOC 任务">3.4 VOC 任务｜为什么 TASK-001 还不能创建？</h3>
+                  <article class="v10-task" id="voc-refund-task" aria-labelledby="refund-task-title">
+                    <header><span class="v10-label">TASK-001｜条件性改进任务预览</span><span class="v10-meta">尚未创建</span></header>
+                    <h4 id="refund-task-title">排查退货收货确认延迟，让客服及时获取可追踪的核查进展。</h4>
+                    <p>“延迟”为待查方向，尚未确认问题环节。</p>
+                    <div class="v11-create-gate">
+                      <div><strong>当前阻断条件 · 创建条件未满足</strong><p>CI-001 仍为 Need Evidence；尚无法确定三个候选是否处于可比较的同一业务链路，也无法确认共同原因。</p></div>
+                      <div><strong>可以考虑创建任务的前提</strong><p>补齐关键证据，由业务负责人确认值得立项的具体问题。</p></div>
+                      <p class="v11-rule-note">拟议创建规则，尚未实现审批流程。</p>
+                    </div>
+                    <dl class="v10-task-fields">
+                      <div><dt>业务对象</dt><dd>CI-001</dd></div>
+                      <div><dt>任务状态</dt><dd>尚未创建</dd></div>
+                      <div><dt>调查对象</dt><dd>退货入库、仓库系统确认与客服可见信息之间的时序。</dd></div>
+                      <div><dt>候选协作</dt><dd>仓储 / 履约相关团队、客服运营。</dd></div>
+                      <div><dt>主责</dt><dd>根据补证结果决定。</dd></div>
+                      <div><dt>目标产物</dt><dd>明确问题环节及经确认的修正建议。</dd></div>
+                    </dl>
+                    <p class="v11-task-handoff">补证确认后，再根据具体问题环节确定修正措施与责任方。</p>
+                  </article>
+                </section>
+                <section class="prd-subsection" id="voc-outcome">
+                  <h3 id="design-voc-5" data-outline-label="3.5 VOC 结果">3.5 VOC 结果｜这次分析停在了哪里？</h3>
+                  <div class="v11-results" id="voc-refund-outcome">
+                    <span class="v10-meta">本次模拟分析记录</span>
+                    <p class="v11-case-result">四笔独立 Mock Case 已参与业务条件对照；三笔保留为候选关联，一笔因业务环节不同被排除。</p>
+                    <dl><div><dt>CI-001</dt><dd><strong class="v10-pending">Need Evidence</strong> · 共同根因未确认</dd></div><div><dt>TASK-001</dt><dd>尚未创建 · 等待补证与业务确认</dd></div></dl>
+                    <p class="v10-meta">没有真实运营改善结果；上述模拟产物不代表生产环境的发现率、准确率或问题频次。</p>
+                  </div>
+                  <p class="v11-follow-up">若未来完成补证、业务确认并实施改进，再结合仓库确认至客服可见的时序记录及同笔退货重复催问情况观察实际变化。</p>
+                </section>
+              </div>
+            </section>
 
-<section class="prd-subsection" id="voc-events"><h3 data-outline-label="3.1 服务事件与问题信号" id="design-voc-1">3.1 服务事件与问题信号</h3><p>从多笔独立退款服务记录中，比较重复催办发生在哪个业务环节。</p>
-<table class="refund-case-table refund-reading-table"><caption><span aria-hidden="true" class="refund-signal-dot"></span>四笔退款服务记录 / 信号对照</caption><colgroup><col class="case-id-col"/><col class="case-phenomenon-col"/><col class="case-evidence-col"/><col class="case-decision-col"/></colgroup><thead><tr><th scope="col">服务记录</th><th scope="col">关键业务现象</th><th scope="col">已知业务线索</th><th scope="col">本轮关联判断</th></tr></thead><tbody>
-<tr><th data-label="服务记录" scope="row"><span class="refund-meta">CASE-001</span><small>主案例</small></th><td data-label="关键业务现象"><strong>三次催问后，接续此前承诺的仓库核查。</strong></td><td data-label="已知业务线索">物流已投递，收货确认曾滞后；WH-201 取得有效入库记录，RF-301 已启动，退款到账待确认。</td><td data-label="本轮关联判断"><span class="refund-case-decision">候选关联</span></td></tr>
-<tr><th data-label="服务记录" scope="row"><span class="refund-meta">CASE-002</span></th><td data-label="关键业务现象"><strong>重复催问；已有入库记录，但客服查询时仍未确认。</strong></td><td data-label="已知业务线索">物流已投递；入库记录与状态反馈有时间差，延迟位置待核查。</td><td data-label="本轮关联判断"><span class="refund-case-decision">候选关联</span></td></tr>
-<tr><th data-label="服务记录" scope="row"><span class="refund-meta">CASE-003</span></th><td data-label="关键业务现象"><strong>重复催办，查询时仓库仍未确认收货。</strong></td><td data-label="已知业务线索">入库、状态更新与客服查询时间记录不足，尚不能定位延迟。</td><td data-label="本轮关联判断"><span class="refund-case-decision">待核验的候选关联</span></td></tr>
-<tr class="is-excluded"><th data-label="服务记录" scope="row"><span class="refund-meta">CASE-004</span></th><td data-label="关键业务现象"><strong>退款迟迟未到账。</strong></td><td data-label="已知业务线索">仓库已确认收货；卡点位于后续退款或支付环节。</td><td data-label="本轮关联判断"><span class="refund-case-decision"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg>排除</span></td></tr>
-</tbody></table><p class="refund-reading-judgment">单个 Case 可以提供调查线索，不能直接证明组织层面的高频问题。</p><aside class="refund-signal-summary" aria-labelledby="refund-signal-title"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg><div><h4 id="refund-signal-title">Service Event → Signal｜从服务记录提取问题线索</h4><dl><div><dt>关联输入：</dt><dd>重复咨询记录、相关退货对象、物流与仓库状态、历史核查承诺及后续任务结果。</dd></div><div><dt>识别线索：</dt><dd>物流已投递后，仓库确认信息仍不明确，客户因此反复追问退款进展。</dd></div><div><dt>输出：</dt><dd>可追踪的问题 Signal，保留来源事件、发生时间、关联退货对象及疑似卡点，供下一步跨 Case 关联。</dd></div></dl></div></aside></section>
-<section class="prd-subsection" id="voc-candidate"><h3 data-outline-label="3.2 跨 Case 关联与候选问题" id="design-voc-2">3.2 跨 Case 关联与候选问题</h3><p>结合退货业务状态与处理环节，核对三条候选记录。</p>
-<figure aria-labelledby="refund-link-caption" class="refund-association p2-diagram"><figcaption class="p2-diagram__caption" id="refund-link-caption"><span class="p2-diagram__label">跨 Case 发现共同现象</span><span class="p2-diagram__meta">跨 Case 业务关联</span></figcaption>
-<div class="refund-link-map"><ol aria-label="三个待核对的候选关联 Case" class="refund-link-sources"><li><span class="refund-meta">CASE-001</span><strong>核查后取得有效入库记录</strong><small>收货确认曾滞后</small></li><li><span class="refund-meta">CASE-002</span><strong>入库记录与状态反馈有时间差</strong><small>延迟环节待核查</small></li><li><span class="refund-meta">CASE-003</span><strong>入库与状态更新时间记录不齐</strong><small>关联条件仍待核验</small></li></ol>
-<div aria-hidden="true" class="refund-link-connector"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></div>
-<div class="refund-link-result"><div class="refund-common-point"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="search" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="m16 16 5 5"></path></svg><div><h4>可能集中在同一仓库确认环节</h4><p>业务条件相似，尚未确认共同根因。</p></div></div>
-</div><div aria-hidden="true" class="refund-result-connector"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></div><article aria-labelledby="refund-candidate-title" class="refund-candidate" id="voc-refund-candidate"><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="pause-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg><span>Need Evidence · 待补证</span></header><h4 id="refund-candidate-title">退货仓库确认信息的滞后，可能导致重复退款催办。</h4><p class="refund-meta">CI-001 · 候选问题</p><p class="refund-meta">候选关联 CASE-001 / CASE-002 / CASE-003</p><p>仍需核实这些 Case 是否属于可比较的同一业务链路。</p></article></div>
-<aside class="refund-exclusion"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="git-branch" focusable="false" viewbox="0 0 24 24"><circle cx="6" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><circle cx="18" cy="5" r="3"></circle><path d="M6 8v8m12-8a11 11 0 0 1-12 8"></path></svg><div><strong>排除 CASE-004：仓库已确认，问题发生于退款后续环节。</strong><p>投诉内容相似，但业务卡点不同。</p></div></aside>
-</figure>
-
-<p class="refund-reading-judgment">AI 比较的是业务条件和关联记录，而不只是投诉文字是否相似。</p><p class="refund-reading-note">关联依据来自本项目假设已有的业务对象关系及服务记录。</p></section>
-<section class="prd-subsection" id="voc-review"><h3 data-outline-label="3.3 业务证据核查" id="design-voc-3">3.3 业务证据核查</h3><span class="refund-eyebrow">EVIDENCE CHECK · 证据待补齐</span><div class="refund-section-action"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="search" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="m16 16 5 5"></path></svg><h4>把三个关键时间点查清楚。</h4></div>
-<table class="refund-evidence-table refund-reading-table"><caption class="sr-only">三时间点证据核查</caption><colgroup><col class="evidence-time-col"/><col class="evidence-fact-col"/><col class="evidence-source-col"/></colgroup><thead><tr><th scope="col">时间点</th><th scope="col">要确认的事实</th><th scope="col">记录来源</th></tr></thead><tbody>
-<tr><th data-label="时间点" scope="row">实际入库时间</th><td data-label="要确认的事实">退货商品何时被仓库实际接收？</td><td data-label="记录来源">仓储 / 履约入库记录。</td></tr>
-<tr><th data-label="时间点" scope="row">仓库确认时间</th><td data-label="要确认的事实">仓库系统何时记录收货确认？</td><td data-label="记录来源">仓库确认状态与更新时间。</td></tr>
-<tr><th data-label="时间点" scope="row">客服可见时间</th><td data-label="要确认的事实">客服何时能够查询到已确认收货的信息？</td><td data-label="记录来源">客服查询记录或状态同步记录。</td></tr>
-</tbody></table><p class="refund-reading-note">物流 Delivered = 物流投递记录，不等于仓库实际入库。</p>
-<figure aria-labelledby="refund-diagnostic-caption" class="refund-diagnostic-path"><figcaption id="refund-diagnostic-caption">调查位置 · 尚待核查</figcaption><ol class="refund-time-chain"><li><strong>实际入库</strong><small>仓库接收 / 操作</small></li><li><strong>系统确认</strong><small>状态更新</small></li><li><strong>客服可见</strong><small>客服可见链路</small></li></ol></figure>
-<p class="refund-reading-note">同时核查三笔退货是否处于可比较的仓库处理路径。仓储 / 履约与客服运营补充记录，由业务负责人复核。</p>
-<div class="refund-review-decision"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="pause-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 8v8m6-8v8"></path></svg><div><strong>CI-001 继续 Need Evidence</strong><p>证据未补齐，暂不认定共同原因，也不创建正式改进任务。</p></div></div></section>
-<section class="prd-subsection" id="voc-task"><h3 data-outline-label="3.4 改进任务与组织执行" id="design-voc-4">3.4 改进任务与组织执行</h3><article aria-labelledby="refund-task-title" class="refund-task-preview" id="voc-refund-task"><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg><span class="refund-eyebrow">TASK-001 · 条件性改进任务预览</span></header><p class="refund-task-condition">尚未创建 · 待 CI-001 补证确认</p><h4 id="refund-task-title">排查退货收货确认延迟，让客服及时获取可追踪的核查进展。</h4>
-<dl class="refund-task-meta"><div><dt>主责</dt><dd>仓储 / 履约系统相关负责人</dd></div><div><dt>协作</dt><dd>客服运营团队</dd></div><div class="refund-task-trigger"><dt>触发前提</dt><dd>CI-001 获得足够证据，并经业务负责人确认存在需要改善的共同问题。</dd></div></dl>
-<ol class="refund-brief-actions"><li><span>01</span><div><h5>定位延迟</h5><p>对照实际入库、仓库确认与客服可见时间，找到问题发生的环节。</p></div></li><li><span>02</span><div><h5>确认修正方案</h5><p>依据证据决定需要调整的状态更新、事件传递或服务流程。</p></div></li><li><span>03</span><div><h5>改善客服可见性</h5><p>确保客服能够查询到明确的收货状态和可追踪的核查进展。</p></div></li><li><span>04</span><div><h5>小范围验证</h5><p>核查修正措施是否有效，再决定是否扩大适用范围。</p></div></li></ol>
-<p class="refund-brief-ai"><strong>AI 辅助：</strong>整理相关 Case 与证据、生成调查事项、关联后续处理结果。</p></article></section>
-<section class="prd-subsection" id="voc-outcome"><h3 data-outline-label="3.5 结果验收与持续观察" id="design-voc-5">3.5 结果验收与持续观察</h3><span class="refund-reading-note">拟议验收与观察 · 尚未执行真实效果验证</span><div class="refund-outcome-stages" id="voc-refund-outcome"><article><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><div><span class="refund-eyebrow">01｜措施验收</span><h4>检查修正是否落地</h4></div></header><ul><li>延迟环节是否定位清楚。</li><li>必要的状态更新或服务修正是否完成并通过验收。</li><li>客服是否可以看到明确、可追踪的收货确认信息。</li></ul><p>措施通过验收，不等于客户重复催办已经减少。</p></article><article><header><svg aria-hidden="true" class="p2-diagram__icon" data-icon="clock" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><div><span class="refund-eyebrow">02｜后续业务观察</span><h4>观察相同卡点是否仍然出现</h4></div></header><ul><li>实际入库到客服可见确认状态的时间差。</li><li>同一退货在退款启动前的重复催办情况。</li><li>相似仓库确认卡点是否再次出现。</li></ul><p>需要可比较的业务窗口和实际记录，才能判断变化。</p></article></div>
-<p class="refund-final-judgment">修正是否完成可以验收；重复催办是否真正减少，还需要继续观察。</p><p class="refund-reading-note refund-implementation-note">待实现：真实服务事件接入、跨 Case 关联验证、改进任务执行及后续业务效果采集。</p></section>
-</div></section>
             <section class="prd-section interface-detail" id="design-interfaces" data-prd-label="B04｜核心界面与交互">
               <header class="prd-section-header"><p class="prd-section-kicker">B04｜核心界面与交互</p><h2>让客服看到待办，让 Agent 推进任务，让运营发现重复卡点。</h2><p>围绕同一笔退货退款的重复催办，设计服务任务恢复、Agent 执行与跨 Case 问题发现三个工作界面。</p><p class="scenario-label">HTML / CSS 产品界面原型 · Mock 数据 · 浏览器渲染截图 · 未接入真实业务系统</p></header>
               <div class="prd-section-body">
                 <section class="prd-subsection" id="interface-overview"><h3 id="design-interfaces-1" data-outline-label="4.1 三个核心界面">4.1 三个核心界面</h3>
-                  <dl class="interface-view-roles"><div><dt>跨会话服务工作台</dt><dd>客服从第三次追问中，找到前次承诺及当前可续办的仓库核查事项。</dd></div><div><dt>Agent 任务执行台</dt><dd>查看专业任务、仓库反馈与计划更新，跟踪退款异常处理的阶段进展。</dd></div><div><dt>跨 Case 问题发现台</dt><dd>运营核对候选关联、排除样本和证据缺口，判断改进任务是否具备创建条件。</dd></div></dl>
-                  <p class="interface-prototype-link"><a class="prd-action" href="assets/prototype/round2/index.html?view=conversation" target="_blank" rel="noopener">打开三视图代码原型 ↗</a><span>共享产品外壳 · 可切换静态视图 · 业务操作为拟议交互</span></p>
+                  <div class="r12-flow-index">
+                    <section><h4>Flow A｜单 Case 服务任务续办</h4><dl><div><dt>01 跨会话服务工作台</dt><dd><span>一线客服</span>周五第三次催问，找回历史核查承诺，识别待续办的服务目标。</dd></div><div><dt>02 Agent 任务执行台</dt><dd><span>服务任务跟进人员</span>查看仓库核查、异步等待、业务事件、Plan v2 和退款异常任务进展。</dd></div></dl><p>同一主场景不同时间点的快照。</p></section>
+                    <section><h4>Flow B｜VOC 跨 Case 客户反馈洞察</h4><dl><div><dt>03 VOC 问题洞察台</dt><dd><span>客服运营</span>独立分析四笔 Mock Case，筛选候选业务问题、核查证据、查看待补证结果。</dd></div></dl><p>单笔服务记录可作为 VOC 分析输入；Flow B 独立运行，不属于 Flow A 的自动后续步骤。</p></section>
+                  </div>
+                  <p class="interface-prototype-link"><a class="prd-action" href="assets/prototype/round2/index.html?view=conversation" target="_blank" rel="noopener">打开三视图代码原型 ↗</a><span>可切换静态界面；业务按钮仅展示拟议交互，不代表已连接真实服务。</span></p>
                 </section>
                 <section class="prd-subsection" id="interface-case"><h3 id="design-interfaces-2" data-outline-label="4.2 跨会话服务工作台">4.2 跨会话服务工作台</h3>
-                  <p>周五第三次咨询后，AI 刚恢复待办目标；仓库尚未确认收货，新的仓库核查尚未完成。</p>
-                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="跨会话服务工作台 · 任务刚恢复"><img src="assets/screenshots/round2/b04-service-conversation.png" width="1600" height="1000" alt="售后服务工作台：客户第三次追问此前承诺，AI 找回未完成的仓库核查；物流已投递，仓库尚未确认，退款未发起，无有效关联核查任务；回复草稿尚未发送" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · Mock 产品界面</span></button></figure>
-                  <dl class="interface-decisions"><div><dt>关键交互</dt><dd>从第三次咨询直接定位前次承诺、相关退货与当前未完成事项。</dd></div><div><dt>产品结果</dt><dd>AI 恢复了一个可继续执行的仓库核查任务，而不是再次回答退款周期。</dd></div></dl>
+                  <p>周五第三次咨询后，AI 恢复了待续办服务目标，识别出历史核查承诺与任务缺口；此时尚未创建 WH-201。</p>
+                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="跨会话服务工作台 · 服务目标已恢复"><img src="assets/screenshots/round2/b04-service-conversation.png?v=5cfa79cf9c3e" width="1600" height="1000" alt="跨会话服务工作台：关联 CONV-002 的周三承诺，未找到有效可追踪的核查任务；已恢复 CASE-001 服务目标，WH-201 尚未创建、尚未移交执行，客户回复为待发送草稿；核查依据为拟议规则" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · Mock 产品界面</span></button></figure>
+                  <dl class="interface-decisions"><div><dt>界面重点</dt><dd>历史会话中的周三承诺 → 当前服务任务缺口 → AI 恢复服务目标并准备交给 Orchestrator。</dd></div><div><dt>当前阶段</dt><dd>服务目标已恢复；WH-201 尚未创建、尚未移交执行；客户回复仍为待发送草稿。</dd></div></dl>
                 </section>
                 <section class="prd-subsection" id="interface-handoff"><h3 id="design-interfaces-3" data-outline-label="4.3 Agent 任务执行台">4.3 Agent 任务执行台</h3>
-                  <p>后续主场景快照：WH-201 核查完成，新结果推动 Plan v2；RF-301 已启动，退款到账仍待确认。</p>
-                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="Agent 任务执行台 · 退款异常处理已启动"><img src="assets/screenshots/round2/b04-agent-execution.png" width="1600" height="1000" alt="Agent 任务执行台：Orchestrator 并行分派仓库与退款核对，WH-201 经历等待和事件返回后取得有效入库记录；计划更新至 Plan v2，Refund Agent 复查后创建 RF-301，到账待确认；客户进展消息非真实发送" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · 后续模拟执行快照</span></button></figure>
-                  <dl class="interface-decisions"><div><dt>关键交互</dt><dd>查看专业 Agent 的任务进展、业务反馈及计划更新，并定位正在继续执行的事项。</dd></div><div><dt>产品结果</dt><dd>仓库核查结果推动退款异常任务启动；实际退款尚未发起，到账仍待验证。</dd></div></dl>
+                  <p>后续执行快照：WH-201 核查完成，Orchestrator 更新至 Plan v2；Refund Agent 复查后模拟创建 RF-301，实际退款仍未发起。</p>
+                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="Agent 任务执行台 · 退款异常处理已启动"><img src="assets/screenshots/round2/b04-agent-execution.png?v=90e25749ffaf" width="1600" height="1000" alt="Agent 任务执行台：并行查询、WH-201 Waiting 与仓库事件恢复、有效入库记录核查、Plan v2；Refund Agent 重新查重后模拟创建 RF-301，Started 仅表示退款异常处理任务启动，实际退款尚未发起；客户进展为 Mock 草稿" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · 后续模拟执行快照</span></button></figure>
+                  <dl class="interface-decisions"><div><dt>界面重点</dt><dd>并行查询 → WH-201 Waiting 与事件恢复 → Plan v2 → RF-301 Started。</dd></div><div><dt>当前阶段</dt><dd>仓库核查已完成，RF-301 Started 表示退款异常处理任务已启动；实际退款尚未发起，客户进展消息仍为 Mock 草稿。</dd></div></dl>
                 </section>
-                <section class="prd-subsection" id="interface-voc"><h3 id="design-interfaces-4" data-outline-label="4.4 跨 Case 问题发现台">4.4 跨 Case 问题发现台</h3>
-                  <p>Flow B 的独立模拟分析：CASE-001 / 002 / 003 候选关联，CASE-004 排除；CI-001 待补证，TASK-001 尚未创建。</p>
-                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="跨 Case 问题发现台 · Need Evidence"><img src="assets/screenshots/round2/b04-case-insights.png" width="1600" height="1000" alt="跨 Case 问题发现台：四条独立 Mock Case 区分候选关联与 CASE-004 排除，CI-001 为 Need Evidence；实际入库、系统确认、客服可见时间待核实，TASK-001 为尚未创建的条件预览" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · 独立 Mock 分析快照</span></button></figure>
-                  <dl class="interface-decisions"><div><dt>关键交互</dt><dd>从多个服务 Case 中查看共同业务卡点、排除不相关记录，并定位待补证事项。</dd></div><div><dt>产品结果</dt><dd>将重复退款催办转化为有来源、可核查的候选问题，而不是直接断定根因。</dd></div></dl>
+                <section class="prd-subsection" id="interface-voc"><h3 id="design-interfaces-4" data-outline-label="4.4 VOC 问题洞察台">4.4 VOC 跨 Case 客户反馈洞察台</h3>
+                  <p>Flow B 独立对照四笔 Mock Case：CASE-001 / 002 为候选关联，CASE-003 为待核验候选，CASE-004 排除。</p>
+                  <figure class="p2-interface-figure"><button class="p2-shot-trigger" type="button" data-shot-title="VOC 问题洞察台 · Need Evidence"><img src="assets/screenshots/round2/b04-case-insights.png?v=ca3f27fdb78c" width="1600" height="1000" alt="VOC 跨 Case 客户反馈洞察台：CASE-001/002 候选关联，CASE-003 待核验，CASE-004 排除；仓库确认与客服可见信息可能存在时序差异，CI-001 Need Evidence，共同根因未确认，TASK-001 为尚未创建的条件性预览" loading="lazy"><span class="p2-shot-label">点击放大 / 原尺寸查看 · 1600 × 1000 · 独立 Mock 分析快照</span></button></figure>
+                  <dl class="interface-decisions"><div><dt>界面重点</dt><dd>四 Case 关联与排除 → 三类时间证据缺口 → CI-001 / TASK-001 状态。</dd></div><div><dt>当前阶段</dt><dd>形成了待补证的候选 VOC 问题；共同根因未确认，改进任务尚未创建。</dd></div></dl>
                 </section>
-                <section class="prd-subsection" id="interface-boundaries"><h3 id="design-interfaces-5" data-outline-label="4.5 关键交互与业务结果">4.5 关键交互与业务结果</h3>
-                  <dl class="interface-decisions"><div><dt>恢复任务</dt><dd>把历史咨询与处理承诺变成当前可接续的工作。</dd></div><div><dt>推进任务</dt><dd>通过专业 Agent 执行与动态重规划，持续推进跨部门服务事项。</dd></div><div><dt>发现问题</dt><dd>关联多个 Case 的业务证据，形成可核查的运营改进线索。</dd></div></dl>
-                  <p class="prd-boundary-note">静态产品设计原型：仅实现视图切换与截图查看；未接入 Agent Runtime、企业 API 或真实消息发送，也未验证运营改善结果。</p>
+                <section class="prd-subsection" id="interface-boundaries"><h3 id="design-interfaces-5" data-outline-label="4.5 原型实现与边界">4.5 原型实现与边界</h3>
+                  <dl class="interface-decisions r12-prototype-boundaries"><div><dt>已完成的产品设计</dt><dd>三个 HTML/CSS/JS 高保真 Mock 界面；共享软件外壳与静态视图切换；浏览器截图、作品集放大查看；具体业务对象、状态与拟议交互展示。</dd></div><div><dt>尚未完成的真实执行</dt><dd>真实 Agent Runtime、企业仓储 / 退款 API 接入、业务事件持久化 / 恢复 / 去重验证、客户消息真实发送，以及 VOC 实际运营改善效果验证。</dd></div></dl>
                 </section>
                 <dialog id="p2-interface-lightbox" aria-labelledby="p2-lightbox-title"><header><h2 id="p2-lightbox-title"></h2><div><button type="button" data-p2-zoom aria-pressed="false">原尺寸查看</button><a data-p2-original target="_blank" rel="noopener">打开原图 ↗</a><button type="button" data-p2-close aria-label="关闭大图预览">关闭 ×</button></div></header><div class="p2-lightbox-image-wrap"><img alt=""></div><p>Mock 产品界面 · 浏览器渲染截图，未接入企业系统</p></dialog>
               </div>
             </section>
             <section class="prd-section validation-detail p2-flow" id="design-validation" data-prd-label="B05｜验证与产品迭代">
-              <header class="prd-section-header"><p class="prd-section-kicker">B05｜验证与产品迭代</p><h2>第三次催问之后，服务任务真的接着办了吗？</h2><p>围绕第三次催问后的任务恢复、跨 Agent 执行与异步续办，设计代表性场景、失败分支和评估口径，检验 AI 是否真正推动服务处理。</p><p class="scenario-label"><span class="validation-pending">产品方案 + 模拟业务数据 + 待执行验证</span><br>已完成工作流设计与高保真界面，尚未接入真实 Agent Runtime 或企业业务系统。</p></header>
-              <div class="prd-section-body">
-<section class="prd-subsection" id="validation-success"><h3 id="design-validation-1" data-outline-label="5.1 验证目标与完成标准">5.1 一条服务任务，三个验证问题</h3>
-<div class="validation-goals"><article><header><svg class="p2-diagram__icon" data-icon="link" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 .5l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.5l-3 3a5 5 0 0 0 7 7l2-2"/></svg><span>01</span><h4>找得回</h4></header><p class="validation-goal-context">周五再次追问周三承诺的仓库核查。</p><dl><div><dt>验证</dt><dd>能否从客户、退货与历史会话中，恢复仍待处理的服务目标。</dd></div><div><dt>成功条件</dt><dd>关联 RET-001 与正确历史承诺，形成可交给 Orchestrator 的续办任务。</dd></div><div><dt>失败表现</dt><dd>只总结聊天；找错退货、承诺或任务。</dd></div></dl></article><article><header><svg class="p2-diagram__icon" data-icon="git-branch" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="6" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M6 8v8m12-8a11 11 0 0 1-12 8"/></svg><span>02</span><h4>接得上</h4></header><p class="validation-goal-context">仓库与退款并行查询，仓库核查需等待外部结果。</p><dl><div><dt>验证</dt><dd>分工是否正确；Waiting 是否保留上下文，结果返回后能否接续。</dd></div><div><dt>成功条件</dt><dd>WH-201 可追踪；核实有效入库记录后，正确更新 Plan v1 → Plan v2。</dd></div><div><dt>失败表现</dt><dd>任务断链；提前转向退款；事件返回后卡住。</dd></div></dl></article><article><header><svg class="p2-diagram__icon" data-icon="arrow-right-circle" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7 12h10m-4-4 4 4-4 4"/></svg><span>03</span><h4>推得动</h4></header><p class="validation-goal-context">收货核实后，Refund Agent 接续退款异常处理。</p><dl><div><dt>验证</dt><dd>能否检查已有任务、避免重复创建，并准确回传阶段进展。</dd></div><div><dt>成功条件</dt><dd>主场景 RF-301 启动，客服可跟踪进展；明确实际退款尚未发起。</dd></div><div><dt>失败表现</dt><dd>只有回复没有任务；重复创建；误报退款完成。</dd></div></dl></article></div>
-<p class="validation-takeaway">从客户重复催问，转变为同一服务目标下可持续推进、可追踪的任务。</p>
-<aside class="validation-flowb-note"><svg class="p2-diagram__icon" data-icon="search" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg><div><strong>Flow B · 辅助验证</strong><p>从独立 Case 提取候选共同卡点，排除不同业务环节；证据不足时维持 CI-001 · Need Evidence，不自动创建 TASK-001，也不阻塞 Flow A 的退款续办。</p></div></aside>
+<header class="prd-section-header"><p class="prd-section-kicker">B05｜验证与产品迭代</p><h2>把业务冲突放进规则，检查任务会不会走错分支</h2><p>验证对象关联、Waiting、任务接续与 VOC 证据准入；用实际输入与输出，说明规则能守住什么，以及下一步必须验证什么。</p><p class="scenario-label">确定性规则级 Mock · 合成业务输入<br>真实 Agent Runtime、企业 API 与运营效果尚未验证。</p></header>
+<div class="prd-section-body">
+<section class="prd-subsection" id="validation-success"><h3 id="design-validation-1" data-outline-label="5.1 五个验证问题">5.1 两条 Flow，五个必须回答的验证问题</h3>
+<div class="eval-questions"><section><h4><span>Flow A</span>单 Case 服务续办</h4><dl><div><dt>找得回</dt><dd>同一退货的历史承诺和服务目标，是否恢复正确？</dd></div><div><dt>接得上</dt><dd>Waiting 之后，该继续核查还是继续等待？</dd></div><div><dt>推得动</dt><dd>新事实能否改变计划，同时避免重复建单？</dd></div></dl></section><section><h4><span>Flow B</span>独立 VOC 分析</h4><dl><div><dt>关联准</dt><dd>文本相似但业务环节不同的 Case，能否被排除？</dd></div><div><dt>守得住</dt><dd>缺证时能否停在 Need Evidence，不创建 TASK-001？</dd></div></dl></section></div>
+<p class="eval-boundary">验证层级：合成业务样本 / 规则级 Mock 测试。关联 ID、意图、业务阶段和工具结果均预先给定；本轮不验证 LLM 理解或真实 Agent 执行。</p></section>
+
+<section class="prd-subsection" id="validation-scenarios"><h3 id="design-validation-2" data-outline-label="5.2 测试集与执行记录">5.2 先看业务冲突，再看测试清单</h3>
+<p class="eval-summary"><strong>确定性 Mock 规则验证</strong>｜基础测试 <span class="eval-pass">14 / 14 PASS</span>；组合冲突首次 <span class="eval-fail">2 / 4 FAIL</span>，修正后 <span class="eval-pass">4 / 4 PASS</span>。复核暴露了重复状态更新与时间冲突遗漏，验证范围为业务关联、任务接续、事件恢复与 VOC 候选判断；未验证真实 LLM、Agent Runtime、企业 API 或运营效果。</p>
+<p class="eval-note eval-provenance">输入与预期由 Codex 依据产品要求编码，执行前冻结，仍需人工核对；被测规则只接收业务事实，不读取预期、不按 Test ID 返回答案。H 复核集在阅读原规则后构建，不是外部盲测，也不能证明泛化能力。</p>
+<div class="eval-records" aria-label="三类代表性冲突与实际输出">
+<article class="eval-run" id="validation-run-h02"><header><h4>仓库事件来了，任务就能继续吗？</h4><span class="eval-pass">T11 / H02 · 最终 PASS</span></header><dl><div><dt>输入冲突</dt><dd>T11：事件已到，查无有效入库记录。H02：WH-201 已完成，同一已处理事件再次到达。</dd></div><div><dt>预期行为</dt><dd>缺记录时保持 Waiting；已完成时保留状态，不重复完成或重规划。</dd></div><div><dt>实际输出</dt><dd>T11：<span class="eval-pending">Waiting / Plan v1</span>。H02 修正后只输出 <code>ignore_duplicate_event</code>，核查请求 0 次。</dd></div></dl><p class="eval-takeaway">事件到达不等于业务前提成立；事件去重也不等于状态更新幂等。</p></article>
+<article class="eval-run" id="validation-run-h03"><header><h4>有旧任务，应该接续还是重新创建？</h4><span class="eval-pass">H03 · PASS</span></header><dl><div><dt>输入冲突</dt><dd>仓库前提已满足；旧任务分别已取消、关闭、无效，或属于其他 RET / 事项。</dd></div><div><dt>预期行为</dt><dd>核查对象、事项与状态；无有效可复用任务且前提满足，才能新建。</dd></div><div><dt>实际输出</dt><dd>五条旧任务均排除；模拟创建 <code>RF-301: Started</code>，实际退款仍为 <code>NotInitiated</code>。</dd></div></dl><p class="eval-takeaway">去重用于阻止错误动作，也必须允许满足前提的任务继续执行。</p></article>
+<article class="eval-run" id="validation-run-h04"><header><h4>投诉相似，就能合并为共同根因吗？</h4><span class="eval-pass">H04 · 修正后 PASS</span></header><dl><div><dt>输入冲突</dt><dd>001 时间顺序冲突，002 缺客服时间，003 阶段不明；004 卡在退款支付后续环节。</dd></div><div><dt>预期行为</dt><dd>保留候选 / 待核验 / 排除差异，不补全冲突证据，不确认共同根因。</dd></div><div><dt>实际输出</dt><dd>004 排除；001 的时间证据待核验；<span class="eval-pending">CI-001 Need Evidence</span>，TASK-001 未创建。</dd></div></dl><p class="eval-takeaway">相似投诉是调查起点；时间证据的完整或冲突，都不能直接给出根因结论。</p></article></div>
+<table class="eval-index"><caption>完整索引｜18 条隔离合成场景，首次失败保留；详细输入、预期与实际输出见下方证据。</caption><colgroup><col style="width:8%"><col style="width:37%"><col style="width:35%"><col style="width:20%"></colgroup><thead><tr><th scope="col">ID</th><th scope="col">业务冲突</th><th scope="col">预期动作</th><th scope="col">本次结果</th></tr></thead><tbody>
+<tr id="validation-t01"><th scope="row">T01</th><td data-label="业务冲突">历史承诺存在，核查任务缺失</td><td data-label="预期动作">恢复同 RET 目标，保留交接</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t02"><th scope="row">T02</th><td data-label="业务冲突">仅退款查询完成，仓库未完成</td><td data-label="预期动作">两条查询意图汇合，保持阻断</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t03"><th scope="row">T03</th><td data-label="业务冲突">交接接受，仓库未确认且无任务</td><td data-label="预期动作">模拟建 WH-201，保留 Waiting</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t04"><th scope="row">T04</th><td data-label="业务冲突">仓库事件已到，尚未核验记录</td><td data-label="预期动作">唤起核查，禁止提前推进</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t05"><th scope="row">T05</th><td data-label="业务冲突">有效入库已核实，退款未发起</td><td data-label="预期动作">完成 WH-201，更新 Plan v2</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t06"><th scope="row">T06</th><td data-label="业务冲突">仓库前提满足，无有效退款任务</td><td data-label="预期动作">模拟建 RF-301，不宣称已退款</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t07"><th scope="row">T07</th><td data-label="业务冲突">相似承诺属于另一笔 RET</td><td data-label="预期动作">拒绝关联，保持待确认</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t08"><th scope="row">T08</th><td data-label="业务冲突">同 RET 存在有效未完成任务</td><td data-label="预期动作">接续既有任务，不重复创建</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t09"><th scope="row">T09</th><td data-label="业务冲突">四 Case 文本与业务阶段不同</td><td data-label="预期动作">两候选、一待核、一排除</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t10"><th scope="row">T10</th><td data-label="业务冲突">三个候选的关键时间记录缺失</td><td data-label="预期动作">Need Evidence，不确认、不建任务</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t11"><th scope="row">T11</th><td data-label="业务冲突">事件声称入库，复查无有效记录</td><td data-label="预期动作">Waiting / Plan v1，不建退款任务</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t12"><th scope="row">T12</th><td data-label="业务冲突">同类有效任务属于其他 RET</td><td data-label="预期动作">排除跨对象接续，再判断建单</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t13"><th scope="row">T13</th><td data-label="业务冲突">同一事件连续两次，无有效记录</td><td data-label="预期动作">只请求一次核查，不重复建单</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-t14"><th scope="row">T14</th><td data-label="业务冲突">投诉相同，004 为退款后续</td><td data-label="预期动作">按阶段筛选，不按文本归因</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-h01"><th scope="row">H01</th><td data-label="业务冲突">同客户两 RET，来源与事项混杂</td><td data-label="预期动作">核对对象和来源，不恢复错误目标</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-h02"><th scope="row">H02</th><td data-label="业务冲突">已完成任务收到相同已处理事件</td><td data-label="预期动作">保留状态，不重复完成或重规划</td><td data-label="本次结果"><span class="eval-fail">首次 FAIL</span> → <span class="eval-pass">复测 PASS</span></td></tr>
+<tr id="validation-h03"><th scope="row">H03</th><td data-label="业务冲突">同 RET 的旧任务取消 / 关闭 / 无效</td><td data-label="预期动作">排除旧任务，前提满足才新建</td><td data-label="本次结果"><span class="eval-pass">PASS</span></td></tr>
+<tr id="validation-h04"><th scope="row">H04</th><td data-label="业务冲突">时间冲突 / 缺失，混入退款后续</td><td data-label="预期动作">冲突保留待核验，排除 004</td><td data-label="本次结果"><span class="eval-fail">首次 FAIL</span> → <span class="eval-pass">复测 PASS</span></td></tr>
+</tbody></table><p class="eval-evidence-links"><a href="../../validation/p2/mock-eval/README.md">原测试与预期 ↗</a><a href="../../validation/p2/mock-eval/round2/h-fixtures.json">组合输入 ↗</a><a href="../../validation/p2/mock-eval/round2/h-expected.json">组合预期 ↗</a><a href="../../validation/p2/mock-eval/round2/h-initial.json">首次复核 ↗</a><a href="../../validation/p2/mock-eval/round3/audit.json">修正与复测 ↗</a><a href="../../validation/p2/mock-eval/round3/t-current.json">原测试回归 ↗</a><a href="../../validation/p2/mock-eval/round3/metrics.json">指标明细 ↗</a><a href="../../validation/p2/mock-eval/round3/README.md">审计与复现 ↗</a></p>
+<p class="eval-note">执行的是状态与动作意图规则，不是真实工具副作用。T02 没有真并行；H02 的已完成状态是合成输入，事件去重只在内存中验证。</p></section>
+<section class="prd-subsection" id="validation-diagnosis"><h3 id="design-validation-3" data-outline-label="5.3 Bad Case 与规则对照">5.3 两次规则复核失败，暴露了什么业务风险？</h3>
+<div class="eval-repairs" aria-label="两条实际规则失败与修正记录"><article class="eval-repair"><header><span>BC03 · H02</span><h4>重复仓库事件：去重后，仍重复完成与重规划</h4></header><dl><div><dt>输入冲突</dt><dd>WH-201 已 Completed、Plan v2 已生效；同一已处理事件再次到达，有效入库记录仍在。</dd></div><div><dt>首次失败</dt><dd><span class="eval-fail">FAIL：仍输出 <code>complete_warehouse</code>、<code>plan_v2</code>。</span>虽然核查请求为 0，两个更新意图仍重复出现。</dd></div><div><dt>原因</dt><dd>旧规则去重事件后，只要记录有效就追加完成与重规划动作，未检查任务是否已完成、计划是否已更新。</dd></div><div><dt>修正</dt><dd>非 Waiting 任务保持当前状态与计划；只有 Waiting 且记录有效才完成，Plan 已为 v2 时不重复更新。事件去重与状态更新各自设门槛。</dd></div><div><dt>同输入复测</dt><dd><span class="eval-pass">PASS：仅 <code>ignore_duplicate_event</code>，保留 Completed / v2。</span>两项重复动作均为 0；这里只验证动作意图，持久化与真实副作用仍待验证。</dd></div></dl></article>
+<article class="eval-repair"><header><span>BC05 · H04</span><h4>VOC 证据冲突：字段齐全，仍遗漏反序时间</h4></header><dl><div><dt>输入冲突</dt><dd>CASE-001 系统确认 10:00，早于实际入库 11:00；002 缺客服时间，003 阶段待核验，004 属退款后续、应排除。</dd></div><div><dt>首次失败</dt><dd><span class="eval-fail">FAIL：待核验证据仅含 002/003，遗漏 001 时间冲突。</span>首次候选标签、CI-001 Need Evidence、TASK-001 未创建均已正确。</dd></div><div><dt>原因</dt><dd>旧规则只检查阶段与时间空值；001 的三项字段齐全，因此没有发现“系统确认早于实际入库”。</dd></div><div><dt>修正</dt><dd>检查同一事实的入库 → 系统 → 客服时间顺序；反序或无法解析时记为冲突，并纳入待核验证据，不补写原记录。</dd></div><div><dt>同输入复测</dt><dd><span class="eval-pass">PASS：001 纳入冲突，001/002/003 均待核验。</span>001/002 候选、003 待核验、004 排除；CI-001 仍 Need Evidence、TASK-001 未创建。缺证与冲突尚不足以确认共同根因。</dd></div></dl></article></div>
+<p class="eval-note">首次结果、初始源码与冻结预期均保留；修正后 T01–T14 回归通过。以下两项另属为实验构建的简化策略，不是旧 Agent 版本。</p>
+<article class="eval-control" id="validation-bc03"><header><span>BC03 · T11</span><h4>业务风险：事件通知被误当成有效入库事实</h4></header><div class="eval-comparison"><section><h5><span class="eval-fail">对照策略 FAIL</span> 有事件就直接推进</h5><p>查无记录仍输出 WH Completed、Plan v2、创建 RF-301，让退款续办越过仓库前提。</p></section><section><h5><span class="eval-pass">目标规则 PASS</span> 事件恢复核查，有效记录才解锁</h5><p>同一 T11 输入得到 Waiting / Plan v1 / 无新建退款任务；事件只提供恢复线索。</p></section></div></article>
+<article class="eval-control" id="validation-bc05"><header><span>BC05 · T14</span><h4>业务风险：相似投诉被误合并为共同根因</h4></header><div class="eval-comparison"><section><h5><span class="eval-fail">对照策略 FAIL</span> 同文本就合并并确认</h5><p>四笔全标候选，跳过 003 核验、误合并 004，输出 CI Confirmed 与 TASK-001 已创建。</p></section><section><h5><span class="eval-pass">目标规则 PASS</span> 筛业务环节，再核对证据</h5><p>同一 T14 输入保留两候选、一待核、一排除；CI Need Evidence、TASK 未创建，避免错误调查方向。</p></section></div></article>
+<div class="eval-bad-rows"><article class="eval-bad-row is-key" id="validation-bc04"><header><span>BC04 · T08 / H03</span><h4>去重不能阻断有效续办</h4></header><div><p>复用无效任务会让服务停滞，重复创建则分裂进度。先核对同 RET、同事项、有效性与状态。</p><p class="eval-pass">T08 接续有效任务；H03 排除五条不可接续任务后新建。两者均 PASS，未观察到重复建单意图。</p></div></article>
+<article class="eval-bad-row" id="validation-bc01"><header><span>BC01 · T07 / H01</span><h4>错关联会把下游指向另一笔退货</h4></header><div><p>同时核对客户、RET、来源与事项；证据不足保持待确认。T07 / H01 实际均拒绝关联，PASS。</p></div></article>
+<article class="eval-bad-row" id="validation-bc02"><header><span>BC02 · T01 / T02</span><h4>找回承诺，也要保留可交接目标</h4></header><div><p>只说“已安排”会留下执行缺口。T01 输出 Recovered / Pending；T02 保持未完成查询阻断，均 PASS。真实交接仍待验证。</p></div></article></div></section>
+<section class="prd-subsection" id="validation-metrics"><h3 id="design-validation-4" data-outline-label="5.4 指标与判定">5.4 每个结果，都有明确的统计单位与边界</h3>
+<p class="eval-note">以下统计基于修正后规则的复测结果；H02/H04 的首次失败已在 5.3 单独记录。</p>
+<table class="eval-metrics"><caption>统计单位与来源｜分母为适用场景、动作机会或标签判断，非新增真实业务量。</caption><colgroup><col style="width:24%"><col style="width:14%"><col style="width:36%"><col style="width:26%"></colgroup><thead><tr><th scope="col">检查</th><th scope="col">实测</th><th scope="col">统计单位 / 来源</th><th scope="col">不能推出</th></tr></thead><tbody>
+<tr><th scope="row">历史目标恢复</th><td>1 / 1</td><td data-label="统计单位 / 来源">适用恢复执行 · T01；T07/H01 在关联关口拒绝</td><td data-label="不能推出">语言理解准确率</td></tr>
+<tr><th scope="row">危险提前执行</th><td>0 / 15</td><td data-label="统计单位 / 来源">5 场景 × 3 项禁止动作 · T02/03/04/11/13</td><td data-label="不能推出">15 笔独立业务</td></tr>
+<tr><th scope="row">重复任务创建</th><td>0 / 1</td><td data-label="统计单位 / 来源">有效任务查重判断 · T08；H03 不属该分母</td><td data-label="不能推出">生产查重可靠性</td></tr>
+<tr><th scope="row">Waiting / 继续判断</th><td>6 / 6</td><td data-label="统计单位 / 来源">6 条状态组合 · T03/04/05/11/13、H02</td><td data-label="不能推出">真实恢复成功率</td></tr>
+<tr><th scope="row">候选与排除标签</th><td>12 / 12</td><td data-label="统计单位 / 来源">3 场景 × 4 次标签 · T09/T14/H04；Case ID 重复使用</td><td data-label="不能推出">12 个独立 Case</td></tr>
+<tr><th scope="row">缺证错误确认 / 建任务</th><td>0 / 8</td><td data-label="统计单位 / 来源">4 场景 × 2 项禁止动作 · T09/10/14、H04</td><td data-label="不能推出">根因推断能力</td></tr>
+<tr><th scope="row">错误业务关联</th><td>0 / 6</td><td data-label="统计单位 / 来源">6 次关联 / 复用判断 · T01/07/08/12、H01/03</td><td data-label="不能推出">真实关系识别能力</td></tr>
+<tr><th scope="row">重复完成 / 重规划</th><td>0 / 2</td><td data-label="统计单位 / 来源">H02 两项动作机会；首次 2/2 → 复测 0/2</td><td data-label="不能推出">持久化或并发幂等</td></tr>
+<tr><th scope="row">时间冲突纳入核验</th><td>1 / 1</td><td data-label="统计单位 / 来源">H04 一次冲突检查；首次 0/1 → 复测 1/1</td><td data-label="不能推出">真实日志可信度</td></tr>
+</tbody></table><div class="eval-conclusions"><section><h4>本次可验证</h4><p>合成输入下的确定性业务规则、状态判断和禁止动作。</p></section><section><h4>本次不可验证</h4><p>真实用户语言理解、多 Agent Runtime 的持久化与恢复可靠性、企业 API 交互及真实运营改善。</p></section></div>
 </section>
-<section class="prd-subsection" id="validation-scenarios"><h3 id="design-validation-2" data-outline-label="5.2 代表性测试场景">5.2 十个代表性场景，覆盖主链路与关键分支</h3>
-<p class="validation-scope-note">以下为拟验证的模拟输入、预期系统行为与核验重点；尚未执行真实 Agent Runtime 测试。</p>
-<ol class="validation-path" aria-label="验证路径"><li><svg class="p2-diagram__icon" data-icon="link" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 .5l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.5l-3 3a5 5 0 0 0 7 7l2-2"/></svg><span>历史任务恢复</span></li><li><svg class="p2-diagram__icon" data-icon="git-branch" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="6" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M6 8v8m12-8a11 11 0 0 1-12 8"/></svg><span>Agent 并行与 Waiting</span></li><li><svg class="p2-diagram__icon" data-icon="refresh-cw" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6.1 7a7 7 0 0 1 11.55-2.61L20 7M4 17l2.35 2.61A7 7 0 0 0 17.9 17"/></svg><span>事件恢复与重规划</span></li><li><svg class="p2-diagram__icon" data-icon="arrow-right-circle" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7 12h10m-4-4 4 4-4 4"/></svg><span>退款续办进展</span></li></ol>
-<div class="validation-test-group" data-test-group="A"><header><span>A</span><h4>主场景：任务恢复与接续</h4><small>拟验证</small></header><table class="prd-table validation-test-table"><caption>T01–T06 · 同一条主场景，按业务前置条件推进。</caption><colgroup><col class="test-id-col"><col class="test-trigger-col"><col class="test-expected-col"><col class="test-check-col"></colgroup><thead><tr><th scope="col">编号</th><th scope="col">模拟触发</th><th scope="col">预期行为</th><th scope="col">核验点</th></tr></thead><tbody>
-<tr id="validation-t01"><th scope="row">T01</th><td data-label="模拟触发"><strong>第三次催问，恢复历史承诺</strong>“上次说帮我查仓库，现在怎么还没消息？”</td><td data-label="预期行为">关联同一笔退货与周三承诺，恢复尚未完成的仓库核查目标。</td><td data-label="核验点">CASE-001、RET-001、CONV-002 与恢复任务正确关联；三次咨询属于同一事项。</td></tr>
-<tr id="validation-t02"><th scope="row">T02</th><td data-label="模拟触发"><strong>两个 Agent 并行检查</strong>仓库未确认收货，退款尚未发起。</td><td data-label="预期行为">Service Orchestrator 分派 Warehouse Agent 查询仓库与已有核查任务；Refund Agent 查询退款与已有处理任务。</td><td data-label="核验点">两项查询可并行；退款侧只返回现状与前置条件，不因接到查询任务就提前续办。</td></tr>
-<tr id="validation-t03"><th scope="row">T03</th><td data-label="模拟触发"><strong>仓库核查进入 Waiting</strong>未找到有效核查任务，模拟创建 WH-201；仓库仍未确认实际入库。</td><td data-label="预期行为">保留服务目标、任务上下文与等待条件，暂停依赖仓库结果的后续动作。</td><td data-label="核验点">WH-201 有可追踪待办；未核实收货时不进入 Plan v2。等待期间 LLM 不持续运行。</td></tr>
-<tr id="validation-t04"><th scope="row">T04</th><td data-label="模拟触发"><strong>仓库事件到达后恢复核查</strong>收到“商品已验收入库”业务事件，当前收货状态尚待核实。</td><td data-label="预期行为">关联 WH-201，恢复 Warehouse Agent 查询；取得有效入库记录后，产出核查结果。</td><td data-label="核验点">事件只唤起核查，不直接代表成功；有效记录核实后才完成 WH-201、解除仓库阻断。</td></tr>
-<tr id="validation-t05"><th scope="row">T05</th><td data-label="模拟触发"><strong>Plan v1 更新为 Plan v2</strong>WH-201 已核查完成，取得有效入库记录；退款仍未发起。</td><td data-label="预期行为">Orchestrator 消费核实结果，更新剩余计划，分派 Refund Agent 接续退款处理。</td><td data-label="核验点">Plan v2 使用新事实，不重复已完成的仓库核查；计划更新不表示 RF-301 已存在。</td></tr>
-<tr id="validation-t06"><th scope="row">T06</th><td data-label="模拟触发"><strong>退款任务启动与进展回传</strong>Refund Agent 复查后未发现有效既有退款任务，续办条件满足。</td><td data-label="预期行为">主场景模拟创建 RF-301，向客服工作台返回可追踪的任务与“退款异常处理已启动”。</td><td data-label="核验点">RF-301 启动 ≠ 实际退款发起或成功；实际退款尚未发起，到账尚未确认。</td></tr>
-</tbody></table></div>
-<div class="validation-test-group" data-test-group="B"><header><span>B</span><h4>异常分支：错误关联与重复执行</h4><small>拟验证</small></header><table class="prd-table validation-test-table"><caption>T07 / T08 · 独立模拟条件，分别核验；不混入上方主场景历史。</caption><colgroup><col class="test-id-col"><col class="test-trigger-col"><col class="test-expected-col"><col class="test-check-col"></colgroup><thead><tr><th scope="col">编号</th><th scope="col">模拟触发</th><th scope="col">预期行为</th><th scope="col">核验点</th></tr></thead><tbody>
-<tr id="validation-t07"><th scope="row">T07</th><td data-label="模拟触发"><strong>历史会话关联到错误退货</strong>不同退货存在相似催问或历史承诺。</td><td data-label="预期行为">不将不相关承诺恢复为 RET-001 的目标；关联证据不足时保留待确认对象。</td><td data-label="核验点">不进入错误退货的任务分支，不发生跨退货接续。</td></tr>
-<tr id="validation-t08"><th scope="row">T08</th><td data-label="模拟触发"><strong>退款任务已经存在</strong>独立模拟分支：Plan v2 分派后，Refund Agent 在另一售后记录中发现疑似关联任务。</td><td data-label="预期行为">核实同一退货、未完成事项、任务有效性与进度；确认有效后接续已有任务，不新建 RF-301。</td><td data-label="核验点">文本相似不等于有效关联。此分支不能与 T06 的新建结果混成同一次执行。</td></tr>
-</tbody></table></div>
-<div class="validation-test-group" data-test-group="C"><header><span>C</span><h4>Flow B：跨 Case 候选问题</h4><small>拟验证</small></header><table class="prd-table validation-test-table"><caption>T09 / T10 · 独立异步分析，不是 CASE-001 的必经下一步。</caption><colgroup><col class="test-id-col"><col class="test-trigger-col"><col class="test-expected-col"><col class="test-check-col"></colgroup><thead><tr><th scope="col">编号</th><th scope="col">模拟触发</th><th scope="col">预期行为</th><th scope="col">核验点</th></tr></thead><tbody>
-<tr id="validation-t09"><th scope="row">T09</th><td data-label="模拟触发"><strong>相似催问，不同业务环节</strong>比较独立 Mock 记录 CASE-001 / 002 / 003 / 004。</td><td data-label="预期行为">前三条进入候选关联；CASE-004 仓库已确认，卡点在退款后续环节，予以排除。</td><td data-label="核验点">比较业务阶段与记录，不按“催退款”的表面相似度直接合并。</td></tr>
-<tr id="validation-t10"><th scope="row">T10</th><td data-label="模拟触发"><strong>候选问题证据不足</strong>三个候选 Case 可能涉及收货确认信息滞后，关键时间记录不完整。</td><td data-label="预期行为">保留 CI-001 · Need Evidence，提出实际入库、系统确认与客服可见三个时间环节的补证方向。</td><td data-label="核验点">不预定共同根因；TASK-001 仍是尚未创建的条件预览，不影响 Flow A 续办。</td></tr>
-</tbody></table></div>
-</section>
-<section class="prd-subsection" id="validation-diagnosis"><h3 id="design-validation-3" data-outline-label="5.3 Bad Case 与修正方向">5.3 五种会让服务再次断链的失败情况</h3>
-<p class="validation-scope-note">预设失败情形与修正方向。</p><div class="validation-bad-rows"><article class="validation-bad-row" id="validation-bc01"><header><span class="validation-bad-code"><svg class="p2-diagram__icon" data-icon="link" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 .5l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.5l-3 3a5 5 0 0 0 7 7l2-2"/></svg>BC01</span><h4>找错历史任务</h4><small>T01 / T07</small></header><div><p><span>异常现象</span>把第三次追问关联到另一笔退货的承诺。</p><p><span>影响环节</span><span class="validation-row-value"><strong>任务恢复</strong> · 错误目标可能带动不相关退货的后续操作。</span></p><p class="validation-correction"><span>设计修正</span>核对客户、退货与历史承诺的业务关联；证据不足时不自动恢复目标。</p></div></article><article class="validation-bad-row is-key" id="validation-bc02"><header><span class="validation-bad-code"><svg class="p2-diagram__icon" data-icon="alert-circle" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6m0 4v.1"/></svg>BC02</span><h4>承诺找到，任务仍然断链</h4><small>T01 / T02 / T06</small></header><div><p><span>异常现象</span>识别出周三承诺，却只把它写进摘要或客服回复。</p><p><span>影响环节</span><span class="validation-row-value"><strong>恢复 → 分派</strong> · 客户得到新答复，仍没有可追踪的仓库核查任务。</span></p><p class="validation-correction"><span>设计修正</span>把历史承诺转为交给 Orchestrator 的任务目标，明确执行对象和客服进展回传位置。</p></div></article><article class="validation-bad-row is-key" id="validation-bc03"><header><span class="validation-bad-code"><svg class="p2-diagram__icon" data-icon="pause-circle" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v8m6-8v8"/></svg>BC03</span><h4>Waiting 与事件恢复失效</h4><small>T03 / T04 / T05</small></header><div><p><span>异常现象</span>仓库未核实就推进退款；或事件到达后未恢复执行。</p><p><span>影响环节</span><span class="validation-row-value"><strong>等待 → 核查 → 重规划</strong> · 任务错误推进，或继续停在原来的卡点。</span></p><p class="validation-correction"><span>设计修正</span>保存等待条件与上下文；事件唤起后复查有效记录，再更新剩余计划。</p></div></article><article class="validation-bad-row" id="validation-bc04"><header><span class="validation-bad-code"><svg class="p2-diagram__icon" data-icon="git-branch" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="6" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M6 8v8m12-8a11 11 0 0 1-12 8"/></svg>BC04</span><h4>同一笔退款产生重复任务</h4><small>T06 / T08</small></header><div><p><span>异常现象</span>已有有效退款异常任务，却再次创建 RF-301。</p><p><span>影响环节</span><span class="validation-row-value"><strong>退款续办</strong> · 重复处理、责任不清，客服收到混乱的进展。</span></p><p class="validation-correction"><span>设计修正</span>创建前核实同一业务对象下的已有任务与进度；有效时接续，避免重复建单。</p></div></article><article class="validation-bad-row" id="validation-bc05"><header><span class="validation-bad-code"><svg class="p2-diagram__icon" data-icon="search" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg>BC05</span><h4>跨 Case 错误归因</h4><small>T09 / T10</small></header><div><p><span>异常现象</span>把 CASE-004 与收货确认阶段的三个 Case 合并。</p><p><span>影响环节</span><span class="validation-row-value"><strong>候选问题分析</strong> · 运营调查偏离卡点，可能形成没有依据的改进任务。</span></p><p class="validation-correction"><span>设计修正</span>比较业务阶段与记录；进一步核查候选证据，维持 CI-001 · Need Evidence。</p></div></article></div>
-</section>
-<section class="prd-subsection" id="validation-metrics"><h3 id="design-validation-4" data-outline-label="5.4 产品指标与评估口径">5.4 不只统计回答次数，而是衡量服务任务是否接续</h3>
-<p class="validation-scope-note">四项口径均待测量，暂无实测数值。先固定纳入规则、真值与观察窗口；分母为零时不计算比例。</p><dl class="validation-metric-rows"><div id="validation-m01"><dt><span>M01 · 待测量</span>历史任务关联判断正确率</dt><dd><h4>AI 找回的是正确的未完成事项吗？不相关的历史任务有没有被排除？</h4><p>具有明确业务对象关联真值、且实际触发历史任务关联判断的模拟或服务样本。</p><div class="validation-formula"><span>分子</span><strong>正确恢复目标任务，或正确排除不相关历史任务的样本数</strong><span>分母</span><strong>具有人工确认关联真值的历史任务判断样本总数</strong></div><p class="validation-metric-note">观察错误退货关联、错误历史承诺、错误续办目标，以及本应排除却被错误恢复的任务。</p><p class="validation-metric-note">T01 对应正确恢复，T07 对应正确排除；分子、分母统一按判断样本计数，每个样本只计一次。未恢复不等于正确排除；证据不足、尚无真值的样本单列为待核实，不进入统计。</p></dd></div><div id="validation-m02"><dt><span>M02 · 待测量</span>任务有效接续率</dt><dd><h4>恢复目标后，是否产生可追踪的后续动作？</h4><p>仅纳入符合续办条件、且预先约定的观察窗口已结束的恢复任务。</p><div class="validation-formula"><span>分子</span><strong>正确进入有效后续执行或接续既有任务的数量</strong><span>分母</span><strong>符合续办条件且观察窗口已结束的恢复任务数量</strong></div><p class="validation-metric-note">有效 Waiting 且尚未到观察终点的任务单列，不直接算失败。仅有客服回复，没有可追踪动作，不算接续。</p></dd></div><div id="validation-m03"><dt><span>M03 · 待测量</span>事件恢复与重规划正确率</dt><dd><h4>新结果是否正确改变后续执行？</h4><p>仅纳入需要事件恢复或计划判断、且有可核验预期分支的样本。</p><div class="validation-formula"><span>分子</span><strong>实际恢复与分支行为符合预期的样本数</strong><span>分母</span><strong>该类可核验样本总数</strong></div><p class="validation-metric-note">核对事件关联、业务记录复核、Waiting 解除及剩余任务分派。不是每个事件都更新计划；条件未满足时保持原分支也可符合预期。</p></dd></div><div id="validation-m04"><dt><span>M04 · 待测量</span>重复任务创建率</dt><dd><h4>已有有效任务时，是否仍错误新建？</h4><p>仅纳入已有可核实的有效关联任务、且触发创建或接续判断的场景。</p><div class="validation-formula"><span>分子</span><strong>仍错误新建重复任务的场景数</strong><span>分母</span><strong>已有有效关联任务且触发该判断的场景总数</strong></div><p class="validation-metric-note">越低越好。无有效既有任务的主场景不进入此分母；疑似关联需先核实，不能仅凭相似文本合并。</p></dd></div></dl>
-<section class="validation-current-status validation-business-results" aria-labelledby="validation-business-results-title"><header><h4 id="validation-business-results-title">业务结果观察｜客户是否还需要反复催问？</h4></header><div>
-<section><h5>短期产品验证 · 服务进展可追踪性</h5><p>客服是否能看到当前处理任务、最新执行阶段和下一步待办，并向客户准确反馈？</p><ul><li>关联同一笔退货的历史服务任务。</li><li>有可追踪的仓库核查或退款后续任务。</li><li>区分 Waiting、任务已启动与实际退款完成。</li><li>向客户解释当前进展和后续动作。</li></ul><p class="validation-scope-note">可优先使用结构化 Mock 场景验证；目前没有真实运行结果。</p></section>
-<section><h5>长期业务效果 · 同一事项重复催问率</h5><p>服务任务持续接续后，客户围绕同一未完成事项的重复咨询是否减少？</p><div class="validation-formula"><span>分子</span><strong>在约定观察期内，就同一未完成服务事项再次发起催问的退货业务对象数量</strong><span>分母</span><strong>进入该观察期、且存在未完成服务事项的可比较退货业务对象总数</strong></div><p class="validation-scope-note">按同一退货对象、同一未完成事项关联，排除不同退货或问题的误合并。观察期依据实际退款处理周期确定；后续与改造前或可比较样本对照，考虑退款类型、处理难度及观察窗口差异。当前仅定义口径，尚无重复催问减少的结论。</p></section>
-</div></section>
-<aside class="validation-flowb-note"><div><strong>Flow B · 运营改进辅助观察</strong><p>候选问题关联质量、错误合并与证据补齐情况，不替代 Flow A 的服务续办指标；不以真实退款到账时间作为当前原型已验证成果。</p></div></aside>
-</section>
-<section class="prd-subsection" id="validation-iteration"><h3 id="design-validation-5" data-outline-label="5.5 迭代优先级与当前验证边界">5.5 下一轮先验证什么，哪些暂时不做</h3>
-<dl class="validation-priorities"><div><dt><span>优先级 01</span>先跑通任务恢复到有效续办</dt><dd><p>历史承诺找错、任务无法接续或重复创建，就无法解决反复催办。</p><p><strong>下一步</strong>构建可执行的最小 Mock 任务数据与关系样本，优先核验 T01 / T07 / T08。</p><p class="validation-priority-focus"><strong>判断重点</strong>关联正确性、任务可追踪性、重复创建风险。</p></dd></div><div><dt><span>优先级 02</span>验证异步恢复和计划更新</dt><dd><p>仓库核查不会立即返回；Waiting 之后能否恢复，是这条续办链路的关键。</p><p><strong>下一步</strong>搭建最小事件返回与状态模拟，检验 T03–T05：WH-201 Waiting、有效记录核查与 Plan v1 → Plan v2。</p><p class="validation-priority-focus"><strong>判断重点</strong>暂停与恢复、任务分派、后续条件是否正确。</p></dd></div><div><dt><span>优先级 03</span>扩展跨 Case 问题发现验证</dt><dd><p>只有服务记录与证据可比较，候选问题才具有调查价值。</p><p><strong>下一步</strong>补充不同处理环节、不同证据完整度的 Mock Case，检验 T09 / T10 的关联、排除与补证。</p><p class="validation-priority-focus"><strong>判断重点</strong>错误合并、调查价值，是否把推测当成共同根因。</p></dd></div></dl><section class="validation-current-status" aria-labelledby="validation-status-title"><header><span class="validation-eyebrow">CURRENT STATUS</span><h4 id="validation-status-title">方案与原型已完成，Workflow 执行验证尚未开始。</h4></header><div><section><h5>已完成设计</h5><ul><li>退款重复催办业务切片与产品目标。</li><li>跨会话任务恢复、多 Agent Workflow 方案。</li><li>Warehouse / Refund Agent 分工与拟议执行轨迹。</li><li>Waiting、事件恢复与动态重规划方案。</li><li>独立 Flow B 候选问题分析。</li><li>三张 HTML / CSS / JS 高保真原型，具备静态视图切换与截图查看。</li><li>代表性测试场景、Bad Case 与评估口径设计。</li></ul></section><section><h5>待实现与待验证</h5><ul><li>真实 LangGraph Agent Runtime。</li><li>真实 WMS、客服或退款业务系统接入。</li><li>可复现的 Workflow 自动化执行测试结果。</li><li>真实业务样本统计。</li><li>产品上线及运营改善效果验证。</li></ul></section></div></section><p class="validation-takeaway">当前已明确业务输入、预期分支与核验标准；下一步优先把任务恢复与异步接续做成可重复执行的最小测试闭环。</p>
-</section>
-              </div>
-            </section>
+<section class="prd-subsection" id="validation-iteration"><h3 id="design-validation-5" data-outline-label="5.5 下一轮产品决策">5.5 用这次证据，决定下一轮先验证什么</h3>
+<div class="eval-decisions"><article><header><span>优先 01</span><h4>服务目标关联与任务接续</h4></header><dl><div><dt>本轮风险证据</dt><dd>H01 拒绝跨 RET / 来源不足的承诺，H03 排除失效旧任务，均 PASS；关联与有效性仍由输入给定。</dd></div><div><dt>下一步实现</dt><dd>最小服务关系与任务状态原型，加入多条有效承诺、交接回执及任务取消状态的执行路径。</dd></div><div><dt>重新判断条件</dt><dd>证据不唯一仍自动恢复，或失效任务被接续时，收紧待确认与状态准入规则。</dd></div></dl></article>
+<article><header><span>优先 02</span><h4>Waiting 恢复与状态幂等</h4></header><dl><div><dt>本轮风险证据</dt><dd>H02 首次重复完成 / 重规划，复测两项意图均为 0；持久化幂等尚无证据。</dd></div><div><dt>下一步实现</dt><dd>最小状态存储与事件模拟，验证重启、重复 / 乱序 / 过期事件下的恢复、核验和计划更新。</dd></div><div><dt>重新判断条件</dt><dd>重启后重复更新或旧结果解除阻断时，调整幂等键、版本与事实新鲜度契约。</dd></div></dl></article>
+<article><header><span>优先 03</span><h4>VOC 证据核验</h4></header><dl><div><dt>本轮风险证据</dt><dd>H04 首次漏掉反序时间，复测纳入待核验；业务阶段与时间来源本身仍未验证。</dd></div><div><dt>下一步实现</dt><dd>扩展不同阶段、缺失 / 矛盾时间与来源的 Case，验证补证后回到 CI-001 的人工复核路径。</dd></div><div><dt>重新判断条件</dt><dd>相似文本仍误合并，或时间完整就被当成根因时，调整阶段筛查与证据审核门槛。</dd></div></dl></article></div>
+<div class="eval-levels" aria-label="项目完成状态"><div><span>已完成 · 产品设计</span><p>产品方案、工具契约、状态与三个高保真 Mock 界面。</p></div><div><span>已执行 · 规则验证</span><p>原测试回归、新组合复核、两项真实规则修正与简化策略对照；首次失败保留。</p></div><div><span>未完成 · 真实运行</span><p>真实 Agent Runtime、企业 API、持久化事件恢复、线上客户数据与运营效果。</p></div></div>
+</section></div></section>
             <div class="prd-actions"><button class="prd-action" type="button" data-view-target="overview">返回产品方法</button><a class="prd-action is-secondary" href="../../index.html">返回全部项目</a></div>
           </div>
         </div>

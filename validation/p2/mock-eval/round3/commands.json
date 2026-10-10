@@ -1,0 +1,49 @@
+[
+  {
+    "command": [
+      "python3",
+      "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/run_eval.py",
+      "--output",
+      "round3/t-current.json",
+      "--run-id",
+      "round3-current-regression"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "{\n  \"output\": \"/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round3/t-current.json\",\n  \"target_total\": 14,\n  \"target_pass\": 14,\n  \"target_fail\": 0,\n  \"target_failed_ids\": [],\n  \"correct_interceptions\": 8,\n  \"comparison_total\": 2,\n  \"comparison_fail\": 2,\n  \"critical_errors\": 0\n}\n",
+    "stderr": "",
+    "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round3/t-current.json"
+  },
+  {
+    "command": [
+      "python3",
+      "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/run_h.py",
+      "--output",
+      "../round3/h-current.json",
+      "--run-id",
+      "round3-current-recheck"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "{\n  \"output\": \"/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/../round3/h-current.json\",\n  \"total\": 4,\n  \"pass\": 4,\n  \"fail\": 0,\n  \"failed_ids\": [],\n  \"initial_rule_unmodified\": false\n}\n",
+    "stderr": "",
+    "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round3/h-current.json"
+  },
+  {
+    "command": [
+      "python3",
+      "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/run_h.py",
+      "--rules",
+      "rules-before.py",
+      "--output",
+      "../round3/h-before-reproduced.json",
+      "--run-id",
+      "round3-saved-original-rule-reproduction"
+    ],
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "stdout": "{\n  \"output\": \"/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/../round3/h-before-reproduced.json\",\n  \"total\": 4,\n  \"pass\": 2,\n  \"fail\": 2,\n  \"failed_ids\": [\n    \"H02\",\n    \"H04\"\n  ],\n  \"initial_rule_unmodified\": true\n}\n",
+    "stderr": "",
+    "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round3/h-before-reproduced.json"
+  }
+]

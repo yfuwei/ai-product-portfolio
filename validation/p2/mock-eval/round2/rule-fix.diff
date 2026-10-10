@@ -1,0 +1,75 @@
+--- rules-before.py
++++ ../rules.py
+@@ -1,4 +1,5 @@
+ """Deterministic product-rule mock. No LLM, Agent, API, clock or I/O here."""
++from datetime import datetime
+ 
+ def valid_task(task, return_id, issue):
+     return (task.get('return_id') == return_id and task.get('issue') == issue
+@@ -35,23 +36,35 @@
+         # Within-process sequence only. This is not a persistent event consumer.
+         seen = list(data['seen_event_ids'])
+         actions = []
++        current_status = data.get('warehouse_status', 'Waiting')
++        current_plan = data.get('current_plan', 'v1')
++        task_id = data.get('warehouse_task', 'WH-201')
+         resumed = duplicate = 0
+         for event in data['events']:
+-            if event['return_id'] != ret or event['task_id'] != 'WH-201':
++            if event['return_id'] != ret or event['task_id'] != task_id:
+                 continue
+             if event['id'] in seen:
+                 duplicate += 1
+                 actions.append('ignore_duplicate_event')
+                 continue
+             seen.append(event['id'])
++            if current_status != 'Waiting':
++                actions.append('ignore_nonwaiting_event')
++                continue
+             resumed += 1
+             actions.append('request_record_check')
+         record = data['receipt_record']
+         verified = (data['lookup_complete'] and record is not None
+                     and record.get('return_id') == ret and record.get('valid') is True)
+-        actions += ['complete_warehouse', 'plan_v2'] if verified else ['wait']
+-        return {'warehouse_status': 'Completed' if verified else 'Waiting',
+-                'plan': 'v2' if verified else 'v1', 'resume_requests': resumed,
++        # Event dedup and state-transition idempotency are separate gates.
++        if current_status == 'Waiting':
++            status = 'Completed' if verified else 'Waiting'
++            plan = 'v2' if verified else 'v1'
++            actions += (['complete_warehouse'] + ([] if current_plan == 'v2' else ['plan_v2'])) if verified else ['wait']
++        else:
++            status, plan = current_status, current_plan
++        return {'warehouse_status': status,
++                'plan': plan, 'resume_requests': resumed,
+                 'warehouse_lookup_requests': resumed, 'ignored_duplicate_events': duplicate,
+                 'seen_event_ids': seen, 'created_tasks': [],
+                 'record_check': 'Verified' if verified else 'Missing' if data['lookup_complete'] else 'Pending',
+@@ -91,11 +104,25 @@
+             else:
+                 decisions[case['id']] = 'Needs Verification'
+                 candidates.append(case)
++        # Same-fact synthetic timestamps: reverse ordering is an unresolved
++        # inconsistency, not proof of a root cause. Never fill or normalize input.
++        conflicts = []
++        for case in candidates:
++            values = [case['times'].get(key) for key in ('inbound', 'system', 'service')]
++            if all(value is not None for value in values):
++                try:
++                    stamps = [datetime.fromisoformat(value) for value in values]
++                    if not stamps[0] <= stamps[1] <= stamps[2]:
++                        conflicts.append(case['id'])
++                except (TypeError, ValueError):
++                    conflicts.append(case['id'])
+         missing = [c['id'] for c in candidates if not c['stage_confirmed']
+-                   or any(c['times'].get(key) is None for key in ('inbound', 'system', 'service'))]
++                   or any(c['times'].get(key) is None for key in ('inbound', 'system', 'service'))
++                   or c['id'] in conflicts]
+         # Complete timestamps alone are not proof of causality. No root inference is implemented.
+         output = {'issue_id': 'CI-001', 'issue_status': 'Need Evidence', 'root_confirmed': False,
+                   'task_id': None, 'task_created': False, 'missing_evidence': missing,
++                  'conflicting_evidence': conflicts,
+                   'actions': ['request_evidence']}
+         if operation == 'voc_screen':
+             output['case_decisions'] = decisions

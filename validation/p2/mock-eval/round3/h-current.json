@@ -1,0 +1,410 @@
+{
+  "run_id": "round3-current-recheck",
+  "scope": "Four new compositional synthetic review cases; not an external blind test or Agent execution",
+  "python_version": "3.14.2",
+  "source_sha256": {
+    "h-fixtures.json": "5fd2403a1c4e836a3981b9b02fe5c24c722be8cc326e8512e50ae3bfd7cc6cee",
+    "h-expected.json": "b7343fe30d1dd695750aa5b1a9c2833a1497b1f968e08d614753442a20501c97",
+    "h-manifest.json": "d652fa8bdd2018318a77efe0e45c03b6bb7685927a43a257be976657c7165684",
+    "run_h.py": "400d4f67897656ead0df8754c44965f64424a8fe2ec0a3e530381d2a47e41e59"
+  },
+  "rule_path": "../rules.py",
+  "rule_sha256": "67eca0723d11250beb00db0e20c0469f1b28c36d3f826d936e2eb27fdaa8170f",
+  "initial_rule_unmodified": false,
+  "summary": {
+    "total": 4,
+    "pass": 4,
+    "fail": 0,
+    "failed_ids": []
+  },
+  "records": [
+    {
+      "id": "H01",
+      "flow": "A",
+      "bad_cases": [
+        "BC01",
+        "BC02"
+      ],
+      "classification": "new_compositional_review",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "conversation_id": "CONV-003",
+        "intent": "followup_warehouse_check",
+        "warehouse_tasks": [],
+        "promises": [
+          {
+            "return_id": "RET-001",
+            "customer_id": "CUS-SYNTH-001",
+            "source_valid": false,
+            "pending": true,
+            "issue": "warehouse_receipt_check",
+            "conversation_id": "CONV-SYNTH-RET-001-001",
+            "text": "核实仓库记录"
+          },
+          {
+            "return_id": "RET-002",
+            "customer_id": "CUS-SYNTH-001",
+            "source_valid": true,
+            "pending": true,
+            "issue": "warehouse_receipt_check",
+            "conversation_id": "CONV-SYNTH-RET-002-001",
+            "text": "帮您安排仓库核查。"
+          },
+          {
+            "return_id": "RET-001",
+            "customer_id": "CUS-SYNTH-002",
+            "source_valid": true,
+            "pending": true,
+            "issue": "warehouse_receipt_check",
+            "conversation_id": "CONV-SYNTH-RET-001-002",
+            "text": "帮您安排仓库核查。"
+          },
+          {
+            "return_id": "RET-001",
+            "customer_id": "CUS-SYNTH-001",
+            "source_valid": true,
+            "pending": true,
+            "issue": "refund_exception",
+            "conversation_id": "CONV-SYNTH-RET-001-001",
+            "text": "帮您安排仓库核查。"
+          }
+        ]
+      },
+      "conflict": "当前 CONV-003 属于 RET-001；更相似承诺属于 RET-002，同 RET 的核查来源无效，另外混入不同客户及不同事项",
+      "expected": {
+        "goal_status": "Needs Confirmation",
+        "goal_return_id": null,
+        "promise_source": null,
+        "handoff": "Blocked",
+        "recovery_attempted": false,
+        "warehouse_task_created": false,
+        "reply_sent": false,
+        "actions": [
+          "reject_unrelated_promise"
+        ]
+      },
+      "forbidden_actions": [
+        "recover_goal",
+        "create_warehouse_task",
+        "prepare_handoff",
+        "reuse_other_return"
+      ],
+      "actual": {
+        "goal_status": "Needs Confirmation",
+        "goal_return_id": null,
+        "promise_source": null,
+        "handoff": "Blocked",
+        "recovery_attempted": false,
+        "warehouse_task_created": false,
+        "reply_sent": false,
+        "actions": [
+          "reject_unrelated_promise"
+        ]
+      },
+      "mismatches": [],
+      "forbidden_observed": [],
+      "verdict": "PASS",
+      "input_unchanged": true
+    },
+    {
+      "id": "H02",
+      "flow": "A",
+      "bad_cases": [
+        "BC03"
+      ],
+      "classification": "new_compositional_review",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "events": [
+          {
+            "id": "EV-SYNTH-H02",
+            "return_id": "RET-001",
+            "task_id": "WH-201",
+            "type": "warehouse_receipt_notice"
+          }
+        ],
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "lookup_complete": true,
+        "receipt_record": {
+          "return_id": "RET-001",
+          "valid": true
+        },
+        "warehouse_task": "WH-201",
+        "warehouse_status": "Completed",
+        "current_plan": "v2"
+      },
+      "conflict": "前次核查已取得有效记录，WH-201 已 Completed、Plan v2 已生效；相同事件再次到达",
+      "expected": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "forbidden_actions": [
+        "request_record_check",
+        "create_warehouse_task",
+        "complete_warehouse",
+        "plan_v2",
+        "create_refund_task"
+      ],
+      "actual": {
+        "warehouse_status": "Completed",
+        "plan": "v2",
+        "resume_requests": 0,
+        "warehouse_lookup_requests": 0,
+        "ignored_duplicate_events": 1,
+        "seen_event_ids": [
+          "EV-SYNTH-H02"
+        ],
+        "created_tasks": [],
+        "record_check": "Verified",
+        "actions": [
+          "ignore_duplicate_event"
+        ]
+      },
+      "mismatches": [],
+      "forbidden_observed": [],
+      "verdict": "PASS",
+      "input_unchanged": true
+    },
+    {
+      "id": "H03",
+      "flow": "A",
+      "bad_cases": [
+        "BC04"
+      ],
+      "classification": "new_compositional_review",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "warehouse_verified": true,
+        "refund_status": "NotInitiated",
+        "refund_tasks": [
+          {
+            "id": "RF-SYNTH-CANCELLED",
+            "return_id": "RET-001",
+            "issue": "refund_exception",
+            "status": "Cancelled",
+            "valid": true
+          },
+          {
+            "id": "RF-SYNTH-CLOSED",
+            "return_id": "RET-001",
+            "issue": "refund_exception",
+            "status": "Closed",
+            "valid": true
+          },
+          {
+            "id": "RF-SYNTH-INVALID",
+            "return_id": "RET-001",
+            "issue": "refund_exception",
+            "status": "Started",
+            "valid": false
+          },
+          {
+            "id": "RF-SYNTH-OTHERRET",
+            "return_id": "RET-002",
+            "issue": "refund_exception",
+            "status": "Waiting",
+            "valid": true
+          },
+          {
+            "id": "RF-SYNTH-OTHERISSUE",
+            "return_id": "RET-001",
+            "issue": "warehouse_receipt_check",
+            "status": "Waiting",
+            "valid": true
+          }
+        ]
+      },
+      "conflict": "仓库前提已满足；同 RET 旧任务已取消 / 关闭 / 无效，另外两个任务属于其他对象或事项",
+      "expected": {
+        "refund_task": "RF-301",
+        "refund_task_status": "Started",
+        "reused_task_return_id": null,
+        "created_tasks": [
+          "RF-301"
+        ],
+        "rejected_task_ids": [
+          "RF-SYNTH-CANCELLED",
+          "RF-SYNTH-CLOSED",
+          "RF-SYNTH-INVALID",
+          "RF-SYNTH-OTHERRET",
+          "RF-SYNTH-OTHERISSUE"
+        ],
+        "actual_refund": "NotInitiated",
+        "actions": [
+          "create_refund_task"
+        ]
+      },
+      "forbidden_actions": [
+        "continue_existing_refund_task",
+        "refund_initiated",
+        "reuse_other_return"
+      ],
+      "actual": {
+        "refund_task": "RF-301",
+        "refund_task_status": "Started",
+        "reused_task_return_id": null,
+        "created_tasks": [
+          "RF-301"
+        ],
+        "rejected_task_ids": [
+          "RF-SYNTH-CANCELLED",
+          "RF-SYNTH-CLOSED",
+          "RF-SYNTH-INVALID",
+          "RF-SYNTH-OTHERRET",
+          "RF-SYNTH-OTHERISSUE"
+        ],
+        "actual_refund": "NotInitiated",
+        "actions": [
+          "create_refund_task"
+        ]
+      },
+      "mismatches": [],
+      "forbidden_observed": [],
+      "verdict": "PASS",
+      "input_unchanged": true
+    },
+    {
+      "id": "H04",
+      "flow": "B",
+      "bad_cases": [
+        "BC05"
+      ],
+      "classification": "new_compositional_review",
+      "input": {
+        "case_id": "CASE-001",
+        "return_id": "RET-001",
+        "customer_id": "CUS-SYNTH-001",
+        "cases": [
+          {
+            "id": "CASE-001",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T11:00:00+08:00",
+              "system": "2026-09-01T10:00:00+08:00",
+              "service": "2026-09-01T12:00:00+08:00"
+            }
+          },
+          {
+            "id": "CASE-002",
+            "complaint": "为什么退款还没到账？",
+            "stage": "warehouse_confirmation",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T09:00:00+08:00",
+              "system": "2026-09-01T09:10:00+08:00",
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-003",
+            "complaint": "为什么退款还没到账？",
+            "stage": "unknown",
+            "stage_confirmed": false,
+            "receipt_record": false,
+            "times": {
+              "inbound": null,
+              "system": null,
+              "service": null
+            }
+          },
+          {
+            "id": "CASE-004",
+            "complaint": "为什么退款还没到账？",
+            "stage": "refund_followup",
+            "stage_confirmed": true,
+            "receipt_record": true,
+            "times": {
+              "inbound": "2026-09-01T09:00:00+08:00",
+              "system": "2026-09-01T09:10:00+08:00",
+              "service": "2026-09-01T10:00:00+08:00"
+            }
+          }
+        ],
+        "business_owner_confirmed": false
+      },
+      "conflict": "CASE-001 的系统确认早于实际入库；CASE-002 缺客服可见时间；003 阶段不明；004 是退款支付后续环节。时间为同一时区合成输入，不自动补全",
+      "expected": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        },
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ]
+      },
+      "forbidden_actions": [
+        "confirm_root",
+        "create_improvement_task",
+        "fill_missing_time"
+      ],
+      "actual": {
+        "issue_id": "CI-001",
+        "issue_status": "Need Evidence",
+        "root_confirmed": false,
+        "task_id": null,
+        "task_created": false,
+        "missing_evidence": [
+          "CASE-001",
+          "CASE-002",
+          "CASE-003"
+        ],
+        "conflicting_evidence": [
+          "CASE-001"
+        ],
+        "actions": [
+          "retain_candidates",
+          "request_evidence"
+        ],
+        "case_decisions": {
+          "CASE-001": "Candidate",
+          "CASE-002": "Candidate",
+          "CASE-003": "Needs Verification",
+          "CASE-004": "Excluded"
+        }
+      },
+      "mismatches": [],
+      "forbidden_observed": [],
+      "verdict": "PASS",
+      "input_unchanged": true
+    }
+  ]
+}

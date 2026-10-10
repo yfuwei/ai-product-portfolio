@@ -1,0 +1,15 @@
+{
+  "step": 1,
+  "purpose": "Target rule frozen before H input/expected construction; original Round 1 outputs preserved",
+  "sha256": {
+    "rules.py": "2199e9bd04e3bcc16928ec52c7cbbe8601726845a2a48ed03e513def01a07baa",
+    "run_eval.py": "c92d4f9baa9135d439e04e231994d0e9dac43c50e05359758debdebb8e28458e",
+    "fixtures.json": "fbb4705579971ac6f7b0563a3c868c4c787240aa1ddcab96989479c42e42e813",
+    "expected.json": "d33fe24922e1cf787168038f780d608d523090b2e41e35299e26c98abd5be0bb",
+    "test-set-manifest.json": "6aa81787c2371437ba6c06de8d6a8c1cadb9200f691314fe9db9e154bfe7f39e",
+    "results-initial.json": "c371f9465eb541175ea6b1f51251883a3dabd1a092d98fc7a845f60cc08af9d5",
+    "results.json": "66e071451b863f2453438c42b91a868cf0a638ba41bb4945c4dacc1aa5452442",
+    "recheck.json": "d7bcd77dd5876f02f386891a3a9900b17266c2539ba0ada9e7f240bec6853e6b"
+  },
+  "rule_snapshot": "rules-before.py"
+}

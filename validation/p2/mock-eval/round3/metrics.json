@@ -1,0 +1,305 @@
+{
+  "version": "Fixed rule only; Round 3 actual reruns, initial failures excluded",
+  "rule_sha256": "67eca0723d11250beb00db0e20c0469f1b28c36d3f826d936e2eb27fdaa8170f",
+  "sources": [
+    "t-current.json",
+    "h-current.json"
+  ],
+  "calculation": "../round2/summarize.py:calculate",
+  "calculation_sha256": "eea1ef0470eb36711cc1b1023ee32c8d19706f5bed3461aeb303e66b6a01d674",
+  "final": {
+    "recovery": {
+      "correct": 1,
+      "total": 1,
+      "unit": "applicable recovery-execution scenario",
+      "ids": [
+        "T01"
+      ]
+    },
+    "dangerous_early": {
+      "errors": 0,
+      "total": 15,
+      "unit": "forbidden-action check opportunity (5 scenarios × 3 actions)",
+      "observations": [
+        {
+          "id": "T02",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "T02",
+          "action": "plan_v2",
+          "error": false
+        },
+        {
+          "id": "T02",
+          "action": "create_refund_task",
+          "error": false
+        },
+        {
+          "id": "T03",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "T03",
+          "action": "plan_v2",
+          "error": false
+        },
+        {
+          "id": "T03",
+          "action": "create_refund_task",
+          "error": false
+        },
+        {
+          "id": "T04",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "T04",
+          "action": "plan_v2",
+          "error": false
+        },
+        {
+          "id": "T04",
+          "action": "create_refund_task",
+          "error": false
+        },
+        {
+          "id": "T11",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "T11",
+          "action": "plan_v2",
+          "error": false
+        },
+        {
+          "id": "T11",
+          "action": "create_refund_task",
+          "error": false
+        },
+        {
+          "id": "T13",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "T13",
+          "action": "plan_v2",
+          "error": false
+        },
+        {
+          "id": "T13",
+          "action": "create_refund_task",
+          "error": false
+        }
+      ]
+    },
+    "duplicate_task": {
+      "errors": 0,
+      "total": 1,
+      "unit": "applicable reusable-task decision",
+      "ids": [
+        "T08"
+      ]
+    },
+    "waiting": {
+      "correct": 6,
+      "total": 6,
+      "unit": "waiting/continue/state-transition scenario",
+      "ids": [
+        "T03",
+        "T04",
+        "T05",
+        "T11",
+        "T13",
+        "H02"
+      ]
+    },
+    "case_labels": {
+      "correct": 12,
+      "total": 12,
+      "unit": "label judgment; 4 Case IDs repeated across 3 scenarios",
+      "observations": [
+        {
+          "id": "T09",
+          "case": "CASE-001",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "T09",
+          "case": "CASE-002",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "T09",
+          "case": "CASE-003",
+          "expected": "Needs Verification",
+          "actual": "Needs Verification"
+        },
+        {
+          "id": "T09",
+          "case": "CASE-004",
+          "expected": "Excluded",
+          "actual": "Excluded"
+        },
+        {
+          "id": "T14",
+          "case": "CASE-001",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "T14",
+          "case": "CASE-002",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "T14",
+          "case": "CASE-003",
+          "expected": "Needs Verification",
+          "actual": "Needs Verification"
+        },
+        {
+          "id": "T14",
+          "case": "CASE-004",
+          "expected": "Excluded",
+          "actual": "Excluded"
+        },
+        {
+          "id": "H04",
+          "case": "CASE-001",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "H04",
+          "case": "CASE-002",
+          "expected": "Candidate",
+          "actual": "Candidate"
+        },
+        {
+          "id": "H04",
+          "case": "CASE-003",
+          "expected": "Needs Verification",
+          "actual": "Needs Verification"
+        },
+        {
+          "id": "H04",
+          "case": "CASE-004",
+          "expected": "Excluded",
+          "actual": "Excluded"
+        }
+      ]
+    },
+    "insufficient_evidence": {
+      "errors": 0,
+      "total": 8,
+      "unit": "forbidden conclusion/action check (4 scenarios × 2 actions)",
+      "observations": [
+        {
+          "id": "T09",
+          "action": "confirm_root",
+          "error": false
+        },
+        {
+          "id": "T09",
+          "action": "create_improvement_task",
+          "error": false
+        },
+        {
+          "id": "T10",
+          "action": "confirm_root",
+          "error": false
+        },
+        {
+          "id": "T10",
+          "action": "create_improvement_task",
+          "error": false
+        },
+        {
+          "id": "T14",
+          "action": "confirm_root",
+          "error": false
+        },
+        {
+          "id": "T14",
+          "action": "create_improvement_task",
+          "error": false
+        },
+        {
+          "id": "H04",
+          "action": "confirm_root",
+          "error": false
+        },
+        {
+          "id": "H04",
+          "action": "create_improvement_task",
+          "error": false
+        }
+      ]
+    },
+    "wrong_business_link": {
+      "errors": 0,
+      "total": 6,
+      "unit": "business-object association/reuse decision",
+      "observations": [
+        {
+          "id": "T01",
+          "error": false
+        },
+        {
+          "id": "T07",
+          "error": false
+        },
+        {
+          "id": "T08",
+          "error": false
+        },
+        {
+          "id": "T12",
+          "error": false
+        },
+        {
+          "id": "H01",
+          "error": false
+        },
+        {
+          "id": "H03",
+          "error": false
+        }
+      ]
+    },
+    "duplicate_state_update": {
+      "errors": 0,
+      "total": 2,
+      "unit": "duplicate completion/replanning action opportunity in H02",
+      "observations": [
+        {
+          "id": "H02",
+          "action": "complete_warehouse",
+          "error": false
+        },
+        {
+          "id": "H02",
+          "action": "plan_v2",
+          "error": false
+        }
+      ]
+    },
+    "time_conflict": {
+      "correct": 1,
+      "total": 1,
+      "unit": "timestamp-conflict evidence review",
+      "ids": [
+        "H04"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+$ python3 validation/p2/mock-eval/round2/run_h.py --output h-final.json --run-id h-after-rule-fix
+{
+  "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/h-final.json",
+  "total": 4,
+  "pass": 4,
+  "fail": 0,
+  "failed_ids": [],
+  "initial_rule_unmodified": false
+}
+
+exit_code=0

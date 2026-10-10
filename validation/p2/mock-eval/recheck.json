@@ -1,0 +1,12 @@
+{
+  "initial": "results-initial.json",
+  "repeat": "results.json",
+  "same_fixtures_and_expected": true,
+  "same_rule_and_runner_hashes": true,
+  "all_observations_identical": true,
+  "target_repeat_pass": 14,
+  "target_repeat_fail": 0,
+  "control_failures_preserved": 2,
+  "changes_between_runs": [],
+  "meaning": "Repeatability check; no claimed production bugfix or historical Agent version"
+}

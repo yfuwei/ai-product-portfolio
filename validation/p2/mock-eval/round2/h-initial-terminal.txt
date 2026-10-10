@@ -1,0 +1,14 @@
+$ python3 validation/p2/mock-eval/round2/run_h.py --output h-initial.json --run-id h-first-unchanged-rule
+{
+  "output": "/Users/frey/Library/Mobile Documents/iCloud~md~obsidian/Documents/Frey's Notes/01 PROJECTS/Resume/AIPM_Resume_2026/ai-product-portfolio/validation/p2/mock-eval/round2/h-initial.json",
+  "total": 4,
+  "pass": 2,
+  "fail": 2,
+  "failed_ids": [
+    "H02",
+    "H04"
+  ],
+  "initial_rule_unmodified": true
+}
+
+exit_code=1
