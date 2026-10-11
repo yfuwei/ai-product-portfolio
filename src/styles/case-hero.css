@@ -1,0 +1,290 @@
+/* P1/P2 public Hero and Tab A entry. Product visuals retain their local rules. */
+:root {
+  --case-content-gutter: clamp(20px, 4vw, 48px);
+  --case-content-width: 1180px;
+  --case-hero-ink: #17263e;
+  --case-hero-muted: #607089;
+  --case-hero-blue: #2755a0;
+  --case-hero-rose: #be4768;
+  --case-hero-rule: #dce4ed;
+}
+
+/* Padding constrains the grid; the white section still spans the viewport. */
+#project-hero {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 50px max(var(--case-content-gutter), calc((100% - var(--case-content-width)) / 2)) 46px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 44px;
+  align-items: center;
+  color: var(--case-hero-ink);
+  background: #fff;
+  border: 0;
+  overflow: visible;
+}
+
+#project-hero .case-hero-copy {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+}
+
+#project-hero .section-kicker {
+  margin: 0;
+  color: var(--case-hero-rose);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.6;
+  letter-spacing: .05em;
+}
+
+#project-hero h1 {
+  width: 100%;
+  max-width: none;
+  margin: 18px 0 22px;
+  color: var(--case-hero-ink);
+  font-size: clamp(36px, 3.4vw, 54px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+#project-hero h1 > span {
+  display: block;
+  white-space: normal;
+}
+
+#project-hero.p2-flow h1 {
+  font-size: clamp(38px, 3.8vw, 55px);
+  letter-spacing: -.045em;
+}
+
+#project-hero .case-subtitle {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  color: var(--case-hero-muted);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}
+
+#project-hero .hero-core-judgment {
+  max-width: none;
+  margin: 24px 0 0;
+  padding: 4px 0 4px 16px;
+  color: var(--case-hero-ink);
+  background: transparent;
+  border-left: 3px solid var(--case-hero-blue);
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.6;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+#project-hero .hero-core-judgment-line {
+  display: block;
+  white-space: normal;
+}
+
+#project-hero .hero-core-judgment-line + .hero-core-judgment-line::before {
+  content: none;
+}
+
+/* Shared outer card; screenshot crops and business-scene contents stay local. */
+#project-hero .hero-eligibility-visual,
+#project-hero .story-hero-preview {
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--case-hero-rule);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(23, 38, 62, .04);
+  justify-self: start;
+}
+
+/* Reserve the original review overlay's desktop overhang without moving it. */
+#project-hero .hero-eligibility-visual {
+  padding-block: 16px;
+  padding-right: 36px;
+}
+
+#project-hero .round2-product-type {
+  display: block;
+}
+
+#project-hero .round2-product-type > span,
+#project-hero .round2-product-type > strong {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+#project-hero .round2-product-type > strong {
+  padding: 0;
+  border: 0;
+}
+
+html[lang="zh-CN"] #project-hero .round2-product-type {
+  text-transform: none;
+}
+
+/* Shared entry hierarchy, while each project's directory items remain distinct. */
+#project-panel-overview .overview-intro {
+  padding: 32px var(--case-content-gutter) 0;
+  background: #fff;
+}
+
+#project-panel-overview .overview-toc {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 32px;
+  margin: 0;
+  padding: 24px 0;
+  background: #fff;
+  border: 0;
+  border-block: 1px solid var(--case-hero-rule);
+  border-radius: 0;
+}
+
+#project-panel-overview .overview-toc-copy {
+  display: block;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+
+#project-panel-overview .overview-toc .toc-eyebrow {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--case-hero-blue);
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.6;
+  letter-spacing: .12em;
+}
+
+#project-panel-overview .overview-toc .project-toc-heading {
+  margin: 0;
+  color: var(--case-hero-ink);
+  font-size: 22px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+#project-panel-overview .overview-toc-copy p {
+  margin: 10px 0 0;
+  color: var(--case-hero-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Keep the established English balancing without splitting words. */
+html[lang="en"] #project-hero h1 > span {
+  text-wrap: balance;
+}
+
+@media (max-width: 1200px) {
+  #project-hero .hero-eligibility-visual {
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  #project-hero {
+    gap: 32px;
+    padding-block: 42px;
+  }
+
+  #project-hero .hero-eligibility-visual,
+  #project-hero .story-hero-preview {
+    padding: 16px;
+  }
+
+  #project-panel-overview .overview-toc {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 980px) {
+  #project-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #project-hero .hero-eligibility-visual,
+  #project-hero .story-hero-preview {
+    width: min(100%, 720px);
+  }
+}
+
+@media (max-width: 800px) {
+  #project-panel-overview .overview-toc {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  #project-hero {
+    padding-block: 32px;
+    gap: 26px;
+  }
+
+  #project-hero h1 {
+    font-size: 32px;
+    line-height: 1.35;
+    letter-spacing: -.02em;
+    margin-block: 18px;
+  }
+
+  #project-hero.p2-flow h1 {
+    font-size: 36px;
+    line-height: 1.3;
+    letter-spacing: -.04em;
+  }
+
+  html[lang="en"] #project-hero h1 > span {
+    text-wrap: wrap;
+  }
+
+  #project-hero .case-subtitle {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  #project-hero .hero-core-judgment {
+    margin-top: 22px;
+    padding-left: 12px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  #project-hero .hero-eligibility-visual {
+    padding-block: 14px;
+  }
+
+  #project-panel-overview .overview-intro {
+    padding-top: 24px;
+  }
+
+  #project-panel-overview .overview-toc {
+    padding-block: 20px;
+  }
+}

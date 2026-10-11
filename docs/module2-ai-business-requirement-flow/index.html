@@ -8,7 +8,7 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="../../src/styles/main.css">
     <style>
-      :root { --ink:#17263e; --muted:#607089; --rose:#be4768; --rose-soft:#fff1f4; --blue:#2755a0; --line:#dce4ed; --soft:#f5f8fc; --case-header-height:72px; --project-tabs-height:64px; --gutter:clamp(20px,4vw,48px); }
+      :root { --ink:#17263e; --muted:#607089; --rose:#be4768; --rose-soft:#fff1f4; --blue:#2755a0; --line:#dce4ed; --soft:#f5f8fc; --case-header-height:81px; --project-tabs-height:64px; --gutter:clamp(20px,4vw,48px); }
       * { box-sizing:border-box; }
       html { overflow-x:clip; overflow-y:visible; scroll-behavior:auto; scroll-padding-top:0; }
       body { overflow-x:clip; overflow-y:visible; margin:0; color:var(--ink); background:#fff; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size:15px; line-height:1.75; }
@@ -22,20 +22,11 @@
       [id],section[id] { scroll-margin-top:calc(var(--case-header-height) + var(--project-tabs-height) + 24px); }
       .skip-link { position:absolute; top:0; left:20px; z-index:100; padding:10px 16px; background:white; transform:translateY(-150%); }
       .skip-link:focus { transform:translateY(0); }
-      .case-header { position:sticky; top:0; z-index:50; min-height:72px; display:flex; justify-content:space-between; align-items:center; gap:24px; padding:16px var(--gutter); background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(14px); }
-      .brand { display:flex; align-items:center; gap:10px; color:var(--ink); font-size:14px; font-weight:750; line-height:1.5; }
-      .brand-mark { display:grid; place-items:center; flex:0 0 32px; height:32px; border:1px solid #b7c9e3; border-radius:9px; color:var(--blue); background:#eef4fc; font-size:11px; }
-      .case-nav,.case-view-nav,.case-site-nav { display:flex; align-items:center; gap:12px; }
-      .case-view-nav { gap:4px; padding-right:12px; border-right:1px solid var(--line); }
-      .case-nav button { border:0; background:transparent; color:var(--muted); cursor:pointer; padding:7px 9px; font-size:13px; }
-      .case-nav button[aria-current] { color:var(--rose); font-weight:750; }
-      .case-site-nav a { padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:12px; white-space:nowrap; }
-      .case-hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:48px; max-width:calc(1180px + var(--gutter)*2); margin:auto; padding:56px var(--gutter) 52px; }
+
       .section-kicker,.prd-section-kicker { margin-bottom:12px; color:var(--rose); font-size:12px; font-weight:750; letter-spacing:.05em; }
-      .case-hero h1 { margin:18px 0 22px; font-size:clamp(36px,4vw,57px); line-height:1.25; letter-spacing:-.045em; }
-      .case-hero h1 span { display:block; }
+
       .text-accent { color:var(--blue); }
-      .case-subtitle { max-width:500px; color:var(--muted); font-size:17px; line-height:1.9; }
+
       .hero-scope { margin-top:22px; font-size:12px; color:var(--muted); }
       .hero-scope span { padding:0 8px; color:#a2afc0; }
       .hero-workflow-visual { min-width:0; }
@@ -136,8 +127,7 @@
         transform: translateY(-1px);
       }
 
-      .project-tab:focus-visible,
-      .case-nav button:focus-visible {
+      .project-tab:focus-visible {
         outline: 3px solid rgba(37, 99, 235, 0.25);
         outline-offset: 2px;
       }
@@ -206,10 +196,9 @@
       }
 
       .case-container { max-width:1180px; margin:auto; }
-      .overview-intro { padding:32px var(--gutter) 0; }
-      .overview-toc { display:grid; grid-template-columns:220px minmax(0,1fr); gap:32px; margin-top:0; padding:24px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
       .project-toc-heading { margin:5px 0 8px; font-size:20px; }
-      .overview-toc-copy p { color:var(--muted); font-size:13px; }
+
       .overview-toc-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; list-style:none; padding:0; margin:0; }
       .overview-gallery-shortcut { display:inline-flex; align-items:center; gap:6px; margin-top:12px; color:var(--blue); font-size:13px; font-weight:700; }
       .toc-item { display:flex; align-items:center; gap:12px; padding:12px 0; color:var(--ink); border-bottom:1px solid var(--line); }
@@ -381,7 +370,6 @@
       .interface-responsibilities dt { font-size:14px; font-weight:700; }
       .interface-responsibilities dd { color:var(--muted); font-size:14px; }
       .prd-actions { display:flex; gap:12px; border-top:1px solid var(--line); padding-top:24px; }
-      .case-footer { display:flex; justify-content:space-between; gap:12px; padding:24px var(--gutter); border-top:1px solid var(--line); background:var(--soft); color:var(--muted); font-size:11px; }
       @media (min-width:1101px) {
         .prd-sidebar { align-self:stretch; }
         .prd-sidebar-inner {
@@ -392,12 +380,10 @@
         }
       }
       @media (max-width:1100px) {
-        .case-view-nav { display:none; }
-        .case-hero { gap:32px; padding-top:40px; padding-bottom:40px; }
-        .case-hero h1 { font-size:42px; }
+
         .hero-workflow-frame { padding:16px; }
         .project-tab-meta { font-size:12px; }
-        .overview-toc { grid-template-columns:180px minmax(0,1fr); gap:24px; }
+
         .problem-row { grid-template-columns:24px 190px minmax(0,1fr); gap:20px; }
         .orchestration-capabilities { grid-template-columns:repeat(3,minmax(0,1fr)); }
         .prd-layout { display:block; }
@@ -408,15 +394,10 @@
         .prd-mobile-outline .prd-outline-link { font-size:14px; }
       }
       @media (max-width:800px) {
-        .case-header { padding:14px var(--gutter); min-height:64px; gap:16px; }
-        .brand { font-size:12px; }
-        .case-hero { grid-template-columns:1fr; gap:28px; }
-        .case-hero h1 { font-size:44px; }
-        .case-hero h1 span { display:inline; }
+
         .hero-workflow-visual { max-width:620px; width:100%; }
         .project-tab-meta,.project-tab-divider { display:none; }
-        .overview-toc { grid-template-columns:1fr; gap:14px; }
-        .overview-toc-copy p { display:none; }
+
         .project-toc-heading { margin-bottom:0; }
         .case-section { padding-top:38px; padding-bottom:38px; }
         .problem-row { grid-template-columns:24px minmax(0,1fr); gap:10px 16px; }
@@ -436,18 +417,7 @@
         .judgment-row dl { padding-left:40px; }
       }
       @media (max-width:600px) {
-        .case-header { gap:10px; }
-        .brand { gap:7px; max-width:230px; }
-        .brand-mark { flex-basis:28px; height:28px; }
-        .case-site-nav { gap:6px; }
-        .case-site-nav a { font-size:11px; padding:5px 9px; }
-        .case-nav a.nav-link--home { display:none; }
-        .case-hero { padding-top:30px; padding-bottom:32px; }
-        html body .case-hero { overflow:visible; }
-        html body .case-hero .case-hero-copy { max-width:100%; overflow:visible; }
-        html body .case-hero h1 { width:100%; max-width:100%; font-size:38px; line-height:1.25; margin:16px 0; }
-        .case-hero h1 span { display:block; }
-        html body .case-hero .case-subtitle { width:100%; max-width:100%; font-size:15px; line-height:1.9; }
+
         .section-kicker { font-size:11px; }
         .hero-scope { margin-top:16px; font-size:11px; }
         .hero-workflow-visual h2 { font-size:19px; }
@@ -462,8 +432,7 @@
         .project-tab { min-height:50px; padding:10px; gap:7px; }
         .project-tab-label { font-size:13px; }
         .project-tab-index { height:20px; padding:0 5px; font-size:9px; }
-        .overview-intro { padding-top:24px; }
-        .overview-toc { padding:20px 0; }
+
         .overview-toc-list { grid-template-columns:1fr; }
         .overview-toc-list li:nth-last-child(2) .toc-item { border-bottom:1px solid var(--line); }
         .section-header { margin-bottom:22px; }
@@ -537,7 +506,6 @@
         .prd-table td::before { content:attr(data-label); display:block; margin-bottom:5px; font-size:10px; color:var(--blue); font-weight:700; }
         .interface-responsibilities>div { grid-template-columns:1fr; gap:6px; }
         .prd-actions { flex-wrap:wrap; }
-        .case-footer { flex-direction:column; gap:4px; }
       }
       /* B01/B02 case narrative: local document presentation only. */
       .resolution-detail .prd-section-body { margin-top:0; }
@@ -906,11 +874,6 @@
     <link rel="stylesheet" href="assets/workflow-prd.css">
     <style id="p2-round2-final-polish">
       /* Hero hierarchy only; preserve the existing layout and title type scale. */
-      #project-hero .story-hero-context { display:block; }
-      #project-hero .story-hero-context>strong { display:block; color:var(--ink); font-size:13px; font-weight:650; }
-      #project-hero .story-hero-context>small { display:block; margin-top:4px; color:var(--muted); font-size:10px; line-height:1.7; }
-      #project-hero .story-step-mark { border:0; background:transparent; color:var(--blue); }
-      #project-hero .story-step-mark .p2-diagram__icon { width:18px; height:18px; }
       /* Keep six steps and the existing 13px text; trim idle vertical space. */
       #design-resolution .workflow-recovery>li { padding-bottom:14px; }
       #design-resolution .workflow-recovery>li:last-child { padding-bottom:6px; }
@@ -1070,12 +1033,7 @@
       /* Semantic color is local to Hero and the three editorial figures. */
       :is(#project-hero,#story-context-map,#story-agent-execution,#story-outcome-snapshot) { --round2-structure:#f7f8fa; --round2-verified:#287453; --round2-pending:#956416; }
       :is(#story-context-map,#story-agent-execution,#story-outcome-snapshot) { --diagram-canvas:var(--round2-structure); --diagram-line:var(--line); --diagram-card-line:var(--line); --diagram-result:#edf3fc; background:var(--diagram-canvas); }
-      #project-hero .round2-product-type { display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; }
-      #project-hero .round2-product-type>span { color:var(--muted); font-size:11px; letter-spacing:.06em; }
-      #project-hero .round2-product-type>strong { padding-left:12px; border-left:1px solid var(--line); color:var(--blue); font-size:14px; letter-spacing:0; font-weight:750; }
-      #project-hero .story-hero-preview { background:#fff; }
-      #project-hero .story-hero-progress li:nth-child(2) .story-step-mark { color:var(--round2-verified); }
-      #project-hero .story-hero-end { color:var(--muted); }
+
       #overview-problem .round2-promise { display:block; margin-top:7px; font-weight:650; }
       #overview-problem .round2-task-gap { display:block; margin:6px 0 8px; padding-left:10px; border-left:2px solid var(--rose); color:var(--ink); font-weight:650; }
       #overview-problem .story-conversations>li:nth-child(2) .story-conversation-body { border-left-color:var(--rose); }
@@ -1120,7 +1078,7 @@
         #story-outcome-snapshot .round2-outcome-grid { grid-template-columns:1fr; gap:22px; }
       }
       @media(max-width:600px) {
-        #project-hero .round2-product-type>strong { font-size:13px; }
+
         #story-context-map { padding:20px 14px; }
         #story-context-map .round2-context-trigger { align-items:flex-start; gap:6px; }
         #story-context-map .round2-context-trigger>.p2-diagram__label { width:100%; }
@@ -1637,31 +1595,99 @@
  #design-validation .eval-metrics td:nth-child(2) { text-align:right; }
 }
     </style>
+    <link rel="stylesheet" href="../../src/styles/case-shell.css" />
+    <link rel="stylesheet" href="../../src/styles/case-hero.css" />
   </head>
   <body>
     <a class="skip-link" href="#project-tabs-anchor">跳到项目内容</a>
     <header class="case-header">
-      <a class="brand" href="../../index.html"><span class="brand-mark">M2</span><span>AI 智能客服与多 Agent 服务工作流</span></a>
-      <div class="case-nav">
-        <nav class="case-view-nav" aria-label="项目视图导航">
-          <button type="button" data-view-target="overview" aria-current="page">产品方法</button>
-          <button type="button" data-view-target="design">产品设计详解</button>
-        </nav>
-        <nav class="case-site-nav" aria-label="站点操作">
-          <a class="nav-link--lang" href="../../en/docs/module2-ai-business-requirement-flow/index.html" lang="en">EN</a>
-          <a class="nav-link--home" href="../../index.html">返回首页</a>
-        </nav>
+      <div class="case-header-inner">
+        <a class="brand" href="../../index.html"><span class="brand-mark">P2</span><span>AI 智能客服与多 Agent 服务工作流</span></a>
+        <div class="case-nav">
+          <nav class="case-view-nav" aria-label="项目视图导航">
+            <button type="button" data-view-target="overview" aria-current="page">产品方法</button>
+            <button type="button" data-view-target="design">产品设计详解</button>
+          </nav>
+          <nav class="case-site-nav" aria-label="站点操作">
+            <a class="case-home nav-link--home" href="../../index.html">首页</a>
+            <a class="case-language nav-link--lang" href="../../en/docs/module2-ai-business-requirement-flow/index.html" lang="en">EN <span aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
       </div>
     </header>
     <main>
       <section aria-labelledby="project-title" class="case-hero p2-flow" id="project-hero">
-<div class="case-hero-copy"><p class="section-kicker round2-product-type"><span>项目 02</span><strong>售后智能客服 · Agent 服务编排</strong></p><h1 id="project-title"><span>第三次催退款，</span><span class="text-accent">接着办上次没办完的事。</span></h1><p class="case-subtitle">客户第三次追问同一笔退款。AI 结合历史会话、可用知识依据与当前业务状态，恢复未完成的服务目标；再由 Service Orchestrator 协调仓库与退款 Agent，依据核实后的业务结果调整计划、接续处理。</p><ul aria-label="核心产品能力" class="story-capabilities"><li>Context Linking</li><li>Multi-Agent Workflow</li><li>Dynamic Replanning</li></ul></div>
-<figure aria-labelledby="story-hero-title" class="story-hero-preview">
-<figcaption><span class="story-label">SCENARIO SIMULATION / 产品设计模拟</span><span class="story-id">续办后 · 阶段快照</span></figcaption>
-<div class="story-hero-question"><span>周五 · 第三次咨询</span><h2 id="story-hero-title">“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</h2></div>
-<div class="story-hero-context"><strong>三次咨询，关联同一笔退款</strong><small>CONV-001 · CONV-002 · CONV-003 / RET-001</small></div>
-<ol aria-label="续办后的模拟阶段进展，非第三次追问时的初始状态" class="story-hero-progress"><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="link" focusable="false" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"></path></svg></span><strong>服务目标已恢复</strong><small>关联三次会话 · RET-001</small></li><li><span aria-hidden="true" class="story-step-mark is-done"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="check-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><strong>仓库核查完成</strong><small>Warehouse Agent · WH-201</small></li><li class="is-active"><span aria-hidden="true" class="story-step-mark"><svg aria-hidden="true" class="p2-diagram__icon" data-icon="arrow-right-circle" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M7 12h10m-4-4 4 4-4 4"></path></svg></span><strong>退款异常处理已启动</strong><small>Refund Agent · RF-301 已启动</small></li></ol>
-<p class="story-hero-end">续办后 · 模拟快照<span>实际退款尚未发起 · 消息未真实发送</span></p>
+<div class="case-hero-copy"><p class="section-kicker round2-product-type"><span>项目 02｜</span><strong>售后智能客服 · Agent 服务编排</strong></p><h1 id="project-title"><span>第三次催退款，</span><span class="text-accent">接着办上次没办完的事。</span></h1><p class="case-subtitle">客户第三次追问同一笔退款。AI 结合历史会话、可用知识依据与当前业务状态，恢复未完成的服务目标；再由 Service Orchestrator 协调仓库与退款 Agent，依据核实后的业务结果调整计划、接续处理。</p><ul aria-label="核心产品能力" class="story-capabilities"><li>跨会话关联</li><li>Multi-Agent 编排</li><li>动态重规划</li></ul></div>
+<figure aria-labelledby="story-hero-title" class="story-hero-preview story-hero-continuation">
+ <figcaption><span class="story-hero-eyebrow">业务场景模拟</span><span class="story-hero-caption">跨会话任务续办</span></figcaption>
+ <div class="story-hero-question"><span>周五 · 第三次咨询</span><h2 id="story-hero-title">“上次不是说帮我去仓库查吗？现在怎么还是没消息？”</h2></div>
+ <div class="story-hero-content">
+  <div class="story-hero-conversations" aria-label="三次会话关联同一未完成任务">
+   <div class="story-hero-conversation"><svg class="story-hero-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4V4Z"/><path d="M8 8h8M8 12h5"/></svg><strong>首次咨询</strong><bdi>CONV-001</bdi></div>
+   <div class="story-hero-conversation"><svg class="story-hero-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4V4Z"/><path d="M8 8h8M8 12h5"/></svg><strong>再次咨询</strong><bdi>CONV-002</bdi></div>
+   <div class="story-hero-conversation is-current"><svg class="story-hero-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4V4Z"/><path d="M8 8h8M8 12h5"/></svg><strong>第三次咨询</strong><bdi>CONV-003</bdi><span class="story-hero-trigger-dot" aria-label="第三次咨询触发恢复"></span></div>
+  </div>
+  <svg class="story-hero-merge" aria-hidden="true" viewBox="0 0 497.59375 32" preserveAspectRatio="none"><path class="is-history" d="M75.890625 0C75.890625 14.3 202.171875 11 202.171875 22"/><path class="is-history" d="M239.6796875 0C239.6796875 14.3 202.171875 11 202.171875 22"/><path class="is-current" d="M412.5859375 0C412.5859375 14.3 202.171875 11 202.171875 22"/><path class="is-current" d="M202.171875 22V31"/><circle cx="202.171875" cy="22" r="2.5"/><path class="is-current" d="M198.671875 27L202.171875 31L205.671875 27"/></svg>
+  <div class="story-hero-timeline"><ol class="story-hero-nodes" aria-label="任务找回、等待回流、继续续办">
+   <li class="story-hero-node is-recovered"><span class="story-hero-number" aria-hidden="true">01</span><div class="story-hero-node-body">
+    <section class="story-hero-task" aria-label="同一笔未完成退款 RET-001">
+     <p class="story-hero-task-header"><span>服务目标已找回</span><span class="story-hero-recovered"><svg class="story-hero-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 9a8 8 0 1 1-1 6M5 4v5H1"/><path d="m10 8 6 4-6 4V8Z"/></svg>任务已恢复</span></p>
+     <h3>同一笔退款<bdi class="story-hero-task-id">RET-001</bdi><span class="story-hero-unfinished">未完成</span></h3>
+     <p class="story-hero-task-owner"><strong id="hero-orchestrator-title">Service Orchestrator</strong><span>持续持有服务目标</span></p>
+    </section>
+   </div></li>
+   <li class="story-hero-node is-waiting"><span class="story-hero-number" aria-hidden="true">02</span><div class="story-hero-node-body story-hero-warehouse">
+    <h3 class="story-hero-state-change"><span class="story-hero-state-waiting">Waiting</span><span class="story-hero-state-arrow" aria-hidden="true">→</span><span class="story-hero-state-completed">仓库核查完成</span></h3>
+    <p class="story-hero-agent">Warehouse Agent · <bdi>WH-201</bdi></p>
+    <p class="story-hero-event-note"><span class="story-hero-return-label"><svg class="story-hero-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M17 18h-6a6 6 0 0 1 0-12h6m-4-3 4 3-4 3"/></svg>结果回流</span><span> → 状态复核 / 重规划 / 查重 → 续办</span></p>
+   </div></li>
+   <li class="story-hero-node is-resumed"><span class="story-hero-number" aria-hidden="true">03</span><div class="story-hero-node-body story-hero-refund">
+    <h3>退款异常处理已启动<span class="story-hero-started"><bdi>RF-301</bdi> · Started</span></h3>
+    <p class="story-hero-agent">Refund Agent · 无有效既有任务</p>
+   </div></li>
+  </ol><svg class="story-hero-return-layer" aria-hidden="true" preserveAspectRatio="none"></svg></div>
+ </div>
+ <p class="story-hero-boundary"><strong>续办已启动，任务未完成</strong><span>实际退款尚未发起 · 消息未真实发送</span></p>
+
+<script>
+(() => {
+  const figure = document.currentScript.closest('figure');
+  const draw = () => {
+    const conversations = figure.querySelector('.story-hero-conversations');
+    const merge = figure.querySelector('.story-hero-merge');
+    const task = figure.querySelector('.story-hero-task');
+    const timeline = figure.querySelector('.story-hero-timeline');
+    const feedback = figure.querySelector('.story-hero-return-layer');
+    const mergeBox = merge.getBoundingClientRect();
+    const taskBox = task.getBoundingClientRect();
+    const timelineBox = timeline.getBoundingClientRect();
+    if (!mergeBox.width || !timelineBox.width) return;
+    const centers = [...conversations.children].map(element => {
+      const box = element.getBoundingClientRect();
+      return box.x + box.width / 2 - mergeBox.x;
+    });
+    const target = taskBox.x + taskBox.width / 2 - mergeBox.x;
+    const height = mergeBox.height;
+    const junction = height - 10;
+    merge.setAttribute('viewBox', `0 0 ${mergeBox.width} ${height}`);
+    merge.innerHTML = centers.map((x, index) =>
+      `<path class="${index === 2 ? 'is-current' : 'is-history'}" d="M${x} 0C${x} ${junction*.65} ${target} ${junction*.5} ${target} ${junction}"/>`
+    ).join('') + `<path class="is-current" d="M${target} ${junction}V${height-1}"/><circle cx="${target}" cy="${junction}" r="2.5"/><path class="is-current" d="M${target-3.5} ${height-5}L${target} ${height-1}L${target+3.5} ${height-5}"/>`;
+    const completed = figure.querySelector('.story-hero-state-completed').getBoundingClientRect();
+    const owner = figure.querySelector('.story-hero-task-owner').getBoundingClientRect();
+    const startX = completed.right + 7 - timelineBox.x;
+    const startY = completed.y + completed.height / 2 - timelineBox.y;
+    const endX = taskBox.right - 7 - timelineBox.x;
+    const endY = owner.y + owner.height / 2 - timelineBox.y;
+    const turnX = Math.max(startX + 12, taskBox.right + 18 - timelineBox.x);
+    feedback.setAttribute('viewBox', `0 0 ${timelineBox.width} ${timelineBox.height}`);
+    feedback.innerHTML = `<path d="M${startX} ${startY}H${turnX-7}Q${turnX} ${startY} ${turnX} ${startY-7}V${endY+7}Q${turnX} ${endY} ${turnX-7} ${endY}H${endX}"/><path class="story-hero-feedback-tip" d="M${endX+4} ${endY-3}L${endX} ${endY}L${endX+4} ${endY+3}"/>`;
+  };
+  draw();
+  document.fonts.ready.then(draw);
+  new ResizeObserver(draw).observe(figure);
+})();
+</script>
 </figure>
 </section>
       <div class="project-tabs-shell" id="project-tabs-anchor">
@@ -2109,7 +2135,12 @@
         </div>
       </section>
     </main>
-    <footer class="case-footer"><span>AI 智能客服与多 Agent 服务工作流</span><span>产品方案 · 模拟业务场景 · 尚未接入生产系统</span></footer>
+    <footer class="case-footer">
+      <div class="case-footer-inner">
+        <span>AI 智能客服与多 Agent 服务工作流</span><span>产品方案 · 模拟业务场景 · 尚未接入生产系统</span>
+        <a href="../../index.html">返回作品集首页</a>
+      </div>
+    </footer>
     <script>
     (() => {
       const shell = document.querySelector('.project-tabs-shell');

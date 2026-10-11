@@ -1,0 +1,316 @@
+/* P1/P2 public shell only. Tokens mirror the published editorial home;
+   project content, tabs, prototypes and semantic status colors stay local. */
+.case-header,
+.case-footer {
+  --shell-ink: #17263e;
+  --shell-muted: #607089;
+  --shell-blue: #2755a0;
+  --shell-rule: #dce4ed;
+  --shell-soft: #f5f8fc;
+  color: var(--shell-ink);
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[lang="en"] :is(.case-header, .case-footer) {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.case-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--shell-rule);
+}
+
+/* Historical main.css sets mobile main overflow to hidden, creating a
+   scroll container that prevents P2's second navigation bar from sticking. */
+.case-header + main {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.case-header-inner,
+.case-footer-inner {
+  width: min(1200px, calc(100% - 80px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.case-header-inner {
+  min-height: 80px;
+  gap: 32px;
+}
+
+.case-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: var(--shell-ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.case-header .brand > span:last-child {
+  min-width: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.case-header .brand-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--shell-rule);
+  border-radius: 6px;
+  background: var(--shell-soft);
+  color: var(--shell-blue);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.case-nav,
+.case-view-nav,
+.case-site-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  min-width: 0;
+}
+
+.case-nav {
+  flex-shrink: 0;
+}
+
+.case-site-nav {
+  border-left: 1px solid var(--shell-rule);
+  padding-left: 28px;
+}
+
+.case-view-nav button,
+.case-site-nav a:is(.case-home, .case-language) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  appearance: none;
+  min-height: 44px;
+  margin: 0;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--shell-muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .15s;
+}
+
+.case-site-nav a.case-language {
+  border-left: 1px solid var(--shell-rule);
+  padding-left: 28px;
+  color: var(--shell-ink);
+}
+
+.case-view-nav button:hover,
+.case-site-nav a:hover,
+.case-view-nav button[aria-current="page"] {
+  color: var(--shell-blue);
+}
+
+.case-view-nav button[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1px;
+}
+
+.case-header :is(a, button):focus-visible,
+.case-footer a:focus-visible {
+  outline: 2px solid var(--shell-blue);
+  outline-offset: 6px;
+}
+
+.case-footer {
+  border-top: 1px solid var(--shell-rule);
+}
+
+.case-footer-inner {
+  min-height: 88px;
+  padding-block: 18px;
+  gap: 24px;
+  color: var(--shell-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.case-footer-inner > span {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.case-footer-inner > a {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 44px;
+  color: var(--shell-blue);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.case-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* Only the page-level view bridge and return actions use the home CTA
+   treatment. Evidence links and controls inside product artifacts are local. */
+.view-bridge > .prd-action,
+.prd-actions > .prd-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 46px;
+  padding: 11px 16px;
+  border: 1px solid #2755a0;
+  border-radius: 6px;
+  background: #2755a0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+
+.prd-actions > .prd-action.is-secondary {
+  background: #ffffff;
+  color: #2755a0;
+}
+
+.view-bridge > .prd-action:hover,
+.prd-actions > .prd-action:hover {
+  background: #204985;
+  border-color: #204985;
+  text-decoration: none;
+}
+
+.prd-actions > .prd-action.is-secondary:hover {
+  background: #f5f8fc;
+  border-color: #2755a0;
+}
+
+.view-bridge > .prd-action:focus-visible,
+.prd-actions > .prd-action:focus-visible {
+  outline: 2px solid #2755a0;
+  outline-offset: 6px;
+}
+
+/* Keep both project controls and both site destinations visible. Header
+   ResizeObservers in the existing pages update the sticky tab offsets. */
+@media (max-width: 1100px) {
+  .case-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 16px;
+  }
+
+  .case-nav {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1000px) {
+  .case-header-inner,
+  .case-footer-inner {
+    width: calc(100% - 64px);
+  }
+
+  .case-nav,
+  .case-view-nav,
+  .case-site-nav {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-header-inner,
+  .case-footer-inner {
+    width: calc(100% - 40px);
+  }
+
+  .case-header .brand {
+    font-size: 13px;
+  }
+
+  .case-nav {
+    justify-content: space-between;
+  }
+
+  .case-nav,
+  .case-view-nav,
+  .case-site-nav {
+    gap: 8px;
+  }
+
+  .case-view-nav button,
+  .case-site-nav a:is(.case-home, .case-language) {
+    font-size: 12px;
+    padding-block: 10px 14px;
+    gap: 2px;
+  }
+
+  .case-site-nav,
+  .case-site-nav a.case-language {
+    padding-left: 8px;
+  }
+
+  .case-footer-inner {
+    display: grid;
+    gap: 8px;
+    min-height: 80px;
+    font-size: 11px;
+  }
+}
+
+/* Very small screens can wrap at the group boundary, never inside labels. */
+@media (max-width: 360px) {
+  .case-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0 16px;
+  }
+
+  .case-site-nav {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-view-nav button,
+  .case-site-nav a,
+  .view-bridge > .prd-action,
+  .prd-actions > .prd-action {
+    transition: none;
+  }
+}
